@@ -1,20 +1,25 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
+    "baseUrl": "./src",
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": [
+      "dom",
+      "es2018"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "outDir": "./dist/out-tsc",
+    "paths": {
+      "@ia-core/*": [
+        "app/modules/ia-core/*"
+      ],
+    },
+    "sourceMap": true,
+    "target": "es2015"
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
