@@ -1,18 +1,19 @@
-# Itinerary Assistant v3
+# Itinerary Assistant
 
 ## 1. Hosting URL
-  ---
+
 Hosting URL would be setup later
 
 ## 2. Workflow
-  ---
 
 ### 2.1. Fetch indexes for any updates in remote
+
 ```
 git fetch
 ```
 
 ### 2.2. Create a new branch for development of each feature
+
 - Create a new branch from `develop` from [GitHub](https://github.com/usama251993/itinerary-assistant)
 ```
 git fetch
@@ -20,6 +21,7 @@ git checkout <branch_name>
 ```
 
 ### 2.3. Commit code to newly created branch
+
 - Develop the code
 - Ready to commit
 ```
@@ -40,6 +42,7 @@ git push
 ```
 
 ### 2.4. Merge code in `develop` branch
+
 1. Creating Pull Request
    - Update `README.md` each time
    - `New Pull Request` from [here](https://github.com/usama251993/itinerary-assistant/pulls)
@@ -56,6 +59,7 @@ git push
 ```
 
 ### 2.5. Test code in `test` branch
+
 - Fetch the code in `test` branch from `develop` branch
 ```
 git checkout test
@@ -71,6 +75,7 @@ git push
 
 
 ### 2.6. Merge into `deploy` branch
+
 - Fetch the code in `deploy` branch from `test` branch
 ```
 git checkout deploy
@@ -78,6 +83,7 @@ git merge origin/test
 ```
 
 ### 2.7. Deploy to `firebase`
+
 - Setup `firebase`
 - Configure `firebase`
 - Deploy to `firebase`
@@ -85,36 +91,30 @@ git merge origin/test
 firebase deploy
 ```
 
-## Commit Detail
-  ---
+## Coding Practices
 
-| Commit Message | Date       | Description       |
-| -------------- | ---------- | ----------------- |
-| **IA-001**     | 2020-04-11 | [IA-001](#ia-001) |
+### Environment Setup
 
-## Commit Description
-  ---
-#### IA-001
-1. Initial Commit
-2. `ng new itinerary-assistant`
-   * Routing enabled
-   * Default Stylesheet - `SCSS`
-3. Dependencies
-   * `@angular/material`
-   * `@fortawesome/angular-fontawesome`
-   * `@fortawesome/fontawesome-svg-core`
-   * `@fortawesome/free-brands-svg-icons`
-   * `@fortawesome/free-regular-svg-icons`
-   * `@fortawesome/free-solid-svg-icons`
-   * `@ngrx/core`
-   * `@ngrx/effects`
-   * `@ngrx/entity`
-   * `@ngrx/router-store`
-   * `@ngrx/store-devtools`
-   * `@ngrx/store`
-4. Firebase
-   * Config setup in `environment.ts`
+- Microsoft Visual Studio Code
+- Windows Powershell
+- Use `npm` commands everywhere, even for `ng` commands - *just for developing a habit*
+
+### IDE Settings &amp; Extensions
+
+- `Fira Code` with ligatures
+- Dark theme
+- Angular Language Service
+- Better Comments
+- Document This
+- Firebase
+- Import Cost
+- Markdown All in One
+- Beautify
+
+## CHANGELOG
+
+Refer `CHANGELOG.md` for details of each and every commit
 
 ## Pending
-  ---
+
 *many things*
