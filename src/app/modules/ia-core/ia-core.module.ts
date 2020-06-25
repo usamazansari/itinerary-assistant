@@ -12,17 +12,21 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 
-import { IaMaterialModule } from '../common/ia-material/ia-material.module';
-import { IaHomeComponent } from './components/ia-home/ia-home.component';
-import { IaNavbarComponent } from './components/ia-navbar/ia-navbar.component';
-
-import { IaCoreService } from './services/ia-core.service';
 import { reducers, metaReducers } from '../common/ia-store';
 import { CORE_EFFECTS } from '../common/ia-store/ia-effects';
 
+import { IaMaterialModule } from '../common/ia-material/ia-material.module';
+import { IaHomeComponent } from './components/ia-home/ia-home.component';
+import { IaNavbarContainerComponent } from './components/ia-navbar/ia-navbar-container/ia-navbar-container.component';
+import { IaNavbarComponent } from './components/ia-navbar/ia-navbar-container/ia-navbar/ia-navbar.component';
+
 
 @NgModule({
-  declarations: [IaHomeComponent, IaNavbarComponent],
+  declarations: [
+    IaHomeComponent,
+    IaNavbarContainerComponent,
+    IaNavbarComponent
+  ],
   imports: [
     CommonModule,
     FontAwesomeModule,
