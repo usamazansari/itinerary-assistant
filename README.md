@@ -17,7 +17,13 @@ git fetch
 - Create a new branch from `develop` from [GitHub](https://github.com/usama251993/itinerary-assistant)
 ```
 git fetch
-git checkout <branch_name>
+git checkout -b <branch_name>
+```
+**OR**
+- Create a new branch and set upstream to [GitHub](https://github.com/usama251993/itinerary-assistant)
+```
+git checkout -b <branch_name>
+git push -u origin <branch_name>
 ```
 
 ### 2.3. Commit code to newly created branch
@@ -91,15 +97,15 @@ git merge origin/test
 firebase deploy
 ```
 
-## Coding Practices
+## 3. Coding Practices
 
-### Environment Setup
+### 3.1 Environment Setup
 
 - Microsoft Visual Studio Code
 - Windows Powershell
 - Use `npm` commands everywhere, even for `ng` commands - *just for developing a habit*
 
-### IDE Settings &amp; Extensions
+### 3.2 IDE Settings &amp; Extensions
 
 - `Fira Code` with ligatures
 - Dark theme
@@ -111,10 +117,6 @@ firebase deploy
 - Markdown All in One
 - Beautify
 
-## CHANGELOG
+## 4. CHANGELOG
 
 Refer `CHANGELOG.md` for details of each and every commit
-
-## Pending
-
-*many things*
