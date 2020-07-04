@@ -1,9 +1,9 @@
 import { Routes, RouterModule } from '@angular/router';
-import { IaHomeComponent } from './components/ia-home/ia-home.component';
+import { IaAppComponent } from './components/ia-app/ia-app.component';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  { path: '', component: IaHomeComponent, pathMatch: 'full' }
+  { path: '', component: IaAppComponent, pathMatch: 'full' }
 ]
 
 @NgModule({
