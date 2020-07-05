@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Dictionary } from '@ngrx/entity';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 
 import { State } from '@ia-core/state';
-
-import * as fromActions from '@ia-core/state/ia-action/ia-navbar.action';
-import { selectNavbar } from '@ia-core/state/ia-selector/ia-navbar.selector';
-
-import { NAVBAR_ID } from '@ia-core/state/ia-type/ia-navbar.type';
 import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
+import { IaNavbarService } from '@ia-core/services/ia-navbar/ia-navbar.service';
 
 
 @Injectable({
@@ -20,7 +16,8 @@ export class IaCoreService {
   navbar: IaNavbarModel;
 
   constructor(
-    private _store$: Store<State>
+    private _store$: Store<State>,
+    private navbarService: IaNavbarService
   ) {
     // this.navbar = {
     //   state: {
@@ -232,8 +229,11 @@ export class IaCoreService {
   }
 
   getNavbarAssets(): Observable<Dictionary<IaNavbarModel>> {
-    this._store$.dispatch(new fromActions.IaNavbarAction({ id: NAVBAR_ID }));
-    return this._store$.pipe(select(selectNavbar));
+    return this.navbarService.getAssets();
+  }
+
+  toggleNavbar(navbar: IaNavbarModel): Observable<Dictionary<IaNavbarModel>> {
+    return this.navbarService.toggleNavbar(navbar);
   }
 
 }

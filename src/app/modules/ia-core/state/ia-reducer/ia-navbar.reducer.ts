@@ -1,4 +1,4 @@
-import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import { EntityState, createEntityAdapter, Update } from '@ngrx/entity';
 
 import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
 
@@ -14,10 +14,12 @@ const INITIAL_STATE: EntityState<IaNavbarModel> = adapter.getInitialState({});
 export function reducer(
   state: State = INITIAL_STATE,
   action: fromActions.NAVBAR_ACTIONS_TYPES
-) {
+): State {
   switch (action.type) {
     case NAVBAR_ACTIONS.LOAD_SUCCESS:
       return adapter.addOne(action.payload as IaNavbarModel, state);
+    case NAVBAR_ACTIONS.TOGGLE_SUCCESS:
+      return adapter.updateOne(action.payload as Update<IaNavbarModel>, state);
     case NAVBAR_ACTIONS.LOAD_FAIL:
     default:
       return state;

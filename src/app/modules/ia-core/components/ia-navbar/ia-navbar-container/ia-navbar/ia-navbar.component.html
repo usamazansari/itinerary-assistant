@@ -1,1 +1,50 @@
-<p>ia-navbar works!</p>
+<div class="ia-navbar-container" [ngClass]="{ 'ia-navbar-open' : navbar.state.bIsOpen}">
+  <!-- ngIf navbar is open -->
+  <ng-container *ngIf="navbar.state.bIsOpen; else navbarClosed;">
+    <div class="ia-navbar-level-holder mat-app-background">
+      <div class="ia-navbar-level">
+        <!-- ngFor each item -->
+        <ng-container *ngFor="let singleItem of navbar.items">
+          <div class="ia-navbar-item">
+            <div class="ia-navbar-item-icon-holder">
+              <div class="ia-navbar-item-icon">
+                <fa-icon [icon]="[singleItem.icon.style, singleItem.icon.name]"
+                         [size]="singleItem.icon.morph.size"></fa-icon>
+              </div>
+              <ng-container *ngIf="!!singleItem.children.length">
+                <div class="ia-navbar-expandable-icon">
+                  <fa-icon [icon]="['fas', 'angle-right']"></fa-icon>
+                </div>
+              </ng-container>
+            </div>
+            <div class="ia-navbar-item-label-holder">
+              <div class="ia-navbar-item-label">
+                <span>{{ singleItem.label }}</span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="ia-navbar-trigger-holder mat-app-background"
+         (click)="toggleNavbarState(navbar)">
+      <div class="ia-navbar-trigger mat-app-background mat-elevation-z4">
+        <fa-icon [icon]="[navbar.trigger.close.icon.style, navbar.trigger.close.icon.name]">
+        </fa-icon>
+      </div>
+    </div>
+    <div class="ia-navbar-shadow-holder">
+      <div class="ia-navbar-shadow"></div>
+    </div>
+  </ng-container>
+
+  <ng-template #navbarClosed>
+    <div class="ia-navbar-trigger-holder mat-app-background mat-elevation-z4"
+         (click)="toggleNavbarState(navbar)">
+      <div class="ia-navbar-trigger mat-app-background mat-elevation-z4">
+        <fa-icon [icon]="[navbar.trigger.open.icon.style, navbar.trigger.open.icon.name]">
+        </fa-icon>
+      </div>
+    </div>
+  </ng-template>
+</div>

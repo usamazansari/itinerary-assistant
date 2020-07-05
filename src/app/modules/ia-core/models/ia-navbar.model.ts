@@ -1,6 +1,6 @@
 import { IaFaIconModel } from 'app/common/models/ia-fa-icon.model';
 
-export interface IaNavbarItemModel {
+interface IaNavbarItemModel {
   icon: IaFaIconModel;
   label: string;
   children: IaNavbarItemModel[];
@@ -8,5 +8,12 @@ export interface IaNavbarItemModel {
 
 export interface IaNavbarModel {
   id: string;
+  state: {
+    bIsOpen: boolean;
+  };
+  trigger: {
+    close: { icon: IaFaIconModel; };
+    open: { icon: IaFaIconModel; };
+  };
   items: IaNavbarItemModel[];
 }

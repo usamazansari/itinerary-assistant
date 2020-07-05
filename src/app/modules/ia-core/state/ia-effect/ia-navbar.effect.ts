@@ -7,6 +7,7 @@ import * as fromActions from '@ia-core/state/ia-action/ia-navbar.action';
 
 import { NAVBAR_ACTIONS } from '@ia-core/state/ia-type/ia-navbar.type';
 import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
+import { Update } from '@ngrx/entity';
 
 @Injectable()
 export class IaNavbarEffects {
@@ -15,14 +16,32 @@ export class IaNavbarEffects {
   @Effect()
   eNavbarLoad = this._actions$.pipe(
     ofType<fromActions.NAVBAR_ACTIONS_TYPES>(NAVBAR_ACTIONS.LOAD),
-    map((action: fromActions.IaNavbarAction) => {
+    map((action: fromActions.IaNavbarLoadAction) => {
       let navbarAssets: IaNavbarModel = {
         id: action.payload.id,
+        state: {
+          bIsOpen: false
+        },
+        trigger: {
+          open: {
+            icon: {
+              style: 'fas',
+              name: 'bars'
+            }
+          },
+          close: {
+            icon: {
+              style: 'fas',
+              name: 'times'
+            }
+          }
+        },
         items: [
           {
             icon: {
               style: 'fas',
-              name: 'columns'
+              name: 'columns',
+              morph: { size: '2x' }
             },
             label: 'Dashboard',
             children: []
@@ -30,7 +49,8 @@ export class IaNavbarEffects {
           {
             icon: {
               style: 'fas',
-              name: 'passport'
+              name: 'passport',
+              morph: { size: '2x' }
             },
             label: 'Trips',
             children: []
@@ -38,7 +58,8 @@ export class IaNavbarEffects {
           {
             icon: {
               style: 'fas',
-              name: 'chart-line'
+              name: 'chart-line',
+              morph: { size: '2x' }
             },
             label: 'Travel Trend',
             children: []
@@ -46,7 +67,8 @@ export class IaNavbarEffects {
           {
             icon: {
               style: 'fas',
-              name: 'lightbulb'
+              name: 'lightbulb',
+              morph: { size: '2x' }
             },
             label: 'Tips and Tricks',
             children: []
@@ -54,7 +76,8 @@ export class IaNavbarEffects {
           {
             icon: {
               style: 'fas',
-              name: 'compass'
+              name: 'compass',
+              morph: { size: '2x' }
             },
             label: 'Explore',
             children: []
@@ -62,15 +85,29 @@ export class IaNavbarEffects {
           {
             icon: {
               style: 'fas',
-              name: 'user'
+              name: 'user',
+              morph: { size: '2x' }
             },
             label: 'Profile',
             children: []
           }
         ]
       };
-      return new fromActions.IaNavbarActionSuccess(navbarAssets);
+      return new fromActions.IaNavbarLoadActionSuccess(navbarAssets);
     }),
-    catchError((err: Error) => of(new fromActions.IaNavbarActionFail(err)))
+    catchError((err: Error) => of(new fromActions.IaNavbarLoadActionFail(err)))
+  );
+
+  @Effect()
+  eNavbarToggle = this._actions$.pipe(
+    ofType<fromActions.NAVBAR_ACTIONS_TYPES>(NAVBAR_ACTIONS.TOGGLE),
+    map((action: fromActions.IaNavbarToggleAction) => {
+      let updatedState: Update<IaNavbarModel> = {
+        id: action.payload.id,
+        changes: { state: { bIsOpen: !action.payload.state.bIsOpen } }
+      }
+      console.log(updatedState);
+      return new fromActions.IaNavbarToggleActionSuccess(updatedState);
+    })
   )
 }

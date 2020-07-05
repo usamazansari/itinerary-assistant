@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Dictionary } from '@ngrx/entity';
 
@@ -15,16 +15,25 @@ export class IaNavbarContainerComponent implements OnInit {
   data$: BehaviorSubject<Dictionary<IaNavbarModel>>;
   navbar_ID: string;
 
+  @Output()
+  toggleNavbarState$: EventEmitter<IaNavbarModel>;
+
   @Input()
-  set navbarData(updatedValue: Dictionary<IaNavbarModel>) { this.data$.next(updatedValue); };
-  get navbarData(): Dictionary<IaNavbarModel> { return this.data$.getValue(); };
+  set navbarDictionary(updatedValue: Dictionary<IaNavbarModel>) { this.data$.next(updatedValue); };
+  get navbarDictionary(): Dictionary<IaNavbarModel> { return this.data$.getValue(); };
 
   constructor() {
     this.data$ = new BehaviorSubject<Dictionary<IaNavbarModel>>(null);
+    this.toggleNavbarState$ = new EventEmitter<IaNavbarModel>();
   }
 
   ngOnInit(): void {
     this.navbar_ID = NAVBAR_ID;
+  }
+
+  toggleNavbarState(navbar: IaNavbarModel) {
+    console.log('emitting', navbar);
+    this.toggleNavbarState$.emit(navbar);
   }
 
 }

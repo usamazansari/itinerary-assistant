@@ -22,4 +22,9 @@ export class IaAppComponent implements OnInit {
     this.navbar$ = this.coreService.getNavbarAssets();
   }
 
+  toggleNavbarState(navbar: IaNavbarModel) {
+    console.log('toggling');
+    this.navbar$ = this.coreService.toggleNavbar(navbar);
+  }
+
 }
