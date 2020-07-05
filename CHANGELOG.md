@@ -1,18 +1,17 @@
-# CHANGELOG of all the commits
+# CHANGELOG
+
+- [CHANGELOG](#changelog)
+    - [IA-001](#ia-001)
+    - [feature-core\IA-002](#feature-coreia-002)
+    - [feature-navbar\IA-003](#feature-navbaria-003)
+    - [feature-core\IA-004](#feature-coreia-004)
+    - [feature-navbar\IA-005](#feature-navbaria-005)
+    - [Pending as of feature-navbar\IA-005](#pending-as-of-feature-navbaria-005)
 
 
-## Commit Detail
+### IA-001
 
-| Commit Message        | Date       | Description                                     |
-| --------------------- | ---------- | ----------------------------------------------- |
-| IA-001                | 2020-06-24 | [IA-001](#ia-001)                               |
-| feature-core\IA-002   | 2020-06-24 | [feature-core\IA-002](#feature-core\ia-002)     |
-| feature-navbar\IA-003 | 2020-06-25 | [feature-navbar\IA-003](#feature-navbar\ia-003) |
-| IA-003\feature-core   | 2020-07-05 | [IA-003\feature-core](#ia-003\feature-core)     |
-
-## Commit Description
-
-#### IA-001
+2020-06-24
 
 1. Initial Commit
 2. `ng new itinerary-assistant`
@@ -35,9 +34,11 @@
 4. Firebase
    - Config setup in `environment.ts`
 
-[Back to commit details](#commit-detail)
+[Back to commit details](#changelog)
 
-#### feature-core\IA-002
+### feature-core\IA-002
+
+2020-06-24
 
 1. Added `CHANGELOG.md`
 2. Added dependencies
@@ -53,9 +54,11 @@
    -  `ia-core` placeholder service
 8. Updated `tsconfig.json` to alias namespace for commonly used imports
 
-[Back to ToC](#commit-detail)
+[Back to ToC](#changelog)
 
-#### feature-navbar\IA-003
+### feature-navbar\IA-003
+
+2020-06-25
 
 1. Modified `README.md`
    - Indexed dangling headings
@@ -78,9 +81,11 @@
 8. Modified service `ia-core`
    - Added method `getAssets()` to provide dummy data stream to navbar
 
-[Back to ToC](#commit-detail)
+[Back to ToC](#changelog)
 
-#### IA-003\feature-core
+### feature-core\IA-004
+
+2020-07-04
 
 1. Added new theme
 2. Removed deprecated dependency `@ngrx/core`
@@ -97,12 +102,35 @@
 10. Moved `IaMaterialModule` into `modules/ia-core/modules`
 11. Merge conflict with `feature/navbar` resolved
 
-[Back to ToC](#commit-detail)
+[Back to ToC](#changelog)
 
-#### Pending as of IA-003\feature-core
+### feature-navbar\IA-005
 
-1. Selector for `core` state
-2. Implementation of other components in `core` module
-3. Resolve merge conflict of `feature/navbar` with `develop`
+2020-07-05
 
-[Back to ToC](#commit-detail)
+1. Standardized `CHANGELOG.md` commit messages
+   - Updated missed catchup merge, hence some initial commit messages might be incorrect
+2. Modified import of `purple-green` prebuilt theme and updated it with light and dark theme using `theme.scss`
+3. Refactored and organized imports for many `*.ts` files
+4. Updated `common` folder
+   - Moved `ia-state` from `src` to `common`
+   - Added `ia-fa-icon` model
+5. Added navbar related entities
+   - State
+   - Actions
+   - Type
+   - Reducer
+   - Effect
+   - Selector
+6. Updated `ia-core` service to fetch data from state
+
+[Back to ToC](#changelog)
+
+---
+
+### Pending as of feature-navbar\IA-005
+
+1. Implementation of other components in `core` module
+2. Resolve merge conflict of `feature/navbar` with `develop`
+
+[Back to ToC](#changelog)
