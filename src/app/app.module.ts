@@ -9,7 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { metaReducers, reducers } from './modules/common/ia-store';
+import { metaReducers, reducers } from './ia-store';
 import { IaCoreModule } from '@ia-core/ia-core.module';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
