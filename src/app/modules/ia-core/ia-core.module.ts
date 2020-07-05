@@ -7,15 +7,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { far } from "@fortawesome/free-regular-svg-icons";
-import { fab } from "@fortawesome/free-brands-svg-icons";
+import { IaCoreRoutingModule } from './ia-core-routing.module';
 
-import { reducers, metaReducers } from '../common/ia-store';
-import { CORE_EFFECTS } from '../common/ia-store/ia-effects';
+import { IaMaterialModule } from './modules/ia-material/ia-material.module';
+import { IaFontAwesomeModule } from './modules/ia-fontawesome/ia-fontawesome.module';
 
-import { IaMaterialModule } from '../common/ia-material/ia-material.module';
+import { FEATURE_NAME, reducers } from './state';
+import { CORE_EFFECTS } from './state/ia-effect';
+
+import { IaAppComponent } from './components/ia-app/ia-app.component';
 import { IaHomeComponent } from './components/ia-home/ia-home.component';
 import { IaNavbarContainerComponent } from './components/ia-navbar/ia-navbar-container/ia-navbar-container.component';
 import { IaNavbarComponent } from './components/ia-navbar/ia-navbar-container/ia-navbar/ia-navbar.component';
@@ -23,18 +23,20 @@ import { IaNavbarComponent } from './components/ia-navbar/ia-navbar-container/ia
 
 @NgModule({
   declarations: [
+    IaAppComponent,
     IaHomeComponent,
     IaNavbarContainerComponent,
-    IaNavbarComponent
+    IaNavbarComponent,
   ],
   imports: [
     CommonModule,
-    FontAwesomeModule,
     IaMaterialModule,
+    IaFontAwesomeModule,
     AngularFirestoreModule,
     AngularFirestoreModule.enablePersistence(),
-    StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot(CORE_EFFECTS)
+    IaCoreRoutingModule,
+    StoreModule.forFeature(FEATURE_NAME, reducers),
+    EffectsModule.forFeature(CORE_EFFECTS)
   ],
   exports: [
     AngularFireModule,
@@ -45,7 +47,4 @@ import { IaNavbarComponent } from './components/ia-navbar/ia-navbar-container/ia
   providers: []
 })
 export class IaCoreModule {
-  constructor(lib: FaIconLibrary) {
-    lib.addIconPacks(fas, far, fab);
-  }
 }
