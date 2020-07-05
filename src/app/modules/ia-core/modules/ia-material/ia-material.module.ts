@@ -1,7 +1,7 @@
 // IMPORT ALL MATERIAL COMPONENTS
 // #STEPS
-// 1- Import this file as module in app.module.ts ==> import { MaterialModule } from './xyz/abc';
-// 2- Initialize it in imports:[] array ==> imports:[MaterialModule]
+// 1- Import this file as module in app.module.ts => import { MaterialModule } from './xyz/abc';
+// 2- Initialize it in imports:[] array => imports:[MaterialModule]
 
 import { NgModule } from '@angular/core';
 // *************** FORM CONTROLS ***************

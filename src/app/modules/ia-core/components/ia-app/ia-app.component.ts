@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Dictionary } from '@ngrx/entity';
 
-import { State } from '@ia-core/state';
-import * as fromActions from '@ia-core/state/ia-action/ia-core.action';
-// import { selectCore } from '@ia-core/state/ia-selector/ia-core.selector';
+import { IaCoreService } from '@ia-core/services/ia-core.service';
+import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
 
 @Component({
   selector: 'app-ia-app',
@@ -12,12 +12,14 @@ import * as fromActions from '@ia-core/state/ia-action/ia-core.action';
 })
 export class IaAppComponent implements OnInit {
 
-  constructor(private _store$: Store<State>) { }
+  navbar$: Observable<Dictionary<IaNavbarModel>>;
+
+  constructor(
+    private coreService: IaCoreService
+  ) { }
 
   ngOnInit(): void {
-    // let selectedState = this._store$.pipe(select(selectCore));
-    this._store$.dispatch(new fromActions.IaCoreAction({ id: 'core-id' }));
-    // selectedState.subscribe(data => console.log(data));
+    this.navbar$ = this.coreService.getNavbarAssets();
   }
 
 }

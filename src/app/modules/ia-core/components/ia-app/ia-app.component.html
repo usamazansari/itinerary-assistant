@@ -1,3 +1,6 @@
-<mat-toolbar color="primary">
-  <fa-icon [icon]="['fab', 'angular']"></fa-icon>
-</mat-toolbar>
+<div class="ia-navbar-holder">
+  <app-ia-navbar-container [navbarData]="navbar$ | async"></app-ia-navbar-container>
+</div>
+<div class="ia-content-holder">
+  <router-outlet></router-outlet>
+</div>

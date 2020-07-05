@@ -9,11 +9,11 @@ export const reducers: ActionReducerMap<State> = {
   router: fromRouter.routerReducer
 }
 
-export const ROUTER_STORE_STRING = 'router';
-
-export const routerSelector = createFeatureSelector<State, fromRouter.RouterReducerState<any>>(ROUTER_STORE_STRING);
-
 export const metaReducers: MetaReducer<State, Action>[] = [];
+
+export const ROUTER_FEATURE = 'router';
+
+export const routerSelector = createFeatureSelector<State, fromRouter.RouterReducerState<any>>(ROUTER_FEATURE);
 
 export const {
   selectCurrentRoute,   // select the current route

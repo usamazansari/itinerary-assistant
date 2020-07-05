@@ -34,9 +34,9 @@ import { IaNavbarComponent } from './components/ia-navbar/ia-navbar-container/ia
     IaFontAwesomeModule,
     AngularFirestoreModule,
     AngularFirestoreModule.enablePersistence(),
-    IaCoreRoutingModule,
     StoreModule.forFeature(FEATURE_NAME, reducers),
-    EffectsModule.forFeature(CORE_EFFECTS)
+    EffectsModule.forFeature(CORE_EFFECTS),
+    IaCoreRoutingModule,
   ],
   exports: [
     AngularFireModule,
@@ -46,5 +46,4 @@ import { IaNavbarComponent } from './components/ia-navbar/ia-navbar-container/ia
   ],
   providers: []
 })
-export class IaCoreModule {
-}
+export class IaCoreModule { }

@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
+
 @Component({
   selector: 'app-ia-navbar',
   templateUrl: './ia-navbar.component.html',
@@ -8,18 +10,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class IaNavbarComponent implements OnInit {
 
-  bs$: BehaviorSubject<{ [key: string]: any }>;
+  data$: BehaviorSubject<IaNavbarModel>;
 
   @Input()
-  set navbar(updatedValue: { [key: string]: any }) { this.bs$.next(updatedValue); };
-  get navbar(): { [key: string]: any } { return this.bs$.getValue(); };
+  set navbar(updatedValue: IaNavbarModel) { this.data$.next(updatedValue); };
+  get navbar(): IaNavbarModel { return this.data$.getValue(); };
 
   constructor() {
-    this.bs$ = new BehaviorSubject<{ [key: string]: any }>({});
+    this.data$ = new BehaviorSubject<IaNavbarModel>(null);
   }
 
-  ngOnInit(): void {
-    console.log(this.navbar);
-  }
+  ngOnInit(): void { }
 
 }

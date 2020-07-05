@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { IaCoreService } from '@ia-core/services/ia-core.service';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Dictionary } from '@ngrx/entity';
+
+import { NAVBAR_ID } from '@ia-core/state/ia-type/ia-navbar.type';
+import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
 
 @Component({
   selector: 'app-ia-navbar-container',
@@ -9,13 +12,19 @@ import { Observable } from 'rxjs';
 })
 export class IaNavbarContainerComponent implements OnInit {
 
-  navbar$: Observable<{ [key: string]: any }>;
-  private ASSET_NAVBAR = '[IA App Asset] navbar';
+  data$: BehaviorSubject<Dictionary<IaNavbarModel>>;
+  navbar_ID: string;
 
-  constructor(private coreService: IaCoreService) { }
+  @Input()
+  set navbarData(updatedValue: Dictionary<IaNavbarModel>) { this.data$.next(updatedValue); };
+  get navbarData(): Dictionary<IaNavbarModel> { return this.data$.getValue(); };
+
+  constructor() {
+    this.data$ = new BehaviorSubject<Dictionary<IaNavbarModel>>(null);
+  }
 
   ngOnInit(): void {
-    this.navbar$ = this.coreService.getAsset(this.ASSET_NAVBAR);
+    this.navbar_ID = NAVBAR_ID;
   }
 
 }
