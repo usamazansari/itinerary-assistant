@@ -22,5 +22,9 @@ export function reducer(
 }
 
 export const {
-  selectEntities
+  selectEntities,
+  selectAll
 } = adapter.getSelectors();
+
+export const IA_ENTITY_SELECTOR = selectEntities;
+export const IA_SELECTOR = selectAll;
