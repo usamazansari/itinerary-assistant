@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Dictionary } from '@ngrx/entity';
 
-import { NAVBAR_ID } from '@ia-core/state/ia-type/ia-navbar.type';
+import { IaCoreService } from '@ia-core/services/ia-core.service';
 import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
 
 @Component({
@@ -12,28 +12,27 @@ import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
 })
 export class IaNavbarContainerComponent implements OnInit {
 
-  data$: BehaviorSubject<Dictionary<IaNavbarModel>>;
-  navbar_ID: string;
-
   @Output()
   toggleNavbarState$: EventEmitter<IaNavbarModel>;
 
-  @Input()
-  set navbarDictionary(updatedValue: Dictionary<IaNavbarModel>) { this.data$.next(updatedValue); };
-  get navbarDictionary(): Dictionary<IaNavbarModel> { return this.data$.getValue(); };
 
-  constructor() {
-    this.data$ = new BehaviorSubject<Dictionary<IaNavbarModel>>(null);
+  navbar$: Observable<Dictionary<IaNavbarModel>>;
+  navbarID$: Observable<string>;
+
+  constructor(
+    private coreService: IaCoreService
+  ) {
     this.toggleNavbarState$ = new EventEmitter<IaNavbarModel>();
   }
 
   ngOnInit(): void {
-    this.navbar_ID = NAVBAR_ID;
+    const { assets, entityID } = this.coreService.getNavbarAssets();
+    this.navbar$ = assets;
+    this.navbarID$ = entityID;
   }
 
   toggleNavbarState(navbar: IaNavbarModel) {
-    console.log('emitting', navbar);
-    this.toggleNavbarState$.emit(navbar);
+    this.navbar$ = this.coreService.toggleNavbar(navbar);
   }
 
 }

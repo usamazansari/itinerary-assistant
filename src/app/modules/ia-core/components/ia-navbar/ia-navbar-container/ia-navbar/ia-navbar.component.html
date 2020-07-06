@@ -1,10 +1,9 @@
-<div class="ia-navbar-container" [ngClass]="{ 'ia-navbar-open' : navbar.state.bIsOpen}">
-  <!-- ngIf navbar is open -->
-  <ng-container *ngIf="navbar.state.bIsOpen; else navbarClosed;">
+<div class="ia-navbar-container"
+     [ngClass]="{ 'ia-navbar-open' : navbar[entityID].state.bIsOpen}">
+  <ng-container *ngIf="navbar[entityID].state.bIsOpen; else navbarClosed;">
     <div class="ia-navbar-level-holder mat-app-background">
       <div class="ia-navbar-level">
-        <!-- ngFor each item -->
-        <ng-container *ngFor="let singleItem of navbar.items">
+        <ng-container *ngFor="let singleItem of navbar[entityID].items">
           <div class="ia-navbar-item">
             <div class="ia-navbar-item-icon-holder">
               <div class="ia-navbar-item-icon">
@@ -27,9 +26,10 @@
       </div>
     </div>
     <div class="ia-navbar-trigger-holder mat-app-background"
-         (click)="toggleNavbarState(navbar)">
+         (click)="toggleNavbarState(navbar[entityID])">
       <div class="ia-navbar-trigger mat-app-background mat-elevation-z4">
-        <fa-icon [icon]="[navbar.trigger.close.icon.style, navbar.trigger.close.icon.name]">
+        <fa-icon
+                 [icon]="[navbar[entityID].trigger.close.icon.style, navbar[entityID].trigger.close.icon.name]">
         </fa-icon>
       </div>
     </div>
@@ -40,9 +40,10 @@
 
   <ng-template #navbarClosed>
     <div class="ia-navbar-trigger-holder mat-app-background mat-elevation-z4"
-         (click)="toggleNavbarState(navbar)">
+         (click)="toggleNavbarState(navbar[entityID])">
       <div class="ia-navbar-trigger mat-app-background mat-elevation-z4">
-        <fa-icon [icon]="[navbar.trigger.open.icon.style, navbar.trigger.open.icon.name]">
+        <fa-icon
+                 [icon]="[navbar[entityID].trigger.open.icon.style, navbar[entityID].trigger.open.icon.name]">
         </fa-icon>
       </div>
     </div>

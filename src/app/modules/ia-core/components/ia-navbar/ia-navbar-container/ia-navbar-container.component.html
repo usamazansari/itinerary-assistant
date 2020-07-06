@@ -1,2 +1,2 @@
-<app-ia-navbar [navbar]="navbarDictionary[navbar_ID]"
+<app-ia-navbar [navbar]="navbar$ | async" [entityID]="navbarID$ | async"
                (toggleNavbarState$)="toggleNavbarState($event)"></app-ia-navbar>

@@ -1,8 +1,7 @@
-
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
-import * as fromReducer from '../ia-reducer/ia-navbar.reducer';
-import * as fromStore from '..';
+import * as fromReducer from '@ia-core/state/ia-reducer/ia-navbar.reducer';
+import * as fromStore from '@ia-core/state';
 
 const selectFeature = createFeatureSelector(fromStore.FEATURE_NAME);
 
