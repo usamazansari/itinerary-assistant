@@ -6,7 +6,8 @@
     - [feature-navbar\IA-003](#feature-navbaria-003)
     - [feature-core\IA-004](#feature-coreia-004)
     - [feature-navbar\IA-005](#feature-navbaria-005)
-    - [Pending as of feature-navbar\IA-005](#pending-as-of-feature-navbaria-005)
+    - [feature-navbar\IA-006](#feature-navbaria-006)
+    - [Pending as of feature-navbar\IA-006](#pending-as-of-feature-navbaria-006)
 
 
 ### IA-001
@@ -126,11 +127,23 @@
 
 [Back to ToC](#changelog)
 
+### feature-navbar\IA-006
+
+2020-07-05
+
+1. Navbar is togglable
+   - Added `toggle` and `toggle success` actions
+   - Setup `EventEmitter`s to handle state changes
+2. Completed styling level 1 of navbar
+3. Added `ia-navbar` service
+4. Navbar actions are dispatched through `ia-navbar` service
+
+[Back to ToC](#changelog)
+
 ---
 
-### Pending as of feature-navbar\IA-005
+### Pending as of feature-navbar\IA-006
 
 1. Implementation of other components in `core` module
-2. Resolve merge conflict of `feature/navbar` with `develop`
 
 [Back to ToC](#changelog)

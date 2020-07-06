@@ -1,0 +1,75 @@
+div.ia-navbar-container {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+
+  div.ia-navbar-level-holder {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    div.ia-navbar-level {
+      display: flex;
+      flex-direction: column;
+
+      div.ia-navbar-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 16px;
+        cursor: pointer;
+
+        div.ia-navbar-item-icon-holder {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 8px;
+
+          div.ia-navbar-expandable-icon {
+            position: absolute;
+            right: 8px;
+          }
+        }
+
+        div.ia-navbar-item-label-holder {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 8px;
+        }
+      }
+    }
+  }
+
+  div.ia-navbar-trigger-holder {
+    position: relative;
+    width: 64px;
+
+    div.ia-navbar-trigger {
+      position: absolute;
+      top: 16px;
+      left: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 32px;
+      z-index: 3;
+      cursor: pointer;
+    }
+  }
+  div.ia-navbar-shadow-holder {
+    background-color: #000000c0;
+    z-index: 2;
+  }
+
+  &.ia-navbar-open {
+    right: 0px;
+  }
+}
