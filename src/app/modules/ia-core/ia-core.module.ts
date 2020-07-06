@@ -16,7 +16,7 @@ import { FEATURE_NAME, reducers } from './state';
 import { CORE_EFFECTS } from './state/ia-effect';
 
 import { IaAppComponent } from './components/ia-app/ia-app.component';
-import { IaHomeComponent } from './components/ia-home/ia-home.component';
+import { IaHomeContainerComponent } from './components/ia-home/ia-home-container/ia-home-container.component';
 import { IaNavbarContainerComponent } from './components/ia-navbar/ia-navbar-container/ia-navbar-container.component';
 import { IaNavbarComponent } from './components/ia-navbar/ia-navbar-container/ia-navbar/ia-navbar.component';
 
@@ -24,7 +24,7 @@ import { IaNavbarComponent } from './components/ia-navbar/ia-navbar-container/ia
 @NgModule({
   declarations: [
     IaAppComponent,
-    IaHomeComponent,
+    IaHomeContainerComponent,
     IaNavbarContainerComponent,
     IaNavbarComponent,
   ],

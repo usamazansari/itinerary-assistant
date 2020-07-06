@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { Dictionary } from '@ngrx/entity';
 
@@ -22,6 +22,10 @@ export class IaNavbarService {
   getAssets(): Observable<Dictionary<IaNavbarModel>> {
     this._store$.dispatch(new fromActions.IaNavbarLoadAction({ id: NAVBAR_ID }));
     return this._store$.pipe(select(selectNavbar));
+  }
+
+  getEntityID(): Observable<string> {
+    return of(NAVBAR_ID);
   }
 
   toggleNavbar(navbar: IaNavbarModel) {

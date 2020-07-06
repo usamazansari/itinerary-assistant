@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Update } from '@ngrx/entity';
 
 import * as fromActions from '@ia-core/state/ia-action/ia-navbar.action';
 
 import { NAVBAR_ACTIONS } from '@ia-core/state/ia-type/ia-navbar.type';
 import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
-import { Update } from '@ngrx/entity';
 
 @Injectable()
 export class IaNavbarEffects {
   constructor(private _actions$: Actions) { }
 
   @Effect()
-  eNavbarLoad = this._actions$.pipe(
+  eLoadNavbar$ = this._actions$.pipe(
     ofType<fromActions.NAVBAR_ACTIONS_TYPES>(NAVBAR_ACTIONS.LOAD),
     map((action: fromActions.IaNavbarLoadAction) => {
-      let navbarAssets: IaNavbarModel = {
+      const navbarAsset: IaNavbarModel = {
         id: action.payload.id,
         state: {
           bIsOpen: false
@@ -93,20 +93,19 @@ export class IaNavbarEffects {
           }
         ]
       };
-      return new fromActions.IaNavbarLoadActionSuccess(navbarAssets);
+      return new fromActions.IaNavbarLoadActionSuccess(navbarAsset);
     }),
     catchError((err: Error) => of(new fromActions.IaNavbarLoadActionFail(err)))
   );
 
   @Effect()
-  eNavbarToggle = this._actions$.pipe(
+  eToggleNavbar$ = this._actions$.pipe(
     ofType<fromActions.NAVBAR_ACTIONS_TYPES>(NAVBAR_ACTIONS.TOGGLE),
     map((action: fromActions.IaNavbarToggleAction) => {
       let updatedState: Update<IaNavbarModel> = {
         id: action.payload.id,
         changes: { state: { bIsOpen: !action.payload.state.bIsOpen } }
       }
-      console.log(updatedState);
       return new fromActions.IaNavbarToggleActionSuccess(updatedState);
     })
   )

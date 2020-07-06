@@ -9,6 +9,7 @@ export class IaHomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
 }

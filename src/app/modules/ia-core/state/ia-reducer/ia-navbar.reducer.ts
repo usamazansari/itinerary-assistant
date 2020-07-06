@@ -3,7 +3,7 @@ import { EntityState, createEntityAdapter, Update } from '@ngrx/entity';
 import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
 
 import * as fromActions from '@ia-core/state/ia-action/ia-navbar.action';
-import { NAVBAR_ACTIONS } from '../ia-type/ia-navbar.type';
+import { NAVBAR_ACTIONS } from '@ia-core/state/ia-type/ia-navbar.type';
 
 export interface State extends EntityState<IaNavbarModel> { }
 

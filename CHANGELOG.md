@@ -7,7 +7,7 @@
     - [feature-core\IA-004](#feature-coreia-004)
     - [feature-navbar\IA-005](#feature-navbaria-005)
     - [feature-navbar\IA-006](#feature-navbaria-006)
-    - [Pending as of feature-navbar\IA-006](#pending-as-of-feature-navbaria-006)
+    - [feature-home\IA-007](#feature-homeia-007)
 
 
 ### IA-001
@@ -123,6 +123,8 @@
    - Reducer
    - Effect
    - Selector
+   - Service
+   - Container
 6. Updated `ia-core` service to fetch data from state
 
 [Back to ToC](#changelog)
@@ -140,9 +142,26 @@
 
 [Back to ToC](#changelog)
 
+### feature-home\IA-007
+
+2020-07-06
+
+1. Updated strategy to fetch assets for navbar and home using object destructuring
+2. Added home related entities
+   - State
+   - Actions
+   - Type
+   - Reducer
+   - Effect
+   - Selector
+   - Service
+   - Container
+
+[Back to ToC](#changelog)
+
 ---
 
-### Pending as of feature-navbar\IA-006
+Pending as of [feature-home\IA-007](#feature-homeia-007)
 
 1. Implementation of other components in `core` module
 

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Dictionary } from '@ngrx/entity';
-import { Store } from '@ngrx/store';
 
-import { State } from '@ia-core/state';
 import { IaNavbarModel } from '@ia-core/models/ia-navbar.model';
 import { IaNavbarService } from '@ia-core/services/ia-navbar/ia-navbar.service';
+import { IaHomeModel } from '@ia-core/models/ia-home.model';
+import { IaHomeService } from './ia-home/ia-home.service';
 
 
 @Injectable({
@@ -16,8 +16,8 @@ export class IaCoreService {
   navbar: IaNavbarModel;
 
   constructor(
-    private _store$: Store<State>,
-    private navbarService: IaNavbarService
+    private navbarService: IaNavbarService,
+    private homeService: IaHomeService
   ) {
     // this.navbar = {
     //   state: {
@@ -228,12 +228,28 @@ export class IaCoreService {
     // }
   }
 
-  getNavbarAssets(): Observable<Dictionary<IaNavbarModel>> {
-    return this.navbarService.getAssets();
+  getNavbarAssets(): {
+    assets: Observable<Dictionary<IaNavbarModel>>,
+    entityID: Observable<string>
+  } {
+    return {
+      assets: this.navbarService.getAssets(),
+      entityID: this.navbarService.getEntityID()
+    };
   }
 
   toggleNavbar(navbar: IaNavbarModel): Observable<Dictionary<IaNavbarModel>> {
     return this.navbarService.toggleNavbar(navbar);
+  }
+
+  getHomeAssets(): {
+    assets: Observable<Dictionary<IaHomeModel>>,
+    entityID: Observable<string>
+  } {
+    return {
+      assets: this.homeService.getHomeAssets(),
+      entityID: this.homeService.getEntityID()
+    }
   }
 
 }
