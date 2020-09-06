@@ -1,0 +1,67 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+// This would support primary / accent / warn colors for HTML Elements
+@mixin theme-color-grabber($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  *.app-bg-primary {
+    background-color: mat-color($primary);
+  }
+  *.app-bg-accent {
+    background-color: mat-color($accent);
+  }
+  *.app-bg-warn {
+    background-color: mat-color($warn);
+  }
+}
+
+// Light theme
+// Theme      : Light       #FAFAFA
+// Text color : Dark        #000000DE
+// Primary    : Indigo 500  #3F51B5
+// Secondary  : Green  800  #2e7d32
+// Warning    : Red    500  #F44336
+
+$app-light-primary: mat-palette($mat-indigo);
+$app-light-accent: mat-palette($mat-green, 800);
+$app-light-theme: mat-light-theme(
+  (
+    color: (
+      primary: $app-light-primary,
+      accent: $app-light-accent,
+    ),
+  )
+);
+
+*.app-light {
+  @include angular-material-color($app-light-theme);
+  @include theme-color-grabber($app-light-theme);
+}
+
+// Dark theme
+// Theme      : Dark            #303030
+// Text color : Light           #FFFFFF
+// Accent     : Green      A400 #00e676
+// Primary    : Yellow     700  #2979FF
+// Warning    : Deeporange A200 #FF6E40
+
+$app-dark-primary: mat-palette($mat-yellow, 700);
+$app-dark-accent: mat-palette($mat-green, A400, A700, A200);
+$app-dark-warn: mat-palette($mat-deep-orange, A200);
+$app-dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $app-dark-primary,
+      accent: $app-dark-accent,
+      warn: $app-dark-warn,
+    ),
+  )
+);
+
+*.app-dark {
+  @include angular-material-color($app-dark-theme);
+  @include theme-color-grabber($app-dark-theme);
+}

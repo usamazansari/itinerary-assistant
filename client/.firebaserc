@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "usama-ansari-apps": {
+      "hosting": {
+        "itinerary-assistant": [
+          "usama-ansari-apps"
+        ]
+      }
+    }
+  }
+}
