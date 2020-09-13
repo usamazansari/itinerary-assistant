@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { environment } from '@environments/environment';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () => import('@ia-core/ia-core.module').then((m => m.IaCoreModule))
-  // }
-]
+  {
+    path: '',
+    loadChildren: () => import('@core/core.module').then((_ => _.CoreModule))
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), { enableTracing: !environment.production }],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

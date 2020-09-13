@@ -19,6 +19,9 @@
       "@common/*": [
         "src/app/common/*"
       ],
+      "@core/*": [
+        "src/app/core/*"
+      ],
       "@environments/*": [
         "src/environments/*"
       ]

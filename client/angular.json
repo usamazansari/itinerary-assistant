@@ -23,6 +23,8 @@
               "@firebase/firestore",
               "@firebase/auth"
             ],
+            "extractCss": true,
+            "buildOptimizer": true,
             "outputPath": "public",
             "index": "src/index.html",
             "main": "src/main.ts",

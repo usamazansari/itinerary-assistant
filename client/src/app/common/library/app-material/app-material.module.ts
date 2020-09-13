@@ -3,7 +3,7 @@
 // 1- Import this file as module in app.module.ts => import { MaterialModule } from './xyz/abc';
 // 2- Initialize it in imports:[] array => imports:[MaterialModule]
 
-import { NgModule } from '@angular/core'
+import { NgModule } from '@angular/core';
 // *************** FORM CONTROLS ***************
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
 // import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -19,10 +19,10 @@ import { NgModule } from '@angular/core'
 // *************** NAVIGATION ***************
 // import { MatMenuModule } from '@angular/material/menu';
 // import { MatSidenavModule } from '@angular/material/sidenav';
-// import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 // *************** LAYOUT ***************
-// import { MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 // import { MatDividerModule } from '@angular/material/divider';
 // import { MatExpansionModule } from '@angular/material/expansion';
 // import { MatGridListModule } from '@angular/material/grid-list';
@@ -66,8 +66,8 @@ const MODULES = [
   // MatSlideToggleModule,
   // MatMenuModule,
   // MatSidenavModule,
-  // MatToolbarModule,
-  // MatCardModule,
+  MatToolbarModule,
+  MatCardModule,
   // MatDividerModule,
   // MatExpansionModule,
   // MatGridListModule,
@@ -90,7 +90,7 @@ const MODULES = [
   // MatPaginatorModule,
   // MatSortModule,
   // MatTableModule,
-]
+];
 
 @NgModule({
   imports: [...MODULES],

@@ -1,7 +1,7 @@
 type AppFaIconStyle =
   | 'fas'
   | 'far'
-  | 'fab'
+  | 'fab';
 
 type AppFaIconSize =
   | 'xs'
@@ -15,54 +15,54 @@ type AppFaIconSize =
   | '7x'
   | '8x'
   | '9x'
-  | '10x'
+  | '10x';
 
 type AppFaIconRotate =
   | 90
   | 180
-  | 270
+  | 270;
 
 type AppFaIconFlip =
   | 'horizontal'
   | 'vertical'
-  | 'both'
+  | 'both';
 
 type AppFaIconPull =
   | 'left'
-  | 'right'
+  | 'right';
 
 interface AppFaIconStackIconModel {
-  icon: AppFaIconModel
-  stackItemSize?: AppFaIconSize
+  icon: AppFaIconModel;
+  stackItemSize?: AppFaIconSize;
 }
 
 export interface AppFaIconModel {
-  style: AppFaIconStyle
-  name: string
+  style: AppFaIconStyle;
+  name: string;
   morph?: {
-    size?: AppFaIconSize
-    rotate?: AppFaIconRotate
-    flip?: AppFaIconFlip
-    fixedWidth?: boolean
+    size?: AppFaIconSize;
+    rotate?: AppFaIconRotate;
+    flip?: AppFaIconFlip;
+    fixedWidth?: boolean;
     animate?: {
-      spin?: boolean
-      pulse?: boolean
-    }
-    border?: boolean
-    pull?: AppFaIconPull
-  }
-  powerTx?: string
-  mask?: AppFaIconModel
-  inverse?: boolean
+      spin?: boolean;
+      pulse?: boolean;
+    };
+    border?: boolean;
+    pull?: AppFaIconPull;
+  };
+  powerTx?: string;
+  mask?: AppFaIconModel;
+  inverse?: boolean;
 }
 
 export interface AppFaIconLayerModel {
-  fixedWidth?: boolean
-  icons: AppFaIconModel[]
-  counter?: string
+  fixedWidth?: boolean;
+  icons: AppFaIconModel[];
+  counter?: string;
 }
 
 export interface AppFaIconStackModel {
-  background: AppFaIconStackIconModel
-  foreground: AppFaIconStackIconModel
+  background: AppFaIconStackIconModel;
+  foreground: AppFaIconStackIconModel;
 }

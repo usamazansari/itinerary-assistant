@@ -1,9 +1,7 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<p class="m-0">Bootstrap installed</p>`
+  template: `<router-outlet></router-outlet>`
 })
-export class AppComponent {
-  title = 'itinerary-assistant';
-}
+export class AppComponent { }
