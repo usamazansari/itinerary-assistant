@@ -1,0 +1,33 @@
+boundaries
+  destination
+    code "TNA"
+    name "Thane"
+  source
+    code "MAO"
+    name "Madgao"
+detail
+  arrival 7 November 2017 at 07:30:00 UTC+5:30
+  departure 6 November 2017 at 21:30:00 UTC+5:30
+  duration
+    unit "hour"
+    value 10
+journey
+  status "complete"
+  transport "Railway"
+
+boundaries
+  destination
+    code "MAO"
+    name "Madgao"
+  source
+    code "TNA"
+    name "Thane"
+detail
+  arrival 3 November 2017 at 08:30:00 UTC+5:30
+  departure 2 November 2017 at 22:30:00 UTC+5:30
+  duration
+    unit "hour"
+    value 10
+journey
+  status "complete"
+  transport "Railway"

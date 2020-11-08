@@ -1,25 +1,25 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'
 
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AppCommonModule } from '@common/app-common.module';
+import { AppStateModule } from '@shared/modules/state/state.module'
 
+import { AppRoutingModule } from './app-routing.module'
+import { AppComponent } from './app.component'
 
-const DECLARATIONS = [AppComponent];
+const DECLARATIONS = [AppComponent]
 
 const IMPORTS = [
   BrowserModule,
   BrowserAnimationsModule,
   AppRoutingModule,
-  AppCommonModule
-];
+  AppStateModule
+]
 
-const PROVIDERS = [];
+const PROVIDERS = []
 
-const BOOTSTRAP = [AppComponent];
+const BOOTSTRAP = [AppComponent]
 
 @NgModule({
   declarations: [...DECLARATIONS],

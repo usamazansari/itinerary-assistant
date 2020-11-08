@@ -1,4 +1,6 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
+
+@import "@angular/material/prebuilt-themes/purple-green.css";
 
 @include mat-core();
 

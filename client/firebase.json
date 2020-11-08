@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "itinerary-assistant",
-      "public": "public",
+      "public": "dist/itinerary-assistant",
       "ignore": [
         "**/.*"
       ],
