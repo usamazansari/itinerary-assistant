@@ -5,6 +5,7 @@
 - [CHANGELOG 2020-11](#changelog-2020-11)
   - [Table of Contents](#table-of-contents)
     - [usama251993-ia-0010-develop](#usama251993-ia-0010-develop)
+    - [usama251993-ia-0011-develop](#usama251993-ia-0011-develop)
     - [Pending Tasks](#pending-tasks)
 
 ### usama251993-ia-0010-develop
@@ -14,6 +15,18 @@
 |          Type | :tada:            |
 | Files Changed | 52                |
 |          Date | November 08, 2020 |
+
+Refer the comment in [Trello Card](https://trello.com/c/0PUxh59M)
+
+[Back to ToC](#table-of-contents)
+
+### usama251993-ia-0011-develop
+
+|   Particulars | Description       |
+| ------------: | ----------------- |
+|          Type | :package:         |
+| Files Changed | 2                 |
+|          Date | November 15, 2020 |
 
 Refer the comment in [Trello Card](https://trello.com/c/0PUxh59M)
 
