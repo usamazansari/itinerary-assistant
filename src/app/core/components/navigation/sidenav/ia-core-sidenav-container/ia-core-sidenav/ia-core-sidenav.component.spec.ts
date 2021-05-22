@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppNavbarContainerComponent } from './navbar-container.component';
+import { IaCoreSidenavComponent } from './ia-core-sidenav.component';
 
-describe('AppNavbarContainerComponent', () => {
-  let component: AppNavbarContainerComponent;
-  let fixture: ComponentFixture<AppNavbarContainerComponent>;
+describe('IaCoreSidenavComponent', () => {
+  let component: IaCoreSidenavComponent;
+  let fixture: ComponentFixture<IaCoreSidenavComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppNavbarContainerComponent ]
+      declarations: [ IaCoreSidenavComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppNavbarContainerComponent);
+    fixture = TestBed.createComponent(IaCoreSidenavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

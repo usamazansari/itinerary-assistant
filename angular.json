@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "trip-planner": {
+    "itinerary-assistant": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/trip-planner",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -34,7 +34,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -76,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "trip-planner:build:production"
+              "browserTarget": "itinerary-assistant:build:production"
             },
             "development": {
-              "browserTarget": "trip-planner:build:development"
+              "browserTarget": "itinerary-assistant:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "trip-planner:build"
+            "browserTarget": "itinerary-assistant:build"
           }
         },
         "test": {
@@ -103,7 +102,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -112,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "trip-planner"
+  "defaultProject": "itinerary-assistant"
 }

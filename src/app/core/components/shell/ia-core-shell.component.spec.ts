@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppNavbarComponent } from './navbar.component';
+import { IaCoreShellComponent } from './ia-core-shell.component';
 
-describe('AppNavbarComponent', () => {
-  let component: AppNavbarComponent;
-  let fixture: ComponentFixture<AppNavbarComponent>;
+describe('AppShellComponent', () => {
+  let component: IaCoreShellComponent;
+  let fixture: ComponentFixture<IaCoreShellComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppNavbarComponent ]
+      declarations: [IaCoreShellComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppNavbarComponent);
+    fixture = TestBed.createComponent(IaCoreShellComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

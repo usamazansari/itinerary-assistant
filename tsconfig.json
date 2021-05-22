@@ -3,19 +3,20 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "target": "es2017",
     "module": "es2020",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    // "strict": true,
+    "strictPropertyInitialization": false,
+    "target": "es2017",
     "lib": [
       "es2018",
       "dom"
@@ -24,7 +25,7 @@
       "@shared/*": [
         "src/app/shared/*"
       ],
-      "@core/*": [
+      "@ia-core/*": [
         "src/app/core/*"
       ],
       "@environments/*": [

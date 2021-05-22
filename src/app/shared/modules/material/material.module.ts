@@ -3,7 +3,7 @@
 // 1- Import this file as module in app.module.ts ==> import { MaterialModule } from './xyz/abc';
 // 2- Initialize it in imports:[] array ==> imports:[MaterialModule]
 
-import { NgModule } from '@angular/core'
+import { NgModule } from '@angular/core';
 // *************** FORM CONTROLS ***************
 // import { MatAutocompleteModule } from '@angular/material/autocomplete'
 // import { MatCheckboxModule } from '@angular/material/checkbox'
@@ -18,8 +18,8 @@ import { NgModule } from '@angular/core'
 
 // *************** NAVIGATION ***************
 // import { MatMenuModule } from '@angular/material/menu'
-// import { MatSidenavModule } from '@angular/material/sidenav'
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 // *************** LAYOUT ***************
 // import { MatCardModule } from '@angular/material/card'
@@ -32,7 +32,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 // import { MatTreeModule } from '@angular/material/tree'
 
 // *************** BUTTONS & INDICATORS ***************
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
 // import { MatButtonToggleModule } from '@angular/material/button-toggle'
 // import { MatBadgeModule } from '@angular/material/badge'
 // import { MatChipsModule } from '@angular/material/chips'
@@ -65,7 +65,7 @@ const COMMON = [
   // MatSliderModule,
   // MatSlideToggleModule,
   // MatMenuModule,
-  // MatSidenavModule,
+  MatSidenavModule,
   MatToolbarModule,
   // MatCardModule,
   // MatDividerModule,
@@ -90,10 +90,10 @@ const COMMON = [
   // MatPaginatorModule,
   // MatSortModule,
   // MatTableModule
-]
+];
 
-const IMPORTS = [...COMMON]
-const EXPORTS = [...COMMON]
+const IMPORTS = [...COMMON];
+const EXPORTS = [...COMMON];
 
 @NgModule({
   imports: [...IMPORTS],

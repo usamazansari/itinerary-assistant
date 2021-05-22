@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppShellComponent } from './shell.component';
+import { IaCoreFooterComponent } from './ia-core-footer.component';
 
-describe('AppShellComponent', () => {
-  let component: AppShellComponent;
-  let fixture: ComponentFixture<AppShellComponent>;
+describe('IaCoreFooterComponent', () => {
+  let component: IaCoreFooterComponent;
+  let fixture: ComponentFixture<IaCoreFooterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AppShellComponent ]
+      declarations: [ IaCoreFooterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppShellComponent);
+    fixture = TestBed.createComponent(IaCoreFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

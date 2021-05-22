@@ -1,0 +1,56 @@
+<mat-toolbar color="primary"
+             class="mat-elevation-z6">
+  <mat-toolbar-row class="align-items-stretch flex-column">
+
+    <div class="d-flex justify-content-between h-100">
+
+      <div class="d-flex align-items-center">
+        <button mat-icon-button
+                (click)="toggleSidenav()">
+          <fa-icon [icon]="[assets.trigger.style, assets.trigger.name]"></fa-icon>
+        </button>
+        <button mat-button
+                id="logo-button"
+                class="h-100 font-weight-bold rounded-0"
+                (click)="navigate(assets.logo.routes)">{{ assets.logo.label }}</button>
+      </div>
+
+      <!-- anonymous -->
+      <!-- <ng-container *ngIf="!false">
+        <div class="d-flex align-items-center">
+          <button mat-button
+                  class="h-100 rounded-0"
+                  (click)="gotoLogin()">
+            <fa-icon [icon]="[assets.authorization.anonymous.login.icon.style, 
+                              assets.authorization.anonymous.login.icon.name]"
+                     [size]="assets.authorization.anonymous.login.icon.morph.size"></fa-icon>
+            <span class="ml-3">{{ assets.authorization.anonymous.login.label }}</span>
+          </button>
+          <button mat-button
+                  class="h-100 rounded-0"
+                  (click)="gotoSignup()">
+            <fa-icon [icon]="[assets.authorization.anonymous.signup.icon.style, 
+                              assets.authorization.anonymous.signup.icon.name]"
+                     [size]="assets.authorization.anonymous.signup.icon.morph.size"></fa-icon>
+            <span class="ml-3">{{ assets.authorization.anonymous.signup.label }}</span>
+          </button>
+        </div>
+      </ng-container> -->
+
+      <!-- authenticated -->
+      <!-- <ng-container *ngIf="!true">
+        <div class="d-flex align-items-center">
+          <button mat-button
+                  class="h-100 rounded-0">
+            <fa-icon [icon]="[assets.authorization.authenticated.icon.style, 
+                              assets.authorization.authenticated.icon.name]"
+                     [size]="assets.authorization.authenticated.icon.morph.size"></fa-icon>
+            <span class="ml-3">{{ assets.authorization.authenticated.label }}</span>
+          </button>
+        </div>
+      </ng-container> -->
+
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>

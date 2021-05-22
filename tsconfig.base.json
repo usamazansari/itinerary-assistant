@@ -19,7 +19,7 @@
       "@shared/*": [
         "src/app/shared/*"
       ],
-      "@core/*": [
+      "@ia-core/*": [
         "src/app/core/*"
       ],
       "@environments/*": [

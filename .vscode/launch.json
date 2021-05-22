@@ -5,15 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
+      "name": "Debug Angular",
+      "type": "pwa-chrome",
       "request": "launch",
-      "name": "Launch Program",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "program": "${workspaceFolder}\\index.js",
-      "outFiles": [
-        "${workspaceFolder}/**/*.js"
+      "preLaunchTask": "Serve Angular",
+      "url": "http://localhost:4200/",
+      "cwd": "${workspaceFolder}",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/*",
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/*",
+        "/*": "*",
+        "/./~/*": "${webRoot}/node_modules/*"
+      },
+      "runtimeArgs": [
+        "--incognito"
       ]
     }
   ]
