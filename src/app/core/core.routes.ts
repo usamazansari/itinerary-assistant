@@ -1,3 +1,4 @@
 export enum CORE_ROUTES {
-    EMPTY = ''
+    EMPTY = '',
+    MOCK = 'mock'
 }

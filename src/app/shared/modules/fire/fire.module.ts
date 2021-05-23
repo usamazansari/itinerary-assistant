@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from '@environments/environment';
 
 const IMPORTS = [
   AngularFireModule.initializeApp(environment.firebaseConfig),
-  AngularFirestoreModule,
-  AngularFireAnalyticsModule,
-  AngularFirestoreModule.enablePersistence()
+  AngularFirestoreModule
 ];
 
 const EXPORTS = [
   AngularFirestoreModule
 ];
 
+const PROVIDERS = [
+  AngularFirestore
+];
+
 @NgModule({
   imports: [...IMPORTS],
-  exports: [...EXPORTS]
+  exports: [...EXPORTS],
+  providers: [...PROVIDERS]
 })
 export class AppFireModule { }
