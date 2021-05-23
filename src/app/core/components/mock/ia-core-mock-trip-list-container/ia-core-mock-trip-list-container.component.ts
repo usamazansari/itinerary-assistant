@@ -17,7 +17,6 @@ export class IaCoreMockTripListContainerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._service.fetchTripList();
     this.tripList$ = this._service.watchTripList$();
   }
 }

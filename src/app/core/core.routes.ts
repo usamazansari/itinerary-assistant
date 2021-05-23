@@ -1,4 +1,4 @@
-export enum CORE_ROUTES {
+export enum IA_CORE_ROUTES {
     EMPTY = '',
     MOCK = 'mock'
 }

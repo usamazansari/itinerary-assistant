@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 
-import { environment } from '@environments/environment';
+import { FIREBASE_CONFIG } from '@shared/constants/app.constants';
 
 const IMPORTS = [
-  AngularFireModule.initializeApp(environment.firebaseConfig),
+  AngularFireModule.initializeApp(FIREBASE_CONFIG),
   AngularFirestoreModule
 ];
 

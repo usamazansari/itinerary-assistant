@@ -7,7 +7,8 @@ import { APPLICATION_NAME } from '@shared/constants/app.constants';
 import { IaCoreRouterService } from '@ia-core/services/common/router/ia-core-router/ia-core-router.service';
 import { DEFAULT_IA_ICON } from '@ia-core/models/ia-core.model';
 
-import { DEFAULT_IA_NAVBAR_ASSETS, IaNavbarAssetsModel, IaNavbarRouterPayloadModel } from '@ia-core/models/navbar/ia-navbar.model';
+import { IaNavbarRouterPayloadModel } from '@ia-core/models/navigation/ia-navigation-model';
+import { DEFAULT_IA_NAVBAR_ASSETS, IaNavbarAssetsModel } from '@ia-core/models/navigation/navbar/ia-navbar.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,12 @@ export class IaCoreNavbarService {
         routes: [],
         children: []
       },
-      trigger: { name: 'bars', style: 'fas' }
+      trigger: {
+        label: null,
+        icon: { name: 'bars', style: 'fas' },
+        children: [],
+        routes: []
+      }
     };
     this.setAssets(this._assets);
   }

@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('@ia-core/core.module').then((_ => _.AppCoreModule))
+    loadChildren: () => import('@ia-core/core.module').then((_ => _.IaCoreModule))
   }
 ];
 

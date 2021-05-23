@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { AppSharedModule } from '@shared/shared.module';
 
-import { AppCoreRoutingModule } from './core-routing.module';
-
+import { IaCoreRoutingModule } from './core-routing.module';
 import { IaCoreIconModule } from '@ia-core/modules/icons/ia-core-icon/ia-core-icon.module';
+import { IaCoreMaterialModule } from './modules/material/ia-core-material/ia-core-material.module';
 
 import { IaCoreShellComponent } from './components/shell/ia-core-shell.component';
 
@@ -40,13 +40,14 @@ const DECLARATIONS = [
 
 const IMPORTS = [
   CommonModule,
-  AppCoreRoutingModule,
+  IaCoreRoutingModule,
   AppSharedModule,
-  IaCoreIconModule
+  IaCoreIconModule,
+  IaCoreMaterialModule
 ];
 
 @NgModule({
   declarations: [...DECLARATIONS],
   imports: [...IMPORTS]
 })
-export class AppCoreModule { }
+export class IaCoreModule { }

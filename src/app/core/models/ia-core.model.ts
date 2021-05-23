@@ -8,8 +8,8 @@ import { AppRouterPayloadModel } from '@shared/models/router/app-router.model';
  * 
  * ```ts
  * interface IaIconModel {
- *   name: IconName
- *   style: AppFaIconStyle
+ *   name  : IconName
+ *   style : AppFaIconStyle
  * }
  * ```
  *
@@ -26,8 +26,8 @@ export const DEFAULT_IA_ICON: IaCoreIconModel = { ...DEFAULT_FA_ICON };
  * 
  * ```ts
  * interface IaRouterPayloadModel {
- *   routes: string[]
- *   extras: NavigationExtras
+ *   routes : string[]
+ *   extras : NavigationExtras
  * }
  * ```
  *
@@ -42,8 +42,8 @@ export interface IaCoreRouterPayloadModel extends AppRouterPayloadModel { }
  * 
  * ```ts
  * interface IaButtonModel {
- *   label: string | null
- *   icon: IaIconModel
+ *   label : string | null
+ *   icon  : IaIconModel
  * }
  * ```
  *
@@ -60,8 +60,8 @@ export const DEFAULT_IA_BUTTON: IaCoreButtonModel = { ...DEFAULT_APP_BUTTON };
  * 
  * ```ts
  * interface IaImageModel {
- *   src: string | null
- *   alt: string | null
+ *   src : string | null
+ *   alt : string | null
  * }
  * ```
  *

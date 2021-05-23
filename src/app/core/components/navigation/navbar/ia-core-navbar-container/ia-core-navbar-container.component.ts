@@ -3,7 +3,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { IaCoreNavbarService } from '@ia-core/services/navbar/ia-core-navbar/ia-core-navbar.service';
-import { IaNavbarAssetsModel, IaNavbarRouterPayloadModel } from '@ia-core/models/navbar/ia-navbar.model';
+import { IaNavbarRouterPayloadModel } from '@ia-core/models/navigation/ia-navigation-model';
+import { IaNavbarAssetsModel } from '@ia-core/models/navigation/navbar/ia-navbar.model';
 
 @Component({
   selector: 'app-ia-core-navbar-container',

@@ -2,10 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import {
-  IaNavbarAssetsModel, DEFAULT_IA_NAVBAR_ASSETS,
-  IaNavbarRouterPayloadModel
-} from '@ia-core/models/navbar/ia-navbar.model';
+import { IaNavbarRouterPayloadModel } from '@ia-core/models/navigation/ia-navigation-model';
+import { IaNavbarAssetsModel, DEFAULT_IA_NAVBAR_ASSETS } from '@ia-core/models/navigation/navbar/ia-navbar.model';
 
 @Component({
   selector: 'app-ia-core-navbar',

@@ -1,0 +1,20 @@
+// https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/comma-dangle": "warn",
+    "@typescript-eslint/consistent-type-imports": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/multiline-ternary": "off",
+    "@typescript-eslint/no-redeclare": "warn"
+  }
+}
