@@ -22,7 +22,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 // *************** LAYOUT ***************
-// import { MatCardModule } from '@angular/material/card'
+import { MatCardModule } from '@angular/material/card';
 // import { MatDividerModule } from '@angular/material/divider'
 // import { MatExpansionModule } from '@angular/material/expansion'
 // import { MatGridListModule } from '@angular/material/grid-list'
@@ -67,7 +67,7 @@ const COMMON = [
   // MatMenuModule,
   MatSidenavModule,
   MatToolbarModule,
-  // MatCardModule,
+  MatCardModule,
   // MatDividerModule,
   // MatExpansionModule,
   // MatGridListModule,
@@ -75,7 +75,7 @@ const COMMON = [
   // MatStepperModule,
   // MatTabsModule,
   // MatTreeModule,
-  MatButtonModule,
+  MatButtonModule
   // MatButtonToggleModule,
   // MatBadgeModule,
   // MatChipsModule,
@@ -97,6 +97,6 @@ const EXPORTS = [...COMMON];
 
 @NgModule({
   imports: [...IMPORTS],
-  exports: [...EXPORTS],
+  exports: [...EXPORTS]
 })
 export class IaCoreMaterialModule { }

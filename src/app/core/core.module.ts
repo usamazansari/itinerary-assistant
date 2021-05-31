@@ -20,6 +20,8 @@ import { IaCoreFooterComponent } from './components/footer/ia-core-footer-contai
 
 import { IaCoreMockTripListContainerComponent } from './components/mock/ia-core-mock-trip-list-container/ia-core-mock-trip-list-container.component';
 import { IaCoreMockTripListComponent } from './components/mock/ia-core-mock-trip-list-container/ia-core-mock-trip-list/ia-core-mock-trip-list.component';
+import { IaCoreTodoContainerComponent } from './components/todo/ia-core-todo-container/ia-core-todo-container.component';
+import { IaCoreTodoComponent } from './components/todo/ia-core-todo-container/ia-core-todo/ia-core-todo.component';
 
 
 const DECLARATIONS = [
@@ -47,7 +49,7 @@ const IMPORTS = [
 ];
 
 @NgModule({
-  declarations: [...DECLARATIONS],
+  declarations: [...DECLARATIONS, IaCoreTodoContainerComponent, IaCoreTodoComponent],
   imports: [...IMPORTS]
 })
 export class IaCoreModule { }
