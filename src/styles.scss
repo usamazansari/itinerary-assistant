@@ -1,8 +1,11 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 // Angular Theming
 @import 'assets/styles/app-themes.scss';
 
 // Bootstrap
-@import 'assets/styles/app-bootstrap.scss';
+// @import 'assets/styles/app-bootstrap.scss';
 
 // Global styles
 @import 'assets/styles/app-styles.scss';
