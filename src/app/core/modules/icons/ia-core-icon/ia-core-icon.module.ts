@@ -3,11 +3,27 @@ import { NgModule } from '@angular/core';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 import {
-  faBars
+  faAlignCenter,
+  faBars,
+  faBolt,
+  faCompass,
+  faEdit,
+  faRocket,
+  faSocks,
+  faSuitcaseRolling,
+  faTasks
 } from '@fortawesome/free-solid-svg-icons';
 
 const ICONS = [
-  faBars
+  faAlignCenter,
+  faBars,
+  faBolt,
+  faCompass,
+  faEdit,
+  faRocket,
+  faSocks,
+  faSuitcaseRolling,
+  faTasks
 ];
 
 @NgModule({
