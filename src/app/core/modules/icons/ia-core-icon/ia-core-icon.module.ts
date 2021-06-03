@@ -32,8 +32,8 @@ const ICONS = [
 })
 export class IaCoreIconModule {
 
-  constructor(_: FaIconLibrary) {
-    _.addIcons(...ICONS);
+  constructor(lib: FaIconLibrary) {
+    lib.addIcons(...ICONS);
   }
 
 }
