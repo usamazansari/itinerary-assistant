@@ -1,17 +1,18 @@
 <mat-toolbar color="primary"
              class="mat-elevation-z6">
-  <mat-toolbar-row class="align-items-stretch flex-column">
+  <mat-toolbar-row class="items-stretch flex-column">
 
-    <div class="d-flex justify-content-between h-100">
+    <div class="flex justify-between h-full">
 
-      <div class="d-flex align-items-center">
+      <div class="flex items-center">
         <button mat-icon-button
+                class="outline-none focus:outline-none"
                 (click)="toggleSidenav()">
           <fa-icon [icon]="[assets.trigger.icon.style, assets.trigger.icon.name]"></fa-icon>
         </button>
         <button mat-button
                 id="logo-button"
-                class="h-100 font-weight-bold rounded-0"
+                class="h-full outline-none focus:outline-none text-lg font-semibold"
                 (click)="navigate(assets.logo.routes)">{{ assets.logo.label }}</button>
       </div>
 

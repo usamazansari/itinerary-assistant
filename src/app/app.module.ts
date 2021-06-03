@@ -6,6 +6,8 @@ import { AppFireModule } from '@shared/modules/fire/fire.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LumberjackModule } from '@ngworker/lumberjack';
+import { LumberjackConsoleDriverModule } from '@ngworker/lumberjack/console-driver';
 
 const DECLARATIONS = [AppComponent];
 const IMPORTS = [
@@ -18,7 +20,7 @@ const IMPORTS = [
 
 @NgModule({
   declarations: [...DECLARATIONS],
-  imports: [...IMPORTS],
+  imports: [...IMPORTS, LumberjackModule.forRoot(), LumberjackConsoleDriverModule.forRoot()],
   bootstrap: [...DECLARATIONS]
 })
 export class AppModule { }

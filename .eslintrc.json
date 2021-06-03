@@ -12,9 +12,11 @@
   "rules": {
     "@typescript-eslint/comma-dangle": "warn",
     "@typescript-eslint/consistent-type-imports": "off",
+    "@typescript-eslint/multiline-ternary": "off",
+    "@typescript-eslint/no-constant-condition": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/multiline-ternary": "off",
+    "@typescript-eslint/no-extra-boolean-cast": "off",
     "@typescript-eslint/no-redeclare": "warn"
   }
 }
