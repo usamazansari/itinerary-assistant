@@ -17,10 +17,11 @@
     <mat-card-content>
 
       <div
-           class="flex flex-col md:flex-row divide-y-2 divide-x-0 md:divide-y-0 md:divide-x-2 divide-indigo-500">
+           class="flex flex-col lg:flex-row divide-y-2 divide-x-0 lg:divide-y-0 lg:divide-x-2 divide-indigo-500">
         <div class="flex flex-col md:flex-grow">
           <mat-list class="divide-y">
-            <p mat-subheader>UX</p>
+            <p mat-subheader
+               class="cursor-default">UX</p>
 
             <!-- Sidenav -->
             <mat-list-item>
@@ -34,38 +35,13 @@
               <p class="m-0 cursor-default"
                  matLine>Sidenav</p>
             </mat-list-item>
-
-            <!-- Bootstrap -->
-            <mat-list-item>
-              <button mat-icon-button
-                      class="outline-none focus:outline-none"
-                      color="primary"
-                      mat-list-icon>
-                <fa-icon [icon]="['fas', 'palette']"
-                         class="flex items-center justify-center"></fa-icon>
-              </button>
-              <p class="m-0 cursor-default"
-                 matLine>Optimize Bootstrap</p>
-            </mat-list-item>
-
-            <!-- Firebase -->
-            <mat-list-item>
-              <button mat-icon-button
-                      class="outline-none focus:outline-none"
-                      color="primary"
-                      mat-list-icon>
-                <fa-icon [icon]="['fas', 'rocket']"
-                         class="flex items-center justify-center"></fa-icon>
-              </button>
-              <p class="m-0 cursor-default"
-                 matLine>Deploy on Firebase</p>
-            </mat-list-item>
           </mat-list>
         </div>
 
         <div class="flex flex-col md:flex-grow">
           <mat-list class="divide-y">
-            <p mat-subheader>Features</p>
+            <p mat-subheader
+               class="cursor-default">Features</p>
 
             <!-- Mock Trip -->
             <mat-list-item>
@@ -91,6 +67,27 @@
               </button>
               <p class="m-0 cursor-default"
                  matLine>Edit Trip</p>
+            </mat-list-item>
+          </mat-list>
+
+        </div>
+
+        <div class="flex flex-col md:flex-grow">
+          <mat-list class="divide-y">
+            <p mat-subheader
+               class="cursor-default">Miscellaneous</p>
+
+            <!-- Firebase -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'rocket']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default"
+                 matLine>Deploy on Firebase</p>
             </mat-list-item>
           </mat-list>
 
