@@ -6,129 +6,97 @@
       <mat-card-title>
         <div class="flex items-center">
           <button mat-icon-button
-                  class="outline-none focus:outline-none"
-                  color="primary">
+                  class="outline-none focus:outline-none text-indigo-500">
             <fa-icon [icon]="['fas', 'tasks']"
                      size="lg"></fa-icon>
           </button>
-          <p class="m-0 ml-2">To Do List</p>
+          <p class="m-0 ml-2 text-xl">To Do List</p>
         </div>
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <div class="flex">
-        <div class="flex flex-col flex-grow">
-          <!-- Sidenav -->
-          <mat-card class="m-3">
-            <mat-card-content>
-              <div class="flex items-center">
-                <button mat-icon-button
-                        class="outline-none focus:outline-none"
-                        color="primary">
-                  <fa-icon [icon]="['fas', 'compass']"
-                           size="lg"></fa-icon>
-                </button>
-                <p class="m-0 ml-2">Sidenav</p>
-              </div>
-            </mat-card-content>
-          </mat-card>
 
-          <!-- Footer -->
-          <mat-card class="m-3">
-            <mat-card-content>
-              <div class="flex items-center">
-                <button mat-icon-button
-                        class="outline-none focus:outline-none"
-                        color="primary">
-                  <fa-icon [icon]="['fas', 'socks']"
-                           size="lg"></fa-icon>
-                </button>
-                <p class="m-0 ml-2">Footer</p>
-              </div>
-            </mat-card-content>
-          </mat-card>
+      <div
+           class="flex flex-col md:flex-row divide-y-2 divide-x-0 md:divide-y-0 md:divide-x-2 divide-indigo-500">
+        <div class="flex flex-col md:flex-grow">
+          <mat-list class="divide-y">
+            <p mat-subheader>UX</p>
 
-          <!-- Center Icons -->
-          <mat-card class="m-3">
-            <mat-card-content>
-              <div class="flex items-center">
-                <button mat-icon-button
-                        class="outline-none focus:outline-none"
-                        color="primary">
-                  <fa-icon [icon]="['fas', 'align-center']"
-                           size="lg"></fa-icon>
-                </button>
-                <p class="m-0 ml-2">Center Icon Classes</p>
-              </div>
-            </mat-card-content>
-          </mat-card>
+            <!-- Sidenav -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'compass']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default"
+                 matLine>Sidenav</p>
+            </mat-list-item>
 
-          <!-- Optimize Bootstrap -->
-          <mat-card class="m-3">
-            <mat-card-content>
-              <div class="flex items-center">
-                <button mat-icon-button
-                        class="outline-none focus:outline-none"
-                        color="primary">
-                  <fa-icon [icon]="['fas', 'bolt']"
-                           size="lg"></fa-icon>
-                </button>
-                <p class="m-0 ml-2">Optimize Bootstrap</p>
-              </div>
-            </mat-card-content>
-          </mat-card>
+            <!-- Bootstrap -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'palette']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default"
+                 matLine>Optimize Bootstrap</p>
+            </mat-list-item>
 
-          <!-- Deploy -->
-          <mat-card class="m-3">
-            <mat-card-content>
-              <div class="flex items-center">
-                <button mat-icon-button
-                        class="outline-none focus:outline-none"
-                        color="primary">
-                  <fa-icon [icon]="['fas', 'rocket']"
-                           size="lg"></fa-icon>
-                </button>
-                <p class="m-0 ml-2">Deploy on Firebase</p>
-              </div>
-            </mat-card-content>
-          </mat-card>
+            <!-- Firebase -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'rocket']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default"
+                 matLine>Deploy on Firebase</p>
+            </mat-list-item>
+          </mat-list>
         </div>
 
-        <div class="flex flex-col flex-grow">
-          <!-- Mock Trip -->
-          <mat-card class="m-3">
-            <mat-card-content>
-              <div class="flex items-center">
-                <button mat-icon-button
-                        class="outline-none focus:outline-none"
-                        color="primary">
-                  <fa-icon [icon]="['fas', 'suitcase-rolling']"
-                           size="lg"></fa-icon>
-                </button>
-                <p class="m-0 ml-2">Mock Trip</p>
-              </div>
-            </mat-card-content>
-          </mat-card>
+        <div class="flex flex-col md:flex-grow">
+          <mat-list class="divide-y">
+            <p mat-subheader>Features</p>
 
-          <!-- Edit Trip -->
-          <mat-card class="m-3">
-            <mat-card-content>
-              <div class="flex items-center">
-                <button mat-icon-button
-                        class="outline-none focus:outline-none"
-                        color="primary">
-                  <fa-icon [icon]="['fas', 'edit']"
-                           size="lg"></fa-icon>
-                </button>
-                <p class="m-0 ml-2">Edit Trip</p>
-              </div>
-            </mat-card-content>
-          </mat-card>
+            <!-- Mock Trip -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'suitcase-rolling']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default"
+                 matLine>Mock Trip</p>
+            </mat-list-item>
+
+            <!-- Edit Trip -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'edit']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default"
+                 matLine>Edit Trip</p>
+            </mat-list-item>
+          </mat-list>
+
         </div>
       </div>
     </mat-card-content>
   </mat-card>
-
-
 
 </div>
