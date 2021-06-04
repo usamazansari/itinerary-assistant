@@ -13,6 +13,11 @@ import {
   faSuitcaseRolling,
   faTasks
 } from '@fortawesome/free-solid-svg-icons';
+import {
+  faAngular,
+  faGithub,
+  faLinkedin
+} from '@fortawesome/free-brands-svg-icons';
 
 const ICONS = [
   faAlignCenter,
@@ -23,7 +28,11 @@ const ICONS = [
   faRocket,
   faSocks,
   faSuitcaseRolling,
-  faTasks
+  faTasks,
+
+  faAngular,
+  faGithub,
+  faLinkedin
 ];
 
 @NgModule({
