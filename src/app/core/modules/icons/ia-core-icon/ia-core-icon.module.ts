@@ -7,7 +7,6 @@ import {
   faBolt,
   faCompass,
   faEdit,
-  faPalette,
   faRocket,
   faSuitcaseRolling,
   faTasks
@@ -23,7 +22,6 @@ const ICONS = [
   faBolt,
   faCompass,
   faEdit,
-  faPalette,
   faRocket,
   faSuitcaseRolling,
   faTasks,
