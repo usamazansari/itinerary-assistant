@@ -35,6 +35,37 @@
               <p class="m-0 cursor-default"
                  matLine>Sidenav</p>
             </mat-list-item>
+
+            <mat-list class="pl-8"
+                      dense>
+              <mat-list-item>User Details</mat-list-item>
+              <mat-list-item>Navigation menu</mat-list-item>
+              <mat-list-item>Miscellaneous Actions</mat-list-item>
+              <mat-list class="pl-8"
+                        dense>
+                <mat-list-item>Toggle Theme</mat-list-item>
+                <mat-list-item>Add shortcuts</mat-list-item>
+              </mat-list>
+            </mat-list>
+
+            <!-- Theme -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'palette']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default"
+                 matLine>Theming</p>
+            </mat-list-item>
+
+            <mat-list class="pl-8"
+                      dense>
+              <mat-list-item>Material Colors</mat-list-item>
+              <mat-list-item>Dark Theme</mat-list-item>
+            </mat-list>
           </mat-list>
         </div>
 
@@ -56,6 +87,33 @@
                  matLine>Mock Trip</p>
             </mat-list-item>
 
+            <mat-list class="pl-8"
+                      dense>
+              <mat-list-item>Trip Overview</mat-list-item>
+              <mat-list-item>Trip Details</mat-list-item>
+              <mat-list class="pl-8"
+                        dense>
+                <mat-list-item>Day Details</mat-list-item>
+                <mat-list-item>Place Details</mat-list-item>
+                <mat-list-item>Attractions Details</mat-list-item>
+                <mat-list-item>Stay Details</mat-list-item>
+                <mat-list-item>Notes</mat-list-item>
+              </mat-list>
+              <mat-list-item>Accomplices Details</mat-list-item>
+              <mat-list class="pl-8"
+                        dense>
+                <mat-list-item>Personal Details</mat-list-item>
+                <mat-list-item>Duration in Trip</mat-list-item>
+              </mat-list>
+              <mat-list-item>Transit Details</mat-list-item>
+              <mat-list class="pl-8"
+                        dense>
+                <mat-list-item>Start</mat-list-item>
+                <mat-list-item>End</mat-list-item>
+                <mat-list-item>Inter</mat-list-item>
+              </mat-list>
+            </mat-list>
+
             <!-- Edit Trip -->
             <mat-list-item>
               <button mat-icon-button
@@ -68,6 +126,12 @@
               <p class="m-0 cursor-default"
                  matLine>Edit Trip</p>
             </mat-list-item>
+
+            <mat-list class="pl-8"
+                      dense>
+              <mat-list-item>Inline Edit</mat-list-item>
+              <mat-list-item>Dedicated Edit</mat-list-item>
+            </mat-list>
           </mat-list>
 
         </div>
@@ -76,21 +140,29 @@
           <mat-list class="divide-y">
             <p mat-subheader
                class="cursor-default">Miscellaneous</p>
-
-            <!-- Firebase -->
             <mat-list-item>
               <button mat-icon-button
                       class="outline-none focus:outline-none"
                       color="primary"
                       mat-list-icon>
-                <fa-icon [icon]="['fas', 'rocket']"
+                <fa-icon [icon]="['fas', 'comments']"
                          class="flex items-center justify-center"></fa-icon>
               </button>
               <p class="m-0 cursor-default"
-                 matLine>Deploy on Firebase</p>
+                 matLine>Feedback</p>
             </mat-list-item>
-          </mat-list>
 
+            <mat-list class="pl-8"
+                      dense>
+              <mat-list-item>Feedback Form</mat-list-item>
+              <mat-list class="pl-8"
+                        dense>
+                <mat-list-item>User Details</mat-list-item>
+                <mat-list-item>Suggestions</mat-list-item>
+                <mat-list-item>Rating</mat-list-item>
+              </mat-list>
+            </mat-list>
+          </mat-list>
         </div>
       </div>
     </mat-card-content>
