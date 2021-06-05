@@ -12,6 +12,7 @@ import {
   faRocket,
   faSuitcaseRolling,
   faTasks,
+  faVial,
   faWindowMinimize
 } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -30,6 +31,7 @@ const ICONS = [
   faRocket,
   faSuitcaseRolling,
   faTasks,
+  faVial,
   faWindowMinimize,
 
   faAngular,
