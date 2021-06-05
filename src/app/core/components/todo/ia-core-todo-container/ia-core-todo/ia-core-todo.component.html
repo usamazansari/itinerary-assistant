@@ -10,12 +10,11 @@
             <fa-icon [icon]="['fas', 'tasks']"
                      size="lg"></fa-icon>
           </button>
-          <p class="m-0 ml-2 text-xl">To Do List</p>
+          <p class="m-0 ml-2 text-xl uppercase font-bold text-gray-600">To Do List</p>
         </div>
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-
       <div
            class="flex flex-col lg:flex-row divide-y-2 divide-x-0 lg:divide-y-0 lg:divide-x-2 divide-indigo-500">
         <div class="flex flex-col md:flex-grow">
@@ -32,19 +31,19 @@
                 <fa-icon [icon]="['fas', 'compass']"
                          class="flex items-center justify-center"></fa-icon>
               </button>
-              <p class="m-0 cursor-default"
+              <p class="m-0 cursor-default font-bold text-gray-600"
                  matLine>Sidenav</p>
             </mat-list-item>
 
             <mat-list class="pl-8"
                       dense>
-              <mat-list-item>User Details</mat-list-item>
-              <mat-list-item>Navigation menu</mat-list-item>
-              <mat-list-item>Miscellaneous Actions</mat-list-item>
+              <mat-list-item class="cursor-default">User Details</mat-list-item>
+              <mat-list-item class="cursor-default">Navigation menu</mat-list-item>
+              <mat-list-item class="cursor-default">Miscellaneous Actions</mat-list-item>
               <mat-list class="pl-8"
                         dense>
-                <mat-list-item>Toggle Theme</mat-list-item>
-                <mat-list-item>Add shortcuts</mat-list-item>
+                <mat-list-item class="cursor-default">Toggle Theme</mat-list-item>
+                <mat-list-item class="cursor-default">Add shortcuts</mat-list-item>
               </mat-list>
             </mat-list>
 
@@ -57,14 +56,14 @@
                 <fa-icon [icon]="['fas', 'palette']"
                          class="flex items-center justify-center"></fa-icon>
               </button>
-              <p class="m-0 cursor-default"
+              <p class="m-0 cursor-default font-bold text-gray-600"
                  matLine>Theming</p>
             </mat-list-item>
 
             <mat-list class="pl-8"
                       dense>
-              <mat-list-item>Material Colors</mat-list-item>
-              <mat-list-item>Dark Theme</mat-list-item>
+              <mat-list-item class="cursor-default">Material Colors</mat-list-item>
+              <mat-list-item class="cursor-default">Dark Theme</mat-list-item>
             </mat-list>
 
             <!-- Footer -->
@@ -76,16 +75,16 @@
                 <fa-icon [icon]="['fas', 'window-minimize']"
                          class="flex items-center justify-center"></fa-icon>
               </button>
-              <p class="m-0 cursor-default"
+              <p class="m-0 cursor-default font-bold text-gray-600"
                  matLine>Footer</p>
             </mat-list-item>
 
             <mat-list class="pl-8"
                       dense>
-              <mat-list-item>Repair the <span
-                      class="ml-1 font-mono text-blue-700">background-color</span>
+              <mat-list-item class="cursor-default">Repair the
+                <span class="ml-1 font-mono text-blue-700">background-color</span>
               </mat-list-item>
-              <mat-list-item>Add Links to clickables</mat-list-item>
+              <mat-list-item class="cursor-default">Add Links to clickables</mat-list-item>
             </mat-list>
           </mat-list>
         </div>
@@ -104,34 +103,34 @@
                 <fa-icon [icon]="['fas', 'suitcase-rolling']"
                          class="flex items-center justify-center"></fa-icon>
               </button>
-              <p class="m-0 cursor-default"
+              <p class="m-0 cursor-default font-bold text-gray-600"
                  matLine>Mock Trip</p>
             </mat-list-item>
 
             <mat-list class="pl-8"
                       dense>
-              <mat-list-item>Trip Overview</mat-list-item>
-              <mat-list-item>Trip Details</mat-list-item>
+              <mat-list-item class="cursor-default">Trip Overview</mat-list-item>
+              <mat-list-item class="cursor-default">Trip Details</mat-list-item>
               <mat-list class="pl-8"
                         dense>
-                <mat-list-item>Day Details</mat-list-item>
-                <mat-list-item>Place Details</mat-list-item>
-                <mat-list-item>Attractions Details</mat-list-item>
-                <mat-list-item>Stay Details</mat-list-item>
-                <mat-list-item>Notes</mat-list-item>
+                <mat-list-item class="cursor-default">Day Details</mat-list-item>
+                <mat-list-item class="cursor-default">Place Details</mat-list-item>
+                <mat-list-item class="cursor-default">Attractions Details</mat-list-item>
+                <mat-list-item class="cursor-default">Stay Details</mat-list-item>
+                <mat-list-item class="cursor-default">Notes</mat-list-item>
               </mat-list>
-              <mat-list-item>Accomplices Details</mat-list-item>
+              <mat-list-item class="cursor-default">Accomplices Details</mat-list-item>
               <mat-list class="pl-8"
                         dense>
-                <mat-list-item>Personal Details</mat-list-item>
-                <mat-list-item>Duration in Trip</mat-list-item>
+                <mat-list-item class="cursor-default">Personal Details</mat-list-item>
+                <mat-list-item class="cursor-default">Duration in Trip</mat-list-item>
               </mat-list>
-              <mat-list-item>Transit Details</mat-list-item>
+              <mat-list-item class="cursor-default">Transit Details</mat-list-item>
               <mat-list class="pl-8"
                         dense>
-                <mat-list-item>Start</mat-list-item>
-                <mat-list-item>End</mat-list-item>
-                <mat-list-item>Inter</mat-list-item>
+                <mat-list-item class="cursor-default">Start</mat-list-item>
+                <mat-list-item class="cursor-default">End</mat-list-item>
+                <mat-list-item class="cursor-default">Inter</mat-list-item>
               </mat-list>
             </mat-list>
 
@@ -144,14 +143,14 @@
                 <fa-icon [icon]="['fas', 'edit']"
                          class="flex items-center justify-center"></fa-icon>
               </button>
-              <p class="m-0 cursor-default"
+              <p class="m-0 cursor-default font-bold text-gray-600"
                  matLine>Edit Trip</p>
             </mat-list-item>
 
             <mat-list class="pl-8"
                       dense>
-              <mat-list-item>Inline Edit</mat-list-item>
-              <mat-list-item>Dedicated Edit</mat-list-item>
+              <mat-list-item class="cursor-default">Inline Edit</mat-list-item>
+              <mat-list-item class="cursor-default">Dedicated Edit</mat-list-item>
             </mat-list>
           </mat-list>
 
@@ -161,6 +160,27 @@
           <mat-list class="divide-y">
             <p mat-subheader
                class="cursor-default">Miscellaneous</p>
+
+            <!-- Testing -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'vial']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default font-bold text-gray-600"
+                 matLine>Testing</p>
+            </mat-list-item>
+
+            <mat-list class="pl-8"
+                      dense>
+              <mat-list-item class="cursor-default">Unit Testing</mat-list-item>
+              <mat-list-item class="cursor-default">End to End Testing</mat-list-item>
+            </mat-list>
+
+            <!-- Feedback -->
             <mat-list-item>
               <button mat-icon-button
                       class="outline-none focus:outline-none"
@@ -169,18 +189,18 @@
                 <fa-icon [icon]="['fas', 'comments']"
                          class="flex items-center justify-center"></fa-icon>
               </button>
-              <p class="m-0 cursor-default"
+              <p class="m-0 cursor-default font-bold text-gray-600"
                  matLine>Feedback</p>
             </mat-list-item>
 
             <mat-list class="pl-8"
                       dense>
-              <mat-list-item>Feedback Form</mat-list-item>
+              <mat-list-item class="cursor-default">Feedback Form</mat-list-item>
               <mat-list class="pl-8"
                         dense>
-                <mat-list-item>User Details</mat-list-item>
-                <mat-list-item>Suggestions</mat-list-item>
-                <mat-list-item>Rating</mat-list-item>
+                <mat-list-item class="cursor-default">User Details</mat-list-item>
+                <mat-list-item class="cursor-default">Suggestions</mat-list-item>
+                <mat-list-item class="cursor-default">Rating</mat-list-item>
               </mat-list>
             </mat-list>
           </mat-list>
