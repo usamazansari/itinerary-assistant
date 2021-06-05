@@ -26,6 +26,6 @@ jobs:
         with:
           node-version: '14'
       - run: npm i -g firebase-tools
-      - run: firebase login --token '${{ secrets.FIREBASE_TOKEN }}'
+      - run: firebase login:ci
       - run: npm i
       - run: npm run deploy
