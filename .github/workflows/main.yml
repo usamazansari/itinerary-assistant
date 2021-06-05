@@ -25,5 +25,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - run: npm i -g firebase-tools
+      - run: firebase login --token '${{ secrets.FIREBASE_TOKEN }}'
       - run: npm i
       - run: npm run deploy
