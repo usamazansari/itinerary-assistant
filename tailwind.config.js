@@ -41,6 +41,11 @@ module.exports = {
       z22: '0px 10px 14px -6px rgb(0 0 0 / 20%), 0px 22px 35px 3px rgb(0 0 0 / 14%), 0px 8px 42px 7px rgb(0 0 0 / 12%)',
       z23: '0px 11px 14px -7px rgb(0 0 0 / 20%), 0px 23px 36px 3px rgb(0 0 0 / 14%), 0px 9px 44px 8px rgb(0 0 0 / 12%)',
       z24: '0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%)'
+    },
+    fontFamily: {
+      'sans': ['Fira Sans', 'Open Sans', 'Calibri', 'sans-serif'],
+      'serif': ['Times New Roman', 'serif'],
+      'mono': ['Fira Code', 'Consolas', 'monospace']
     }
   },
   variants: {

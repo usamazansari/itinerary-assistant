@@ -48,7 +48,7 @@
               </mat-list>
             </mat-list>
 
-            <!-- Theme -->
+            <!-- Theming -->
             <mat-list-item>
               <button mat-icon-button
                       class="outline-none focus:outline-none"
@@ -65,6 +65,27 @@
                       dense>
               <mat-list-item>Material Colors</mat-list-item>
               <mat-list-item>Dark Theme</mat-list-item>
+            </mat-list>
+
+            <!-- Footer -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'palette']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default"
+                 matLine>Footer</p>
+            </mat-list-item>
+
+            <mat-list class="pl-8"
+                      dense>
+              <mat-list-item>Repair the <span
+                      class="ml-1 font-mono text-blue-700">background-color</span>
+              </mat-list-item>
+              <mat-list-item>Add Links to clickables</mat-list-item>
             </mat-list>
           </mat-list>
         </div>
