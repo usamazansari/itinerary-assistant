@@ -26,6 +26,6 @@ jobs:
         with:
           node-version: '14'
       - run: npm i -g firebase-tools
-      - run: firebase login:ci
+      - run: firebase login:ci -- interactive
       - run: npm i
       - run: npm run deploy
