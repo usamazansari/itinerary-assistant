@@ -8,15 +8,28 @@
     <fa-icon [icon]="['fab', 'angular']"
              size="lg"
              class="grid place-items-center mx-1 cursor-pointer"
-             style="color: #bd0e2d;"></fa-icon>
+             style="color: #bd0e2d;"
+             matTooltip="Angular"
+             #tooltip="matTooltip"></fa-icon>
 
     <img src="assets/media/images/tailwindcss.svg"
          alt="Tailwind"
-         class="w-6 h-6 mx-1 cursor-pointer">
+         class="w-6 h-6 mx-1 cursor-pointer"
+         matTooltip="Tailwind"
+         #tooltip="matTooltip">
+
+    <fa-icon [icon]="['fab', 'fort-awesome-alt']"
+             size="lg"
+             class="grid place-items-center mx-1 cursor-pointer"
+             style="color: #339af0;"
+             matTooltip="Font Awesome"
+             #tooltip="matTooltip"></fa-icon>
 
     <img src="assets/media/images/firebase.svg"
          alt="Firebase"
-         class="w-6 h-6 mx-1 cursor-pointer">
+         class="w-6 h-6 mx-1 cursor-pointer"
+         matTooltip="Firebase"
+         #tooltip="matTooltip">
   </div>
 
   <div class="flex items-center justify-center md:justify-end my-4">
@@ -24,10 +37,21 @@
     <p class="font-semibold text-sm text-center">By Usama Ansari</p>
     <fa-icon [icon]="['fab', 'github']"
              size="lg"
-             class="mx-1 cursor-pointer text-black"></fa-icon>
+             class="mx-1 cursor-pointer"
+             style="color:#121212;"
+             matTooltip="GitHub"
+             #tooltip="matTooltip"></fa-icon>
     <fa-icon [icon]="['fab', 'linkedin']"
-             style="color: #0077b7;"
              size="lg"
-             class="mx-1 cursor-pointer"></fa-icon>
+             class="mx-1 cursor-pointer"
+             style="color: #0077b7;"
+             matTooltip="LinkedIn"
+             #tooltip="matTooltip"></fa-icon>
+    <fa-icon [icon]="['fab', 'discord']"
+             size="lg"
+             class="mx-1 cursor-pointer"
+             style="color: #738ADB;"
+             matTooltip="Discord"
+             #tooltip="matTooltip"></fa-icon>
   </div>
 </div>
