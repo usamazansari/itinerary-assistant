@@ -8,6 +8,7 @@ import {
   faComments,
   faCompass,
   faEdit,
+  faEnvelopeOpenText,
   faFileAlt,
   faPalette,
   faRocket,
@@ -16,9 +17,10 @@ import {
   faVial,
   faWindowMinimize
 } from '@fortawesome/free-solid-svg-icons';
-// import {} from '@fortawesome/free-regular-svg-icons';
 import {
   faAngular,
+  faDiscord,
+  faFortAwesomeAlt,
   faGithub,
   faLinkedin
 } from '@fortawesome/free-brands-svg-icons';
@@ -28,8 +30,9 @@ const ICONS = [
   faBolt,
   faComments,
   faCompass,
-  faFileAlt,
   faEdit,
+  faEnvelopeOpenText,
+  faFileAlt,
   faPalette,
   faRocket,
   faSuitcaseRolling,
@@ -38,6 +41,8 @@ const ICONS = [
   faWindowMinimize,
 
   faAngular,
+  faDiscord,
+  faFortAwesomeAlt,
   faGithub,
   faLinkedin
 ];

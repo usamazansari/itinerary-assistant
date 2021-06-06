@@ -1,33 +1,106 @@
 <div
      class="container grid grid-cols-1 md:grid-cols-2 justify-between items-center px-4 mx-auto shadow-z3 bg-white dark:bg-black dark:text-white">
-
   <div class="flex items-center justify-center md:justify-start my-4">
+    <!-- <p class="text-sm text-center">Made with</p> -->
 
-    <p class="font-semibold text-sm text-center">Made with</p>
+    <a mat-icon-button
+       class="grid place-items-center"
+       href="https://angular.io/"
+       target="_blank">
+      <fa-icon [icon]="['fab', 'angular']"
+               size="lg"
+               class="text-lg"
+               style="color: #bd0e2d;"
+               matTooltip="Angular"
+               matTooltipShowDelay="500"
+               #tooltip="matTooltip"></fa-icon>
+    </a>
 
-    <fa-icon [icon]="['fab', 'angular']"
-             size="lg"
-             class="grid place-items-center mx-1 cursor-pointer"
-             style="color: #bd0e2d;"></fa-icon>
+    <a mat-icon-button
+       class="grid place-items-center"
+       href="https://tailwindcss.com/"
+       target="_blank">
+      <img src="assets/media/images/tailwindcss.svg"
+           alt="Tailwind"
+           class="w-6 h-6"
+           matTooltip="Tailwind"
+           matTooltipShowDelay="500"
+           #tooltip="matTooltip">
+    </a>
 
-    <img src="assets/media/images/tailwindcss.svg"
-         alt="Tailwind"
-         class="w-6 h-6 mx-1 cursor-pointer">
+    <a mat-icon-button
+       class="grid place-items-center"
+       href="https://fontawesome.com/"
+       target="_blank">
+      <fa-icon [icon]="['fab', 'fort-awesome-alt']"
+               size="lg"
+               class="text-lg"
+               style="color: #339af0;"
+               matTooltip="Font Awesome"
+               matTooltipShowDelay="500"
+               #tooltip="matTooltip"></fa-icon>
+    </a>
 
-    <img src="assets/media/images/firebase.svg"
-         alt="Firebase"
-         class="w-6 h-6 mx-1 cursor-pointer">
+    <a mat-icon-button
+       class="grid place-items-center"
+       href="https://firebase.google.com/"
+       target="_blank">
+      <img src="assets/media/images/firebase.svg"
+           alt="Firebase"
+           class="w-6 h-6"
+           matTooltip="Firebase"
+           matTooltipShowDelay="500"
+           #tooltip="matTooltip">
+    </a>
   </div>
 
   <div class="flex items-center justify-center md:justify-end my-4">
+    <!-- <p class="text-sm text-center">By Usama Ansari</p> -->
 
-    <p class="font-semibold text-sm text-center">By Usama Ansari</p>
-    <fa-icon [icon]="['fab', 'github']"
-             size="lg"
-             class="mx-1 cursor-pointer text-black"></fa-icon>
-    <fa-icon [icon]="['fab', 'linkedin']"
-             style="color: #0077b7;"
-             size="lg"
-             class="mx-1 cursor-pointer"></fa-icon>
+    <a mat-icon-button
+       class="grid place-items-center"
+       href="https://github.com/usama251993">
+      <fa-icon [icon]="['fab', 'github']"
+               size="lg"
+               class="text-lg"
+               style="color:#121212;"
+               matTooltip="GitHub"
+               matTooltipShowDelay="500"
+               #tooltip="matTooltip"></fa-icon>
+    </a>
+
+    <a mat-icon-button
+       class="grid place-items-center"
+       href="https://www.linkedin.com/in/usama-ansari-81380080">
+      <fa-icon [icon]="['fab', 'linkedin']"
+               size="lg"
+               class="text-lg"
+               style="color: #0077b7;"
+               matTooltip="LinkedIn"
+               matTooltipShowDelay="500"
+               #tooltip="matTooltip"></fa-icon>
+    </a>
+
+    <button mat-icon-button
+            class="grid place-items-center">
+      <fa-icon [icon]="['fab', 'discord']"
+               size="lg"
+               class="text-lg"
+               style="color: #738ADB;"
+               matTooltip="Discord"
+               matTooltipShowDelay="500"
+               #tooltip="matTooltip"></fa-icon>
+    </button>
+
+    <button mat-icon-button
+            class="grid place-items-center">
+      <fa-icon [icon]="['fas', 'envelope-open-text']"
+               size="lg"
+               class="text-lg"
+               style="color: #0072C6;"
+               matTooltip="E-mail"
+               matTooltipShowDelay="500"
+               #tooltip="matTooltip"></fa-icon>
+    </button>
   </div>
 </div>
