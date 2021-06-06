@@ -45,7 +45,7 @@ import { MatButtonModule } from '@angular/material/button';
 // import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 // import { MatDialogModule } from '@angular/material/dialog'
 // import { MatSnackBarModule } from '@angular/material/snack-bar'
-// import { MatTooltipModule } from '@angular/material/tooltip'
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // *************** DATA TABLE ***************
 // import { MatPaginatorModule } from '@angular/material/paginator'
@@ -53,7 +53,7 @@ import { MatButtonModule } from '@angular/material/button';
 // import { MatTableModule } from '@angular/material/table'
 
 
-const COMMON = [
+const MATERIAL_MODULES = [
   // MatAutocompleteModule,
   // MatCheckboxModule,
   // MatDatepickerModule,
@@ -75,7 +75,7 @@ const COMMON = [
   // MatStepperModule,
   // MatTabsModule,
   // MatTreeModule,
-  MatButtonModule
+  MatButtonModule,
   // MatButtonToggleModule,
   // MatBadgeModule,
   // MatChipsModule,
@@ -86,14 +86,14 @@ const COMMON = [
   // MatBottomSheetModule,
   // MatDialogModule,
   // MatSnackBarModule,
-  // MatTooltipModule,
+  MatTooltipModule
   // MatPaginatorModule,
   // MatSortModule,
   // MatTableModule
 ];
 
-const IMPORTS = [...COMMON];
-const EXPORTS = [...COMMON];
+const IMPORTS = [...MATERIAL_MODULES];
+const EXPORTS = [...MATERIAL_MODULES];
 
 @NgModule({
   imports: [...IMPORTS],

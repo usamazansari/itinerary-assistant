@@ -4,12 +4,12 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 
 import {
   faBars,
-  faBolt,
   faComments,
   faCompass,
   faEdit,
+  faEnvelopeOpenText,
+  faFileAlt,
   faPalette,
-  faRocket,
   faSuitcaseRolling,
   faTasks,
   faVial,
@@ -17,24 +17,28 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faAngular,
+  faDiscord,
+  faFortAwesomeAlt,
   faGithub,
   faLinkedin
 } from '@fortawesome/free-brands-svg-icons';
 
 const ICONS = [
   faBars,
-  faBolt,
   faComments,
   faCompass,
   faEdit,
+  faEnvelopeOpenText,
+  faFileAlt,
   faPalette,
-  faRocket,
   faSuitcaseRolling,
   faTasks,
   faVial,
   faWindowMinimize,
 
   faAngular,
+  faDiscord,
+  faFortAwesomeAlt,
   faGithub,
   faLinkedin
 ];
