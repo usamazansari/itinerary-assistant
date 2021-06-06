@@ -8,6 +8,7 @@ import {
   faComments,
   faCompass,
   faEdit,
+  faFileAlt,
   faPalette,
   faRocket,
   faSuitcaseRolling,
@@ -15,6 +16,7 @@ import {
   faVial,
   faWindowMinimize
 } from '@fortawesome/free-solid-svg-icons';
+// import {} from '@fortawesome/free-regular-svg-icons';
 import {
   faAngular,
   faGithub,
@@ -26,6 +28,7 @@ const ICONS = [
   faBolt,
   faComments,
   faCompass,
+  faFileAlt,
   faEdit,
   faPalette,
   faRocket,

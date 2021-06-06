@@ -81,10 +81,9 @@
 
             <mat-list class="pl-8"
                       dense>
-              <mat-list-item class="cursor-default">Repair the
-                <span class="ml-1 font-mono text-blue-700">background-color</span>
-              </mat-list-item>
               <mat-list-item class="cursor-default">Add Links to clickables</mat-list-item>
+              <mat-list-item class="cursor-default">Make the footer component free of loose
+                strings</mat-list-item>
             </mat-list>
           </mat-list>
         </div>
@@ -202,6 +201,29 @@
                 <mat-list-item class="cursor-default">Suggestions</mat-list-item>
                 <mat-list-item class="cursor-default">Rating</mat-list-item>
               </mat-list>
+            </mat-list>
+
+            <!-- Documentation -->
+            <mat-list-item>
+              <button mat-icon-button
+                      class="outline-none focus:outline-none"
+                      color="primary"
+                      mat-list-icon>
+                <fa-icon [icon]="['fas', 'file-alt']"
+                         class="flex items-center justify-center"></fa-icon>
+              </button>
+              <p class="m-0 cursor-default font-bold text-gray-600"
+                 matLine>Code Documentation</p>
+            </mat-list-item>
+
+            <mat-list class="pl-8"
+                      dense>
+              <mat-list-item class="cursor-default">Interfaces</mat-list-item>
+              <mat-list-item class="cursor-default">Types</mat-list-item>
+              <mat-list-item class="cursor-default">Classes</mat-list-item>
+              <mat-list-item class="cursor-default">Methods</mat-list-item>
+              <mat-list-item class="cursor-default">Functions</mat-list-item>
+              <mat-list-item class="cursor-default">Constants</mat-list-item>
             </mat-list>
           </mat-list>
         </div>
