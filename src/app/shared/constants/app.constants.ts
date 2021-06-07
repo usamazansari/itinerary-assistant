@@ -1,4 +1,9 @@
 /**
+ * Author
+ */
+export const AUTHOR = 'Usama Ansari';
+
+/**
  * Name of the application
  */
 export const APPLICATION_NAME = 'Itinerary Assistant';

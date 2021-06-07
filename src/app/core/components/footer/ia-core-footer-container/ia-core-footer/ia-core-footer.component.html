@@ -1,12 +1,16 @@
+<!-- TODO: Resolve type guard issue - Reference: https://discord.com/channels/748677963142135818/748806201621479435/851367313545887774 -->
 <div
      class="container grid grid-cols-1 md:grid-cols-2 justify-between items-center px-4 mx-auto shadow-z3 bg-white dark:bg-gray-900 dark:text-white">
   <div class="grid place-items-center md:justify-start my-4">
     <p class="text-sm text-center cursor-default">
-      <span class="text-indigo-700 font-bold">Made with</span>
+      <span class="text-indigo-700 font-bold">{{ assets.madeWith }}</span>
       <fa-icon [icon]="['fas', 'heart']"
                class="mx-1 text-lg"
                style="color: #bd0e2d;"></fa-icon>
-      <span class="text-gray-400">using</span>
+      <!-- <fa-icon [icon]="[assets.heart.icon.style, assets.heart.icon.name]"
+               class="mx-1 text-lg"
+               style="color: #bd0e2d;"></fa-icon> -->
+      <span class="text-gray-400">{{ assets.using }}</span>
     </p>
 
     <div class="grid grid-flow-col">
@@ -20,6 +24,9 @@
         <fa-icon [icon]="['fab', 'angular']"
                  class="text-2xl"
                  style="color: #bd0e2d;"></fa-icon>
+        <!-- <fa-icon [icon]="[assets.angular.icon.style, assets.angular.icon.name]"
+                 class="text-2xl"
+                 style="color: #bd0e2d;"></fa-icon> -->
       </a>
 
       <a mat-icon-button
@@ -32,6 +39,9 @@
         <img src="assets/media/images/tailwindcss.svg"
              alt="Tailwind"
              class="w-6 h-6">
+        <!-- <img [src]="assets.tailwind.icon.src"
+             [alt]="assets.tailwind.icon.alt"
+             class="w-6 h-6"> -->
       </a>
 
       <a mat-icon-button
@@ -44,6 +54,9 @@
         <fa-icon [icon]="['fab', 'fort-awesome-alt']"
                  class="text-2xl"
                  style="color: #339af0;"></fa-icon>
+        <!-- <fa-icon [icon]="[assets.fontawesome.icon.style, assets.fontawesome.icon.name]"
+                 class="text-2xl"
+                 style="color: #339af0;"></fa-icon> -->
       </a>
 
       <a mat-icon-button
@@ -56,14 +69,17 @@
         <img src="assets/media/images/firebase.svg"
              alt="Firebase"
              class="w-6 h-6">
+        <!-- <img [src]="assets.firebase.icon.src"
+             [alt]="assets.firebase.icon.alt"
+             class="w-6 h-6"> -->
       </a>
     </div>
   </div>
 
   <div class="grid place-items-center md:justify-end my-4">
     <p class="text-sm text-center cursor-default">
-      <span class="text-gray-400">by</span>
-      <span class="ml-1 text-indigo-700 font-bold">Usama Ansari</span>
+      <span class="text-gray-400">{{ assets.by }}</span>
+      <span class="ml-1 text-indigo-700 font-bold">{{ assets.author }}</span>
     </p>
 
     <div class="grid grid-flow-col">
@@ -76,6 +92,9 @@
         <fa-icon [icon]="['fab', 'github']"
                  class="text-2xl"
                  style="color: #6e7681;"></fa-icon>
+        <!-- <fa-icon [icon]="[assets.github.icon.style, assets.github.icon.name]"
+                 class="text-2xl"
+                 style="color: #6e7681;"></fa-icon> -->
       </a>
 
       <a mat-icon-button
@@ -87,6 +106,9 @@
         <fa-icon [icon]="['fab', 'linkedin']"
                  class="text-2xl"
                  style="color: #0077b7;"></fa-icon>
+        <!-- <fa-icon [icon]="[assets.linkedin.icon.style, assets.linkedin.icon.name]"
+                 class="text-2xl"
+                 style="color: #0077b7;"></fa-icon> -->
       </a>
 
       <button mat-icon-button
@@ -97,6 +119,9 @@
         <fa-icon [icon]="['fab', 'discord']"
                  class="text-2xl"
                  style="color: #738ADB;"></fa-icon>
+        <!-- <fa-icon [icon]="[assets.discord.icon.style, assets.discord.icon.name]"
+                 class="text-2xl"
+                 style="color: #738ADB;"></fa-icon> -->
       </button>
 
       <button mat-icon-button
@@ -107,6 +132,9 @@
         <fa-icon [icon]="['fas', 'envelope-open-text']"
                  class="text-2xl"
                  style="color: #0072C6;"></fa-icon>
+        <!-- <fa-icon [icon]="[assets.email.icon.style, assets.email.icon.name]"
+                 class="text-2xl"
+                 style="color: #0072C6;"></fa-icon> -->
       </button>
     </div>
   </div>
