@@ -118,7 +118,8 @@
               class="grid place-items-center outline-none focus:outline-none"
               [matTooltip]="assets.discord.name"
               matTooltipShowDelay="500"
-              #tooltip="matTooltip">
+              #tooltip="matTooltip"
+              (click)="copyDiscordID()">
         <fa-icon [icon]="['fab', 'discord']"
                  class="text-2xl"
                  style="color: #738ADB;"></fa-icon>
@@ -131,7 +132,8 @@
               class="grid place-items-center outline-none focus:outline-none"
               [matTooltip]="assets.email.name"
               matTooltipShowDelay="500"
-              #tooltip="matTooltip">
+              #tooltip="matTooltip"
+              (click)="copyEmailID()">
         <fa-icon [icon]="['fas', 'envelope-open-text']"
                  class="text-2xl"
                  style="color: #0072C6;"></fa-icon>

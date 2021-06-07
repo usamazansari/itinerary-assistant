@@ -9,12 +9,36 @@ import { DEFAULT_IA_CORE_FOOTER_ASSETS, IaCoreFooterAssetsModel } from '@ia-core
 @Injectable()
 export class IaCoreFooterService {
 
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
+   * @private
+   * @type {BehaviorSubject<IaCoreFooterAssetsModel>}
+   * @memberof IaCoreFooterService
+   */
   private _assets$: BehaviorSubject<IaCoreFooterAssetsModel> = new BehaviorSubject<IaCoreFooterAssetsModel>(null);
 
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
+   * @private
+   * @type {IaCoreFooterAssetsModel}
+   * @memberof IaCoreFooterService
+   */
   private _assets: IaCoreFooterAssetsModel = { ...DEFAULT_IA_CORE_FOOTER_ASSETS };
 
+  /**
+   * Creates an instance of IaCoreFooterService.
+   * 
+   * @memberof IaCoreFooterService
+   */
   constructor() { }
 
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
+   * @memberof IaCoreFooterService
+   */
   fetchAssets(): void {
     this._assets = {
       ...DEFAULT_IA_CORE_FOOTER_ASSETS,
@@ -77,8 +101,32 @@ export class IaCoreFooterService {
     this._assets$.next(this._assets);
   }
 
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
+   * @return {*}  {Observable<IaCoreFooterAssetsModel>}
+   * @memberof IaCoreFooterService
+   */
   watchAssets$(): Observable<IaCoreFooterAssetsModel> {
     return this._assets$.asObservable();
+  }
+
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
+   * @memberof IaCoreFooterService
+   */
+  copyDiscordID(): void {
+
+  }
+
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
+   * @memberof IaCoreFooterService
+   */
+  copyEmailID(): void {
+
   }
 
   /**

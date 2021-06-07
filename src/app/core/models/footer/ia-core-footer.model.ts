@@ -1,6 +1,10 @@
 import { AppFaIconModel } from '@shared/models/icon/app-icon.model';
 import { AppImageModel } from '@shared/models/image/app-image.model';
 
+/**
+ * TODO: Create common models for `ia-core.module`
+ */
+
 type IaCoreFooterIcon = AppFaIconModel | AppImageModel;
 
 interface IaCoreFooterLink {
