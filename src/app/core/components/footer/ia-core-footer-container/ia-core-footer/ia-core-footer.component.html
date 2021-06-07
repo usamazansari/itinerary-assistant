@@ -1,4 +1,7 @@
-<!-- TODO: Resolve type guard issue - Reference: https://discord.com/channels/748677963142135818/748806201621479435/851367313545887774 -->
+<!-- 
+  TODO: Resolve type guard issue
+  Reference: https://discord.com/channels/748677963142135818/748806201621479435/851367313545887774 
+-->
 <div
      class="container grid grid-cols-1 md:grid-cols-2 justify-between items-center px-4 mx-auto shadow-z3 bg-white dark:bg-gray-900 dark:text-white">
   <div class="grid place-items-center md:justify-start my-4">
@@ -16,9 +19,9 @@
     <div class="grid grid-flow-col">
       <a mat-icon-button
          class="grid place-items-center"
-         href="https://angular.io/"
+         [href]="assets.angular.url"
          target="_blank"
-         matTooltip="Angular"
+         [matTooltip]="assets.angular.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
         <fa-icon [icon]="['fab', 'angular']"
@@ -31,9 +34,9 @@
 
       <a mat-icon-button
          class="grid place-items-center"
-         href="https://tailwindcss.com/"
+         [href]="assets.tailwind.url"
          target="_blank"
-         matTooltip="Tailwind"
+         [matTooltip]="assets.tailwind.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
         <img src="assets/media/images/tailwindcss.svg"
@@ -46,9 +49,9 @@
 
       <a mat-icon-button
          class="grid place-items-center"
-         href="https://fontawesome.com/"
+         [href]="assets.fontawesome.url"
          target="_blank"
-         matTooltip="Font Awesome"
+         [matTooltip]="assets.fontawesome.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
         <fa-icon [icon]="['fab', 'fort-awesome-alt']"
@@ -61,9 +64,9 @@
 
       <a mat-icon-button
          class="grid place-items-center"
-         href="https://firebase.google.com/"
+         [href]="assets.firebase.url"
          target="_blank"
-         matTooltip="Firebase"
+         [matTooltip]="assets.firebase.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
         <img src="assets/media/images/firebase.svg"
@@ -85,8 +88,8 @@
     <div class="grid grid-flow-col">
       <a mat-icon-button
          class="grid place-items-center"
-         href="https://github.com/usama251993"
-         matTooltip="GitHub"
+         [href]="assets.github.url"
+         [matTooltip]="assets.github.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
         <fa-icon [icon]="['fab', 'github']"
@@ -99,8 +102,8 @@
 
       <a mat-icon-button
          class="grid place-items-center"
-         href="https://www.linkedin.com/in/usama-ansari-81380080"
-         matTooltip="LinkedIn"
+         [href]="assets.linkedin.url"
+         [matTooltip]="assets.linkedin.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
         <fa-icon [icon]="['fab', 'linkedin']"
@@ -113,7 +116,7 @@
 
       <button mat-icon-button
               class="grid place-items-center outline-none focus:outline-none"
-              matTooltip="Discord"
+              [matTooltip]="assets.discord.name"
               matTooltipShowDelay="500"
               #tooltip="matTooltip">
         <fa-icon [icon]="['fab', 'discord']"
@@ -126,7 +129,7 @@
 
       <button mat-icon-button
               class="grid place-items-center outline-none focus:outline-none"
-              matTooltip="E-mail"
+              [matTooltip]="assets.email.name"
               matTooltipShowDelay="500"
               #tooltip="matTooltip">
         <fa-icon [icon]="['fas', 'envelope-open-text']"
