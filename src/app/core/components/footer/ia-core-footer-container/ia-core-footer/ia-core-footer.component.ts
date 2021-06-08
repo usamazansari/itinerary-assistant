@@ -2,7 +2,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { IaCoreFooterAssetsModel } from '@ia-core/models/footer/ia-core-footer.model';
+import { IaCoreFooterAssetsModel, IaCoreFooterIcon } from '@ia-core/models/footer/ia-core-footer.model';
+
+// TODO: Hierarachical Modularization
+import { AppFaIconModel } from '@shared/models/icon/app-icon.model';
+import { AppImageModel } from '@shared/models/image/app-image.model';
 
 /**
  * TODO: :monocle_face: Documentation Required
@@ -82,6 +86,28 @@ export class IaCoreFooterComponent implements OnInit {
    */
   copyEmailID(): void {
     this.copyEmailID$.emit();
+  }
+
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
+   * @param {IaCoreFooterIcon} icon
+   * @return {*}  {icon is AppFaIconModel}
+   * @memberof IaCoreFooterComponent
+   */
+  isIcon(icon: IaCoreFooterIcon): icon is AppFaIconModel {
+    return 'name' in icon;
+  }
+
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
+   * @param {IaCoreFooterIcon} icon
+   * @return {*}  {icon is AppImageModel}
+   * @memberof IaCoreFooterComponent
+   */
+  isImage(icon: IaCoreFooterIcon): icon is AppImageModel {
+    return 'src' in icon;
   }
 
 }

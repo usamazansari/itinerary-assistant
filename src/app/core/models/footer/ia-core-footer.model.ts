@@ -5,11 +5,11 @@ import { AppImageModel } from '@shared/models/image/app-image.model';
  * TODO: Create common models for `ia-core.module`
  */
 
-type IaCoreFooterIcon = AppFaIconModel | AppImageModel;
+export type IaCoreFooterIcon = AppFaIconModel | AppImageModel;
 
 interface IaCoreFooterLink {
-  name: string;
-  url: string;
+  name: string | null;
+  url: string | null;
   icon: IaCoreFooterIcon;
 }
 
