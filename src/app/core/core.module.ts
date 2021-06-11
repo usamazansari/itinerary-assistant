@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AppSharedModule } from '@shared/shared.module';
+import { AppMaterialModule } from '@shared/modules/material/material.module';
 
 import { IaCoreRoutingModule } from './core-routing.module';
 import { IaCoreIconModule } from '@ia-core/modules/icons/ia-core-icon/ia-core-icon.module';
-import { IaCoreMaterialModule } from './modules/material/ia-core-material/ia-core-material.module';
 
 import { IaCoreShellComponent } from './components/shell/ia-core-shell.component';
 
@@ -23,7 +22,6 @@ import { IaCoreMockTripListComponent } from './components/mock/ia-core-mock-trip
 import { IaCoreTodoContainerComponent } from './components/todo/ia-core-todo-container/ia-core-todo-container.component';
 import { IaCoreTodoComponent } from './components/todo/ia-core-todo-container/ia-core-todo/ia-core-todo.component';
 
-
 const DECLARATIONS = [
   IaCoreShellComponent,
 
@@ -37,19 +35,21 @@ const DECLARATIONS = [
   IaCoreFooterComponent,
 
   IaCoreMockTripListContainerComponent,
-  IaCoreMockTripListComponent
+  IaCoreMockTripListComponent,
+
+  IaCoreTodoContainerComponent,
+  IaCoreTodoComponent
 ];
 
 const IMPORTS = [
   CommonModule,
+  AppMaterialModule,
   IaCoreRoutingModule,
-  AppSharedModule,
-  IaCoreIconModule,
-  IaCoreMaterialModule
+  IaCoreIconModule
 ];
 
 @NgModule({
-  declarations: [...DECLARATIONS, IaCoreTodoContainerComponent, IaCoreTodoComponent],
+  declarations: [...DECLARATIONS],
   imports: [...IMPORTS]
 })
 export class IaCoreModule { }

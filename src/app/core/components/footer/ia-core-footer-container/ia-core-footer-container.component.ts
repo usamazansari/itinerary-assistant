@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { IaCoreFooterAssetsModel } from '@ia-core/models/footer/ia-core-footer.model';
 import { IaCoreFooterService } from '@ia-core/services/footer/ia-core-footer/ia-core-footer.service';
+import { IaCoreFooterAssetsModel, IaCoreFooterFlagsModel } from '@ia-core/models/footer/ia-core-footer.model';
 
 /**
  * TODO: :monocle_face: Documentation Required
@@ -15,9 +15,9 @@ import { IaCoreFooterService } from '@ia-core/services/footer/ia-core-footer/ia-
 @Component({
   selector: 'app-ia-core-footer-container',
   template: `<app-ia-core-footer [assets]         = "assets$ | async"
-                                 (copyDiscordID$) = "copyDiscordID"
-                                 (copyEmailID$)   = "copyEmailID"></app-ia-core-footer>`,
-  providers: [IaCoreFooterService]
+                                 [flags]          = "flags$  | async"
+                                 (copyDiscordID$) = "copyDiscordID()"
+                                 (copyEmailID$)   = "copyEmailID()"></app-ia-core-footer>`
 })
 export class IaCoreFooterContainerComponent implements OnInit {
 
@@ -28,6 +28,8 @@ export class IaCoreFooterContainerComponent implements OnInit {
    * @memberof IaCoreFooterContainerComponent
    */
   assets$: Observable<IaCoreFooterAssetsModel>;
+
+  flags$: Observable<IaCoreFooterFlagsModel>;
 
   /**
    * Creates an instance of IaCoreFooterContainerComponent.
@@ -44,8 +46,10 @@ export class IaCoreFooterContainerComponent implements OnInit {
    */
   ngOnInit(): void {
     this._service.fetchAssets();
+    this._service.resetFlags();
 
     this.assets$ = this._service.watchAssets$();
+    this.flags$ = this._service.watchFlags$();
   }
 
   /**
