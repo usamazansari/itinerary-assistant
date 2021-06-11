@@ -4,19 +4,8 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 
 import {
   faBars,
-  faCode,
-  faComments,
-  faCompass,
-  faEdit,
   faEnvelopeOpenText,
-  faFileAlt,
-  faHeart,
-  faLightbulb,
-  faPalette,
-  faSuitcaseRolling,
-  faTasks,
-  faVial,
-  faWindowMinimize
+  faHeart
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faAngular,
@@ -28,19 +17,8 @@ import {
 
 const ICONS = [
   faBars,
-  faCode,
-  faComments,
-  faCompass,
-  faEdit,
   faEnvelopeOpenText,
-  faFileAlt,
   faHeart,
-  faLightbulb,
-  faPalette,
-  faSuitcaseRolling,
-  faTasks,
-  faVial,
-  faWindowMinimize,
 
   faAngular,
   faDiscord,
