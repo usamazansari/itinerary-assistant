@@ -2,7 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { IaCoreFooterAssetsModel, IaCoreFooterIcon } from '@ia-core/models/footer/ia-core-footer.model';
+import {
+  IaCoreFooterAssetsModel, IaCoreFooterFlagsModel,
+  IaCoreFooterIcon
+} from '@ia-core/models/footer/ia-core-footer.model';
 
 // TODO: Hierarachical Modularization
 import { AppFaIconModel } from '@shared/models/icon/app-icon.model';
@@ -34,11 +37,29 @@ export class IaCoreFooterComponent implements OnInit {
   /**
    * TODO: :monocle_face: Documentation Required
    *
+   * @private
+   * @type {BehaviorSubject<IaCoreFooterFlagsModel>}
+   * @memberof IaCoreFooterComponent
+   */
+  private _flags$: BehaviorSubject<IaCoreFooterFlagsModel> = new BehaviorSubject<IaCoreFooterFlagsModel>(null);
+
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
    * @memberof IaCoreFooterComponent
    */
   @Input()
   set assets(value: IaCoreFooterAssetsModel) { this._assets$.next(value); }
   get assets(): IaCoreFooterAssetsModel { return this._assets$.getValue(); }
+
+  /**
+   * TODO: :monocle_face: Documentation Required
+   *
+   * @memberof IaCoreFooterComponent
+   */
+  @Input()
+  set flags(value: IaCoreFooterFlagsModel) { this._flags$.next(value); }
+  get flags(): IaCoreFooterFlagsModel { return this._flags$.getValue(); }
 
   /**
    * TODO: :monocle_face: Documentation Required

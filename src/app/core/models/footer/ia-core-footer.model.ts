@@ -1,5 +1,6 @@
 import { AppFaIconModel } from '@shared/models/icon/app-icon.model';
 import { AppImageModel } from '@shared/models/image/app-image.model';
+import { IaCoreFlagModel, DEFAULT_IA_CORE_FLAG } from '@ia-core/models/ia-core.model';
 
 /**
  * TODO: Create common models for `ia-core.module`
@@ -142,4 +143,13 @@ export const DEFAULT_IA_CORE_FOOTER_ASSETS: IaCoreFooterAssetsModel = {
   linkedin: null,
   discord: null,
   email: null
+};
+
+export interface IaCoreFooterFlagsModel {
+  discord: IaCoreFlagModel;
+  email: IaCoreFlagModel;
+}
+
+export const DEFAULT_IA_CORE_FOOTER_FLAGS: IaCoreFooterFlagsModel = {
+  discord: { ...DEFAULT_IA_CORE_FLAG }, email: { ...DEFAULT_IA_CORE_FLAG }
 };

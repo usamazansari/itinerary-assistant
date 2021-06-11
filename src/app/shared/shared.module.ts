@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 
-import { AppFontAwesomeModule } from './modules/fontawesome/fontawesome.module';
-import { AppMaterialModule } from './modules/material/material.module';
-
 const DECLARATIONS = [];
 
-const IMPORTS = [
-  AppMaterialModule,
-  AppFontAwesomeModule
-];
+const IMPORTS = [];
 
+/**
+ * @redundant - will be used when shared components and/or ngrx/ngxs state are in action
+ *
+ * @export
+ * @class AppSharedModule
+ */
 @NgModule({
   declarations: [...DECLARATIONS],
   imports: [...IMPORTS],
