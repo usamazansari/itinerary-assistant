@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IA_CORE_ROUTES } from '@ia-core/core.routes';
+import { IA_CORE_ROUTES } from '@ia-core/ia-core.routes';
 
 import { IaCoreRouterPayloadModel } from '@ia-core/models/ia-core.model';
 import { AppRouterService } from '@shared/services/router/app-router/app-router.service';
