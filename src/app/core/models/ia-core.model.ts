@@ -2,6 +2,7 @@ import { AppButtonModel, DEFAULT_APP_BUTTON } from '@shared/models/button/app-bu
 import { AppFaIconModel, DEFAULT_FA_ICON } from '@shared/models/icon/app-icon.model';
 import { AppImageModel, DEFAULT_APP_IMAGE } from '@shared/models/image/app-image.model';
 import { AppRouterPayloadModel } from '@shared/models/router/app-router.model';
+import { AppFlagModel, DEFAULT_APP_FLAG } from '@shared/models/flag/app-flag.model';
 
 /**
  * Icon in `ia-core` module.
@@ -72,3 +73,7 @@ export const DEFAULT_IA_BUTTON: IaCoreButtonModel = { ...DEFAULT_APP_BUTTON };
 export interface IaCoreImageModel extends AppImageModel { }
 
 export const DEFAULT_IA_IMAGE: IaCoreImageModel = { ...DEFAULT_APP_IMAGE };
+
+export interface IaCoreFlagModel extends AppFlagModel { }
+
+export const DEFAULT_IA_CORE_FLAG: IaCoreFlagModel = { ...DEFAULT_APP_FLAG };

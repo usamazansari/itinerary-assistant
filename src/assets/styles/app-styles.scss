@@ -7,7 +7,6 @@ body {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
-  font-family: 'Fira Sans', 'Calibri', sans-serif;
 }
 
 *.app-bg-primary {
@@ -23,4 +22,16 @@ body {
 *.app-bg-warn {
   @apply bg-red-600;
   @apply text-white;
+}
+
+*.app-fg-primary {
+  @apply text-indigo-700;
+}
+
+*.app-fg-secondary {
+  @apply text-pink-500;
+}
+
+*.app-fg-warn {
+  @apply text-red-600;
 }

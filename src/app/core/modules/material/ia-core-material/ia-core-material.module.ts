@@ -18,21 +18,21 @@ import { NgModule } from '@angular/core';
 
 // *************** NAVIGATION ***************
 // import { MatMenuModule } from '@angular/material/menu'
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatSidenavModule } from '@angular/material/sidenav';
+// import { MatToolbarModule } from '@angular/material/toolbar';
 
 // *************** LAYOUT ***************
-import { MatCardModule } from '@angular/material/card';
+// import { MatCardModule } from '@angular/material/card';
 // import { MatDividerModule } from '@angular/material/divider'
 // import { MatExpansionModule } from '@angular/material/expansion'
 // import { MatGridListModule } from '@angular/material/grid-list'
-import { MatListModule } from '@angular/material/list';
+// import { MatListModule } from '@angular/material/list';
 // import { MatStepperModule } from '@angular/material/stepper'
 // import { MatTabsModule } from '@angular/material/tabs'
 // import { MatTreeModule } from '@angular/material/tree'
 
 // *************** BUTTONS & INDICATORS ***************
-import { MatButtonModule } from '@angular/material/button';
+// import { MatButtonModule } from '@angular/material/button';
 // import { MatButtonToggleModule } from '@angular/material/button-toggle'
 // import { MatBadgeModule } from '@angular/material/badge'
 // import { MatChipsModule } from '@angular/material/chips'
@@ -45,7 +45,7 @@ import { MatButtonModule } from '@angular/material/button';
 // import { MatBottomSheetModule } from '@angular/material/bottom-sheet'
 // import { MatDialogModule } from '@angular/material/dialog'
 // import { MatSnackBarModule } from '@angular/material/snack-bar'
-import { MatTooltipModule } from '@angular/material/tooltip';
+// import { MatTooltipModule } from '@angular/material/tooltip';
 
 // *************** DATA TABLE ***************
 // import { MatPaginatorModule } from '@angular/material/paginator'
@@ -65,17 +65,17 @@ const MATERIAL_MODULES = [
   // MatSliderModule,
   // MatSlideToggleModule,
   // MatMenuModule,
-  MatSidenavModule,
-  MatToolbarModule,
-  MatCardModule,
+  // MatSidenavModule,
+  // MatToolbarModule,
+  // MatCardModule,
   // MatDividerModule,
   // MatExpansionModule,
   // MatGridListModule,
-  MatListModule,
+  // MatListModule,
   // MatStepperModule,
   // MatTabsModule,
   // MatTreeModule,
-  MatButtonModule,
+  // MatButtonModule,
   // MatButtonToggleModule,
   // MatBadgeModule,
   // MatChipsModule,
@@ -86,7 +86,7 @@ const MATERIAL_MODULES = [
   // MatBottomSheetModule,
   // MatDialogModule,
   // MatSnackBarModule,
-  MatTooltipModule
+  // MatTooltipModule
   // MatPaginatorModule,
   // MatSortModule,
   // MatTableModule
@@ -95,6 +95,12 @@ const MATERIAL_MODULES = [
 const IMPORTS = [...MATERIAL_MODULES];
 const EXPORTS = [...MATERIAL_MODULES];
 
+/**
+ * @redundant Remove this module
+ *
+ * @export
+ * @class IaCoreMaterialModule
+ */
 @NgModule({
   imports: [...IMPORTS],
   exports: [...EXPORTS]

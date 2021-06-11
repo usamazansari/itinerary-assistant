@@ -1,4 +1,15 @@
 /**
+ * Author
+ */
+export const AUTHOR = {
+  FULLNAME: 'Usama Ansari',
+  GITHUB: 'usama251993',
+  LINKEDIN: 'usama-ansari-81380080',
+  DISCORD: 'usama251993#5438',
+  EMAIL: 'usama251993@gmail.com'
+};
+
+/**
  * Name of the application
  */
 export const APPLICATION_NAME = 'Itinerary Assistant';

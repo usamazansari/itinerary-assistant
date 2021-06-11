@@ -4,11 +4,14 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 
 import {
   faBars,
+  faCode,
   faComments,
   faCompass,
   faEdit,
   faEnvelopeOpenText,
   faFileAlt,
+  faHeart,
+  faLightbulb,
   faPalette,
   faSuitcaseRolling,
   faTasks,
@@ -25,11 +28,14 @@ import {
 
 const ICONS = [
   faBars,
+  faCode,
   faComments,
   faCompass,
   faEdit,
   faEnvelopeOpenText,
   faFileAlt,
+  faHeart,
+  faLightbulb,
   faPalette,
   faSuitcaseRolling,
   faTasks,
