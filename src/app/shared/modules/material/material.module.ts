@@ -44,7 +44,7 @@ import { MatButtonModule } from '@angular/material/button';
 // import { MatIconModule } from '@angular/material/icon';
 // import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // import { MatProgressBarModule } from '@angular/material/progress-bar';
-// import { MatRippleModule } from '@angular/material/core';
+import { MatRippleModule } from '@angular/material/core';
 
 // *************** POPUPS & MODALS ***************
 // import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -88,7 +88,7 @@ const MATERIAL_MODULES = [
   // MatIconModule,
   // MatProgressSpinnerModule,
   // MatProgressBarModule,
-  // MatRippleModule,
+  MatRippleModule,
   // MatBottomSheetModule,
   // MatDialogModule,
   MatSnackBarModule,
