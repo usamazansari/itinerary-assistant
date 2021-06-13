@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IaCoreTodoComponent } from './ia-core-todo.component';
+import { IaCoreHomeComponent } from './ia-core-home.component';
 
-describe('IaCoreTodoComponent', () => {
-  let component: IaCoreTodoComponent;
-  let fixture: ComponentFixture<IaCoreTodoComponent>;
+describe('IaCoreHomeComponent', () => {
+  let component: IaCoreHomeComponent;
+  let fixture: ComponentFixture<IaCoreHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IaCoreTodoComponent ]
+      declarations: [ IaCoreHomeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IaCoreTodoComponent);
+    fixture = TestBed.createComponent(IaCoreHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

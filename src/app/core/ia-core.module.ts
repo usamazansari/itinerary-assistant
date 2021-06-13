@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AppMaterialModule } from '@shared/modules/material/material.module';
 
-import { IaCoreRoutingModule } from './core-routing.module';
+import { IaCoreRoutingModule } from './ia-core-routing.module';
 import { IaCoreIconModule } from '@ia-core/modules/icons/ia-core-icon/ia-core-icon.module';
 
 import { IaCoreShellComponent } from './components/shell/ia-core-shell.component';
@@ -19,8 +19,8 @@ import { IaCoreFooterComponent } from './components/footer/ia-core-footer-contai
 
 import { IaCoreMockTripListContainerComponent } from './components/mock/ia-core-mock-trip-list-container/ia-core-mock-trip-list-container.component';
 import { IaCoreMockTripListComponent } from './components/mock/ia-core-mock-trip-list-container/ia-core-mock-trip-list/ia-core-mock-trip-list.component';
-import { IaCoreTodoContainerComponent } from './components/todo/ia-core-todo-container/ia-core-todo-container.component';
-import { IaCoreTodoComponent } from './components/todo/ia-core-todo-container/ia-core-todo/ia-core-todo.component';
+import { IaCoreHomeContainerComponent } from './components/home/ia-core-home-container/ia-core-home-container.component';
+import { IaCoreHomeComponent } from './components/home/ia-core-home-container/ia-core-home/ia-core-home.component';
 
 const DECLARATIONS = [
   IaCoreShellComponent,
@@ -35,10 +35,7 @@ const DECLARATIONS = [
   IaCoreFooterComponent,
 
   IaCoreMockTripListContainerComponent,
-  IaCoreMockTripListComponent,
-
-  IaCoreTodoContainerComponent,
-  IaCoreTodoComponent
+  IaCoreMockTripListComponent
 ];
 
 const IMPORTS = [
@@ -49,7 +46,7 @@ const IMPORTS = [
 ];
 
 @NgModule({
-  declarations: [...DECLARATIONS],
+  declarations: [...DECLARATIONS, IaCoreHomeContainerComponent, IaCoreHomeComponent],
   imports: [...IMPORTS]
 })
 export class IaCoreModule { }
