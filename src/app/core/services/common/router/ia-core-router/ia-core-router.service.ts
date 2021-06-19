@@ -20,12 +20,16 @@ export class IaCoreRouterService {
   ) { }
 
   /**
-   * :monocle_face: Documentation Required!
+   * Navigate within the core module
+   * 
+   * ```
+   * baseURL/{{ payload.routes }}
+   * ```
    *
    * @param {IaCoreRouterPayloadModel} payload
    * @memberof IaCoreRouterService
    */
-  navigate(payload: IaCoreRouterPayloadModel): void { // use a separate service for navigation
+  navigate(payload: IaCoreRouterPayloadModel): void {
     this._routerService.navigate({ routes: [IA_CORE_ROUTES.EMPTY, ...payload.routes], extras: { ...payload.extras } });
   }
 }

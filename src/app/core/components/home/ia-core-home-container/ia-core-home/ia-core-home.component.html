@@ -1,6 +1,8 @@
 <div class="container flex items-center justify-around h-full py-3 mx-auto">
-  <mat-card class="m-2 cursor-pointer">
-    <mat-card-content matRipple>
+  <mat-card class="p-0 m-2 cursor-pointer shadow-z4"
+            (click)="gotoViewTrip()">
+    <mat-card-content class="p-4"
+                      matRipple>
       <div class="grid p-6 pb-2 place-items-center">
         <fa-icon [icon]="[assets.view.icon.style, assets.view.icon.name]"
                  [fixedWidth]="true"
@@ -12,8 +14,10 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="m-2 cursor-pointer">
-    <mat-card-content matRipple>
+  <mat-card class="p-0 m-2 cursor-pointer shadow-z4"
+            (click)="gotoCreateTrip()">
+    <mat-card-content class="p-4"
+                      matRipple>
       <div class="grid p-6 pb-2 place-items-center">
         <fa-icon [icon]="[assets.create.icon.style, assets.create.icon.name]"
                  [fixedWidth]="true"

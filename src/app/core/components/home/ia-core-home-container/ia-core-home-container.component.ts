@@ -7,7 +7,9 @@ import { IaCoreHomeAssetsModel } from '@ia-core/models/home/ia-core-home.model';
 
 @Component({
   selector: 'app-ia-core-home-container',
-  template: `<app-ia-core-home [assets] = "assets$ | async"></app-ia-core-home>`
+  template: `<app-ia-core-home [assets]          = "assets$ | async"
+                               (gotoViewTrip$)   = "gotoViewTrip()"
+                               (gotoCreateTrip$) = "gotoCreateTrip()"></app-ia-core-home>`
 })
 export class IaCoreHomeContainerComponent implements OnInit {
 
@@ -20,5 +22,13 @@ export class IaCoreHomeContainerComponent implements OnInit {
   ngOnInit(): void {
     this._service.fetchAssets();
     this.assets$ = this._service.watchAssets$();
+  }
+
+  gotoViewTrip(): void {
+    this._service.gotoViewTrip();
+  }
+
+  gotoCreateTrip(): void {
+    this._service.gotoCreateTrip();
   }
 }
