@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IaHomeService } from './ia-home.service';
+import { IaTripCoreService } from './ia-trip-core.service';
 
-describe('IaHomeService', () => {
-  let service: IaHomeService;
+describe('IaTripCoreService', () => {
+  let service: IaTripCoreService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(IaHomeService);
+    service = TestBed.inject(IaTripCoreService);
   });
 
   it('should be created', () => {
