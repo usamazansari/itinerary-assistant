@@ -1,37 +1,5 @@
-// html,
-// body {
-// height: 100%;
-// }
-
 body {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
-}
-
-*.app-bg-primary {
-  @apply bg-indigo-700;
-  @apply text-white;
-}
-
-*.app-bg-secondary {
-  @apply bg-pink-500;
-  @apply text-white;
-}
-
-*.app-bg-warn {
-  @apply bg-red-600;
-  @apply text-white;
-}
-
-*.app-fg-primary {
-  @apply text-indigo-700;
-}
-
-*.app-fg-secondary {
-  @apply text-pink-500;
-}
-
-*.app-fg-warn {
-  @apply text-red-600;
 }
