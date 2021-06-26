@@ -1,15 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-extra-boolean-cast */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { guessProductionMode } = require('@ngneat/tailwind');
-
-process.env.TAILWIND_MODE = guessProductionMode() ? 'build' : 'watch';
 
 module.exports = {
+  mode: process.env.TAILWIND_MODE ? 'build' : 'watch',
   important: true,
   purge: {
     content: [
-      './src/**/*.{html,ts,css,scss,sass,less,styl}'
+      './src/**/*.{html,ts,css,scss}'
     ]
   },
   darkMode: 'class', // or 'media' or 'class'
