@@ -5,6 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Debug Plugins",
+      "program": "${workspaceFolder}/tailwind/material/elevation/mat-elevation.plugin.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    },
+    {
       "name": "Debug Angular",
       "type": "pwa-chrome",
       "request": "launch",
