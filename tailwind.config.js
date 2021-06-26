@@ -20,7 +20,7 @@ module.exports = {
     }
   },
   plugins: [
-    require('./tailwind/material/color/mat-color.plugin'),
-    require('./tailwind/material/elevation/mat-elevation.plugin')
+    require('./src/assets/plugins/tailwind/material/color/mat-color.plugin'),
+    require('./src/assets/plugins/tailwind/material/elevation/mat-elevation.plugin')
   ]
 };
