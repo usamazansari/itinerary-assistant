@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
 module.exports = {
-  mode: process.env.TAILWIND_MODE ? 'build' : 'watch',
+  mode: 'jit',
   important: true,
   purge: {
     content: [
