@@ -21,6 +21,7 @@ module.exports = {
   },
   plugins: [
     require('./src/assets/plugins/tailwind/material/color/mat-color.plugin'),
-    require('./src/assets/plugins/tailwind/material/elevation/mat-elevation.plugin')
+    require('./src/assets/plugins/tailwind/material/elevation/mat-elevation.plugin'),
+    require('./src/assets/plugins/tailwind/brands/brand-colors.plugin')
   ]
 };
