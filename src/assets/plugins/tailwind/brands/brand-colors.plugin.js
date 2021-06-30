@@ -19,6 +19,8 @@ function generateUtilities() {
   return utilities;
 }
 
-generateUtilities();
-
-module.exports = plugin(function ({ addUtilities }) { addUtilities(generateUtilities()); });
+module.exports = plugin(function ({ addUtilities }) {
+  addUtilities(
+    generateUtilities(),
+    { variants: ['responsive', 'hover'] });
+});
