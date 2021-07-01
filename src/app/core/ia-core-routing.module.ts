@@ -19,6 +19,10 @@ const routes: Routes = [
       {
         path: IA_CORE_ROUTES.MOCK,
         component: IaCoreMockTripListContainerComponent
+      },
+      {
+        path: IA_CORE_ROUTES.TRIP,
+        loadChildren: () => import('../features/trip/trip.module').then(module => module.TripModule)
       }
     ]
   }

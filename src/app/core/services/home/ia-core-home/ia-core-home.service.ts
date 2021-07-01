@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
+import { IaCoreRouterService } from '@ia-core/services/common/router/ia-core-router/ia-core-router.service';
 import { IaCoreHomeAssetsModel, DEFAULT_IA_CORE_HOME_ASSETS } from '@ia-core/models/home/ia-core-home.model';
+import { IA_CORE_ROUTES } from '@ia-core/ia-core.routes';
+import { TRIP_ROUTES } from 'src/app/features/trip/trip.routes';
 
 /**
  * TODO: :monocle_face: Documentation Required
@@ -37,7 +40,9 @@ export class IaCoreHomeService {
    * Creates an instance of `IaCoreHomeService`
    * @memberof IaCoreHomeService
    */
-  constructor() { }
+  constructor(
+    private _routerService: IaCoreRouterService
+  ) { }
 
   /**
    * TODO: :monocle_face: Documentation Required
@@ -77,5 +82,31 @@ export class IaCoreHomeService {
    */
   watchAssets$(): Observable<IaCoreHomeAssetsModel> {
     return this._assets$.asObservable();
+  }
+
+  /**
+   * Navigate to View Trip page
+   * 
+   * ```
+   * baseURL/trip/view
+   * ```
+   *
+   * @memberof IaCoreHomeService
+   */
+  gotoViewTrip(): void {
+    this._routerService.navigate({ routes: [IA_CORE_ROUTES.TRIP, TRIP_ROUTES.VIEW_TRIP], extras: {} });
+  }
+
+  /**
+   * Navigate to Create Trip page
+   * 
+   * ```
+   * baseURL/trip/create
+   * ```
+   *
+   * @memberof IaCoreHomeService
+   */
+  gotoCreateTrip(): void {
+    this._routerService.navigate({ routes: [IA_CORE_ROUTES.TRIP, TRIP_ROUTES.CREATE_TRIP], extras: {} });
   }
 }

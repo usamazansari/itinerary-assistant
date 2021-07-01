@@ -1,14 +1,14 @@
 // Angular Theming
-@use 'assets/styles/app-themes.scss';
+@use 'app/core/styles/app-themes.scss';
 
 // Bootstrap
-// @use 'assets/styles/app-bootstrap.scss';
+// @use 'app/core/styles/app-bootstrap.scss';
 
 // Tailwind
-@use 'assets/styles/app-tailwind.scss';
+@use 'app/core/styles/app-tailwind.scss';
 
 // Global styles
-@use 'assets/styles/app-styles.scss';
+@use 'app/core/styles/app-styles.scss';
 
 // Typography
-@use 'assets/styles/app-typography.scss';
+@use 'app/core/styles/app-typography.scss';

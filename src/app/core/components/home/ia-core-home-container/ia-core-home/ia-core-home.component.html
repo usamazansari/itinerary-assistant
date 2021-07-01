@@ -1,24 +1,28 @@
-<div class="container flex items-center justify-around h-full py-3 mx-auto">
-  <mat-card class="m-2 cursor-pointer">
-    <mat-card-content matRipple>
+<div class="container flex flex-col items-center justify-around h-full py-3 mx-auto sm:flex-row">
+  <mat-card class="p-0 m-2 cursor-pointer elevation-2"
+            (click)="gotoViewTrip()">
+    <mat-card-content class="p-4"
+                      matRipple>
       <div class="grid p-6 pb-2 place-items-center">
         <fa-icon [icon]="[assets.view.icon.style, assets.view.icon.name]"
                  [fixedWidth]="true"
-                 class="text-indigo-700 text-8xl"></fa-icon>
-        <span class="m-3 text-indigo-700 outline-none focus:outline-none">
+                 class="text-mat-indigo-700 text-8xl"></fa-icon>
+        <span class="m-3 outline-none text-mat-indigo-700 focus:outline-none">
           {{ assets.view.text }}
         </span>
       </div>
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="m-2 cursor-pointer">
-    <mat-card-content matRipple>
+  <mat-card class="p-0 m-2 cursor-pointer elevation-2"
+            (click)="gotoCreateTrip()">
+    <mat-card-content class="p-4"
+                      matRipple>
       <div class="grid p-6 pb-2 place-items-center">
         <fa-icon [icon]="[assets.create.icon.style, assets.create.icon.name]"
                  [fixedWidth]="true"
-                 class="text-indigo-700 text-8xl"></fa-icon>
-        <span class="m-3 text-indigo-700 outline-none focus:outline-none">
+                 class="text-mat-indigo-700 text-8xl"></fa-icon>
+        <span class="m-3 outline-none text-mat-indigo-700 focus:outline-none">
           {{ assets.create.text }}
         </span>
       </div>
