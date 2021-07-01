@@ -40,4 +40,8 @@ function generateUtilities() {
   return utilities;
 }
 
-module.exports = plugin(function ({ addUtilities }) { addUtilities(generateUtilities()); });
+module.exports = plugin(function ({ addUtilities }) {
+  addUtilities(
+    generateUtilities(),
+    { variants: ['responsive', 'hover'] });
+});

@@ -1,0 +1,106 @@
+{
+  "brands": [
+    {
+      "name": "angular",
+      "shades": [
+        [
+          "light",
+          "#F65056"
+        ],
+        [
+          "",
+          "#BD0E2D"
+        ],
+        [
+          "dark",
+          "#850005"
+        ]
+      ]
+    },
+    {
+      "name": "fortawesome",
+      "shades": [
+        [
+          "light",
+          "#76CAFF"
+        ],
+        [
+          "",
+          "#339AF0"
+        ],
+        [
+          "dark",
+          "#006CBD"
+        ]
+      ]
+    },
+    {
+      "name": "github",
+      "shades": [
+        [
+          "light",
+          "#FFFFFF"
+        ],
+        [
+          "",
+          "#D1D5DA"
+        ],
+        [
+          "dark",
+          "#6A737D"
+        ]
+      ]
+    },
+    {
+      "name": "linkedin",
+      "shades": [
+        [
+          "light",
+          "#56A6EA"
+        ],
+        [
+          "",
+          "#0077B7"
+        ],
+        [
+          "dark",
+          "#004C87"
+        ]
+      ]
+    },
+    {
+      "name": "discord",
+      "shades": [
+        [
+          "light",
+          "#A6BAFF"
+        ],
+        [
+          "",
+          "#738ADB"
+        ],
+        [
+          "dark",
+          "#5865F2"
+        ]
+      ]
+    },
+    {
+      "name": "outlook",
+      "shades": [
+        [
+          "light",
+          "#5AA0F9"
+        ],
+        [
+          "",
+          "#0072C6"
+        ],
+        [
+          "dark",
+          "#004795"
+        ]
+      ]
+    }
+  ]
+}
