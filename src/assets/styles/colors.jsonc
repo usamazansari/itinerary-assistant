@@ -1,0 +1,804 @@
+{
+  "colors": {
+    "red": {
+      "50-light": "#FFFFFF",
+      "50": "#FFEBEE",
+      "50-dark": "#CCB9BC", // white-text
+      "100-light": "#FFFFFF",
+      "100": "#FFCDD2",
+      "100-dark": "#cb9ca1",
+      "200-light": "#ffcccb",
+      "200": "#EF9A9A",
+      "200-dark": "#ba6b6c",
+      "300-light": "#ffa4a2",
+      "300": "#E57373",
+      "300-dark": "#af4448", // white-text
+      "400-light": "#ff867c",
+      "400": "#EF5350",
+      "400-dark": "#b61827", // white-text
+      "500-light": "#ff7961",
+      "500": "#F44336",
+      "500-dark": "#ba000d", // white-text
+      "600-light": "#ff6f60",
+      "600": "#E53935",
+      "600-dark": "#ab000d", // white-text
+      "700-light": "#ff6659",
+      "700": "#D32F2F", // white-text
+      "700-dark": "#9a0007", // white-text
+      "800-light": "#ff5f52",
+      "800": "#C62828", // white-text
+      "800-dark": "#8e0000", // white-text
+      "900-light": "#f05545",
+      "900": "#B71C1C", // white-text
+      "900-dark": "#7f0000", // white-text
+      "A100-light": "#ffbcaf",
+      "A100": "#FF8A80",
+      "A100-dark": "#c85a54",
+      "A200-light": "#ff867f",
+      "A200": "#FF5252",
+      "A200-dark": "#c50e29", // white-text
+      "A400-light": "#ff616f",
+      "A400": "#FF1744",
+      "A400-dark": "#c4001d", // white-text
+      "A700-light": "#ff5131",
+      "A700": "#D50000",
+      "A700-dark": "#9b0000" // white-text
+    },
+    "pink": {
+      "50-light": "#ffffff",
+      "50": "#FCE4EC",
+      "50-dark": "#c9b2ba",
+      "100-light": "#ffeeff",
+      "100": "#F8BBD0",
+      "100-dark": "#c48b9f",
+      "200-light": "#ffc1e3",
+      "200": "#F48FB1",
+      "200-dark": "#bf5f82",
+      "300-light": "#ff94c2",
+      "300": "#F06292",
+      "300-dark": "#ba2d65", // white-text
+      "400-light": "#ff77a9",
+      "400": "#EC407A",
+      "400-dark": "#b4004e", // white-text
+      "500-light": "#ff6090",
+      "500": "#E91E63",
+      "500-dark": "#b0003a", // white-text
+      "600-light": "#ff5c8d",
+      "600": "#D81B60", // white-text
+      "600-dark": "#a00037", // white-text
+      "700-light": "#fa5788",
+      "700": "#C2185B", // white-text
+      "700-dark": "#8c0032", // white-text
+      "800-light": "#e35183",
+      "800": "#AD1457", // white-text
+      "800-dark": "#78002e", // white-text
+      "900-light": "#bc477b", // white-text
+      "900": "#880E4F", // white-text
+      "900-dark": "#560027", // white-text
+      "A100-light": "#ffb2dd",
+      "A100": "#FF80AB",
+      "A100-dark": "#c94f7c",
+      "A200-light": "#ff79b0",
+      "A200": "#FF4081",
+      "A200-dark": "#c60055", // white-text
+      "A400-light": "#ff5983",
+      "A400": "#F50057",
+      "A400-dark": "#bb002f", // white-text
+      "A700-light": "#fd558f",
+      "A700": "#C51162", // white-text
+      "A700-dark": "#8e0038" // white-text
+    },
+    "purple": {
+      "50-light": "#ffffff",
+      "50": "#F3E5F5",
+      "50-dark": "#c0b3c2",
+      "100-light": "#fff1ff",
+      "100": "#E1BEE7",
+      "100-dark": "#af8eb5",
+      "200-light": "#ffc4ff",
+      "200": "#CE93D8",
+      "200-dark": "#9c64a6",
+      "300-light": "#ee98fb",
+      "300": "#BA68C8",
+      "300-dark": "#883997", // white-text
+      "400-light": "#df78ef",
+      "400": "#AB47BC", // white-text
+      "400-dark": "#790e8b", // white-text
+      "500-light": "#d05ce3",
+      "500": "#9C27B0", // white-text
+      "500-dark": "#6a0080", // white-text
+      "600-light": "#c158dc",
+      "600": "#8E24AA", // white-text
+      "600-dark": "#5c007a", // white-text
+      "700-light": "#ae52d4",
+      "700": "#7B1FA2", // white-text
+      "700-dark": "#4a0072", // white-text
+      "800-light": "#9c4dcc", // white-text
+      "800": "#6A1B9A", // white-text
+      "800-dark": "#38006b", // white-text
+      "900-light": "#7c43bd", // white-text
+      "900": "#4A148C", // white-text
+      "900-dark": "#12005e", // white-text
+      "A100-light": "#ffb2ff",
+      "A100": "#EA80FC",
+      "A100-dark": "#b64fc8",
+      "A200-light": "#ff79ff",
+      "A200": "#E040FB",
+      "A200-dark": "#aa00c7", // white-text
+      "A400-light": "#ff5bff",
+      "A400": "#D500F9",
+      "A400-dark": "#9e00c5", // white-text
+      "A700-light": "#e254ff", // white-text
+      "A700": "#AA00FF", // white-text
+      "A700-dark": "#7200ca" // white-text
+    },
+    "deeppurple": {
+      "50-light": "#ffffff",
+      "50": "#EDE7F6",
+      "50-dark": "#bbb5c3",
+      "100-light": "#fff7ff",
+      "100": "#D1C4E9",
+      "100-dark": "#a094b7",
+      "200-light": "#e6ceff",
+      "200": "#B39DDB",
+      "200-dark": "#836fa9",
+      "300-light": "#c7a4ff",
+      "300": "#9575CD",
+      "300-dark": "#65499c", // white-text
+      "400-light": "#b085f5",
+      "400": "#7E57C2", // white-text
+      "400-dark": "#4d2c91", // white-text
+      "500-light": "#9a67ea",
+      "500": "#673AB7", // white-text
+      "500-dark": "#320b86", // white-text
+      "600-light": "#9162e4",
+      "600": "#5E35B1", // white-text
+      "600-dark": "#280680", // white-text
+      "700-light": "#8559da", // white-text
+      "700": "#512DA8", // white-text
+      "700-dark": "#140078", // white-text
+      "800-light": "#7953d2", // white-text
+      "800": "#4527A0", // white-text
+      "800-dark": "#000070", // white-text
+      "900-light": "#6746c3", // white-text
+      "900": "#311B92", // white-text
+      "900-dark": "#000063", // white-text
+      "A100-light": "#e7b9ff",
+      "A100": "#B388FF",
+      "A100-dark": "#805acb", // white-text
+      "A200-light": "#b47cff",
+      "A200": "#7C4DFF", // white-text
+      "A200-dark": "#3f1dcb", // white-text
+      "A400-light": "#a255ff",
+      "A400": "#651FFF", // white-text
+      "A400-dark": "#0100ca", // white-text
+      "A700-light": "#9d46ff",
+      "A700": "#6200EA", // white-text
+      "A700-dark": "#0a00b6" // white-text
+    },
+    "indigo": {
+      "50-light": "#FFFFFF",
+      "50": "#E8EAF6",
+      "50-dark": "#B6B8C3",
+      "100-light": "#F8FDFF",
+      "100": "#C5CAE9",
+      "100-dark": "#9499B7",
+      "200-light": "#D1D9FF",
+      "200": "#9FA8DA",
+      "200-dark": "#6F79A8",
+      "300-light": "#AAB6FE",
+      "300": "#7986CB",
+      "300-dark": "#49599A", // white-text
+      "400-light": "#8E99F3",
+      "400": "#5C6BC0", // white-text
+      "400-dark": "#26418F", // white-text
+      "500-light": "#757DE8",
+      "500": "#3F51B5", // white-text
+      "500-dark": "#002984", // white-text
+      "600-light": "#6F74DD",
+      "600": "#3949AB", // white-text
+      "600-dark": "#00227B", // white-text
+      "700-light": "#666AD1", // white-text
+      "700": "#303F9F", // white-text
+      "700-dark": "#001970", // white-text
+      "800-light": "#5F5FC4", // white-text
+      "800": "#283593", // white-text
+      "800-dark": "#001064", // white-text
+      "900-light": "#534BAE", // white-text
+      "900": "#1A237E", // white-text
+      "900-dark": "#000051", // white-text
+      "A100-light": "#C0CFFF",
+      "A100": "#8C9EFF",
+      "A100-dark": "#5870CB", // white-text
+      "A200-light": "#8F9BFF",
+      "A200": "#536DFE",
+      "A200-dark": "#0043CA", // white-text
+      "A400-light": "#8187FF",
+      "A400": "#3D5AFE", // white-text
+      "A400-dark": "#0031CA", // white-text
+      "A700-light": "#7A7CFF",
+      "A700": "#304FFE", // white-text
+      "A700-dark": "#0026CA" // white-text
+    },
+    "blue": {
+      "50-light": "#ffffff",
+      "50": "#E3F2FD",
+      "50-dark": "#b1bfca",
+      "100-light": "#eeffff",
+      "100": "#BBDEFB",
+      "100-dark": "#8aacc8",
+      "200-light": "#c3fdff",
+      "200": "#90CAF9",
+      "200-dark": "#5d99c6",
+      "300-light": "#9be7ff",
+      "300": "#64B5F6",
+      "300-dark": "#2286c3",
+      "400-light": "#80d6ff",
+      "400": "#42A5F5",
+      "400-dark": "#0077c2", // white-text
+      "500-light": "#6ec6ff",
+      "500": "#2196F3",
+      "500-dark": "#0069c0", // white-text
+      "600-light": "#6ab7ff",
+      "600": "#1E88E5",
+      "600-dark": "#005cb2", // white-text
+      "700-light": "#63a4ff",
+      "700": "#1976D2", // white-text
+      "700-dark": "#004ba0", // white-text
+      "800-light": "#5e92f3",
+      "800": "#1565C0", // white-text
+      "800-dark": "#003c8f", // white-text
+      "900-light": "#5472d3",
+      "900": "#0D47A1", // white-text
+      "900-dark": "#002171", // white-text
+      "A100-light": "#b6e3ff",
+      "A100": "#82B1FF",
+      "A100-dark": "#4d82cb",
+      "A200-light": "#83b9ff",
+      "A200": "#448AFF",
+      "A200-dark": "#005ecb", // white-text
+      "A400-light": "#75a7ff",
+      "A400": "#2979FF",
+      "A400-dark": "#004ecb", // white-text
+      "A700-light": "#768fff",
+      "A700": "#2962FF", // white-text
+      "A700-dark": "#0039cb" // white-text
+    },
+    "lightblue": {
+      "50-light": "#ffffff",
+      "50": "#E1F5FE",
+      "50-dark": "#afc2cb",
+      "100-light": "#e6ffff",
+      "100": "#B3E5FC",
+      "100-dark": "#82b3c9",
+      "200-light": "#b6ffff",
+      "200": "#81D4FA",
+      "200-dark": "#4ba3c7",
+      "300-light": "#8bf6ff",
+      "300": "#4FC3F7",
+      "300-dark": "#0093c4",
+      "400-light": "#73e8ff",
+      "400": "#29B6F6",
+      "400-dark": "#0086c3",
+      "500-light": "#67daff",
+      "500": "#03A9F4",
+      "500-dark": "#007ac1", // white-text
+      "600-light": "#63ccff",
+      "600": "#039BE5",
+      "600-dark": "#006db3", // white-text
+      "700-light": "#5eb8ff",
+      "700": "#0288D1",
+      "700-dark": "#005b9f", // white-text
+      "800-light": "#58a5f0",
+      "800": "#0277BD", // white-text
+      "800-dark": "#004c8c", // white-text
+      "900-light": "#4f83cc",
+      "900": "#01579B", // white-text
+      "900-dark": "#002f6c", // white-text
+      "A100-light": "#b5ffff",
+      "A100": "#80D8FF",
+      "A100-dark": "#49a7cc",
+      "A200-light": "#82f7ff",
+      "A200": "#40C4FF",
+      "A200-dark": "#0094cc",
+      "A400-light": "#69e2ff",
+      "A400": "#00B0FF",
+      "A400-dark": "#0081cb",
+      "A700-light": "#64c1ff",
+      "A700": "#0091EA",
+      "A700-dark": "#0064b7" // white-text
+    },
+    "cyan": {
+      "50-light": "#ffffff",
+      "50": "#E0F7FA",
+      "50-dark": "#aec4c7",
+      "100-light": "#e5ffff",
+      "100": "#B2EBF2",
+      "100-dark": "#81b9bf",
+      "200-light": "#b4ffff",
+      "200": "#80DEEA",
+      "200-dark": "#4bacb8",
+      "300-light": "#88ffff",
+      "300": "#4DD0E1",
+      "300-dark": "#009faf",
+      "400-light": "#6ff9ff",
+      "400": "#26C6DA",
+      "400-dark": "#0095a8",
+      "500-light": "#62efff",
+      "500": "#00BCD4",
+      "500-dark": "#008ba3",
+      "600-light": "#5ddef4",
+      "600": "#00ACC1",
+      "600-dark": "#007c91", // white-text
+      "700-light": "#56c8d8",
+      "700": "#0097A7",
+      "700-dark": "#006978", // white-text
+      "800-light": "#4fb3bf",
+      "800": "#00838F", // white-text
+      "800-dark": "#005662", // white-text
+      "900-light": "#428e92",
+      "900": "#006064", // white-text
+      "900-dark": "#00363a", // white-text
+      "A100-light": "#baffff",
+      "A100": "#84FFFF",
+      "A100-dark": "#4bcbcc",
+      "A200-light": "#76ffff",
+      "A200": "#18FFFF",
+      "A200-dark": "#00cbcc",
+      "A400-light": "#6effff",
+      "A400": "#00E5FF",
+      "A400-dark": "#00b2cc",
+      "A700-light": "#62ebff",
+      "A700": "#00B8D4",
+      "A700-dark": "#0088a3"
+    },
+    "teal": {
+      "50-light": "#ffffff",
+      "50": "#E0F2F1",
+      "50-dark": "#aebfbe",
+      "100-light": "#e5ffff",
+      "100": "#B2DFDB",
+      "100-dark": "#82ada9",
+      "200-light": "#b2fef7",
+      "200": "#80CBC4",
+      "200-dark": "#4f9a94",
+      "300-light": "#82e9de",
+      "300": "#4DB6AC",
+      "300-dark": "#00867d",
+      "400-light": "#64d8cb",
+      "400": "#26A69A",
+      "400-dark": "#00766c", // white-text
+      "500-light": "#52c7b8",
+      "500": "#009688",
+      "500-dark": "#00675b", // white-text
+      "600-light": "#4ebaaa",
+      "600": "#00897B",
+      "600-dark": "#005b4f", // white-text
+      "700-light": "#48a999",
+      "700": "#00796B", // white-text
+      "700-dark": "#004c40", // white-text
+      "800-light": "#439889",
+      "800": "#00695C", // white-text
+      "800-dark": "#003d33", // white-text
+      "900-light": "#39796b", // white-text
+      "900": "#004D40", // white-text
+      "900-dark": "#00251a", // white-text
+      "A100-light": "#dbffff",
+      "A100": "#A7FFEB",
+      "A100-dark": "#75ccb9",
+      "A200-light": "#9effff",
+      "A200": "#64FFDA",
+      "A200-dark": "#14cba8",
+      "A400-light": "#6effe8",
+      "A400": "#1DE9B6",
+      "A400-dark": "#00b686",
+      "A700-light": "#5df2d6",
+      "A700": "#00BFA5",
+      "A700-dark": "#008e76"
+    },
+    "green": {
+      "50-light": "#ffffff",
+      "50": "#E8F5E9",
+      "50-dark": "#b6c2b7",
+      "100-light": "#fbfffc",
+      "100": "#C8E6C9",
+      "100-dark": "#97b498",
+      "200-light": "#d7ffd9",
+      "200": "#A5D6A7",
+      "200-dark": "#75a478",
+      "300-light": "#b2fab4",
+      "300": "#81C784",
+      "300-dark": "#519657",
+      "400-light": "#98ee99",
+      "400": "#66BB6A",
+      "400-dark": "#338a3e",
+      "500-light": "#80e27e",
+      "500": "#4CAF50",
+      "500-dark": "#087f23", // white-text
+      "600-light": "#76d275",
+      "600": "#43A047",
+      "600-dark": "#00701a", // white-text
+      "700-light": "#6abf69",
+      "700": "#388E3C",
+      "700-dark": "#00600f", // white-text
+      "800-light": "#60ad5e",
+      "800": "#2E7D32", // white-text
+      "800-dark": "#005005", // white-text
+      "900-light": "#4c8c4a",
+      "900": "#1B5E20", // white-text
+      "900-dark": "#003300", // white-text
+      "A100-light": "#ecfffd",
+      "A100": "#B9F6CA",
+      "A100-dark": "#88c399",
+      "A200-light": "#9fffe0",
+      "A200": "#69F0AE",
+      "A200-dark": "#2bbd7e",
+      "A400-light": "#66ffa6",
+      "A400": "#00E676",
+      "A400-dark": "#00b248",
+      "A700-light": "#5efc82",
+      "A700": "#00C853",
+      "A700-dark": "#009624"
+    },
+    "lightgreen": {
+      "50-light": "#ffffff",
+      "50": "#F1F8E9",
+      "50-dark": "#bec5b7",
+      "100-light": "#fffffb",
+      "100": "#DCEDC8",
+      "100-dark": "#aabb97",
+      "200-light": "#f8ffd7",
+      "200": "#C5E1A5",
+      "200-dark": "#94af76",
+      "300-light": "#e1ffb1",
+      "300": "#AED581",
+      "300-dark": "#7da453",
+      "400-light": "#cfff95",
+      "400": "#9CCC65",
+      "400-dark": "#6b9b37",
+      "500-light": "#bef67a",
+      "500": "#8BC34A",
+      "500-dark": "#5a9216",
+      "600-light": "#aee571",
+      "600": "#7CB342",
+      "600-dark": "#4b830d", // white-text
+      "700-light": "#99d066",
+      "700": "#689F38",
+      "700-dark": "#387002",
+      "800-light": "#85bb5c",
+      "800": "#558B2F",
+      "800-dark": "#255d00",
+      "900-light": "#629749",
+      "900": "#33691E", // white-text
+      "900-dark": "#003d00", // white-text
+      "A100-light": "#ffffc2",
+      "A100": "#CCFF90",
+      "A100-dark": "#99cc60",
+      "A200-light": "#e7ff8c",
+      "A200": "#B2FF59",
+      "A200-dark": "#7ecb20",
+      "A400-light": "#b0ff57",
+      "A400": "#76FF03",
+      "A400-dark": "#32cb00",
+      "A700-light": "#9cff57",
+      "A700": "#64DD17",
+      "A700-dark": "#1faa00"
+    },
+    "lime": {
+      "50-light": "#ffffff",
+      "50": "#F9FBE7",
+      "50-dark": "#c6c8b5",
+      "100-light": "#fffff6",
+      "100": "#F0F4C3",
+      "100-dark": "#bdc192",
+      "200-light": "#ffffce",
+      "200": "#E6EE9C",
+      "200-dark": "#b3bc6d",
+      "300-light": "#ffffa6",
+      "300": "#DCE775",
+      "300-dark": "#a8b545",
+      "400-light": "#ffff89",
+      "400": "#D4E157",
+      "400-dark": "#a0af22",
+      "500-light": "#ffff6e",
+      "500": "#CDDC39",
+      "500-dark": "#99aa00",
+      "600-light": "#f5fd67",
+      "600": "#C0CA33",
+      "600-dark": "#8c9900",
+      "700-light": "#e4e65e",
+      "700": "#AFB42B",
+      "700-dark": "#7c8500",
+      "800-light": "#d2ce56",
+      "800": "#9E9D24",
+      "800-dark": "#6c6f00",
+      "900-light": "#b4a647",
+      "900": "#827717", // white-text
+      "900-dark": "#524c00", // white-text
+      "A100-light": "#ffffb3",
+      "A100": "#F4FF81",
+      "A100-dark": "#bfcc50",
+      "A200-light": "#ffff78",
+      "A200": "#EEFF41",
+      "A200-dark": "#b8cc00",
+      "A400-light": "#fdff58",
+      "A400": "#C6FF00",
+      "A400-dark": "#90cc00",
+      "A700-light": "#e4ff54",
+      "A700": "#AEEA00",
+      "A700-dark": "#79b700"
+    },
+    "yellow": {
+      "50-light": "#ffffff",
+      "50": "#FFFDE7",
+      "50-dark": "#cccab5",
+      "100-light": "#fffff7",
+      "100": "#FFF9C4",
+      "100-dark": "#cbc693",
+      "200-light": "#ffffcf",
+      "200": "#FFF59D",
+      "200-dark": "#cbc26d",
+      "300-light": "#ffffa8",
+      "300": "#FFF176",
+      "300-dark": "#cabf45",
+      "400-light": "#ffff8b",
+      "400": "#FFEE58",
+      "400-dark": "#c9bc1f",
+      "500-light": "#ffff72",
+      "500": "#FFEB3B",
+      "500-dark": "#c8b900",
+      "600-light": "#ffff6b",
+      "600": "#FDD835",
+      "600-dark": "#c6a700",
+      "700-light": "#fff263",
+      "700": "#FBC02D",
+      "700-dark": "#c49000",
+      "800-light": "#ffd95a",
+      "800": "#F9A825",
+      "800-dark": "#c17900",
+      "900-light": "#ffb04c",
+      "900": "#F57F17",
+      "900-dark": "#bc5100", // white-text
+      "A100-light": "#ffffbf",
+      "A100": "#FFFF8D",
+      "A100-dark": "#cacc5d",
+      "A200-light": "#ffff5a",
+      "A200": "#FFFF00",
+      "A200-dark": "#c7cc00",
+      "A400-light": "#ffff56",
+      "A400": "#FFEA00",
+      "A400-dark": "#c7b800",
+      "A700-light": "#ffff52",
+      "A700": "#FFD600",
+      "A700-dark": "#c7a500"
+    },
+    "amber": {
+      "50-light": "#ffffff",
+      "50": "#FFF8E1",
+      "50-dark": "#ccc5af",
+      "100-light": "#ffffe5",
+      "100": "#FFECB3",
+      "100-dark": "#cbba83",
+      "200-light": "#ffffb3",
+      "200": "#FFE082",
+      "200-dark": "#caae53",
+      "300-light": "#ffff81",
+      "300": "#FFD54F",
+      "300-dark": "#c8a415",
+      "400-light": "#fffd61",
+      "400": "#FFCA28",
+      "400-dark": "#c79a00",
+      "500-light": "#fff350",
+      "500": "#FFC107",
+      "500-dark": "#c79100",
+      "600-light": "#ffe54c",
+      "600": "#FFB300",
+      "600-dark": "#c68400",
+      "700-light": "#ffd149",
+      "700": "#FFA000",
+      "700-dark": "#c67100",
+      "800-light": "#ffc046",
+      "800": "#FF8F00",
+      "800-dark": "#c56000",
+      "900-light": "#ffa040",
+      "900": "#FF6F00",
+      "900-dark": "#c43e00", // white-text
+      "A100-light": "#ffffb0",
+      "A100": "#FFE57F",
+      "A100-dark": "#cab350",
+      "A200-light": "#ffff74",
+      "A200": "#FFD740",
+      "A200-dark": "#c8a600",
+      "A400-light": "#fff64f",
+      "A400": "#FFC400",
+      "A400-dark": "#c79400",
+      "A700-light": "#ffdd4b",
+      "A700": "#FFAB00",
+      "A700-dark": "#c67c00"
+    },
+    "orange": {
+      "50-light": "#ffffff",
+      "50": "#FFF3E0",
+      "50-dark": "#ccc0ae",
+      "100-light": "#ffffe4",
+      "100": "#FFE0B2",
+      "100-dark": "#cbae82",
+      "200-light": "#ffffb0",
+      "200": "#FFCC80",
+      "200-dark": "#ca9b52",
+      "300-light": "#ffe97d",
+      "300": "#FFB74D",
+      "300-dark": "#c88719",
+      "400-light": "#ffd95b",
+      "400": "#FFA726",
+      "400-dark": "#ffd95b",
+      "500-light": "#ffc947",
+      "500": "#FF9800",
+      "500-dark": "#c66900",
+      "600-light": "#ffbd45",
+      "600": "#FB8C00",
+      "600-dark": "#c25e00",
+      "700-light": "#ffad42",
+      "700": "#F57C00",
+      "700-dark": "#bb4d00", // white-text
+      "800-light": "#ff9d3f",
+      "800": "#EF6C00",
+      "800-dark": "#b53d00", // white-text
+      "900-light": "#ff833a",
+      "900": "#E65100",
+      "900-dark": "#ac1900", // white-text
+      "A100-light": "#ffffb1",
+      "A100": "#FFD180",
+      "A100-dark": "#caa052",
+      "A200-light": "#ffdd71",
+      "A200": "#FFAB40",
+      "A200-dark": "#c77c02",
+      "A400-light": "#ffc246",
+      "A400": "#FF9100",
+      "A400-dark": "#c56200",
+      "A700-light": "#ff9e40",
+      "A700": "#FF6D00",
+      "A700-dark": "#c43c00" // white-text
+    },
+    "deeporange": {
+      "50-light": "#ffffff",
+      "50": "#FBE9E7",
+      "50-dark": "#c8b7b5",
+      "100-light": "#ffffee",
+      "100": "#FFCCBC",
+      "100-dark": "#cb9b8c",
+      "200-light": "#ffddc1",
+      "200": "#FFAB91",
+      "200-dark": "#c97b63",
+      "300-light": "#ffbb93",
+      "300": "#FF8A65",
+      "300-dark": "#c75b39",
+      "400-light": "#ffa270",
+      "400": "#FF7043",
+      "400-dark": "#c63f17", // white-text
+      "500-light": "#ff8a50",
+      "500": "#FF5722",
+      "500-dark": "#c41c00", // white-text
+      "600-light": "#ff844c",
+      "600": "#F4511E",
+      "600-dark": "#b91400", // white-text
+      "700-light": "#ff7d47",
+      "700": "#E64A19",
+      "700-dark": "#ac0800", // white-text
+      "800-light": "#ff7543",
+      "800": "#D84315",
+      "800-dark": "#9f0000", // white-text
+      "900-light": "#f9683a",
+      "900": "#BF360C", // white-text
+      "900-dark": "#870000", // white-text
+      "A100-light": "#ffd0b0",
+      "A100": "#FF9E80",
+      "A100-dark": "#c96f53",
+      "A200-light": "#ffa06d",
+      "A200": "#FF6E40",
+      "A200-dark": "#c53d13", // white-text
+      "A400-light": "#ff7539",
+      "A400": "#FF3D00",
+      "A400-dark": "#c30000", // white-text
+      "A700-light": "#ff6434",
+      "A700": "#DD2C00", // white-text
+      "A700-dark": "#a30000" // white-text
+    },
+    "brown": {
+      "50-light": "#ffffff",
+      "50": "#EFEBE9",
+      "50-dark": "#bdb9b7",
+      "100-light": "#fffffb",
+      "100": "#D7CCC8",
+      "100-dark": "#a69b97",
+      "200-light": "#efdcd5",
+      "200": "#BCAAA4",
+      "200-dark": "#8c7b75",
+      "300-light": "#d3b8ae",
+      "300": "#A1887F",
+      "300-dark": "#725b53", // white-text
+      "400-light": "#be9c91",
+      "400": "#8D6E63", // white-text
+      "400-dark": "#5f4339", // white-text
+      "500-light": "#a98274",
+      "500": "#795548", // white-text
+      "500-dark": "#4b2c20", // white-text
+      "600-light": "#9c786c",
+      "600": "#6D4C41", // white-text
+      "600-dark": "#40241a", // white-text
+      "700-light": "#8b6b61", // white-text
+      "700": "#5D4037", // white-text
+      "700-dark": "#321911", // white-text
+      "800-light": "#7b5e57", // white-text
+      "800": "#4E342E", // white-text
+      "800-dark": "#260e04", // white-text
+      "900-light": "#6a4f4b", // white-text
+      "900": "#3E2723", // white-text
+      "900-dark": "#1b0000" // white-text
+    },
+    "grey": {
+      "50-light": "#ffffff",
+      "50": "#FAFAFA",
+      "50-dark": "#c7c7c7",
+      "100-light": "#ffffff",
+      "100": "#F5F5F5",
+      "100-dark": "#c2c2c2",
+      "200-light": "#ffffff",
+      "200": "#EEEEEE",
+      "200-dark": "#bcbcbc",
+      "300-light": "#ffffff",
+      "300": "#E0E0E0",
+      "300-dark": "#aeaeae",
+      "400-light": "#efefef",
+      "400": "#BDBDBD",
+      "400-dark": "#8d8d8d",
+      "500-light": "#cfcfcf",
+      "500": "#9E9E9E",
+      "500-dark": "#707070", // white-text
+      "600-light": "#a4a4a4",
+      "600": "#757575", // white-text
+      "600-dark": "#494949",
+      "700-light": "#8e8e8e",
+      "700": "#616161", // white-text
+      "700-dark": "#373737", // white-text
+      "800-light": "#6d6d6d", // white-text
+      "800": "#424242", // white-text
+      "800-dark": "#1b1b1b", // white-text
+      "900-light": "#484848", // white-text
+      "900": "#212121", // white-text
+      "900-dark": "#000000" // white-text
+    },
+    "bluegray": {
+      "50-light": "#ffffff",
+      "50": "#ECEFF1",
+      "50-dark": "#babdbe",
+      "100-light": "#ffffff",
+      "100": "#CFD8DC",
+      "100-dark": "#9ea7aa",
+      "200-light": "#e2f1f8",
+      "200": "#B0BEC5",
+      "200-dark": "#808e95",
+      "300-light": "#c1d5e0",
+      "300": "#90A4AE",
+      "300-dark": "#62757f", // white-text
+      "400-light": "#a7c0cd",
+      "400": "#78909C",
+      "400-dark": "#4b636e", // white-text
+      "500-light": "#8eacbb",
+      "500": "#607D8B",
+      "500-dark": "#34515e", // white-text
+      "600-light": "#819ca9",
+      "600": "#546E7A", // white-text
+      "600-dark": "#29434e", // white-text
+      "700-light": "#718792",
+      "700": "#455A64", // white-text
+      "700-dark": "#1c313a", // white-text
+      "800-light": "#62727b",
+      "800": "#37474F",
+      "800-dark": "#102027",
+      "900-light": "#4f5b62",
+      "900": "#263238",
+      "900-dark": "#000a12"
+    }
+  }
+}
