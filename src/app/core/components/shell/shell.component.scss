@@ -1,0 +1,13 @@
+div.shell-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+
+  div.navbar-holder {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+}

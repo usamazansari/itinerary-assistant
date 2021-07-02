@@ -1,12 +1,12 @@
 /**
- * TODO: :monocle_face: Documentation Required
+ * TODO: 🧐 Documentation Required
  *
  * @export
  * @interface AppFlagModel
  */
 export interface AppFlagModel {
   /**
-   * TODO: :monocle_face: Documentation Required
+   * TODO: 🧐 Documentation Required
    *
    * @type {boolean}
    * @memberof AppFlagModel
@@ -14,7 +14,7 @@ export interface AppFlagModel {
   progress: boolean;
 
   /**
-   * TODO: :monocle_face: Documentation Required
+   * TODO: 🧐 Documentation Required
    *
    * @type {boolean}
    * @memberof AppFlagModel
@@ -22,7 +22,7 @@ export interface AppFlagModel {
   success: boolean;
 
   /**
-   * TODO: :monocle_face: Documentation Required
+   * TODO: 🧐 Documentation Required
    *
    * @type {boolean}
    * @memberof AppFlagModel

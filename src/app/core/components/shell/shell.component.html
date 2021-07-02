@@ -1,0 +1,20 @@
+<mat-sidenav-container class="h-screen">
+  <mat-sidenav>
+    <app-sidenav-container (toggleSidenav$)="closeSidenav()">
+    </app-sidenav-container>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="shell-container">
+      <div class="navbar-holder">
+        <app-navbar-container (toggleSidenav$)="openSidenav()">
+        </app-navbar-container>
+      </div>
+      <div class="holder">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="ma-footer-holder">
+        <app-footer-container></app-footer-container>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

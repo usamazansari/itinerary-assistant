@@ -17,7 +17,7 @@ export const APPLICATION_NAME = 'Itinerary Assistant';
 /**
  * Firebase Configuration
  * 
- * :monocle_face: Documentation Required!
+ * 🧐 Documentation Required!
  */
 export const FIREBASE_CONFIG = {
   apiKey: 'AIzaSyDzlFq4jw6-LZlDYhtBaus3SVgPniB6KS0',

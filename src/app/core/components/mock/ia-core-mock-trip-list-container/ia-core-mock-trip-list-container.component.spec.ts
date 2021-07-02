@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IaCoreMockTripListContainerComponent } from './ia-core-mock-trip-list-container.component';
+import { CoreMockTripListContainerComponent } from './ia-core-mock-trip-list-container.component';
 
 describe('IaCoreMockTripListContainerComponent', () => {
-  let component: IaCoreMockTripListContainerComponent;
-  let fixture: ComponentFixture<IaCoreMockTripListContainerComponent>;
+  let component: CoreMockTripListContainerComponent;
+  let fixture: ComponentFixture<CoreMockTripListContainerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IaCoreMockTripListContainerComponent ]
+      declarations: [CoreMockTripListContainerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IaCoreMockTripListContainerComponent);
+    fixture = TestBed.createComponent(CoreMockTripListContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

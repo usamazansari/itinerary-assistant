@@ -4,14 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('@ia-core/ia-core.module').then((_ => _.IaCoreModule))
+    loadChildren: () => import('@core/core.module').then((_ => _.CoreModule))
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {
-    // enableTracing: isDevMode()
-  })],
+  imports: [RouterModule.forRoot(
+    routes,
+    {
+      // enableTracing: isDevMode()
+    })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
