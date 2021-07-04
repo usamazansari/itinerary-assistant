@@ -28,6 +28,9 @@
       "@core/*": [
         "src/app/core/*"
       ],
+      "@home/*": [
+        "src/app/features/home/*"
+      ],
       "@environments/*": [
         "src/environments/*"
       ]

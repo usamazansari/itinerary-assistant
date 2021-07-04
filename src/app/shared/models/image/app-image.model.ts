@@ -11,7 +11,7 @@
  * @export
  * @interface AppImageModel
  */
-export interface AppImageModel {
+export interface ImageModel {
   /**
    * Image source
    *
@@ -30,8 +30,15 @@ export interface AppImageModel {
 }
 
 /**
- * Initializer for `AppImageModel`
+ * Stub for `ImageModel`
+ * 
+ * ```ts
+ * const IMAGE_STUB: ImageModel = {
+ *   src : null,
+ *   alt : null
+ * }
+ * ```
  */
-export const DEFAULT_APP_IMAGE: AppImageModel = {
+export const IMAGE_STUB: ImageModel = {
   src: null, alt: null
 };

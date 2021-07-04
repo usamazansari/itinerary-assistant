@@ -2,7 +2,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgModule } from '@angular/core';
 
 /**
- * @redundant Remove this module
+ * @redundant 🗑️ Delete it
  *
  * @export
  * @class AppFontAwesomeModule

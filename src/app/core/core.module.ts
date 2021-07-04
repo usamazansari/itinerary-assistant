@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AppMaterialModule } from '@shared/modules/material/material.module';
+import { AppMaterialModule } from '@core/modules/material/material.module';
 
 import { CoreRoutingModule } from './core-routing.module';
-import { IconModule } from '@core/modules/icon/icon.module';
+import { CoreIconModule } from '@core/modules/icon/icon.module';
 
 import { ShellComponent } from './components/shell/shell.component';
 
@@ -19,10 +19,8 @@ import { FooterComponent } from './components/footer/footer-container/footer/foo
 
 import { CoreMockTripListContainerComponent } from './components/mock/ia-core-mock-trip-list-container/ia-core-mock-trip-list-container.component';
 import { CoreMockTripListComponent } from './components/mock/ia-core-mock-trip-list-container/ia-core-mock-trip-list/ia-core-mock-trip-list.component';
-import { HomeContainerComponent } from './components/home/ia-core-home-container/home-container.component';
-import { HomeComponent } from './components/home/ia-core-home-container/ia-core-home/home.component';
 
-const DECLARATIONS = [
+const declarations = [
   ShellComponent,
 
   NavbarContainerComponent,
@@ -35,21 +33,28 @@ const DECLARATIONS = [
   FooterComponent,
 
   CoreMockTripListContainerComponent,
-  CoreMockTripListComponent,
-
-  HomeContainerComponent,
-  HomeComponent
+  CoreMockTripListComponent
 ];
 
-const IMPORTS = [
+const imports = [
   CommonModule,
-  AppMaterialModule,
   CoreRoutingModule,
-  IconModule
+  AppMaterialModule,
+  CoreIconModule
+];
+
+const exports = [
+  AppMaterialModule,
+  CoreIconModule,
+
+  NavbarContainerComponent,
+  SidenavContainerComponent,
+  FooterContainerComponent
 ];
 
 @NgModule({
-  declarations: [...DECLARATIONS],
-  imports: [...IMPORTS]
+  declarations: [...declarations],
+  imports: [...imports],
+  exports: [...exports]
 })
 export class CoreModule { }

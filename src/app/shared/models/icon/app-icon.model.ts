@@ -13,14 +13,21 @@ import { IconName, IconPrefix } from '@fortawesome/fontawesome-common-types';
  * @export
  * @interface AppFaIconModel
  */
-export interface AppFaIconModel {
+export interface IconModel {
   style: IconPrefix;
   name: IconName;
 }
 
 /**
- * Initializer for `AppFaIconModel`
+ * Stub for an `IconModel`
+ * 
+ * ```ts
+ * const ICON_STUB: IconModel = {
+ *   style : 'fas',
+ *   name  : 'info'
+ * }
+ * ```
  */
-export const DEFAULT_FA_ICON: AppFaIconModel = {
-  style: 'fas', name: 'info' // <- :no_entry: Probable Error - Cannot find icon `faInfo`
+export const ICON_STUB: IconModel = {
+  style: 'fas', name: 'info'
 };

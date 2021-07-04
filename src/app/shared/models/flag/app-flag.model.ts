@@ -1,12 +1,23 @@
 /**
- * TODO: 🧐 Documentation Required
+ * Interface to handle behavior of flags for basic time consuming operations
  *
+ * ```ts
+ * interface FlagModel {
+ *   progress : boolean;
+ *   success  : boolean;
+ *   fail     : boolean;
+ * }
+ * ```
  * @export
  * @interface AppFlagModel
  */
-export interface AppFlagModel {
+export interface FlagModel {
   /**
-   * TODO: 🧐 Documentation Required
+   * Indicated progress of an activity
+   * 
+   * `true`  - activity is in progress
+   * 
+   * `false` - activity is not in progress: either completed or not yet begun
    *
    * @type {boolean}
    * @memberof AppFlagModel
@@ -14,7 +25,11 @@ export interface AppFlagModel {
   progress: boolean;
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Indicated if an activity has been successful
+   * 
+   * `true`  - activity is completed successfully
+   * 
+   * `false` - activity is not completed successfully: either in progress or failed
    *
    * @type {boolean}
    * @memberof AppFlagModel
@@ -22,7 +37,11 @@ export interface AppFlagModel {
   success: boolean;
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Indicated if an activity has been failed
+   * 
+   * `true`  - activity has been failed
+   * 
+   * `false` - activity is not failed: either in progress or successful
    *
    * @type {boolean}
    * @memberof AppFlagModel
@@ -30,6 +49,17 @@ export interface AppFlagModel {
   fail: boolean;
 }
 
-export const DEFAULT_APP_FLAG: AppFlagModel = {
+/**
+ * Stub for `FlagModel`
+ * 
+ * ```ts
+ * const FLAG_STUB: FlagModel = {
+ *   progress : false,
+ *   success  : false,
+ *   fail     : false
+ * }
+ * ```
+ */
+export const FLAG_STUB: FlagModel = {
   progress: false, success: false, fail: false
 };

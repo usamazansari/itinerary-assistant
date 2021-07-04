@@ -98,17 +98,17 @@ const MATERIAL_MODULES = [
   // MatTableModule
 ];
 
-// const imports = [...MATERIAL_MODULES];
+const imports = [...MATERIAL_MODULES];
 const exports = [...MATERIAL_MODULES];
 
 /**
- * @redundant 🗑️ Delete it
+ * @watch Watch the size of this module until a good optimization is in place
  *
  * @export
  * @class AppMaterialModule
  */
 @NgModule({
-  // imports: [...imports],
+  imports: [...imports],
   exports: [...exports]
 })
 export class AppMaterialModule { }

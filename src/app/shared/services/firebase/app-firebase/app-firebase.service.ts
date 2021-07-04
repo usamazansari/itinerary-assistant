@@ -16,6 +16,12 @@ import { Observable } from 'rxjs';
 
 // :recycle: Optimization Required
 
+/**
+ * @deprecated Use from `@core/services/common`
+ *
+ * @export
+ * @class AppFirebaseService
+ */
 @Injectable({
   providedIn: 'root'
 })

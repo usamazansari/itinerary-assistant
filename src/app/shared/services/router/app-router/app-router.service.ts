@@ -2,8 +2,14 @@ import { Injectable } from '@angular/core';
 
 import { Router } from '@angular/router';
 
-import { AppRouterPayloadModel } from '@shared/models/router/app-router.model';
+import { RouterPayloadModel } from '@shared/models/router/app-router.model';
 
+/**
+ * @deprecated Use from `@core/services/common`
+ *
+ * @export
+ * @class AppRouterService
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +19,7 @@ export class AppRouterService {
     private _router: Router
   ) { }
 
-  navigate(_: AppRouterPayloadModel): void {
+  navigate(_: RouterPayloadModel): void {
     this._router.navigate([..._.routes], { ..._.extras });
   }
 }

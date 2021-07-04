@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { CoreRouterService } from '@core/services/common/router/core-router.service';
 import { IaCoreHomeAssetsModel, DEFAULT_IA_CORE_HOME_ASSETS } from '@core/models/home/home.model';
-import { IA_CORE_ROUTES } from '@core/core.routes';
+import { CORE_ROUTES } from '@core/core.routes';
 import { TRIP_ROUTES } from 'src/app/features/trip/trip.routes';
 
 /**
@@ -94,7 +94,7 @@ export class HomeService {
    * @memberof IaCoreHomeService
    */
   gotoViewTrip(): void {
-    this._routerService.navigate({ routes: [IA_CORE_ROUTES.TRIP, TRIP_ROUTES.VIEW_TRIP], extras: {} });
+    this._routerService.navigate({ routes: [CORE_ROUTES.TRIP, TRIP_ROUTES.VIEW_TRIP], extras: {} });
   }
 
   /**
@@ -107,6 +107,6 @@ export class HomeService {
    * @memberof IaCoreHomeService
    */
   gotoCreateTrip(): void {
-    this._routerService.navigate({ routes: [IA_CORE_ROUTES.TRIP, TRIP_ROUTES.CREATE_TRIP], extras: {} });
+    this._routerService.navigate({ routes: [CORE_ROUTES.TRIP, TRIP_ROUTES.CREATE_TRIP], extras: {} });
   }
 }

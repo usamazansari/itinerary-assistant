@@ -1,4 +1,4 @@
-import { AppFaIconModel, DEFAULT_FA_ICON } from '@shared/models/icon/app-icon.model';
+import { IconModel, ICON_STUB } from '@shared/models/icon/app-icon.model';
 
 /**
  * Interface for a Button
@@ -14,12 +14,13 @@ import { AppFaIconModel, DEFAULT_FA_ICON } from '@shared/models/icon/app-icon.mo
  * @export
  * @interface AppButtonModel
  */
-export interface AppButtonModel {
+export interface ButtonModel {
 
   /**
    * Label for the button
    *
    * @type {(string | null)}
+   * @optional
    * @memberof AppButtonModel
    */
   label?: string | null;
@@ -27,23 +28,33 @@ export interface AppButtonModel {
   /**
    * Icon for the button
    *
-   * @type {AppFaIconModel}
+   * @type {IconModel}
+   * @optional
    * @memberof AppButtonModel
    */
-  icon?: AppFaIconModel;
+  icon?: IconModel;
 
   /**
    * Disabled state of the button
    *
    * @type {boolean}
+   * @optional
    * @memberof AppButtonModel
    */
   disabled: boolean;
 }
 
 /**
- * Initializer for `AppButtonModel`
+ * Stub for a `ButtonModel`
+ * 
+ * ```ts
+ * const BUTTON_STUB: ButtonModel = {
+ *   label    : null,
+ *   icon     : { ...ICON_STUB },
+ *   disabled : false
+ * }
+ * ```
  */
-export const DEFAULT_APP_BUTTON: AppButtonModel = {
-  label: null, icon: { ...DEFAULT_FA_ICON }, disabled: false
+export const BUTTON_STUB: ButtonModel = {
+  label: null, icon: { ...ICON_STUB }, disabled: false
 };

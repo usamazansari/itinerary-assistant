@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
+/**
+ * @deprecated Use from `@core/services/common`
+ *
+ * @export
+ * @class AppSnackbarService
+ */
 @Injectable({
   providedIn: 'root'
 })

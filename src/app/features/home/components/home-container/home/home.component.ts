@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { IaCoreHomeAssetsModel } from '@core/models/home/home.model';
+import type { OnInit } from '@angular/core';
+import type { HomeAssetsModel } from '@home/models/home/home.model';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,11 @@ import { IaCoreHomeAssetsModel } from '@core/models/home/home.model';
 })
 export class HomeComponent implements OnInit {
 
-  private _assets$: BehaviorSubject<IaCoreHomeAssetsModel> = new BehaviorSubject<IaCoreHomeAssetsModel>(null);
+  private _assets$: BehaviorSubject<HomeAssetsModel> = new BehaviorSubject<HomeAssetsModel>(null);
 
   @Input()
-  set assets(value: IaCoreHomeAssetsModel) { this._assets$.next(value); }
-  get assets(): IaCoreHomeAssetsModel { return this._assets$.getValue(); }
+  set assets(value: HomeAssetsModel) { this._assets$.next(value); }
+  get assets(): HomeAssetsModel { return this._assets$.getValue(); }
 
   @Output() gotoViewTrip$: EventEmitter<void> = new EventEmitter<void>();
   @Output() gotoCreateTrip$: EventEmitter<void> = new EventEmitter<void>();

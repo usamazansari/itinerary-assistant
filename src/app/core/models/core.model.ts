@@ -1,8 +1,8 @@
-import { AppButtonModel, DEFAULT_APP_BUTTON } from '@shared/models/button/app-button.model';
-import { AppFaIconModel, DEFAULT_FA_ICON } from '@shared/models/icon/app-icon.model';
-import { AppImageModel, DEFAULT_APP_IMAGE } from '@shared/models/image/app-image.model';
-import { AppRouterPayloadModel } from '@shared/models/router/app-router.model';
-import { AppFlagModel, DEFAULT_APP_FLAG } from '@shared/models/flag/app-flag.model';
+import { ButtonModel, BUTTON_STUB } from '@shared/models/button/app-button.model';
+import { IconModel, ICON_STUB } from '@shared/models/icon/app-icon.model';
+import { ImageModel, IMAGE_STUB } from '@shared/models/image/app-image.model';
+import { RouterPayloadModel } from '@shared/models/router/app-router.model';
+import { FlagModel, FLAG_STUB } from '@shared/models/flag/app-flag.model';
 
 /**
  * Icon in `ia-core` module.
@@ -16,11 +16,11 @@ import { AppFlagModel, DEFAULT_APP_FLAG } from '@shared/models/flag/app-flag.mod
  *
  * @export
  * @interface IaIconModel
- * @extends {AppFaIconModel}
+ * @extends {IconModel}
  */
-export interface IaCoreIconModel extends AppFaIconModel { }
+export interface IaCoreIconModel extends IconModel { }
 
-export const DEFAULT_IA_ICON: IaCoreIconModel = { ...DEFAULT_FA_ICON };
+export const DEFAULT_IA_ICON: IaCoreIconModel = { ...ICON_STUB };
 
 /**
  * Router Payload in `ia-core` module.
@@ -34,9 +34,9 @@ export const DEFAULT_IA_ICON: IaCoreIconModel = { ...DEFAULT_FA_ICON };
  *
  * @export
  * @interface IaRouterPayloadModel
- * @extends {AppRouterPayloadModel}
+ * @extends {RouterPayloadModel}
  */
-export interface IaCoreRouterPayloadModel extends AppRouterPayloadModel { }
+export interface IaCoreRouterPayloadModel extends RouterPayloadModel { }
 
 /**
  * Button in `ia-core` module.
@@ -50,11 +50,11 @@ export interface IaCoreRouterPayloadModel extends AppRouterPayloadModel { }
  *
  * @export
  * @interface IaButtonModel
- * @extends {AppButtonModel}
+ * @extends {ButtonModel}
  */
-export interface IaCoreButtonModel extends AppButtonModel { }
+export interface IaCoreButtonModel extends ButtonModel { }
 
-export const DEFAULT_IA_BUTTON: IaCoreButtonModel = { ...DEFAULT_APP_BUTTON };
+export const DEFAULT_IA_BUTTON: IaCoreButtonModel = { ...BUTTON_STUB };
 
 /**
  * Image in `ia-core` module.
@@ -68,12 +68,12 @@ export const DEFAULT_IA_BUTTON: IaCoreButtonModel = { ...DEFAULT_APP_BUTTON };
  *
  * @export
  * @interface IaImageModel
- * @extends {AppImageModel}
+ * @extends {ImageModel}
  */
-export interface IaCoreImageModel extends AppImageModel { }
+export interface IaCoreImageModel extends ImageModel { }
 
-export const DEFAULT_IA_IMAGE: IaCoreImageModel = { ...DEFAULT_APP_IMAGE };
+export const DEFAULT_IA_IMAGE: IaCoreImageModel = { ...IMAGE_STUB };
 
-export interface IaCoreFlagModel extends AppFlagModel { }
+export interface IaCoreFlagModel extends FlagModel { }
 
-export const DEFAULT_IA_CORE_FLAG: IaCoreFlagModel = { ...DEFAULT_APP_FLAG };
+export const DEFAULT_IA_CORE_FLAG: IaCoreFlagModel = { ...FLAG_STUB };

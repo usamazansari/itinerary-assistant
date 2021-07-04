@@ -35,7 +35,7 @@ const ICONS = [
   imports: [FontAwesomeModule],
   exports: [FontAwesomeModule]
 })
-export class IconModule {
+export class CoreIconModule {
 
   constructor(lib: FaIconLibrary) {
     lib.addIcons(...ICONS);

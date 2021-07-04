@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { AUTHOR } from '@shared/constants/app.constants';
+import { AUTHOR } from '@core/constants/app.constants';
 
 import { CoreClipboardService } from '@core/services/common/clipboard/core-clipboard.service';
 import {

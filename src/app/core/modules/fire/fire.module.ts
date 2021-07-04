@@ -17,12 +17,6 @@ const PROVIDERS = [
   AngularFirestore
 ];
 
-/**
- * @redundant 🗑️ Delete it
- *
- * @export
- * @class AppFireModule
- */
 @NgModule({
   imports: [...imports],
   exports: [...exports],

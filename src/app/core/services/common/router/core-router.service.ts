@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IA_CORE_ROUTES } from '@core/core.routes';
+import { CORE_ROUTES } from '@core/core.routes';
 
 import { IaCoreRouterPayloadModel } from '@core/models/core.model';
 import { AppRouterService } from '@shared/services/router/app-router/app-router.service';
@@ -30,6 +30,6 @@ export class CoreRouterService {
    * @memberof IaCoreRouterService
    */
   navigate(payload: IaCoreRouterPayloadModel): void {
-    this._routerService.navigate({ routes: [IA_CORE_ROUTES.EMPTY, ...payload.routes], extras: { ...payload.extras } });
+    this._routerService.navigate({ routes: [CORE_ROUTES.EMPTY, ...payload.routes], extras: { ...payload.extras } });
   }
 }

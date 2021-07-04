@@ -8,8 +8,8 @@ import {
 } from '@core/models/footer/footer.model';
 
 // TODO: Hierarachical Modularization
-import { AppFaIconModel } from '@shared/models/icon/app-icon.model';
-import { AppImageModel } from '@shared/models/image/app-image.model';
+import { IconModel } from '@shared/models/icon/app-icon.model';
+import { ImageModel } from '@shared/models/image/app-image.model';
 
 /**
  * TODO: 🧐 Documentation Required
@@ -116,7 +116,7 @@ export class FooterComponent implements OnInit {
    * @return {*}  {icon is AppFaIconModel}
    * @memberof IaCoreFooterComponent
    */
-  isIcon(icon: FooterIcon): icon is AppFaIconModel {
+  isIcon(icon: FooterIcon): icon is IconModel {
     return 'name' in icon;
   }
 
@@ -127,7 +127,7 @@ export class FooterComponent implements OnInit {
    * @return {*}  {icon is AppImageModel}
    * @memberof IaCoreFooterComponent
    */
-  isImage(icon: FooterIcon): icon is AppImageModel {
+  isImage(icon: FooterIcon): icon is ImageModel {
     return 'src' in icon;
   }
 

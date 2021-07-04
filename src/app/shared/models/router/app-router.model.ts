@@ -13,7 +13,7 @@ import { NavigationExtras } from '@angular/router';
  * @export
  * @interface AppRouterPayloadModel
  */
-export interface AppRouterPayloadModel {
+export interface RouterPayloadModel {
   /**
    * Array of routes to navigate
    *
@@ -23,7 +23,7 @@ export interface AppRouterPayloadModel {
   routes: string[];
 
   /**
-   * Navigation extras
+   * Navigation extras - from @angular/routing``
    *
    * @type {NavigationExtras}
    * @memberof AppRouterPayloadModel

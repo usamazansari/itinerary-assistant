@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
 
+/**
+ * @deprecated Use from `@core/services/common`
+ *
+ * @export
+ * @class AppClipboardService
+ */
 @Injectable({
   providedIn: 'root'
 })

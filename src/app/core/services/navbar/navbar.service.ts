@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { APPLICATION_NAME } from '@shared/constants/app.constants';
+import { APPLICATION_NAME } from '@core/constants/app.constants';
 
 import { CoreRouterService } from '@core/services/common/router/core-router.service';
 import { DEFAULT_IA_ICON } from '@core/models/core.model';

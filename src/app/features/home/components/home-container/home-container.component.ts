@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-
-import { Observable } from 'rxjs';
+import { Component } from '@angular/core';
 
 import { HomeService } from '@core/services/home/home.service';
-import { IaCoreHomeAssetsModel } from '@core/models/home/home.model';
+
+import type { OnInit } from '@angular/core';
+import type { Observable } from 'rxjs';
+import type { HomeAssetsModel } from '@home/models/home/home.model';
 
 @Component({
   selector: 'app-home-container',
@@ -13,7 +14,7 @@ import { IaCoreHomeAssetsModel } from '@core/models/home/home.model';
 })
 export class HomeContainerComponent implements OnInit {
 
-  assets$: Observable<IaCoreHomeAssetsModel>;
+  assets$: Observable<HomeAssetsModel>;
 
   constructor(
     private _service: HomeService
