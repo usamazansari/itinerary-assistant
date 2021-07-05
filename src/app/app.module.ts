@@ -8,7 +8,7 @@ import { LumberjackModule } from '@ngworker/lumberjack';
 import { LumberjackConsoleDriverModule } from '@ngworker/lumberjack/console-driver';
 
 import { AppFireModule } from '@core/modules/fire/fire.module';
-import { AppMaterialModule } from '@core/modules/material/material.module';
+import { MaterialModule } from '@core/modules/material/material.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +25,7 @@ const imports = [
 
   AppRoutingModule,
   AppFireModule,
-  AppMaterialModule
+  MaterialModule
 ];
 
 @NgModule({

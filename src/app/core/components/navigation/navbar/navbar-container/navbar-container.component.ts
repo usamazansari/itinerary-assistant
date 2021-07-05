@@ -1,11 +1,18 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { NavbarService } from '@core/services/navigation/navbar/navbar.service';
 
-import { NavbarService } from '@core/services/navbar/navbar.service';
-import { IaNavbarRouterPayloadModel } from '@core/models/navigation/navigation-model';
-import { IaNavbarAssetsModel } from '@core/models/navigation/navbar/navbar.model';
+import type { Observable } from 'rxjs';
+import type { NavbarRouterPayloadModel } from '@core/models/navigation/navigation-model';
+import type { NavbarAssetsModel } from '@core/models/navigation/navbar/navbar.model';
 
+/**
+ * Container component for `NavbarComponent`
+ *
+ * @export
+ * @class NavbarContainerComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-navbar-container',
   template: `<app-navbar [assets]         = "assets$ | async"
@@ -14,25 +21,57 @@ import { IaNavbarAssetsModel } from '@core/models/navigation/navbar/navbar.model
 })
 export class NavbarContainerComponent implements OnInit {
 
-  assets$: Observable<IaNavbarAssetsModel>;
+  /**
+   * TODO: 🧐 Documentation Required
+   *
+   * @type {Observable<NavbarAssetsModel>}
+   * @memberof NavbarContainerComponent
+   */
+  assets$: Observable<NavbarAssetsModel>;
 
+  /**
+   * TODO: 🧐 Documentation Required
+   *
+   * @memberof NavbarContainerComponent
+   */
   @Output() toggleSidenav$ = new EventEmitter<void>();
 
+  /**
+   * Creates an instance of `NavbarContainerComponent`.
+   * 
+   * @param {NavbarService} _service Service associated with `NavbarContainerComponent`
+   * @memberof NavbarContainerComponent
+   */
   constructor(
     private _service: NavbarService
   ) { }
 
+  /**
+   * Fetch the initial state of the component
+   *
+   * @memberof NavbarContainerComponent
+   */
   ngOnInit(): void {
     this._service.fetchAssets();
     this.assets$ = this._service.watchAssets$();
   }
 
-  navigate(_: IaNavbarRouterPayloadModel): void {
-    this._service.navigate(_);
+  /**
+   * Trigger a navigation
+   *
+   * @param {NavbarRouterPayloadModel} payload
+   * @memberof NavbarContainerComponent
+   */
+  navigate(payload: NavbarRouterPayloadModel): void {
+    this._service.navigate(payload);
   }
 
+  /**
+   * TODO: 🧐 Documentation Required
+   *
+   * @memberof NavbarContainerComponent
+   */
   toggleSidenav(): void {
     this.toggleSidenav$.emit();
   }
-
 }

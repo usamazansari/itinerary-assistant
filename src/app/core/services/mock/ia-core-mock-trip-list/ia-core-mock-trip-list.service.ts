@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import type { Observable } from 'rxjs';
 
-import { CoreFirebaseService } from '@core/services/common/firebase/core-firebase.service';
+import { FirebaseService } from '@core/services/common/firebase/firebase.service';
 
 // :recycle: Optimization required
 
@@ -12,7 +12,7 @@ import { CoreFirebaseService } from '@core/services/common/firebase/core-firebas
 export class IaCoreMockTripListService {
 
   constructor(
-    private _firebaseService: CoreFirebaseService
+    private _firebaseService: FirebaseService
   ) { }
 
   watchTripList$(): Observable<any> {

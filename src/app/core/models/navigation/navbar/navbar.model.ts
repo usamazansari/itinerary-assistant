@@ -1,4 +1,4 @@
-import { IaNavigationItemModel, DEFAULT_NAVIGATION_ITEM } from '@core/models/navigation/navigation-model';
+import { NavigationItemModel, NAVIGATION_ITEM_STUB } from '@core/models/navigation/navigation-model';
 
 /**
  * For use in `IaNavbarComponent`
@@ -13,26 +13,26 @@ import { IaNavigationItemModel, DEFAULT_NAVIGATION_ITEM } from '@core/models/nav
  * @export
  * @interface IaNavbarAssetsModel
  */
-export interface IaNavbarAssetsModel {
+export interface NavbarAssetsModel {
   /**
    * Trigger for the Sidenav
    *
-   * @type {IaNavigationItemModel}
+   * @type {NavigationItemModel}
    * @memberof IaNavbarAssetsModel
    */
-  trigger: IaNavigationItemModel;
+  trigger: NavigationItemModel;
 
   /**
    * Logo of the application
    *
-   * @type {IaNavigationItemModel}
+   * @type {NavigationItemModel}
    * @memberof IaNavbarAssetsModel
    */
-  logo: IaNavigationItemModel;
+  logo: NavigationItemModel;
 }
 
-export const DEFAULT_IA_NAVBAR_ASSETS: IaNavbarAssetsModel = {
-  trigger: { ...DEFAULT_NAVIGATION_ITEM },
-  logo: { ...DEFAULT_NAVIGATION_ITEM }
+export const DEFAULT_IA_NAVBAR_ASSETS: NavbarAssetsModel = {
+  trigger: { ...NAVIGATION_ITEM_STUB },
+  logo: { ...NAVIGATION_ITEM_STUB }
 };
 

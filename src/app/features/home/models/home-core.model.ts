@@ -1,8 +1,8 @@
-import { ButtonModel, BUTTON_STUB } from '@shared/models/button/app-button.model';
-import { IconModel, ICON_STUB } from '@shared/models/icon/app-icon.model';
-import { ImageModel, IMAGE_STUB } from '@shared/models/image/app-image.model';
-import { RouterPayloadModel } from '@shared/models/router/app-router.model';
-import { FlagModel, FLAG_STUB } from '@shared/models/flag/app-flag.model';
+import { ButtonModel, BUTTON_STUB } from '@shared/models/button/button.model';
+import { IconModel, ICON_STUB } from '@shared/models/icon/icon.model';
+import { ImageModel, IMAGE_STUB } from '@shared/models/image/image.model';
+import { RouterPayloadModel } from '@core/models/common/router/router.model';
+import { FlagModel, FLAG_STUB } from '@shared/models/flag/flag.model';
 
 /**
  * Icon in `home` module.

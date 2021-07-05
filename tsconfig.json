@@ -31,6 +31,9 @@
       "@home/*": [
         "src/app/features/home/*"
       ],
+      "@trip/*": [
+        "src/app/features/trip/*"
+      ],
       "@environments/*": [
         "src/environments/*"
       ]

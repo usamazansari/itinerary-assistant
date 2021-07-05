@@ -1,3 +1,5 @@
 export enum APP_ROUTES {
-  EMPTY = ''
+  EMPTY = '',
+  MOCK = 'mock',
+  TRIP = 'trip'
 }

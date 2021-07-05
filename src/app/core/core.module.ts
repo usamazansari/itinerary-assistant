@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AppMaterialModule } from '@core/modules/material/material.module';
+import { MaterialModule } from '@core/modules/material/material.module';
 
-import { CoreRoutingModule } from './core-routing.module';
-import { CoreIconModule } from '@core/modules/icon/icon.module';
-
-import { ShellComponent } from './components/shell/shell.component';
+import { IconModule } from '@core/modules/icon/icon.module';
 
 import { NavbarContainerComponent } from './components/navigation/navbar/navbar-container/navbar-container.component';
 import { NavbarComponent } from './components/navigation/navbar/navbar-container/navbar/navbar.component';
@@ -21,8 +18,6 @@ import { CoreMockTripListContainerComponent } from './components/mock/ia-core-mo
 import { CoreMockTripListComponent } from './components/mock/ia-core-mock-trip-list-container/ia-core-mock-trip-list/ia-core-mock-trip-list.component';
 
 const declarations = [
-  ShellComponent,
-
   NavbarContainerComponent,
   NavbarComponent,
 
@@ -38,14 +33,13 @@ const declarations = [
 
 const imports = [
   CommonModule,
-  CoreRoutingModule,
-  AppMaterialModule,
-  CoreIconModule
+  MaterialModule,
+  IconModule
 ];
 
 const exports = [
-  AppMaterialModule,
-  CoreIconModule,
+  MaterialModule,
+  IconModule,
 
   NavbarContainerComponent,
   SidenavContainerComponent,

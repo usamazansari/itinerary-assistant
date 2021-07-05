@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
 /**
- * Service to handle all the common or shared operations within `ia-core` module
+ * Service to handle all the common or shared operations within `core` module
  *
  * @export
- * @class IaCoreService
+ * @class CoreService
  */
 @Injectable({
   providedIn: 'root'

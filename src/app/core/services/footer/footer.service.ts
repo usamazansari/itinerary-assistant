@@ -2,15 +2,20 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { AUTHOR } from '@core/constants/app.constants';
+import { AUTHOR } from 'src/app/app.constants';
 
-import { CoreClipboardService } from '@core/services/common/clipboard/core-clipboard.service';
-import {
-  FooterAssetsModel, DEFAULT_FOOTER_ASSETS,
-  FooterFlagsModel, DEFAULT_FOOTER_FLAGS
-} from '@core/models/footer/footer.model';
-import { CoreSnackbarService } from '@core/services/common/snackbar/core-snackbar.service';
+import { ClipboardService } from '@core/services/common/clipboard/clipboard.service';
+import { FooterAssetsModel, FOOTER_ASSETS_STUB } from '@core/models/footer/footer.model';
+import { SnackbarService } from '@core/services/common/snackbar/snackbar.service';
 
+// TODO: Make services free of loose strings - use constants file for each module
+
+/**
+ * TODO: 🧐 Documentation Required
+ *
+ * @export
+ * @class FooterService
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -29,28 +34,10 @@ export class FooterService {
    * TODO: 🧐 Documentation Required
    *
    * @private
-   * @type {BehaviorSubject<FooterFlagsModel>}
-   * @memberof FooterService
-   */
-  private _flags$: BehaviorSubject<FooterFlagsModel> = new BehaviorSubject<FooterFlagsModel>(null);
-
-  /**
-   * TODO: 🧐 Documentation Required
-   *
-   * @private
    * @type {FooterAssetsModel}
    * @memberof FooterService
    */
-  private _assets: FooterAssetsModel = { ...DEFAULT_FOOTER_ASSETS };
-
-  /**
-   * TODO: 🧐 Documentation Required
-   *
-   * @private
-   * @type {FooterFlagsModel}
-   * @memberof FooterService
-   */
-  private _flags: FooterFlagsModel = { ...DEFAULT_FOOTER_FLAGS };
+  private _assets: FooterAssetsModel = { ...FOOTER_ASSETS_STUB };
 
   /**
    * Creates an instance of FooterService.
@@ -58,8 +45,8 @@ export class FooterService {
    * @memberof FooterService
    */
   constructor(
-    private _clipboard: CoreClipboardService,
-    private _snackbar: CoreSnackbarService
+    private _clipboard: ClipboardService,
+    private _snackbar: SnackbarService
   ) { }
 
   /**
@@ -69,13 +56,13 @@ export class FooterService {
    */
   fetchAssets(): void {
     this._assets = {
-      ...DEFAULT_FOOTER_ASSETS,
+      ...FOOTER_ASSETS_STUB,
 
       madeWith: 'Made with',
 
       heart: {
         name: '', url: '',
-        icon: { style: 'fas', name: 'heart' }
+        icon: { style: 'fas', name: 'heart' } // fetch icon names and styles from constants
       },
       using: 'using',
 
@@ -137,15 +124,7 @@ export class FooterService {
    */
   copyDiscordID(): void {
     this._clipboard.copy(AUTHOR.DISCORD);
-
-    /**
-     * Optimize for scalable usage
-     */
     this._snackbar.openSnackbar({ message: 'Discord ID Copied!', action: 'OK', config: { horizontalPosition: 'center', verticalPosition: 'bottom', duration: 2500 } });
-
-    // this.setFlags({ ...this._flags, discord: { ...DEFAULT_IA_CORE_FLAG } });
-    // const isCopied: boolean = this._clipboard.copy(AUTHOR.DISCORD);    
-    // this.setFlags({ ...this._flags, discord: { ...DEFAULT_IA_CORE_FLAG, success: isCopied, fail: !isCopied } });
   }
 
   /**
@@ -155,45 +134,7 @@ export class FooterService {
    */
   copyEmailID(): void {
     this._clipboard.copy(AUTHOR.EMAIL);
-
-    /**
-     * Optimize for scalable usage
-     */
     this._snackbar.openSnackbar({ message: 'Email ID Copied!', action: 'OK', config: { horizontalPosition: 'center', verticalPosition: 'bottom', duration: 2500 } });
-
-    // this.setFlags({ ...this._flags, email: { ...DEFAULT_IA_CORE_FLAG } });
-    // const isCopied: boolean = this._clipboard.copy(AUTHOR.EMAIL);
-    // this.setFlags({ ...this._flags, email: { ...DEFAULT_IA_CORE_FLAG, success: isCopied, fail: !isCopied } });
-  }
-
-  /**
-   * TODO: 🧐 Documentation Required
-   *
-   * @param {FooterFlagsModel} flags
-   * @memberof FooterService
-   */
-  setFlags(flags: FooterFlagsModel): void {
-    this._flags = { ...flags ?? DEFAULT_FOOTER_FLAGS };
-    this._flags$.next(this._flags);
-  }
-
-  /**
-   * TODO: 🧐 Documentation Required
-   *
-   * @memberof FooterService
-   */
-  resetFlags(): void {
-    this.setFlags(DEFAULT_FOOTER_FLAGS);
-  }
-
-  /**
-   * TODO: 🧐 Documentation Required
-   *
-   * @return {*}  {Observable<IaCoreFooterFlagsModel>}
-   * @memberof FooterService
-   */
-  watchFlags$(): Observable<FooterFlagsModel> {
-    return this._flags$.asObservable();
   }
 
   /**

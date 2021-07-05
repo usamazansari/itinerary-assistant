@@ -111,4 +111,4 @@ const exports = [...MATERIAL_MODULES];
   imports: [...imports],
   exports: [...exports]
 })
-export class AppMaterialModule { }
+export class MaterialModule { }

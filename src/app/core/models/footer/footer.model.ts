@@ -1,31 +1,76 @@
-import { IconModel } from '@shared/models/icon/app-icon.model';
-import { ImageModel } from '@shared/models/image/app-image.model';
-import { IaCoreFlagModel, DEFAULT_IA_CORE_FLAG } from '@core/models/core.model';
+import { IconModel, ICON_STUB } from '@shared/models/icon/icon.model';
+import { ImageModel } from '@shared/models/image/image.model';
+
+export type FooterIconType = IconModel | ImageModel;
 
 /**
- * TODO: Create common models for `ia-core.module`
+ * Interface to denote a footer link
+ * 
+ * ```ts
+ * interface FooterLink {
+ *   name : string | null;
+ *   url  : string | null;
+ *   icon : FooterIconType;
+ * }
+ * ```
+ * 
+ * @private Interface for internal use
+ * @interface FooterLink
  */
-
-export type FooterIcon = IconModel | ImageModel;
-
 interface FooterLink {
+  /**
+   * Name of the footer link
+   *
+   * @type {(string | null)}
+   * @memberof FooterLink
+   */
   name: string | null;
+
+  /**
+   * URL of the footer link
+   *
+   * @type {(string | null)}
+   * @memberof FooterLink
+   */
   url: string | null;
-  icon: FooterIcon;
+
+  /**
+   * Icon of the footer link
+   *
+   * @type {FooterIconType}
+   * @memberof FooterLink
+   */
+  icon: FooterIconType;
 }
+
+/**
+ * Stub for `FooterLink`
+ * 
+ * ```ts
+ * const FOOTER_LINK_STUB: FooterLink = {
+ *   icon : { ...ICON_STUB },
+ *   name : null,
+ *   url  : null
+ * }
+ * ```
+ * 
+ */
+const FOOTER_LINK_STUB: FooterLink = {
+  icon: { ...ICON_STUB }, name: null, url: null
+};
 
 /**
  * Application Footer Assets
  *
  * @export
- * @interface IaCoreFooterAssetsModel
+ * @interface FooterAssetsModel
  */
 export interface FooterAssetsModel {
   /**
    * Footer text - `Made with`
    *
    * @type {(string | null)}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   madeWith: string | null;
 
@@ -33,7 +78,7 @@ export interface FooterAssetsModel {
    * Spreading Love
    *
    * @type {FooterLink}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   heart: FooterLink;
 
@@ -41,7 +86,7 @@ export interface FooterAssetsModel {
    * Footer text - `using`
    *
    * @type {(string | null)}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   using: string | null;
 
@@ -49,7 +94,7 @@ export interface FooterAssetsModel {
    * Angular
    *
    * @type {FooterLink}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   angular: FooterLink;
 
@@ -57,7 +102,7 @@ export interface FooterAssetsModel {
    * Tailwind
    *
    * @type {FooterLink}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   tailwind: FooterLink;
 
@@ -65,7 +110,7 @@ export interface FooterAssetsModel {
    * Font Awesome
    *
    * @type {FooterLink}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   fontawesome: FooterLink;
 
@@ -73,7 +118,7 @@ export interface FooterAssetsModel {
    * Firebase
    *
    * @type {FooterLink}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   firebase: FooterLink;
 
@@ -81,7 +126,7 @@ export interface FooterAssetsModel {
    * by
    *
    * @type {(string | null)}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   by: string | null;
 
@@ -89,7 +134,7 @@ export interface FooterAssetsModel {
    * Name of the Author - Usama Ansari
    *
    * @type {(string | null)}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   author: string | null;
 
@@ -97,7 +142,7 @@ export interface FooterAssetsModel {
    * GitHub
    *
    * @type {FooterLink}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   github: FooterLink;
 
@@ -105,7 +150,7 @@ export interface FooterAssetsModel {
    * LinkedIn
    *
    * @type {FooterLink}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   linkedin: FooterLink;
 
@@ -113,7 +158,7 @@ export interface FooterAssetsModel {
    * Discord
    *
    * @type {FooterLink}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   discord: FooterLink;
 
@@ -121,54 +166,47 @@ export interface FooterAssetsModel {
    * Email
    *
    * @type {FooterLink}
-   * @memberof IaCoreFooterAssetsModel
+   * @memberof FooterAssetsModel
    */
   email: FooterLink;
 }
 
-export const DEFAULT_FOOTER_ASSETS: FooterAssetsModel = {
+/**
+ * Stub for `FooterAssetsModel`
+ * 
+ * ```ts
+ * const FOOTER_ASSETS_STUB: FooterAssetsModel = {
+ *   madeWith    : null,
+ *   heart       : FOOTER_LINK_STUB,
+ *   using       : null,
+ *   angular     : FOOTER_LINK_STUB,
+ *   tailwind    : FOOTER_LINK_STUB,
+ *   fontawesome : FOOTER_LINK_STUB,
+ *   firebase    : FOOTER_LINK_STUB,
+ *   by          : null,
+ *   author      : null,
+ *   github      : FOOTER_LINK_STUB,
+ *   linkedin    : FOOTER_LINK_STUB,
+ *   discord     : FOOTER_LINK_STUB,
+ *   email       : FOOTER_LINK_STUB
+ * };
+ * ```
+ */
+export const FOOTER_ASSETS_STUB: FooterAssetsModel = {
   madeWith: null,
-  heart: null,
+  heart: { ...FOOTER_LINK_STUB },
   using: null,
 
-  angular: null,
-  tailwind: null,
-  fontawesome: null,
-  firebase: null,
+  angular: { ...FOOTER_LINK_STUB },
+  tailwind: { ...FOOTER_LINK_STUB },
+  fontawesome: { ...FOOTER_LINK_STUB },
+  firebase: { ...FOOTER_LINK_STUB },
 
   by: null,
   author: null,
 
-  github: null,
-  linkedin: null,
-  discord: null,
-  email: null
-};
-
-/**
- * TODO: 🧐 Documentation required
- *
- * @export
- * @interface FooterFlagsModel
- */
-export interface FooterFlagsModel {
-  /**
-   * TODO: 🧐 Documentation required
-   *
-   * @type {IaCoreFlagModel}
-   * @memberof FooterFlagsModel
-   */
-  discord: IaCoreFlagModel;
-
-  /**
-   * TODO: 🧐 Documentation required
-   *
-   * @type {IaCoreFlagModel}
-   * @memberof FooterFlagsModel
-   */
-  email: IaCoreFlagModel;
-}
-
-export const DEFAULT_FOOTER_FLAGS: FooterFlagsModel = {
-  discord: { ...DEFAULT_IA_CORE_FLAG }, email: { ...DEFAULT_IA_CORE_FLAG }
+  github: { ...FOOTER_LINK_STUB },
+  linkedin: { ...FOOTER_LINK_STUB },
+  discord: { ...FOOTER_LINK_STUB },
+  email: { ...FOOTER_LINK_STUB }
 };

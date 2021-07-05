@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 
-import { FIREBASE_CONFIG } from '@core/constants/app.constants';
+import { FIREBASE_CONFIG } from 'src/app/app.constants';
 
 const imports = [
   AngularFireModule.initializeApp(FIREBASE_CONFIG),

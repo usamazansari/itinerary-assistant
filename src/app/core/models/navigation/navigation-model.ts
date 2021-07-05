@@ -1,25 +1,26 @@
-import { DEFAULT_IA_ICON, IaCoreIconModel, IaCoreRouterPayloadModel } from '@core/models/core.model';
+import { IconModel, ICON_STUB } from '@shared/models/icon/icon.model';
+import { RouterPayloadModel } from '@core/models/common/router/router.model';
 
 /**
  * Interface for Navigation Item
  * 
  * ```ts
- * interface IaNavigationItemModel {
+ * interface NavigationItemModel {
  *   label    : string | null
  *   routes   : string[]
- *   icon     : IaCoreIconModel
- *   children : IaNavigationItemModel[]
+ *   icon     : IconModel
+ *   children : NavigationItemModel[]
  * }
  * ```
  *
- * @interface IaNavigationItemModel
+ * @interface NavigationItemModel
  */
-export interface IaNavigationItemModel {
+export interface NavigationItemModel {
   /**
    * Navigation Item Label
    *
    * @type {(string | null)}
-   * @memberof IaNavigationItemModel
+   * @memberof NavigationItemModel
    */
   label: string | null;
 
@@ -27,47 +28,56 @@ export interface IaNavigationItemModel {
    * Navigation Item Routes
    *
    * @type {string[]}
-   * @memberof IaNavigationItemModel
+   * @memberof NavigationItemModel
    */
   routes: string[];
 
   /**
    * Navigation Item Icon
    *
-   * @type {IaCoreIconModel}
-   * @memberof IaNavigationItemModel
+   * @type {IconModel}
+   * @memberof NavigationItemModel
    */
-  icon: IaCoreIconModel;
+  icon: IconModel;
 
   /**
    * Array of children Navigation items
    *
-   * @type {IaNavigationItemModel[]}
-   * @memberof IaNavigationItemModel
+   * @type {NavigationItemModel[]}
+   * @memberof NavigationItemModel
    */
-  children: IaNavigationItemModel[];
+  children: NavigationItemModel[];
 }
 
 /**
- * Initializer for `IaNavigationItemModel`
- */
-export const DEFAULT_NAVIGATION_ITEM: IaNavigationItemModel = {
-  label: null, routes: [], icon: { ...DEFAULT_IA_ICON }, children: []
+ * Stub for `NavigationItemModel`
+ * 
+ * ```ts
+ * const NAVIGATION_ITEM_STUB: NavigationItemModel = {
+ *   label    : null,
+ *   routes   : [],
+ *   icon     : { ...ICON_STUB },
+ *   children : []
+ * 
 };
-
+ * ```
+ */
+export const NAVIGATION_ITEM_STUB: NavigationItemModel = {
+  label: null, routes: [], icon: { ...ICON_STUB }, children: []
+};
 
 /**
  * Router Payload Model
  * 
  * ```ts
- * interface IaCoreRouterPayloadModel {
+ * interface NavbarRouterPayloadModel {
  *   routes : string[]
  *   extras : NavigationExtras
  * }
  * ```
  *
  * @export
- * @interface IaNavbarRouterPayloadModel
- * @extends {IaCoreRouterPayloadModel}
+ * @interface NavbarRouterPayloadModel
+ * @extends {RouterPayloadModel}
  */
-export interface IaNavbarRouterPayloadModel extends IaCoreRouterPayloadModel { }
+export interface NavbarRouterPayloadModel extends RouterPayloadModel { }

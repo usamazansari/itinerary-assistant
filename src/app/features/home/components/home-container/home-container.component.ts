@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { HomeService } from '@core/services/home/home.service';
+import { HomeService } from '@home/services/home/home.service';
 
 import type { OnInit } from '@angular/core';
 import type { Observable } from 'rxjs';

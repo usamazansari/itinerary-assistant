@@ -2,20 +2,17 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import {
-  FooterAssetsModel, FooterFlagsModel,
-  FooterIcon
-} from '@core/models/footer/footer.model';
+import { FOOTER_ASSETS_STUB } from '@core/models/footer/footer.model';
 
-// TODO: Hierarachical Modularization
-import { IconModel } from '@shared/models/icon/app-icon.model';
-import { ImageModel } from '@shared/models/image/app-image.model';
+import type { FooterAssetsModel, FooterIconType } from '@core/models/footer/footer.model';
+import type { IconModel } from '@shared/models/icon/icon.model';
+import type { ImageModel } from '@shared/models/image/image.model';
 
 /**
- * TODO: 🧐 Documentation Required
+ * Footer component of the application
  *
  * @export
- * @class IaCoreFooterComponent
+ * @class FooterComponent
  * @implements {OnInit}
  */
 @Component({
@@ -26,108 +23,92 @@ import { ImageModel } from '@shared/models/image/app-image.model';
 export class FooterComponent implements OnInit {
 
   /**
-   * TODO: 🧐 Documentation Required
+   * `BehaviorSubject` to hold `asset`s of footer
    *
    * @private
    * @type {BehaviorSubject<FooterAssetsModel>}
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
-  private _assets$: BehaviorSubject<FooterAssetsModel> = new BehaviorSubject<FooterAssetsModel>(null);
+  private _assets$: BehaviorSubject<FooterAssetsModel> = new BehaviorSubject<FooterAssetsModel>(FOOTER_ASSETS_STUB);
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Assets used by `FooterComponent`
+   * 
+   * Refer documentation of `FooterAssetsModel` for details
    *
-   * @private
-   * @type {BehaviorSubject<FooterFlagsModel>}
-   * @memberof IaCoreFooterComponent
-   */
-  private _flags$: BehaviorSubject<FooterFlagsModel> = new BehaviorSubject<FooterFlagsModel>(null);
-
-  /**
-   * TODO: 🧐 Documentation Required
-   *
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
   @Input()
   set assets(value: FooterAssetsModel) { this._assets$.next(value); }
   get assets(): FooterAssetsModel { return this._assets$.getValue(); }
 
   /**
-   * TODO: 🧐 Documentation Required
-   *
-   * @memberof IaCoreFooterComponent
-   */
-  @Input()
-  set flags(value: FooterFlagsModel) { this._flags$.next(value); }
-  get flags(): FooterFlagsModel { return this._flags$.getValue(); }
-
-  /**
-   * TODO: 🧐 Documentation Required
+   * `EventEmitter` to signal copying the Discord ID `usama251993#5438` to the clipboard
    *
    * @type {EventEmitter<void>}
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
   @Output() copyDiscordID$: EventEmitter<void> = new EventEmitter<void>();
 
   /**
-   * TODO: 🧐 Documentation Required
+   * `EventEmitter` to signal copying the Email ID `usama251993@gmail.com` to the clipboard
    *
    * @type {EventEmitter<void>}
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
   @Output() copyEmailID$: EventEmitter<void> = new EventEmitter<void>();
 
   /**
-   * Creates an instance of IaCoreFooterComponent.
+   * Creates an instance of FooterComponent.
    * 
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
   constructor() { }
 
   /**
-   * TODO: 🧐 Documentation Required
+   * On Initialization of `FooterComponent`
    *
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
   ngOnInit(): void { }
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Method to emit the `EventEmitter`: `copyDiscordID$`
    *
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
   copyDiscordID(): void {
     this.copyDiscordID$.emit();
   }
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Method to emit the `EventEmitter`: `copyEmailID$`
    *
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
   copyEmailID(): void {
     this.copyEmailID$.emit();
   }
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Determine whether the footer icon is a fortawesome icon
    *
-   * @param {FooterIcon} icon
+   * @param {FooterIconType} icon
    * @return {*}  {icon is AppFaIconModel}
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
-  isIcon(icon: FooterIcon): icon is IconModel {
+  isIcon(icon: FooterIconType): icon is IconModel {
     return 'name' in icon;
   }
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Determine whether the footer icon is an image
    *
-   * @param {FooterIcon} icon
+   * @param {FooterIconType} icon
    * @return {*}  {icon is AppImageModel}
-   * @memberof IaCoreFooterComponent
+   * @memberof FooterComponent
    */
-  isImage(icon: FooterIcon): icon is ImageModel {
+  isImage(icon: FooterIconType): icon is ImageModel {
     return 'src' in icon;
   }
 

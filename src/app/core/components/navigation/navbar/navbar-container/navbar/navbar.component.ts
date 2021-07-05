@@ -2,8 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { IaNavbarRouterPayloadModel } from '@core/models/navigation/navigation-model';
-import { IaNavbarAssetsModel, DEFAULT_IA_NAVBAR_ASSETS } from '@core/models/navigation/navbar/navbar.model';
+import { DEFAULT_IA_NAVBAR_ASSETS } from '@core/models/navigation/navbar/navbar.model';
+
+import type { NavbarRouterPayloadModel } from '@core/models/navigation/navigation-model';
+import type { NavbarAssetsModel } from '@core/models/navigation/navbar/navbar.model';
 
 @Component({
   selector: 'app-navbar',
@@ -12,13 +14,13 @@ import { IaNavbarAssetsModel, DEFAULT_IA_NAVBAR_ASSETS } from '@core/models/navi
 })
 export class NavbarComponent implements OnInit {
 
-  private _assets$ = new BehaviorSubject<IaNavbarAssetsModel>(DEFAULT_IA_NAVBAR_ASSETS);
+  private _assets$ = new BehaviorSubject<NavbarAssetsModel>(DEFAULT_IA_NAVBAR_ASSETS);
 
   @Input()
-  set assets(value: IaNavbarAssetsModel) { this._assets$.next(value); }
-  get assets(): IaNavbarAssetsModel { return this._assets$.getValue(); }
+  set assets(value: NavbarAssetsModel) { this._assets$.next(value); }
+  get assets(): NavbarAssetsModel { return this._assets$.getValue(); }
 
-  @Output() navigate$ = new EventEmitter<IaNavbarRouterPayloadModel>();
+  @Output() navigate$ = new EventEmitter<NavbarRouterPayloadModel>();
   @Output() toggleSidenav$ = new EventEmitter<void>();
 
   constructor() { }
@@ -27,7 +29,7 @@ export class NavbarComponent implements OnInit {
   }
 
   navigate(_: string[]): void {
-    const __: IaNavbarRouterPayloadModel = { routes: [..._], extras: {} };
+    const __: NavbarRouterPayloadModel = { routes: [..._], extras: {} };
     this.navigate$.emit(__);
   }
 
