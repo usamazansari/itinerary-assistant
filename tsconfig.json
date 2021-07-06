@@ -14,7 +14,6 @@
     "noImplicitReturns": true,
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    // "strict": true,
     "strictPropertyInitialization": false,
     "target": "es2017",
     "lib": [
@@ -22,11 +21,20 @@
       "dom"
     ],
     "paths": {
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@core/*": [
+        "src/app/core/*"
+      ],
       "@shared/*": [
         "src/app/shared/*"
       ],
-      "@ia-core/*": [
-        "src/app/core/*"
+      "@home/*": [
+        "src/app/features/home/*"
+      ],
+      "@trip/*": [
+        "src/app/features/trip/*"
       ],
       "@environments/*": [
         "src/environments/*"

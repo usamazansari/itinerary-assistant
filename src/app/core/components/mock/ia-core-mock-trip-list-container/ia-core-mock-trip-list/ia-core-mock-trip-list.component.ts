@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './ia-core-mock-trip-list.component.html',
   styleUrls: ['./ia-core-mock-trip-list.component.scss']
 })
-export class IaCoreMockTripListComponent implements OnInit {
+export class CoreMockTripListComponent implements OnInit {
 
   private _tripList$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
-const DECLARATIONS = [];
+const declarations = [];
 
-const IMPORTS = [];
+const imports = [];
 
 /**
  * @redundant - will be used when shared components and/or ngrx/ngxs state are in action
@@ -11,8 +11,8 @@ const IMPORTS = [];
  * @class AppSharedModule
  */
 @NgModule({
-  declarations: [...DECLARATIONS],
-  imports: [...IMPORTS],
-  exports: [...IMPORTS]
+  declarations: [...declarations],
+  imports: [...imports],
+  exports: [...imports]
 })
 export class AppSharedModule { }

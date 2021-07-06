@@ -1,0 +1,28 @@
+<mat-sidenav-container class="h-screen">
+  <mat-sidenav>
+    <app-sidenav-container (toggleSidenav$)="closeSidenav()">
+    </app-sidenav-container>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <!-- shell-container -->
+    <div class="grid min-h-full app-shell-container">
+
+      <!-- navbar-holder -->
+      <div class="sticky top-0 left-0 right-0 z-10">
+        <app-navbar-container (toggleSidenav$)="openSidenav()">
+        </app-navbar-container>
+      </div>
+
+      <!-- content-holer -->
+      <div class="">
+        <router-outlet></router-outlet>
+      </div>
+
+      <!-- footer-holder -->
+      <div class="">
+        <app-footer-container></app-footer-container>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
