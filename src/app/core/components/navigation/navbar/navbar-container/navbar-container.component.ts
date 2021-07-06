@@ -22,7 +22,7 @@ import type { NavbarAssetsModel } from '@core/models/navigation/navbar/navbar.mo
 export class NavbarContainerComponent implements OnInit {
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Holds the Navbar Assets as `Observable`
    *
    * @type {Observable<NavbarAssetsModel>}
    * @memberof NavbarContainerComponent
@@ -30,14 +30,14 @@ export class NavbarContainerComponent implements OnInit {
   assets$: Observable<NavbarAssetsModel>;
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Triggers an event to notify the `app-component` about sidenav toggle
    *
    * @memberof NavbarContainerComponent
    */
   @Output() toggleSidenav$ = new EventEmitter<void>();
 
   /**
-   * Creates an instance of `NavbarContainerComponent`.
+   * Creates an instance of `NavbarContainerComponent`
    * 
    * @param {NavbarService} _service Service associated with `NavbarContainerComponent`
    * @memberof NavbarContainerComponent
@@ -67,7 +67,7 @@ export class NavbarContainerComponent implements OnInit {
   }
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Emit the event to notify the `app-component` about sidenav toggle
    *
    * @memberof NavbarContainerComponent
    */

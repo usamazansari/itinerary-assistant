@@ -1,45 +1,41 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
-import { APP_ROUTES } from 'src/app/app.routes';
-import { TRIP_ROUTES } from '@trip/trip.routes';
+import { APP_ROUTES } from '@app/app.routes';
+import { RouterService } from '@app/core/services/common/router/router.service';
+import { TRIP_ROUTES } from '@app/features/trip/trip.routes';
+import { HOME_ASSETS_STUB } from '../../models/temporary-home/temporary-home.model';
 
-import { RouterService } from '@core/services/common/router/router.service';
-import { HomeAssetsModel, HOME_ASSETS_STUB } from '@home/models/home/home.model';
+import type { Observable } from 'rxjs';
+import type { TemporaryHomeAssetsModel } from '../../models/temporary-home/temporary-home.model';
 
-/**
- * TODO: 🧐 Documentation Required
- *
- * @export
- * @class HomeService
- */
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class TemporaryHomeService {
 
   /**
    * TODO: 🧐 Documentation Required
    *
    * @private
-   * @type {BehaviorSubject<HomeAssetsModel>}
-   * @memberof HomeService
+   * @type {BehaviorSubject<TemporaryHomeAssetsModel>}
+   * @memberof TemporaryHomeService
    */
-  private _assets$: BehaviorSubject<HomeAssetsModel> = new BehaviorSubject<HomeAssetsModel>(null);
+  private _assets$: BehaviorSubject<TemporaryHomeAssetsModel> = new BehaviorSubject<TemporaryHomeAssetsModel>(null);
 
   /**
    * TODO: 🧐 Documentation Required
    *
    * @private
-   * @type {HomeAssetsModel}
-   * @memberof HomeService
+   * @type {TemporaryHomeAssetsModel}
+   * @memberof TemporaryHomeService
    */
-  private _assets: HomeAssetsModel = { ...HOME_ASSETS_STUB };
+  private _assets: TemporaryHomeAssetsModel = { ...HOME_ASSETS_STUB };
 
   /**
-   * Creates an instance of `HomeService`
-   * @memberof HomeService
+   * Creates an instance of `TemporaryHomeService`
+   * @memberof TemporaryHomeService
    */
   constructor(
     private _routerService: RouterService
@@ -48,7 +44,7 @@ export class HomeService {
   /**
    * TODO: 🧐 Documentation Required
    *
-   * @memberof HomeService
+   * @memberof TemporaryHomeService
    */
   fetchAssets(): void {
     this._assets = {
@@ -67,10 +63,10 @@ export class HomeService {
   /**
    * TODO: 🧐 Documentation Required
    *
-   * @param {HomeAssetsModel} assets
-   * @memberof HomeService
+   * @param {TemporaryHomeAssetsModel} assets
+   * @memberof TemporaryHomeService
    */
-  private _setAssets(assets: HomeAssetsModel): void {
+  private _setAssets(assets: TemporaryHomeAssetsModel): void {
     this._assets = { ...assets };
     this._assets$.next(this._assets);
   }
@@ -79,9 +75,9 @@ export class HomeService {
    * TODO: 🧐 Documentation Required
    *
    * @return {*}  {Observable<HomeAssetsModel>}
-   * @memberof HomeService
+   * @memberof TemporaryHomeService
    */
-  watchAssets$(): Observable<HomeAssetsModel> {
+  watchAssets$(): Observable<TemporaryHomeAssetsModel> {
     return this._assets$.asObservable();
   }
 
@@ -92,7 +88,7 @@ export class HomeService {
    * baseURL/trip/view
    * ```
    *
-   * @memberof HomeService
+   * @memberof TemporaryHomeService
    */
   gotoViewTrip(): void {
     this._routerService.navigate({ routes: [APP_ROUTES.TRIP, TRIP_ROUTES.VIEW_TRIP], extras: {} });
@@ -105,7 +101,7 @@ export class HomeService {
    * baseURL/trip/create
    * ```
    *
-   * @memberof HomeService
+   * @memberof TemporaryHomeService
    */
   gotoCreateTrip(): void {
     this._routerService.navigate({ routes: [APP_ROUTES.TRIP, TRIP_ROUTES.CREATE_TRIP], extras: {} });

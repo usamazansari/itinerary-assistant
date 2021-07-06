@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ShellComponent } from './components/shell/shell.component';
-import { HomeContainerComponent } from './components/home-container/home-container.component';
+import { TemporaryHomeContainerComponent } from './components/temporary-home-container/temporary-home-container.component';
 
 import { HOME_ROUTES } from './home.routes';
 
@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: HOME_ROUTES.EMPTY,
-        component: HomeContainerComponent
+        component: TemporaryHomeContainerComponent
       }
     ]
   }

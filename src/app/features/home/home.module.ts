@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { CoreModule } from '@core/core.module';
+
 import { HomeRoutingModule } from './home-routing.module';
 import { ShellComponent } from './components/shell/shell.component';
-import { HomeContainerComponent } from './components/home-container/home-container.component';
-import { HomeComponent } from './components/home-container/home/home.component';
-import { CoreModule } from '@core/core.module';
+import { TemporaryHomeContainerComponent } from './components/temporary-home-container/temporary-home-container.component';
+import { TemporaryHomeComponent } from './components/temporary-home-container/temporary-home/temporary-home.component';
 
 const declarations = [
   ShellComponent,
 
-  HomeContainerComponent,
-  HomeComponent
+  TemporaryHomeContainerComponent,
+  TemporaryHomeComponent
 ];
 
 const imports = [

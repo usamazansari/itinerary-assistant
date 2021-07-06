@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { AUTHOR } from 'src/app/app.constants';
+import { AUTHOR } from '@app/app.constants';
 
 import { ClipboardService } from '@core/services/common/clipboard/clipboard.service';
 import { FooterAssetsModel, FOOTER_ASSETS_STUB } from '@core/models/footer/footer.model';

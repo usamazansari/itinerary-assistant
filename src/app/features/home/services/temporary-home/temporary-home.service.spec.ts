@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HomeService } from './home.service';
+import { TemporaryHomeService } from './temporary-home.service';
 
-describe('IaHomeService', () => {
-  let service: HomeService;
+describe('TemporaryHomeService', () => {
+  let service: TemporaryHomeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(HomeService);
+    service = TestBed.inject(TemporaryHomeService);
   });
 
   it('should be created', () => {

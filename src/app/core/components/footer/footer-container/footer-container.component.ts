@@ -21,7 +21,7 @@ import type { FooterAssetsModel } from '@core/models/footer/footer.model';
 export class FooterContainerComponent implements OnInit {
 
   /**
-   * TODO: 🧐 Documentation Required
+   * Holds the Footer Assets as `Observable`.
    *
    * @type {Observable<FooterAssetsModel>}
    * @memberof FooterContainerComponent

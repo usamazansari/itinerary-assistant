@@ -4,20 +4,20 @@ import { HOME_ICON_STUB, HomeIconModel } from '@home/models/home-core.model';
  * The assets for a Card to be displayed on the Home Page.
  * 
  * ```ts
- * interface HomeAssetModel {
+ * interface TemporaryHomeAssetModel {
  *   icon : HomeIconModel;
  *   text : string | null;
  * }
  * ```
  *
- * @interface HomeAssetModel
+ * @interface TemporaryHomeAssetModel
  */
-interface HomeAssetModel {
+interface TemporaryHomeAssetModel {
   /**
    * Icon to be displayed in the card of the home page.
    *
    * @type {HomeIconModel}
-   * @memberof HomeAssetModel
+   * @memberof TemporaryHomeAssetModel
    */
   icon: HomeIconModel;
 
@@ -25,22 +25,22 @@ interface HomeAssetModel {
    * Text for the icon displayed in the card of the home page.
    *
    * @type {(string | null)}
-   * @memberof HomeAssetModel
+   * @memberof TemporaryHomeAssetModel
    */
   text: string | null;
 }
 
 /**
- * Stub for `HomeAssetModel`.
+ * Stub for `TemporaryHomeAssetModel`.
  * 
  * ```ts
- * const HOME_ASSET_STUB: HomeAssetModel = {
+ * const HOME_ASSET_STUB: TemporaryHomeAssetModel = {
  *   icon : { ...HOME_ICON_STUB }, 
  *   text : null
  * };
  * ```
  */
-const HOME_ASSET_STUB: HomeAssetModel = {
+const HOME_ASSET_STUB: TemporaryHomeAssetModel = {
   icon: { ...HOME_ICON_STUB }, text: null
 };
 
@@ -50,7 +50,7 @@ const HOME_ASSET_STUB: HomeAssetModel = {
  * 2. Create Trip
  * 
  * ```ts
- * export interface HomeAssetsModel {
+ * export interface TemporaryHomeAssetsModel {
  *   view   : {
  *     icon : HomeIconModel;
  *     text : string | null;
@@ -63,9 +63,9 @@ const HOME_ASSET_STUB: HomeAssetModel = {
  * ```
  *
  * @export
- * @interface HomeAssetsModel
+ * @interface TemporaryHomeAssetsModel
  */
-export interface HomeAssetsModel {
+export interface TemporaryHomeAssetsModel {
   /**
    * The card to hold icon and text for `View Trip`.
    * 
@@ -76,10 +76,10 @@ export interface HomeAssetsModel {
    * };
    * ```
    *
-   * @type {HomeAssetModel}
-   * @memberof HomeAssetsModel
+   * @type {TemporaryHomeAssetModel}
+   * @memberof TemporaryHomeAssetsModel
    */
-  view: HomeAssetModel;
+  view: TemporaryHomeAssetModel;
 
   /**
    * The card to hold icon and text for `Create Trip`.
@@ -91,17 +91,17 @@ export interface HomeAssetsModel {
    * };
    * ```
    *
-   * @type {HomeAssetModel}
-   * @memberof HomeAssetsModel
+   * @type {TemporaryHomeAssetModel}
+   * @memberof TemporaryHomeAssetsModel
    */
-  create: HomeAssetModel;
+  create: TemporaryHomeAssetModel;
 }
 
 /**
- * Stub for `HomeAssetsModel`.
+ * Stub for `TemporaryHomeAssetsModel`.
  * 
  * ```ts
- * const HOME_ASSETS_STUB: HomeAssetsModel = {
+ * const HOME_ASSETS_STUB: TemporaryHomeAssetsModel = {
  *   view: { 
  *     icon : { ...HOME_ICON_STUB }, 
  *     text : null
@@ -113,6 +113,6 @@ export interface HomeAssetsModel {
  * }
  * ```
  */
-export const HOME_ASSETS_STUB: HomeAssetsModel = {
+export const HOME_ASSETS_STUB: TemporaryHomeAssetsModel = {
   view: { ...HOME_ASSET_STUB }, create: { ...HOME_ASSET_STUB }
 };

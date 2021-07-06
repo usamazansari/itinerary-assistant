@@ -4,17 +4,17 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ICON_STUB } from '@shared/models/icon/icon.model';
 
-import { APPLICATION_NAME } from 'src/app/app.constants';
+import { APPLICATION_NAME } from '@app/app.constants';
 import { RouterService } from '@core/services/common/router/router.service';
 import { NavbarRouterPayloadModel } from '@core/models/navigation/navigation-model';
-import { DEFAULT_IA_NAVBAR_ASSETS, NavbarAssetsModel } from '@core/models/navigation/navbar/navbar.model';
+import { NavbarAssetsModel, NAVBAR_ASSETS_STUB } from '@core/models/navigation/navbar/navbar.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavbarService {
 
-  private _assets$: BehaviorSubject<NavbarAssetsModel> = new BehaviorSubject<NavbarAssetsModel>(DEFAULT_IA_NAVBAR_ASSETS);
+  private _assets$: BehaviorSubject<NavbarAssetsModel> = new BehaviorSubject<NavbarAssetsModel>(NAVBAR_ASSETS_STUB);
 
   private _assets: NavbarAssetsModel;
 

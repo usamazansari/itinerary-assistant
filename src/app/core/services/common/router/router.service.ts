@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { APP_ROUTES } from 'src/app/app.routes';
+import { APP_ROUTES } from '@app/app.routes';
 
 import { RouterPayloadModel } from '@core/models/common/router/router.model';
 
