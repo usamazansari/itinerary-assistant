@@ -102,11 +102,11 @@ export interface TemporaryHomeAssetsModel {
  * 
  * ```ts
  * const HOME_ASSETS_STUB: TemporaryHomeAssetsModel = {
- *   view: { 
+ *   view   : { 
  *     icon : { ...HOME_ICON_STUB }, 
  *     text : null
  *   },
- *   create: { 
+ *   create : { 
  *     icon : { ...HOME_ICON_STUB }, 
  *     text : null
  *   }
