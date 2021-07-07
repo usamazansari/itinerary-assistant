@@ -22,5 +22,6 @@ function generateUtilities() {
 module.exports = plugin(function ({ addUtilities }) {
   addUtilities(
     generateUtilities(),
-    { variants: ['responsive', 'hover'] });
+    { variants: ['responsive', 'hover'] }
+  );
 });
