@@ -4,8 +4,15 @@ import { BehaviorSubject } from 'rxjs';
 
 import { TRIP_OVERVIEW_LIST_STUB } from '@app/features/trip/models/trip-list/trip-overview-list/trip-overview-list.model';
 
-import type { TripOverviewListModel } from '@app/features/trip/models/trip-list/trip-overview-list/trip-overview-list.model';
+import type { TripOverviewListVMModel } from '@app/features/trip/models/trip-list/trip-overview-list/trip-overview-list.model';
 
+/**
+ * `TripOverviewListComponent`
+ *
+ * @export
+ * @class TripOverviewListComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-trip-overview-list',
   templateUrl: './trip-overview-list.component.html',
@@ -13,14 +20,25 @@ import type { TripOverviewListModel } from '@app/features/trip/models/trip-list/
 })
 export class TripOverviewListComponent implements OnInit {
 
-  private _vm$: BehaviorSubject<TripOverviewListModel> = new BehaviorSubject<TripOverviewListModel>(TRIP_OVERVIEW_LIST_STUB);
+  /**
+   * Virtual Memory as a `BehaviorSubject` to be used by `getter` and `setter`
+   *
+   * @private
+   * @type {BehaviorSubject<TripOverviewListVMModel>}
+   * @memberof TripOverviewListComponent
+   */
+  private _vm$: BehaviorSubject<TripOverviewListVMModel> = new BehaviorSubject<TripOverviewListVMModel>(TRIP_OVERVIEW_LIST_STUB);
 
+  /**
+   * The virtual memory of `TripOverviewListComponent`
+   *
+   * @memberof TripOverviewListComponent
+   */
   @Input()
-  set vm(value: TripOverviewListModel) { this._vm$.next(value); }
-  get vm(): TripOverviewListModel { return this._vm$.getValue(); }
+  set vm(value: TripOverviewListVMModel) { this._vm$.next(value); }
+  get vm(): TripOverviewListVMModel { return this._vm$.getValue(); }
 
   constructor() { }
 
   ngOnInit(): void { }
-
 }
