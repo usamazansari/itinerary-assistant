@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IaTripViewService } from './ia-trip-view.service';
+import { TripOverviewService } from './trip-overview.service';
 
-describe('IaTripViewService', () => {
-  let service: IaTripViewService;
+describe('TripOverviewService', () => {
+  let service: TripOverviewService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(IaTripViewService);
+    service = TestBed.inject(TripOverviewService);
   });
 
   it('should be created', () => {

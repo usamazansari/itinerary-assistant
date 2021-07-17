@@ -106,7 +106,6 @@ export interface HomeImageModel extends ImageModel { }
  */
 export const HOME_IMAGE_STUB: HomeImageModel = { ...IMAGE_STUB };
 
-
 /**
  * Flag in `home` module.
  *

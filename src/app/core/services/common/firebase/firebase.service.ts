@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore, DocumentData } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
+import type { DocumentData } from '@angular/fire/firestore';
 import type { Observable } from 'rxjs';
 
 /**
  * ⚠️ Need to check if this service is still woring as expected
  *
  * @export
- * @class CoreFirebaseService
+ * @class FirebaseService
  */
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,10 @@ import type { Observable } from 'rxjs';
 export class FirebaseService {
 
   /**
-   * Creates an instance of CoreFirebaseService.
+   * Creates an instance of FirebaseService.
    * 
    * @param {AngularFirestore} _fireStore Instance of `AngularFirestore` from `@angular/fire/firestore`
-   * @memberof CoreFirebaseService
+   * @memberof FirebaseService
    */
   constructor(
     private _fireStore: AngularFirestore

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IaTripViewComponent } from './ia-trip-view.component';
+import { TripOverviewComponent } from './trip-overview.component';
 
-describe('IaTripViewComponent', () => {
-  let component: IaTripViewComponent;
-  let fixture: ComponentFixture<IaTripViewComponent>;
+describe('TripOverviewComponent', () => {
+  let component: TripOverviewComponent;
+  let fixture: ComponentFixture<TripOverviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IaTripViewComponent ]
+      declarations: [ TripOverviewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IaTripViewComponent);
+    fixture = TestBed.createComponent(TripOverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
