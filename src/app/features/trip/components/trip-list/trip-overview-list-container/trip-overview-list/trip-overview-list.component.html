@@ -1,1 +1,19 @@
-<p>trip-overview-list works!</p>
+<div class="container mx-auto">
+  <ng-container *ngIf="!vm.flags.trips.progress; else listLoading">
+    <ng-container *ngIf="vm.flags.trips.success;">
+      <ng-container *ngFor="let trip of vm.trips">
+        <mat-card class="m-4">
+          <mat-card-content>
+            <pre>{{ trip | json }}</pre>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngIf="vm.flags.trips.fail;">
+      Unable to load trips 🙁
+    </ng-container>
+  </ng-container>
+</div>
+<ng-template #listLoading>
+  Loading Data...
+</ng-template>

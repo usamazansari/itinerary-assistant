@@ -76,14 +76,42 @@ export class TripOverviewListService {
   }
 
   fetchTripList$(): void {
+    this._vm = {
+      ...this._vm,
+      flags: {
+        ...this._vm.flags,
+        trips: {
+          ...this._vm.flags.trips,
+          progress: true
+        }
+      }
+    };
+    this._setVm(this._vm);
+
     this._firebase.watchCollection$(Constants.TRIP_COLLECTION)
-      .subscribe(tripList => {
-        const trips: TripOverviewModel[] = [];
-        tripList.forEach(trip => {
-          trips.push(trip as TripOverviewModel);
-        });
-        this._vm = { ...this._vm, trips };
-        this._setVm(this._vm);
+      .pipe()
+      .subscribe({
+        next: tripList => {
+          const trips: TripOverviewModel[] = [];
+          tripList.forEach(trip => {
+            trips.push(trip as TripOverviewModel);
+          });
+
+          this._vm = {
+            ...this._vm,
+            trips,
+            flags: {
+              ...this._vm.flags,
+              trips: {
+                ...this._vm.flags.trips,
+                progress: false,
+                success: true
+              }
+            }
+          };
+          this._setVm(this._vm);
+
+        }
       });
   }
 }
