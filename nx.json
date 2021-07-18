@@ -1,0 +1,44 @@
+{
+  "npmScope": "itinerary-assistant",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "MWNiY2EzZmUtZTFmYS00YWY3LWE3ZWUtNmQ1MjlmMDFiMmJlfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "back-end": {
+      "tags": []
+    },
+    "front-end": {
+      "tags": []
+    },
+    "front-end-e2e": {
+      "tags": [],
+      "implicitDependencies": ["front-end"]
+    }
+  }
+}
