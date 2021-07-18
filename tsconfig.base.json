@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@itinerary-assistant/core": ["libs/core/src/index.ts"],
       "@itinerary-assistant/home": ["libs/home/src/index.ts"]
     }
   },
