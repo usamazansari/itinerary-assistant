@@ -8,16 +8,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/back-end",
             "main": "apps/back-end/src/main.ts",
             "tsConfig": "apps/back-end/tsconfig.app.json",
-            "assets": [
-              "apps/back-end/src/assets"
-            ]
+            "assets": ["apps/back-end/src/assets"]
           },
           "configurations": {
             "production": {
@@ -42,16 +38,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/back-end/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/back-end/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/back-end"
-          ],
+          "outputs": ["coverage/apps/back-end"],
           "options": {
             "jestConfig": "apps/back-end/jest.config.js",
             "passWithNoTests": true
@@ -67,9 +59,7 @@
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/front-end",
             "index": "apps/front-end/src/index.html",
@@ -81,9 +71,7 @@
               "apps/front-end/src/favicon.ico",
               "apps/front-end/src/assets"
             ],
-            "styles": [
-              "apps/front-end/src/styles.scss"
-            ],
+            "styles": ["apps/front-end/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -148,9 +136,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/front-end"
-          ],
+          "outputs": ["coverage/apps/front-end"],
           "options": {
             "jestConfig": "apps/front-end/jest.config.js",
             "passWithNoTests": true
@@ -179,8 +165,31 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
+            "lintFilePatterns": ["apps/front-end-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "home": {
+      "projectType": "library",
+      "root": "libs/home",
+      "sourceRoot": "libs/home/src",
+      "prefix": "itinerary-assistant",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/home"],
+          "options": {
+            "jestConfig": "libs/home/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
             "lintFilePatterns": [
-              "apps/front-end-e2e/**/*.{js,ts}"
+              "libs/home/src/**/*.ts",
+              "libs/home/src/**/*.html"
             ]
           }
         }
