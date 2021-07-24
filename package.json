@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "nx": "nx",
-    "start-back-end": "nx serve back-end",
-    "start-front-end": "nx serve front-end",
+    "start-api": "nx run api:serve",
+    "start-front-end": "nx run front-end:serve:development",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",

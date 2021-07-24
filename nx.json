@@ -30,7 +30,7 @@
     ]
   },
   "projects": {
-    "back-end": {
+    "api": {
       "tags": []
     },
     "core": {
