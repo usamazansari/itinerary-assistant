@@ -36,15 +36,15 @@
     "core": {
       "tags": []
     },
-    "front-end": {
-      "tags": []
-    },
-    "front-end-e2e": {
-      "tags": [],
-      "implicitDependencies": ["front-end"]
-    },
     "home": {
       "tags": []
+    },
+    "ui": {
+      "tags": []
+    },
+    "ui-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ui"]
     }
   }
 }

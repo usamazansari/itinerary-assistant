@@ -22,12 +22,15 @@
       ]
     },
     {
-      "name": "Debug Front-End",
+      "name": "Debug UI",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "Serve front-end with Nx",
+      "preLaunchTask": "Serve UI with Nx",
       "url": "http://localhost:4200/#",
       "webRoot": "${workspaceFolder}",
+      "runtimeArgs": [
+        "--incognito"
+      ],
       "sourceMapPathOverrides": {
         "webpack:/*": "${webRoot}/*",
         "/./*": "${webRoot}/*",

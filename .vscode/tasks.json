@@ -38,8 +38,8 @@
     },
     {
       "type": "npm",
-      "script": "start-front-end",
-      "label": "Serve front-end with Nx",
+      "script": "start-ui",
+      "label": "Serve UI with Nx",
       "isBackground": true,
       "presentation": {
         "focus": true,

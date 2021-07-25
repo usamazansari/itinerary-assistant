@@ -5,7 +5,7 @@
   "scripts": {
     "nx": "nx",
     "start-api": "nx run api:serve",
-    "start-front-end": "nx run front-end:serve:development",
+    "start-ui": "nx run ui:serve:development",
     "build": "nx build",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
