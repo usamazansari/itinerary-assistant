@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@itinerary-assistant/core": ["libs/core/src/index.ts"],
-      "@itinerary-assistant/home": ["libs/home/src/index.ts"]
+      "@itinerary-assistant/home": ["libs/home/src/index.ts"],
+      "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

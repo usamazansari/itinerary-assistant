@@ -33,13 +33,13 @@
     "api": {
       "tags": []
     },
-    "core": {
-      "tags": []
-    },
     "home": {
       "tags": []
     },
     "ui": {
+      "tags": []
+    },
+    "ui-core": {
       "tags": []
     },
     "ui-e2e": {
