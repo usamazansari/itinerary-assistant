@@ -53,31 +53,6 @@
         }
       }
     },
-    "home": {
-      "projectType": "library",
-      "root": "libs/home",
-      "sourceRoot": "libs/home/src",
-      "prefix": "itinerary-assistant",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/home"],
-          "options": {
-            "jestConfig": "libs/home/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/home/src/**/*.ts",
-              "libs/home/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "ui": {
       "projectType": "application",
       "root": "apps/ui",
@@ -212,6 +187,31 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ui-home": {
+      "projectType": "library",
+      "root": "libs/ui/home",
+      "sourceRoot": "libs/ui/home/src",
+      "prefix": "ia-home",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/home"],
+          "options": {
+            "jestConfig": "libs/ui/home/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/home/src/**/*.ts",
+              "libs/ui/home/src/**/*.html"
+            ]
           }
         }
       }

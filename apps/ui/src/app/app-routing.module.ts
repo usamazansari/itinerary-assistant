@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: RouteConstants.Empty,
     loadChildren: () =>
-      import('@itinerary-assistant/home').then((module) => module.HomeModule)
+      import('@itinerary-assistant/ui/home').then((module) => module.HomeModule)
   }
 ];
 

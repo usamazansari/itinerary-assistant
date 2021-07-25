@@ -33,9 +33,6 @@
     "api": {
       "tags": []
     },
-    "home": {
-      "tags": []
-    },
     "ui": {
       "tags": []
     },
@@ -45,6 +42,9 @@
     "ui-e2e": {
       "tags": [],
       "implicitDependencies": ["ui"]
+    },
+    "ui-home": {
+      "tags": []
     }
   }
 }
