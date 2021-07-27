@@ -219,6 +219,31 @@
         }
       }
     },
+    "material": {
+      "projectType": "library",
+      "root": "libs/ui/util/material",
+      "sourceRoot": "libs/ui/util/material/src",
+      "prefix": "ia-mat",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/util/material"],
+          "options": {
+            "jestConfig": "libs/ui/util/material/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/util/material/src/**/*.ts",
+              "libs/ui/util/material/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "tailwind": {
       "projectType": "library",
       "root": "libs/ui/util/tailwind",

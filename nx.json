@@ -46,6 +46,9 @@
     "ui-home": {
       "tags": ["lib:ui-home"]
     },
+    "material": {
+      "tags": ["lib:ui-material"]
+    },
     "tailwind": {
       "tags": ["lib:tailwind"]
     }

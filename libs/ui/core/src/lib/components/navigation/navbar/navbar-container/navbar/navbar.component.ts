@@ -10,4 +10,8 @@ export class NavbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleSidenav(): void {}
+
+  navigate(routes: string[]): void {}
 }

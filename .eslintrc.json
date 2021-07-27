@@ -19,7 +19,14 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": [],
+            "allow": [
+              {
+                "sourceTag": "lib:ui-core",
+                "onlyDependOnLibsWithTags": [
+                  "lib:ui-material"
+                ]
+              }
+            ],
             "depConstraints": [
               {
                 "sourceTag": "*",
