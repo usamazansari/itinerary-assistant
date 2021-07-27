@@ -31,20 +31,23 @@
   },
   "projects": {
     "api": {
-      "tags": []
+      "tags": ["app:api"]
     },
     "ui": {
-      "tags": []
-    },
-    "ui-core": {
-      "tags": []
+      "tags": ["app:ui"]
     },
     "ui-e2e": {
-      "tags": [],
+      "tags": ["test:ui-e2e"],
       "implicitDependencies": ["ui"]
     },
+    "ui-core": {
+      "tags": ["lib:ui-core"]
+    },
     "ui-home": {
-      "tags": []
+      "tags": ["lib:ui-home"]
+    },
+    "tailwind": {
+      "tags": ["lib:tailwind"]
     }
   }
 }
