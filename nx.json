@@ -31,20 +31,24 @@
   },
   "projects": {
     "api": {
-      "tags": []
+      "tags": ["app:api"]
     },
     "ui": {
-      "tags": []
+      "tags": ["app:ui"]
     },
     "ui-core": {
-      "tags": []
+      "tags": ["lib:ui-core"],
+      "implicitDependencies": ["lib:ui-material"]
     },
     "ui-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ui"]
+      "tags": ["test:ui-e2e"],
+      "implicitDependencies": ["lib:ui"]
     },
     "ui-home": {
-      "tags": []
+      "tags": ["lib:ui-home"]
+    },
+    "material": {
+      "tags": ["lib:ui-material"]
     }
   }
 }

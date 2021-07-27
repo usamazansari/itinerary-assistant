@@ -1,4 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+// Angular Theming
+// @use 'libs/ui/util/styles/app-themes.scss';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Bootstrap
+// @use 'libs/ui/util/styles/app-bootstrap.scss';
+
+// Tailwind
+// @use 'libs/ui/util/styles/app-tailwind.scss';
+
+// Global styles
+// @use 'libs/ui/util/styles/app-styles.scss';
+
+// Typography
+// @use 'libs/ui/util/styles/app-typography.scss';

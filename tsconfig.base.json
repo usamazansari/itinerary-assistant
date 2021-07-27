@@ -10,14 +10,27 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
-      "@itinerary-assistant/ui/home": ["libs/ui/home/src/index.ts"]
+      "@itinerary-assistant/ui/core": [
+        "libs/ui/core/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/home": [
+        "libs/ui/home/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/material": [
+        "libs/ui/util/material/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

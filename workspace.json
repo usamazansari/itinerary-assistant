@@ -8,16 +8,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -44,16 +40,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/api/**/*.ts"
-            ]
+            "lintFilePatterns": ["apps/api/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api"
-          ],
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
@@ -69,9 +61,7 @@
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/ui",
             "index": "apps/ui/src/index.html",
@@ -79,10 +69,7 @@
             "polyfills": "apps/ui/src/polyfills.ts",
             "tsConfig": "apps/ui/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/ui/src/favicon.ico",
-              "apps/ui/src/assets"
-            ],
+            "assets": ["apps/ui/src/favicon.ico", "apps/ui/src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/ui/src/styles.scss"
@@ -143,17 +130,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/ui/src/**/*.ts",
-              "apps/ui/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/ui/src/**/*.ts", "apps/ui/src/**/*.html"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/ui"
-          ],
+          "outputs": ["coverage/apps/ui"],
           "options": {
             "jestConfig": "apps/ui/jest.config.js",
             "passWithNoTests": true
@@ -169,9 +151,7 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/core"
-          ],
+          "outputs": ["coverage/libs/ui/core"],
           "options": {
             "jestConfig": "libs/ui/core/jest.config.js",
             "passWithNoTests": true
@@ -209,9 +189,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/ui-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -224,9 +202,7 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/home"
-          ],
+          "outputs": ["coverage/libs/ui/home"],
           "options": {
             "jestConfig": "libs/ui/home/jest.config.js",
             "passWithNoTests": true
@@ -238,6 +214,31 @@
             "lintFilePatterns": [
               "libs/ui/home/src/**/*.ts",
               "libs/ui/home/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/ui/util/material",
+      "sourceRoot": "libs/ui/util/material/src",
+      "prefix": "itinerary-assistant",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/util/material"],
+          "options": {
+            "jestConfig": "libs/ui/util/material/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/util/material/src/**/*.ts",
+              "libs/ui/util/material/src/**/*.html"
             ]
           }
         }

@@ -1,1 +1,28 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="h-screen">
+  <mat-sidenav>
+    <itinerary-assistant-sidenav-container (toggleSidenav$)="closeSidenav()">
+    </itinerary-assistant-sidenav-container>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <!-- shell-container -->
+    <div class="grid min-h-full app-shell-container">
+
+      <!-- navbar-holder -->
+      <div class="sticky top-0 left-0 right-0 z-10">
+        <itinerary-assistant-navbar-container (toggleSidenav$)="openSidenav()">
+        </itinerary-assistant-navbar-container>
+      </div>
+
+      <!-- content-holer -->
+      <div class="">
+        <router-outlet></router-outlet>
+      </div>
+
+      <!-- footer-holder -->
+      <div class="">
+        <itinerary-assistant-footer-container></itinerary-assistant-footer-container>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
