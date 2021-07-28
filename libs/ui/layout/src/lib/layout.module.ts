@@ -11,21 +11,21 @@ import { SidenavComponent } from './components/navigation/sidenav-container/side
 
 import { ToolbarContainerComponent } from './components/navigation/toolbar-container/toolbar-container.component';
 import { ToolbarComponent } from './components/navigation/toolbar-container/toolbar/toolbar.component';
+
 import { ShellComponent } from './components/shell/shell.component';
 
-@NgModule({
-  imports: [CommonModule, MaterialModule],
-  declarations: [
-    FooterContainerComponent,
-    FooterComponent,
+const declarations = [
+  FooterContainerComponent,
+  FooterComponent,
 
-    SidenavContainerComponent,
-    SidenavComponent,
+  SidenavContainerComponent,
+  SidenavComponent,
 
-    ToolbarContainerComponent,
-    ToolbarComponent,
-    ShellComponent
-  ],
-  exports: [ShellComponent]
-})
+  ToolbarContainerComponent,
+  ToolbarComponent,
+  ShellComponent
+];
+const imports = [CommonModule, MaterialModule];
+const exports = [ShellComponent];
+@NgModule({ declarations, imports, exports })
 export class LayoutModule {}
