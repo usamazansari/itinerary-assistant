@@ -53,6 +53,56 @@
         }
       }
     },
+    "material": {
+      "projectType": "library",
+      "root": "libs/ui/util/material",
+      "sourceRoot": "libs/ui/util/material/src",
+      "prefix": "ia-mat",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/util/material"],
+          "options": {
+            "jestConfig": "libs/ui/util/material/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/util/material/src/**/*.ts",
+              "libs/ui/util/material/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "tailwind": {
+      "projectType": "library",
+      "root": "libs/ui/util/tailwind",
+      "sourceRoot": "libs/ui/util/tailwind/src",
+      "prefix": "ia-tw",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/util/tailwind"],
+          "options": {
+            "jestConfig": "libs/ui/util/tailwind/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/util/tailwind/src/**/*.ts",
+              "libs/ui/util/tailwind/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "ui": {
       "projectType": "application",
       "root": "apps/ui",
@@ -219,17 +269,17 @@
         }
       }
     },
-    "material": {
+    "icon": {
       "projectType": "library",
-      "root": "libs/ui/util/material",
-      "sourceRoot": "libs/ui/util/material/src",
-      "prefix": "ia-mat",
+      "root": "libs/ui/util/icon",
+      "sourceRoot": "libs/ui/util/icon/src",
+      "prefix": "ia-icon",
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/util/material"],
+          "outputs": ["coverage/libs/ui/util/icon"],
           "options": {
-            "jestConfig": "libs/ui/util/material/jest.config.js",
+            "jestConfig": "libs/ui/util/icon/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -237,33 +287,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/ui/util/material/src/**/*.ts",
-              "libs/ui/util/material/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "tailwind": {
-      "projectType": "library",
-      "root": "libs/ui/util/tailwind",
-      "sourceRoot": "libs/ui/util/tailwind/src",
-      "prefix": "ia-tw",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/util/tailwind"],
-          "options": {
-            "jestConfig": "libs/ui/util/tailwind/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/util/tailwind/src/**/*.ts",
-              "libs/ui/util/tailwind/src/**/*.html"
+              "libs/ui/util/icon/src/**/*.ts",
+              "libs/ui/util/icon/src/**/*.html"
             ]
           }
         }
