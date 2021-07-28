@@ -1,9 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'itinerary-assistant-sidenav-container',
-  templateUrl: './sidenav-container.component.html',
-  styleUrls: ['./sidenav-container.component.scss'],
+  selector: 'ia-core-sidenav-container',
+  template: `<ia-core-sidenav></ia-core-sidenav>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidenavContainerComponent implements OnInit {

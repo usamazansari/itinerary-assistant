@@ -1,8 +1,8 @@
 <!-- TODO: Move to Layout Library -->
 <mat-sidenav-container class="h-screen">
   <mat-sidenav>
-    <itinerary-assistant-sidenav-container (toggleSidenav$)="closeSidenav()">
-    </itinerary-assistant-sidenav-container>
+    <ia-core-sidenav-container (toggleSidenav$)="closeSidenav()">
+    </ia-core-sidenav-container>
   </mat-sidenav>
   <mat-sidenav-content>
 
@@ -11,8 +11,8 @@
 
       <!-- navbar-holder -->
       <div class="sticky top-0 left-0 right-0 z-10">
-        <itinerary-assistant-navbar-container (toggleSidenav$)="openSidenav()">
-        </itinerary-assistant-navbar-container>
+        <ia-core-navbar-container (toggleSidenav$)="openSidenav()">
+        </ia-core-navbar-container>
       </div>
 
       <!-- content-holer -->
@@ -22,7 +22,7 @@
 
       <!-- footer-holder -->
       <div class="">
-        <itinerary-assistant-footer-container></itinerary-assistant-footer-container>
+        <ia-core-footer-container></ia-core-footer-container>
       </div>
     </div>
   </mat-sidenav-content>
