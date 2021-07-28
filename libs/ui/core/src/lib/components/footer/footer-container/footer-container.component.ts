@@ -1,9 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'itinerary-assistant-footer-container',
-  templateUrl: './footer-container.component.html',
-  styleUrls: ['./footer-container.component.scss'],
+  selector: 'ia-core-footer-container',
+  template: `<ia-core-footer></ia-core-footer>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterContainerComponent implements OnInit {

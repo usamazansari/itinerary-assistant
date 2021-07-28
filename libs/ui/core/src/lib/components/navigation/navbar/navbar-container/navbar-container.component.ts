@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'itinerary-assistant-navbar-container',
-  template: `<itinerary-assistant-navbar></itinerary-assistant-navbar>`,
+  selector: 'ia-core-navbar-container',
+  template: `<ia-core-navbar></ia-core-navbar>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarContainerComponent implements OnInit {
