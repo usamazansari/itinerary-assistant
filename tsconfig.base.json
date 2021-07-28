@@ -29,6 +29,9 @@
       ],
       "@itinerary-assistant/ui/tailwind": [
         "libs/ui/util/tailwind/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/icon": [
+        "libs/ui/util/icon/src/index.ts"
       ]
     }
   },
