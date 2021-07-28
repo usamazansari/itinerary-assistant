@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from '@itinerary-assistant/ui/material';
+import { IconModule } from '@itinerary-assistant/ui/icon';
 
 import { FooterComponent } from './components/footer/footer-container/footer/footer.component';
 import { FooterContainerComponent } from './components/footer/footer-container/footer-container.component';
@@ -21,7 +22,7 @@ const declarations = [
   SidenavContainerComponent
 ];
 
-const imports = [CommonModule, MaterialModule];
+const imports = [CommonModule, MaterialModule, IconModule];
 const exports = [...imports, ...declarations];
 
 @NgModule({ imports, declarations, exports })
