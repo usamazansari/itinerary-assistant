@@ -25,6 +25,12 @@
                 "onlyDependOnLibsWithTags": [
                   "lib:ui-material"
                 ]
+              },
+              {
+                "sourceTag": "lib:ui-layout",
+                "onlyDependOnLibsWithTags": [
+                  "lib:ui-icon"
+                ]
               }
             ],
             "depConstraints": [

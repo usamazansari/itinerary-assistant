@@ -12,9 +12,20 @@
   ],
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    // "strict": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@components/*": [
+        "libs/ui/layouts/src/lib/components/*"
+      ],
+      "@models/*": [
+        "libs/ui/layouts/src/lib/models/*"
+      ],
+      "@services/*": [
+        "libs/ui/layouts/src/lib/services/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+
 import { MaterialModule } from '@itinerary-assistant/ui/material';
+import { IconModule } from '@itinerary-assistant/ui/icon';
 
 import { FooterContainerComponent } from './components/footer/footer-container/footer-container.component';
 import { FooterComponent } from './components/footer/footer-container/footer/footer.component';
@@ -14,6 +17,8 @@ import { ToolbarComponent } from './components/navigation/toolbar-container/tool
 
 import { ShellComponent } from './components/shell/shell.component';
 
+import { layoutIcons } from './layout-icons';
+
 const declarations = [
   FooterContainerComponent,
   FooterComponent,
@@ -25,7 +30,13 @@ const declarations = [
   ToolbarComponent,
   ShellComponent
 ];
-const imports = [CommonModule, MaterialModule];
+const imports = [CommonModule, MaterialModule, IconModule];
 const exports = [ShellComponent];
+
 @NgModule({ declarations, imports, exports })
-export class LayoutModule {}
+export class LayoutModule extends IconModule {
+  constructor(lib: FaIconLibrary) {
+    super(lib);
+    lib.addIcons(...layoutIcons);
+  }
+}
