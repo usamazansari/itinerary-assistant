@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 /**
+ * TODO: Cleanup
+ *
  * @deprecated - Use from Layouts Library
  *
  * @export

@@ -2,6 +2,8 @@ import { IconModel, ICON_STUB } from '@shared/models/icon/icon.model';
 import { ImageModel } from '@shared/models/image/image.model';
 
 /**
+ * TODO: Cleanup
+ *
  * @deprecated - Use from Layouts Library
  */
 export type FooterIconType = IconModel | ImageModel;
@@ -65,6 +67,8 @@ const FOOTER_LINK_STUB: FooterLink = {
 };
 
 /**
+ * TODO: Cleanup
+ *
  * @deprecated - Use from Layouts Library
  *
  * Application Footer Assets
@@ -179,6 +183,8 @@ export interface FooterAssetsModel {
 }
 
 /**
+ * TODO: Cleanup
+ *
  * @deprecated - Use from Layouts Library
  *
  * Stub for `FooterAssetsModel`
