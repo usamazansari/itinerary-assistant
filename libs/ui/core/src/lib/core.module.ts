@@ -24,9 +24,5 @@ const declarations = [
 const imports = [CommonModule, MaterialModule];
 const exports = [...imports, ...declarations];
 
-@NgModule({
-  imports: [...imports],
-  declarations: [...declarations],
-  exports
-})
+@NgModule({ imports, declarations, exports })
 export class CoreModule {}

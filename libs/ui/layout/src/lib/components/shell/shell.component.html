@@ -1,0 +1,27 @@
+<mat-sidenav-container class="h-screen">
+  <mat-sidenav>
+    <ia-layout-sidenav-container></ia-layout-sidenav-container>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <!-- shell-container -->
+    <div class="grid min-h-full app-shell-container">
+
+      <!-- toolbar-holder -->
+      <div class="sticky top-0 left-0 right-0 z-10">
+        <ia-layout-toolbar-container></ia-layout-toolbar-container>
+      </div>
+
+      <!-- content-holder -->
+      <div>
+        <ng-content></ng-content>
+      </div>
+
+      <!-- footer-holder -->
+      <div>
+        <ia-layout-footer-container></ia-layout-footer-container>
+      </div>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
