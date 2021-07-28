@@ -4,6 +4,8 @@ import {
 } from '@core/models/navigation/navigation-model';
 
 /**
+ * @deprecated - Use from Layouts Library
+ *
  * For use in `NavbarComponent`
  *
  * ```ts
@@ -35,6 +37,8 @@ export interface NavbarAssetsModel {
 }
 
 /**
+ * @deprecated - Use from Layouts Library
+ *
  * Stub for `NavbarAssetsModel`
  *
  * ```ts

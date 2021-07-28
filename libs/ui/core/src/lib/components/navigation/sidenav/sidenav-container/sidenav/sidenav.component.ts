@@ -1,5 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
+/**
+ * @deprecated - Use from Layouts Library
+ *
+ * @export
+ * @class SidenavComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'ia-core-sidenav',
   templateUrl: './sidenav.component.html',
