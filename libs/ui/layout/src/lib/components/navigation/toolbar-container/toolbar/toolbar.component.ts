@@ -27,7 +27,7 @@ export class ToolbarComponent implements OnInit {
    */
   @Input()
   set vm(value: ToolbarVMModel) {
-    this._vm$.next(value);
+    this._vm$.next(value ?? TOOLBAR_VM_STUB);
   }
   get vm(): ToolbarVMModel {
     return this._vm$.getValue();
