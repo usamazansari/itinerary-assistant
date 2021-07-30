@@ -44,7 +44,7 @@
       "tags": ["lib:ui-material"]
     },
     "tailwind": {
-      "tags": ["lib:ui-tailwind"]
+      "tags": ["lib:tailwind"]
     },
     "icon": {
       "tags": ["lib:ui-icon"]
@@ -54,6 +54,9 @@
     },
     "ui-home": {
       "tags": ["lib:ui-home"]
+    },
+    "layout": {
+      "tags": ["lib:ui-layout"]
     }
   }
 }

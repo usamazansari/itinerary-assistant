@@ -4,6 +4,10 @@ import {
 } from '@core/models/navigation/navigation-model';
 
 /**
+ * TODO: Cleanup
+ *
+ * @deprecated - Use from Layouts Library
+ *
  * For use in `NavbarComponent`
  *
  * ```ts
@@ -35,6 +39,10 @@ export interface NavbarAssetsModel {
 }
 
 /**
+ * TODO: Cleanup
+ *
+ * @deprecated - Use from Layouts Library
+ *
  * Stub for `NavbarAssetsModel`
  *
  * ```ts

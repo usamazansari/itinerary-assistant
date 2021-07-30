@@ -24,6 +24,9 @@
       "@itinerary-assistant/ui/home": [
         "libs/ui/home/src/index.ts"
       ],
+      "@itinerary-assistant/ui/layout": [
+        "libs/ui/layout/src/index.ts"
+      ],
       "@itinerary-assistant/ui/material": [
         "libs/ui/util/material/src/index.ts"
       ],

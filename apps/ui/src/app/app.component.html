@@ -1,29 +1,3 @@
-<!-- TODO: Move to Layout Library -->
-<mat-sidenav-container class="h-screen">
-  <mat-sidenav>
-    <ia-core-sidenav-container (toggleSidenav$)="closeSidenav()">
-    </ia-core-sidenav-container>
-  </mat-sidenav>
-  <mat-sidenav-content>
-
-    <!-- shell-container -->
-    <div class="grid min-h-full app-shell-container">
-
-      <!-- navbar-holder -->
-      <div class="sticky top-0 left-0 right-0 z-10">
-        <ia-core-navbar-container (toggleSidenav$)="openSidenav()">
-        </ia-core-navbar-container>
-      </div>
-
-      <!-- content-holer -->
-      <div class="">
-        <router-outlet></router-outlet>
-      </div>
-
-      <!-- footer-holder -->
-      <div class="">
-        <ia-core-footer-container></ia-core-footer-container>
-      </div>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<ia-layout-shell>
+  <router-outlet></router-outlet>
+</ia-layout-shell>

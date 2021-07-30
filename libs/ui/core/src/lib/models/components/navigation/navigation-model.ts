@@ -2,6 +2,10 @@ import { IconModel, ICON_STUB } from '@shared/models/icon/icon.model';
 import { RouterPayloadModel } from '@core/models/common/router/router.model';
 
 /**
+ * TODO: Cleanup
+ *
+ * @deprecated - Use from Layouts Library
+ *
  * Interface for Navigation Item
  *
  * ```ts
@@ -50,6 +54,10 @@ export interface NavigationItemModel {
 }
 
 /**
+ * TODO: Cleanup
+ * 
+ * @deprecated - Use from Layouts Library
+ * 
  * Stub for `NavigationItemModel`
  * 
  * ```ts
@@ -70,6 +78,10 @@ export const NAVIGATION_ITEM_STUB: NavigationItemModel = {
 };
 
 /**
+ * TODO: Cleanup
+ *
+ * @deprecated - Use from Layouts Library
+ *
  * Router Payload Model
  *
  * ```ts

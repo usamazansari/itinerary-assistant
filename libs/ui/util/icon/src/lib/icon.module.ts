@@ -6,32 +6,34 @@ import {
 } from '@fortawesome/angular-fontawesome';
 
 import {
-  faBars,
+  // faBars,
   faEnvelopeOpenText,
-  faHeart,
+  // faHeart,
   faHiking,
+  faInfo,
   faMapMarkedAlt
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  faAngular,
-  faDiscord,
-  faFortAwesomeAlt,
-  faGithub,
-  faLinkedin
-} from '@fortawesome/free-brands-svg-icons';
+// import {
+//   faAngular,
+//   faDiscord,
+//   faFortAwesomeAlt,
+//   faGithub,
+//   faLinkedin
+// } from '@fortawesome/free-brands-svg-icons';
 
 const ICONS = [
-  faBars,
+  // faBars,
   faEnvelopeOpenText,
-  faHeart,
+  // faHeart,
   faHiking,
-  faMapMarkedAlt,
+  faInfo,
+  faMapMarkedAlt
 
-  faAngular,
-  faDiscord,
-  faFortAwesomeAlt,
-  faGithub,
-  faLinkedin
+  // faAngular,
+  // faDiscord,
+  // faFortAwesomeAlt,
+  // faGithub,
+  // faLinkedin
 ];
 
 @NgModule({

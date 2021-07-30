@@ -5,7 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
-import { CoreModule } from '@itinerary-assistant/ui/core';
+import { LayoutModule } from '@itinerary-assistant/ui/layout';
+// import { CoreModule } from '@itinerary-assistant/ui/core';
 import { MaterialModule } from '@itinerary-assistant/ui/material';
 
 @NgModule({
@@ -14,7 +15,10 @@ import { MaterialModule } from '@itinerary-assistant/ui/material';
     BrowserModule,
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
     BrowserAnimationsModule,
-    CoreModule,
+
+    LayoutModule,
+
+    // CoreModule,
     MaterialModule
   ],
   providers: [],

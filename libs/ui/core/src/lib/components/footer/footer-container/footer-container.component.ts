@@ -1,5 +1,14 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
+/**
+ * TODO: Cleanup
+ *
+ * @deprecated - Use from Layouts Library
+ *
+ * @export
+ * @class FooterContainerComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'ia-core-footer-container',
   template: `<ia-core-footer></ia-core-footer>`,
