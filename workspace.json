@@ -103,17 +103,17 @@
         }
       }
     },
-    "tailwind": {
+    "material": {
       "projectType": "library",
-      "root": "libs/ui/util/tailwind",
-      "sourceRoot": "libs/ui/util/tailwind/src",
-      "prefix": "ia-tw",
+      "root": "libs/ui/shared/material",
+      "sourceRoot": "libs/ui/shared/material/src",
+      "prefix": "ia-mat",
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/util/tailwind"],
+          "outputs": ["coverage/libs/ui/shared/material"],
           "options": {
-            "jestConfig": "libs/ui/util/tailwind/jest.config.js",
+            "jestConfig": "libs/ui/shared/material/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -121,8 +121,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/ui/util/tailwind/src/**/*.ts",
-              "libs/ui/util/tailwind/src/**/*.html"
+              "libs/ui/shared/material/src/**/*.ts",
+              "libs/ui/shared/material/src/**/*.html"
             ]
           }
         }
@@ -269,17 +269,17 @@
         }
       }
     },
-    "material": {
+    "tailwind": {
       "projectType": "library",
-      "root": "libs/ui/shared/material",
-      "sourceRoot": "libs/ui/shared/material/src",
-      "prefix": "ia-mat",
+      "root": "libs/ui/shared/tailwind",
+      "sourceRoot": "libs/ui/shared/tailwind/src",
+      "prefix": "ia-tw",
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/shared/material"],
+          "outputs": ["coverage/libs/ui/shared/tailwind"],
           "options": {
-            "jestConfig": "libs/ui/shared/material/jest.config.js",
+            "jestConfig": "libs/ui/shared/tailwind/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -287,8 +287,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/ui/shared/material/src/**/*.ts",
-              "libs/ui/shared/material/src/**/*.html"
+              "libs/ui/shared/tailwind/src/**/*.ts",
+              "libs/ui/shared/tailwind/src/**/*.html"
             ]
           }
         }
