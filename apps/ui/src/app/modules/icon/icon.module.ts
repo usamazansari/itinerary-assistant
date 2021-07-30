@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 import { IconModule as IconLibraryModule } from '@itinerary-assistant/ui/icon';
-import { UiIcons } from './ui-icons';
+import { UiIcons } from '.';
 
 @NgModule({
   declarations: [],
