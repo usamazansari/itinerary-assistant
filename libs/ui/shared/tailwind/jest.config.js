@@ -1,20 +1,14 @@
 module.exports = {
-  displayName: 'ui-util-tailwind',
+  displayName: 'ui-shared-tailwind',
   preset: '../../../../jest.preset.js',
-  setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-      stringifyContentPathRegex: '\\.(html|svg)$'
+      tsconfig: '<rootDir>/tsconfig.spec.json'
     }
   },
-  coverageDirectory: '../../../../coverage/libs/ui/shared/tailwind',
   transform: {
-    '^.+\\.(ts|js|html)$': 'jest-preset-angular'
+    '^.+\\.[tj]sx?$': 'ts-jest'
   },
-  snapshotSerializers: [
-    'jest-preset-angular/build/serializers/no-ng-attributes',
-    'jest-preset-angular/build/serializers/ng-snapshot',
-    'jest-preset-angular/build/serializers/html-comment'
-  ]
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  coverageDirectory: '../../../../coverage/libs/ui/shared/tailwind'
 };

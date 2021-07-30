@@ -1,1 +1,1 @@
-export * from './lib/tailwind.module';
+export * from './lib/ui-shared-tailwind';

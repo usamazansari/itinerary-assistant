@@ -270,26 +270,22 @@
       }
     },
     "tailwind": {
-      "projectType": "library",
       "root": "libs/ui/shared/tailwind",
       "sourceRoot": "libs/ui/shared/tailwind/src",
-      "prefix": "ia-tw",
+      "projectType": "library",
       "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/shared/tailwind/**/*.ts"]
+          }
+        },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/ui/shared/tailwind"],
           "options": {
             "jestConfig": "libs/ui/shared/tailwind/jest.config.js",
             "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/shared/tailwind/src/**/*.ts",
-              "libs/ui/shared/tailwind/src/**/*.html"
-            ]
           }
         }
       }
