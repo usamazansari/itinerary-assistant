@@ -103,31 +103,6 @@
         }
       }
     },
-    "material": {
-      "projectType": "library",
-      "root": "libs/ui/util/material",
-      "sourceRoot": "libs/ui/util/material/src",
-      "prefix": "ia-mat",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/util/material"],
-          "options": {
-            "jestConfig": "libs/ui/util/material/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/util/material/src/**/*.ts",
-              "libs/ui/util/material/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "tailwind": {
       "projectType": "library",
       "root": "libs/ui/util/tailwind",
@@ -290,6 +265,31 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/ui/shared/material",
+      "sourceRoot": "libs/ui/shared/material/src",
+      "prefix": "ia-mat",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/shared/material"],
+          "options": {
+            "jestConfig": "libs/ui/shared/material/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/shared/material/src/**/*.ts",
+              "libs/ui/shared/material/src/**/*.html"
+            ]
           }
         }
       }
