@@ -5,7 +5,7 @@ module.exports = {
     '<rootDir>/libs/ui/core',
     '<rootDir>/libs/ui/util/material',
     '<rootDir>/libs/ui/util/tailwind',
-    '<rootDir>/libs/ui/util/icon',
+    '<rootDir>/libs/ui/shared/icon',
     '<rootDir>/libs/ui/layout'
   ]
 };

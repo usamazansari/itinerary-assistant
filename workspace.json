@@ -55,15 +55,15 @@
     },
     "icon": {
       "projectType": "library",
-      "root": "libs/ui/util/icon",
-      "sourceRoot": "libs/ui/util/icon/src",
+      "root": "libs/ui/shared/icon",
+      "sourceRoot": "libs/ui/shared/icon/src",
       "prefix": "ia-icon",
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/util/icon"],
+          "outputs": ["coverage/libs/ui/shared/icon"],
           "options": {
-            "jestConfig": "libs/ui/util/icon/jest.config.js",
+            "jestConfig": "libs/ui/shared/icon/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -71,8 +71,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/ui/util/icon/src/**/*.ts",
-              "libs/ui/util/icon/src/**/*.html"
+              "libs/ui/shared/icon/src/**/*.ts",
+              "libs/ui/shared/icon/src/**/*.html"
             ]
           }
         }
