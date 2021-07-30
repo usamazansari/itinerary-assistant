@@ -53,6 +53,56 @@
         }
       }
     },
+    "icon": {
+      "projectType": "library",
+      "root": "libs/ui/util/icon",
+      "sourceRoot": "libs/ui/util/icon/src",
+      "prefix": "ia-icon",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/util/icon"],
+          "options": {
+            "jestConfig": "libs/ui/util/icon/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/util/icon/src/**/*.ts",
+              "libs/ui/util/icon/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "layout": {
+      "projectType": "library",
+      "root": "libs/ui/layout",
+      "sourceRoot": "libs/ui/layout/src",
+      "prefix": "ia-layout",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/layout"],
+          "options": {
+            "jestConfig": "libs/ui/layout/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/layout/src/**/*.ts",
+              "libs/ui/layout/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "material": {
       "projectType": "library",
       "root": "libs/ui/util/material",
@@ -240,81 +290,6 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "ui-home": {
-      "projectType": "library",
-      "root": "libs/ui/home",
-      "sourceRoot": "libs/ui/home/src",
-      "prefix": "ia-home",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/home"],
-          "options": {
-            "jestConfig": "libs/ui/home/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/home/src/**/*.ts",
-              "libs/ui/home/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "icon": {
-      "projectType": "library",
-      "root": "libs/ui/util/icon",
-      "sourceRoot": "libs/ui/util/icon/src",
-      "prefix": "ia-icon",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/util/icon"],
-          "options": {
-            "jestConfig": "libs/ui/util/icon/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/util/icon/src/**/*.ts",
-              "libs/ui/util/icon/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "layout": {
-      "projectType": "library",
-      "root": "libs/ui/layout",
-      "sourceRoot": "libs/ui/layout/src",
-      "prefix": "ia-layout",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/layout"],
-          "options": {
-            "jestConfig": "libs/ui/layout/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/layout/src/**/*.ts",
-              "libs/ui/layout/src/**/*.html"
-            ]
           }
         }
       }
