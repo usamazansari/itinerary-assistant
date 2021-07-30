@@ -21,15 +21,11 @@
             "enforceBuildableLibDependency": true,
             "allow": [
               {
-                "sourceTag": "lib:ui-core",
+                "sourceTag": "(lib|app):ui*",
                 "onlyDependOnLibsWithTags": [
-                  "lib:ui-material"
-                ]
-              },
-              {
-                "sourceTag": "lib:ui-layout",
-                "onlyDependOnLibsWithTags": [
-                  "lib:ui-icon"
+                  "lib:ui-material",
+                  "lib:ui-icon",
+                  "lib:ui-layout"
                 ]
               }
             ],

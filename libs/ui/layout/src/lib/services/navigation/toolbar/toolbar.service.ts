@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-// import { LayoutModule } from '@';
+import { ICON_STUB } from '../../../models';
 
 import { TOOLBAR_VM_STUB } from '../../../models/navigation/toolbar/toolbar.model';
 
@@ -25,10 +25,7 @@ export class ToolbarService {
         logo: {
           // label: APPLICATION_NAME,
           label: 'IA',
-          icon: {
-            style: 'fas',
-            name: 'info'
-          },
+          icon: { ...ICON_STUB },
           routes: [],
           children: []
         },

@@ -7,11 +7,8 @@ import type { ToolbarVMModel } from '../../../models/navigation/toolbar/toolbar.
 
 @Component({
   selector: 'ia-layout-toolbar-container',
-  template: `
-    <ng-container *ngIf="vm$ | async as vm">
-      <ia-layout-toolbar [vm]="vm"></ia-layout-toolbar>
-    </ng-container>
-  `,
+  template: `<ia-layout-toolbar *ngIf="vm$ | async as vm"
+                                [vm]="vm"></ia-layout-toolbar>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarContainerComponent implements OnInit {
