@@ -5,6 +5,7 @@ process.env.TAILWIND_MODE = guessProductionMode() ? 'build' : 'watch';
 module.exports = {
   prefix: '',
   mode: 'jit',
+  important: true,
   purge: {
     content: [
       './apps/**/*.{html,ts,css,scss,sass,less,styl}',
@@ -23,8 +24,8 @@ module.exports = {
     // require('@tailwindcss/forms'),
     // require('@tailwindcss/line-clamp'),
     // require('@tailwindcss/typography')
-    require('./libs/ui/util/tailwind/src/plugins/material/color/mat-color.plugin'),
-    require('./libs/ui/util/tailwind/src/plugins/material/elevation/mat-elevation.plugin'),
-    require('./libs/ui/util/tailwind/src/plugins/brands/brand-colors.plugin')
+    require('./libs/ui/shared/tailwind/src/plugins/material/color/mat-color.plugin'),
+    require('./libs/ui/shared/tailwind/src/plugins/material/elevation/mat-elevation.plugin'),
+    require('./libs/ui/shared/tailwind/src/plugins/brands/brand-colors.plugin')
   ]
 };

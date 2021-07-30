@@ -33,27 +33,27 @@
     "api": {
       "tags": ["app:api"]
     },
-    "ui": {
-      "tags": ["app:ui"]
+    "icon": {
+      "tags": ["lib:ui-icon"]
     },
-    "ui-e2e": {
-      "tags": ["test:ui-e2e"],
-      "implicitDependencies": ["ui"]
+    "layout": {
+      "tags": ["lib:ui-layout"]
     },
     "material": {
       "tags": ["lib:ui-material"]
     },
     "tailwind": {
-      "tags": ["lib:ui-tailwind"]
+      "tags": ["lib:tailwind"]
     },
-    "icon": {
-      "tags": ["lib:ui-icon"]
+    "ui": {
+      "tags": ["app:ui"]
     },
     "ui-core": {
       "tags": ["lib:ui-core"]
     },
-    "ui-home": {
-      "tags": ["lib:ui-home"]
+    "ui-e2e": {
+      "tags": ["test:ui-e2e"],
+      "implicitDependencies": ["ui"]
     }
   }
 }
