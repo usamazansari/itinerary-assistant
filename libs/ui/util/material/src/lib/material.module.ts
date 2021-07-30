@@ -23,7 +23,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 // *************** LAYOUT ***************
-// import { MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 
 // import { MatDividerModule } from '@angular/material/divider';
 // import { MatExpansionModule } from '@angular/material/expansion';
@@ -72,7 +72,7 @@ const MATERIAL_MODULES = [
   // MatMenuModule,
   MatSidenavModule,
   MatToolbarModule,
-  // MatCardModule,
+  MatCardModule,
   // MatDividerModule,
   // MatExpansionModule,
   // MatGridListModule,

@@ -1,11 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HomeService } from '../../../services/home/home.service';
+import { HomeVMModel } from '../../../models/home/home.model';
+
+import type { Observable } from 'rxjs';
+
 @Component({
   selector: 'ia-home-container',
-  template: `<ia-home></ia-home>`
+  template: `<ia-home *ngIf = "vm$ | async as vm"
+                      [vm]  = "vm"></ia-home>`
 })
 export class HomeContainerComponent implements OnInit {
-  constructor() {}
+  vm$!: Observable<HomeVMModel>;
 
-  ngOnInit(): void {}
+  constructor(private _service: HomeService) {}
+
+  ngOnInit(): void {
+    this._service.fetchAssets();
+    this.vm$ = this._service.watchVm$();
+  }
 }

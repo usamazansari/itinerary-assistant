@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="container flex flex-col items-center justify-around h-full py-3 mx-auto sm:flex-row">
+  <mat-card class="p-0 m-2 cursor-pointer elevation-2"
+            (click)="gotoViewTrip()">
+    <mat-card-content matRipple>
+      <div class="grid m-6 place-items-center">
+        <fa-icon [icon]="[vm.assets.view.icon.style, vm.assets.view.icon.name]"
+                 [fixedWidth]="true"
+                 class="text-mat-indigo-700 text-8xl"></fa-icon>
+        <span class="mt-4 outline-none text-mat-indigo-700 focus:outline-none">
+          {{ vm.assets.view.text }}
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="p-0 m-2 cursor-pointer elevation-2"
+            (click)="gotoCreateTrip()">
+    <mat-card-content matRipple>
+      <div class="grid m-6 place-items-center">
+        <fa-icon [icon]="[vm.assets.create.icon.style, vm.assets.create.icon.name]"
+                 [fixedWidth]="true"
+                 class="text-mat-indigo-700 text-8xl"></fa-icon>
+        <span class="mt-4 outline-none text-mat-indigo-700 focus:outline-none">
+          {{ vm.assets.create.text }}
+        </span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
