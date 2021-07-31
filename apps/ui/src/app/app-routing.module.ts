@@ -3,13 +3,15 @@ import { RouterModule } from '@angular/router';
 
 import { RouteConstants } from './app.routes';
 
+import { HomeContainerComponent } from './components/home/home-container/home-container.component';
+
 import type { Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: RouteConstants.Empty,
-    loadChildren: () =>
-      import('@itinerary-assistant/ui/home').then((module) => module.HomeModule)
+    component: HomeContainerComponent,
+    pathMatch: 'full'
   }
 ];
 

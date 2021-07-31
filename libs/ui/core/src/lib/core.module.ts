@@ -1,28 +1,25 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FooterComponent } from './components/footer/footer-container/footer/footer.component';
-import { FooterContainerComponent } from './components/footer/footer-container/footer-container.component';
+import { LumberjackModule } from '@ngworker/lumberjack';
+import { LumberjackConsoleDriverModule } from '@ngworker/lumberjack/console-driver';
 
-import { NavbarComponent } from './components/navigation/navbar/navbar-container/navbar/navbar.component';
-import { NavbarContainerComponent } from './components/navigation/navbar/navbar-container/navbar-container.component';
+const declarations: never[] = [];
 
-import { SidenavComponent } from './components/navigation/sidenav/sidenav-container/sidenav/sidenav.component';
-import { SidenavContainerComponent } from './components/navigation/sidenav/sidenav-container/sidenav-container.component';
-
-const declarations = [
-  FooterComponent,
-  FooterContainerComponent,
-  NavbarComponent,
-  NavbarContainerComponent,
-  SidenavComponent,
-  SidenavContainerComponent
+const imports = [
+  CommonModule,
+  LumberjackModule.forRoot(),
+  LumberjackConsoleDriverModule.forRoot()
 ];
+const exports = [LumberjackModule, LumberjackConsoleDriverModule];
 
-const imports = [CommonModule];
-
-@NgModule({
-  imports: [...imports],
-  declarations: [...declarations]
-})
-export class CoreModule {}
+@NgModule({ imports, declarations, exports })
+export class CoreModule {
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+    if (parentModule) {
+      throw new Error(
+        'CoreModule is already loaded. Import it in the AppModule only'
+      );
+    }
+  }
+}

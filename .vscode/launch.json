@@ -5,6 +5,15 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Debug Plugin",
+      "program": "${workspaceFolder}/libs/ui/util/tailwind/src/plugins/brands/brand-colors.plugin.js",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "Debug API",
@@ -26,7 +35,7 @@
       "type": "chrome",
       "request": "launch",
       "preLaunchTask": "Serve UI with Nx",
-      "url": "http://localhost:4200/#",
+      "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
       "runtimeArgs": [
         "--incognito"

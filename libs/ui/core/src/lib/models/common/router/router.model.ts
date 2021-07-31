@@ -1,6 +1,8 @@
 import { NavigationExtras } from '@angular/router';
 
 /**
+ * @deprecated - Use from Shared Interfaces
+ *
  * Used in navigate function of `*-core.service`
  *
  * ```ts

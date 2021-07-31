@@ -19,7 +19,16 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": [],
+            "allow": [
+              {
+                "sourceTag": "(lib|app):ui*",
+                "onlyDependOnLibsWithTags": [
+                  "lib:ui-material",
+                  "lib:ui-icon",
+                  "lib:ui-layout"
+                ]
+              }
+            ],
             "depConstraints": [
               {
                 "sourceTag": "*",
