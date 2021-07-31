@@ -7,6 +7,10 @@
     "start-api": "nx run api:serve",
     "start-ui": "nx run ui:serve:development",
     "build": "nx build",
+    "build:dev": "nx build --configuration=development --stats-json --source-map",
+    "build:stats": "nx build --configuration=production --stats-json --source-map",
+    "analyze:source-map": "source-map-explorer dist/apps/ui/*.{js,css} --no-border-checks",
+    "analyze:webpack": "webpack-bundle-analyzer dist/apps/ui/stats.json",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
@@ -89,9 +93,11 @@
     "jest": "27.0.3",
     "jest-preset-angular": "9.0.3",
     "prettier": "^2.3.1",
+    "source-map-explorer": "^2.5.2",
     "tailwindcss": "2.2.7",
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",
-    "typescript": "~4.2.4"
+    "typescript": "~4.2.4",
+    "webpack-bundle-analyzer": "^4.4.2"
   }
 }
