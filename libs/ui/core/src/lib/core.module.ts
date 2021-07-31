@@ -1,17 +1,10 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LumberjackModule } from '@ngworker/lumberjack';
-import { LumberjackConsoleDriverModule } from '@ngworker/lumberjack/console-driver';
-
 const declarations: never[] = [];
 
-const imports = [
-  CommonModule,
-  LumberjackModule.forRoot(),
-  LumberjackConsoleDriverModule.forRoot()
-];
-const exports = [LumberjackModule, LumberjackConsoleDriverModule];
+const imports = [CommonModule];
+const exports: never[] = [];
 
 @NgModule({ imports, declarations, exports })
 export class CoreModule {
