@@ -7,6 +7,7 @@ import { HomeContainerComponent } from './components/home/home-container/home-co
 
 import type { Routes } from '@angular/router';
 
+// TODO: Load Home Container on `trip` route
 const routes: Routes = [
   {
     path: RouteConstants.Empty,
