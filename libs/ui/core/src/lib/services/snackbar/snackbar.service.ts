@@ -13,8 +13,8 @@ export class SnackbarService {
    */
   constructor(private _snackbar: MatSnackBar) {}
 
+  // TODO: ⚠️ This section could get problematic in the near future
   /**
-   * TODO: ⚠️ This section could get problematic in the near future
    *
    * @template GenericSnackbarData
    * @param {{

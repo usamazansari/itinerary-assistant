@@ -12,8 +12,8 @@ import { ClipboardService, SnackbarService } from '../';
 
 // TODO: Make services free of loose strings - use constants file for each module
 
+// TODO: 🧐 Documentation Required
 /**
- * TODO: 🧐 Documentation Required
  *
  * @export
  * @class FooterService
@@ -22,8 +22,8 @@ import { ClipboardService, SnackbarService } from '../';
   providedIn: 'root'
 })
 export class FooterService {
+  // TODO: 🧐 Documentation Required
   /**
-   * TODO: 🧐 Documentation Required
    *
    * @private
    * @type {BehaviorSubject<FooterAssetsModel>}
@@ -32,8 +32,8 @@ export class FooterService {
   private _assets$: BehaviorSubject<FooterAssetsModel> =
     new BehaviorSubject<FooterAssetsModel>(FOOTER_ASSETS_STUB);
 
+  // TODO: 🧐 Documentation Required
   /**
-   * TODO: 🧐 Documentation Required
    *
    * @private
    * @type {FooterAssetsModel}
@@ -51,8 +51,8 @@ export class FooterService {
     private _snackbar: SnackbarService
   ) {}
 
+  // TODO: 🧐 Documentation Required
   /**
-   * TODO: 🧐 Documentation Required
    *
    * @memberof FooterService
    */
@@ -118,8 +118,8 @@ export class FooterService {
     this._assets$.next(this._assets);
   }
 
+  // TODO: 🧐 Documentation Required
   /**
-   * TODO: 🧐 Documentation Required
    *
    * @return {*}  {Observable<IaCoreFooterAssetsModel>}
    * @memberof FooterService
@@ -128,8 +128,8 @@ export class FooterService {
     return this._assets$.asObservable();
   }
 
+  // TODO: 🧐 Documentation Required
   /**
-   * TODO: 🧐 Documentation Required
    *
    * @memberof FooterService
    */
@@ -146,8 +146,8 @@ export class FooterService {
     });
   }
 
+  // TODO: 🧐 Documentation Required
   /**
-   * TODO: 🧐 Documentation Required
    *
    * @memberof FooterService
    */
@@ -164,8 +164,8 @@ export class FooterService {
     });
   }
 
+  // TODO: Use Lumberjack
   /**
-   * TODO: Use Lumberjack
    *
    * @memberof FooterService
    */

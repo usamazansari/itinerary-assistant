@@ -1,5 +1,5 @@
+// TODO: Move into global constants
 /**
- * TODO: Move into global constants
  *
  * Author
  */
@@ -11,15 +11,15 @@ export const AUTHOR = {
   EMAIL: 'usama251993@gmail.com'
 };
 
+// TODO: Move into global constants
 /**
- * TODO: Move into global constants
  *
  * Name of the application
  */
 export const APPLICATION_NAME = 'Itinerary Assistant';
 
+// TODO: Move into global constants
 /**
- * TODO: Move into global constants
  *
  * Firebase Configuration
  */
