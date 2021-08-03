@@ -1,4 +1,4 @@
-import { IconModel, ICON_STUB } from '@itinerary-assistant/ui/icon';
+import { IconModel, ICON_STUB } from '@itinerary-assistant/ui/core';
 
 /**
  * The assets for a Card to be displayed on the Home Page.

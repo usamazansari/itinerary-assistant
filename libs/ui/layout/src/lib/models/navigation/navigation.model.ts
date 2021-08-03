@@ -1,4 +1,4 @@
-import { IconModel, ICON_STUB } from '@itinerary-assistant/ui/icon';
+import { IconModel, ICON_STUB } from '@itinerary-assistant/ui/core';
 
 /**
  * Interface for Navigation Item

@@ -1,1 +1,1 @@
-export { IconModule, ICON_STUB } from '@itinerary-assistant/ui/icon';
+export { IconModel, ICON_STUB } from '@itinerary-assistant/ui/core';
