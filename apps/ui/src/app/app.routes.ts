@@ -1,3 +1,5 @@
 export enum RouteConstants {
-  Empty = ''
+  Empty = '',
+  Wildcard = '**',
+  Trip = 'trip'
 }

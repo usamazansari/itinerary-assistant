@@ -11,9 +11,10 @@ import {
 import { ClipboardService, SnackbarService } from '../';
 
 // TODO: Make services free of loose strings - use constants file for each module
+// TODO: Use Virtual Memory for handling changes
 
-// TODO: 🧐 Documentation Required
 /**
+ * Service for use in `FooterComponent`
  *
  * @export
  * @class FooterService
@@ -22,9 +23,8 @@ import { ClipboardService, SnackbarService } from '../';
   providedIn: 'root'
 })
 export class FooterService {
-  // TODO: 🧐 Documentation Required
   /**
-   *
+   * `BehaviorSubject` to hold the assets for the `FooterComponent`
    * @private
    * @type {BehaviorSubject<FooterAssetsModel>}
    * @memberof FooterService
@@ -32,8 +32,8 @@ export class FooterService {
   private _assets$: BehaviorSubject<FooterAssetsModel> =
     new BehaviorSubject<FooterAssetsModel>(FOOTER_ASSETS_STUB);
 
-  // TODO: 🧐 Documentation Required
   /**
+   * Holds the assets for the `FooterComponent`
    *
    * @private
    * @type {FooterAssetsModel}
@@ -51,9 +51,8 @@ export class FooterService {
     private _snackbar: SnackbarService
   ) {}
 
-  // TODO: 🧐 Documentation Required
   /**
-   *
+   * Fetch assets for the `FooterComponent`
    * @memberof FooterService
    */
   fetchAssets(): void {
@@ -118,8 +117,8 @@ export class FooterService {
     this._assets$.next(this._assets);
   }
 
-  // TODO: 🧐 Documentation Required
   /**
+   * Observe changes in assets for the `FooterComponent`
    *
    * @return {*}  {Observable<IaCoreFooterAssetsModel>}
    * @memberof FooterService
@@ -128,40 +127,64 @@ export class FooterService {
     return this._assets$.asObservable();
   }
 
-  // TODO: 🧐 Documentation Required
   /**
+   * Copy the Discord ID: `usama251993#5438` to the clipboard
    *
    * @memberof FooterService
    */
   copyDiscordID(): void {
-    this._clipboard.copy(AUTHOR.DISCORD);
-    this._snackbar.openSnackbar({
-      message: 'Discord ID Copied!',
-      action: 'OK',
-      config: {
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-        duration: 2500
-      }
-    });
+    const isTextCopied: boolean = this._clipboard.copy(AUTHOR.DISCORD);
+    if (isTextCopied) {
+      this._snackbar.openSnackbar({
+        message: 'Discord ID Copied!',
+        action: 'OK',
+        config: {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 2500
+        }
+      });
+    } else {
+      this._snackbar.openSnackbar({
+        message: 'Some problem accessing the Clipboard',
+        action: 'OK',
+        config: {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 2500
+        }
+      });
+    }
   }
 
-  // TODO: 🧐 Documentation Required
   /**
+   * Copy the email ID: `usama251993@gmail.com` to the clipboard
    *
    * @memberof FooterService
    */
   copyEmailID(): void {
-    this._clipboard.copy(AUTHOR.EMAIL);
-    this._snackbar.openSnackbar({
-      message: 'Email ID Copied!',
-      action: 'OK',
-      config: {
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom',
-        duration: 2500
-      }
-    });
+    const isTextCopied: boolean = this._clipboard.copy(AUTHOR.EMAIL);
+    if (isTextCopied) {
+      this._snackbar.openSnackbar({
+        message: 'Email ID Copied!',
+        action: 'OK',
+        config: {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 2500
+        }
+      });
+    } else {
+      this._snackbar.openSnackbar({
+        message: 'Some problem accessing the Clipboard',
+        action: 'OK',
+        config: {
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+          duration: 2500
+        }
+      });
+    }
   }
 
   // TODO: Use Lumberjack
