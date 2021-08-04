@@ -22,13 +22,13 @@ export interface IconModel {
  * Stub for an `IconModel`
  *
  * ```ts
- * const ICON_STUB: IconModel = {
+ * const IconStub: IconModel = {
  *   style : 'fas',
  *   name  : 'info'
  * }
  * ```
  */
-export const ICON_STUB: IconModel = {
+export const IconStub: IconModel = {
   style: 'fas',
   name: 'info'
 };

@@ -1,4 +1,4 @@
-import { IconModel, ICON_STUB, ImageModel } from '../../models';
+import { IconModel, IconStub, ImageModel } from '../../models';
 
 export type FooterIconType = IconModel | ImageModel;
 
@@ -42,12 +42,13 @@ interface FooterLink {
   icon: FooterIconType;
 }
 
+// TODO: Rename to `FooterLinkStub`
 /**
  * Stub for `FooterLink`
  *
  * ```ts
  * const FOOTER_LINK_STUB: FooterLink = {
- *   icon : { ...ICON_STUB },
+ *   icon : { ...IconStub },
  *   name : '',
  *   url  : ''
  * }
@@ -55,7 +56,7 @@ interface FooterLink {
  *
  */
 const FOOTER_LINK_STUB: FooterLink = {
-  icon: { ...ICON_STUB },
+  icon: { ...IconStub },
   name: '',
   url: ''
 };
@@ -172,6 +173,7 @@ export interface FooterAssetsModel {
   email: FooterLink;
 }
 
+// TODO: Rename to `FooterAssetsStub`
 /**
  * Stub for `FooterAssetsModel`
  *

@@ -32,3 +32,7 @@ export const FIREBASE_CONFIG = {
   messagingSenderId: '544309442582',
   appId: '1:544309442582:web:92ad3a7b73af944a65dd37'
 };
+
+export {} from './clipboard/clipboard.constants';
+export {} from './router/router.constants';
+export {} from './snackbar/snackbar.constants';

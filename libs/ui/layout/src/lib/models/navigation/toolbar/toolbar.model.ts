@@ -44,6 +44,7 @@ export interface ToolbarVMModel {
   };
 }
 
+// TODO: Rename to `ToolbarVMStub`
 /**
  * Stub for `ToolbarVMModel`
  *

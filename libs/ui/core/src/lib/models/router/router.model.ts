@@ -1,9 +1,8 @@
 import { NavigationExtras } from '@angular/router';
 
 /**
- * @deprecated - Use from Shared Interfaces
  *
- * Used in navigate function of `*-core.service`
+ * Used in navigate function of the entire application
  *
  * ```ts
  * interface RouterPayloadModel {
@@ -32,3 +31,11 @@ export interface RouterPayloadModel {
    */
   extras: NavigationExtras;
 }
+
+/**
+ * Stub for `RouterPayloadModel`
+ */
+export const RouterPayloadStub: RouterPayloadModel = {
+  routes: [],
+  extras: {}
+};

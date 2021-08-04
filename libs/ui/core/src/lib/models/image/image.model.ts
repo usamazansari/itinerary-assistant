@@ -3,8 +3,8 @@
  *
  * ```ts
  * interface ImageModel {
- *   src : string | null;
- *   alt : string | null;
+ *   src : string;
+ *   alt : string;
  * }
  * ```
  *
@@ -15,31 +15,31 @@ export interface ImageModel {
   /**
    * Image source
    *
-   * @type {(string | null)}
+   * @type {(string)}
    * @memberof ImageModel
    */
-  src: string | null;
+  src: string;
 
   /**
    * Image Alt text
    *
-   * @type {(string | null)}
+   * @type {(string)}
    * @memberof ImageModel
    */
-  alt: string | null;
+  alt: string;
 }
 
 /**
  * Stub for `ImageModel`
  *
  * ```ts
- * const IMAGE_STUB: ImageModel = {
- *   src : null,
- *   alt : null
+ * const ImageStub: ImageModel = {
+ *   src : '',
+ *   alt : ''
  * }
  * ```
  */
-export const IMAGE_STUB: ImageModel = {
-  src: null,
-  alt: null
+export const ImageStub: ImageModel = {
+  src: '',
+  alt: ''
 };

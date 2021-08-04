@@ -1,8 +1,8 @@
 export {
   IconModel,
-  ICON_STUB,
+  IconStub,
   ImageModel,
-  IMAGE_STUB
+  ImageStub
 } from '@itinerary-assistant/ui/core';
 
 export {
