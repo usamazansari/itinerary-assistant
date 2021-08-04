@@ -5,15 +5,9 @@ export {
   ImageStub
 } from '@itinerary-assistant/ui/core';
 
-export {
-  NavigationItemModel,
-  NAVIGATION_ITEM_STUB
-} from './navigation/navigation.model';
-export {} from './navigation/sidenav/sidenav.model';
-export {
-  ToolbarVMModel,
-  TOOLBAR_VM_STUB
-} from './navigation/toolbar/toolbar.model';
+export {} from './sidenav/sidenav.model';
+
+export { ToolbarVMModel, ToolbarVMStub } from './toolbar/toolbar.model';
 
 export {
   FooterAssetsModel,

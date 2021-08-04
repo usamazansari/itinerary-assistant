@@ -1,4 +1,4 @@
-import { IconModel, IconStub } from '@itinerary-assistant/ui/core';
+import { IconModel, IconStub } from '../';
 
 /**
  * Interface for Navigation Item
@@ -48,12 +48,11 @@ export interface NavigationItemModel {
   children: NavigationItemModel[];
 }
 
-// TODO: Rename to `NavigationItemStub`
 /**
  * Stub for `NavigationItemModel`
  * 
  * ```ts
- * const NAVIGATION_ITEM_STUB: NavigationItemModel = {
+ * const NavigationItemStub: NavigationItemModel = {
  *   label    : null,
  *   routes   : [],
  *   icon     : { ...IconStub },
@@ -62,7 +61,7 @@ export interface NavigationItemModel {
 };
  * ```
  */
-export const NAVIGATION_ITEM_STUB: NavigationItemModel = {
+export const NavigationItemStub: NavigationItemModel = {
   label: null,
   routes: [],
   icon: { ...IconStub },

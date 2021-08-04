@@ -1,10 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
-import {
-  ToolbarVMModel,
-  TOOLBAR_VM_STUB
-} from '../../../../models/navigation/toolbar/toolbar.model';
+import { ToolbarVMModel, ToolbarVMStub } from '../../../../models';
 
 @Component({
   selector: 'ia-layout-toolbar',
@@ -18,7 +15,7 @@ export class ToolbarComponent implements OnInit {
    * @private
    * @memberof ToolbarComponent
    */
-  private _vm$ = new BehaviorSubject<ToolbarVMModel>(TOOLBAR_VM_STUB);
+  private _vm$ = new BehaviorSubject<ToolbarVMModel>(ToolbarVMStub);
 
   /**
    * Assets used by `ToolbarComponent`
@@ -27,18 +24,18 @@ export class ToolbarComponent implements OnInit {
    */
   @Input()
   set vm(value: ToolbarVMModel) {
-    this._vm$.next(value ?? TOOLBAR_VM_STUB);
+    this._vm$.next(value ?? ToolbarVMStub);
   }
   get vm(): ToolbarVMModel {
     return this._vm$.getValue();
   }
 
   /**
-   * `EventEmitter` to navigate through the application
+   * `EventEmitter` to navigate to the home page
    *
    * @memberof ToolbarComponent
    */
-  // @Output() navigate$ = new EventEmitter<NavigationRouterPayloadModel>();
+  @Output() gotoHome$ = new EventEmitter<void>();
 
   /**
    * `EventEmitter` to notify the `app-component` about sidenav toggle
@@ -54,12 +51,10 @@ export class ToolbarComponent implements OnInit {
   /**
    * Trigger the navigation by the `EventEmitter`: `navigate$`
    *
-   * @param {string[]} routes
    * @memberof ToolbarComponent
    */
-  navigate(routes: string[]): void {
-    // const payload: ToolbarRouterPayloadModel = { routes: [...routes], extras: {} };
-    // this.navigate$.emit(payload);
+  gotoHome(): void {
+    this.gotoHome$.emit();
   }
 
   /**

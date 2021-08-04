@@ -7,12 +7,12 @@
         <button mat-icon-button
                 class="outline-none focus:outline-none"
                 (click)="toggleSidenav()">
-          <fa-icon [icon]="[vm.assets.trigger.icon.style, vm.assets.trigger.icon.name]"></fa-icon>
+          <fa-icon [icon]="[vm.assets.trigger.style, vm.assets.trigger.name]"></fa-icon>
         </button>
         <button mat-button
                 id="logo-button"
                 class="h-full text-lg font-semibold outline-none focus:outline-none"
-                (click)="navigate(vm.assets.logo.routes)">{{ vm.assets.logo.label }}</button>
+                (click)="gotoHome()">{{ vm.assets.logo }}</button>
       </div>
 
     </div>

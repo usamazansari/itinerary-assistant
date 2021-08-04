@@ -9,11 +9,11 @@ import { IconModule } from '@itinerary-assistant/ui/icon';
 import { FooterContainerComponent } from './components/footer/footer-container/footer-container.component';
 import { FooterComponent } from './components/footer/footer-container/footer/footer.component';
 
-import { SidenavContainerComponent } from './components/navigation/sidenav-container/sidenav-container.component';
-import { SidenavComponent } from './components/navigation/sidenav-container/sidenav/sidenav.component';
+import { SidenavContainerComponent } from './components/sidenav/sidenav-container/sidenav-container.component';
+import { SidenavComponent } from './components/sidenav/sidenav-container/sidenav/sidenav.component';
 
-import { ToolbarContainerComponent } from './components/navigation/toolbar-container/toolbar-container.component';
-import { ToolbarComponent } from './components/navigation/toolbar-container/toolbar/toolbar.component';
+import { ToolbarContainerComponent } from './components/toolbar/toolbar-container/toolbar-container.component';
+import { ToolbarComponent } from './components/toolbar/toolbar-container/toolbar/toolbar.component';
 
 import { ShellComponent } from './components/shell/shell.component';
 

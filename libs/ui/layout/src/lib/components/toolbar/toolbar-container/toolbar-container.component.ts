@@ -15,11 +15,12 @@ import type { ToolbarVMModel } from '../../../models';
   selector: 'ia-layout-toolbar-container',
   template: `<ia-layout-toolbar *ngIf            = "vm$ | async as vm"
                                 [vm]             = "vm"
-                                (toggleSidenav$) = "toggleSidenav()"></ia-layout-toolbar>`,
+                                (toggleSidenav$) = "toggleSidenav()"
+                                (gotoHome$)      = "gotoHome()"></ia-layout-toolbar>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarContainerComponent implements OnInit {
-  vm$!: Observable<ToolbarVMModel | null>;
+  vm$!: Observable<ToolbarVMModel>;
 
   @Output() toggleSidenav$ = new EventEmitter<void>();
 
@@ -32,5 +33,9 @@ export class ToolbarContainerComponent implements OnInit {
 
   toggleSidenav(): void {
     this.toggleSidenav$.emit();
+  }
+
+  gotoHome(): void {
+    this._service.gotoHome();
   }
 }
