@@ -17,7 +17,7 @@ import { ToolbarComponent } from './components/navigation/toolbar-container/tool
 
 import { ShellComponent } from './components/shell/shell.component';
 
-import { layoutIcons } from './layout-icons';
+import { layoutIcons } from './icons';
 
 const declarations = [
   FooterContainerComponent,
