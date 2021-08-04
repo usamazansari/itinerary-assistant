@@ -6,10 +6,10 @@ import {
   Output
 } from '@angular/core';
 
-import { ToolbarService } from '../../../services/navigation/toolbar/toolbar.service';
+import { ToolbarService } from '../../../services';
 
 import type { Observable } from 'rxjs';
-import type { ToolbarVMModel } from '../../../models/navigation/toolbar/toolbar.model';
+import type { ToolbarVMModel } from '../../../models';
 
 @Component({
   selector: 'ia-layout-toolbar-container',

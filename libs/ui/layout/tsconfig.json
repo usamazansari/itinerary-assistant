@@ -11,19 +11,20 @@
     }
   ],
   "compilerOptions": {
+    "baseUrl": "../../../",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@components/*": [
-        "libs/ui/layouts/src/lib/components/*"
+      "@itinerary-assistant/ui/core": [
+        "./libs/ui/core/src/index.ts"
       ],
-      "@models/*": [
-        "libs/ui/layouts/src/lib/models/*"
+      "@itinerary-assistant/ui/icon": [
+        "./libs/ui/shared/icon/src/index.ts"
       ],
-      "@services/*": [
-        "libs/ui/layouts/src/lib/services/*"
+      "@itinerary-assistant/ui/material": [
+        "./libs/ui/shared/material/src/index.ts"
       ]
     }
   },

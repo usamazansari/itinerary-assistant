@@ -19,21 +19,21 @@ import { ShellComponent } from './components/shell/shell.component';
 
 import { layoutIcons } from './icons';
 
-const declarations = [
-  FooterContainerComponent,
-  FooterComponent,
+@NgModule({
+  declarations: [
+    FooterContainerComponent,
+    FooterComponent,
 
-  SidenavContainerComponent,
-  SidenavComponent,
+    SidenavContainerComponent,
+    SidenavComponent,
 
-  ToolbarContainerComponent,
-  ToolbarComponent,
-  ShellComponent
-];
-const imports = [CommonModule, MaterialModule, IconModule];
-const exports = [ShellComponent];
-
-@NgModule({ declarations, imports, exports })
+    ToolbarContainerComponent,
+    ToolbarComponent,
+    ShellComponent
+  ],
+  imports: [CommonModule, MaterialModule, IconModule],
+  exports: [ShellComponent]
+})
 export class LayoutModule extends IconModule {
   constructor(lib: FaIconLibrary) {
     super(lib);
