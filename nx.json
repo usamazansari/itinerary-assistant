@@ -42,6 +42,9 @@
     "material": {
       "tags": ["lib:ui-material"]
     },
+    "shared": {
+      "tags": []
+    },
     "tailwind": {
       "tags": ["lib:tailwind"]
     },
