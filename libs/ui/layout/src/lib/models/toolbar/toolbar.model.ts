@@ -1,64 +1,63 @@
-import { IconModel, IconStub } from '@itinerary-assistant/ui/core';
+import { IconStub } from '../imports';
+import type { IconModel } from '../imports';
 
 /**
- * Virtual Memory for `ToolbarComponent`
+ * Assets for `ToolbarComponent`
  *
  * ```ts
- * interface ToolbarVMModel {
- *   assets  : {
- *     trigger : IconModel
- *     logo    : string
- *   }
+ * interface ToolbarAssetsModel {
+ *   trigger : IconModel
+ *   logo    : string
  * }
  * ```
  *
  * @export
- * @interface ToolbarVMModel
+ * @interface ToolbarAssetsModel
  */
-export interface ToolbarVMModel {
+export interface ToolbarAssetsModel {
   /**
-   * Assets for `ToolbarComponent`
+   * Trigger for the Sidenav
    *
-   * @type {{
-   *   trigger: ;
-   *   logo: ;
-   * }}
-   * @memberof ToolbarVMModel
+   * @type {IconModel}
+   * @memberof ToolbarAssetsModel
    */
-  assets: {
-    /**
-     * Trigger for the Sidenav
-     *
-     * @type {IconModel}
-     * @memberof ToolbarVMModel
-     */
-    trigger: IconModel;
-
-    /**
-     * Logo of the application
-     *
-     * @type {string}
-     * @memberof ToolbarVMModel
-     */
-    logo: string;
-  };
+  trigger: IconModel;
 }
 
 /**
- * Stub for `ToolbarVMModel`
+ * Stub for `ToolbarAssetsModel`
  *
  * ```ts
- * const ToolbarVMStub: ToolbarVMModel = {
- *   assets  : {
- *     trigger : { ...IconStub }
- *     logo    : ''
- *   }
+ * const ToolbarAssetsStub: ToolbarAssetsModel = {
+ *   trigger : { ...IconStub }
+ *   logo    : ''
  * };
  * ```
  */
+export const ToolbarAssetsStub: ToolbarAssetsModel = {
+  trigger: { ...IconStub }
+};
+
+export interface ToolbarDataModel {
+  /**
+   * Logo of the application
+   *
+   * @type {string}
+   * @memberof ToolbarAssetsModel
+   */
+  logo: string;
+}
+
+export const ToolbarDataStub: ToolbarDataModel = {
+  logo: ''
+};
+
+export interface ToolbarVMModel {
+  assets: ToolbarAssetsModel;
+  data: ToolbarDataModel;
+}
+
 export const ToolbarVMStub: ToolbarVMModel = {
-  assets: {
-    trigger: { ...IconStub },
-    logo: ''
-  }
+  assets: { ...ToolbarAssetsStub },
+  data: { ...ToolbarDataStub }
 };

@@ -2,32 +2,18 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { HomeVMModel, HOME_VM_STUB } from '../../models/home/home.model';
+import { HomeVMStub } from '../../models/home/home.model';
 import { Constants as HomeConstants } from '../../constants/home/home.constants';
 
 import type { Observable } from 'rxjs';
+import type { HomeVMModel } from '../../models/home/home.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-  /**
-   * `BehaviorSubject` to hold `asset`s required by `TemporaryHomeContainerComponent`
-   *
-   * @private
-   * @type {BehaviorSubject<HomeVMModel>}
-   * @memberof TemporaryHomeService
-   */
-  private _vm$ = new BehaviorSubject<HomeVMModel>(HOME_VM_STUB);
-
-  /**
-   * Store `asset`s in the virtual memory for use within the service
-   *
-   * @private
-   * @type {HomeVMModel}
-   * @memberof TemporaryHomeService
-   */
-  private _vm: HomeVMModel = { ...HOME_VM_STUB };
+  #vm$ = new BehaviorSubject<HomeVMModel>(HomeVMStub);
+  #vm: HomeVMModel = { ...HomeVMStub };
 
   /**
    * Creates an instance of `TemporaryHomeService`
@@ -54,8 +40,8 @@ export class HomeService {
    * @memberof TemporaryHomeService
    */
   fetchAssets(): void {
-    this._vm.assets = { ...HomeConstants.assets };
-    this._setVm(this._vm);
+    this.#vm.assets = { ...HomeConstants.assets };
+    this._setVm(this.#vm);
   }
 
   /**
@@ -65,8 +51,8 @@ export class HomeService {
    * @memberof TemporaryHomeService
    */
   private _setVm(vm: HomeVMModel): void {
-    this._vm = { ...vm };
-    this._vm$.next(this._vm);
+    this.#vm = { ...vm };
+    this.#vm$.next(this.#vm);
   }
 
   /**
@@ -76,7 +62,7 @@ export class HomeService {
    * @memberof TemporaryHomeService
    */
   watchVm$(): Observable<HomeVMModel> {
-    return this._vm$.asObservable();
+    return this.#vm$.asObservable();
   }
 
   /**

@@ -2,28 +2,28 @@
      class="container grid items-center justify-between grid-cols-1 px-4 mx-auto bg-white sm:grid-cols-2 elevation-3 dark:bg-gray-900 dark:text-white">
   <div class="grid my-4 place-items-center md:justify-start">
     <p class="text-sm text-center cursor-default">
-      <span class="font-bold text-indigo-700">{{ assets.madeWith }}</span>
+      <span class="font-bold text-indigo-700">{{ vm.assets.madeWith }}</span>
 
-      <ng-container *ngIf="isIcon(assets.heart.icon)">
-        <fa-icon [icon]="[assets.heart.icon.style, assets.heart.icon.name]"
+      <ng-container *ngIf="isIcon(vm.assets.heart.icon)">
+        <fa-icon [icon]="[vm.assets.heart.icon.style, vm.assets.heart.icon.name]"
                  class="mx-1 text-lg text-brand-angular">
         </fa-icon>
       </ng-container>
 
-      <span class="text-gray-400">{{ assets.using }}</span>
+      <span class="text-gray-400">{{ vm.assets.using }}</span>
     </p>
 
     <div class="grid grid-flow-col">
       <a mat-icon-button
          class="grid place-items-center"
-         [href]="assets.angular.url"
+         [href]="vm.assets.angular.url"
          target="_blank"
-         [matTooltip]="assets.angular.name"
+         [matTooltip]="vm.assets.angular.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
 
-        <ng-container *ngIf="isIcon(assets.angular.icon)">
-          <fa-icon [icon]="[assets.angular.icon.style, assets.angular.icon.name]"
+        <ng-container *ngIf="isIcon(vm.assets.angular.icon)">
+          <fa-icon [icon]="[vm.assets.angular.icon.style, vm.assets.angular.icon.name]"
                    class="text-2xl text-brand-angular"></fa-icon>
         </ng-container>
 
@@ -31,15 +31,15 @@
 
       <a mat-icon-button
          class="grid place-items-center"
-         [href]="assets.tailwind.url"
+         [href]="vm.assets.tailwind.url"
          target="_blank"
-         [matTooltip]="assets.tailwind.name"
+         [matTooltip]="vm.assets.tailwind.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
 
-        <ng-container *ngIf="isImage(assets.tailwind.icon)">
-          <img [src]="assets.tailwind.icon.src"
-               [alt]="assets.tailwind.icon.alt"
+        <ng-container *ngIf="isImage(vm.assets.tailwind.icon)">
+          <img [src]="vm.assets.tailwind.icon.src"
+               [alt]="vm.assets.tailwind.icon.alt"
                class="w-6 h-6">
         </ng-container>
 
@@ -47,14 +47,14 @@
 
       <a mat-icon-button
          class="grid place-items-center"
-         [href]="assets.fontawesome.url"
+         [href]="vm.assets.fontawesome.url"
          target="_blank"
-         [matTooltip]="assets.fontawesome.name"
+         [matTooltip]="vm.assets.fontawesome.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
 
-        <ng-container *ngIf="isIcon(assets.fontawesome.icon)">
-          <fa-icon [icon]="[assets.fontawesome.icon.style, assets.fontawesome.icon.name]"
+        <ng-container *ngIf="isIcon(vm.assets.fontawesome.icon)">
+          <fa-icon [icon]="[vm.assets.fontawesome.icon.style, vm.assets.fontawesome.icon.name]"
                    class="text-2xl text-brand-fortawesome"></fa-icon>
         </ng-container>
 
@@ -62,14 +62,14 @@
 
       <a mat-icon-button
          class="grid place-items-center"
-         [href]="assets.firebase.url"
+         [href]="vm.assets.firebase.url"
          target="_blank"
-         [matTooltip]="assets.firebase.name"
+         [matTooltip]="vm.assets.firebase.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
-        <ng-container *ngIf="isImage(assets.firebase.icon)">
-          <img [src]="assets.firebase.icon.src"
-               [alt]="assets.firebase.icon.alt"
+        <ng-container *ngIf="isImage(vm.assets.firebase.icon)">
+          <img [src]="vm.assets.firebase.icon.src"
+               [alt]="vm.assets.firebase.icon.alt"
                class="w-6 h-6">
         </ng-container>
       </a>
@@ -78,20 +78,20 @@
 
   <div class="grid my-4 place-items-center md:justify-end">
     <p class="text-sm text-center cursor-default">
-      <span class="text-gray-400">{{ assets.by }}</span>
-      <span class="ml-1 font-bold text-indigo-700">{{ assets.author }}</span>
+      <span class="text-gray-400">{{ vm.assets.by }}</span>
+      <span class="ml-1 font-bold text-indigo-700">{{ vm.assets.author }}</span>
     </p>
 
     <div class="grid grid-flow-col">
       <a mat-icon-button
          class="grid place-items-center"
-         [href]="assets.github.url"
-         [matTooltip]="assets.github.name"
+         [href]="vm.assets.github.url"
+         [matTooltip]="vm.assets.github.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
 
-        <ng-container *ngIf="isIcon(assets.github.icon)">
-          <fa-icon [icon]="[assets.github.icon.style, assets.github.icon.name]"
+        <ng-container *ngIf="isIcon(vm.assets.github.icon)">
+          <fa-icon [icon]="[vm.assets.github.icon.style, vm.assets.github.icon.name]"
                    class="text-2xl text-brand-github"></fa-icon>
         </ng-container>
 
@@ -99,13 +99,13 @@
 
       <a mat-icon-button
          class="grid place-items-center"
-         [href]="assets.linkedin.url"
-         [matTooltip]="assets.linkedin.name"
+         [href]="vm.assets.linkedin.url"
+         [matTooltip]="vm.assets.linkedin.name"
          matTooltipShowDelay="500"
          #tooltip="matTooltip">
 
-        <ng-container *ngIf="isIcon(assets.linkedin.icon)">
-          <fa-icon [icon]="[assets.linkedin.icon.style, assets.linkedin.icon.name]"
+        <ng-container *ngIf="isIcon(vm.assets.linkedin.icon)">
+          <fa-icon [icon]="[vm.assets.linkedin.icon.style, vm.assets.linkedin.icon.name]"
                    class="text-2xl text-brand-linkedin"></fa-icon>
         </ng-container>
 
@@ -113,13 +113,13 @@
 
       <button mat-icon-button
               class="grid outline-none place-items-center focus:outline-none"
-              [matTooltip]="assets.discord.name"
+              [matTooltip]="vm.assets.discord.name"
               matTooltipShowDelay="500"
               #tooltip="matTooltip"
               (click)="copyDiscordID()">
 
-        <ng-container *ngIf="isIcon(assets.discord.icon)">
-          <fa-icon [icon]="[assets.discord.icon.style, assets.discord.icon.name]"
+        <ng-container *ngIf="isIcon(vm.assets.discord.icon)">
+          <fa-icon [icon]="[vm.assets.discord.icon.style, vm.assets.discord.icon.name]"
                    class="text-2xl text-brand-discord"></fa-icon>
         </ng-container>
 
@@ -127,13 +127,13 @@
 
       <button mat-icon-button
               class="grid outline-none place-items-center focus:outline-none"
-              [matTooltip]="assets.email.name"
+              [matTooltip]="vm.assets.email.name"
               matTooltipShowDelay="500"
               #tooltip="matTooltip"
               (click)="copyEmailID()">
 
-        <ng-container *ngIf="isIcon(assets.email.icon)">
-          <fa-icon [icon]="[assets.email.icon.style, assets.email.icon.name]"
+        <ng-container *ngIf="isIcon(vm.assets.email.icon)">
+          <fa-icon [icon]="[vm.assets.email.icon.style, vm.assets.email.icon.name]"
                    class="text-2xl text-brand-outlook"></fa-icon>
         </ng-container>
 

@@ -1,4 +1,5 @@
-import { IconModel, IconStub, ImageModel } from '../../models';
+import { IconStub } from '../../models/imports';
+import type { IconModel, ImageModel } from '../../models/imports';
 
 export type FooterIconType = IconModel | ImageModel;
 
@@ -42,12 +43,11 @@ interface FooterLink {
   icon: FooterIconType;
 }
 
-// TODO: Rename to `FooterLinkStub`
 /**
  * Stub for `FooterLink`
  *
  * ```ts
- * const FOOTER_LINK_STUB: FooterLink = {
+ * const FooterLinkStub: FooterLink = {
  *   icon : { ...IconStub },
  *   name : '',
  *   url  : ''
@@ -55,14 +55,14 @@ interface FooterLink {
  * ```
  *
  */
-const FOOTER_LINK_STUB: FooterLink = {
+const FooterLinkStub: FooterLink = {
   icon: { ...IconStub },
   name: '',
   url: ''
 };
 
 /**
- * Application Footer Assets
+ * Assets for `FooterComponent`
  *
  * @export
  * @interface FooterAssetsModel
@@ -173,43 +173,95 @@ export interface FooterAssetsModel {
   email: FooterLink;
 }
 
-// TODO: Rename to `FooterAssetsStub`
 /**
  * Stub for `FooterAssetsModel`
  *
  * ```ts
- * const FOOTER_ASSETS_STUB: FooterAssetsModel = {
+ * const FooterAssetsStub: FooterAssetsModel = {
  *   madeWith    : '',
- *   heart       : FOOTER_LINK_STUB,
+ *   heart       : FooterLinkStub,
  *   using       : '',
- *   angular     : FOOTER_LINK_STUB,
- *   tailwind    : FOOTER_LINK_STUB,
- *   fontawesome : FOOTER_LINK_STUB,
- *   firebase    : FOOTER_LINK_STUB,
+ *   angular     : FooterLinkStub,
+ *   tailwind    : FooterLinkStub,
+ *   fontawesome : FooterLinkStub,
+ *   firebase    : FooterLinkStub,
  *   by          : '',
  *   author      : '',
- *   github      : FOOTER_LINK_STUB,
- *   linkedin    : FOOTER_LINK_STUB,
- *   discord     : FOOTER_LINK_STUB,
- *   email       : FOOTER_LINK_STUB
+ *   github      : FooterLinkStub,
+ *   linkedin    : FooterLinkStub,
+ *   discord     : FooterLinkStub,
+ *   email       : FooterLinkStub
  * };
  * ```
  */
-export const FOOTER_ASSETS_STUB: FooterAssetsModel = {
+export const FooterAssetsStub: FooterAssetsModel = {
   madeWith: '',
-  heart: { ...FOOTER_LINK_STUB },
+  heart: { ...FooterLinkStub },
   using: '',
 
-  angular: { ...FOOTER_LINK_STUB },
-  tailwind: { ...FOOTER_LINK_STUB },
-  fontawesome: { ...FOOTER_LINK_STUB },
-  firebase: { ...FOOTER_LINK_STUB },
+  angular: { ...FooterLinkStub },
+  tailwind: { ...FooterLinkStub },
+  fontawesome: { ...FooterLinkStub },
+  firebase: { ...FooterLinkStub },
 
   by: '',
   author: '',
 
-  github: { ...FOOTER_LINK_STUB },
-  linkedin: { ...FOOTER_LINK_STUB },
-  discord: { ...FOOTER_LINK_STUB },
-  email: { ...FOOTER_LINK_STUB }
+  github: { ...FooterLinkStub },
+  linkedin: { ...FooterLinkStub },
+  discord: { ...FooterLinkStub },
+  email: { ...FooterLinkStub }
+};
+
+// TODO: 🧐 Documentation Required
+/**
+ *
+ *
+ * @export
+ * @interface FooterDataModel
+ */
+export interface FooterDataModel {
+  fullname: string;
+  github: string;
+  linkedin: string;
+  discord: string;
+  email: string;
+  location: string;
+}
+
+// TODO: 🧐 Documentation Required
+/**
+ *
+ */
+export const FooterDataStub: FooterDataModel = {
+  fullname: '',
+  github: '',
+  linkedin: '',
+  discord: '',
+  email: '',
+  location: ''
+};
+
+// TODO: 🧐 Documentation Required
+/**
+ * Virtual Memory for `FooterComponent`
+ *
+ * @export
+ * @interface FooterVMModel
+ */
+export interface FooterVMModel {
+  assets: FooterAssetsModel;
+  data: FooterDataModel;
+}
+
+// TODO: 🧐 Documentation Required
+/**
+ * Stub for `FooterVMModel`
+ *
+ * ```ts
+ * ```
+ */
+export const FooterVMStub: FooterVMModel = {
+  assets: { ...FooterAssetsStub },
+  data: { ...FooterDataStub }
 };

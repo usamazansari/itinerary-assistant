@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { AUTHOR } from '../../constants';
 
-import {
-  FooterAssetsModel,
-  FOOTER_ASSETS_STUB
-} from '../../models/footer/footer.model';
-import { ClipboardService, SnackbarService } from '../';
+import { ClipboardService, SnackbarService } from '../imports';
+import { FooterVMStub } from '../../models';
+
+import type { Observable } from 'rxjs';
+import type { FooterVMModel } from '../../models';
 
 // TODO: Make services free of loose strings - use constants file for each module
-// TODO: Use Virtual Memory for handling changes
 
 /**
  * Service for use in `FooterComponent`
@@ -23,23 +22,8 @@ import { ClipboardService, SnackbarService } from '../';
   providedIn: 'root'
 })
 export class FooterService {
-  /**
-   * `BehaviorSubject` to hold the assets for the `FooterComponent`
-   * @private
-   * @type {BehaviorSubject<FooterAssetsModel>}
-   * @memberof FooterService
-   */
-  private _assets$: BehaviorSubject<FooterAssetsModel> =
-    new BehaviorSubject<FooterAssetsModel>(FOOTER_ASSETS_STUB);
-
-  /**
-   * Holds the assets for the `FooterComponent`
-   *
-   * @private
-   * @type {FooterAssetsModel}
-   * @memberof FooterService
-   */
-  private _assets: FooterAssetsModel = { ...FOOTER_ASSETS_STUB };
+  #vm$ = new BehaviorSubject<FooterVMModel>(FooterVMStub);
+  #vm: FooterVMModel = { ...FooterVMStub };
 
   /**
    * Creates an instance of FooterService.
@@ -56,75 +40,80 @@ export class FooterService {
    * @memberof FooterService
    */
   fetchAssets(): void {
-    this._assets = {
-      ...FOOTER_ASSETS_STUB,
+    this.#vm = {
+      ...this.#vm,
+      assets: {
+        madeWith: 'Made with',
 
-      madeWith: 'Made with',
+        heart: {
+          name: '',
+          url: '',
+          icon: { style: 'fas', name: 'heart' } // fetch icon names and styles from constants
+        },
+        using: 'using',
 
-      heart: {
-        name: '',
-        url: '',
-        icon: { style: 'fas', name: 'heart' } // fetch icon names and styles from constants
-      },
-      using: 'using',
+        angular: {
+          name: 'Angular',
+          url: 'https://angular.io/',
+          icon: { style: 'fab', name: 'angular' }
+        },
+        tailwind: {
+          name: 'Tailwind',
+          url: 'https://tailwindcss.com/',
+          icon: { src: 'assets/media/images/tailwindcss.svg', alt: 'Tailwind' }
+        },
+        fontawesome: {
+          name: 'Font Awesome',
+          url: 'https://fontawesome.com/',
+          icon: { style: 'fab', name: 'fort-awesome-alt' }
+        },
+        firebase: {
+          name: 'Firebase',
+          url: 'https://firebase.google.com/',
+          icon: { src: 'assets/media/images/firebase.svg', alt: 'Firebase' }
+        },
 
-      angular: {
-        name: 'Angular',
-        url: 'https://angular.io/',
-        icon: { style: 'fab', name: 'angular' }
-      },
-      tailwind: {
-        name: 'Tailwind',
-        url: 'https://tailwindcss.com/',
-        icon: { src: 'assets/media/images/tailwindcss.svg', alt: 'Tailwind' }
-      },
-      fontawesome: {
-        name: 'Font Awesome',
-        url: 'https://fontawesome.com/',
-        icon: { style: 'fab', name: 'fort-awesome-alt' }
-      },
-      firebase: {
-        name: 'Firebase',
-        url: 'https://firebase.google.com/',
-        icon: { src: 'assets/media/images/firebase.svg', alt: 'Firebase' }
-      },
+        by: 'by',
+        author: AUTHOR.FULLNAME,
 
-      by: 'by',
-      author: AUTHOR.FULLNAME,
-
-      github: {
-        name: 'GitHub',
-        url: `https://github.com/${AUTHOR.GITHUB}`,
-        icon: { style: 'fab', name: 'github' }
-      },
-      linkedin: {
-        name: 'LinkedIn',
-        url: `https://www.linkedin.com/in/${AUTHOR.LINKEDIN}`,
-        icon: { style: 'fab', name: 'linkedin' }
-      },
-      discord: {
-        name: 'Discord',
-        url: AUTHOR.DISCORD,
-        icon: { style: 'fab', name: 'discord' }
-      },
-      email: {
-        name: 'E-mail',
-        url: AUTHOR.EMAIL,
-        icon: { style: 'fas', name: 'envelope-open-text' }
+        github: {
+          name: 'GitHub',
+          url: `https://github.com/${AUTHOR.GITHUB}`,
+          icon: { style: 'fab', name: 'github' }
+        },
+        linkedin: {
+          name: 'LinkedIn',
+          url: `https://www.linkedin.com/in/${AUTHOR.LINKEDIN}`,
+          icon: { style: 'fab', name: 'linkedin' }
+        },
+        discord: {
+          name: 'Discord',
+          url: AUTHOR.DISCORD,
+          icon: { style: 'fab', name: 'discord' }
+        },
+        email: {
+          name: 'E-mail',
+          url: AUTHOR.EMAIL,
+          icon: { style: 'fas', name: 'envelope-open-text' }
+        }
       }
     };
+    this.setVM(this.#vm);
+  }
 
-    this._assets$.next(this._assets);
+  private setVM(vm: FooterVMModel): void {
+    this.#vm = { ...vm };
+    this.#vm$.next(this.#vm);
   }
 
   /**
-   * Observe changes in assets for the `FooterComponent`
+   * Observe changes in VM for the `FooterComponent`
    *
-   * @return {*}  {Observable<IaCoreFooterAssetsModel>}
+   * @return {*}  {Observable<FooterVMModel>}
    * @memberof FooterService
    */
-  watchAssets$(): Observable<FooterAssetsModel> {
-    return this._assets$.asObservable();
+  watchVM$(): Observable<FooterVMModel> {
+    return this.#vm$.asObservable();
   }
 
   /**

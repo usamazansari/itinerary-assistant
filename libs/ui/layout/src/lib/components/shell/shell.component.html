@@ -11,7 +11,8 @@
 
       <!-- toolbar-holder -->
       <header class="sticky top-0 left-0 right-0 z-10">
-        <ia-layout-toolbar-container (toggleSidenav$)="openSidenav()"></ia-layout-toolbar-container>
+        <ia-layout-toolbar-container [data]="data.toolbar"
+                                     (toggleSidenav$)="openSidenav()"></ia-layout-toolbar-container>
       </header>
 
       <!-- content-holder -->

@@ -13,7 +13,7 @@ import { MaterialModule as MaterialModuleLibrary } from '@itinerary-assistant/ui
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { IconModule } from './modules/icon/icon.module';
+import { IconModule } from './modules';
 
 import { HomeContainerComponent } from './components/home/home-container/home-container.component';
 import { HomeComponent } from './components/home/home-container/home/home.component';

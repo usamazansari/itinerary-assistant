@@ -1,4 +1,4 @@
-import { IconModel, IconStub } from '@itinerary-assistant/ui/core';
+import { IconModel, IconStub } from '../imports';
 
 /**
  * The assets for a Card to be displayed on the Home Page.
@@ -30,18 +30,17 @@ interface HomeAssetModel {
   text: string;
 }
 
-// TODO: Rename to `HomeAssetStub`
 /**
  * Stub for `HomeAssetModel`.
  *
  * ```ts
- * const HOME_ASSET_STUB: HomeAssetModel = {
+ * const HomeAssetStub: HomeAssetModel = {
  *   icon : { ...IconStub },
  *   text : null
  * };
  * ```
  */
-const HOME_ASSET_STUB: HomeAssetModel = {
+const HomeAssetStub: HomeAssetModel = {
   icon: { ...IconStub },
   text: ''
 };
@@ -99,12 +98,11 @@ export interface HomeAssetsModel {
   create: HomeAssetModel;
 }
 
-// TODO: Rename to `HomeAssetsStub`
 /**
  * Stub for `HomeAssetsModel`.
  *
  * ```ts
- * const HOME_ASSETS_STUB: HomeAssetsModel = {
+ * const HomeAssetsStub: HomeAssetsModel = {
  *   view   : {
  *     icon : { ...IconStub },
  *     text : ''
@@ -116,19 +114,18 @@ export interface HomeAssetsModel {
  * }
  * ```
  */
-const HOME_ASSETS_STUB: HomeAssetsModel = {
-  view: { ...HOME_ASSET_STUB },
-  create: { ...HOME_ASSET_STUB }
+const HomeAssetsStub: HomeAssetsModel = {
+  view: { ...HomeAssetStub },
+  create: { ...HomeAssetStub }
 };
 
 export interface HomeVMModel {
   assets: HomeAssetsModel;
 }
 
-// TODO: Rename to `HomeVMStub`
 /**
  * Stub for `HomeVMModel`
  */
-export const HOME_VM_STUB: HomeVMModel = {
-  assets: { ...HOME_ASSETS_STUB }
+export const HomeVMStub: HomeVMModel = {
+  assets: { ...HomeAssetsStub }
 };

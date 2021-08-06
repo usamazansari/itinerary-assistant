@@ -2,13 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { FOOTER_ASSETS_STUB } from '../../../../models/footer/footer.model';
+import { FooterVMStub } from '../../../../models';
 
-import type { IconModel, ImageModel } from '../../../../models';
-import type {
-  FooterAssetsModel,
-  FooterIconType
-} from '../../../../models/footer/footer.model';
+import type { IconModel, ImageModel } from '../../../../models/imports';
+import type { FooterVMModel, FooterIconType } from '../../../../models';
 
 @Component({
   selector: 'ia-layout-footer',
@@ -20,25 +17,26 @@ export class FooterComponent implements OnInit {
    * `BehaviorSubject` to hold `asset`s of footer
    *
    * @private
-   * @type {BehaviorSubject<FooterAssetsModel>}
+   * @type {BehaviorSubject<FooterVMModel>}
    * @memberof FooterComponent
    */
-  private _assets$: BehaviorSubject<FooterAssetsModel> =
-    new BehaviorSubject<FooterAssetsModel>(FOOTER_ASSETS_STUB);
+  #vm$: BehaviorSubject<FooterVMModel> = new BehaviorSubject<FooterVMModel>(
+    FooterVMStub
+  );
 
   /**
    * Assets used by `FooterComponent`
    *
-   * Refer documentation of `FooterAssetsModel` for details
+   * Refer documentation of `FooterVMModel` for details
    *
    * @memberof FooterComponent
    */
   @Input()
-  set assets(value: FooterAssetsModel) {
-    this._assets$.next(value);
+  set vm(value: FooterVMModel) {
+    this.#vm$.next(value);
   }
-  get assets(): FooterAssetsModel {
-    return this._assets$.getValue();
+  get vm(): FooterVMModel {
+    return this.#vm$.getValue();
   }
 
   /**

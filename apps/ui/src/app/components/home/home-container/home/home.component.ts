@@ -2,9 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { HOME_VM_STUB } from '../../../../models/home/home.model';
-
-import type { HomeVMModel } from '../../../../models/home/home.model';
+import { HomeVMStub } from '../../../../models';
+import type { HomeVMModel } from '../../../../models';
 
 @Component({
   selector: 'ia-home',
@@ -12,14 +11,14 @@ import type { HomeVMModel } from '../../../../models/home/home.model';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private _vm$ = new BehaviorSubject<HomeVMModel>(HOME_VM_STUB);
+  #vm$ = new BehaviorSubject<HomeVMModel>(HomeVMStub);
 
   @Input()
   set vm(value: HomeVMModel) {
-    this._vm$.next(value);
+    this.#vm$.next(value);
   }
   get vm(): HomeVMModel {
-    return this._vm$.getValue();
+    return this.#vm$.getValue();
   }
 
   @Output() gotoViewTrip$: EventEmitter<void> = new EventEmitter<void>();

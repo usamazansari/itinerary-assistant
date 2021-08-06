@@ -15,7 +15,7 @@ export class ToolbarComponent implements OnInit {
    * @private
    * @memberof ToolbarComponent
    */
-  private _vm$ = new BehaviorSubject<ToolbarVMModel>(ToolbarVMStub);
+  #vm$ = new BehaviorSubject<ToolbarVMModel>(ToolbarVMStub);
 
   /**
    * Assets used by `ToolbarComponent`
@@ -24,10 +24,10 @@ export class ToolbarComponent implements OnInit {
    */
   @Input()
   set vm(value: ToolbarVMModel) {
-    this._vm$.next(value ?? ToolbarVMStub);
+    this.#vm$.next(value ?? ToolbarVMStub);
   }
   get vm(): ToolbarVMModel {
-    return this._vm$.getValue();
+    return this.#vm$.getValue();
   }
 
   /**
@@ -48,6 +48,7 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // TODO: Implement Home Navigation
   /**
    * Trigger the navigation by the `EventEmitter`: `navigate$`
    *

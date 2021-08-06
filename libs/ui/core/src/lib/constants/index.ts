@@ -8,7 +8,8 @@ export const AUTHOR = {
   GITHUB: 'usama251993',
   LINKEDIN: 'usama-ansari-81380080',
   DISCORD: 'usama251993#5438',
-  EMAIL: 'usama251993@gmail.com'
+  EMAIL: 'usama251993@gmail.com',
+  LOCATION: 'https://goo.gl/maps/X6syXXRrRML4FUgc6'
 };
 
 // TODO: Move into global constants

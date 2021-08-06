@@ -3,24 +3,34 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FooterService } from '../../../services/footer/footer.service';
 
 import type { Observable } from 'rxjs';
-import type { FooterAssetsModel } from '../../../models/footer/footer.model';
+import type { FooterVMModel } from '../../../models';
 
+// TODO: 🧐 Documentation Required
+// TODO: Implement use of data as from toolbar
+
+/**
+ *
+ *
+ * @export
+ * @class FooterContainerComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'ia-layout-footer-container',
-  template: `<ia-layout-footer *ngIf            = "assets$ | async as assets"
-                               [assets]         = "assets"
+  template: `<ia-layout-footer *ngIf            = "vm$ | async as vm"
+                               [vm]             = "vm"
                                (copyDiscordID$) = "copyDiscordID()"
                                (copyEmailID$)   = "copyEmailID()"></ia-layout-footer>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterContainerComponent implements OnInit {
   /**
-   * Holds the Footer Assets as `Observable`.
+   * Holds the Footer VM as `Observable`.
    *
-   * @type {Observable<FooterAssetsModel>}
+   * @type {Observable<FooterVMModel>}
    * @memberof FooterContainerComponent
    */
-  assets$!: Observable<FooterAssetsModel>;
+  vm$!: Observable<FooterVMModel>;
 
   /**
    * Creates an instance of `FooterContainerComponent`.
@@ -37,8 +47,7 @@ export class FooterContainerComponent implements OnInit {
    */
   ngOnInit(): void {
     this._service.fetchAssets();
-
-    this.assets$ = this._service.watchAssets$();
+    this.vm$ = this._service.watchVM$();
   }
 
   /**

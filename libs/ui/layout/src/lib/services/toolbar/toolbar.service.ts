@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { APPLICATION_NAME } from '@itinerary-assistant/ui/core';
-
-import { ToolbarVMStub } from '../../../models';
+import { ToolbarVMStub } from '../../models';
 
 import type { Observable } from 'rxjs';
-import type { ToolbarVMModel } from '../../../models';
+import type { ToolbarVMModel } from '../../models';
 
 // TODO: 🧐 Documentation required
 /**
@@ -20,9 +18,8 @@ import type { ToolbarVMModel } from '../../../models';
   providedIn: 'root'
 })
 export class ToolbarService {
-  private _vm$ = new BehaviorSubject<ToolbarVMModel>(ToolbarVMStub);
-
-  private _vm!: ToolbarVMModel;
+  #vm$ = new BehaviorSubject<ToolbarVMModel>(ToolbarVMStub);
+  #vm: ToolbarVMModel = { ...ToolbarVMStub };
 
   constructor() {} // private _routerService: RouterService
 
@@ -33,22 +30,24 @@ export class ToolbarService {
    * @memberof ToolbarService
    */
   fetchAssets(): void {
-    this._vm = {
+    this.#vm = {
+      ...this.#vm,
       assets: {
-        logo: APPLICATION_NAME,
+        ...this.#vm.assets,
+        // logo: APPLICATION_NAME,
         trigger: { name: 'bars', style: 'fas' }
       }
     };
-    this._setVm(this._vm);
+    this.setVM(this.#vm);
   }
 
-  private _setVm(_: ToolbarVMModel): void {
-    this._vm = { ..._ };
-    this._vm$.next(this._vm);
+  setVM(vm: ToolbarVMModel): void {
+    this.#vm = !!vm ? { ...vm } : { ...ToolbarVMStub };
+    this.#vm$.next(this.#vm);
   }
 
-  watchVm$(): Observable<ToolbarVMModel> {
-    return this._vm$.asObservable();
+  watchVM$(): Observable<ToolbarVMModel> {
+    return this.#vm$.asObservable();
   }
 
   gotoHome(): void {}

@@ -2,14 +2,17 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   OnInit,
   Output
 } from '@angular/core';
 
-import { ToolbarService } from '../../../services';
+import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 
-import type { Observable } from 'rxjs';
-import type { ToolbarVMModel } from '../../../models';
+import { ToolbarService } from '../../../services';
+import { ToolbarDataStub } from '../../../models';
+
+import type { ToolbarDataModel, ToolbarVMModel } from '../../../models';
 
 @Component({
   selector: 'ia-layout-toolbar-container',
@@ -20,6 +23,15 @@ import type { ToolbarVMModel } from '../../../models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarContainerComponent implements OnInit {
+  #data$ = new BehaviorSubject<ToolbarDataModel>(ToolbarDataStub);
+
+  @Input() set data(value: ToolbarDataModel) {
+    this.#data$.next(value);
+  }
+  get data(): ToolbarDataModel {
+    return this.#data$.getValue();
+  }
+
   vm$!: Observable<ToolbarVMModel>;
 
   @Output() toggleSidenav$ = new EventEmitter<void>();
@@ -28,7 +40,12 @@ export class ToolbarContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this._service.fetchAssets();
-    this.vm$ = this._service.watchVm$();
+    this.vm$ = this._service.watchVM$();
+
+    // TODO: Make this work
+    // forkJoin([this.#data$, this.vm$]).subscribe(([data, vm]) => {
+    //   this._service.setVM({ ...vm, data: { ...vm.data, ...data } });
+    // });
   }
 
   toggleSidenav(): void {
