@@ -34,7 +34,7 @@
       "tags": ["app:api"]
     },
     "api-core": {
-      "tags": []
+      "tags": ["lib:api-core"]
     },
     "icon": {
       "tags": ["lib:ui-icon"]
@@ -46,7 +46,7 @@
       "tags": ["lib:ui-material"]
     },
     "shared": {
-      "tags": []
+      "tags": ["shared"]
     },
     "tailwind": {
       "tags": ["lib:tailwind"]
