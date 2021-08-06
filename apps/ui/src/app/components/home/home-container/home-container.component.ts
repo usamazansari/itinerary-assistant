@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HomeService } from '../../../services/home/home.service';
-import { HomeVMModel } from '../../../models/home/home.model';
+import { HomeService } from '../../../services';
+import { HomeVMModel } from '../../../models';
 
 import type { Observable } from 'rxjs';
 

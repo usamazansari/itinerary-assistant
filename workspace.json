@@ -128,6 +128,48 @@
         }
       }
     },
+    "shared": {
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared"],
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "tailwind": {
+      "root": "libs/ui/shared/tailwind",
+      "sourceRoot": "libs/ui/shared/tailwind/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/shared/tailwind/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/shared/tailwind"],
+          "options": {
+            "jestConfig": "libs/ui/shared/tailwind/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "ui": {
       "projectType": "application",
       "root": "apps/ui",
@@ -265,27 +307,6 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "tailwind": {
-      "root": "libs/ui/shared/tailwind",
-      "sourceRoot": "libs/ui/shared/tailwind/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/ui/shared/tailwind/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui/shared/tailwind"],
-          "options": {
-            "jestConfig": "libs/ui/shared/tailwind/jest.config.js",
-            "passWithNoTests": true
           }
         }
       }

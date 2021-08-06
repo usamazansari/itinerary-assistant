@@ -3,38 +3,38 @@ import { CommonModule } from '@angular/common';
 
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
-import { MaterialModule } from '@itinerary-assistant/ui/material';
-import { IconModule } from '@itinerary-assistant/ui/icon';
+import { MaterialModule as MaterialModuleLibrary } from '@itinerary-assistant/ui/material';
+import { IconModule as IconModuleLibrary } from '@itinerary-assistant/ui/icon';
 
 import { FooterContainerComponent } from './components/footer/footer-container/footer-container.component';
 import { FooterComponent } from './components/footer/footer-container/footer/footer.component';
 
-import { SidenavContainerComponent } from './components/navigation/sidenav-container/sidenav-container.component';
-import { SidenavComponent } from './components/navigation/sidenav-container/sidenav/sidenav.component';
+import { SidenavContainerComponent } from './components/sidenav/sidenav-container/sidenav-container.component';
+import { SidenavComponent } from './components/sidenav/sidenav-container/sidenav/sidenav.component';
 
-import { ToolbarContainerComponent } from './components/navigation/toolbar-container/toolbar-container.component';
-import { ToolbarComponent } from './components/navigation/toolbar-container/toolbar/toolbar.component';
+import { ToolbarContainerComponent } from './components/toolbar/toolbar-container/toolbar-container.component';
+import { ToolbarComponent } from './components/toolbar/toolbar-container/toolbar/toolbar.component';
 
 import { ShellComponent } from './components/shell/shell.component';
 
-import { layoutIcons } from './layout-icons';
+import { layoutIcons } from './icons';
 
-const declarations = [
-  FooterContainerComponent,
-  FooterComponent,
+@NgModule({
+  declarations: [
+    FooterContainerComponent,
+    FooterComponent,
 
-  SidenavContainerComponent,
-  SidenavComponent,
+    SidenavContainerComponent,
+    SidenavComponent,
 
-  ToolbarContainerComponent,
-  ToolbarComponent,
-  ShellComponent
-];
-const imports = [CommonModule, MaterialModule, IconModule];
-const exports = [ShellComponent];
-
-@NgModule({ declarations, imports, exports })
-export class LayoutModule extends IconModule {
+    ToolbarContainerComponent,
+    ToolbarComponent,
+    ShellComponent
+  ],
+  imports: [CommonModule, MaterialModuleLibrary, IconModuleLibrary],
+  exports: [ShellComponent]
+})
+export class LayoutModule extends IconModuleLibrary {
   constructor(lib: FaIconLibrary) {
     super(lib);
     lib.addIcons(...layoutIcons);

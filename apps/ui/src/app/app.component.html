@@ -1,3 +1,7 @@
-<ia-layout-shell>
+<ia-layout-shell *ngIf="layoutData$ | async as data; else loading"
+                 [data]="data">
   <router-outlet></router-outlet>
 </ia-layout-shell>
+<ng-template #loading>
+  Loading...
+</ng-template>

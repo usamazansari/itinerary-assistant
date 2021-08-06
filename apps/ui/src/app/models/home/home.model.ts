@@ -1,4 +1,4 @@
-import { IconModel, ICON_STUB } from '@itinerary-assistant/ui/icon';
+import { IconModel, IconStub } from '../imports';
 
 /**
  * The assets for a Card to be displayed on the Home Page.
@@ -6,7 +6,7 @@ import { IconModel, ICON_STUB } from '@itinerary-assistant/ui/icon';
  * ```ts
  * interface HomeAssetModel {
  *   icon : IconModel;
- *   text : string | null;
+ *   text : string;
  * }
  * ```
  *
@@ -24,25 +24,25 @@ interface HomeAssetModel {
   /**
    * Text for the icon displayed in the card of the home page.
    *
-   * @type {(string | null)}
+   * @type {(string)}
    * @memberof HomeAssetModel
    */
-  text: string | null;
+  text: string;
 }
 
 /**
  * Stub for `HomeAssetModel`.
  *
  * ```ts
- * const HOME_ASSET_STUB: HomeAssetModel = {
- *   icon : { ...ICON_STUB },
+ * const HomeAssetStub: HomeAssetModel = {
+ *   icon : { ...IconStub },
  *   text : null
  * };
  * ```
  */
-const HOME_ASSET_STUB: HomeAssetModel = {
-  icon: { ...ICON_STUB },
-  text: null
+const HomeAssetStub: HomeAssetModel = {
+  icon: { ...IconStub },
+  text: ''
 };
 
 /**
@@ -54,11 +54,11 @@ const HOME_ASSET_STUB: HomeAssetModel = {
  * export interface HomeAssetsModel {
  *   view   : {
  *     icon : IconModel;
- *     text : string | null;
+ *     text : string;
  *   };
  *   create : {
  *     icon : IconModel;
- *     text : string | null;
+ *     text : string;
  *   };
  * }
  * ```
@@ -73,7 +73,7 @@ export interface HomeAssetsModel {
    * ```ts
    * view   : {
    *   icon : IconModel;
-   *   text : string | null;
+   *   text : string;
    * };
    * ```
    *
@@ -88,7 +88,7 @@ export interface HomeAssetsModel {
    * ```ts
    * create : {
    *   icon : IconModel;
-   *   text : string | null;
+   *   text : string;
    * };
    * ```
    *
@@ -102,27 +102,30 @@ export interface HomeAssetsModel {
  * Stub for `HomeAssetsModel`.
  *
  * ```ts
- * const HOME_ASSETS_STUB: HomeAssetsModel = {
+ * const HomeAssetsStub: HomeAssetsModel = {
  *   view   : {
- *     icon : { ...ICON_STUB },
- *     text : null
+ *     icon : { ...IconStub },
+ *     text : ''
  *   },
  *   create : {
- *     icon : { ...ICON_STUB },
- *     text : null
+ *     icon : { ...IconStub },
+ *     text : ''
  *   }
  * }
  * ```
  */
-const HOME_ASSETS_STUB: HomeAssetsModel = {
-  view: { ...HOME_ASSET_STUB },
-  create: { ...HOME_ASSET_STUB }
+const HomeAssetsStub: HomeAssetsModel = {
+  view: { ...HomeAssetStub },
+  create: { ...HomeAssetStub }
 };
 
 export interface HomeVMModel {
   assets: HomeAssetsModel;
 }
 
-export const HOME_VM_STUB: HomeVMModel = {
-  assets: { ...HOME_ASSETS_STUB }
+/**
+ * Stub for `HomeVMModel`
+ */
+export const HomeVMStub: HomeVMModel = {
+  assets: { ...HomeAssetsStub }
 };

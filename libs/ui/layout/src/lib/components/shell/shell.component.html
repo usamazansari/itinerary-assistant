@@ -1,6 +1,8 @@
 <mat-sidenav-container class="h-screen">
   <mat-sidenav>
-    <ia-layout-sidenav-container></ia-layout-sidenav-container>
+    <nav>
+      <ia-layout-sidenav-container (toggleSidenav$)="closeSidenav()"></ia-layout-sidenav-container>
+    </nav>
   </mat-sidenav>
   <mat-sidenav-content>
 
@@ -8,19 +10,20 @@
     <div class="grid min-h-full ia-layout-shell-container">
 
       <!-- toolbar-holder -->
-      <div class="sticky top-0 left-0 right-0 z-10">
-        <ia-layout-toolbar-container></ia-layout-toolbar-container>
-      </div>
+      <header class="sticky top-0 left-0 right-0 z-10">
+        <ia-layout-toolbar-container [data]="data.toolbar"
+                                     (toggleSidenav$)="openSidenav()"></ia-layout-toolbar-container>
+      </header>
 
       <!-- content-holder -->
-      <div>
+      <main>
         <ng-content></ng-content>
-      </div>
+      </main>
 
       <!-- footer-holder -->
-      <div>
+      <footer>
         <ia-layout-footer-container></ia-layout-footer-container>
-      </div>
+      </footer>
 
     </div>
   </mat-sidenav-content>

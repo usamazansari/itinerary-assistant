@@ -3,6 +3,14 @@
     "nrwl.angular-console",
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "coenraads.bracket-pair-colorizer-2",
+    "kisstkondoros.vscode-codemetrics",
+    "wix.vscode-import-cost",
+    "oderwat.indent-rainbow",
+    "yzhang.markdown-all-in-one",
+    "pkief.material-icon-theme",
+    "dominicvonk.parameter-hints",
+    "visualstudioexptteam.vscodeintellicode"
   ]
 }

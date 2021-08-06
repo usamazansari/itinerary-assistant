@@ -9,9 +9,13 @@ import type { Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: RouteConstants.Empty,
+    path: RouteConstants.Trip,
     component: HomeContainerComponent,
     pathMatch: 'full'
+  },
+  {
+    path: RouteConstants.Wildcard,
+    redirectTo: RouteConstants.Trip
   }
 ];
 
