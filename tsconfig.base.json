@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@itinerary-assistant/api/core": ["libs/api/core/src/index.ts"],
+      "@itinerary-assistant/api/trip": ["libs/api/trip/src/index.ts"],
       "@itinerary-assistant/shared": ["libs/shared/src/index.ts"],
       "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
       "@itinerary-assistant/ui/icon": ["libs/ui/shared/icon/src/index.ts"],
