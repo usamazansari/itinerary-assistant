@@ -31,19 +31,31 @@
   },
   "projects": {
     "api": {
+      "tags": ["app:api"]
+    },
+    "icon": {
+      "tags": ["lib:ui-icon"]
+    },
+    "layout": {
+      "tags": ["lib:ui-layout"]
+    },
+    "material": {
+      "tags": ["lib:ui-material"]
+    },
+    "shared": {
       "tags": []
     },
-    "core": {
-      "tags": []
-    },
-    "home": {
-      "tags": []
+    "tailwind": {
+      "tags": ["lib:tailwind"]
     },
     "ui": {
-      "tags": []
+      "tags": ["app:ui"]
+    },
+    "ui-core": {
+      "tags": ["lib:ui-core"]
     },
     "ui-e2e": {
-      "tags": [],
+      "tags": ["test:ui-e2e"],
       "implicitDependencies": ["ui"]
     }
   }

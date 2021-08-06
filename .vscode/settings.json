@@ -1,0 +1,181 @@
+{
+  // editor
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingQuotes": "always",
+  "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSurroundingLines": 4,
+  "editor.cursorSurroundingLinesStyle": "all",
+  "editor.fastScrollSensitivity": 7,
+  "editor.find.autoFindInSelection": "multiline",
+  "editor.inlayHints.enabled": true,
+  "editor.inlayHints.fontFamily": "editor.fontFamily",
+  "editor.fontFamily": "'Fira Code', 'Consolas', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.hover.delay": 750,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.scale": 2,
+  "editor.minimap.size": "proportional",
+  "editor.quickSuggestions": {
+    "comments": true,
+    "other": true,
+    "strings": true
+  },
+  "editor.quickSuggestionsDelay": 150,
+  "editor.lineHeight": 22,
+  "editor.linkedEditing": true,
+  "editor.renderControlCharacters": true,
+  "editor.renderWhitespace": "selection",
+  "editor.rulers": [
+    72,
+    140
+  ],
+  "editor.smoothScrolling": true,
+  "editor.suggest.insertMode": "replace",
+  "editor.suggestSelection": "first",
+  "editor.suggest.preview": true,
+  "editor.suggest.previewMode": "subwordDiff",
+  "editor.suggest.showStatusBar": true,
+  "editor.wordBasedSuggestionsMode": "allDocuments",
+  "editor.tabSize": 2,
+  //workbench
+  "workbench.editor.decorations.badges": false,
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.highlightModifiedTabs": true, // Material Icon Theme || VSCode simpler Icons with Angular
+  "workbench.editor.scrollToSwitchTabs": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editorAssociations": {
+    "*.png": "hediet.vscode-drawio"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.list.keyboardNavigation": "filter",
+  "workbench.list.smoothScrolling": true,
+  "workbench.panel.opensMaximized": "never",
+  "workbench.settings.openDefaultSettings": true,
+  "workbench.settings.openDefaultKeybindings": true,
+  "workbench.settings.useSplitJSON": true,
+  "workbench.sideBar.location": "right",
+  "workbench.tree.indent": 12,
+  // window
+  "window.dialogStyle": "custom",
+  "window.doubleClickIconToClose": true,
+  "window.newWindowDimensions": "maximized",
+  // files
+  "files.eol": "\r\n",
+  "files.insertFinalNewline": true,
+  // zen mode
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideTabs": false,
+  // explorer
+  "explorer.compactFolders": false,
+  // search
+  "search.collapseResults": "auto",
+  "search.searchOnTypeDebouncePeriod": 500,
+  "search.showLineNumbers": true,
+  "search.sortOrder": "countDescending",
+  // terminal
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.tabs.showActions": "always",
+  "terminal.integrated.tabs.showActiveTerminal": "always",
+  // breadcrumbs
+  "breadcrumbs.filePath": "last",
+  "breadcrumbs.symbolPath": "last",
+  // git
+  "git.confirmSync": false,
+  // gitlens
+  "gitlens.views.stashes.files.layout": "tree",
+  // merge conflict
+  "merge-conflict.autoNavigateNextConflict.enabled": true,
+  // html
+  "html.format.endWithNewline": true,
+  "html.format.wrapAttributes": "force-aligned",
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  // emmet
+  "emmet.showSuggestionsAsSnippets": true,
+  // css
+  "css.completion.completePropertyWithSemicolon": false,
+  "css.lint.duplicateProperties": "warning",
+  "css.lint.hexColorLength": "warning",
+  "css.lint.important": "warning",
+  // scss
+  "scssFormatter.printWidth": 72,
+  "scss.lint.duplicateProperties": "warning",
+  "scss.lint.float": "warning",
+  "scss.lint.hexColorLength": "warning",
+  "scss.lint.important": "warning",
+  "scssFormatter.singleQuote": true,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // javascript
+  "debug.javascript.usePreview": false,
+  "javascript.format.semicolons": "insert",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifierEnding": "minimal",
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.referencesCodeLens.enabled": true,
+  "javascript.referencesCodeLens.showOnAllFunctions": true,
+  "javascript.suggest.completeFunctionCalls": true,
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
+  "[javascript]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // typescript
+  "typescript.format.semicolons": "insert",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.useAliasesForRenames": false,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
+  "typescript.suggest.completeFunctionCalls": true,
+  "[typescript]": {
+    "editor.autoClosingBrackets": "always",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // json
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // markdown
+  "markdown.preview.fontFamily": "'Fira Sans', 'Calibri', sans-serif",
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  // draw.io
+  "hediet.vscode-drawio.codeLinkActivated": false,
+  "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWxcIixcImN1c3RvbUxpYnJhcmllc1wiOltdLFwicGx1Z2luc1wiOltdLFwicmVjZW50Q29sb3JzXCI6W1wiRkZBRDBCXCJdLFwiZm9ybWF0V2lkdGhcIjoyNDAsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjo4MjcsXCJoZWlnaHRcIjoxMTY5fSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZSxcInVpXCI6XCJcIn0ifQ==",
+  "hediet.vscode-drawio.theme": "automatic",
+  // icons
+  "material-icon-theme.folders.color": "#42a5f5",
+  "material-icon-theme.folders.theme": "specific",
+  "material-icon-theme.activeIconPack": "angular",
+  "material-icon-theme.hidesExplorerArrows": false,
+  "material-icon-theme.saturation": 1,
+  // prettier
+  "prettier.printWidth": 140,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "none",
+  // vscode
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  // others
+  "redhat.telemetry.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": true
+  },
+  "parameterHints.hintingType": "variableOnly",
+  "githubPullRequests.fileListLayout": "tree",
+}

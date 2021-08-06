@@ -15,8 +15,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@itinerary-assistant/core": ["libs/core/src/index.ts"],
-      "@itinerary-assistant/home": ["libs/home/src/index.ts"]
+      "@itinerary-assistant/shared": ["libs/shared/src/index.ts"],
+      "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
+      "@itinerary-assistant/ui/icon": ["libs/ui/shared/icon/src/index.ts"],
+      "@itinerary-assistant/ui/layout": ["libs/ui/layout/src/index.ts"],
+      "@itinerary-assistant/ui/material": [
+        "libs/ui/shared/material/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/tailwind": [
+        "libs/ui/shared/tailwind/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

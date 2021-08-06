@@ -1,9 +1,12 @@
 module.exports = {
   projects: [
-    '<rootDir>/apps/front-end',
-    '<rootDir>/libs/home',
-    '<rootDir>/libs/core',
     '<rootDir>/apps/api',
-    '<rootDir>/apps/ui'
+    '<rootDir>/apps/ui',
+    '<rootDir>/libs/ui/core',
+    '<rootDir>/libs/ui/layout',
+    '<rootDir>/libs/ui/shared/icon',
+    '<rootDir>/libs/ui/shared/material',
+    '<rootDir>/libs/ui/shared/tailwind',
+    '<rootDir>/libs/shared'
   ]
 };
