@@ -7,6 +7,8 @@ module.exports = {
     '<rootDir>/libs/ui/shared/icon',
     '<rootDir>/libs/ui/shared/material',
     '<rootDir>/libs/ui/shared/tailwind',
-    '<rootDir>/libs/shared'
+    '<rootDir>/libs/shared',
+    '<rootDir>/libs/api/core',
+    '<rootDir>/libs/api/trips'
   ]
 };

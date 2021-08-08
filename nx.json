@@ -33,6 +33,12 @@
     "api": {
       "tags": ["app:api"]
     },
+    "api-core": {
+      "tags": ["lib:api-core"]
+    },
+    "api-trips": {
+      "tags": ["lib:api-trips"]
+    },
     "icon": {
       "tags": ["lib:ui-icon"]
     },
@@ -43,7 +49,7 @@
       "tags": ["lib:ui-material"]
     },
     "shared": {
-      "tags": []
+      "tags": ["shared"]
     },
     "tailwind": {
       "tags": ["lib:tailwind"]

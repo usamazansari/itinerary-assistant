@@ -55,7 +55,8 @@
         "@typescript-eslint/no-constant-condition": "off",
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/no-extra-boolean-cast": "off",
-        "@typescript-eslint/no-redeclare": "warn"
+        "@typescript-eslint/no-redeclare": "warn",
+        "prefer-const": "warn"
       }
     },
     {
