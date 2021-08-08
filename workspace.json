@@ -74,6 +74,27 @@
         }
       }
     },
+    "api-trips": {
+      "root": "libs/api/trips",
+      "sourceRoot": "libs/api/trips/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/trips/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api/trips"],
+          "options": {
+            "jestConfig": "libs/api/trips/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "icon": {
       "projectType": "library",
       "root": "libs/ui/shared/icon",

@@ -21,6 +21,7 @@
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "restart": true,
+      "timeout": 60000,
       "runtimeArgs": [
         "run-script",
         "start-api"
