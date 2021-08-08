@@ -36,8 +36,8 @@
     "api-core": {
       "tags": ["lib:api-core"]
     },
-    "api-trip": {
-      "tags": ["lib:api-trip"]
+    "api-trips": {
+      "tags": ["lib:api-trips"]
     },
     "icon": {
       "tags": ["lib:ui-icon"]

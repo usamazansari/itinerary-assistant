@@ -9,6 +9,6 @@ module.exports = {
     '<rootDir>/libs/ui/shared/tailwind',
     '<rootDir>/libs/shared',
     '<rootDir>/libs/api/core',
-    '<rootDir>/libs/api/trip'
+    '<rootDir>/libs/api/trips'
   ]
 };

@@ -74,22 +74,22 @@
         }
       }
     },
-    "api-trip": {
-      "root": "libs/api/trip",
-      "sourceRoot": "libs/api/trip/src",
+    "api-trips": {
+      "root": "libs/api/trips",
+      "sourceRoot": "libs/api/trips/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api/trip/**/*.ts"]
+            "lintFilePatterns": ["libs/api/trips/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/api/trip"],
+          "outputs": ["coverage/libs/api/trips"],
           "options": {
-            "jestConfig": "libs/api/trip/jest.config.js",
+            "jestConfig": "libs/api/trips/jest.config.js",
             "passWithNoTests": true
           }
         }
