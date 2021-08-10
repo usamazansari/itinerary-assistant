@@ -7,8 +7,9 @@ import type { Observable } from 'rxjs';
 
 @Component({
   selector: 'ia-home-container',
-  template: `<ia-home *ngIf = "vm$ | async as vm"
-                      [vm]  = "vm"></ia-home>`
+  template: `<ia-home *ngIf           = "vm$ | async as vm"
+                      [vm]            = "vm"
+                      (gotoViewTrip$) = "gotoViewTrip()"></ia-home>`
 })
 export class HomeContainerComponent implements OnInit {
   vm$!: Observable<HomeVMModel>;
@@ -18,5 +19,9 @@ export class HomeContainerComponent implements OnInit {
   ngOnInit(): void {
     this._service.fetchAssets();
     this.vm$ = this._service.watchVm$();
+  }
+
+  gotoViewTrip(): void {
+    this._service.gotoViewTrip();
   }
 }
