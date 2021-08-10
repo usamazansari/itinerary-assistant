@@ -5,23 +5,49 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Angular",
-      "type": "pwa-chrome",
+      "name": "Debug Plugin",
+      "program": "${workspaceFolder}/libs/ui/util/tailwind/src/plugins/brands/brand-colors.plugin.js",
       "request": "launch",
-      "preLaunchTask": "Serve Angular",
-      "url": "http://localhost:4200/",
-      "cwd": "${workspaceFolder}",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug API",
+      "runtimeExecutable": "npm",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "restart": true,
+      "timeout": 60000,
+      "runtimeArgs": [
+        "run-script",
+        "start-api"
+      ],
+      "port": 9229,
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "Debug UI",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "Serve UI with Nx",
+      "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
+      "runtimeArgs": [
+        "--incognito"
+      ],
       "sourceMapPathOverrides": {
         "webpack:/*": "${webRoot}/*",
         "/./*": "${webRoot}/*",
         "/src/*": "${webRoot}/*",
         "/*": "*",
         "/./~/*": "${webRoot}/node_modules/*"
-      },
-      "runtimeArgs": [
-        "--incognito"
-      ]
+      }
     }
   ]
 }

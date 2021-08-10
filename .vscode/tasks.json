@@ -5,11 +5,41 @@
   "tasks": [
     {
       "type": "npm",
-      "options": {
-        "cwd": "${workspaceFolder}"
+      "script": "start-api",
+      "label": "Serve API with Nx",
+      "isBackground": true,
+      "presentation": {
+        "focus": true,
+        "panel": "dedicated"
       },
-      "label": "Serve Angular",
-      "script": "start",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": {
+        "owner": "typescript",
+        "source": "ts",
+        "applyTo": "closedDocuments",
+        "fileLocation": [
+          "relative",
+          "${cwd}"
+        ],
+        "pattern": "$tsc",
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": {
+            "regexp": "Entrypoint"
+          },
+          "endsPattern": {
+            "regexp": "Listening at"
+          }
+        }
+      }
+    },
+    {
+      "type": "npm",
+      "script": "start-ui",
+      "label": "Serve UI with Nx",
       "isBackground": true,
       "presentation": {
         "focus": true,
@@ -34,10 +64,10 @@
             "regexp": "(.*?)"
           },
           "endsPattern": {
-            "regexp": "Compiled|Failed to compile"
+            "regexp": "Compiled|Failed to compile."
           }
         }
       }
-    }
+    },
   ]
 }

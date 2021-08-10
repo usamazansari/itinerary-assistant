@@ -1,22 +1,73 @@
-// https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": [
+    "**/*"
+  ],
   "plugins": [
-    "@typescript-eslint"
+    "@nrwl/nx"
   ],
-  "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "rules": {
-    "@typescript-eslint/comma-dangle": "warn",
-    "@typescript-eslint/consistent-type-imports": "off",
-    "@typescript-eslint/multiline-ternary": "off",
-    "@typescript-eslint/no-constant-condition": "off",
-    "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/no-extra-boolean-cast": "off",
-    "@typescript-eslint/no-redeclare": "warn"
-  }
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx",
+        "*.js",
+        "*.jsx"
+      ],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [
+              {
+                "sourceTag": "(lib|app):ui*",
+                "onlyDependOnLibsWithTags": [
+                  "lib:ui-material",
+                  "lib:ui-icon",
+                  "lib:ui-layout"
+                ]
+              }
+            ],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": [
+                  "*"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/typescript"
+      ],
+      "rules": {
+        "@typescript-eslint/comma-dangle": "warn",
+        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/no-constant-condition": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-extra-boolean-cast": "off",
+        "@typescript-eslint/no-redeclare": "warn",
+        "prefer-const": "warn"
+      }
+    },
+    {
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/javascript"
+      ],
+      "rules": {}
+    }
+  ]
 }

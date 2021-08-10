@@ -1,27 +1,31 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-extra-boolean-cast */
-/* eslint-disable @typescript-eslint/no-var-requires */
+const { guessProductionMode } = require('@ngneat/tailwind');
+
+process.env.TAILWIND_MODE = guessProductionMode() ? 'build' : 'watch';
 
 module.exports = {
+  prefix: '',
   mode: 'jit',
   important: true,
   purge: {
     content: [
-      './src/**/*.{html,ts,css,scss}'
+      './apps/**/*.{html,ts,css,scss,sass,less,styl}',
+      './libs/**/*.{html,ts,css,scss,sass,less,styl}'
     ]
   },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
-    fontFamily: {
-      'sans': ['Fira Sans', 'Open Sans', 'Roboto', 'Segoe UI', 'Calibri', 'Arial', 'sans-serif'],
-      'serif': ['Times New Roman', 'serif'],
-      'mono': ['Fira Code', 'Consolas', 'monospace']
-    }
+    extend: {}
+  },
+  variants: {
+    extend: {}
   },
   plugins: [
-    require('./src/assets/plugins/tailwind/material/color/mat-color.plugin'),
-    require('./src/assets/plugins/tailwind/material/elevation/mat-elevation.plugin'),
-    require('./src/assets/plugins/tailwind/brands/brand-colors.plugin')
+    // require('@tailwindcss/aspect-ratio'),
+    // require('@tailwindcss/forms'),
+    // require('@tailwindcss/line-clamp'),
+    // require('@tailwindcss/typography')
+    require('./libs/ui/shared/tailwind/src/plugins/material/color/mat-color.plugin'),
+    require('./libs/ui/shared/tailwind/src/plugins/material/elevation/mat-elevation.plugin'),
+    require('./libs/ui/shared/tailwind/src/plugins/brands/brand-colors.plugin')
   ]
 };

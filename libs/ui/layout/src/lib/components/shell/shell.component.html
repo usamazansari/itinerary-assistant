@@ -1,0 +1,30 @@
+<mat-sidenav-container class="h-screen">
+  <mat-sidenav>
+    <nav>
+      <ia-layout-sidenav-container (toggleSidenav$)="closeSidenav()"></ia-layout-sidenav-container>
+    </nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+    <!-- shell-container -->
+    <div class="grid min-h-full ia-layout-shell-container">
+
+      <!-- toolbar-holder -->
+      <header class="sticky top-0 left-0 right-0 z-10">
+        <ia-layout-toolbar-container [data]="data.toolbar"
+                                     (toggleSidenav$)="openSidenav()"></ia-layout-toolbar-container>
+      </header>
+
+      <!-- content-holder -->
+      <main>
+        <ng-content></ng-content>
+      </main>
+
+      <!-- footer-holder -->
+      <footer>
+        <ia-layout-footer-container></ia-layout-footer-container>
+      </footer>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

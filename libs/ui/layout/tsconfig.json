@@ -1,0 +1,36 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": "../../../",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@itinerary-assistant/ui/core": [
+        "./libs/ui/core/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/icon": [
+        "./libs/ui/shared/icon/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/material": [
+        "./libs/ui/shared/material/src/index.ts"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}
