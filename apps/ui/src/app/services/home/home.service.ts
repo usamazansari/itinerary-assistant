@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
+import { RouterService } from '@itinerary-assistant/ui/core';
+
+import { RouteConstants as AppRoutes } from '../../app.routes';
 import { HomeVMStub } from '../../models/home/home.model';
 import { Constants as HomeConstants } from '../../constants/home/home.constants';
 
@@ -19,7 +22,7 @@ export class HomeService {
    * Creates an instance of `TemporaryHomeService`
    * @memberof TemporaryHomeService
    */
-  constructor() {} // private _routerService: RouterService
+  constructor(private _routerService: RouterService) {}
 
   /**
    * Fetch Default Assets
@@ -75,10 +78,10 @@ export class HomeService {
    * @memberof TemporaryHomeService
    */
   gotoViewTrip(): void {
-    // this._routerService.navigate({
-    //   routes: [APP_ROUTES.TRIP, TRIP_ROUTES.VIEW_TRIP],
-    //   extras: {}
-    // });
+    this._routerService.navigate({
+      routes: [AppRoutes.Trip, AppRoutes.ViewTrip],
+      extras: {}
+    });
   }
 
   /**

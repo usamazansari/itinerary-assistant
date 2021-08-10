@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 import type { RouterPayloadModel } from '../../models';
 
@@ -13,7 +14,21 @@ import type { RouterPayloadModel } from '../../models';
   providedIn: 'root'
 })
 export class RouterService {
-  constructor() {}
+  /**
+   * Creates an instance of RouterService.
+   * @param {Router} _router Angular Router
+   * @memberof RouterService
+   */
+  constructor(private _router: Router) {}
 
-  navigate(payload: RouterPayloadModel): void {}
+  // TODO: 🧐 Documentation Required
+  /**
+   *
+   *
+   * @param {RouterPayloadModel} payload
+   * @memberof RouterService
+   */
+  navigate(payload: RouterPayloadModel): void {
+    this._router.navigate([...payload.routes], { ...payload.extras });
+  }
 }

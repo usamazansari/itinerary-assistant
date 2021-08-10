@@ -1,1 +1,12 @@
-<p>all-trips works!</p>
+<!-- TODO: Use Flags -->
+<div class="container p-4 flex flex-wrap items-center justify-center">
+  <ng-container *ngIf="!!tripList.length; else noTrips">
+    <mat-card *ngFor="let trip of tripList"
+              class="m-4">
+      <mat-card-content>
+        <pre>{{ trip | json }}</pre>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+  <ng-template #noTrips>No Trips Yet</ng-template>
+</div>

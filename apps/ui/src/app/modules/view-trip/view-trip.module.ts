@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import * as Libraries from './imports/libraries';
+
 import { ViewTripRoutingModule } from './view-trip-routing.module';
 
 import * as Components from './components';
@@ -10,6 +12,6 @@ import * as Components from './components';
     Components.AllTripsContainerComponent,
     Components.AllTripsComponent
   ],
-  imports: [CommonModule, ViewTripRoutingModule]
+  imports: [CommonModule, ViewTripRoutingModule, Libraries.MaterialModule]
 })
 export class ViewTripModule {}

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { LayoutDataStub } from './models/imports';
+import { LayoutDataStub } from './imports/models';
 import { AUTHOR, APPLICATION_NAME } from './constants';
 
-import type { LayoutDataModel } from './models/imports';
+import type { LayoutDataModel } from './imports/models';
 
 @Component({
   selector: 'ia-root',

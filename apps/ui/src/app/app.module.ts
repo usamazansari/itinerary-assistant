@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -17,12 +18,15 @@ import * as Components from './components';
   declarations: [
     AppComponent,
 
+    Components.ShellComponent,
+
     Components.HomeContainerComponent,
     Components.HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
 
     LumberjackModule.forRoot(),
     LumberjackConsoleDriverModule.forRoot(),
