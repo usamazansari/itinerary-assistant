@@ -5,11 +5,10 @@ import { FooterService } from '../../../services/footer/footer.service';
 import type { Observable } from 'rxjs';
 import type { FooterVMModel } from '../../../models';
 
-// TODO: 🧐 Documentation Required
 // TODO: Implement use of data as from toolbar
 
 /**
- *
+ * Container for the `FooterComponent`
  *
  * @export
  * @class FooterContainerComponent

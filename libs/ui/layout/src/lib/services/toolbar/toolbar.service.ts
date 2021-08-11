@@ -8,6 +8,8 @@ import type { Observable } from 'rxjs';
 import type { ToolbarVMModel } from '../../models';
 
 // TODO: 🧐 Documentation required
+// TODO: Make services free of loose strings - use constants file for each module
+
 /**
  * Toolbar Service
  *
@@ -23,7 +25,6 @@ export class ToolbarService {
 
   constructor() {} // private _routerService: RouterService
 
-  // TODO: Fetch from `constants`
   /**
    * Fetch Assets
    *

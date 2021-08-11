@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ia-shell',
+  selector: 'ia-app-shell',
   template: `<router-outlet></router-outlet>`
 })
-export class ShellComponent implements OnInit {
+export class AppShellComponent implements OnInit {
   constructor() {}
-
   ngOnInit(): void {}
 }
