@@ -1,5 +1,5 @@
-import { IconStub } from '../../models/imports';
-import type { IconModel, ImageModel } from '../../models/imports';
+import type { IconModel, ImageModel } from '../../imports/models';
+import { IconStub } from '../../imports/models';
 
 export type FooterIconType = IconModel | ImageModel;
 

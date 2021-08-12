@@ -1,5 +1,5 @@
-import { IconStub } from '../imports';
-import type { IconModel } from '../imports';
+import type { IconModel } from '../../imports/models';
+import { IconStub } from '../../imports/models';
 
 /**
  * Assets for `ToolbarComponent`
