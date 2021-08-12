@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { LayoutDataStub } from './imports/models';
-import { AUTHOR, APPLICATION_NAME } from './constants';
+import { ApplicationName, Author } from './imports/constants';
 
 import type { LayoutDataModel } from './imports/models';
 
@@ -19,17 +19,21 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this._setLayoutData();
+  }
+
+  private _setLayoutData() {
     this.#layoutData = {
       footer: {
-        fullname: AUTHOR.FULLNAME,
-        github: AUTHOR.GITHUB,
-        linkedin: AUTHOR.LINKEDIN,
-        discord: AUTHOR.DISCORD,
-        email: AUTHOR.EMAIL,
-        location: AUTHOR.LOCATION
+        fullname: Author.FullName,
+        github: Author.GitHub,
+        linkedin: Author.LinkedIn,
+        discord: Author.Discord,
+        email: Author.Email,
+        location: Author.Location
       },
       toolbar: {
-        logo: APPLICATION_NAME
+        logo: ApplicationName
       }
     };
     this.layoutData$.next(this.#layoutData);

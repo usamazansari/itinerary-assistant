@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 
+import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import { RouterService } from '@itinerary-assistant/ui/core';
+import { RouterService } from '../../imports/services';
 
-import { RouteConstants as AppRoutes } from '../../app.routes';
-import { HomeVMStub } from '../../models/home/home.model';
-import { Constants as HomeConstants } from '../../constants/home/home.constants';
+import { RouteConstants } from '../../app.routes';
 
-import type { Observable } from 'rxjs';
-import type { HomeVMModel } from '../../models/home/home.model';
+import type { HomeVMModel } from '../../models';
+import { HomeVMStub } from '../../models';
+import { Constants } from '../../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +19,8 @@ export class HomeService {
   #vm: HomeVMModel = { ...HomeVMStub };
 
   /**
-   * Creates an instance of `TemporaryHomeService`
-   * @memberof TemporaryHomeService
+   * Creates an instance of `HomeService`
+   * @memberof HomeService
    */
   constructor(private _routerService: RouterService) {}
 
@@ -28,7 +28,7 @@ export class HomeService {
    * Fetch Default Assets
    *
    * ```ts
-   * this._assets = {
+   * this.#vm.assets = {
    *   view   : {
    *     icon : { ...HOME_ICON_STUB },
    *     text : null
@@ -40,18 +40,18 @@ export class HomeService {
    * }
    * ```
    *
-   * @memberof TemporaryHomeService
+   * @memberof HomeService
    */
   fetchAssets(): void {
-    this.#vm.assets = { ...HomeConstants.assets };
+    this.#vm.assets = { ...Constants.assets };
     this._setVm(this.#vm);
   }
 
   /**
-   * Set or Update the `asset`s in virtual memory
+   * Set or Update the `vm`
    *
    * @param {HomeVMModel} vm
-   * @memberof TemporaryHomeService
+   * @memberof HomeService
    */
   private _setVm(vm: HomeVMModel): void {
     this.#vm = { ...vm };
@@ -59,10 +59,10 @@ export class HomeService {
   }
 
   /**
-   * Return `asset`s from virtual memory as `Observable`
+   * Return the virtual memory as `Observable`
    *
    * @return {*}  {Observable<HomeAssetsModel>}
-   * @memberof TemporaryHomeService
+   * @memberof HomeService
    */
   watchVm$(): Observable<HomeVMModel> {
     return this.#vm$.asObservable();
@@ -72,14 +72,14 @@ export class HomeService {
    * Navigate to View Trip page
    *
    * ```
-   * baseURL/trip/view
+   * {{ baseURL }}/trip/view-trip
    * ```
    *
-   * @memberof TemporaryHomeService
+   * @memberof HomeService
    */
   gotoViewTrip(): void {
     this._routerService.navigate({
-      routes: [AppRoutes.Trip, AppRoutes.ViewTrip],
+      routes: [RouteConstants.Trip, RouteConstants.ViewTrip],
       extras: {}
     });
   }
@@ -88,10 +88,10 @@ export class HomeService {
    * Navigate to Create Trip page
    *
    * ```
-   * baseURL/trip/create
+   * {{ baseURL }}/trip/create-trip
    * ```
    *
-   * @memberof TemporaryHomeService
+   * @memberof HomeService
    */
   gotoCreateTrip(): void {
     // this._routerService.navigate({
