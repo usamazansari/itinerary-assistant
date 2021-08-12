@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
+import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import { ToolbarVMStub } from '../../models';
-
-import type { Observable } from 'rxjs';
 import type { ToolbarVMModel } from '../../models';
+import { ToolbarVMStub } from '../../models';
 
 // TODO: 🧐 Documentation required
 // TODO: Make services free of loose strings - use constants file for each module

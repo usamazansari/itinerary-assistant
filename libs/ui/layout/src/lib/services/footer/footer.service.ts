@@ -3,11 +3,8 @@ import { Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-// import { AUTHOR } from '../../constants';
-
 import { Author } from '../../imports/constants';
-
-import { ClipboardService, SnackbarService } from '../imports';
+import { ClipboardService, SnackbarService } from '../../imports/services';
 
 import type { FooterVMModel } from '../../models';
 import { FooterVMStub } from '../../models';
