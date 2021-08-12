@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 
+import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import { AUTHOR } from '../../constants';
+// import { AUTHOR } from '../../constants';
+
+import { Author } from '../../imports/constants';
 
 import { ClipboardService, SnackbarService } from '../imports';
-import { FooterVMStub } from '../../models';
 
-import type { Observable } from 'rxjs';
 import type { FooterVMModel } from '../../models';
+import { FooterVMStub } from '../../models';
 
 // TODO: Make services free of loose strings - use constants file for each module
 
@@ -74,26 +76,26 @@ export class FooterService {
         },
 
         by: 'by',
-        author: AUTHOR.FULLNAME,
+        author: Author.FullName,
 
         github: {
           name: 'GitHub',
-          url: `https://github.com/${AUTHOR.GITHUB}`,
+          url: `https://github.com/${Author.GitHub}`,
           icon: { style: 'fab', name: 'github' }
         },
         linkedin: {
           name: 'LinkedIn',
-          url: `https://www.linkedin.com/in/${AUTHOR.LINKEDIN}`,
+          url: `https://www.linkedin.com/in/${Author.LinkedIn}`,
           icon: { style: 'fab', name: 'linkedin' }
         },
         discord: {
           name: 'Discord',
-          url: AUTHOR.DISCORD,
+          url: Author.Discord,
           icon: { style: 'fab', name: 'discord' }
         },
         email: {
           name: 'E-mail',
-          url: AUTHOR.EMAIL,
+          url: Author.Email,
           icon: { style: 'fas', name: 'envelope-open-text' }
         }
       }
@@ -122,7 +124,7 @@ export class FooterService {
    * @memberof FooterService
    */
   copyDiscordID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(AUTHOR.DISCORD);
+    const isTextCopied: boolean = this._clipboard.copy(Author.Discord);
     if (isTextCopied) {
       this._snackbar.openSnackbar({
         message: 'Discord ID Copied!',
@@ -152,7 +154,7 @@ export class FooterService {
    * @memberof FooterService
    */
   copyEmailID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(AUTHOR.EMAIL);
+    const isTextCopied: boolean = this._clipboard.copy(Author.Email);
     if (isTextCopied) {
       this._snackbar.openSnackbar({
         message: 'Email ID Copied!',
