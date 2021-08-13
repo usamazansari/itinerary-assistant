@@ -5,14 +5,9 @@ import {
   FaIconLibrary
 } from '@fortawesome/angular-fontawesome';
 
-import {
-  faEnvelopeOpenText,
-  faHiking,
-  faInfo,
-  faMapMarkedAlt
-} from '@fortawesome/free-solid-svg-icons';
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
-const ICONS = [faEnvelopeOpenText, faHiking, faInfo, faMapMarkedAlt];
+const ICONS = [faInfo];
 
 @NgModule({
   imports: [FontAwesomeModule],

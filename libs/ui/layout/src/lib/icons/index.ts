@@ -11,6 +11,8 @@ import {
 
 const toolbarIcons: IconDefinition[] = [faBars];
 
+const sidenavIcons: IconDefinition[] = [];
+
 const footerIcons: IconDefinition[] = [
   faAngular,
   faDiscord,
@@ -20,6 +22,4 @@ const footerIcons: IconDefinition[] = [
   faLinkedin
 ];
 
-const sidenavIcons: IconDefinition[] = [];
-
-export const layoutIcons = [...toolbarIcons, ...sidenavIcons, ...footerIcons];
+export const Icons = [...toolbarIcons, ...sidenavIcons, ...footerIcons];
