@@ -38,7 +38,7 @@
   "editor.suggest.insertMode": "replace",
   "editor.suggestSelection": "first",
   "editor.suggest.preview": true,
-  "editor.suggest.previewMode": "subwordDiff",
+  "editor.suggest.previewMode": "subwordSmart",
   "editor.suggest.showStatusBar": true,
   "editor.wordBasedSuggestionsMode": "allDocuments",
   "editor.tabSize": 2,

@@ -4,17 +4,23 @@
   "bracketSpacing": true,
   "useTabs": false,
   "tabWidth": 2,
-  "overrides":
-    [
-      {
-        "files": ["*.ts"],
-        "options":
-          {
-            "singleQuote": true,
-            "parser": "typescript",
-            "semi": true,
-            "embeddedLanguageFormatting": "off"
-          }
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "options": {
+        "singleQuote": true,
+        "parser": "typescript",
+        "semi": true,
+        "embeddedLanguageFormatting": "off"
       }
-    ]
+    },
+    {
+      "files": ["*.js"],
+      "options": {
+        "singleQuote": true,
+        "semi": true,
+        "embeddedLanguageFormatting": "off"
+      }
+    }
+  ]
 }
