@@ -1,4 +1,3 @@
-import { IconStub } from '../../imports/models';
 import type { IconModel } from '../../imports/models';
 
 /**
@@ -13,7 +12,7 @@ import type { IconModel } from '../../imports/models';
  *
  * @interface HomeAssetModel
  */
-interface HomeAssetModel {
+export interface HomeAssetModel {
   /**
    * Icon to be displayed in the card of the home page.
    *
@@ -32,27 +31,12 @@ interface HomeAssetModel {
 }
 
 /**
- * Stub for `HomeAssetModel`.
- *
- * ```ts
- * const HomeAssetStub: HomeAssetModel = {
- *   icon : { ...IconStub },
- *   text : null
- * };
- * ```
- */
-const HomeAssetStub: HomeAssetModel = {
-  icon: { ...IconStub },
-  text: ''
-};
-
-/**
  * Home Page shall consist of two cards:
  * 1. View Trip
  * 2. Create Trip
  *
  * ```ts
- * export interface HomeAssetsModel {
+ * interface HomeAssetsModel {
  *   view   : {
  *     icon : IconModel;
  *     text : string;
@@ -100,33 +84,17 @@ export interface HomeAssetsModel {
 }
 
 /**
- * Stub for `HomeAssetsModel`.
+ * Virtual Memory for `HomeComponent`
  *
  * ```ts
- * const HomeAssetsStub: HomeAssetsModel = {
- *   view   : {
- *     icon : { ...IconStub },
- *     text : ''
- *   },
- *   create : {
- *     icon : { ...IconStub },
- *     text : ''
- *   }
+ * interface HomeVMModel = {
+ *   assets: HomeAssetsModel
  * }
  * ```
+ *
+ * @export
+ * @interface HomeVMModel
  */
-const HomeAssetsStub: HomeAssetsModel = {
-  view: { ...HomeAssetStub },
-  create: { ...HomeAssetStub }
-};
-
 export interface HomeVMModel {
   assets: HomeAssetsModel;
 }
-
-/**
- * Stub for `HomeVMModel`
- */
-export const HomeVMStub: HomeVMModel = {
-  assets: { ...HomeAssetsStub }
-};

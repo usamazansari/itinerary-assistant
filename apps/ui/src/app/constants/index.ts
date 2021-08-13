@@ -1,1 +1,1 @@
-export { Constants } from './home/home.constants';
+export { Constants, HomeVMStub } from './home/home.constants';
