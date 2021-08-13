@@ -6,6 +6,7 @@
   "plugins": [
     "@nrwl/nx"
   ],
+  // TODO: Fix ESLint configuration in the workspace
   "overrides": [
     {
       "files": [

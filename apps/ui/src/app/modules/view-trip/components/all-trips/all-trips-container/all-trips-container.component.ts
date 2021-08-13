@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AllTripsService } from '../../../services';
-
 import type { Observable } from 'rxjs';
+
+import type { TripModel } from '../../../imports/models';
+
+import { AllTripsService } from '../../../services';
 
 @Component({
   selector: 'ia-all-trips-container',
@@ -12,7 +14,7 @@ import type { Observable } from 'rxjs';
 export class AllTripsContainerComponent implements OnInit {
   // TODO: Use VM for trip tripList
   // TODO: Rename this component to TripsListContainerComponent
-  tripList$!: Observable<any[]>;
+  tripList$!: Observable<TripModel[]>;
 
   constructor(private _service: AllTripsService) {}
 

@@ -1,4 +1,4 @@
-import { TenureModel, DayOverviewModel } from '../';
+import { TenureModel, DayOverviewModel } from './trip.model';
 
 export interface TripOverviewModel {
   tenure: TenureModel;

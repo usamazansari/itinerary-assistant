@@ -1,7 +1,26 @@
 {
-  "singleQuote": true,
+  "singleQuote": false,
   "trailingComma": "none",
   "bracketSpacing": true,
+  "useTabs": false,
   "tabWidth": 2,
-  "embeddedLanguageFormatting": "off"
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "options": {
+        "singleQuote": true,
+        "parser": "typescript",
+        "semi": true,
+        "embeddedLanguageFormatting": "off"
+      }
+    },
+    {
+      "files": ["*.js"],
+      "options": {
+        "singleQuote": true,
+        "semi": true,
+        "embeddedLanguageFormatting": "off"
+      }
+    }
+  ]
 }

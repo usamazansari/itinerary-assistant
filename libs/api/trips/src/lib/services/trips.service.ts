@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 import { tripListStub, goa, ladakh, manali, northEast } from '../mock';
 
-import type { TripModel, TripOverviewModel } from '../models';
+import type { TripModel, TripOverviewModel } from '../imports/models';
 
 @Injectable()
 export class TripsService {

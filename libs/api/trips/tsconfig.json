@@ -9,5 +9,13 @@
     {
       "path": "./tsconfig.spec.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": "../../../",
+    "paths": {
+      "@itinerary-assistant/shared": [
+        "./libs/shared/src/index.ts"
+      ]
+    }
+  }
 }

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 import * as Libraries from './imports/libraries';
-import { UiIcons } from '.';
+import { Icons } from '.';
 
 @NgModule({
   declarations: [],
@@ -13,6 +13,6 @@ import { UiIcons } from '.';
 export class IconModule extends Libraries.IconModule {
   constructor(lib: FaIconLibrary) {
     super(lib);
-    lib.addIcons(...UiIcons);
+    lib.addIcons(...Icons);
   }
 }

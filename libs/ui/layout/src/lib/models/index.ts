@@ -11,8 +11,7 @@ export type {
   ToolbarDataModel
 } from './toolbar/toolbar.model';
 
-// TODO: export as `type`
-export { LayoutDataModel } from './layout/layout.model';
+export type { LayoutDataModel } from './layout/layout.model';
 
 export {
   FooterVMStub,
