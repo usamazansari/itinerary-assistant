@@ -1,6 +1,10 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-import { faBars, faHeart } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faHeart,
+  faEnvelopeOpenText
+} from '@fortawesome/free-solid-svg-icons';
 import {
   faAngular,
   faDiscord,
@@ -16,6 +20,7 @@ const sidenavIcons: IconDefinition[] = [];
 const footerIcons: IconDefinition[] = [
   faAngular,
   faDiscord,
+  faEnvelopeOpenText,
   faFortAwesomeAlt,
   faGithub,
   faHeart,

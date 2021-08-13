@@ -9,8 +9,8 @@ import * as Components from './components';
 
 @NgModule({
   declarations: [
-    Components.AllTripsContainerComponent,
-    Components.AllTripsComponent
+    Components.TripListContainerComponent,
+    Components.TripListComponent
   ],
   imports: [CommonModule, ViewTripRoutingModule, Libraries.MaterialModule]
 })
