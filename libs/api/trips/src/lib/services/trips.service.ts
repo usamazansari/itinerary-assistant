@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 
 import { tripListStub, goa, ladakh, manali, northEast } from '../mock';
 
-import type { TripModel, TripOverviewModel } from '../imports/models';
+import type { TripListItemModel, TripOverviewModel } from '../imports/models';
 
 @Injectable()
 export class TripsService {
-  #tripList: TripModel[] = [...tripListStub];
+  #tripList: TripListItemModel[] = [...tripListStub];
   #tripOverviewDict: { [tripName: string]: TripOverviewModel } = {
     goa,
     ladakh,
@@ -15,7 +15,7 @@ export class TripsService {
   };
   #tripOverview!: TripOverviewModel;
 
-  fetchTripsList(): TripModel[] {
+  fetchTripsList(): TripListItemModel[] {
     return [...this.#tripList];
   }
 

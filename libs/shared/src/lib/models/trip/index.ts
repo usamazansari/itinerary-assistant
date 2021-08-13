@@ -1,2 +1,2 @@
-export { TripModel } from './trip-list.model';
+export { TripListItemModel } from './trip-list.model';
 export { TripOverviewModel } from './trip-overview.model';

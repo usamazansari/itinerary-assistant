@@ -1,14 +1,13 @@
 import { ExpenseModel, TenureModel } from './trip.model';
 
 // TODO: 🧐 Documentation required
-// TODO: Rename as `TripListItemModel`
 /**
  *
  *
  * @export
- * @interface TripModel
+ * @interface TripListItemModel
  */
-export interface TripModel {
+export interface TripListItemModel {
   expense: ExpenseModel;
   rating: number;
   title: string;

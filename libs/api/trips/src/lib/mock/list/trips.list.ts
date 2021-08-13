@@ -1,6 +1,6 @@
-import { TripModel } from '../../imports/models';
+import { TripListItemModel } from '../../imports/models';
 
-export const tripListStub: TripModel[] = [
+export const tripListStub: TripListItemModel[] = [
   {
     expense: {
       amount: 7500,

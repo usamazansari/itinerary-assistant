@@ -1,7 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { TripsService } from '../services';
 
-import type { TripModel } from '../imports/models';
+import type { TripListItemModel } from '../imports/models';
 
 // TODO: 🧐 Documentation required
 // TODO: Rename this controller
@@ -17,7 +17,7 @@ export class TripsController {
   constructor(private readonly service: TripsService) {}
 
   @Get()
-  fetchTripsList(): TripModel[] {
+  fetchTripsList(): TripListItemModel[] {
     return this.service.fetchTripsList();
   }
 

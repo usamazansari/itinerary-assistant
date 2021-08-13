@@ -1,1 +1,1 @@
-export { TripModel } from '@itinerary-assistant/shared';
+export { TripListItemModel } from '@itinerary-assistant/shared';
