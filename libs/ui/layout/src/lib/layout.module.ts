@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
-import { MaterialModule as MaterialModuleLibrary } from '@itinerary-assistant/ui/material';
-import { IconModule as IconModuleLibrary } from '@itinerary-assistant/ui/icon';
+import * as Libraries from './imports/libraries';
 
 import { FooterContainerComponent } from './components/footer/footer-container/footer-container.component';
 import { FooterComponent } from './components/footer/footer-container/footer/footer.component';
@@ -31,10 +30,10 @@ import { layoutIcons } from './icons';
     ToolbarComponent,
     ShellComponent
   ],
-  imports: [CommonModule, MaterialModuleLibrary, IconModuleLibrary],
+  imports: [CommonModule, Libraries.IconModule, Libraries.MaterialModule],
   exports: [ShellComponent]
 })
-export class LayoutModule extends IconModuleLibrary {
+export class LayoutModule extends Libraries.IconModule {
   constructor(lib: FaIconLibrary) {
     super(lib);
     lib.addIcons(...layoutIcons);
