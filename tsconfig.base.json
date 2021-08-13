@@ -21,9 +21,6 @@
       "@itinerary-assistant/api/core": [
         "libs/api/core/src/index.ts"
       ],
-      "@itinerary-assistant/api/trips": [
-        "libs/api/trips/src/index.ts"
-      ],
       "@itinerary-assistant/shared": [
         "libs/shared/src/index.ts"
       ],
