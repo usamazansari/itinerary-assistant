@@ -18,6 +18,7 @@ export interface IconModel {
   name: IconName;
 }
 
+// TODO: Move to constants
 /**
  * Stub for an `IconModel`
  *

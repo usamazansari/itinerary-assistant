@@ -43,6 +43,7 @@ interface FooterLink {
   icon: FooterIconType;
 }
 
+// TODO: Move to constants
 /**
  * Stub for `FooterLink`
  *
@@ -173,6 +174,7 @@ export interface FooterAssetsModel {
   email: FooterLink;
 }
 
+// TODO: Move to constants
 /**
  * Stub for `FooterAssetsModel`
  *
@@ -230,6 +232,7 @@ export interface FooterDataModel {
 }
 
 // TODO: 🧐 Documentation Required
+// TODO: Move to constants
 /**
  *
  */
@@ -255,6 +258,7 @@ export interface FooterVMModel {
 }
 
 // TODO: 🧐 Documentation Required
+// TODO: Move to constants
 /**
  * Stub for `FooterVMModel`
  *

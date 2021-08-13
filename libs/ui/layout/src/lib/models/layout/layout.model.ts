@@ -6,6 +6,7 @@ export interface LayoutDataModel {
   toolbar: ToolbarDataModel;
 }
 
+// TODO: Move to constants
 export const LayoutDataStub: LayoutDataModel = {
   footer: { ...FooterDataStub },
   toolbar: { ...ToolbarDataStub }

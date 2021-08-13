@@ -29,6 +29,7 @@ export interface ImageModel {
   alt: string;
 }
 
+// TODO: Move to constants
 /**
  * Stub for `ImageModel`
  *

@@ -24,6 +24,7 @@ export interface ToolbarAssetsModel {
   trigger: IconModel;
 }
 
+// TODO: Move to constants
 /**
  * Stub for `ToolbarAssetsModel`
  *
@@ -48,6 +49,7 @@ export interface ToolbarDataModel {
   logo: string;
 }
 
+// TODO: Move to constants
 export const ToolbarDataStub: ToolbarDataModel = {
   logo: ''
 };
@@ -57,6 +59,7 @@ export interface ToolbarVMModel {
   data: ToolbarDataModel;
 }
 
+// TODO: Move to constants
 export const ToolbarVMStub: ToolbarVMModel = {
   assets: { ...ToolbarAssetsStub },
   data: { ...ToolbarDataStub }

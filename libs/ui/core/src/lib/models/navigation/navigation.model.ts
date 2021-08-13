@@ -48,6 +48,7 @@ export interface NavigationItemModel {
   children: NavigationItemModel[];
 }
 
+// TODO: Move to constants
 /**
  * Stub for `NavigationItemModel`
  * 

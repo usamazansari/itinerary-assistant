@@ -32,6 +32,7 @@ export interface RouterPayloadModel {
   extras: NavigationExtras;
 }
 
+// TODO: Move to constants
 /**
  * Stub for `RouterPayloadModel`
  */
