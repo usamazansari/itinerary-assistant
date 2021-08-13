@@ -1,4 +1,4 @@
-import { TripOverviewModel } from '../../models';
+import { TripOverviewModel } from '../../imports/models';
 
 export const tripOverviewStub: TripOverviewModel = {
   tenure: {

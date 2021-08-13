@@ -1,4 +1,4 @@
-import { TripModel } from '../../models';
+import { TripModel } from '../../imports/models';
 
 export const tripListStub: TripModel[] = [
   {

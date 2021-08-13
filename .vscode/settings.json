@@ -116,7 +116,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // javascript
-  "debug.javascript.usePreview": false,
+  "debug.javascript.usePreview": true,
   "javascript.format.semicolons": "insert",
   "javascript.preferences.importModuleSpecifier": "non-relative",
   "javascript.preferences.importModuleSpecifierEnding": "minimal",
