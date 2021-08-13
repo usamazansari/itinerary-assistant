@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 
 import { ApiCoreModule } from '@itinerary-assistant/api/core';
-import { ApiTripsModule } from '@itinerary-assistant/api/trips';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
+import * as Modules from './modules';
+
 @Module({
-  imports: [ApiCoreModule, ApiTripsModule],
+  imports: [ApiCoreModule, Modules.TripModule],
   controllers: [AppController],
   providers: [AppService]
 })

@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { TripsController } from './controllers';
-import { TripsService } from './services';
+
+import * as Controllers from './controllers';
+import * as Services from './services';
 
 @Module({
-  controllers: [TripsController],
-  providers: [TripsService],
+  controllers: [Controllers.TripsController],
+  providers: [Services.TripsService],
   exports: []
 })
 export class ApiTripsModule {}
