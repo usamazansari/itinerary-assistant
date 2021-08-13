@@ -22,7 +22,7 @@ export class TripListService {
 
   fetchTripList(): void {
     this._endpointService
-      .get<TripListItemModel[]>(`http://localhost:3333/api/trips`)
+      .get<TripListItemModel[]>(`http://localhost:3333/api/trip/view-trip`)
       .pipe()
       .subscribe((trips: TripListItemModel[]) => {
         this._setTrips(trips);
