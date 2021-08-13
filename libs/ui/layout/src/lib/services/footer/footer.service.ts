@@ -123,25 +123,9 @@ export class FooterService {
   copyDiscordID(): void {
     const isTextCopied: boolean = this._clipboard.copy(Author.Discord);
     if (isTextCopied) {
-      this._snackbar.openSnackbar({
-        message: 'Discord ID Copied!',
-        action: 'OK',
-        config: {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2500
-        }
-      });
+      this._snackbar.openSnackbar('Discord ID Copied!', 'OK');
     } else {
-      this._snackbar.openSnackbar({
-        message: 'Some problem accessing the Clipboard',
-        action: 'OK',
-        config: {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2500
-        }
-      });
+      this._snackbar.openSnackbar('Some problem accessing the Clipboard', 'OK');
     }
   }
 
@@ -153,25 +137,9 @@ export class FooterService {
   copyEmailID(): void {
     const isTextCopied: boolean = this._clipboard.copy(Author.Email);
     if (isTextCopied) {
-      this._snackbar.openSnackbar({
-        message: 'Email ID Copied!',
-        action: 'OK',
-        config: {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2500
-        }
-      });
+      this._snackbar.openSnackbar('Email ID Copied!', 'OK');
     } else {
-      this._snackbar.openSnackbar({
-        message: 'Some problem accessing the Clipboard',
-        action: 'OK',
-        config: {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2500
-        }
-      });
+      this._snackbar.openSnackbar('Some problem accessing the Clipboard', 'OK');
     }
   }
 
