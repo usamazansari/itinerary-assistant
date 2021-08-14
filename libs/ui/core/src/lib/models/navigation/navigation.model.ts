@@ -1,4 +1,5 @@
-import { IconModel, IconStub } from '../';
+import type { IconModel } from '../../imports/models';
+import { IconStub } from '../../imports/constants';
 
 /**
  * Interface for Navigation Item

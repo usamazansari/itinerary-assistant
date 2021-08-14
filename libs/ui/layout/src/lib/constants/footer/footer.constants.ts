@@ -1,4 +1,4 @@
-import { IconStub } from '../../imports/models';
+import { IconStub } from '../../imports/constants';
 import type {
   FooterLink,
   FooterAssetsModel,
