@@ -60,6 +60,9 @@
     "ui-e2e": {
       "tags": ["test:ui-e2e"],
       "implicitDependencies": ["ui"]
+    },
+    "ui-elements": {
+      "tags": ["lib:ui-elements"]
     }
   }
 }

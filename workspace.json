@@ -331,6 +331,31 @@
           }
         }
       }
+    },
+    "ui-elements": {
+      "projectType": "library",
+      "root": "libs/ui/shared/elements",
+      "sourceRoot": "libs/ui/shared/elements/src",
+      "prefix": "itinerary-assistant",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/shared/elements"],
+          "options": {
+            "jestConfig": "libs/ui/shared/elements/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/shared/elements/src/**/*.ts",
+              "libs/ui/shared/elements/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
