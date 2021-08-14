@@ -3,7 +3,6 @@ import type {
   IconPrefix
 } from '@fortawesome/fontawesome-common-types';
 
-// TODO: Move to ui/shared library
 /**
  * Interface for a `FontAwesome` icon definition
  *
