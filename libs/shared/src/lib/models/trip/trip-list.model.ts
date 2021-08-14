@@ -1,4 +1,4 @@
-import { ExpenseModel, TenureModel } from './trip.model';
+import type { ExpenseModel, TenureModel } from './trip.model';
 
 // TODO: 🧐 Documentation required
 /**

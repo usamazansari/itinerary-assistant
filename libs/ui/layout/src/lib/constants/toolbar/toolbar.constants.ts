@@ -1,5 +1,5 @@
 import { IconStub } from '../../imports/constants';
-import {
+import type {
   ToolbarAssetsModel,
   ToolbarDataModel,
   ToolbarVMModel

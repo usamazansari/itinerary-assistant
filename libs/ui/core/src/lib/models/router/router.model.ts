@@ -1,4 +1,4 @@
-import { NavigationExtras } from '@angular/router';
+import type { NavigationExtras } from '@angular/router';
 
 /**
  *

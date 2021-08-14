@@ -1,4 +1,7 @@
-import { IconName, IconPrefix } from '@fortawesome/fontawesome-common-types';
+import type {
+  IconName,
+  IconPrefix
+} from '@fortawesome/fontawesome-common-types';
 
 // TODO: Move to ui/shared library
 /**

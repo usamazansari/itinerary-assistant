@@ -1,5 +1,5 @@
 import { IconStub } from '../../imports/constants';
-import { NavigationItemModel } from '../../models';
+import type { NavigationItemModel } from '../../models';
 
 // TODO: Move into layout library
 /**
