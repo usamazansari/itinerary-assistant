@@ -7,7 +7,7 @@ import { Author } from '../../imports/constants';
 import { ClipboardService, SnackbarService } from '../../imports/services';
 
 import type { FooterVMModel } from '../../models';
-import { FooterVMStub } from '../../models';
+import { FooterVMStub } from '../../constants';
 
 // TODO: Make services free of loose strings - use constants file for each module
 

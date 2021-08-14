@@ -1,23 +1,24 @@
 export type {
-  FooterVMModel,
   FooterAssetsModel,
   FooterDataModel,
-  FooterIconType
+  FooterIconType,
+  FooterLink,
+  FooterVMModel
 } from './footer/footer.model';
 
 export type {
-  ToolbarVMModel,
   ToolbarAssetsModel,
-  ToolbarDataModel
+  ToolbarDataModel,
+  ToolbarVMModel
 } from './toolbar/toolbar.model';
 
 export type { LayoutDataModel } from './layout/layout.model';
 
-export {
-  FooterVMStub,
-  FooterAssetsStub,
-  FooterDataStub
-} from './footer/footer.model';
+// export {
+//   FooterVMStub,
+//   FooterAssetsStub,
+//   FooterDataStub
+// } from './footer/footer.model';
 
 // export {
 //   ToolbarVMStub,

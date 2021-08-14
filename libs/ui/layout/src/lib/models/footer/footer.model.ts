@@ -1,5 +1,4 @@
 import type { IconModel, ImageModel } from '../../imports/models';
-import { IconStub } from '../../imports/models';
 
 export type FooterIconType = IconModel | ImageModel;
 
@@ -17,7 +16,7 @@ export type FooterIconType = IconModel | ImageModel;
  * @private Interface for internal use
  * @interface FooterLink
  */
-interface FooterLink {
+export interface FooterLink {
   /**
    * Name of the footer link
    *
@@ -42,25 +41,6 @@ interface FooterLink {
    */
   icon: FooterIconType;
 }
-
-// TODO: Move to constants
-/**
- * Stub for `FooterLink`
- *
- * ```ts
- * const FooterLinkStub: FooterLink = {
- *   icon : { ...IconStub },
- *   name : '',
- *   url  : ''
- * }
- * ```
- *
- */
-const FooterLinkStub: FooterLink = {
-  icon: { ...IconStub },
-  name: '',
-  url: ''
-};
 
 /**
  * Assets for `FooterComponent`
@@ -174,47 +154,6 @@ export interface FooterAssetsModel {
   email: FooterLink;
 }
 
-// TODO: Move to constants
-/**
- * Stub for `FooterAssetsModel`
- *
- * ```ts
- * const FooterAssetsStub: FooterAssetsModel = {
- *   madeWith    : '',
- *   heart       : FooterLinkStub,
- *   using       : '',
- *   angular     : FooterLinkStub,
- *   tailwind    : FooterLinkStub,
- *   fontawesome : FooterLinkStub,
- *   firebase    : FooterLinkStub,
- *   by          : '',
- *   author      : '',
- *   github      : FooterLinkStub,
- *   linkedin    : FooterLinkStub,
- *   discord     : FooterLinkStub,
- *   email       : FooterLinkStub
- * };
- * ```
- */
-export const FooterAssetsStub: FooterAssetsModel = {
-  madeWith: '',
-  heart: { ...FooterLinkStub },
-  using: '',
-
-  angular: { ...FooterLinkStub },
-  tailwind: { ...FooterLinkStub },
-  fontawesome: { ...FooterLinkStub },
-  firebase: { ...FooterLinkStub },
-
-  by: '',
-  author: '',
-
-  github: { ...FooterLinkStub },
-  linkedin: { ...FooterLinkStub },
-  discord: { ...FooterLinkStub },
-  email: { ...FooterLinkStub }
-};
-
 // TODO: 🧐 Documentation Required
 /**
  *
@@ -232,20 +171,6 @@ export interface FooterDataModel {
 }
 
 // TODO: 🧐 Documentation Required
-// TODO: Move to constants
-/**
- *
- */
-export const FooterDataStub: FooterDataModel = {
-  fullname: '',
-  github: '',
-  linkedin: '',
-  discord: '',
-  email: '',
-  location: ''
-};
-
-// TODO: 🧐 Documentation Required
 /**
  * Virtual Memory for `FooterComponent`
  *
@@ -256,16 +181,3 @@ export interface FooterVMModel {
   assets: FooterAssetsModel;
   data: FooterDataModel;
 }
-
-// TODO: 🧐 Documentation Required
-// TODO: Move to constants
-/**
- * Stub for `FooterVMModel`
- *
- * ```ts
- * ```
- */
-export const FooterVMStub: FooterVMModel = {
-  assets: { ...FooterAssetsStub },
-  data: { ...FooterDataStub }
-};

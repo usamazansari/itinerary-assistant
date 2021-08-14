@@ -1,6 +1,5 @@
 import type { FooterDataModel, ToolbarDataModel } from '../';
-import { FooterDataStub } from '../'; // TODO: Update this import
-import { ToolbarDataStub } from '../../constants';
+import { FooterDataStub, ToolbarDataStub } from '../../constants';
 
 export interface LayoutDataModel {
   footer: FooterDataModel;
