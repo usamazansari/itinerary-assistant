@@ -87,7 +87,6 @@ export const FooterDataStub: FooterDataModel = {
   location: ''
 };
 
-// TODO: 🧐 Documentation Required
 /**
  * Stub for `FooterVMModel`
  *

@@ -9,3 +9,5 @@ export {
   FooterDataStub,
   FooterVMStub
 } from './footer/footer.constants';
+
+export { LayoutDataStub } from './layout/layout.constants';

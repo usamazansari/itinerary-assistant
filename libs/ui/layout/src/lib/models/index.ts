@@ -14,6 +14,7 @@ export type {
 
 export type { LayoutDataModel } from './layout/layout.model';
 
+// TODO: 🗑️ Cleanup required
 // export {
 //   FooterVMStub,
 //   FooterAssetsStub,
@@ -26,6 +27,6 @@ export type { LayoutDataModel } from './layout/layout.model';
 //   ToolbarDataStub
 // } from './toolbar/toolbar.model';
 
-export { LayoutDataStub } from './layout/layout.model';
+// export { LayoutDataStub } from './layout/layout.model';
 
 export {} from './sidenav/sidenav.model';
