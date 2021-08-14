@@ -36,20 +36,8 @@
     "api-core": {
       "tags": ["lib:api-core"]
     },
-    "ui-icon": {
-      "tags": ["lib:ui-icon"]
-    },
-    "ui-layout": {
-      "tags": ["lib:ui-layout"]
-    },
-    "ui-material": {
-      "tags": ["lib:ui-material"]
-    },
     "shared": {
       "tags": ["shared"]
-    },
-    "ui-tailwind": {
-      "tags": ["lib:tailwind"]
     },
     "ui": {
       "tags": ["app:ui"]
@@ -63,6 +51,18 @@
     },
     "ui-elements": {
       "tags": ["lib:ui-elements"]
+    },
+    "ui-icon": {
+      "tags": ["lib:ui-icon"]
+    },
+    "ui-layout": {
+      "tags": ["lib:ui-layout"]
+    },
+    "ui-material": {
+      "tags": ["lib:ui-material"]
+    },
+    "ui-tailwind": {
+      "tags": ["lib:tailwind"]
     }
   }
 }
