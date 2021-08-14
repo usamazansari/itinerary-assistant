@@ -74,7 +74,7 @@
         }
       }
     },
-    "icon": {
+    "ui-icon": {
       "projectType": "library",
       "root": "libs/ui/shared/icon",
       "sourceRoot": "libs/ui/shared/icon/src",
@@ -99,7 +99,7 @@
         }
       }
     },
-    "layout": {
+    "ui-layout": {
       "projectType": "library",
       "root": "libs/ui/layout",
       "sourceRoot": "libs/ui/layout/src",
@@ -124,7 +124,7 @@
         }
       }
     },
-    "material": {
+    "ui-material": {
       "projectType": "library",
       "root": "libs/ui/shared/material",
       "sourceRoot": "libs/ui/shared/material/src",
@@ -170,7 +170,7 @@
         }
       }
     },
-    "tailwind": {
+    "ui-tailwind": {
       "root": "libs/ui/shared/tailwind",
       "sourceRoot": "libs/ui/shared/tailwind/src",
       "projectType": "library",

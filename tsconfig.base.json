@@ -36,7 +36,7 @@
       "@itinerary-assistant/ui/material": [
         "libs/ui/shared/material/src/index.ts"
       ],
-      "@itinerary-assistant/ui/shared/elements": [
+      "@itinerary-assistant/ui/elements": [
         "libs/ui/shared/elements/src/index.ts"
       ],
       "@itinerary-assistant/ui/tailwind": [

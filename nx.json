@@ -36,19 +36,19 @@
     "api-core": {
       "tags": ["lib:api-core"]
     },
-    "icon": {
+    "ui-icon": {
       "tags": ["lib:ui-icon"]
     },
-    "layout": {
+    "ui-layout": {
       "tags": ["lib:ui-layout"]
     },
-    "material": {
+    "ui-material": {
       "tags": ["lib:ui-material"]
     },
     "shared": {
       "tags": ["shared"]
     },
-    "tailwind": {
+    "ui-tailwind": {
       "tags": ["lib:tailwind"]
     },
     "ui": {
