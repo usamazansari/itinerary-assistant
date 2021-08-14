@@ -1,3 +1,4 @@
+// TODO: Move to ui/shared library
 /**
  * Interface for Image used in the entire application
  *
