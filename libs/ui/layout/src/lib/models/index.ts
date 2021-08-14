@@ -19,11 +19,11 @@ export {
   FooterDataStub
 } from './footer/footer.model';
 
-export {
-  ToolbarVMStub,
-  ToolbarAssetsStub,
-  ToolbarDataStub
-} from './toolbar/toolbar.model';
+// export {
+//   ToolbarVMStub,
+//   ToolbarAssetsStub,
+//   ToolbarDataStub
+// } from './toolbar/toolbar.model';
 
 export { LayoutDataStub } from './layout/layout.model';
 

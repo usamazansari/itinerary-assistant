@@ -4,7 +4,7 @@ import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
 import type { ToolbarVMModel } from '../../models';
-import { ToolbarVMStub } from '../../models';
+import { ToolbarVMStub } from '../../constants';
 
 // TODO: 🧐 Documentation required
 // TODO: Make services free of loose strings - use constants file for each module
@@ -38,10 +38,10 @@ export class ToolbarService {
         trigger: { name: 'bars', style: 'fas' }
       }
     };
-    this.setVM(this.#vm);
+    this._setVM(this.#vm);
   }
 
-  setVM(vm: ToolbarVMModel): void {
+  private _setVM(vm: ToolbarVMModel): void {
     this.#vm = !!vm ? { ...vm } : { ...ToolbarVMStub };
     this.#vm$.next(this.#vm);
   }
