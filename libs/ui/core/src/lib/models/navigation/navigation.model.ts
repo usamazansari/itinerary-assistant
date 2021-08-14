@@ -1,6 +1,6 @@
 import type { IconModel } from '../../imports/models';
-import { IconStub } from '../../imports/constants';
 
+// TODO: Move into layout library
 /**
  * Interface for Navigation Item
  *
@@ -48,24 +48,3 @@ export interface NavigationItemModel {
    */
   children: NavigationItemModel[];
 }
-
-// TODO: Move to constants
-/**
- * Stub for `NavigationItemModel`
- * 
- * ```ts
- * const NavigationItemStub: NavigationItemModel = {
- *   label    : null,
- *   routes   : [],
- *   icon     : { ...IconStub },
- *   children : []
- * 
-};
- * ```
- */
-export const NavigationItemStub: NavigationItemModel = {
-  label: null,
-  routes: [],
-  icon: { ...IconStub },
-  children: []
-};
