@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
-import { ToolbarVMModel, ToolbarVMStub } from '../../../../models';
+
+import type { ToolbarVMModel } from '../../../../models';
+import { ToolbarVMStub } from '../../../../constants';
 
 @Component({
   selector: 'ia-layout-toolbar',

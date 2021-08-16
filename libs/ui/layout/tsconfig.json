@@ -26,6 +26,9 @@
       "@itinerary-assistant/ui/material": [
         "./libs/ui/shared/material/src/index.ts"
       ],
+      "@itinerary-assistant/ui/elements": [
+        "./libs/ui/shared/elements/src/index.ts"
+      ],
       "@itinerary-assistant/shared": [
         "./libs/shared/src/index.ts"
       ]

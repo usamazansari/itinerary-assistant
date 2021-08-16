@@ -28,18 +28,3 @@ export interface ImageModel {
    */
   alt: string;
 }
-
-/**
- * Stub for `ImageModel`
- *
- * ```ts
- * const ImageStub: ImageModel = {
- *   src : '',
- *   alt : ''
- * }
- * ```
- */
-export const ImageStub: ImageModel = {
-  src: '',
-  alt: ''
-};

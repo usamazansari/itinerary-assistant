@@ -7,12 +7,12 @@ import {
   Output
 } from '@angular/core';
 
-import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
-
-import { ToolbarService } from '../../../services';
-import { ToolbarDataStub } from '../../../models';
+import type { Observable } from 'rxjs';
+import { BehaviorSubject, forkJoin } from 'rxjs';
 
 import type { ToolbarDataModel, ToolbarVMModel } from '../../../models';
+import { ToolbarService } from '../../../services';
+import { ToolbarDataStub } from '../../../constants';
 
 @Component({
   selector: 'ia-layout-toolbar-container',

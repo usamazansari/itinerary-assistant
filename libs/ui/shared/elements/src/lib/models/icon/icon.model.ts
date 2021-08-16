@@ -1,4 +1,7 @@
-import { IconName, IconPrefix } from '@fortawesome/fontawesome-common-types';
+import type {
+  IconName,
+  IconPrefix
+} from '@fortawesome/fontawesome-common-types';
 
 /**
  * Interface for a `FontAwesome` icon definition
@@ -17,18 +20,3 @@ export interface IconModel {
   style: IconPrefix;
   name: IconName;
 }
-
-/**
- * Stub for an `IconModel`
- *
- * ```ts
- * const IconStub: IconModel = {
- *   style : 'fas',
- *   name  : 'info'
- * }
- * ```
- */
-export const IconStub: IconModel = {
-  style: 'fas',
-  name: 'info'
-};

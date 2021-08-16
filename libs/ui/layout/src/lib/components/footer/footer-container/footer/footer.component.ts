@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import type { IconModel, ImageModel } from '../../../../imports/models';
 
 import type { FooterVMModel, FooterIconType } from '../../../../models';
-import { FooterVMStub } from '../../../../models';
+import { FooterVMStub } from '../../../../constants';
 
 @Component({
   selector: 'ia-layout-footer',

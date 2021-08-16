@@ -8,9 +8,14 @@ import { RouterService } from '../../imports/services';
 import { RouteConstants } from '../../app.routes';
 
 import type { HomeVMModel } from '../../models';
-import { HomeVMStub } from '../../models';
-import { Constants } from '../../constants';
+import { Constants, HomeVMStub } from '../../constants';
 
+/**
+ * Service for `HomeComponent`
+ *
+ * @export
+ * @class HomeService
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -26,19 +31,6 @@ export class HomeService {
 
   /**
    * Fetch Default Assets
-   *
-   * ```ts
-   * this.#vm.assets = {
-   *   view   : {
-   *     icon : { ...HOME_ICON_STUB },
-   *     text : null
-   *   },
-   *   create : {
-   *     icon : { ...HOME_ICON_STUB },
-   *     text : null
-   *   }
-   * }
-   * ```
    *
    * @memberof HomeService
    */

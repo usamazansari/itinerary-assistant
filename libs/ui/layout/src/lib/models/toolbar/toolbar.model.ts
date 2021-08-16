@@ -1,5 +1,4 @@
 import type { IconModel } from '../../imports/models';
-import { IconStub } from '../../imports/models';
 
 /**
  * Assets for `ToolbarComponent`
@@ -24,20 +23,6 @@ export interface ToolbarAssetsModel {
   trigger: IconModel;
 }
 
-/**
- * Stub for `ToolbarAssetsModel`
- *
- * ```ts
- * const ToolbarAssetsStub: ToolbarAssetsModel = {
- *   trigger : { ...IconStub }
- *   logo    : ''
- * };
- * ```
- */
-export const ToolbarAssetsStub: ToolbarAssetsModel = {
-  trigger: { ...IconStub }
-};
-
 export interface ToolbarDataModel {
   /**
    * Logo of the application
@@ -48,16 +33,7 @@ export interface ToolbarDataModel {
   logo: string;
 }
 
-export const ToolbarDataStub: ToolbarDataModel = {
-  logo: ''
-};
-
 export interface ToolbarVMModel {
   assets: ToolbarAssetsModel;
   data: ToolbarDataModel;
 }
-
-export const ToolbarVMStub: ToolbarVMModel = {
-  assets: { ...ToolbarAssetsStub },
-  data: { ...ToolbarDataStub }
-};

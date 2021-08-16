@@ -3,9 +3,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { LayoutDataStub } from '../../models';
-
 import type { LayoutDataModel } from '../../models';
+import { LayoutDataStub } from '../../constants';
 
 // TODO: 🧐 Documentation Required
 // TODO: Use Data in child components

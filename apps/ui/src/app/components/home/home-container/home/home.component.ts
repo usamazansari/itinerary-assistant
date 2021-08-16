@@ -2,8 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { HomeVMStub } from '../../../../models';
 import type { HomeVMModel } from '../../../../models';
+import { HomeVMStub } from '../../../../constants';
 
 @Component({
   selector: 'ia-home',

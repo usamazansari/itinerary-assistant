@@ -1,4 +1,4 @@
-import { IconModel, IconStub } from '../';
+import type { IconModel } from '../../imports/models';
 
 /**
  * Interface for Navigation Item
@@ -47,23 +47,3 @@ export interface NavigationItemModel {
    */
   children: NavigationItemModel[];
 }
-
-/**
- * Stub for `NavigationItemModel`
- * 
- * ```ts
- * const NavigationItemStub: NavigationItemModel = {
- *   label    : null,
- *   routes   : [],
- *   icon     : { ...IconStub },
- *   children : []
- * 
-};
- * ```
- */
-export const NavigationItemStub: NavigationItemModel = {
-  label: null,
-  routes: [],
-  icon: { ...IconStub },
-  children: []
-};
