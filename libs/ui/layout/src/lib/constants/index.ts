@@ -4,8 +4,6 @@ export {
   FooterVMStub
 } from './footer/footer.constants';
 
-export { LayoutDataStub } from './layout/layout.constants';
-
 export { NavigationItemStub } from './navigation/navigation.constants';
 
 export {
@@ -13,3 +11,5 @@ export {
   ToolbarDataStub,
   ToolbarVMStub
 } from './toolbar/toolbar.constants';
+
+export { LayoutDataStub } from './layout/layout.constants';
