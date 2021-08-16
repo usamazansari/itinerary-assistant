@@ -7,6 +7,7 @@ export {
 export { NavigationItemStub } from './navigation/navigation.constants';
 
 export {
+  Constants as ToolbarConstants,
   ToolbarAssetsStub,
   ToolbarDataStub,
   ToolbarVMStub

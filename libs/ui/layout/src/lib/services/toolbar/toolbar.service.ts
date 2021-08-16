@@ -4,11 +4,10 @@ import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
 import type { ToolbarVMModel } from '../../models';
-import { ToolbarVMStub } from '../../constants';
+import { ToolbarConstants as Constants, ToolbarVMStub } from '../../constants';
 
 // TODO: 🧐 Documentation required
-// TODO: Make services free of loose strings - use constants file for each module
-
+// TODO: Implement Routing to home page
 /**
  * Toolbar Service
  *
@@ -30,25 +29,39 @@ export class ToolbarService {
    * @memberof ToolbarService
    */
   fetchAssets(): void {
-    this.#vm = {
-      ...this.#vm,
-      assets: {
-        ...this.#vm.assets,
-        // logo: APPLICATION_NAME,
-        trigger: { name: 'bars', style: 'fas' }
-      }
+    this.#vm.assets = {
+      ...this.#vm.assets,
+      ...Constants.assets
     };
     this._setVM(this.#vm);
   }
 
+  /**
+   *
+   *
+   * @private
+   * @param {ToolbarVMModel} vm
+   * @memberof ToolbarService
+   */
   private _setVM(vm: ToolbarVMModel): void {
     this.#vm = !!vm ? { ...vm } : { ...ToolbarVMStub };
     this.#vm$.next(this.#vm);
   }
 
+  /**
+   *
+   *
+   * @return {*}  {Observable<ToolbarVMModel>}
+   * @memberof ToolbarService
+   */
   watchVM$(): Observable<ToolbarVMModel> {
     return this.#vm$.asObservable();
   }
 
+  /**
+   *
+   *
+   * @memberof ToolbarService
+   */
   gotoHome(): void {}
 }

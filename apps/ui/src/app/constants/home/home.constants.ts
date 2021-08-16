@@ -64,9 +64,7 @@ export const HomeVMStub: HomeVMModel = {
  * }
  * ```
  */
-export const Constants: {
-  assets: HomeAssetsModel;
-} = {
+export const Constants: HomeVMModel = {
   assets: {
     view: {
       icon: { name: 'hiking', style: 'fas' },

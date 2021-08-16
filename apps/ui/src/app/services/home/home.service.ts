@@ -35,7 +35,10 @@ export class HomeService {
    * @memberof HomeService
    */
   fetchAssets(): void {
-    this.#vm.assets = { ...Constants.assets };
+    this.#vm.assets = {
+      ...this.#vm.assets,
+      ...Constants.assets
+    };
     this._setVm(this.#vm);
   }
 

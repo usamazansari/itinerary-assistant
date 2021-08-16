@@ -6,6 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 import type { TripListItemModel } from '../../imports/models';
 import { EndpointService } from '../../imports/services';
 
+// TODO: Refactor to make it free of loose strings
+/**
+ * TODO: Refactor to make it free of loose strings
+ *
+ * @export
+ * @class TripListService
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -14,9 +21,9 @@ export class TripListService {
   #tripList: TripListItemModel[] = [];
 
   /**
-   * Creates an instance of AllTripsService.
+   * Creates an instance of TripListService.
    * @param {EndpointService} _endpointService
-   * @memberof AllTripsService
+   * @memberof TripListService
    */
   constructor(private _endpointService: EndpointService) {}
 
