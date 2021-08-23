@@ -1,6 +1,6 @@
 <div
-     class="container grid items-center justify-between grid-cols-1 px-4 mx-auto bg-white sm:grid-cols-2 elevation-3 dark:bg-gray-900 dark:text-white">
-  <div class="grid my-4 place-items-center md:justify-start">
+     class="container grid items-center justify-around grid-cols-1 px-4 mx-auto bg-white sm:grid-cols-2 elevation-3 dark:bg-gray-900 dark:text-white">
+  <div class="grid my-4 place-items-center">
     <p class="text-sm text-center cursor-default">
       <span class="font-bold text-indigo-700">{{ vm.assets.madeWith }}</span>
 
@@ -73,13 +73,27 @@
                class="w-6 h-6">
         </ng-container>
       </a>
+
+      <a mat-icon-button
+         class="grid place-items-center"
+         [href]="vm.assets.nx.url"
+         target="_blank"
+         [matTooltip]="vm.assets.nx.name"
+         matTooltipShowDelay="500"
+         #tooltip="matTooltip">
+        <ng-container *ngIf="isImage(vm.assets.nx.icon)">
+          <img [src]="vm.assets.nx.icon.src"
+               [alt]="vm.assets.nx.icon.alt"
+               class="w-6 h-6">
+        </ng-container>
+      </a>
     </div>
   </div>
 
-  <div class="grid my-4 place-items-center md:justify-end">
+  <div class="grid my-4 place-items-center">
     <p class="text-sm text-center cursor-default">
       <span class="text-gray-400">{{ vm.assets.by }}</span>
-      <span class="ml-1 font-bold text-indigo-700">{{ vm.assets.author }}</span>
+      <span class="ml-1 font-bold text-indigo-700">{{ vm.data.fullname }}</span>
     </p>
 
     <div class="grid grid-flow-col">
@@ -138,6 +152,21 @@
         </ng-container>
 
       </button>
+
+      <a mat-icon-button
+         class="grid outline-none place-items-center focus:outline-none"
+         [href]="vm.data.location"
+         [matTooltip]="vm.assets.location.name"
+         matTooltipShowDelay="500"
+         #tooltip="matTooltip"
+         target="_blank">
+
+        <ng-container *ngIf="isIcon(vm.assets.location.icon)">
+          <fa-icon [icon]="[vm.assets.location.icon.style, vm.assets.location.icon.name]"
+                   class="text-2xl text-brand-outlook"></fa-icon>
+        </ng-container>
+
+      </a>
     </div>
   </div>
 </div>

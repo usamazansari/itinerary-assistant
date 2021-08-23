@@ -1,16 +1,17 @@
 export {
   FooterAssetsStub,
   FooterDataStub,
-  FooterVMStub
+  FooterVMStub,
+  Constants as FooterConstants
 } from './footer/footer.constants';
 
 export { NavigationItemStub } from './navigation/navigation.constants';
 
 export {
-  Constants as ToolbarConstants,
   ToolbarAssetsStub,
   ToolbarDataStub,
-  ToolbarVMStub
+  ToolbarVMStub,
+  Constants as ToolbarConstants
 } from './toolbar/toolbar.constants';
 
 export { LayoutDataStub } from './layout/layout.constants';

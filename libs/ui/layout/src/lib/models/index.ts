@@ -2,7 +2,9 @@ export type {
   FooterAssetsModel,
   FooterDataModel,
   FooterIconType,
-  FooterLink,
+  FooterLinkModel,
+  FooterSnackbarMessageModel,
+  FooterStringsModel,
   FooterVMModel
 } from './footer/footer.model';
 

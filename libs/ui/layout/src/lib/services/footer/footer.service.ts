@@ -6,10 +6,8 @@ import { BehaviorSubject } from 'rxjs';
 import { Author } from '../../imports/constants';
 import { ClipboardService, SnackbarService } from '../../imports/services';
 
-import type { FooterVMModel } from '../../models';
-import { FooterVMStub } from '../../constants';
-
-// TODO: Make services free of loose strings - use constants file for each module
+import type { FooterDataModel, FooterVMModel } from '../../models';
+import { FooterConstants as Constants, FooterVMStub } from '../../constants';
 
 /**
  * Service for use in `FooterComponent`
@@ -39,65 +37,23 @@ export class FooterService {
    * @memberof FooterService
    */
   fetchAssets(): void {
-    this.#vm = {
+    this.setVM({
       ...this.#vm,
       assets: {
-        madeWith: 'Made with',
-
-        heart: {
-          name: '',
-          url: '',
-          icon: { style: 'fas', name: 'heart' } // fetch icon names and styles from constants
-        },
-        using: 'using',
-
-        angular: {
-          name: 'Angular',
-          url: 'https://angular.io/',
-          icon: { style: 'fab', name: 'angular' }
-        },
-        tailwind: {
-          name: 'Tailwind',
-          url: 'https://tailwindcss.com/',
-          icon: { src: 'assets/media/images/tailwindcss.svg', alt: 'Tailwind' }
-        },
-        fontawesome: {
-          name: 'Font Awesome',
-          url: 'https://fontawesome.com/',
-          icon: { style: 'fab', name: 'fort-awesome-alt' }
-        },
-        firebase: {
-          name: 'Firebase',
-          url: 'https://firebase.google.com/',
-          icon: { src: 'assets/media/images/firebase.svg', alt: 'Firebase' }
-        },
-
-        by: 'by',
-        author: Author.FullName,
-
-        github: {
-          name: 'GitHub',
-          url: `https://github.com/${Author.GitHub}`,
-          icon: { style: 'fab', name: 'github' }
-        },
-        linkedin: {
-          name: 'LinkedIn',
-          url: `https://www.linkedin.com/in/${Author.LinkedIn}`,
-          icon: { style: 'fab', name: 'linkedin' }
-        },
-        discord: {
-          name: 'Discord',
-          url: Author.Discord,
-          icon: { style: 'fab', name: 'discord' }
-        },
-        email: {
-          name: 'E-mail',
-          url: Author.Email,
-          icon: { style: 'fas', name: 'envelope-open-text' }
-        }
+        ...this.#vm.assets,
+        ...Constants.assets
       }
-    };
-    this.setVM(this.#vm);
+    });
+  }
+
+  setData(data: FooterDataModel): void {
+    this.setVM({
+      ...this.#vm,
+      data: {
+        ...this.#vm.data,
+        ...data
+      }
+    });
   }
 
   private setVM(vm: FooterVMModel): void {
@@ -116,16 +72,29 @@ export class FooterService {
   }
 
   /**
+   * Refactored version of Clipboard Copy Text
+   *
+   * @memberof FooterService
+   */
+  copyText(): void {}
+
+  /**
    * Copy the Discord ID: `usama251993#5438` to the clipboard
    *
    * @memberof FooterService
    */
   copyDiscordID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(Author.Discord);
+    const isTextCopied: boolean = this._clipboard.copy(this.#vm.data.discord);
     if (isTextCopied) {
-      this._snackbar.openSnackbar('Discord ID Copied!', 'OK');
+      this._snackbar.openSnackbar(
+        Constants.strings.snackbar.discord.success.message,
+        Constants.strings.snackbar.discord.success.action
+      );
     } else {
-      this._snackbar.openSnackbar('Some problem accessing the Clipboard', 'OK');
+      this._snackbar.openSnackbar(
+        Constants.strings.snackbar.discord.fail.message,
+        Constants.strings.snackbar.discord.fail.action
+      );
     }
   }
 
@@ -135,11 +104,17 @@ export class FooterService {
    * @memberof FooterService
    */
   copyEmailID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(Author.Email);
+    const isTextCopied: boolean = this._clipboard.copy(this.#vm.data.email);
     if (isTextCopied) {
-      this._snackbar.openSnackbar('Email ID Copied!', 'OK');
+      this._snackbar.openSnackbar(
+        Constants.strings.snackbar.email.success.message,
+        Constants.strings.snackbar.email.success.action
+      );
     } else {
-      this._snackbar.openSnackbar('Some problem accessing the Clipboard', 'OK');
+      this._snackbar.openSnackbar(
+        Constants.strings.snackbar.email.fail.message,
+        Constants.strings.snackbar.email.fail.action
+      );
     }
   }
 

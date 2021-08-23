@@ -1,11 +1,19 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
+
+import type { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { FooterService } from '../../../services/footer/footer.service';
 
-import type { Observable } from 'rxjs';
-import type { FooterVMModel } from '../../../models';
+import type { FooterVMModel, FooterDataModel } from '../../../models';
+import { FooterDataStub } from '../../../constants';
 
-// TODO: Implement use of data as from toolbar
+// TODO: Implement use of data as from Footer
 
 /**
  * Container for the `FooterComponent`
@@ -23,6 +31,15 @@ import type { FooterVMModel } from '../../../models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterContainerComponent implements OnInit {
+  #data$ = new BehaviorSubject<FooterDataModel>(FooterDataStub);
+
+  @Input() set data(value: FooterDataModel) {
+    this.#data$.next(value);
+  }
+  get data(): FooterDataModel {
+    return this.#data$.getValue();
+  }
+
   /**
    * Holds the Footer VM as `Observable`.
    *
@@ -47,6 +64,10 @@ export class FooterContainerComponent implements OnInit {
   ngOnInit(): void {
     this._service.fetchAssets();
     this.vm$ = this._service.watchVM$();
+
+    this.#data$.subscribe((data) => {
+      this._service.setData(data);
+    });
   }
 
   /**

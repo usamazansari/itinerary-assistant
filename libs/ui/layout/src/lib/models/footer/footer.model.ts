@@ -6,7 +6,7 @@ export type FooterIconType = IconModel | ImageModel;
  * Interface to denote a footer link
  *
  * ```ts
- * interface FooterLink {
+ * interface FooterLinkModel {
  *   name : string;
  *   url  : string;
  *   icon : FooterIconType;
@@ -14,14 +14,14 @@ export type FooterIconType = IconModel | ImageModel;
  * ```
  *
  * @private Interface for internal use
- * @interface FooterLink
+ * @interface FooterLinkModel
  */
-export interface FooterLink {
+export interface FooterLinkModel {
   /**
    * Name of the footer link
    *
    * @type {(string)}
-   * @memberof FooterLink
+   * @memberof FooterLinkModel
    */
   name: string;
 
@@ -29,7 +29,7 @@ export interface FooterLink {
    * URL of the footer link
    *
    * @type {(string)}
-   * @memberof FooterLink
+   * @memberof FooterLinkModel
    */
   url: string;
 
@@ -37,13 +37,33 @@ export interface FooterLink {
    * Icon of the footer link
    *
    * @type {FooterIconType}
-   * @memberof FooterLink
+   * @memberof FooterLinkModel
    */
   icon: FooterIconType;
 }
 
 /**
  * Assets for `FooterComponent`
+ *
+ * ```ts
+ * interface FooterAssetsModel {
+ *   madeWith    : string;
+ *   heart       : FooterLinkModel;
+ *   using       : string;
+ *   angular     : FooterLinkModel;
+ *   tailwind    : FooterLinkModel;
+ *   fontawesome : FooterLinkModel;
+ *   firebase    : FooterLinkModel;
+ *   nx          : FooterLinkModel;
+ *   by          : string;
+ *   author      : string;
+ *   github      : FooterLinkModel;
+ *   linkedin    : FooterLinkModel;
+ *   discord     : FooterLinkModel;
+ *   email       : FooterLinkModel;
+ *   location    : FooterLinkModel;
+ * }
+ * ```
  *
  * @export
  * @interface FooterAssetsModel
@@ -60,10 +80,10 @@ export interface FooterAssetsModel {
   /**
    * Spreading Love
    *
-   * @type {FooterLink}
+   * @type {FooterLinkModel}
    * @memberof FooterAssetsModel
    */
-  heart: FooterLink;
+  heart: FooterLinkModel;
 
   /**
    * Footer text - `using`
@@ -76,34 +96,42 @@ export interface FooterAssetsModel {
   /**
    * Angular
    *
-   * @type {FooterLink}
+   * @type {FooterLinkModel}
    * @memberof FooterAssetsModel
    */
-  angular: FooterLink;
+  angular: FooterLinkModel;
 
   /**
    * Tailwind
    *
-   * @type {FooterLink}
+   * @type {FooterLinkModel}
    * @memberof FooterAssetsModel
    */
-  tailwind: FooterLink;
+  tailwind: FooterLinkModel;
 
   /**
    * Font Awesome
    *
-   * @type {FooterLink}
+   * @type {FooterLinkModel}
    * @memberof FooterAssetsModel
    */
-  fontawesome: FooterLink;
+  fontawesome: FooterLinkModel;
 
   /**
    * Firebase
    *
-   * @type {FooterLink}
+   * @type {FooterLinkModel}
    * @memberof FooterAssetsModel
    */
-  firebase: FooterLink;
+  firebase: FooterLinkModel;
+
+  /**
+   * Nx
+   *
+   * @type {FooterLinkModel}
+   * @memberof FooterAssetsModel
+   */
+  nx: FooterLinkModel;
 
   /**
    * by
@@ -114,60 +142,129 @@ export interface FooterAssetsModel {
   by: string;
 
   /**
-   * Name of the Author - Usama Ansari
-   *
-   * @type {(string)}
-   * @memberof FooterAssetsModel
-   */
-  author: string;
-
-  /**
    * GitHub
    *
-   * @type {FooterLink}
+   * @type {FooterLinkModel}
    * @memberof FooterAssetsModel
    */
-  github: FooterLink;
+  github: FooterLinkModel;
 
   /**
    * LinkedIn
    *
-   * @type {FooterLink}
+   * @type {FooterLinkModel}
    * @memberof FooterAssetsModel
    */
-  linkedin: FooterLink;
+  linkedin: FooterLinkModel;
 
   /**
    * Discord
    *
-   * @type {FooterLink}
+   * @type {FooterLinkModel}
    * @memberof FooterAssetsModel
    */
-  discord: FooterLink;
+  discord: FooterLinkModel;
 
   /**
    * Email
    *
-   * @type {FooterLink}
+   * @type {FooterLinkModel}
    * @memberof FooterAssetsModel
    */
-  email: FooterLink;
+  email: FooterLinkModel;
+
+  /**
+   * Location
+   *
+   * @type {FooterLinkModel}
+   * @memberof FooterAssetsModel
+   */
+  location: FooterLinkModel;
 }
 
-// TODO: 🧐 Documentation Required
 /**
+ * Footer Data
  *
+ * ```ts
+ * interface FooterDataModel {
+ *   fullname : string;
+ *   github   : string;
+ *   linkedin : string;
+ *   discord  : string;
+ *   email    : string;
+ *   location : string;
+ * }
+ * ```
  *
  * @export
  * @interface FooterDataModel
  */
 export interface FooterDataModel {
+  /**
+   * Name of the Author - `Usama Ansari`
+   *
+   * @type {(string)}
+   * @memberof FooterDataModel
+   */
   fullname: string;
+
+  /**
+   * GitHub Account - `usama251993`
+   *
+   * @type {string}
+   * @memberof FooterDataModel
+   */
   github: string;
+
+  /**
+   * LinkedIn Account - `usama-ansari-81380080`
+   *
+   * @type {string}
+   * @memberof FooterDataModel
+   */
   linkedin: string;
+
+  /**
+   * Discord ID - `usama251993#5438`
+   *
+   * @type {string}
+   * @memberof FooterDataModel
+   */
   discord: string;
+
+  /**
+   * Email ID - `usama251993@gmail.com`
+   *
+   * @type {string}
+   * @memberof FooterDataModel
+   */
   email: string;
+
+  /**
+   * Location - https://goo.gl/maps/X6syXXRrRML4FUgc6
+   *
+   * @type {string}
+   * @memberof FooterDataModel
+   */
   location: string;
+}
+
+export interface FooterSnackbarMessageModel {
+  success: {
+    message: string;
+    action: string;
+  };
+  fail: {
+    message: string;
+    action: string;
+  };
+}
+
+export interface FooterStringsModel {
+  snackbar: {
+    discord: FooterSnackbarMessageModel;
+    email: FooterSnackbarMessageModel;
+  };
 }
 
 // TODO: 🧐 Documentation Required
@@ -180,4 +277,5 @@ export interface FooterDataModel {
 export interface FooterVMModel {
   assets: FooterAssetsModel;
   data: FooterDataModel;
+  strings: FooterStringsModel;
 }
