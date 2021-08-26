@@ -1,8 +1,4 @@
-<ia-layout-shell *ngIf="layoutData$ | async as data; else loading"
-                 [data]="data">
-  <!-- TODO: Replace with ShellComponent -->
-  <router-outlet></router-outlet>
+<ia-layout-shell [data]="(layoutData$ | async)!"
+                 (navigate$)="navigate()">
+  <ia-app-shell></ia-app-shell>
 </ia-layout-shell>
-<ng-template #loading>
-  Loading...
-</ng-template>

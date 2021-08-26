@@ -18,7 +18,7 @@ import * as Components from './components';
   declarations: [
     AppComponent,
 
-    Components.ShellComponent,
+    Components.AppShellComponent,
 
     Components.HomeContainerComponent,
     Components.HomeComponent

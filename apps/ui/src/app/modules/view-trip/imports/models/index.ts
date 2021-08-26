@@ -1,1 +1,1 @@
-// TODO: Use Shared interfaces for API calls
+export { TripListItemModel } from '@itinerary-assistant/shared';

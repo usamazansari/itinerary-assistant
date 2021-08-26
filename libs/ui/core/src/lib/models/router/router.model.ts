@@ -1,4 +1,4 @@
-import { NavigationExtras } from '@angular/router';
+import type { NavigationExtras } from '@angular/router';
 
 /**
  *
@@ -31,11 +31,3 @@ export interface RouterPayloadModel {
    */
   extras: NavigationExtras;
 }
-
-/**
- * Stub for `RouterPayloadModel`
- */
-export const RouterPayloadStub: RouterPayloadModel = {
-  routes: [],
-  extras: {}
-};

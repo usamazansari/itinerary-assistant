@@ -9,7 +9,7 @@ import * as Components from './components';
 const routes: Routes = [
   {
     path: ViewTripRoutes.Empty,
-    component: Components.AllTripsContainerComponent
+    component: Components.TripListContainerComponent
   }
 ];
 
