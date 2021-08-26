@@ -13,8 +13,6 @@ import { FooterService } from '../../../services/footer/footer.service';
 import type { FooterVMModel, FooterDataModel } from '../../../models';
 import { FooterDataStub } from '../../../constants';
 
-// TODO: Implement use of data as from Footer
-
 /**
  * Container for the `FooterComponent`
  *
@@ -24,8 +22,7 @@ import { FooterDataStub } from '../../../constants';
  */
 @Component({
   selector: 'ia-layout-footer-container',
-  template: `<ia-layout-footer *ngIf            = "vm$ | async as vm"
-                               [vm]             = "vm"
+  template: `<ia-layout-footer [vm]             = "(vm$ | async)!"
                                (copyDiscordID$) = "copyDiscordID()"
                                (copyEmailID$)   = "copyEmailID()"></ia-layout-footer>`,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -40,12 +37,6 @@ export class FooterContainerComponent implements OnInit {
     return this.#data$.getValue();
   }
 
-  /**
-   * Holds the Footer VM as `Observable`.
-   *
-   * @type {Observable<FooterVMModel>}
-   * @memberof FooterContainerComponent
-   */
   vm$!: Observable<FooterVMModel>;
 
   /**

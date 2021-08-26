@@ -14,3 +14,5 @@ export const RouterPayloadStub: RouterPayloadModel = {
   routes: [],
   extras: {}
 };
+
+export const EmptyString: string = '';

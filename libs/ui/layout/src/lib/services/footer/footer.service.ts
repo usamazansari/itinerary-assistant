@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import { Author } from '../../imports/constants';
 import { ClipboardService, SnackbarService } from '../../imports/services';
 
 import type { FooterDataModel, FooterVMModel } from '../../models';
@@ -33,7 +32,8 @@ export class FooterService {
   ) {}
 
   /**
-   * Fetch assets for the `FooterComponent`
+   * Fetch assets for `FooterComponent`
+   *
    * @memberof FooterService
    */
   fetchAssets(): void {
@@ -46,6 +46,12 @@ export class FooterService {
     });
   }
 
+  /**
+   * Set Data for `FooterComponent`
+   *
+   * @param {FooterDataModel} data
+   * @memberof FooterService
+   */
   setData(data: FooterDataModel): void {
     this.setVM({
       ...this.#vm,
@@ -56,8 +62,15 @@ export class FooterService {
     });
   }
 
+  /**
+   * Set the value of VM
+   *
+   * @private
+   * @param {FooterVMModel} vm
+   * @memberof FooterService
+   */
   private setVM(vm: FooterVMModel): void {
-    this.#vm = { ...vm };
+    this.#vm = { ...(vm ?? FooterVMStub) };
     this.#vm$.next(this.#vm);
   }
 

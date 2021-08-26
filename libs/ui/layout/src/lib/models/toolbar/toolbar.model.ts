@@ -23,6 +23,18 @@ export interface ToolbarAssetsModel {
   trigger: IconModel;
 }
 
+/**
+ * Toolbar Data
+ *
+ * ```ts
+ * interface ToolbarDataModel {
+ *   logo : string;
+ * }
+ * ```
+ *
+ * @export
+ * @interface ToolbarDataModel
+ */
 export interface ToolbarDataModel {
   /**
    * Logo of the application
@@ -33,6 +45,19 @@ export interface ToolbarDataModel {
   logo: string;
 }
 
+/**
+ * Virtual Memory for `ToolbarComponent`
+ *
+ * ```ts
+ * interface ToolbarVMModel {
+ *   assets : ToolbarAssetsModel;
+ *   data   : ToolbarDataModel;
+ * }
+ * ```
+ *
+ * @export
+ * @interface ToolbarVMModel
+ */
 export interface ToolbarVMModel {
   assets: ToolbarAssetsModel;
   data: ToolbarDataModel;

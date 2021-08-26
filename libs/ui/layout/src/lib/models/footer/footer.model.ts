@@ -267,9 +267,16 @@ export interface FooterStringsModel {
   };
 }
 
-// TODO: 🧐 Documentation Required
 /**
  * Virtual Memory for `FooterComponent`
+ *
+ * ```ts
+ * interface FooterVMModel {
+ *   assets  : FooterAssetsModel;
+ *   data    : FooterDataModel;
+ *   strings : FooterStringsModel;
+ * }
+ * ```
  *
  * @export
  * @interface FooterVMModel
