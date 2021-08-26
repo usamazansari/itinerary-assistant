@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
 import { BehaviorSubject } from 'rxjs';
@@ -7,7 +14,6 @@ import type { LayoutDataModel } from '../../models';
 import { LayoutDataStub } from '../../constants';
 
 // TODO: 🧐 Documentation Required
-// TODO: Use Data in child components
 /**
  *
  *
@@ -30,6 +36,8 @@ export class ShellComponent implements OnInit {
     return this.#data$.getValue();
   }
 
+  @Output() navigate$ = new EventEmitter<void>();
+
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
   constructor() {}
@@ -42,5 +50,9 @@ export class ShellComponent implements OnInit {
 
   closeSidenav(): void {
     this.sidenav.close();
+  }
+
+  gotoHome(): void {
+    this.navigate$.emit();
   }
 }

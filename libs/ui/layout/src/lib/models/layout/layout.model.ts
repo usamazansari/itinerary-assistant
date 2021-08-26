@@ -1,8 +1,14 @@
 import type { FooterDataModel, ToolbarDataModel } from '../';
 
-// TODO: 🧐 Documentation Required
 /**
+ * Data to display in the layout
  *
+ * ```ts
+ * interface LayoutDataModel {
+ *   footer  : FooterDataModel;
+ *   toolbar : ToolbarDataModel;
+ * }
+ * ```
  *
  * @export
  * @interface LayoutDataModel

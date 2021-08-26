@@ -3,7 +3,8 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faBars,
   faHeart,
-  faEnvelopeOpenText
+  faEnvelopeOpenText,
+  faMapMarkerAlt
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faAngular,
@@ -24,7 +25,8 @@ const footerIcons: IconDefinition[] = [
   faFortAwesomeAlt,
   faGithub,
   faHeart,
-  faLinkedin
+  faLinkedin,
+  faMapMarkerAlt
 ];
 
 export const Icons = [...toolbarIcons, ...sidenavIcons, ...footerIcons];

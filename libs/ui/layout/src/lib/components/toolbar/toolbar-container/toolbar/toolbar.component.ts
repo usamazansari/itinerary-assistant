@@ -11,19 +11,8 @@ import { ToolbarVMStub } from '../../../../constants';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  /**
-   * `BehaviorSubject` to hold `asset`s of Toolbar
-   *
-   * @private
-   * @memberof ToolbarComponent
-   */
   #vm$ = new BehaviorSubject<ToolbarVMModel>(ToolbarVMStub);
 
-  /**
-   * Assets used by `ToolbarComponent`
-   *
-   * @memberof ToolbarComponent
-   */
   @Input()
   set vm(value: ToolbarVMModel) {
     this.#vm$.next(value ?? ToolbarVMStub);
@@ -32,25 +21,13 @@ export class ToolbarComponent implements OnInit {
     return this.#vm$.getValue();
   }
 
-  /**
-   * `EventEmitter` to navigate to the home page
-   *
-   * @memberof ToolbarComponent
-   */
   @Output() gotoHome$ = new EventEmitter<void>();
-
-  /**
-   * `EventEmitter` to notify the `app-component` about sidenav toggle
-   *
-   * @memberof ToolbarComponent
-   */
   @Output() toggleSidenav$ = new EventEmitter<void>();
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  // TODO: Implement Home Navigation
   /**
    * Trigger the navigation by the `EventEmitter`: `navigate$`
    *

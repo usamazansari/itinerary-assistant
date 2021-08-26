@@ -1,8 +1,10 @@
-import { IconStub } from '../../imports/constants';
+import { Author, IconStub } from '../../imports/constants';
 import type {
-  FooterLink,
   FooterAssetsModel,
   FooterDataModel,
+  FooterLinkModel,
+  FooterSnackbarMessageModel,
+  FooterStringsModel,
   FooterVMModel
 } from '../../models';
 
@@ -18,7 +20,7 @@ import type {
  * ```
  *
  */
-const FooterLinkStub: FooterLink = {
+const FooterLinkStub: FooterLinkModel = {
   icon: { ...IconStub },
   name: '',
   url: ''
@@ -54,14 +56,15 @@ export const FooterAssetsStub: FooterAssetsModel = {
   tailwind: { ...FooterLinkStub },
   fontawesome: { ...FooterLinkStub },
   firebase: { ...FooterLinkStub },
+  nx: { ...FooterLinkStub },
 
   by: '',
-  author: '',
 
   github: { ...FooterLinkStub },
   linkedin: { ...FooterLinkStub },
   discord: { ...FooterLinkStub },
-  email: { ...FooterLinkStub }
+  email: { ...FooterLinkStub },
+  location: { ...FooterLinkStub }
 };
 
 /**
@@ -69,7 +72,7 @@ export const FooterAssetsStub: FooterAssetsModel = {
  *
  * ```ts
  * const FooterDataStub: FooterDataModel = {
- *   fullname : '',
+ *   fullname   : '',
  *   github   : '',
  *   linkedin : '',
  *   discord  : '',
@@ -87,6 +90,18 @@ export const FooterDataStub: FooterDataModel = {
   location: ''
 };
 
+const FooterSnackbarMessageStub: FooterSnackbarMessageModel = {
+  success: { action: '', message: '' },
+  fail: { action: '', message: '' }
+};
+
+const FooterStringsStub: FooterStringsModel = {
+  snackbar: {
+    discord: { ...FooterSnackbarMessageStub },
+    email: { ...FooterSnackbarMessageStub }
+  }
+};
+
 /**
  * Stub for `FooterVMModel`
  *
@@ -99,5 +114,106 @@ export const FooterDataStub: FooterDataModel = {
  */
 export const FooterVMStub: FooterVMModel = {
   assets: { ...FooterAssetsStub },
-  data: { ...FooterDataStub }
+  data: { ...FooterDataStub },
+  strings: { ...FooterStringsStub }
+};
+
+export const Constants: FooterVMModel = {
+  assets: {
+    madeWith: 'Made with',
+
+    heart: {
+      name: '',
+      url: '',
+      icon: { style: 'fas', name: 'heart' } // fetch icon names and styles from constants
+    },
+
+    using: 'using',
+
+    angular: {
+      name: 'Angular',
+      url: 'https://angular.io/',
+      icon: { style: 'fab', name: 'angular' }
+    },
+    tailwind: {
+      name: 'Tailwind',
+      url: 'https://tailwindcss.com/',
+      icon: { src: 'assets/media/images/tailwindcss.svg', alt: 'Tailwind' }
+    },
+    fontawesome: {
+      name: 'Font Awesome',
+      url: 'https://fontawesome.com/',
+      icon: { style: 'fab', name: 'fort-awesome-alt' }
+    },
+    nx: {
+      name: 'Nx',
+      url: 'https://nx.dev/',
+      icon: { src: 'assets/media/images/nx.svg', alt: 'Nx' }
+    },
+    firebase: {
+      name: 'Nx',
+      url: 'https://nx.dev/',
+      icon: { src: 'assets/media/images/firebase.svg', alt: 'Nx' }
+    },
+
+    by: 'by',
+
+    github: {
+      name: 'GitHub',
+      url: '',
+      icon: { style: 'fab', name: 'github' }
+    },
+    linkedin: {
+      name: 'LinkedIn',
+      url: '',
+      icon: { style: 'fab', name: 'linkedin' }
+    },
+    discord: {
+      name: 'Discord',
+      url: '',
+      icon: { style: 'fab', name: 'discord' }
+    },
+    email: {
+      name: 'E-mail',
+      url: '',
+      icon: { style: 'fas', name: 'envelope-open-text' }
+    },
+    location: {
+      name: 'Location',
+      url: '',
+      icon: { style: 'fas', name: 'map-marker-alt' }
+    }
+  },
+  data: {
+    fullname: Author.FullName,
+    github: `https://github.com/${Author.GitHub}`,
+    linkedin: `https://www.linkedin.com/in/${Author.LinkedIn}`,
+    discord: Author.Discord,
+    email: Author.Email,
+    location: Author.Location
+  },
+  strings: {
+    snackbar: {
+      discord: {
+        success: {
+          message: 'Discord ID Copied!',
+          action: '👍'
+        },
+        fail: {
+          message: 'Some problem accessing the Clipboard',
+          action: '🙁'
+        }
+      },
+      email: {
+        success: {
+          message: 'Email ID Copied!',
+          action: '👍'
+        },
+        fail: {
+          message: 'Some problem accessing the Clipboard',
+          action: '🙁'
+        }
+      }
+    }
+  }
 };

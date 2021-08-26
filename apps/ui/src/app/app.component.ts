@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { LayoutDataStub } from './imports/models';
 import { ApplicationName, Author } from './imports/constants';
+import { LayoutDataStub } from './imports/models';
+import { RouterService } from './imports/services';
 
 import type { LayoutDataModel } from './imports/models';
 
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   layoutData$ = new BehaviorSubject<LayoutDataModel>(LayoutDataStub);
   #layoutData: LayoutDataModel = { ...LayoutDataStub };
 
-  constructor() {}
+  constructor(private _router: RouterService) {}
 
   ngOnInit(): void {
     this._setLayoutData();
@@ -37,5 +38,12 @@ export class AppComponent implements OnInit {
       }
     };
     this.layoutData$.next(this.#layoutData);
+  }
+
+  navigate(): void {
+    this._router.navigate({
+      routes: [],
+      extras: {}
+    });
   }
 }

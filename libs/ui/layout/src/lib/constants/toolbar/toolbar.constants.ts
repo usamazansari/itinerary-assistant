@@ -10,8 +10,7 @@ import type {
  *
  * ```ts
  * const ToolbarAssetsStub: ToolbarAssetsModel = {
- *   trigger : { ...IconStub }
- *   logo    : ''
+ *   trigger : IconStub
  * };
  * ```
  */
@@ -19,13 +18,54 @@ export const ToolbarAssetsStub: ToolbarAssetsModel = {
   trigger: { ...IconStub }
 };
 
-// TODO: 🧐 Documentation Required
+/**
+ * Stub for `ToolbarDataModel`
+ *
+ * ```ts
+ * const ToolbarDataStub: ToolbarDataModel = {
+ *   logo : ''
+ * };
+ * ```
+ */
 export const ToolbarDataStub: ToolbarDataModel = {
   logo: ''
 };
 
-// TODO: 🧐 Documentation Required
+/**
+ * Stub for `ToolbarVMModel`
+ *
+ * ```ts
+ * const ToolbarVMStub: ToolbarVMModel = {
+ *   assets : ToolbarAssetsStub,
+ *   data   : ToolbarDataStub
+ * };
+ * ```
+ */
 export const ToolbarVMStub: ToolbarVMModel = {
   assets: { ...ToolbarAssetsStub },
   data: { ...ToolbarDataStub }
+};
+
+/**
+ * Static assets for the application toolbar
+ *
+ * ```ts
+ * const assets: ToolbarAssetsModel = {
+ *   trigger : {
+ *     name  : 'bars',
+ *     style : 'fas'
+ *   }
+ * };
+ * ```
+ */
+export const Constants: ToolbarVMModel = {
+  assets: {
+    trigger: {
+      name: 'bars',
+      style: 'fas'
+    }
+  },
+  data: {
+    logo: ''
+  }
 };
