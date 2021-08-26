@@ -7,8 +7,7 @@ import { TripListItemModel } from '../../../imports/models';
 
 @Component({
   selector: 'ia-trip-list-container',
-  template: `<ia-trip-list *ngIf = "tripList$ | async as tripList" 
-                           [tripList] = "tripList"></ia-trip-list>`,
+  template: `<ia-trip-list [tripList] = "(tripList$ | async)!"></ia-trip-list>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TripListContainerComponent implements OnInit {

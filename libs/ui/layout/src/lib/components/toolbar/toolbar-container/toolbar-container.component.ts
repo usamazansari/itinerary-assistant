@@ -16,8 +16,7 @@ import { ToolbarDataStub } from '../../../constants';
 
 @Component({
   selector: 'ia-layout-toolbar-container',
-  template: `<ia-layout-toolbar *ngIf            = "vm$ | async as vm"
-                                [vm]             = "vm"
+  template: `<ia-layout-toolbar [vm]             = "(vm$ | async)!"
                                 (toggleSidenav$) = "toggleSidenav()"
                                 (gotoHome$)      = "gotoHome()"></ia-layout-toolbar>`,
   changeDetection: ChangeDetectionStrategy.OnPush

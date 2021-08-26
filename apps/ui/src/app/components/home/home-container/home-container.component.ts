@@ -7,8 +7,7 @@ import type { Observable } from 'rxjs';
 
 @Component({
   selector: 'ia-home-container',
-  template: `<ia-home *ngIf           = "vm$ | async as vm"
-                      [vm]            = "vm"
+  template: `<ia-home [vm]            = "(vm$ | async)!"
                       (gotoViewTrip$) = "gotoViewTrip()"></ia-home>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
