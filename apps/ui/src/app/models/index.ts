@@ -1,2 +1,5 @@
-export type { HomeVMModel, HomeAssetsModel } from './home/home.model';
-export { HomeVMStub } from './home/home.model';
+export type {
+  HomeAssetModel,
+  HomeAssetsModel,
+  HomeVMModel
+} from './home/home.model';

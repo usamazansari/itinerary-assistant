@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { FooterVMStub } from '../../../../models';
+import type { IconModel, ImageModel } from '../../../../imports/models';
 
-import type { IconModel, ImageModel } from '../../../../models/imports';
 import type { FooterVMModel, FooterIconType } from '../../../../models';
+import { FooterVMStub } from '../../../../constants';
 
 @Component({
   selector: 'ia-layout-footer',

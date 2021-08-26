@@ -1,1 +1,1 @@
-export { AllTripsService } from './all-trips/all-trips.service';
+export { TripListService } from './trip-list/trip-list.service';

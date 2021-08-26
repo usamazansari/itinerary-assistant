@@ -31,7 +31,7 @@ import type { Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: AppRoutes.Empty,
-    component: Components.ShellComponent,
+    component: Components.AppShellComponent,
     children: [
       {
         path: AppRoutes.Trip,

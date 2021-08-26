@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 
+import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import { AUTHOR } from '../../constants';
+import { ClipboardService, SnackbarService } from '../../imports/services';
 
-import { ClipboardService, SnackbarService } from '../imports';
-import { FooterVMStub } from '../../models';
-
-import type { Observable } from 'rxjs';
-import type { FooterVMModel } from '../../models';
-
-// TODO: Make services free of loose strings - use constants file for each module
+import type { FooterDataModel, FooterVMModel } from '../../models';
+import { FooterConstants as Constants, FooterVMStub } from '../../constants';
 
 /**
  * Service for use in `FooterComponent`
@@ -36,73 +32,45 @@ export class FooterService {
   ) {}
 
   /**
-   * Fetch assets for the `FooterComponent`
+   * Fetch assets for `FooterComponent`
+   *
    * @memberof FooterService
    */
   fetchAssets(): void {
-    this.#vm = {
+    this.setVM({
       ...this.#vm,
       assets: {
-        madeWith: 'Made with',
-
-        heart: {
-          name: '',
-          url: '',
-          icon: { style: 'fas', name: 'heart' } // fetch icon names and styles from constants
-        },
-        using: 'using',
-
-        angular: {
-          name: 'Angular',
-          url: 'https://angular.io/',
-          icon: { style: 'fab', name: 'angular' }
-        },
-        tailwind: {
-          name: 'Tailwind',
-          url: 'https://tailwindcss.com/',
-          icon: { src: 'assets/media/images/tailwindcss.svg', alt: 'Tailwind' }
-        },
-        fontawesome: {
-          name: 'Font Awesome',
-          url: 'https://fontawesome.com/',
-          icon: { style: 'fab', name: 'fort-awesome-alt' }
-        },
-        firebase: {
-          name: 'Firebase',
-          url: 'https://firebase.google.com/',
-          icon: { src: 'assets/media/images/firebase.svg', alt: 'Firebase' }
-        },
-
-        by: 'by',
-        author: AUTHOR.FULLNAME,
-
-        github: {
-          name: 'GitHub',
-          url: `https://github.com/${AUTHOR.GITHUB}`,
-          icon: { style: 'fab', name: 'github' }
-        },
-        linkedin: {
-          name: 'LinkedIn',
-          url: `https://www.linkedin.com/in/${AUTHOR.LINKEDIN}`,
-          icon: { style: 'fab', name: 'linkedin' }
-        },
-        discord: {
-          name: 'Discord',
-          url: AUTHOR.DISCORD,
-          icon: { style: 'fab', name: 'discord' }
-        },
-        email: {
-          name: 'E-mail',
-          url: AUTHOR.EMAIL,
-          icon: { style: 'fas', name: 'envelope-open-text' }
-        }
+        ...this.#vm.assets,
+        ...Constants.assets
       }
-    };
-    this.setVM(this.#vm);
+    });
   }
 
+  /**
+   * Set Data for `FooterComponent`
+   *
+   * @param {FooterDataModel} data
+   * @memberof FooterService
+   */
+  setData(data: FooterDataModel): void {
+    this.setVM({
+      ...this.#vm,
+      data: {
+        ...this.#vm.data,
+        ...data
+      }
+    });
+  }
+
+  /**
+   * Set the value of VM
+   *
+   * @private
+   * @param {FooterVMModel} vm
+   * @memberof FooterService
+   */
   private setVM(vm: FooterVMModel): void {
-    this.#vm = { ...vm };
+    this.#vm = { ...(vm ?? FooterVMStub) };
     this.#vm$.next(this.#vm);
   }
 
@@ -117,32 +85,29 @@ export class FooterService {
   }
 
   /**
+   * Refactored version of Clipboard Copy Text
+   *
+   * @memberof FooterService
+   */
+  copyText(): void {}
+
+  /**
    * Copy the Discord ID: `usama251993#5438` to the clipboard
    *
    * @memberof FooterService
    */
   copyDiscordID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(AUTHOR.DISCORD);
+    const isTextCopied: boolean = this._clipboard.copy(this.#vm.data.discord);
     if (isTextCopied) {
-      this._snackbar.openSnackbar({
-        message: 'Discord ID Copied!',
-        action: 'OK',
-        config: {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2500
-        }
-      });
+      this._snackbar.openSnackbar(
+        Constants.strings.snackbar.discord.success.message,
+        Constants.strings.snackbar.discord.success.action
+      );
     } else {
-      this._snackbar.openSnackbar({
-        message: 'Some problem accessing the Clipboard',
-        action: 'OK',
-        config: {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2500
-        }
-      });
+      this._snackbar.openSnackbar(
+        Constants.strings.snackbar.discord.fail.message,
+        Constants.strings.snackbar.discord.fail.action
+      );
     }
   }
 
@@ -152,27 +117,17 @@ export class FooterService {
    * @memberof FooterService
    */
   copyEmailID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(AUTHOR.EMAIL);
+    const isTextCopied: boolean = this._clipboard.copy(this.#vm.data.email);
     if (isTextCopied) {
-      this._snackbar.openSnackbar({
-        message: 'Email ID Copied!',
-        action: 'OK',
-        config: {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2500
-        }
-      });
+      this._snackbar.openSnackbar(
+        Constants.strings.snackbar.email.success.message,
+        Constants.strings.snackbar.email.success.action
+      );
     } else {
-      this._snackbar.openSnackbar({
-        message: 'Some problem accessing the Clipboard',
-        action: 'OK',
-        config: {
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom',
-          duration: 2500
-        }
-      });
+      this._snackbar.openSnackbar(
+        Constants.strings.snackbar.email.fail.message,
+        Constants.strings.snackbar.email.fail.action
+      );
     }
   }
 

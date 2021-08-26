@@ -36,23 +36,8 @@
     "api-core": {
       "tags": ["lib:api-core"]
     },
-    "api-trips": {
-      "tags": ["lib:api-trips"]
-    },
-    "icon": {
-      "tags": ["lib:ui-icon"]
-    },
-    "layout": {
-      "tags": ["lib:ui-layout"]
-    },
-    "material": {
-      "tags": ["lib:ui-material"]
-    },
     "shared": {
       "tags": ["shared"]
-    },
-    "tailwind": {
-      "tags": ["lib:tailwind"]
     },
     "ui": {
       "tags": ["app:ui"]
@@ -63,6 +48,21 @@
     "ui-e2e": {
       "tags": ["test:ui-e2e"],
       "implicitDependencies": ["ui"]
+    },
+    "ui-elements": {
+      "tags": ["lib:ui-elements"]
+    },
+    "ui-icon": {
+      "tags": ["lib:ui-icon"]
+    },
+    "ui-layout": {
+      "tags": ["lib:ui-layout"]
+    },
+    "ui-material": {
+      "tags": ["lib:ui-material"]
+    },
+    "ui-tailwind": {
+      "tags": ["lib:tailwind"]
     }
   }
 }

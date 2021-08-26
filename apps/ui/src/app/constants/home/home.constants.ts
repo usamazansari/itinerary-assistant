@@ -1,4 +1,59 @@
-import { HomeAssetsModel } from '../../models/home/home.model';
+import { IconStub } from '../../imports/models';
+
+import type {
+  HomeAssetModel,
+  HomeAssetsModel,
+  HomeVMModel
+} from '../../models';
+
+/**
+ * Stub for `HomeAssetModel`.
+ *
+ * ```ts
+ * const HomeAssetStub: HomeAssetModel = {
+ *   icon : IconStub,
+ *   text : null
+ * };
+ * ```
+ */
+const HomeAssetStub: HomeAssetModel = {
+  icon: { ...IconStub },
+  text: ''
+};
+
+/**
+ * Stub for `HomeAssetsModel`.
+ *
+ * ```ts
+ * const HomeAssetsStub: HomeAssetsModel = {
+ *   view   : {
+ *     icon : IconStub,
+ *     text : ''
+ *   },
+ *   create : {
+ *     icon : IconStub,
+ *     text : ''
+ *   }
+ * }
+ * ```
+ */
+const HomeAssetsStub: HomeAssetsModel = {
+  view: { ...HomeAssetStub },
+  create: { ...HomeAssetStub }
+};
+
+/**
+ * Stub for `HomeVMModel`
+ *
+ * ```ts
+ * const HomeVMStub: HomeVMModel = {
+ *   assets: HomeAssetsStub
+ * }
+ * ```
+ */
+export const HomeVMStub: HomeVMModel = {
+  assets: { ...HomeAssetsStub }
+};
 
 /**
  * Constants for `home` Module
@@ -9,9 +64,7 @@ import { HomeAssetsModel } from '../../models/home/home.model';
  * }
  * ```
  */
-export const Constants: {
-  assets: HomeAssetsModel;
-} = {
+export const Constants: HomeVMModel = {
   assets: {
     view: {
       icon: { name: 'hiking', style: 'fas' },

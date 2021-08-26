@@ -1,7 +1,7 @@
 /**
  * Firebase Configuration
  */
-export const FIREBASE_CONFIG = {
+export const FirebaseConfig = {
   apiKey: 'AIzaSyDzlFq4jw6-LZlDYhtBaus3SVgPniB6KS0',
   authDomain: 'usama-ansari-apps.firebaseapp.com',
   databaseURL: 'https://usama-ansari-apps.firebaseio.com',

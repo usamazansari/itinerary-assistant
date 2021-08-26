@@ -1,15 +1,20 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
+
+import type { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { FooterService } from '../../../services/footer/footer.service';
 
-import type { Observable } from 'rxjs';
-import type { FooterVMModel } from '../../../models';
-
-// TODO: 🧐 Documentation Required
-// TODO: Implement use of data as from toolbar
+import type { FooterVMModel, FooterDataModel } from '../../../models';
+import { FooterDataStub } from '../../../constants';
 
 /**
- *
+ * Container for the `FooterComponent`
  *
  * @export
  * @class FooterContainerComponent
@@ -17,19 +22,21 @@ import type { FooterVMModel } from '../../../models';
  */
 @Component({
   selector: 'ia-layout-footer-container',
-  template: `<ia-layout-footer *ngIf            = "vm$ | async as vm"
-                               [vm]             = "vm"
+  template: `<ia-layout-footer [vm]             = "(vm$ | async)!"
                                (copyDiscordID$) = "copyDiscordID()"
                                (copyEmailID$)   = "copyEmailID()"></ia-layout-footer>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterContainerComponent implements OnInit {
-  /**
-   * Holds the Footer VM as `Observable`.
-   *
-   * @type {Observable<FooterVMModel>}
-   * @memberof FooterContainerComponent
-   */
+  #data$ = new BehaviorSubject<FooterDataModel>(FooterDataStub);
+
+  @Input() set data(value: FooterDataModel) {
+    this.#data$.next(value);
+  }
+  get data(): FooterDataModel {
+    return this.#data$.getValue();
+  }
+
   vm$!: Observable<FooterVMModel>;
 
   /**
@@ -48,6 +55,10 @@ export class FooterContainerComponent implements OnInit {
   ngOnInit(): void {
     this._service.fetchAssets();
     this.vm$ = this._service.watchVM$();
+
+    this.#data$.subscribe((data) => {
+      this._service.setData(data);
+    });
   }
 
   /**

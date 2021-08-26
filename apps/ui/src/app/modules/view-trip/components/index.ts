@@ -1,2 +1,2 @@
-export { AllTripsContainerComponent } from './all-trips/all-trips-container/all-trips-container.component';
-export { AllTripsComponent } from './all-trips/all-trips-container/all-trips/all-trips.component';
+export { TripListContainerComponent } from './trip-list/trip-list-container/trip-list-container.component';
+export { TripListComponent } from './trip-list/trip-list-container/trip-list/trip-list.component';

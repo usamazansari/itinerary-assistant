@@ -7,17 +7,16 @@ import {
   Output
 } from '@angular/core';
 
-import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
-
-import { ToolbarService } from '../../../services';
-import { ToolbarDataStub } from '../../../models';
+import type { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import type { ToolbarDataModel, ToolbarVMModel } from '../../../models';
+import { ToolbarService } from '../../../services';
+import { ToolbarDataStub } from '../../../constants';
 
 @Component({
   selector: 'ia-layout-toolbar-container',
-  template: `<ia-layout-toolbar *ngIf            = "vm$ | async as vm"
-                                [vm]             = "vm"
+  template: `<ia-layout-toolbar [vm]             = "(vm$ | async)!"
                                 (toggleSidenav$) = "toggleSidenav()"
                                 (gotoHome$)      = "gotoHome()"></ia-layout-toolbar>`,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -34,6 +33,7 @@ export class ToolbarContainerComponent implements OnInit {
 
   vm$!: Observable<ToolbarVMModel>;
 
+  @Output() navigate$ = new EventEmitter<void>();
   @Output() toggleSidenav$ = new EventEmitter<void>();
 
   constructor(private _service: ToolbarService) {}
@@ -42,17 +42,26 @@ export class ToolbarContainerComponent implements OnInit {
     this._service.fetchAssets();
     this.vm$ = this._service.watchVM$();
 
-    // TODO: Make this work
-    // forkJoin([this.#data$, this.vm$]).subscribe(([data, vm]) => {
-    //   this._service.setVM({ ...vm, data: { ...vm.data, ...data } });
-    // });
+    this.#data$.subscribe((data) => {
+      this._service.setData(data);
+    });
   }
 
+  /**
+   * Trigger the navigation by the `EventEmitter`: `navigate$`
+   *
+   * @memberof ToolbarContainerComponent
+   */
+  gotoHome(): void {
+    this.navigate$.emit();
+  }
+
+  /**
+   * Trigger toggle of sidenav by the `EventEmitter`: `toggleSidenav$`
+   *
+   * @memberof ToolbarComponent
+   */
   toggleSidenav(): void {
     this.toggleSidenav$.emit();
-  }
-
-  gotoHome(): void {
-    this._service.gotoHome();
   }
 }
