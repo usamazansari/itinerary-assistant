@@ -30,12 +30,9 @@ import { FooterDataStub } from '../../../constants';
 export class FooterContainerComponent implements OnInit {
   #data$ = new BehaviorSubject<FooterDataModel>(FooterDataStub);
 
-  @Input() set data(value: FooterDataModel) {
-    this.#data$.next(value);
-  }
-  get data(): FooterDataModel {
-    return this.#data$.getValue();
-  }
+  @Input()
+  set data(value: FooterDataModel) { this.#data$.next(value ?? FooterDataStub); }
+  get data(): FooterDataModel { return this.#data$.getValue(); }
 
   vm$!: Observable<FooterVMModel>;
 
@@ -45,7 +42,7 @@ export class FooterContainerComponent implements OnInit {
    * @param {FooterService} _service Service associated with `FooterContainerComponent`
    * @memberof FooterContainerComponent
    */
-  constructor(private _service: FooterService) {}
+  constructor(private _service: FooterService) { }
 
   /**
    * Fetch the initial state of the component
@@ -56,9 +53,10 @@ export class FooterContainerComponent implements OnInit {
     this._service.fetchAssets();
     this.vm$ = this._service.watchVM$();
 
-    this.#data$.subscribe((data) => {
-      this._service.setData(data);
-    });
+    this.#data$.subscribe(
+      data => {
+        this._service.setData(data);
+      });
   }
 
   /**

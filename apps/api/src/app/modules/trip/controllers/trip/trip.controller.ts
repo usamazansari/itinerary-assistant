@@ -6,7 +6,7 @@ import { TripService } from '../../services';
 
 @Controller('trip')
 export class TripController {
-  constructor(private _service: TripService) {}
+  constructor(private _service: TripService) { }
 
   @Get('view-trip')
   fetchTripList(): TripListItemModel[] {

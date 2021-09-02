@@ -29,20 +29,17 @@ import { LayoutDataStub } from '../../constants';
 export class ShellComponent implements OnInit {
   #data$ = new BehaviorSubject<LayoutDataModel>(LayoutDataStub);
 
-  @Input() set data(value: LayoutDataModel) {
-    this.#data$.next(value);
-  }
-  get data(): LayoutDataModel {
-    return this.#data$.getValue();
-  }
+  @Input()
+  set data(value: LayoutDataModel) { this.#data$.next(value ?? LayoutDataStub); }
+  get data(): LayoutDataModel { return this.#data$.getValue(); }
 
   @Output() navigate$ = new EventEmitter<void>();
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   openSidenav(): void {
     this.sidenav.open();

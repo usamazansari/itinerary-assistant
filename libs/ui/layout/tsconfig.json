@@ -16,6 +16,7 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    // TODO: Remove these paths
     "paths": {
       "@itinerary-assistant/ui/core": [
         "./libs/ui/core/src/index.ts"

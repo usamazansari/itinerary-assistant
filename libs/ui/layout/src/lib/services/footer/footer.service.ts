@@ -29,7 +29,7 @@ export class FooterService {
   constructor(
     private _clipboard: ClipboardService,
     private _snackbar: SnackbarService
-  ) {}
+  ) { }
 
   /**
    * Fetch assets for `FooterComponent`
@@ -89,7 +89,7 @@ export class FooterService {
    *
    * @memberof FooterService
    */
-  copyText(): void {}
+  copyText(): void { }
 
   /**
    * Copy the Discord ID: `usama251993#5438` to the clipboard

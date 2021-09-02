@@ -14,19 +14,15 @@ export class ToolbarComponent implements OnInit {
   #vm$ = new BehaviorSubject<ToolbarVMModel>(ToolbarVMStub);
 
   @Input()
-  set vm(value: ToolbarVMModel) {
-    this.#vm$.next(value ?? ToolbarVMStub);
-  }
-  get vm(): ToolbarVMModel {
-    return this.#vm$.getValue();
-  }
+  set vm(value: ToolbarVMModel) { this.#vm$.next(value ?? ToolbarVMStub); }
+  get vm(): ToolbarVMModel { return this.#vm$.getValue(); }
 
   @Output() gotoHome$ = new EventEmitter<void>();
   @Output() toggleSidenav$ = new EventEmitter<void>();
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   /**
    * Trigger the navigation by the `EventEmitter`: `navigate$`

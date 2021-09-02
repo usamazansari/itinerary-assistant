@@ -16,6 +16,7 @@ function generateUtilities() {
   return utilities;
 }
 
+// TODO: Use configuration for shadow
 module.exports = plugin(function ({ addUtilities }) {
   addUtilities(generateUtilities(), {
     variants: ['responsive', 'hover', 'disabled']

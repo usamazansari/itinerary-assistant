@@ -7,4 +7,4 @@ import * as Services from './services/trip/trip.service';
   controllers: [Controllers.TripController],
   providers: [Services.TripService]
 })
-export class TripModule {}
+export class TripModule { }

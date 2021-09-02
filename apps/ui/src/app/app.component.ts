@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   layoutData$ = new BehaviorSubject<LayoutDataModel>(LayoutDataStub);
   #layoutData: LayoutDataModel = { ...LayoutDataStub };
 
-  constructor(private _router: RouterService) {}
+  constructor(private _router: RouterService) { }
 
   ngOnInit(): void {
     this._setLayoutData();

@@ -43,4 +43,4 @@ import * as Components from './components';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

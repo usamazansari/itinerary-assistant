@@ -8,4 +8,4 @@ import { ApiCoreService } from './services';
   providers: [ApiCoreService],
   exports: []
 })
-export class ApiCoreModule {}
+export class ApiCoreModule { }

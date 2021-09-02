@@ -69,4 +69,4 @@ const exports = [RouterModule];
   imports: [...imports],
   exports: [...exports]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -13,46 +13,14 @@ import { FooterVMStub } from '../../../../constants';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  /**
-   * `BehaviorSubject` to hold `asset`s of footer
-   *
-   * @private
-   * @type {BehaviorSubject<FooterVMModel>}
-   * @memberof FooterComponent
-   */
-  #vm$: BehaviorSubject<FooterVMModel> = new BehaviorSubject<FooterVMModel>(
-    FooterVMStub
-  );
 
-  /**
-   * Assets used by `FooterComponent`
-   *
-   * Refer documentation of `FooterVMModel` for details
-   *
-   * @memberof FooterComponent
-   */
+  #vm$ = new BehaviorSubject<FooterVMModel>(FooterVMStub);
+
   @Input()
-  set vm(value: FooterVMModel) {
-    this.#vm$.next(value);
-  }
-  get vm(): FooterVMModel {
-    return this.#vm$.getValue();
-  }
+  set vm(value: FooterVMModel) { this.#vm$.next(value ?? FooterVMStub); }
+  get vm(): FooterVMModel { return this.#vm$.getValue(); }
 
-  /**
-   * `EventEmitter` to signal copying the Discord ID `usama251993#5438` to the clipboard
-   *
-   * @type {EventEmitter<void>}
-   * @memberof FooterComponent
-   */
   @Output() copyDiscordID$: EventEmitter<void> = new EventEmitter<void>();
-
-  /**
-   * `EventEmitter` to signal copying the Email ID `usama251993@gmail.com` to the clipboard
-   *
-   * @type {EventEmitter<void>}
-   * @memberof FooterComponent
-   */
   @Output() copyEmailID$: EventEmitter<void> = new EventEmitter<void>();
 
   /**
@@ -60,14 +28,14 @@ export class FooterComponent implements OnInit {
    *
    * @memberof FooterComponent
    */
-  constructor() {}
+  constructor() { }
 
   /**
    * On Initialization of `FooterComponent`
    *
    * @memberof FooterComponent
    */
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   /**
    * Method to emit the `EventEmitter`: `copyDiscordID$`

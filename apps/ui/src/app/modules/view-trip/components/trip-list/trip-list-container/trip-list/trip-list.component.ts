@@ -12,14 +12,11 @@ import type { TripListItemModel } from '../../../../imports/models';
 export class TripListComponent implements OnInit {
   #tripList = new BehaviorSubject<TripListItemModel[]>([]);
 
-  @Input() set tripList(value: TripListItemModel[]) {
-    this.#tripList.next(value);
-  }
-  get tripList(): TripListItemModel[] {
-    return this.#tripList.getValue();
-  }
+  @Input()
+  set tripList(value: TripListItemModel[]) { this.#tripList.next(value); }
+  get tripList(): TripListItemModel[] { return this.#tripList.getValue(); }
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

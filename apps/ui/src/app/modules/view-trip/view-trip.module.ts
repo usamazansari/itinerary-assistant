@@ -14,4 +14,4 @@ import * as Components from './components';
   ],
   imports: [CommonModule, ViewTripRoutingModule, Libraries.MaterialModule]
 })
-export class ViewTripModule {}
+export class ViewTripModule { }

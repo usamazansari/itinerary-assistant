@@ -13,7 +13,7 @@ export class SnackbarService {
    * @param {MatSnackBar} _snackbar Instance of `MatSnackbar` from `@angular/material/snack-bar`
    * @memberof SnackbarService
    */
-  constructor(private _snackbar: MatSnackBar) {}
+  constructor(private _snackbar: MatSnackBar) { }
 
   /**
    *

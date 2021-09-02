@@ -112,9 +112,7 @@
   "scss.lint.hexColorLength": "warning",
   "scss.lint.important": "warning",
   "scssFormatter.singleQuote": true,
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "[scss]": {},
   // javascript
   "debug.javascript.usePreview": true,
   "javascript.format.semicolons": "insert",
@@ -127,7 +125,6 @@
   "js/ts.implicitProjectConfig.experimentalDecorators": true,
   "[javascript]": {
     "editor.autoClosingBrackets": "always",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // typescript
   "typescript.format.semicolons": "insert",
@@ -138,12 +135,10 @@
   "typescript.suggest.completeFunctionCalls": true,
   "[typescript]": {
     "editor.autoClosingBrackets": "always",
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   // json
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "[json]": {},
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
@@ -162,20 +157,9 @@
   "material-icon-theme.activeIconPack": "angular",
   "material-icon-theme.hidesExplorerArrows": false,
   "material-icon-theme.saturation": 1,
-  // prettier
-  "prettier.printWidth": 140,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "none",
   // vscode
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   // others
-  "redhat.telemetry.enabled": true,
-  "github.copilot.enable": {
-    "*": true,
-    "yaml": false,
-    "plaintext": false,
-    "markdown": true
-  },
   "parameterHints.hintingType": "variableOnly",
   "githubPullRequests.fileListLayout": "tree",
 }
