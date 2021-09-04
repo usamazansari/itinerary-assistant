@@ -19,8 +19,6 @@ export class ToolbarService {
   #vm$ = new BehaviorSubject<ToolbarVMModel>(ToolbarVMStub);
   #vm: ToolbarVMModel = { ...ToolbarVMStub };
 
-  constructor() { }
-
   /**
    * Fetch Assets for `ToolbarComponent`
    *

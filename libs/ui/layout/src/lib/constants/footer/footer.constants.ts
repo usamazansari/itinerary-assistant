@@ -1,4 +1,4 @@
-import { Author, IconStub } from '../../imports/constants';
+import { IconStub } from '../../imports/constants';
 import type {
   FooterAssetsModel,
   FooterDataModel,
@@ -34,16 +34,20 @@ const FooterLinkStub: FooterLinkModel = {
  *   madeWith    : '',
  *   heart       : FooterLinkStub,
  *   using       : '',
+ * 
  *   angular     : FooterLinkStub,
  *   tailwind    : FooterLinkStub,
  *   fontawesome : FooterLinkStub,
  *   firebase    : FooterLinkStub,
+ *   nx          : FooterLinkStub,
+ * 
  *   by          : '',
- *   author      : '',
+ * 
  *   github      : FooterLinkStub,
  *   linkedin    : FooterLinkStub,
  *   discord     : FooterLinkStub,
- *   email       : FooterLinkStub
+ *   email       : FooterLinkStub,
+ *   location    : FooterLinkStub
  * };
  * ```
  */
@@ -185,12 +189,7 @@ export const Constants: FooterVMModel = {
     }
   },
   data: {
-    fullname: Author.FullName,
-    github: `https://github.com/${Author.GitHub}`,
-    linkedin: `https://www.linkedin.com/in/${Author.LinkedIn}`,
-    discord: Author.Discord,
-    email: Author.Email,
-    location: Author.Location
+    ...FooterDataStub
   },
   strings: {
     snackbar: {

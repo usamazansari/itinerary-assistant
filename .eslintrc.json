@@ -6,7 +6,6 @@
   "plugins": [
     "@nrwl/nx"
   ],
-  // TODO: Fix ESLint configuration in the workspace
   "overrides": [
     {
       "files": [
@@ -20,21 +19,25 @@
           "error",
           {
             "enforceBuildableLibDependency": true,
-            "allow": [
-              {
-                "sourceTag": "(lib|app):ui*",
-                "onlyDependOnLibsWithTags": [
-                  "lib:ui-material",
-                  "lib:ui-icon",
-                  "lib:ui-layout"
-                ]
-              }
-            ],
+            "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
+                "sourceTag": "app:ui",
                 "onlyDependOnLibsWithTags": [
-                  "*"
+                  "lib:shared",
+                  "lib:ui-core",
+                  "lib:ui-elements",
+                  "lib:ui-icon",
+                  "lib:ui-layout",
+                  "lib:ui-material"
+                ]
+              },
+              {
+                "sourceTag": "lib:ui-layout",
+                "onlyDependOnLibsWithTags": [
+                  "lib:ui-elements",
+                  "lib:ui-icon",
+                  "lib:ui-material"
                 ]
               }
             ]
