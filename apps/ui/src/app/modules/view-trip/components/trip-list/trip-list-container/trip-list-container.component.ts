@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit
+} from '@angular/core';
 
 import type { Observable } from 'rxjs';
 
@@ -13,7 +17,7 @@ import { TripListItemModel } from '../../../imports/models';
 export class TripListContainerComponent implements OnInit {
   tripList$!: Observable<TripListItemModel[]>;
 
-  constructor(private _service: TripListService) {}
+  constructor(private _service: TripListService) { }
 
   ngOnInit(): void {
     this._service.fetchTripList();

@@ -19,7 +19,7 @@ export class RouterService {
    * @param {Router} _router Angular Router
    * @memberof RouterService
    */
-  constructor(private _router: Router) {}
+  constructor(private _router: Router) { }
 
   // TODO: 🧐 Documentation Required
   /**

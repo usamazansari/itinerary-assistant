@@ -3,7 +3,6 @@
 // 1- Import this file as module in app.module.ts ==> import { MaterialModule } from './xyz/abc';
 // 2- Initialize it in imports:[] array ==> imports:[MaterialModule]
 
-import { NgModule } from '@angular/core';
 // *************** FORM CONTROLS ***************
 // import { MatAutocompleteModule } from '@angular/material/autocomplete';
 // import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -57,45 +56,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 // import { MatPaginatorModule } from '@angular/material/paginator';
 // import { MatSortModule } from '@angular/material/sort';
 // import { MatTableModule } from '@angular/material/table';
-
-const MATERIAL_MODULES = [
-  // MatAutocompleteModule,
-  // MatCheckboxModule,
-  // MatDatepickerModule,
-  // MatNativeDateModule,
-  // MatFormFieldModule,
-  // MatInputModule,
-  // MatRadioModule,
-  // MatSelectModule,
-  // MatSliderModule,
-  // MatSlideToggleModule,
-  // MatMenuModule,
-  MatSidenavModule,
-  MatToolbarModule,
-  MatCardModule,
-  // MatDividerModule,
-  // MatExpansionModule,
-  // MatGridListModule,
-  // MatListModule,
-  // MatStepperModule,
-  // MatTabsModule,
-  // MatTreeModule,
-  MatButtonModule,
-  // MatButtonToggleModule,
-  // MatBadgeModule,
-  // MatChipsModule,
-  // MatIconModule,
-  // MatProgressSpinnerModule,
-  // MatProgressBarModule,
-  MatRippleModule,
-  // MatBottomSheetModule,
-  // MatDialogModule,
-  MatSnackBarModule,
-  MatTooltipModule
-  // MatPaginatorModule,
-  // MatSortModule,
-  // MatTableModule,
-];
 
 export const MaterialModules = [
   MatButtonModule,

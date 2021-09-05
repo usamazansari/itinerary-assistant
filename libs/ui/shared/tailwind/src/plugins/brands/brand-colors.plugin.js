@@ -19,6 +19,7 @@ function generateUtilities() {
   return utilities;
 }
 
+// TODO: Use configuration for brand colors
 module.exports = plugin(function ({ addUtilities }) {
   addUtilities(generateUtilities(), { variants: ['responsive', 'hover'] });
 });

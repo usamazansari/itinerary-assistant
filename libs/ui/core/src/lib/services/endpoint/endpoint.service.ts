@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { delay } from 'rxjs/operators';
-
 import type { Observable } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 // TODO: 🧐 Documentation Required
 // TODO: Implement other methods - post, put, delete
@@ -23,7 +22,7 @@ export class EndpointService {
    * @param {HttpClient} _http
    * @memberof EndpointService
    */
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   /**
    *

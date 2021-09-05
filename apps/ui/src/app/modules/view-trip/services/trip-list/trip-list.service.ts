@@ -25,7 +25,7 @@ export class TripListService {
    * @param {EndpointService} _endpointService
    * @memberof TripListService
    */
-  constructor(private _endpointService: EndpointService) {}
+  constructor(private _endpointService: EndpointService) { }
 
   fetchTripList(): void {
     this._endpointService

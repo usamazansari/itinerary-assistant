@@ -1,3 +1,3 @@
-export * from './lib/api-core.module';
-export * from './lib/controllers';
-export * from './lib/services';
+export { ApiCoreModule } from './lib/api-core.module';
+export { ApiCoreController } from './lib/controllers';
+export { ApiCoreService } from './lib/services';

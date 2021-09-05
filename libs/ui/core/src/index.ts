@@ -1,5 +1,5 @@
-export * from './lib/core.module';
+export { CoreModule } from './lib/core.module';
 
-export * from './lib/models';
-export * from './lib/constants';
-export * from './lib/services';
+export type { RouterPayloadModel } from './lib/models';
+export { EmptyString, RouterPayloadStub } from './lib/constants';
+export { CoreService, EndpointService, RouterService } from './lib/services';

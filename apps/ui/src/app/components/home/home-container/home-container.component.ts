@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit
+} from '@angular/core';
 
 import { HomeService } from '../../../services';
 import { HomeVMModel } from '../../../models';
@@ -14,7 +18,7 @@ import type { Observable } from 'rxjs';
 export class HomeContainerComponent implements OnInit {
   vm$!: Observable<HomeVMModel>;
 
-  constructor(private _service: HomeService) {}
+  constructor(private _service: HomeService) { }
 
   ngOnInit(): void {
     this._service.fetchAssets();

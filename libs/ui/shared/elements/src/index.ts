@@ -1,5 +1,5 @@
-export * from './lib/elements.module';
+export { ElementsModule } from './lib/elements.module';
 
-export * from './lib/constants';
-export * from './lib/models';
-export * from './lib/services';
+export { IconStub, ImageStub, SnackbarConfigStub } from './lib/constants';
+export type { IconModel, ImageModel } from './lib/models';
+export { ClipboardService, SnackbarService } from './lib/services';

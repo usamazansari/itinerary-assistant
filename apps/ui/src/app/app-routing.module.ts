@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { isDevMode, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -69,4 +70,4 @@ const exports = [RouterModule];
   imports: [...imports],
   exports: [...exports]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

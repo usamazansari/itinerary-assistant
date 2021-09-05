@@ -6,7 +6,7 @@ import { TripListStub, goa, ladakh, manali, northEast } from '../../mock';
 @Injectable()
 export class TripService {
   #tripList: TripListItemModel[] = [...TripListStub];
-  #tripOverviewDict: { [tripName: string]: TripOverviewModel } = {
+  #tripOverviewDict: { [tripName: string]: TripOverviewModel; } = {
     goa,
     ladakh,
     manali,

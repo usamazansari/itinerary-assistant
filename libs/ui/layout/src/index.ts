@@ -1,4 +1,29 @@
-export * from './lib/layout.module';
+export { LayoutModule } from './lib/layout.module';
 
-export * from './lib/models';
-export * from './lib/constants';
+export type {
+  FooterAssetsModel,
+  FooterDataModel,
+  FooterIconType,
+  FooterLinkModel,
+  FooterSnackbarMessageModel,
+  FooterStringsModel,
+  FooterVMModel,
+  ToolbarAssetsModel,
+  ToolbarDataModel,
+  ToolbarVMModel,
+  NavigationItemModel,
+  LayoutDataModel
+} from './lib/models';
+
+export {
+  FooterAssetsStub,
+  FooterConstants,
+  FooterDataStub,
+  FooterVMStub,
+  ToolbarAssetsStub,
+  ToolbarConstants,
+  ToolbarDataStub,
+  ToolbarVMStub,
+  NavigationItemStub,
+  LayoutDataStub
+} from './lib/constants';

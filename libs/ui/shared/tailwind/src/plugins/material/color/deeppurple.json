@@ -1,47 +1,196 @@
 {
   "name": "mat-deeppurple",
   "shades": [
-    ["50-light", "#ffffff"],
-    ["50", "#EDE7F6"],
-    ["50-dark", "#bbb5c3"],
-    ["100-light", "#fff7ff"],
-    ["100", "#D1C4E9"],
-    ["100-dark", "#a094b7"],
-    ["200-light", "#e6ceff"],
-    ["200", "#B39DDB"],
-    ["200-dark", "#836fa9"],
-    ["300-light", "#c7a4ff"],
-    ["300", "#9575CD"],
-    ["300-dark", "#65499c", "#FFFFFF"],
-    ["400-light", "#b085f5"],
-    ["400", "#7E57C2", "#FFFFFF"],
-    ["400-dark", "#4d2c91", "#FFFFFF"],
-    ["500-light", "#9a67ea"],
-    ["500", "#673AB7", "#FFFFFF"],
-    ["500-dark", "#320b86", "#FFFFFF"],
-    ["600-light", "#9162e4"],
-    ["600", "#5E35B1", "#FFFFFF"],
-    ["600-dark", "#280680", "#FFFFFF"],
-    ["700-light", "#8559da", "#FFFFFF"],
-    ["700", "#512DA8", "#FFFFFF"],
-    ["700-dark", "#140078", "#FFFFFF"],
-    ["800-light", "#7953d2", "#FFFFFF"],
-    ["800", "#4527A0", "#FFFFFF"],
-    ["800-dark", "#000070", "#FFFFFF"],
-    ["900-light", "#6746c3", "#FFFFFF"],
-    ["900", "#311B92", "#FFFFFF"],
-    ["900-dark", "#000063", "#FFFFFF"],
-    ["A100-light", "#e7b9ff"],
-    ["A100", "#B388FF"],
-    ["A100-dark", "#805acb", "#FFFFFF"],
-    ["A200-light", "#b47cff"],
-    ["A200", "#7C4DFF", "#FFFFFF"],
-    ["A200-dark", "#3f1dcb", "#FFFFFF"],
-    ["A400-light", "#a255ff"],
-    ["A400", "#651FFF", "#FFFFFF"],
-    ["A400-dark", "#0100ca", "#FFFFFF"],
-    ["A700-light", "#9d46ff"],
-    ["A700", "#6200EA", "#FFFFFF"],
-    ["A700-dark", "#0a00b6", "#FFFFFF"]
+    [
+      "50-light",
+      "#ffffff"
+    ],
+    [
+      "50",
+      "#EDE7F6"
+    ],
+    [
+      "50-dark",
+      "#bbb5c3"
+    ],
+    [
+      "100-light",
+      "#fff7ff"
+    ],
+    [
+      "100",
+      "#D1C4E9"
+    ],
+    [
+      "100-dark",
+      "#a094b7"
+    ],
+    [
+      "200-light",
+      "#e6ceff"
+    ],
+    [
+      "200",
+      "#B39DDB"
+    ],
+    [
+      "200-dark",
+      "#836fa9"
+    ],
+    [
+      "300-light",
+      "#c7a4ff"
+    ],
+    [
+      "300",
+      "#9575CD"
+    ],
+    [
+      "300-dark",
+      "#65499c",
+      "#FFFFFF"
+    ],
+    [
+      "400-light",
+      "#b085f5"
+    ],
+    [
+      "400",
+      "#7E57C2",
+      "#FFFFFF"
+    ],
+    [
+      "400-dark",
+      "#4d2c91",
+      "#FFFFFF"
+    ],
+    [
+      "500-light",
+      "#9a67ea"
+    ],
+    [
+      "500",
+      "#673AB7",
+      "#FFFFFF"
+    ],
+    [
+      "500-dark",
+      "#320b86",
+      "#FFFFFF"
+    ],
+    [
+      "600-light",
+      "#9162e4"
+    ],
+    [
+      "600",
+      "#5E35B1",
+      "#FFFFFF"
+    ],
+    [
+      "600-dark",
+      "#280680",
+      "#FFFFFF"
+    ],
+    [
+      "700-light",
+      "#8559da",
+      "#FFFFFF"
+    ],
+    [
+      "700",
+      "#512DA8",
+      "#FFFFFF"
+    ],
+    [
+      "700-dark",
+      "#140078",
+      "#FFFFFF"
+    ],
+    [
+      "800-light",
+      "#7953d2",
+      "#FFFFFF"
+    ],
+    [
+      "800",
+      "#4527A0",
+      "#FFFFFF"
+    ],
+    [
+      "800-dark",
+      "#000070",
+      "#FFFFFF"
+    ],
+    [
+      "900-light",
+      "#6746c3",
+      "#FFFFFF"
+    ],
+    [
+      "900",
+      "#311B92",
+      "#FFFFFF"
+    ],
+    [
+      "900-dark",
+      "#000063",
+      "#FFFFFF"
+    ],
+    [
+      "A100-light",
+      "#e7b9ff"
+    ],
+    [
+      "A100",
+      "#B388FF"
+    ],
+    [
+      "A100-dark",
+      "#805acb",
+      "#FFFFFF"
+    ],
+    [
+      "A200-light",
+      "#b47cff"
+    ],
+    [
+      "A200",
+      "#7C4DFF",
+      "#FFFFFF"
+    ],
+    [
+      "A200-dark",
+      "#3f1dcb",
+      "#FFFFFF"
+    ],
+    [
+      "A400-light",
+      "#a255ff"
+    ],
+    [
+      "A400",
+      "#651FFF",
+      "#FFFFFF"
+    ],
+    [
+      "A400-dark",
+      "#0100ca",
+      "#FFFFFF"
+    ],
+    [
+      "A700-light",
+      "#9d46ff"
+    ],
+    [
+      "A700",
+      "#6200EA",
+      "#FFFFFF"
+    ],
+    [
+      "A700-dark",
+      "#0a00b6",
+      "#FFFFFF"
+    ]
   ]
 }

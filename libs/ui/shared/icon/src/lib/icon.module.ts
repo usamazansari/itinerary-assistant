@@ -7,7 +7,7 @@ import {
 
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
-const ICONS = [faInfo];
+const Icons = [faInfo];
 
 @NgModule({
   imports: [FontAwesomeModule],
@@ -15,6 +15,6 @@ const ICONS = [faInfo];
 })
 export class IconModule {
   constructor(lib: FaIconLibrary) {
-    lib.addIcons(...ICONS);
+    lib.addIcons(...Icons);
   }
 }

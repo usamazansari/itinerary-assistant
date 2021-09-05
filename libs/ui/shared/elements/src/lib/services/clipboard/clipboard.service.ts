@@ -11,7 +11,7 @@ export class ClipboardService {
    * @param {Clipboard} _clipboard Instance of `Clipboard` from `@angular/cdk/clipboard`
    * @memberof ClipboardService
    */
-  constructor(private _clipboard: Clipboard) {}
+  constructor(private _clipboard: Clipboard) { }
 
   /**
    * Prepares a string to be copied later.

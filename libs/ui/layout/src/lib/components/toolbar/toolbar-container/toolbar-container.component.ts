@@ -24,27 +24,25 @@ import { ToolbarDataStub } from '../../../constants';
 export class ToolbarContainerComponent implements OnInit {
   #data$ = new BehaviorSubject<ToolbarDataModel>(ToolbarDataStub);
 
-  @Input() set data(value: ToolbarDataModel) {
-    this.#data$.next(value);
-  }
-  get data(): ToolbarDataModel {
-    return this.#data$.getValue();
-  }
+  @Input()
+  set data(value: ToolbarDataModel) { this.#data$.next(value ?? ToolbarDataStub); }
+  get data(): ToolbarDataModel { return this.#data$.getValue(); }
 
   vm$!: Observable<ToolbarVMModel>;
 
   @Output() navigate$ = new EventEmitter<void>();
   @Output() toggleSidenav$ = new EventEmitter<void>();
 
-  constructor(private _service: ToolbarService) {}
+  constructor(private _service: ToolbarService) { }
 
   ngOnInit(): void {
     this._service.fetchAssets();
     this.vm$ = this._service.watchVM$();
 
-    this.#data$.subscribe((data) => {
-      this._service.setData(data);
-    });
+    this.#data$.subscribe(
+      data => {
+        this._service.setData(data);
+      });
   }
 
   /**

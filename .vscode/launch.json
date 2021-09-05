@@ -33,7 +33,7 @@
     },
     {
       "name": "Debug UI",
-      "type": "chrome",
+      "type": "pwa-chrome",
       "request": "launch",
       "preLaunchTask": "Serve UI with Nx",
       "url": "http://localhost:4200",

@@ -27,7 +27,7 @@ export class HomeService {
    * Creates an instance of `HomeService`
    * @memberof HomeService
    */
-  constructor(private _routerService: RouterService) {}
+  constructor(private _routerService: RouterService) { }
 
   /**
    * Fetch Default Assets

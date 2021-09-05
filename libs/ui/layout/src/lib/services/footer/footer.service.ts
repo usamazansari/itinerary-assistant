@@ -29,7 +29,7 @@ export class FooterService {
   constructor(
     private _clipboard: ClipboardService,
     private _snackbar: SnackbarService
-  ) {}
+  ) { }
 
   /**
    * Fetch assets for `FooterComponent`
@@ -83,13 +83,6 @@ export class FooterService {
   watchVM$(): Observable<FooterVMModel> {
     return this.#vm$.asObservable();
   }
-
-  /**
-   * Refactored version of Clipboard Copy Text
-   *
-   * @memberof FooterService
-   */
-  copyText(): void {}
 
   /**
    * Copy the Discord ID: `usama251993#5438` to the clipboard

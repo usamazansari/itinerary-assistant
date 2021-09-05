@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'ia-layout-sidenav-container',
@@ -6,7 +10,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidenavContainerComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor() { }
+  ngOnInit(): void { }
 }

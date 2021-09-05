@@ -11,28 +11,12 @@
     }
   ],
   "compilerOptions": {
-    "baseUrl": "../../../",
+    "baseUrl": "./",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "@itinerary-assistant/ui/core": [
-        "./libs/ui/core/src/index.ts"
-      ],
-      "@itinerary-assistant/ui/icon": [
-        "./libs/ui/shared/icon/src/index.ts"
-      ],
-      "@itinerary-assistant/ui/material": [
-        "./libs/ui/shared/material/src/index.ts"
-      ],
-      "@itinerary-assistant/ui/elements": [
-        "./libs/ui/shared/elements/src/index.ts"
-      ],
-      "@itinerary-assistant/shared": [
-        "./libs/shared/src/index.ts"
-      ]
-    }
+    "paths": {}
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

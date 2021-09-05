@@ -41,6 +41,7 @@ function generateUtilities() {
   return utilities;
 }
 
+// TODO: Use configuration for material colors
 module.exports = plugin(function ({ addUtilities }) {
   addUtilities(generateUtilities(), {
     variants: ['responsive', 'hover', 'disabled']
