@@ -15,4 +15,5 @@ export const RouterPayloadStub: RouterPayloadModel = {
   extras: {}
 };
 
-export const EmptyString: string = '';
+// TODO: Move to global constants
+export const EmptyString = '';

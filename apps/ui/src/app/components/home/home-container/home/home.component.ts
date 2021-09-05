@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { HomeVMStub } from '../../../../constants';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   #vm$ = new BehaviorSubject<HomeVMModel>(HomeVMStub);
 
   @Input()
@@ -19,10 +19,6 @@ export class HomeComponent implements OnInit {
 
   @Output() gotoViewTrip$: EventEmitter<void> = new EventEmitter<void>();
   @Output() gotoCreateTrip$: EventEmitter<void> = new EventEmitter<void>();
-
-  constructor() { }
-
-  ngOnInit(): void { }
 
   gotoViewTrip(): void {
     this.gotoViewTrip$.emit();

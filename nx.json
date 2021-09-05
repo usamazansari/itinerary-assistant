@@ -47,7 +47,7 @@
     },
     "shared": {
       "tags": [
-        "shared"
+        "lib:shared"
       ]
     },
     "ui": {

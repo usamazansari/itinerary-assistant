@@ -20,7 +20,11 @@ import { Icons } from './icons';
     Components.ToolbarComponent,
     Components.ShellComponent
   ],
-  imports: [CommonModule, Libraries.IconModule, Libraries.MaterialModule],
+  imports: [
+    CommonModule,
+    Libraries.IconModule,
+    Libraries.MaterialModule
+  ],
   exports: [Components.ShellComponent]
 })
 export class LayoutModule extends Libraries.IconModule {

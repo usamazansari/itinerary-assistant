@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
-  Component,
-  OnInit
+  Component
 } from '@angular/core';
 
 @Component({
@@ -9,7 +8,4 @@ import {
   template: `<router-outlet></router-outlet>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppShellComponent implements OnInit {
-  constructor() { }
-  ngOnInit(): void { }
-}
+export class AppShellComponent { }

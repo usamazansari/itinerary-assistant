@@ -8,7 +8,7 @@ import {
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import { FooterService } from '../../../services/footer/footer.service';
+import { FooterService } from '../../../services';
 
 import type { FooterVMModel, FooterDataModel } from '../../../models';
 import { FooterDataStub } from '../../../constants';
