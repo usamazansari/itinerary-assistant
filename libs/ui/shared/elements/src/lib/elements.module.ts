@@ -6,11 +6,11 @@ import * as Components from './components';
 @NgModule({
   imports: [CommonModule],
   declarations: [
-    Components.LoaderContainerComponent,
-    Components.LoaderComponent
+    Components.InlineLoaderContainerComponent,
+    Components.InlineLoaderComponent
   ],
   exports: [
-    Components.LoaderContainerComponent
+    Components.InlineLoaderContainerComponent
   ]
 })
 export class ElementsModule { }

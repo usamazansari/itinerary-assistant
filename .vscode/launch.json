@@ -38,9 +38,7 @@
       "preLaunchTask": "Serve UI with Nx",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
-      "runtimeArgs": [
-        "--incognito"
-      ],
+      "runtimeArgs": [],
       "sourceMapPathOverrides": {
         "webpack:/*": "${webRoot}/*",
         "/./*": "${webRoot}/*",

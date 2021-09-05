@@ -19,7 +19,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "iaElement",
+            "prefix": "iaElements",
             "style": "camelCase"
           }
         ],
@@ -27,7 +27,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "ia-element",
+            "prefix": "ia-elements",
             "style": "kebab-case"
           }
         ]

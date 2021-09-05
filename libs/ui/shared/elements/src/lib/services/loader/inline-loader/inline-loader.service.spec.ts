@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoaderService } from './loader.service';
+import { InlineLoaderService } from './inline-loader.service';
 
 describe('LoaderService', () => {
-  let service: LoaderService;
+  let service: InlineLoaderService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LoaderService);
+    service = TestBed.inject(InlineLoaderService);
   });
 
   it('should be created', () => {
