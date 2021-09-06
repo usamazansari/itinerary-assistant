@@ -41,7 +41,7 @@ import { MatButtonModule } from '@angular/material/button';
 // import { MatBadgeModule } from '@angular/material/badge';
 // import { MatChipsModule } from '@angular/material/chips';
 // import { MatIconModule } from '@angular/material/icon';
-// import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 // import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRippleModule } from '@angular/material/core';
 
@@ -63,6 +63,7 @@ export const MaterialModules = [
   MatRippleModule,
   MatSidenavModule,
   MatSnackBarModule,
+  MatProgressSpinnerModule,
   MatToolbarModule,
   MatTooltipModule
 ];

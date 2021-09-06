@@ -19,7 +19,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "itineraryAssistant",
+            "prefix": "iaElements",
             "style": "camelCase"
           }
         ],
@@ -27,7 +27,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "itinerary-assistant",
+            "prefix": "ia-elements",
             "style": "kebab-case"
           }
         ]

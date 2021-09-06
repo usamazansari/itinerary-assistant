@@ -1,0 +1,9 @@
+mat-card.home-card {
+  @apply p-0 m-2 cursor-pointer elevation-2;
+
+  mat-card-content.home-card-content {
+    div {
+      @apply m-6;
+    }
+  }
+}

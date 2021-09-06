@@ -18,10 +18,8 @@ import * as Components from './components';
   declarations: [
     AppComponent,
 
-    Components.AppShellComponent,
-
-    Components.HomeContainerComponent,
-    Components.HomeComponent
+    Components.HomeComponent,
+    Components.HomeContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +29,11 @@ import * as Components from './components';
     LumberjackModule.forRoot(),
     LumberjackConsoleDriverModule.forRoot(),
 
+    Libraries.CoreModule,
+    Libraries.ElementsModule,
+    Libraries.IconModule,
     Libraries.LayoutModule,
     Libraries.MaterialModule,
-    Libraries.CoreModule,
-    Libraries.IconModule,
 
     Modules.IconModule,
 
