@@ -25,6 +25,8 @@
         <span class="mt-4 outline-none select-none text-mat-indigo-700 focus:outline-none">
           {{ vm.assets.create.text }}
         </span>
+
+        <ia-elements-inline-loader-container [config]="(loaderConfig$ | async)!"></ia-elements-inline-loader-container>
       </div>
     </mat-card-content>
   </mat-card>
