@@ -1,9 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { BehaviorSubject, timer } from 'rxjs';
-
-import type { LoaderConfigModel } from '../../../../imports/models';
-import { LoaderSize, LoaderConfigStub } from '../../../../imports/constants';
+import { BehaviorSubject } from 'rxjs';
 
 import type { HomeVMModel } from '../../../../models';
 import { HomeVMStub } from '../../../../constants';
@@ -13,7 +10,7 @@ import { HomeVMStub } from '../../../../constants';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   #vm$ = new BehaviorSubject<HomeVMModel>(HomeVMStub);
 
   @Input()
@@ -22,22 +19,6 @@ export class HomeComponent implements OnInit {
 
   @Output() gotoViewTrip$: EventEmitter<void> = new EventEmitter<void>();
   @Output() gotoCreateTrip$: EventEmitter<void> = new EventEmitter<void>();
-
-  // TODO: ❌ Remove this
-  loaderConfig$ = new BehaviorSubject<LoaderConfigModel>(LoaderConfigStub);
-
-  ngOnInit(): void {
-    // TODO: ❌ Remove this
-    this.loaderConfig$.next({
-      visible: true, size: LoaderSize.Small
-    });
-    timer(5000).subscribe(() => {
-      this.loaderConfig$.next({
-        ...this.loaderConfig$.getValue(),
-        visible: false
-      });
-    });
-  }
 
   gotoViewTrip(): void {
     this.gotoViewTrip$.emit();
