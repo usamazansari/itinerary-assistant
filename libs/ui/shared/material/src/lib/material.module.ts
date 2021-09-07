@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 
 import { MaterialModules } from '.';
 
-const imports = [...MaterialModules];
-const exports = [...MaterialModules];
-
-@NgModule({ imports, exports })
+@NgModule({
+  imports: [...MaterialModules],
+  exports: [...MaterialModules]
+})
 export class MaterialModule { }

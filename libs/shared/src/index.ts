@@ -1,2 +1,3 @@
-export { ApplicationName, Author } from './lib/constants';
+export { ApplicationName, Author, tripListItemStub } from './lib/constants';
+
 export type { TripListItemModel, TripOverviewModel } from './lib/models';
