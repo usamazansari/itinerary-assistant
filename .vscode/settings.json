@@ -4,7 +4,7 @@
   "editor.autoClosingQuotes": "always",
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": true,
-  "editor.cursorSurroundingLines": 4,
+  "editor.cursorSurroundingLines": 2,
   "editor.cursorSurroundingLinesStyle": "all",
   "editor.fastScrollSensitivity": 7,
   "editor.find.autoFindInSelection": "multiline",

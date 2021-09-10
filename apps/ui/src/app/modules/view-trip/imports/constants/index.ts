@@ -1,1 +1,1 @@
-export { tripListItemStub } from '@itinerary-assistant/shared'
+export { TripListItemStub } from '@itinerary-assistant/shared';

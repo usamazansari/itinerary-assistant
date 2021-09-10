@@ -2,4 +2,5 @@ export { ApplicationName } from './application.constants';
 export { Author } from './author.constants';
 export { FirebaseConfig } from './firebase.constants';
 
-export { tripListItemStub } from './trip/trip.constants';
+export { TripListItemStub } from './trip/trip.constants';
+export { ServerResponse } from './endpoint/endpoint.constants';

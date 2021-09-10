@@ -4,23 +4,21 @@ import type { Observable } from 'rxjs';
 import { of } from 'rxjs';
 
 import type { TripListItemModel } from '../../../imports/models';
-import { tripListItemStub } from '../../../imports/constants';
+import { TripListItemStub } from '../../../imports/constants';
 import { TripListService } from '../../../services';
 
 import { TripListContainerComponent } from './trip-list-container.component';
+import { TripListErrorModel } from '../../../models';
 
 describe('TripListContainerComponent', () => {
   let component: TripListContainerComponent;
   let fixture: ComponentFixture<TripListContainerComponent>;
 
-  const tripLIStub: TripListItemModel = { ...tripListItemStub };
-
   const serviceStub: Partial<TripListService> = {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     fetchTripList: (): void => { },
-    watchTripList$: (): Observable<TripListItemModel[]> => of(
-      [tripLIStub]
-    )
+    watchTripList$: (): Observable<TripListItemModel[]> => of([TripListItemStub]),
+    watchError$: (): Observable<TripListErrorModel> => of({ message: '' })
   };
 
   beforeEach(async () => {

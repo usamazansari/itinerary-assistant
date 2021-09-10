@@ -1,1 +1,1 @@
-export { TripListItemModel } from '@itinerary-assistant/shared';
+export { APIResponseModel, TripListItemModel } from '@itinerary-assistant/shared';

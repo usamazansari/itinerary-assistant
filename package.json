@@ -14,6 +14,7 @@
     "analyze:webpack": "webpack-bundle-analyzer dist/apps/ui/stats.json",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
+    "lint-fix": "nx workspace-lint --fix && nx lint --fix",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
