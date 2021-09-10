@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
+import type { HttpErrorResponse } from '@angular/common/http';
 
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import type { APIResponseModel, TripListItemModel } from '../../imports/models';
+import type { APIResponseModel } from '../../imports/models';
 import { CoreService, EndpointService } from '../../imports/services';
 
-import type { TripListErrorModel } from '../../models';
-import { TripListErrorStub } from '../../constants';
-import { HttpErrorResponse } from '@angular/common/http';
+import type {
+  TripListAssetsModel,
+  TripListDataModel,
+  TripListErrorModel
+} from '../../models';
+import {
+  TripListAssetsStub,
+  TripListDataStub,
+  TripListErrorStub,
+  TripListConstants as Constants
+} from '../../constants';
 
 // TODO: Refactor to make it free of loose strings
 /**
@@ -21,8 +30,11 @@ import { HttpErrorResponse } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TripListService {
-  #tripList$ = new BehaviorSubject<TripListItemModel[]>([]);
-  #tripList: TripListItemModel[] = [];
+  #assets$ = new BehaviorSubject<TripListAssetsModel>(TripListAssetsStub);
+  #assets: TripListAssetsModel = { ...TripListAssetsStub };
+
+  #data$ = new BehaviorSubject<TripListDataModel>(TripListDataStub);
+  #data: TripListDataModel = { ...TripListDataStub };
 
   #error$ = new BehaviorSubject<TripListErrorModel>(TripListErrorStub);
   #error: TripListErrorModel = { ...TripListErrorStub };
@@ -37,13 +49,28 @@ export class TripListService {
     private _coreService: CoreService
   ) { }
 
-  fetchTripList(): void {
+  fetchAssets(): void {
+    this.setAssets({
+      ...Constants.assets
+    });
+  }
+
+  private setAssets(trips: TripListAssetsModel): void {
+    this.#assets = { ...trips ?? TripListAssetsStub };
+    this.#assets$.next(this.#assets);
+  }
+
+  watchAssets$(): Observable<TripListAssetsModel> {
+    return this.#assets$.asObservable();
+  }
+
+  fetchData(): void {
     this._endpointService
-      .get<TripListItemModel[]>(`http://localhost:3333/api/trip/view-trip`)
+      .get<TripListDataModel>(`http://localhost:3333/api/trip/view-trip`)
       .pipe()
       .subscribe(
-        (response: APIResponseModel<TripListItemModel[]>) => {
-          this._setTrips(response);
+        (response: APIResponseModel<TripListDataModel>) => {
+          this.setData(response);
         },
         (error: APIResponseModel<unknown>) => {
           this.handleError(error);
@@ -51,13 +78,13 @@ export class TripListService {
       );
   }
 
-  private _setTrips(response: APIResponseModel<TripListItemModel[]>): void {
-    this.#tripList = [...response.data ?? []];
-    this.#tripList$.next(this.#tripList);
+  private setData(response: APIResponseModel<TripListDataModel>): void {
+    this.#data = { ...response.data ?? TripListDataStub };
+    this.#data$.next(this.#data);
   }
 
-  watchTripList$(): Observable<TripListItemModel[]> {
-    return this.#tripList$.asObservable();
+  watchData$(): Observable<TripListDataModel> {
+    return this.#data$.asObservable();
   }
 
   private handleError(error: APIResponseModel<unknown>): void {

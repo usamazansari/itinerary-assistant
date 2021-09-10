@@ -91,7 +91,7 @@ export interface HomeAssetsModel {
  *   assets: HomeAssetsModel
  * }
  * ```
- *
+ * @deprecated - Use separate objects
  * @export
  * @interface HomeVMModel
  */

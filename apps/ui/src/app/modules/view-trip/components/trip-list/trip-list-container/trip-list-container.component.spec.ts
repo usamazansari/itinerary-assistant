@@ -3,12 +3,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import type { Observable } from 'rxjs';
 import { of } from 'rxjs';
 
+import { TripListContainerComponent } from './trip-list-container.component';
+
 import type { TripListItemModel } from '../../../imports/models';
 import { TripListItemStub } from '../../../imports/constants';
-import { TripListService } from '../../../services';
 
-import { TripListContainerComponent } from './trip-list-container.component';
-import { TripListErrorModel } from '../../../models';
+import { TripListErrorStub } from '../../../constants';
+import type { TripListErrorModel } from '../../../models';
+import { TripListService } from '../../../services';
 
 describe('TripListContainerComponent', () => {
   let component: TripListContainerComponent;
@@ -18,7 +20,7 @@ describe('TripListContainerComponent', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     fetchTripList: (): void => { },
     watchTripList$: (): Observable<TripListItemModel[]> => of([TripListItemStub]),
-    watchError$: (): Observable<TripListErrorModel> => of({ message: '' })
+    watchError$: (): Observable<TripListErrorModel> => of({ ...TripListErrorStub })
   };
 
   beforeEach(async () => {

@@ -278,6 +278,7 @@ export interface FooterStringsModel {
  * }
  * ```
  *
+ * @deprecated - Use separate objects
  * @export
  * @interface FooterVMModel
  */
