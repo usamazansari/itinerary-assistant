@@ -33,11 +33,24 @@
                 ]
               },
               {
+                "sourceTag": "app:api",
+                "onlyDependOnLibsWithTags": [
+                  "lib:shared",
+                  "lib:api-core"
+                ]
+              },
+              {
                 "sourceTag": "lib:ui-layout",
                 "onlyDependOnLibsWithTags": [
                   "lib:ui-elements",
                   "lib:ui-icon",
                   "lib:ui-material"
+                ]
+              },
+              {
+                "sourceTag": "lib:ui-core",
+                "onlyDependOnLibsWithTags": [
+                  "lib:shared"
                 ]
               }
             ]
@@ -60,6 +73,7 @@
         "@typescript-eslint/no-duplicate-imports": "error",
         "@typescript-eslint/no-empty-interface": "warn",
         "@typescript-eslint/no-extra-boolean-cast": "off",
+        "no-extra-boolean-cast": "off",
         "@typescript-eslint/no-redeclare": "warn",
         "no-trailing-spaces": "warn",
         "prefer-const": "warn"

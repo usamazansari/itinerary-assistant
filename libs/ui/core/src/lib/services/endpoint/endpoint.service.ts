@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import type { Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
+
+import type { APIResponseModel } from '../../imports/models';
 
 // TODO: 🧐 Documentation Required
 // TODO: Implement other methods - post, put, delete
@@ -32,7 +34,10 @@ export class EndpointService {
    * @return {*}  {Observable<ResponseType>}
    * @memberof EndpointService
    */
-  get<ResponseType>(url: string): Observable<ResponseType> {
-    return this._http.get<ResponseType>(url).pipe(delay(3000));
+  get<ResponseType>(url: string): Observable<APIResponseModel<ResponseType>> {
+    return this._http.get<APIResponseModel<ResponseType>>(url)
+      .pipe(
+        delay(3000)
+      );
   }
 }
