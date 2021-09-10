@@ -1,7 +1,8 @@
 export {
   ApplicationName,
   Author,
-  ServerResponse
+  ServerResponse,
+  TripListItemStub
 } from './lib/constants';
 
 export type {

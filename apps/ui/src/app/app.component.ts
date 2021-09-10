@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { ApplicationName, Author } from './imports/constants';
-import { LayoutDataStub } from './imports/models';
+import { ApplicationName, Author, LayoutDataStub } from './imports/constants';
 import { RouterService } from './imports/services';
 
 import type { LayoutDataModel } from './imports/models';
