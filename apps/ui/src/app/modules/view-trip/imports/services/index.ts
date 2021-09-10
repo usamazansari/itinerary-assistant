@@ -1,1 +1,1 @@
-export { EndpointService } from '../../../../imports/services';
+export { EndpointService, CoreService } from '@itinerary-assistant/ui/core';
