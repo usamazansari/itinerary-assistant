@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
+import type { HttpErrorResponse } from '@angular/common/http';
 
-import { ServerResponse } from '../imports/constants';
+import type { HttpStatus } from '../imports/constants';
+import { getServerResponseMessage } from '../imports/utils';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,12 @@ export class CoreService {
   /**
    *
    *
-   * @param {HttpStatusCode} status
+   * @param {HttpStatus} status
    * @return {*}  {string}
    * @memberof CoreService
    */
-  getConstant(status: HttpStatusCode): string {
-    return ServerResponse.get(status) ?? '';
+  getServerResponseMessage(status: HttpStatus): string {
+    return getServerResponseMessage(status);
   }
 
   /**

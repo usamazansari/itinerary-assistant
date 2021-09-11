@@ -4,18 +4,19 @@ import type { HttpErrorResponse } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import type { APIResponseModel } from '../../imports/models';
+import type { APIResponseModel, TripListDataModel } from '../../imports/models';
 import { CoreService, EndpointService } from '../../imports/services';
 
 import type {
   TripListAssetsModel,
-  TripListDataModel,
-  TripListErrorModel
+  TripListErrorModel,
+  TripListFlagModel
 } from '../../models';
 import {
   TripListAssetsStub,
   TripListDataStub,
   TripListErrorStub,
+  TripListFlagStub,
   TripListConstants as Constants
 } from '../../constants';
 
@@ -35,6 +36,9 @@ export class TripListService {
 
   #data$ = new BehaviorSubject<TripListDataModel>(TripListDataStub);
   #data: TripListDataModel = { ...TripListDataStub };
+
+  #flags$ = new BehaviorSubject<TripListFlagModel>(TripListFlagStub);
+  #flags = { ...TripListFlagStub };
 
   #error$ = new BehaviorSubject<TripListErrorModel>(TripListErrorStub);
   #error: TripListErrorModel = { ...TripListErrorStub };
@@ -65,14 +69,38 @@ export class TripListService {
   }
 
   fetchData(): void {
+    this.setFlags({
+      ...this.#flags,
+      shell: {
+        ...this.#flags.shell,
+        progress: true,
+        dirty: true
+      }
+    });
     this._endpointService
       .get<TripListDataModel>(`http://localhost:3333/api/trip/view-trip`)
       .pipe()
       .subscribe(
         (response: APIResponseModel<TripListDataModel>) => {
+          this.setFlags({
+            ...this.#flags,
+            shell: {
+              ...this.#flags.shell,
+              progress: false,
+              success: true
+            }
+          });
           this.setData(response);
         },
         (error: APIResponseModel<unknown>) => {
+          this.setFlags({
+            ...this.#flags,
+            shell: {
+              ...this.#flags.shell,
+              progress: false,
+              fail: true
+            }
+          });
           this.handleError(error);
         }
       );
@@ -87,11 +115,24 @@ export class TripListService {
     return this.#data$.asObservable();
   }
 
+  private setFlags(flags: TripListFlagModel): void {
+    this.#flags = { ...flags ?? TripListFlagStub };
+    this.#flags$.next(this.#flags);
+  }
+
+  resetFlags(): void {
+    this.setFlags(TripListFlagStub);
+  }
+
+  watchFlags$(): Observable<TripListFlagModel> {
+    return this.#flags$.asObservable();
+  }
+
   private handleError(error: APIResponseModel<unknown>): void {
     const isServiceAvailable = this._coreService.checkError(<HttpErrorResponse>error.error);
     if (!isServiceAvailable) {
       this.setError({
-        message: this._coreService.getConstant(error.error?.status ?? 0)
+        message: this._coreService.getServerResponseMessage(error.error?.status ?? 0)
       });
     } else {
       this.setError({

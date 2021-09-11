@@ -1,7 +1,9 @@
-import type { HttpErrorResponse, HttpHeaders, HttpParams, HttpStatusCode } from '@angular/common/http';
+import type { HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+
+import type { HttpStatus } from '../../constants';
 
 export interface APIResponseModel<DataType> {
-  status: HttpStatusCode;
+  status: HttpStatus;
   data: DataType | null;
   error: HttpErrorResponse | null;
 }

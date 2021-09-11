@@ -1,9 +1,10 @@
-import { IconStub } from '../../imports/constants';
+import { IconStub, FlagStub } from '../../imports/constants';
+import type { TripListDataModel } from '../../imports/models';
 
 import type {
   TripListAssetsModel,
-  TripListDataModel,
-  TripListErrorModel
+  TripListErrorModel,
+  TripListFlagModel
 } from '../../models';
 
 export const TripListAssetsStub: TripListAssetsModel = {
@@ -15,6 +16,10 @@ export const TripListAssetsStub: TripListAssetsModel = {
 
 export const TripListDataStub: TripListDataModel = {
   trips: []
+};
+
+export const TripListFlagStub: TripListFlagModel = {
+  shell: { ...FlagStub }
 };
 
 export const TripListErrorStub: TripListErrorModel = {
