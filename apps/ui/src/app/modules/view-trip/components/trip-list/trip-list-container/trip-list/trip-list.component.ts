@@ -2,8 +2,20 @@ import { Component, Input } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { TripListAssetsStub, TripListDataStub, TripListErrorStub } from '../../../../constants';
-import type { TripListAssetsModel, TripListDataModel, TripListErrorModel } from '../../../../models';
+import type { TripListDataModel } from '../../../../imports/models';
+
+import {
+  TripListAssetsStub,
+  TripListDataStub,
+  TripListErrorStub,
+  TripListFlagStub
+} from '../../../../constants';
+
+import type {
+  TripListAssetsModel,
+  TripListErrorModel,
+  TripListFlagModel
+} from '../../../../models';
 
 @Component({
   selector: 'ia-trip-list',
@@ -13,6 +25,7 @@ import type { TripListAssetsModel, TripListDataModel, TripListErrorModel } from 
 export class TripListComponent {
   #assets$ = new BehaviorSubject<TripListAssetsModel>(TripListAssetsStub);
   #data$ = new BehaviorSubject<TripListDataModel>(TripListDataStub);
+  #flag$ = new BehaviorSubject<TripListFlagModel>(TripListFlagStub);
   #error$ = new BehaviorSubject<TripListErrorModel>(TripListErrorStub);
 
   @Input()
@@ -22,6 +35,10 @@ export class TripListComponent {
   @Input()
   set data(value: TripListDataModel) { this.#data$.next(value); }
   get data(): TripListDataModel { return this.#data$.getValue(); }
+
+  @Input()
+  set flags(value: TripListFlagModel) { this.#flag$.next(value); }
+  get flags(): TripListFlagModel { return this.#flag$.getValue(); }
 
   @Input()
   set error(value: TripListErrorModel) { this.#error$.next(value); }

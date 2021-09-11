@@ -1,2 +1,2 @@
 export { TripListItemStub } from '@itinerary-assistant/shared';
-export { IconStub } from '@itinerary-assistant/ui/elements';
+export { IconStub, FlagStub } from '@itinerary-assistant/ui/elements';
