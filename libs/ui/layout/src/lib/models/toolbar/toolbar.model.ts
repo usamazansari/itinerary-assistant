@@ -55,6 +55,7 @@ export interface ToolbarDataModel {
  * }
  * ```
  *
+ * @deprecated - Use separate objects
  * @export
  * @interface ToolbarVMModel
  */

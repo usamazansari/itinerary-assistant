@@ -1,1 +1,5 @@
-export type { TripListErrorModel } from './trip-list/trip-list.model'
+export type {
+  TripListAssetsModel,
+  TripListErrorModel,
+  TripListFlagModel
+} from './trip-list/trip-list.model';
