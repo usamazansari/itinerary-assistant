@@ -7,7 +7,7 @@
         <!-- TODO: Implement a nice and creative design -->
         <div class="grid grid-rows-1 sm:grid-cols-2 xl:grid-cols-4 w-full">
           <mat-card *ngFor="let trip of data.trips"
-                    class="m-4 elevation-4 max-w-xs">
+                    class="m-4 elevation-4">
             <mat-card-header>
               <mat-card-title>{{ trip.title }}</mat-card-title>
               <!-- TODO: Use Star Rating -->
@@ -45,8 +45,20 @@
 
   <ng-template #loadingTrips>
     <!-- TODO: Implement Skeleton Loader -->
-    <div class="grid place-content-center w-full h-full">
-      <p class="font-medium">Loading...</p>
+    <div class="flex flex-wrap justify-around">
+      <mat-card class="m-4 elevation-4 w-64 skeleton-card">
+        <mat-card-header>
+          <mat-card-title class="skeleton-title skeleton-animation"></mat-card-title>
+          <!-- TODO: Use Star Rating -->
+          <mat-card-subtitle class="skeleton-subtitle skeleton-animation"></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="flex items-center justify-between">
+            <p class="m-0 skeleton-start-date skeleton-animation"></p>
+            <p class="m-0 skeleton-amount skeleton-animation"></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
   </ng-template>
 </div>
