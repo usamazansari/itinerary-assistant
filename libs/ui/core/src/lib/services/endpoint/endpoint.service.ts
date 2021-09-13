@@ -57,7 +57,7 @@ export class EndpointService {
   post<RequestBody, ResponseType>(url: string, body: RequestBody): Observable<APIResponseModel<ResponseType>> {
     return this._http.post<APIResponseModel<ResponseType>>(url, body)
       .pipe(
-        delay(3000)
+        // delay(3000)
       );
   }
 
@@ -75,7 +75,7 @@ export class EndpointService {
   put<RequestBody, ResponseType>(url: string, body: RequestBody): Observable<APIResponseModel<ResponseType>> {
     return this._http.put<APIResponseModel<ResponseType>>(url, body)
       .pipe(
-        delay(3000)
+        // delay(3000)
       );
   }
 

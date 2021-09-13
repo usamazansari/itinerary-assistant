@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { trigger } from '@angular/animations';
 
 import { BehaviorSubject } from 'rxjs';
 
@@ -17,10 +18,13 @@ import type {
   TripListFlagModel
 } from '../../../../models';
 
+import { fadeIn } from './trip-list.animation';
+
 @Component({
   selector: 'ia-trip-list',
   templateUrl: './trip-list.component.html',
-  styleUrls: ['./trip-list.component.scss']
+  styleUrls: ['./trip-list.component.scss'],
+  animations: [trigger('fadeIn', fadeIn())]
 })
 export class TripListComponent {
   #assets$ = new BehaviorSubject<TripListAssetsModel>(TripListAssetsStub);
