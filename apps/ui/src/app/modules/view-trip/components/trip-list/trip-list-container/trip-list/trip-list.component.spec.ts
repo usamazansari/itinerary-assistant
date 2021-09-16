@@ -35,7 +35,7 @@ describe('TripListComponent', () => {
       }
     };
     fixture.detectChanges();
-    const skeleton: HTMLDivElement | null = debugEl.query(By.css('div#skeleton-container-div')).nativeElement;
+    const skeleton: HTMLElement | null = debugEl.query(By.css('ia-trip-list-skeleton')).nativeElement;
     expect(skeleton).not.toBeNull();
   });
 });
