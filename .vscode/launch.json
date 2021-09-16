@@ -14,7 +14,8 @@
         "test",
         "--runInBand",
         "--testPathPattern=${fileBasenameNoExtension}",
-        "--config=${workspaceFolder}/jest.config.js"
+        "--config=${workspaceFolder}/jest.config.js",
+        "--skip-nx-cache"
       ],
       "skipFiles": [
         "<node_internals>/**"

@@ -1,5 +1,5 @@
 import { DebugElement } from '@angular/core';
-import { ComponentFixture, TestBed, ComponentFixtureAutoDetect } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { TripListComponent } from './trip-list.component';
@@ -10,12 +10,8 @@ describe('TripListComponent', () => {
   let fixture: ComponentFixture<TripListComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [TripListComponent],
-      providers: [
-        { provide: ComponentFixtureAutoDetect, useValue: true }
-      ]
-    })
+    await TestBed
+      .configureTestingModule({ declarations: [TripListComponent] })
       .compileComponents();
   });
 
@@ -26,15 +22,20 @@ describe('TripListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('TripListComponent should be created', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 
-  it('TripListComponent should display when API Call is triggered', () => {
-    const divDebugEl: DebugElement = debugEl.query(By.css('#skeleton-container-div'));
-    const div: HTMLDivElement = divDebugEl.nativeElement;
-    component.flags.shell.progress = true;
-    // fixture.detectChanges();
-    expect(div).toBeDefined();
+  it('should display skeleton when API Call is triggered', () => {
+    component.flags = {
+      ...component.flags,
+      shell: {
+        ...component.flags.shell,
+        progress: true
+      }
+    };
+    fixture.detectChanges();
+    const skeleton: HTMLDivElement | null = debugEl.query(By.css('div#skeleton-container-div')).nativeElement;
+    expect(skeleton).not.toBeNull();
   });
 });
