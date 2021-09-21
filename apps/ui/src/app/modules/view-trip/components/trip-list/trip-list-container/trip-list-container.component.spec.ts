@@ -5,11 +5,19 @@ import { of } from 'rxjs';
 
 import { TripListContainerComponent } from './trip-list-container.component';
 
-import type { TripListItemModel } from '../../../imports/models';
-import { TripListItemStub } from '../../../imports/constants';
+import type { TripListDataModel } from '../../../imports/models';
 
-import { TripListErrorStub } from '../../../constants';
-import type { TripListErrorModel } from '../../../models';
+import {
+  TripListAssetsStub,
+  TripListDataStub,
+  TripListErrorStub,
+  TripListFlagStub
+} from '../../../constants';
+import type {
+  TripListAssetsModel,
+  TripListErrorModel,
+  TripListFlagModel
+} from '../../../models';
 import { TripListService } from '../../../services';
 
 describe('TripListContainerComponent', () => {
@@ -17,9 +25,12 @@ describe('TripListContainerComponent', () => {
   let fixture: ComponentFixture<TripListContainerComponent>;
 
   const serviceStub: Partial<TripListService> = {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    fetchTripList: (): void => { },
-    watchTripList$: (): Observable<TripListItemModel[]> => of([TripListItemStub]),
+    fetchAssets: (): void => { },
+    watchAssets$: (): Observable<TripListAssetsModel> => of(TripListAssetsStub),
+    fetchData: (): void => { },
+    watchData$: (): Observable<TripListDataModel> => of(TripListDataStub),
+    resetFlags: (): void => { },
+    watchFlags$: (): Observable<TripListFlagModel> => of(TripListFlagStub),
     watchError$: (): Observable<TripListErrorModel> => of({ ...TripListErrorStub })
   };
 

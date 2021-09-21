@@ -11,7 +11,6 @@ import {
   TripListErrorStub,
   TripListFlagStub
 } from '../../../../constants';
-
 import type {
   TripListAssetsModel,
   TripListErrorModel,
