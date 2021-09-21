@@ -7,6 +7,10 @@ import type {
   TripListFlagModel
 } from '../../models';
 
+// TODO: 🧐 Documentation Required
+/**
+ * TODO: 🧐 Documentation Required
+ */
 export const TripListAssetsStub: TripListAssetsModel = {
   view: {
     icon: { ...IconStub },
@@ -14,18 +18,34 @@ export const TripListAssetsStub: TripListAssetsModel = {
   }
 };
 
+// TODO: 🧐 Documentation Required
+/**
+ * TODO: 🧐 Documentation Required
+ */
 export const TripListDataStub: TripListDataModel = {
   trips: []
 };
 
+// TODO: 🧐 Documentation Required
+/**
+ * TODO: 🧐 Documentation Required
+ */
 export const TripListFlagStub: TripListFlagModel = {
   shell: { ...FlagStub }
 };
 
+// TODO: 🧐 Documentation Required
+/**
+ * TODO: 🧐 Documentation Required
+ */
 export const TripListErrorStub: TripListErrorModel = {
   message: ''
 };
 
+// TODO: 🧐 Documentation Required
+/**
+ * TODO: 🧐 Documentation Required
+ */
 export const Constants: {
   assets: TripListAssetsModel;
   data: TripListDataModel;
