@@ -68,8 +68,9 @@ describe('TripListComponent', () => {
       }
     };
     fixture.detectChanges();
-    const skeleton: HTMLElement | null = debugEl.query(By.css('ia-trip-list-skeleton')).nativeElement;
+    const skeleton: HTMLElement | null = debugEl.query(By.css('ia-trip-list-skeleton'))?.nativeElement;
     expect(skeleton).not.toBeNull();
+    expect(skeleton).not.toBeUndefined();
   });
 
   it('should render trip cards when data is received', () => {
@@ -81,8 +82,9 @@ describe('TripListComponent', () => {
       }
     };
     fixture.detectChanges();
-    const div: HTMLElement | null = debugEl.query(By.css('#trip-list-card-holder')).nativeElement;
+    const div: HTMLElement | null = debugEl.query(By.css('#trip-list-card-holder'))?.nativeElement;
     expect(div).not.toBeNull();
+    expect(div).not.toBeUndefined();
   });
 
   it('should display a single trip', () => {
@@ -95,12 +97,12 @@ describe('TripListComponent', () => {
     };
     component.data = { ...singleTripStub };
     fixture.detectChanges();
-    const div: HTMLElement | null = debugEl.query(By.css('#trip-list-card-holder')).nativeElement;
+    const div: HTMLElement | null = debugEl.query(By.css('#trip-list-card-holder'))?.nativeElement;
     const childrenCount: number = div?.children.length ?? 0;
     expect(childrenCount).toBe(singleTripStub.trips.length);
   });
 
-  it('should display a multiple trips', () => {
+  it('should display multiple trips', () => {
     component.flags = {
       ...component.flags,
       shell: {
@@ -110,12 +112,12 @@ describe('TripListComponent', () => {
     };
     component.data = { ...multipleTripsStub };
     fixture.detectChanges();
-    const div: HTMLElement | null = debugEl.query(By.css('#trip-list-card-holder')).nativeElement;
+    const div: HTMLElement | null = debugEl.query(By.css('#trip-list-card-holder'))?.nativeElement;
     const childrenCount: number = div?.children.length ?? 0;
     expect(childrenCount).toBe(multipleTripsStub.trips.length);
   });
 
-  it('should display a card when no trips are returned', () => {
+  it('should display a card when no trips are returned with a message "No Trips Yet"', () => {
     component.flags = {
       ...component.flags,
       shell: {
@@ -125,39 +127,20 @@ describe('TripListComponent', () => {
     };
     component.data = { ...TripListDataStub };
     fixture.detectChanges();
-    const card: HTMLElement | null = debugEl.query(By.css('#no-trip-card')).nativeElement;
-    expect(card).not.toBeNull();
-  });
 
-  it('should display a message "No Trips Yet" inside the card when no trips are returned', () => {
-    component.flags = {
-      ...component.flags,
-      shell: {
-        ...component.flags.shell,
-        success: true
-      }
-    };
-    component.data = { ...TripListDataStub };
-    fixture.detectChanges();
-    const card: HTMLElement | null = debugEl.query(By.css('#no-trip-card')).nativeElement;
-    const text: string = (card?.querySelector('p')?.textContent ?? '').trim();
+    const card: HTMLElement | null = debugEl.query(By.css('#no-trip-card'))?.nativeElement;
+    expect(card).not.toBeNull();
+    expect(card).not.toBeUndefined();
+
+    const paragraph: HTMLElement | null | undefined = card?.querySelector('p');
+    expect(paragraph).not.toBeNull();
+    expect(paragraph).not.toBeUndefined();
+
+    const text: string = (paragraph?.textContent ?? '').trim();
     expect(text).toBe('No Trips Yet');
   });
 
-  it('should display error card when server is not reachable', () => {
-    component.flags = {
-      ...component.flags,
-      shell: {
-        ...component.flags.shell,
-        fail: true
-      }
-    };
-    fixture.detectChanges();
-    const card: HTMLElement | null = debugEl.query(By.css('#trip-error-card')).nativeElement;
-    expect(card).not.toBeNull();
-  });
-
-  it('should display a message "Server Down" inside the error card when server is not reachable', () => {
+  it('should display error card when server is not reachable with a message "Server Down"', () => {
     component.flags = {
       ...component.flags,
       shell: {
@@ -167,8 +150,16 @@ describe('TripListComponent', () => {
     };
     component.error = { message: 'Server Down' };
     fixture.detectChanges();
-    const card: HTMLElement | null = debugEl.query(By.css('#trip-error-card')).nativeElement;
-    const text: string = (card?.querySelector('p')?.textContent ?? '').trim();
+
+    const card: HTMLElement | null | undefined = debugEl.query(By.css('#trip-error-card'))?.nativeElement;
+    expect(card).not.toBeNull();
+    expect(card).not.toBeUndefined();
+
+    const paragraph: HTMLElement | null | undefined = card?.querySelector('p');
+    expect(paragraph).not.toBeNull();
+    expect(paragraph).not.toBeUndefined();
+
+    const text: string = (paragraph?.textContent ?? '').trim();
     expect(text).toBe('Server Down');
   });
 });
