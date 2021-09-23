@@ -45,14 +45,10 @@ describe('TripListComponent', () => {
     fixture = TestBed.createComponent(TripListComponent);
     debugEl = fixture.debugElement;
     component = debugEl.componentInstance;
-    component.flags = { ...TripListFlagStub };
-    fixture.detectChanges();
-  });
-
-  afterEach(() => {
-    component.flags = { ...TripListFlagStub };
     component.data = { ...TripListDataStub };
     component.error = { ...TripListErrorStub };
+    component.flags = { ...TripListFlagStub };
+    fixture.detectChanges();
   });
 
   it('should be created', () => {
