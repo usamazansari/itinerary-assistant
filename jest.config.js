@@ -9,6 +9,6 @@ module.exports = {
     '<rootDir>/libs/ui/layout',
     '<rootDir>/libs/ui/shared/elements',
     '<rootDir>/libs/ui/shared/icon',
-    '<rootDir>/libs/ui/shared/material'
+    '<rootDir>/libs/ui/shared/material',"<rootDir>/libs/api/database","<rootDir>/libs/api/entity"
   ]
 };

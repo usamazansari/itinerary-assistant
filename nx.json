@@ -58,6 +58,16 @@
         "lib:api-core"
       ]
     },
+    "api-database": {
+      "tags": [
+        "lib:api-database"
+      ]
+    },
+    "api-entity": {
+      "tags": [
+        "lib:entity"
+      ]
+    },
     "shared-data": {
       "tags": [
         "lib:shared-data"

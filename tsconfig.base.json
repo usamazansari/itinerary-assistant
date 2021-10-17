@@ -21,6 +21,12 @@
       "@itinerary-assistant/api/core": [
         "libs/api/core/src/index.ts"
       ],
+      "@itinerary-assistant/api/database": [
+        "libs/api/database/src/index.ts"
+      ],
+      "@itinerary-assistant/api/entity": [
+        "libs/api/entity/src/index.ts"
+      ],
       "@itinerary-assistant/shared/data": [
         "libs/shared/data/src/index.ts"
       ],

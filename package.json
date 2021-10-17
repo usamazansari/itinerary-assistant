@@ -53,12 +53,16 @@
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/typeorm": "^7.0.0",
     "@ngneat/tailwind": "^7.0.3",
     "@ngworker/lumberjack": "^2.0.3",
     "@nrwl/angular": "12.7.1",
+    "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
+    "sqlite3": "^5.0.2",
     "tslib": "^2.0.0",
+    "typeorm": "^0.2.38",
     "zone.js": "0.11.4"
   },
   "devDependencies": {

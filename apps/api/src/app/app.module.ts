@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { ApiCoreModule } from '@itinerary-assistant/api/core';
+import { ApiCoreModule } from './imports/modules';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
