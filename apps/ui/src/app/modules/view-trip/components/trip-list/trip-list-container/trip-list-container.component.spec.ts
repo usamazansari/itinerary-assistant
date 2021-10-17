@@ -74,13 +74,13 @@ describe('TripListContainerComponent', () => {
 
     expect(resetSpy).toHaveBeenCalled();
 
-    // const watchSpy = jest.spyOn(service, 'watchFlags$');
-    // watchSpy.mockImplementation(() => of(TripListFlagStub));
+    const watchSpy = jest.spyOn(service, 'watchFlags$');
+    watchSpy.mockImplementation(() => of(TripListFlagStub));
 
-    // let flags;
-    // service.watchFlags$().subscribe(_ => { flags = _; });
+    let flags;
+    service.watchFlags$().subscribe(_ => { flags = _; });
 
-    // expect(flags).toEqual(TripListFlagStub);
+    expect(flags).toEqual(TripListFlagStub);
   });
 
   it('should fetch the component assets', () => {
