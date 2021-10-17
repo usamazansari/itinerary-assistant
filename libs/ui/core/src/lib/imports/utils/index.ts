@@ -1,1 +1,1 @@
-export { getServerResponseMessage } from '@itinerary-assistant/shared'
+export { getServerResponseMessage } from '@itinerary-assistant/shared/data';

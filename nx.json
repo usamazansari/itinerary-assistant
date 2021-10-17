@@ -40,24 +40,9 @@
         "app:api"
       ]
     },
-    "api-core": {
-      "tags": [
-        "lib:api-core"
-      ]
-    },
-    "shared": {
-      "tags": [
-        "lib:shared"
-      ]
-    },
     "ui": {
       "tags": [
         "app:ui"
-      ]
-    },
-    "ui-core": {
-      "tags": [
-        "lib:ui-core"
       ]
     },
     "ui-e2e": {
@@ -66,6 +51,26 @@
       ],
       "implicitDependencies": [
         "ui"
+      ]
+    },
+    "api-core": {
+      "tags": [
+        "lib:api-core"
+      ]
+    },
+    "shared-data": {
+      "tags": [
+        "lib:shared-data"
+      ]
+    },
+    "shared-styles": {
+      "tags": [
+        "lib:shared-styles"
+      ]
+    },
+    "ui-core": {
+      "tags": [
+        "lib:ui-core"
       ]
     },
     "ui-elements": {
@@ -86,11 +91,6 @@
     "ui-material": {
       "tags": [
         "lib:ui-material"
-      ]
-    },
-    "ui-tailwind": {
-      "tags": [
-        "lib:tailwind"
       ]
     }
   }

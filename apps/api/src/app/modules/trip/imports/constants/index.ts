@@ -1,1 +1,1 @@
-export { HttpStatus } from '@itinerary-assistant/shared'
+export { HttpStatus } from '@itinerary-assistant/shared/data';

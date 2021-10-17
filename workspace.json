@@ -61,56 +61,6 @@
         }
       }
     },
-    "api-core": {
-      "root": "libs/api/core",
-      "sourceRoot": "libs/api/core/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/api/core/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/core"
-          ],
-          "options": {
-            "jestConfig": "libs/api/core/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared": {
-      "root": "libs/shared",
-      "sourceRoot": "libs/shared/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared"
-          ],
-          "options": {
-            "jestConfig": "libs/shared/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "ui": {
       "projectType": "application",
       "root": "apps/ui",
@@ -211,33 +161,6 @@
         }
       }
     },
-    "ui-core": {
-      "projectType": "library",
-      "root": "libs/ui/core",
-      "sourceRoot": "libs/ui/core/src",
-      "prefix": "ia-core",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/core"
-          ],
-          "options": {
-            "jestConfig": "libs/ui/core/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/core/src/**/*.ts",
-              "libs/ui/core/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "ui-e2e": {
       "root": "apps/ui-e2e",
       "sourceRoot": "apps/ui-e2e/src",
@@ -261,6 +184,108 @@
           "options": {
             "lintFilePatterns": [
               "apps/ui-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "api-core": {
+      "root": "libs/api/core",
+      "sourceRoot": "libs/api/core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/core/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/core"
+          ],
+          "options": {
+            "jestConfig": "libs/api/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-data": {
+      "root": "libs/shared/data",
+      "sourceRoot": "libs/shared/data/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/data/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/data"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-styles": {
+      "root": "libs/shared/styles",
+      "sourceRoot": "libs/shared/styles/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/styles/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/styles"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/styles/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-core": {
+      "projectType": "library",
+      "root": "libs/ui/core",
+      "sourceRoot": "libs/ui/core/src",
+      "prefix": "ia-core",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/ui/core"
+          ],
+          "options": {
+            "jestConfig": "libs/ui/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/core/src/**/*.ts",
+              "libs/ui/core/src/**/*.html"
             ]
           }
         }
@@ -370,31 +395,6 @@
               "libs/ui/shared/material/src/**/*.ts",
               "libs/ui/shared/material/src/**/*.html"
             ]
-          }
-        }
-      }
-    },
-    "ui-tailwind": {
-      "root": "libs/ui/shared/tailwind",
-      "sourceRoot": "libs/ui/shared/tailwind/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/shared/tailwind/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/shared/tailwind"
-          ],
-          "options": {
-            "jestConfig": "libs/ui/shared/tailwind/jest.config.js",
-            "passWithNoTests": true
           }
         }
       }
