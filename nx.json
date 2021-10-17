@@ -14,12 +14,7 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "MWNiY2EzZmUtZTFmYS00YWY3LWE3ZWUtNmQ1MjlmMDFiMmJlfHJlYWQtd3JpdGU=",
         "canTrackAnalytics": false,
         "showUsageWarnings": true
@@ -36,62 +31,38 @@
   },
   "projects": {
     "api": {
-      "tags": [
-        "app:api"
-      ]
+      "tags": ["app:api"]
     },
     "api-core": {
-      "tags": [
-        "lib:api-core"
-      ]
+      "tags": ["lib:api-core"]
     },
-    "shared": {
-      "tags": [
-        "lib:shared"
-      ]
+    "shared-data": {
+      "tags": ["lib:shared-data"]
     },
     "ui": {
-      "tags": [
-        "app:ui"
-      ]
+      "tags": ["app:ui"]
     },
     "ui-core": {
-      "tags": [
-        "lib:ui-core"
-      ]
+      "tags": ["lib:ui-core"]
     },
     "ui-e2e": {
-      "tags": [
-        "test:ui-e2e"
-      ],
-      "implicitDependencies": [
-        "ui"
-      ]
+      "tags": ["test:ui-e2e"],
+      "implicitDependencies": ["ui"]
     },
     "ui-elements": {
-      "tags": [
-        "lib:ui-elements"
-      ]
+      "tags": ["lib:ui-elements"]
     },
     "ui-icon": {
-      "tags": [
-        "lib:ui-icon"
-      ]
+      "tags": ["lib:ui-icon"]
     },
     "ui-layout": {
-      "tags": [
-        "lib:ui-layout"
-      ]
+      "tags": ["lib:ui-layout"]
     },
     "ui-material": {
-      "tags": [
-        "lib:ui-material"
-      ]
+      "tags": ["lib:ui-material"]
     },
     "ui-tailwind": {
-      "tags": [
-        "lib:tailwind"
-      ]
+      "tags": ["lib:tailwind"]
     }
   }
 }

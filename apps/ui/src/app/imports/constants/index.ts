@@ -1,7 +1,7 @@
 export {
   ApplicationName,
   Author
-} from '@itinerary-assistant/shared';
+} from '@itinerary-assistant/shared/data';
 
 export {
   LoaderConfigStub,

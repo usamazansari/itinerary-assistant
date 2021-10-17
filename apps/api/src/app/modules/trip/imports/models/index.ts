@@ -5,4 +5,4 @@ export type {
   TripOverviewModel,
 
   APIResponseModel
-} from '@itinerary-assistant/shared';
+} from '@itinerary-assistant/shared/data';

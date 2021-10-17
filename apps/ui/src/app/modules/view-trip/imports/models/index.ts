@@ -1,2 +1,2 @@
-export type { APIResponseModel, TripListItemModel, TripListDataModel } from '@itinerary-assistant/shared';
+export type { APIResponseModel, TripListItemModel, TripListDataModel } from '@itinerary-assistant/shared/data';
 export type { IconModel, FlagModel } from '@itinerary-assistant/ui/elements';

@@ -1,1 +1,1 @@
-export { APIRequestModel, APIResponseModel } from '@itinerary-assistant/shared'
+export { APIRequestModel, APIResponseModel } from '@itinerary-assistant/shared/data';
