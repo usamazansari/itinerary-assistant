@@ -65,7 +65,7 @@
     },
     "api-entity": {
       "tags": [
-        "lib:entity"
+        "lib:api-entity"
       ]
     },
     "shared-data": {

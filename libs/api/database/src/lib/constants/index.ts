@@ -1,2 +1,1 @@
-// export const DB_CONNECTION_TOKEN = 'Data source=trip.db';
-export const DB_CONNECTION_TOKEN = '';
+export const DB_CONNECTION_TOKEN = 'Data source=trips.db';

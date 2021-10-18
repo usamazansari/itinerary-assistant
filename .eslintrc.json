@@ -36,7 +36,9 @@
                 "sourceTag": "app:api",
                 "onlyDependOnLibsWithTags": [
                   "lib:shared",
-                  "lib:api-core"
+                  "lib:api-core",
+                  "lib:api-database",
+                  "lib:api-entity"
                 ]
               },
               {
