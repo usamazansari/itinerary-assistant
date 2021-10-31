@@ -1,7 +1,12 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 
 import { TripListItemModel, TripOverviewModel } from '../../imports/models';
+import { TripEntity } from '../../imports/entities';
+
 import { TripListStub, goa, ladakh, manali, northEast } from '../../mock';
+import { REPOSITORY } from '../../constants';
+import { Repository } from 'typeorm';
+import { from, Observable } from 'rxjs';
 
 @Injectable()
 export class TripService {
@@ -13,6 +18,18 @@ export class TripService {
     northEast
   };
   #tripOverview!: TripOverviewModel;
+
+  constructor(
+    @Inject(REPOSITORY) private repo: Repository<TripEntity>
+  ) { }
+
+  fetchAllTrips(): Observable<TripEntity[]> {
+    return from(this.repo.find());
+  }
+
+  fetchTrip(id: string | number): Observable<TripEntity> {
+    return from(this.repo.findOne(id));
+  }
 
   fetchTripList(): TripListItemModel[] {
     return [...this.#tripList];

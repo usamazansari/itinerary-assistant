@@ -1,1 +1,1 @@
-export const DB_CONNECTION_TOKEN = 'Data source=trips.db';
+export { DATABASE_CONNECTION } from './database.constants'

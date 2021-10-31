@@ -1,0 +1,1 @@
+export const REPOSITORY = 'TRIP_REPOSITORY';
