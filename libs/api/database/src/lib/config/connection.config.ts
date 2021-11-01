@@ -4,7 +4,14 @@ import { DATABASE } from '../databases';
 export const ENTITIES = [
   `${join(
     process.cwd(),
-    // 'libs',
+    'apps',
+    'api',
+    '**',
+    '*.{js|ts}'
+  )}`,
+  `${join(
+    process.cwd(),
+    'libs',
     'api',
     '**',
     '*.{js|ts}'

@@ -20,16 +20,16 @@ export class TripService {
   #tripOverview!: TripOverviewModel;
 
   constructor(
-    @Inject(REPOSITORY) private repo: Repository<TripEntity>
+    // @Inject(REPOSITORY) private repo: Repository<TripEntity>
   ) { }
 
-  fetchAllTrips(): Observable<TripEntity[]> {
-    return from(this.repo.find());
-  }
+  // fetchAllTrips(): Observable<TripEntity[]> {
+  //   return from(this.repo.find());
+  // }
 
-  fetchTrip(id: string | number): Observable<TripEntity> {
-    return from(this.repo.findOne(id));
-  }
+  // fetchTrip(id: string | number): Observable<TripEntity> {
+  //   return from(this.repo.findOne(id));
+  // }
 
   fetchTripList(): TripListItemModel[] {
     return [...this.#tripList];

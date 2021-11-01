@@ -4,7 +4,7 @@ import { ApiCoreModule } from './imports/modules';
 
 import * as Controllers from './controllers';
 import * as Services from './services';
-import * as Providers from './providers';
+// import * as Providers from './providers';
 
 @Module({
   controllers: [Controllers.TripController],
@@ -13,7 +13,7 @@ import * as Providers from './providers';
   ],
   providers: [
     Services.TripService,
-    ...Providers.TripProviders
+    // ...Providers.TripProviders
   ]
 })
 export class TripModule { }
