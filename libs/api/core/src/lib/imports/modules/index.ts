@@ -1,1 +1,1 @@
-export { ApiDatabaseModule } from '@itinerary-assistant/api/database'
+export { ApiDatabaseTypeormModule } from '@itinerary-assistant/api/database/typeorm';

@@ -58,14 +58,14 @@
         "lib:api-core"
       ]
     },
-    "api-database": {
+    "api-database-entities": {
       "tags": [
-        "lib:api-database"
+        "api:database-entities"
       ]
     },
-    "api-entity": {
+    "api-database-typeorm": {
       "tags": [
-        "lib:api-entity"
+        "api:database-typeorm"
       ]
     },
     "shared-data": {

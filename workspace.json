@@ -61,56 +61,6 @@
         }
       }
     },
-    "api-database": {
-      "root": "libs/api/database",
-      "sourceRoot": "libs/api/database/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/api/database/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/database"
-          ],
-          "options": {
-            "jestConfig": "libs/api/database/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "api-entity": {
-      "root": "libs/api/entity",
-      "sourceRoot": "libs/api/entity/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/api/entity/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/entity"
-          ],
-          "options": {
-            "jestConfig": "libs/api/entity/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "ui": {
       "projectType": "application",
       "root": "apps/ui",
@@ -259,6 +209,56 @@
           ],
           "options": {
             "jestConfig": "libs/api/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-database-entities": {
+      "root": "libs/api/database/entities",
+      "sourceRoot": "libs/api/database/entities/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/database/entities/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/database/entities"
+          ],
+          "options": {
+            "jestConfig": "libs/api/database/entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-database-typeorm": {
+      "root": "libs/api/database/typeorm",
+      "sourceRoot": "libs/api/database/typeorm/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/database/typeorm/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/database/typeorm"
+          ],
+          "options": {
+            "jestConfig": "libs/api/database/typeorm/jest.config.js",
             "passWithNoTests": true
           }
         }

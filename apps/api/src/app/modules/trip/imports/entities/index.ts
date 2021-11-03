@@ -1,1 +1,1 @@
-export { TripEntity } from '@itinerary-assistant/api/entity';
+export { TripEntity } from '@itinerary-assistant/api/database/entities';

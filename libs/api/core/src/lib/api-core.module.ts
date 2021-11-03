@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 
-import { ApiDatabaseModule } from './imports/modules';
+import { ApiDatabaseTypeormModule } from './imports/modules';
 
 import { ApiCoreController } from './controllers';
 import { ApiCoreService } from './services';
 
 @Module({
   controllers: [ApiCoreController],
-  imports: [ApiDatabaseModule],
+  imports: [ApiDatabaseTypeormModule],
   providers: [ApiCoreService],
-  exports: [ApiDatabaseModule]
+  exports: [ApiDatabaseTypeormModule]
 })
 export class ApiCoreModule { }

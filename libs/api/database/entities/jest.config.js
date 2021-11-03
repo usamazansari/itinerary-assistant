@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'api-entity',
-  preset: '../../../jest.preset.js',
+  displayName: 'api-database-entities',
+  preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,5 +11,5 @@ module.exports = {
     '^.+\\.[tj]sx?$':  'ts-jest' 
   },
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/api/entity'
+  coverageDirectory: '../../../../coverage/libs/api/database/entities'
 };
