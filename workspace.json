@@ -214,6 +214,56 @@
         }
       }
     },
+    "api-database-entities": {
+      "root": "libs/api/database/entities",
+      "sourceRoot": "libs/api/database/entities/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/database/entities/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/database/entities"
+          ],
+          "options": {
+            "jestConfig": "libs/api/database/entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-database-typeorm": {
+      "root": "libs/api/database/typeorm",
+      "sourceRoot": "libs/api/database/typeorm/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/database/typeorm/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/database/typeorm"
+          ],
+          "options": {
+            "jestConfig": "libs/api/database/typeorm/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "shared-data": {
       "root": "libs/shared/data",
       "sourceRoot": "libs/shared/data/src",

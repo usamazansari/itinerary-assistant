@@ -3,6 +3,8 @@ module.exports = {
     '<rootDir>/apps/api',
     '<rootDir>/apps/ui',
     '<rootDir>/libs/api/core',
+    '<rootDir>/libs/api/database/entities',
+    '<rootDir>/libs/api/database/typeorm',
     '<rootDir>/libs/shared/data',
     '<rootDir>/libs/shared/styles',
     '<rootDir>/libs/ui/core',

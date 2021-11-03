@@ -7,6 +7,9 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true,
+    "strict": true,
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
@@ -20,6 +23,12 @@
     "paths": {
       "@itinerary-assistant/api/core": [
         "libs/api/core/src/index.ts"
+      ],
+      "@itinerary-assistant/api/database/entities": [
+        "libs/api/database/entities/src/index.ts"
+      ],
+      "@itinerary-assistant/api/database/typeorm": [
+        "libs/api/database/typeorm/src/index.ts"
       ],
       "@itinerary-assistant/shared/data": [
         "libs/shared/data/src/index.ts"
