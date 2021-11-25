@@ -1,4 +1,4 @@
-import type { IconModel } from '../../imports/models';
+import type { IconModel } from '../imports';
 
 /**
  * The assets for a Card to be displayed on the Home Page.

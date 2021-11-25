@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 
 import { BehaviorSubject } from 'rxjs';
 
-import { HomeAssetsStub } from '../../../../constants';
-import { HomeAssetsModel } from '../../../../models';
+import type { HomeAssetsModel } from '../../..';
+import { HomeAssetsStub } from '../../..';
 
 @Component({
   selector: 'ia-home',

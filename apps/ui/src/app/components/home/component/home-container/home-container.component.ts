@@ -6,8 +6,8 @@ import {
 
 import type { Observable } from 'rxjs';
 
-import { HomeAssetsModel } from '../../../models';
-import { HomeService } from '../../../services';
+import type { HomeAssetsModel } from '../..';
+import { HomeService } from '../..';
 
 
 @Component({

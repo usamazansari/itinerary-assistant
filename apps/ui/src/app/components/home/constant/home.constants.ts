@@ -1,9 +1,6 @@
-import { IconStub } from '../../imports/constants';
+import { IconStub } from '../imports';
 
-import type {
-  HomeAssetModel,
-  HomeAssetsModel
-} from '../../models';
+import type { HomeAssetModel, HomeAssetsModel } from '..';
 
 /**
  * Stub for `HomeAssetModel`.

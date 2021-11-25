@@ -3,12 +3,10 @@ import { Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import { RouterService } from '../../imports/services';
+import { RouteConstants, RouterService } from '../imports';
 
-import { RouteConstants } from '../../app.routes';
-
-import { HomeAssets, HomeAssetsStub } from '../../constants';
-import type { HomeAssetsModel } from '../../models';
+import { HomeAssets, HomeAssetsStub } from '..';
+import type { HomeAssetsModel } from '..';
 
 /**
  * Service for `HomeComponent`
