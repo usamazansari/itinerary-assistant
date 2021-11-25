@@ -1,21 +1,22 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import type { HomeVMModel } from '../../../../models';
-import { HomeVMStub } from '../../../../constants';
+import { HomeAssetsStub } from '../../../../constants';
+import { HomeAssetsModel } from '../../../../models';
 
 @Component({
   selector: 'ia-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
-  #vm$ = new BehaviorSubject<HomeVMModel>(HomeVMStub);
+  #assets$ = new BehaviorSubject<HomeAssetsModel>(HomeAssetsStub);
 
   @Input()
-  set vm(value: HomeVMModel) { this.#vm$.next(value ?? HomeVMStub); }
-  get vm(): HomeVMModel { return this.#vm$.getValue(); }
+  set assets(value: HomeAssetsModel) { this.#assets$.next(value ?? HomeAssetsStub); }
+  get assets(): HomeAssetsModel { return this.#assets$.getValue(); }
 
   @Output() gotoViewTrip$: EventEmitter<void> = new EventEmitter<void>();
   @Output() gotoCreateTrip$: EventEmitter<void> = new EventEmitter<void>();

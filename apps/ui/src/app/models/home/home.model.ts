@@ -82,19 +82,3 @@ export interface HomeAssetsModel {
    */
   create: HomeAssetModel;
 }
-
-/**
- * Virtual Memory for `HomeComponent`
- *
- * ```ts
- * interface HomeVMModel = {
- *   assets: HomeAssetsModel
- * }
- * ```
- * @deprecated - Use separate objects
- * @export
- * @interface HomeVMModel
- */
-export interface HomeVMModel {
-  assets: HomeAssetsModel;
-}

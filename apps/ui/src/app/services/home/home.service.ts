@@ -7,8 +7,8 @@ import { RouterService } from '../../imports/services';
 
 import { RouteConstants } from '../../app.routes';
 
-import type { HomeVMModel } from '../../models';
-import { Constants, HomeVMStub } from '../../constants';
+import { HomeAssets, HomeAssetsStub } from '../../constants';
+import type { HomeAssetsModel } from '../../models';
 
 /**
  * Service for `HomeComponent`
@@ -20,8 +20,8 @@ import { Constants, HomeVMStub } from '../../constants';
   providedIn: 'root'
 })
 export class HomeService {
-  #vm$ = new BehaviorSubject<HomeVMModel>(HomeVMStub);
-  #vm: HomeVMModel = { ...HomeVMStub };
+  #assets$ = new BehaviorSubject<HomeAssetsModel>(HomeAssetsStub);
+  #assets: HomeAssetsModel = { ...HomeAssetsStub };
 
   /**
    * Creates an instance of `HomeService`
@@ -35,32 +35,30 @@ export class HomeService {
    * @memberof HomeService
    */
   fetchAssets(): void {
-    this.#vm.assets = {
-      ...this.#vm.assets,
-      ...Constants.assets
-    };
-    this._setVm(this.#vm);
+    this.#assets = { ...HomeAssets };
+    this._setAssets(this.#assets);
   }
 
   /**
-   * Set or Update the `vm`
+   * Store the latest value of `assets` in class props and update the `BehaviorSubject` with the same
    *
-   * @param {HomeVMModel} vm
+   * @private
+   * @param {HomeAssetsModel} assets
    * @memberof HomeService
    */
-  private _setVm(vm: HomeVMModel): void {
-    this.#vm = { ...vm };
-    this.#vm$.next(this.#vm);
+  private _setAssets(assets: HomeAssetsModel): void {
+    this.#assets = { ...assets ?? HomeAssetsStub };
+    this.#assets$.next(this.#assets);
   }
 
   /**
-   * Return the virtual memory as `Observable`
+   * Return Home page assets as `Observable<HomeAssetsModel>`
    *
    * @return {*}  {Observable<HomeAssetsModel>}
    * @memberof HomeService
    */
-  watchVm$(): Observable<HomeVMModel> {
-    return this.#vm$.asObservable();
+  watchAssets$(): Observable<HomeAssetsModel> {
+    return this.#assets$.asObservable();
   }
 
   /**

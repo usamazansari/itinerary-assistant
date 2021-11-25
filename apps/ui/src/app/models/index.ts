@@ -1,5 +1,4 @@
 export type {
   HomeAssetModel,
-  HomeAssetsModel,
-  HomeVMModel
+  HomeAssetsModel
 } from './home/home.model';

@@ -2,8 +2,7 @@ import { IconStub } from '../../imports/constants';
 
 import type {
   HomeAssetModel,
-  HomeAssetsModel,
-  HomeVMModel
+  HomeAssetsModel
 } from '../../models';
 
 /**
@@ -37,42 +36,34 @@ const HomeAssetStub: HomeAssetModel = {
  * }
  * ```
  */
-const HomeAssetsStub: HomeAssetsModel = {
+export const HomeAssetsStub: HomeAssetsModel = {
   view: { ...HomeAssetStub },
   create: { ...HomeAssetStub }
 };
 
 /**
- * Stub for `HomeVMModel`
+ * Home Page Assets
  *
  * ```ts
- * const HomeVMStub: HomeVMModel = {
- *   assets: HomeAssetsStub
+ * const HomeAssets: HomeAssetsModel = {
+ *   view: {
+ *     icon: { name: 'hiking', style: 'fas' },
+ *     text: 'View All Trips'
+ *   },
+ *   create: {
+ *     icon: { name: 'map-marked-alt', style: 'fas' },
+ *     text: 'Create a New Trip'
+ *   }
  * }
  * ```
  */
-export const HomeVMStub: HomeVMModel = {
-  assets: { ...HomeAssetsStub }
-};
-
-/**
- * Constants for `home` Module
- *
- * ```ts
- * const Constants: {
- *   assets: TemporaryHomeAssetsModel;
- * }
- * ```
- */
-export const Constants: HomeVMModel = {
-  assets: {
-    view: {
-      icon: { name: 'hiking', style: 'fas' },
-      text: 'View All Trips'
-    },
-    create: {
-      icon: { name: 'map-marked-alt', style: 'fas' },
-      text: 'Create a New Trip'
-    }
+export const HomeAssets: HomeAssetsModel = {
+  view: {
+    icon: { name: 'hiking', style: 'fas' },
+    text: 'View All Trips'
+  },
+  create: {
+    icon: { name: 'map-marked-alt', style: 'fas' },
+    text: 'Create a New Trip'
   }
 };

@@ -1,1 +1,1 @@
-export { IconModule } from '../../../../imports/libraries';
+export { IconModule } from '@itinerary-assistant/ui/icon';

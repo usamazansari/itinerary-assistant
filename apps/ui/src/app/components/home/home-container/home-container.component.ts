@@ -4,25 +4,26 @@ import {
   OnInit
 } from '@angular/core';
 
-import { HomeService } from '../../../services';
-import { HomeVMModel } from '../../../models';
-
 import type { Observable } from 'rxjs';
+
+import { HomeAssetsModel } from '../../../models';
+import { HomeService } from '../../../services';
+
 
 @Component({
   selector: 'ia-home-container',
-  template: `<ia-home [vm]            = "(vm$ | async)!"
+  template: `<ia-home [assets]        = "(assets$ | async)!"
                       (gotoViewTrip$) = "gotoViewTrip()"></ia-home>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeContainerComponent implements OnInit {
-  vm$!: Observable<HomeVMModel>;
+  assets$!: Observable<HomeAssetsModel>;
 
   constructor(private _service: HomeService) { }
 
   ngOnInit(): void {
     this._service.fetchAssets();
-    this.vm$ = this._service.watchVm$();
+    this.assets$ = this._service.watchAssets$();
   }
 
   gotoViewTrip(): void {
