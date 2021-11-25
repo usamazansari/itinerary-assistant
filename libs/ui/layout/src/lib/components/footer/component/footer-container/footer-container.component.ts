@@ -8,10 +8,8 @@ import {
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import { FooterService } from '../../../services';
-
-import type { FooterVMModel, FooterDataModel } from '../../../models';
-import { FooterDataStub } from '../../../constants';
+import type { FooterAssetsModel, FooterDataModel } from '../..';
+import { FooterDataStub, FooterService } from '../..';
 
 /**
  * Container for the `FooterComponent`
@@ -22,7 +20,8 @@ import { FooterDataStub } from '../../../constants';
  */
 @Component({
   selector: 'ia-layout-footer-container',
-  template: `<ia-layout-footer [vm]             = "(vm$ | async)!"
+  template: `<ia-layout-footer [assets]         = "(assets$ | async)!"
+                               [data]           = "(data$   | async)!"
                                (copyDiscordID$) = "copyDiscordID()"
                                (copyEmailID$)   = "copyEmailID()"></ia-layout-footer>`,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -34,7 +33,8 @@ export class FooterContainerComponent implements OnInit {
   set data(value: FooterDataModel) { this.#data$.next(value ?? FooterDataStub); }
   get data(): FooterDataModel { return this.#data$.getValue(); }
 
-  vm$!: Observable<FooterVMModel>;
+  assets$!: Observable<FooterAssetsModel>;
+  data$!: Observable<FooterDataModel>;
 
   /**
    * Creates an instance of `FooterContainerComponent`.
@@ -51,12 +51,13 @@ export class FooterContainerComponent implements OnInit {
    */
   ngOnInit(): void {
     this._service.fetchAssets();
-    this.vm$ = this._service.watchVM$();
-
     this.#data$.subscribe(
       data => {
         this._service.setData(data);
       });
+
+    this.assets$ = this._service.watchAssets$();
+    this.data$ = this._service.watchData$();
   }
 
   /**

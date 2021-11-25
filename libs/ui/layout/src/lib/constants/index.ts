@@ -1,9 +1,8 @@
 export {
+  FooterAssets,
   FooterAssetsStub,
-  FooterDataStub,
-  FooterVMStub,
-  Constants as FooterConstants
-} from './footer/footer.constants';
+  FooterDataStub
+} from '../components/footer';
 
 export { NavigationItemStub } from './navigation/navigation.constants';
 

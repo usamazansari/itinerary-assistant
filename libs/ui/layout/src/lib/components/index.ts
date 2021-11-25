@@ -1,5 +1,4 @@
-export { FooterContainerComponent } from './footer/footer-container/footer-container.component';
-export { FooterComponent } from './footer/footer-container/footer/footer.component';
+export { FooterContainerComponent, FooterComponent } from './footer';
 
 export { ShellComponent } from './shell/shell.component';
 

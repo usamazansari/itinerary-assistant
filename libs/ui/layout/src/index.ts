@@ -7,7 +7,6 @@ export type {
   FooterLinkModel,
   FooterSnackbarMessageModel,
   FooterStringsModel,
-  FooterVMModel,
   ToolbarAssetsModel,
   ToolbarDataModel,
   ToolbarVMModel,
@@ -17,9 +16,8 @@ export type {
 
 export {
   FooterAssetsStub,
-  FooterConstants,
+  FooterAssets,
   FooterDataStub,
-  FooterVMStub,
   ToolbarAssetsStub,
   ToolbarConstants,
   ToolbarDataStub,

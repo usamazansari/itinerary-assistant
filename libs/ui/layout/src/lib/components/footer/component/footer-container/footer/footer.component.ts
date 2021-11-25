@@ -1,41 +1,39 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import type { IconModel, ImageModel } from '../../../../imports/models';
-
-import type { FooterVMModel, FooterIconType } from '../../../../models';
-import { FooterVMStub } from '../../../../constants';
+import type { IconModel, ImageModel } from '../../../imports';
+import type { FooterAssetsModel, FooterDataModel, FooterIconType } from '../../..';
+import { FooterAssetsStub, FooterDataStub } from '../../..';
 
 @Component({
   selector: 'ia-layout-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
-  #vm$ = new BehaviorSubject<FooterVMModel>(FooterVMStub);
+  #assets$ = new BehaviorSubject<FooterAssetsModel>(FooterAssetsStub);
 
   @Input()
-  set vm(value: FooterVMModel) { this.#vm$.next(value ?? FooterVMStub); }
-  get vm(): FooterVMModel { return this.#vm$.getValue(); }
+  set assets(value: FooterAssetsModel) { this.#assets$.next(value); }
+  get assets(): FooterAssetsModel { return this.#assets$.getValue(); }
+
+  #data$ = new BehaviorSubject<FooterDataModel>(FooterDataStub);
+
+  @Input()
+  set data(value: FooterDataModel) { this.#data$.next(value); }
+  get data(): FooterDataModel { return this.#data$.getValue(); }
 
   @Output() copyDiscordID$: EventEmitter<void> = new EventEmitter<void>();
   @Output() copyEmailID$: EventEmitter<void> = new EventEmitter<void>();
-
-  /**
-   * Creates an instance of FooterComponent.
-   *
-   * @memberof FooterComponent
-   */
-  constructor() { }
-
-  /**
-   * On Initialization of `FooterComponent`
-   *
-   * @memberof FooterComponent
-   */
-  ngOnInit(): void { }
 
   /**
    * Method to emit the `EventEmitter`: `copyDiscordID$`

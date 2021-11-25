@@ -4,9 +4,8 @@ export type {
   FooterIconType,
   FooterLinkModel,
   FooterSnackbarMessageModel,
-  FooterStringsModel,
-  FooterVMModel
-} from './footer/footer.model';
+  FooterStringsModel
+} from '../components/footer';
 
 export type {
   ToolbarAssetsModel,
@@ -16,6 +15,6 @@ export type {
 
 export type { NavigationItemModel } from './navigation/navigation.model';
 
-export {} from './sidenav/sidenav.model';
+export { } from './sidenav/sidenav.model';
 
 export type { LayoutDataModel } from './layout/layout.model';

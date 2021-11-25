@@ -1,4 +1,4 @@
-import type { IconModel, ImageModel } from '../../imports/models';
+import type { IconModel, ImageModel } from '../imports';
 
 export type FooterIconType = IconModel | ImageModel;
 
@@ -265,25 +265,4 @@ export interface FooterStringsModel {
     discord: FooterSnackbarMessageModel;
     email: FooterSnackbarMessageModel;
   };
-}
-
-/**
- * Virtual Memory for `FooterComponent`
- *
- * ```ts
- * interface FooterVMModel {
- *   assets  : FooterAssetsModel;
- *   data    : FooterDataModel;
- *   strings : FooterStringsModel;
- * }
- * ```
- *
- * @deprecated - Use separate objects
- * @export
- * @interface FooterVMModel
- */
-export interface FooterVMModel {
-  assets: FooterAssetsModel;
-  data: FooterDataModel;
-  strings: FooterStringsModel;
 }
