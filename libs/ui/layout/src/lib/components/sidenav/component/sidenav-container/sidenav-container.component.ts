@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
-  Component,
-  OnInit
+  Component
 } from '@angular/core';
 
 @Component({
@@ -9,7 +8,4 @@ import {
   template: `<ia-layout-sidenav></ia-layout-sidenav>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SidenavContainerComponent implements OnInit {
-  constructor() { }
-  ngOnInit(): void { }
-}
+export class SidenavContainerComponent { }
