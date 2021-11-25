@@ -1,9 +1,8 @@
-import { IconStub } from '../../imports/constants';
+import { IconStub } from '../imports';
 import type {
   ToolbarAssetsModel,
-  ToolbarDataModel,
-  ToolbarVMModel
-} from '../../models';
+  ToolbarDataModel
+} from '../';
 
 /**
  * Stub for `ToolbarAssetsModel`
@@ -32,21 +31,6 @@ export const ToolbarDataStub: ToolbarDataModel = {
 };
 
 /**
- * Stub for `ToolbarVMModel`
- *
- * ```ts
- * const ToolbarVMStub: ToolbarVMModel = {
- *   assets : ToolbarAssetsStub,
- *   data   : ToolbarDataStub
- * };
- * ```
- */
-export const ToolbarVMStub: ToolbarVMModel = {
-  assets: { ...ToolbarAssetsStub },
-  data: { ...ToolbarDataStub }
-};
-
-/**
  * Static assets for the application toolbar
  *
  * ```ts
@@ -58,14 +42,9 @@ export const ToolbarVMStub: ToolbarVMModel = {
  * };
  * ```
  */
-export const Constants: ToolbarVMModel = {
-  assets: {
-    trigger: {
-      name: 'bars',
-      style: 'fas'
-    }
-  },
-  data: {
-    logo: ''
+export const ToolbarAssets: ToolbarAssetsModel = {
+  trigger: {
+    name: 'bars',
+    style: 'fas'
   }
 };

@@ -9,9 +9,8 @@ export type {
 
 export type {
   ToolbarAssetsModel,
-  ToolbarDataModel,
-  ToolbarVMModel
-} from './toolbar/toolbar.model';
+  ToolbarDataModel
+} from '../components/toolbar';
 
 export type { NavigationItemModel } from './navigation/navigation.model';
 

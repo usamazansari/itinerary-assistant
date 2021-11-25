@@ -9,7 +9,6 @@ export type {
   FooterStringsModel,
   ToolbarAssetsModel,
   ToolbarDataModel,
-  ToolbarVMModel,
   NavigationItemModel,
   LayoutDataModel
 } from './lib/models';
@@ -18,10 +17,9 @@ export {
   FooterAssetsStub,
   FooterAssets,
   FooterDataStub,
+  ToolbarAssets,
   ToolbarAssetsStub,
-  ToolbarConstants,
   ToolbarDataStub,
-  ToolbarVMStub,
   NavigationItemStub,
   LayoutDataStub
 } from './lib/constants';

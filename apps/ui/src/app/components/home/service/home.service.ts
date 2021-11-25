@@ -28,7 +28,7 @@ export class HomeService {
   constructor(private _routerService: RouterService) { }
 
   /**
-   * Fetch Default Assets
+   * Fetch Assets for `HomeComponent`
    *
    * @memberof HomeService
    */

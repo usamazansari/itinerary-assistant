@@ -10,13 +10,13 @@ import {
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import type { ToolbarDataModel, ToolbarVMModel } from '../../../models';
-import { ToolbarService } from '../../../services';
-import { ToolbarDataStub } from '../../../constants';
+import type { ToolbarAssetsModel, ToolbarDataModel } from '../..';
+import { ToolbarDataStub, ToolbarService } from '../..';
 
 @Component({
   selector: 'ia-layout-toolbar-container',
-  template: `<ia-layout-toolbar [vm]             = "(vm$ | async)!"
+  template: `<ia-layout-toolbar [assets]         = "(assets$ | async)!"
+                                [data]           = "(data$   | async)!"
                                 (toggleSidenav$) = "toggleSidenav()"
                                 (gotoHome$)      = "gotoHome()"></ia-layout-toolbar>`,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -28,7 +28,8 @@ export class ToolbarContainerComponent implements OnInit {
   set data(value: ToolbarDataModel) { this.#data$.next(value ?? ToolbarDataStub); }
   get data(): ToolbarDataModel { return this.#data$.getValue(); }
 
-  vm$!: Observable<ToolbarVMModel>;
+  assets$!: Observable<ToolbarAssetsModel>;
+  data$!: Observable<ToolbarDataModel>;
 
   @Output() navigate$ = new EventEmitter<void>();
   @Output() toggleSidenav$ = new EventEmitter<void>();
@@ -37,12 +38,13 @@ export class ToolbarContainerComponent implements OnInit {
 
   ngOnInit(): void {
     this._service.fetchAssets();
-    this.vm$ = this._service.watchVM$();
 
     this.#data$.subscribe(
       data => {
         this._service.setData(data);
       });
+    this.assets$ = this._service.watchAssets$();
+    this.data$ = this._service.watchData$();
   }
 
   /**

@@ -1,4 +1,4 @@
-import type { IconModel } from '../../imports/models';
+import type { IconModel } from '../imports';
 
 /**
  * Assets for `ToolbarComponent`
@@ -43,23 +43,4 @@ export interface ToolbarDataModel {
    * @memberof ToolbarAssetsModel
    */
   logo: string;
-}
-
-/**
- * Virtual Memory for `ToolbarComponent`
- *
- * ```ts
- * interface ToolbarVMModel {
- *   assets : ToolbarAssetsModel;
- *   data   : ToolbarDataModel;
- * }
- * ```
- *
- * @deprecated - Use separate objects
- * @export
- * @interface ToolbarVMModel
- */
-export interface ToolbarVMModel {
-  assets: ToolbarAssetsModel;
-  data: ToolbarDataModel;
 }
