@@ -264,6 +264,31 @@
         }
       }
     },
+    "api-features-trip": {
+      "root": "libs/api/features/trip",
+      "sourceRoot": "libs/api/features/trip/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/features/trip/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/features/trip"
+          ],
+          "options": {
+            "jestConfig": "libs/api/features/trip/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "shared-data": {
       "root": "libs/shared/data",
       "sourceRoot": "libs/shared/data/src",

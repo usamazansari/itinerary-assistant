@@ -38,7 +38,8 @@
                   "lib:shared-data",
                   "lib:api-core",
                   "lib:api-database-typeorm",
-                  "lib:api-database-entities"
+                  "lib:api-database-entities",
+                  "lib:api-features-trip"
                 ]
               },
               {

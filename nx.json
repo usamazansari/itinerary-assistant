@@ -68,6 +68,11 @@
         "api:database-typeorm"
       ]
     },
+    "api-features-trip": {
+      "tags": [
+        "lib:api-features-trip"
+      ]
+    },
     "shared-data": {
       "tags": [
         "lib:shared-data"
