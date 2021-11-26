@@ -9,6 +9,6 @@ export { ImageStub } from './image/image.constants';
 export {
   LoaderConfigStub,
   LoaderSize
-} from './loader/inline-loader.constants';
+} from '../components/loader';
 
 export { SnackbarConfigStub } from './snackbar/snackbar.constants';

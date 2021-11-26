@@ -3,24 +3,19 @@ import { Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import { LoaderConfigStub, LoaderSize } from '../../../constants';
-import { LoaderConfigModel } from '../../../models';
+import type { LoaderConfigModel } from '..';
+import { LoaderConfigStub, LoaderSize, LoaderSizeMap } from '..';
 
 @Injectable({
   providedIn: 'root'
 })
-export class InlineLoaderService {
+export class LoaderService {
+
   #config$ = new BehaviorSubject<LoaderConfigModel>(LoaderConfigStub);
-  #config = { ...LoaderConfigStub };
+  #config: LoaderConfigModel = { ...LoaderConfigStub };
 
   #diameter$ = new BehaviorSubject<number>(0);
   #diameter = 0;
-
-  #sizeMap = new Map<LoaderSize, number>([
-    [LoaderSize.Small, 16],
-    [LoaderSize.Medium, 32],
-    [LoaderSize.Large, 64]
-  ]);
 
   updateConfig(config: LoaderConfigModel): void {
     this.setConfig(config);
@@ -28,7 +23,7 @@ export class InlineLoaderService {
 
   private setConfig(config: LoaderConfigModel): void {
     this.#config = { ...config ?? LoaderConfigStub };
-    this.setDiameter(config.size);
+    this.setDiameter(this.#config.size);
     this.#config$.next(this.#config);
   }
 
@@ -37,8 +32,7 @@ export class InlineLoaderService {
   }
 
   private setDiameter(size: LoaderSize): void {
-    // TODO: ⚡ Optimize this type conversion
-    this.#diameter = this.#sizeMap.get(size) ?? <number>(<unknown>LoaderSize.Medium);
+    this.#diameter = LoaderSizeMap.get(size) ?? LoaderSizeMap.get(LoaderSize.Medium) ?? this.#diameter;
     this.#diameter$.next(this.#diameter);
   }
 

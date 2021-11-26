@@ -1,4 +1,4 @@
-import { LoaderSize } from '../../constants';
+import { LoaderSize } from '../constant/loader.constants';
 
 // TODO: 🧐 Documentation Required
 /**

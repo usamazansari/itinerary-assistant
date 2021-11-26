@@ -1,4 +1,4 @@
-import { LoaderConfigModel } from '../../models';
+import { LoaderConfigModel } from '../model/loader.model';
 
 // TODO: 🧐 Documentation Required
 /**
