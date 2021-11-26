@@ -25,7 +25,6 @@
                 "sourceTag": "app:ui",
                 "onlyDependOnLibsWithTags": [
                   "lib:shared-data",
-                  "lib:shared-elements",
                   "lib:ui-core",
                   "lib:ui-elements",
                   "lib:ui-icon",
@@ -37,7 +36,6 @@
                 "sourceTag": "app:api",
                 "onlyDependOnLibsWithTags": [
                   "lib:shared-data",
-                  "lib:shared-elements",
                   "lib:api-core",
                   "lib:api-database-typeorm",
                   "lib:api-database-entities"
@@ -55,7 +53,14 @@
                 "sourceTag": "lib:ui-core",
                 "onlyDependOnLibsWithTags": [
                   "lib:shared-data",
-                  "lib:shared-elementsa"
+                  "lib:ui-elements"
+                ]
+              },
+              {
+                "sourceTag": "lib:ui-elements",
+                "onlyDependOnLibsWithTags": [
+                  "lib:shared-data",
+                  "lib:ui-material"
                 ]
               }
             ]
