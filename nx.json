@@ -88,14 +88,9 @@
         "lib:ui-core"
       ]
     },
-    "ui-elements": {
+    "ui-features-trip": {
       "tags": [
-        "lib:ui-elements"
-      ]
-    },
-    "ui-icon": {
-      "tags": [
-        "lib:ui-icon"
+        "lib:ui-features-trip"
       ]
     },
     "ui-layout": {
@@ -103,9 +98,19 @@
         "lib:ui-layout"
       ]
     },
-    "ui-material": {
+    "ui-shared-elements": {
       "tags": [
-        "lib:ui-material"
+        "lib:ui-shared-elements"
+      ]
+    },
+    "ui-shared-icons": {
+      "tags": [
+        "lib:ui-shared-icons"
+      ]
+    },
+    "ui-shared-material": {
+      "tags": [
+        "lib:ui-shared-material"
       ]
     }
   }

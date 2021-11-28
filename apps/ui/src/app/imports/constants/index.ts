@@ -6,8 +6,8 @@ export {
 export {
   LoaderConfigStub,
   LoaderSize
-} from '@itinerary-assistant/ui/elements';
+} from '@itinerary-assistant/ui/shared/elements';
 
 export { RouterPayloadStub } from '@itinerary-assistant/ui/core';
 export { LayoutDataStub } from '@itinerary-assistant/ui/layout';
-export { IconStub } from '@itinerary-assistant/ui/elements';
+export { IconStub } from '@itinerary-assistant/ui/shared/elements';

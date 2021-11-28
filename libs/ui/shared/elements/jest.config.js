@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'ui-elements',
+  displayName: 'ui-shared-elements',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {

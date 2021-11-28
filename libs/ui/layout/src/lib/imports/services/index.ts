@@ -1,4 +1,4 @@
 export {
   ClipboardService,
   SnackbarService
-} from '@itinerary-assistant/ui/elements';
+} from '@itinerary-assistant/ui/shared/elements';

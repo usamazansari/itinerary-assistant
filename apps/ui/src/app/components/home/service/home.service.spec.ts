@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { TestBed } from '@angular/core/testing';
 
-import { RouterService } from '../../imports/services';
-import type { RouterPayloadModel } from '../../imports/models';
+import { RouterPayloadModel, RouterService } from '../imports';
 
 import { HomeService } from './home.service';
 

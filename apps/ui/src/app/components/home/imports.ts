@@ -1,4 +1,4 @@
-export type { IconModel } from '../../imports/models';
+export type { RouterPayloadModel, IconModel } from '../../imports/models';
 
 export { IconStub } from '../../imports/constants';
 

@@ -5,6 +5,7 @@ module.exports = {
     '<rootDir>/libs/api/core',
     '<rootDir>/libs/api/database/entities',
     '<rootDir>/libs/api/database/typeorm',
+    '<rootDir>/libs/api/features/trip',
     '<rootDir>/libs/shared/data',
     '<rootDir>/libs/shared/styles',
     '<rootDir>/libs/ui/core',
@@ -12,6 +13,6 @@ module.exports = {
     '<rootDir>/libs/ui/shared/elements',
     '<rootDir>/libs/ui/shared/icon',
     '<rootDir>/libs/ui/shared/material',
-    '<rootDir>/libs/api/features/trip'
-  ]
+    '<rootDir>/libs/ui/features/trip'
+  ],
 };

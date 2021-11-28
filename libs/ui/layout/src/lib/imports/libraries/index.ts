@@ -1,2 +1,2 @@
-export { MaterialModule } from '@itinerary-assistant/ui/material';
-export { IconModule } from '@itinerary-assistant/ui/icon';
+export { MaterialModule } from '@itinerary-assistant/ui/shared/material';
+export { IconModule } from '@itinerary-assistant/ui/shared/icons';

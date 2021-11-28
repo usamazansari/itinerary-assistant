@@ -1,2 +1,2 @@
 // TODO: Implement Icon Library
-export { MaterialModule } from '@itinerary-assistant/ui/material';
+export { MaterialModule } from '@itinerary-assistant/ui/shared/material';
