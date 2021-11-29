@@ -2,7 +2,6 @@ export { ElementsModule } from './lib/elements.module';
 
 export {
   IconStub,
-  ImageStub,
   SnackbarConfigStub,
   LoaderConfigStub,
   LoaderSize
@@ -10,7 +9,6 @@ export {
 
 export type {
   IconModel,
-  ImageModel,
   LoaderConfigModel
 } from './lib/models';
 

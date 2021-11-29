@@ -53,6 +53,7 @@
               {
                 "sourceTag": "lib:ui-layout",
                 "onlyDependOnLibsWithTags": [
+                  "lib:shared-data",
                   "lib:ui-shared-elements",
                   "lib:ui-shared-icons",
                   "lib:ui-shared-material"
