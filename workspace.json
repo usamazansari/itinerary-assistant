@@ -61,6 +61,156 @@
         }
       }
     },
+    "api-core": {
+      "root": "libs/api/core",
+      "sourceRoot": "libs/api/core/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/core/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/core"
+          ],
+          "options": {
+            "jestConfig": "libs/api/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-database-entities": {
+      "root": "libs/api/database/entities",
+      "sourceRoot": "libs/api/database/entities/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/database/entities/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/database/entities"
+          ],
+          "options": {
+            "jestConfig": "libs/api/database/entities/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-database-typeorm": {
+      "root": "libs/api/database/typeorm",
+      "sourceRoot": "libs/api/database/typeorm/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/database/typeorm/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/database/typeorm"
+          ],
+          "options": {
+            "jestConfig": "libs/api/database/typeorm/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-features-trip": {
+      "root": "libs/api/features/trip",
+      "sourceRoot": "libs/api/features/trip/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/features/trip/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/features/trip"
+          ],
+          "options": {
+            "jestConfig": "libs/api/features/trip/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-data": {
+      "root": "libs/shared/data",
+      "sourceRoot": "libs/shared/data/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/data/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/data"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-styles": {
+      "root": "libs/shared/styles",
+      "sourceRoot": "libs/shared/styles/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/styles/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/styles"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/styles/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "ui": {
       "projectType": "application",
       "root": "apps/ui",
@@ -161,6 +311,33 @@
         }
       }
     },
+    "ui-core": {
+      "projectType": "library",
+      "root": "libs/ui/core",
+      "sourceRoot": "libs/ui/core/src",
+      "prefix": "ia-core",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/ui/core"
+          ],
+          "options": {
+            "jestConfig": "libs/ui/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/core/src/**/*.ts",
+              "libs/ui/core/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "ui-e2e": {
       "root": "apps/ui-e2e",
       "sourceRoot": "apps/ui-e2e/src",
@@ -189,159 +366,7 @@
         }
       }
     },
-    "api-core": {
-      "root": "libs/api/core",
-      "sourceRoot": "libs/api/core/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/api/core/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/core"
-          ],
-          "options": {
-            "jestConfig": "libs/api/core/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "api-database-entities": {
-      "root": "libs/api/database/entities",
-      "sourceRoot": "libs/api/database/entities/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/api/database/entities/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/database/entities"
-          ],
-          "options": {
-            "jestConfig": "libs/api/database/entities/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "api-database-typeorm": {
-      "root": "libs/api/database/typeorm",
-      "sourceRoot": "libs/api/database/typeorm/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/api/database/typeorm/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/database/typeorm"
-          ],
-          "options": {
-            "jestConfig": "libs/api/database/typeorm/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared-data": {
-      "root": "libs/shared/data",
-      "sourceRoot": "libs/shared/data/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/data/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/data"
-          ],
-          "options": {
-            "jestConfig": "libs/shared/data/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "shared-styles": {
-      "root": "libs/shared/styles",
-      "sourceRoot": "libs/shared/styles/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/shared/styles/**/*.ts"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/styles"
-          ],
-          "options": {
-            "jestConfig": "libs/shared/styles/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "ui-core": {
-      "projectType": "library",
-      "root": "libs/ui/core",
-      "sourceRoot": "libs/ui/core/src",
-      "prefix": "ia-core",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/core"
-          ],
-          "options": {
-            "jestConfig": "libs/ui/core/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/core/src/**/*.ts",
-              "libs/ui/core/src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "ui-elements": {
+    "ui-shared-elements": {
       "projectType": "library",
       "root": "libs/ui/shared/elements",
       "sourceRoot": "libs/ui/shared/elements/src",
@@ -368,7 +393,34 @@
         }
       }
     },
-    "ui-icon": {
+    "ui-features-trip": {
+      "projectType": "library",
+      "root": "libs/ui/features/trip",
+      "sourceRoot": "libs/ui/features/trip/src",
+      "prefix": "ia-trip",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/ui/features/trip"
+          ],
+          "options": {
+            "jestConfig": "libs/ui/features/trip/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/features/trip/src/**/*.ts",
+              "libs/ui/features/trip/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui-shared-icons": {
       "projectType": "library",
       "root": "libs/ui/shared/icon",
       "sourceRoot": "libs/ui/shared/icon/src",
@@ -422,7 +474,7 @@
         }
       }
     },
-    "ui-material": {
+    "ui-shared-material": {
       "projectType": "library",
       "root": "libs/ui/shared/material",
       "sourceRoot": "libs/ui/shared/material/src",

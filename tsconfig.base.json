@@ -30,6 +30,9 @@
       "@itinerary-assistant/api/database/typeorm": [
         "libs/api/database/typeorm/src/index.ts"
       ],
+      "@itinerary-assistant/api/features/trip": [
+        "libs/api/features/trip/src/index.ts"
+      ],
       "@itinerary-assistant/shared/data": [
         "libs/shared/data/src/index.ts"
       ],
@@ -39,20 +42,20 @@
       "@itinerary-assistant/ui/core": [
         "libs/ui/core/src/index.ts"
       ],
-      "@itinerary-assistant/ui/elements": [
-        "libs/ui/shared/elements/src/index.ts"
-      ],
-      "@itinerary-assistant/ui/icon": [
-        "libs/ui/shared/icon/src/index.ts"
+      "@itinerary-assistant/ui/features/trip": [
+        "libs/ui/features/trip/src/index.ts"
       ],
       "@itinerary-assistant/ui/layout": [
         "libs/ui/layout/src/index.ts"
       ],
-      "@itinerary-assistant/ui/material": [
-        "libs/ui/shared/material/src/index.ts"
+      "@itinerary-assistant/ui/shared/elements": [
+        "libs/ui/shared/elements/src/index.ts"
       ],
-      "@itinerary-assistant/ui/tailwind": [
-        "libs/ui/shared/tailwind/src/index.ts"
+      "@itinerary-assistant/ui/shared/icons": [
+        "libs/ui/shared/icon/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/shared/material": [
+        "libs/ui/shared/material/src/index.ts"
       ]
     }
   },

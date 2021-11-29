@@ -1,16 +1,14 @@
 import { Module } from '@nestjs/common';
 
-import { ApiCoreModule } from './imports/modules';
+import * as Libraries from './imports/modules';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import * as Modules from './modules';
-
 @Module({
   imports: [
-    ApiCoreModule,
-    Modules.TripModule
+    Libraries.ApiCoreModule,
+    Libraries.TripModule
   ],
   controllers: [AppController],
   providers: [AppService]
