@@ -1,3 +1,5 @@
+export type { FlagModel } from './flag/flag.model';
+
 export type { TripListItemModel, TripListDataModel } from './trip/trip-list.model';
 export type { TripOverviewModel } from './trip/trip-overview.model';
 

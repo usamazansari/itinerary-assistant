@@ -1,7 +1,6 @@
 export { ElementsModule } from './lib/elements.module';
 
 export {
-  FlagStub,
   IconStub,
   ImageStub,
   SnackbarConfigStub,
@@ -10,7 +9,6 @@ export {
 } from './lib/constants';
 
 export type {
-  FlagModel,
   IconModel,
   ImageModel,
   LoaderConfigModel
