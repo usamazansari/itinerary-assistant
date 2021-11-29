@@ -1,1 +1,1 @@
-export { IconStub, ImageStub } from '@itinerary-assistant/ui/elements';
+export { IconStub, ImageStub } from '@itinerary-assistant/shared/data';

@@ -12,14 +12,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import * as Modules from './modules';
-import * as Components from './components';
 
 @NgModule({
   declarations: [
-    AppComponent,
-
-    Components.HomeComponent,
-    Components.HomeContainerComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
