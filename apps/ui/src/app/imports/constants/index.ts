@@ -1,6 +1,7 @@
 export {
   ApplicationName,
-  Author
+  Author,
+  IconStub
 } from '@itinerary-assistant/shared/data';
 
 export {
@@ -10,4 +11,3 @@ export {
 
 export { RouterPayloadStub } from '@itinerary-assistant/ui/core';
 export { LayoutDataStub } from '@itinerary-assistant/ui/layout';
-export { IconStub } from '@itinerary-assistant/ui/shared/elements';

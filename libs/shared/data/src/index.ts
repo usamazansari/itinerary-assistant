@@ -5,6 +5,7 @@ export {
   EmptyString,
 
   FlagStub,
+  IconStub,
   ImageStub,
 
   HttpStatus,
@@ -18,6 +19,7 @@ export type {
   APIResponseModel,
 
   FlagModel,
+  IconModel,
   ImageModel,
 
   TripListItemModel,
