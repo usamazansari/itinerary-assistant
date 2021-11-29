@@ -1,3 +1,11 @@
+/**
+ * ### HTTP Status Codes
+ *
+ * An enumberble of HTTP Status codes per the W3C standards ranging from `0` to `511` containing all the valid values.
+ *
+ * @export
+ * @enum {number}
+ */
 export enum HttpStatus {
   ServerDown = 0,
   Continue = 100,
@@ -65,8 +73,13 @@ export enum HttpStatus {
   NetworkAuthenticationRequired = 511
 }
 
+/**
+ * ### Server Response Map
+ *
+ * Map the HTTP Status Code with the string message which is represented by it.
+ */
 export const ServerResponse: Map<HttpStatus, string> = new Map<HttpStatus, string>([
-  [0, 'Server Down'],
+  [HttpStatus.ServerDown, 'Server Down'],
   [HttpStatus.Continue, 'Continue'],
   [HttpStatus.SwitchingProtocols, 'Switching Protocols'],
   [HttpStatus.Processing, 'Processing'],

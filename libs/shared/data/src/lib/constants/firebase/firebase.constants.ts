@@ -1,5 +1,5 @@
 /**
- * Firebase Configuration
+ * ### Firebase Configuration
  */
 export const FirebaseConfig = {
   apiKey: 'AIzaSyDzlFq4jw6-LZlDYhtBaus3SVgPniB6KS0',

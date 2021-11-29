@@ -1,6 +1,7 @@
 export {
   ApplicationName,
   Author,
+  EmptyString,
   HttpStatus,
   ServerResponse,
   TripListItemStub

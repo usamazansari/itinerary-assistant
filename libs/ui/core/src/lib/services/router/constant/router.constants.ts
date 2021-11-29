@@ -1,4 +1,4 @@
-import type { RouterPayloadModel } from '../../models';
+import type { RouterPayloadModel } from '../../../models';
 
 /**
  * Stub for `RouterPayloadModel`
@@ -14,6 +14,3 @@ export const RouterPayloadStub: RouterPayloadModel = {
   routes: [],
   extras: {}
 };
-
-// TODO: Move to global constants
-export const EmptyString = '';

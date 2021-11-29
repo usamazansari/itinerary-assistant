@@ -1,1 +1,1 @@
-export { RouterPayloadStub, EmptyString } from './router/router.constants';
+export { RouterPayloadStub } from '../services/router/constant/router.constants';

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import type { HttpErrorResponse } from '@angular/common/http';
 
-import type { HttpStatus } from '../imports/constants';
-import { getServerResponseMessage } from '../imports/utils';
+import type { HttpStatus } from '../../imports/constants';
+import { getServerResponseMessage } from '../../imports/utils';
 
 @Injectable({
   providedIn: 'root'

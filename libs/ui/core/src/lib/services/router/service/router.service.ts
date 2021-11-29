@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import type { RouterPayloadModel } from '../../models';
-import { EmptyString } from '../../constants';
+import { EmptyString } from '../imports';
+import type { RouterPayloadModel } from '..';
 
 /**
  * Router Service for Navigation
