@@ -1,2 +1,2 @@
-export { ClipboardService } from './clipboard/clipboard.service';
+export { ClipboardService } from './clipboard';
 export { SnackbarService } from './snackbar/snackbar.service';

@@ -1,4 +1,4 @@
-export { } from './clipboard/clipboard.constants';
+export { } from '../services/clipboard';
 
 export { FlagStub } from './flag/flag.constants';
 
