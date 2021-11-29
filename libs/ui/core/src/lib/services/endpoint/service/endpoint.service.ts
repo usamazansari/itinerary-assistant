@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
-import type { APIResponseModel } from '../../imports/models';
+import type { APIResponseModel } from '../imports';
 
 // TODO: 🧐 Documentation Required
 // TODO: Implement other methods - post, put, delete
