@@ -15,10 +15,14 @@ import { ToolbarDataStub, ToolbarService } from '../..';
 
 @Component({
   selector: 'ia-layout-toolbar-container',
-  template: `<ia-layout-toolbar [assets]         = "(assets$ | async)!"
-                                [data]           = "(data$   | async)!"
-                                (toggleSidenav$) = "toggleSidenav()"
-                                (gotoHome$)      = "gotoHome()"></ia-layout-toolbar>`,
+  template: `
+    <ia-layout-toolbar
+      [assets]         = "(assets$ | async)!"
+      [data]           = "(data$   | async)!"
+      (toggleSidenav$) = "toggleSidenav()"
+      (gotoHome$)      = "gotoHome()"
+    ></ia-layout-toolbar>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarContainerComponent implements OnInit {

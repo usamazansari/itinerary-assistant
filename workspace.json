@@ -397,7 +397,7 @@
       "projectType": "library",
       "root": "libs/ui/features/trip",
       "sourceRoot": "libs/ui/features/trip/src",
-      "prefix": "itinerary-assistant",
+      "prefix": "ia-trip",
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",

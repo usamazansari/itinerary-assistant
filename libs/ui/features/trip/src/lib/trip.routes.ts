@@ -1,5 +1,6 @@
 export enum RouteConstants {
   Empty = '',
   Wildcard = '**',
-  Trip = 'trip'
+  Trip = 'trip',
+  ViewTrip = 'view-trip'
 }

@@ -20,10 +20,14 @@ import { FooterDataStub, FooterService } from '../..';
  */
 @Component({
   selector: 'ia-layout-footer-container',
-  template: `<ia-layout-footer [assets]         = "(assets$ | async)!"
-                               [data]           = "(data$   | async)!"
-                               (copyDiscordID$) = "copyDiscordID()"
-                               (copyEmailID$)   = "copyEmailID()"></ia-layout-footer>`,
+  template: `
+    <ia-layout-footer
+      [assets]         = "(assets$ | async)!"
+      [data]           = "(data$   | async)!"
+      (copyDiscordID$) = "copyDiscordID()"
+      (copyEmailID$)   = "copyEmailID()"
+    ></ia-layout-footer>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterContainerComponent implements OnInit {
