@@ -159,19 +159,5 @@
   "parameterHints.hintingType": "variableOnly",
   "githubPullRequests.fileListLayout": "tree",
   "vsicons.presets.angular": true,
-  "sqltools.connections": [
-    {
-      "mysqlOptions": {
-        "authProtocol": "default"
-      },
-      "previewLimit": 50,
-      "server": "localhost",
-      "port": 3306,
-      "askForPassword": true,
-      "driver": "MySQL",
-      "name": "nestjs-dev",
-      "username": "root",
-      "database": "nestjs_dev"
-    }
-  ],
+  "sqltools.connections": [],
 }

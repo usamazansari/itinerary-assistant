@@ -10,6 +10,7 @@
     "yzhang.markdown-all-in-one",
     "pkief.material-icon-theme",
     "dominicvonk.parameter-hints",
-    "visualstudioexptteam.vscodeintellicode"
+    "visualstudioexptteam.vscodeintellicode",
+    "cweijan.vscode-mysql-client2"
   ]
 }

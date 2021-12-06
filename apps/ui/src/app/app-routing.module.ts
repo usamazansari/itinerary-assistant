@@ -50,7 +50,7 @@ const routes: Routes = [
 
 const imports = [
   RouterModule.forRoot(routes, {
-    enableTracing: isDevMode() || false,
+    enableTracing: isDevMode() && false,
     initialNavigation: 'enabledBlocking'
   })
 ];
