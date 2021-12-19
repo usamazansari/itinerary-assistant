@@ -10,8 +10,8 @@ import { TripProviders } from './providers';
 		Controllers.TripController
 	],
 	providers: [
-		Services.TripService,
-		...TripProviders
+		...TripProviders,
+		Services.TripService
 	],
 	exports: []
 })

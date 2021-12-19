@@ -7,7 +7,7 @@ import { TripListItemModel, TripOverviewModel } from '../../imports/models';
 import { TripEntity } from '../../imports/entities';
 
 import { TripListStub, goa, ladakh, manali, northEast } from '../../mock';
-import { REPOSITORY } from '../../constants';
+import { TRIP_REPOSITORY } from '../../constants';
 
 @Injectable()
 export class TripService {
@@ -21,7 +21,7 @@ export class TripService {
   #tripOverview!: TripOverviewModel;
 
   constructor(
-    @Inject(REPOSITORY) private _repository: Repository<TripEntity>
+    @Inject(TRIP_REPOSITORY) private _repository: Repository<TripEntity>
   ) { }
 
   fetchTripList(): Observable<TripEntity[]> {

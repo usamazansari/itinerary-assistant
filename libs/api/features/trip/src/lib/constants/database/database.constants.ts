@@ -1,1 +1,1 @@
-export const REPOSITORY = 'TRIP_REPOSITORY';
+export const TRIP_REPOSITORY = 'TRIP_REPOSITORY';

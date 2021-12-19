@@ -5,6 +5,6 @@ import { CONNECTIONS } from '../config';
 export const DATABASE_PROVIDERS = [
   {
     provide: DATABASE_CONNECTION,
-    useFactory: async () => createConnection(CONNECTIONS)
+    useFactory: async () => await createConnection(CONNECTIONS)
   }
 ];
