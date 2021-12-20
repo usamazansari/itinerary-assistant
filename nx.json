@@ -60,12 +60,12 @@
     },
     "api-database-entities": {
       "tags": [
-        "api:database-entities"
+        "lib:api-database-entities"
       ]
     },
     "api-database-typeorm": {
       "tags": [
-        "api:database-typeorm"
+        "lib:api-database-typeorm"
       ]
     },
     "api-features-trip": {

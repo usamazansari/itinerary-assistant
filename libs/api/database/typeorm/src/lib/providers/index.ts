@@ -1,1 +1,1 @@
-export { DATABASE_PROVIDERS } from './database.providers';
+export { DBProviders } from './database.providers';

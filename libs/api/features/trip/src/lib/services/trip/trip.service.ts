@@ -1,7 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
+// import { InjectRepository } from '@nestjs/typeorm';
 
 import { Repository } from 'typeorm';
-import { from, Observable } from 'rxjs';
+// import { from, Observable } from 'rxjs';
 
 import { TripListItemModel, TripOverviewModel } from '../../imports/models';
 import { TripEntity } from '../../imports/entities';
@@ -21,11 +22,18 @@ export class TripService {
   #tripOverview!: TripOverviewModel;
 
   constructor(
-    @Inject(TRIP_REPOSITORY) private _repository: Repository<TripEntity>
+    // @InjectRepository(TripEntity)
+    // private readonly _repository: Repository<TripEntity>
+    @Inject(TRIP_REPOSITORY)
+    private _repository: Repository<TripEntity>
   ) { }
 
-  fetchTripList(): Observable<TripEntity[]> {
-    return from(this._repository.find());
+  // fetchTripList(): Observable<TripEntity[]> {
+  //   return from(this._repository.find());
+  // }
+
+  fetchTripList(): Promise<TripEntity[]> {
+    return this._repository.find();
   }
 
   // fetchTrip(id: string | number): Observable<TripEntity> {
@@ -64,3 +72,5 @@ function kebabToCamel(input: string): string {
     )
     .join('');
 }
+
+// TODO: Usama Ansari - 🗑️ Cleanup required

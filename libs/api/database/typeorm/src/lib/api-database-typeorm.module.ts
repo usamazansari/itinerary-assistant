@@ -1,11 +1,11 @@
 import { Inject, Module, OnModuleDestroy } from '@nestjs/common';
 
 import { DATABASE_CONNECTION } from './constants';
-import { DATABASE_PROVIDERS } from './providers';
+import { DBProviders } from './providers';
 
 @Module({
-	providers: [...DATABASE_PROVIDERS],
-	exports: [...DATABASE_PROVIDERS]
+	providers: [...DBProviders],
+	exports: [...DBProviders, DATABASE_CONNECTION]
 })
 export class ApiDatabaseTypeormModule implements OnModuleDestroy {
 
@@ -18,3 +18,5 @@ export class ApiDatabaseTypeormModule implements OnModuleDestroy {
 		this.dbConnection.close();
 	}
 }
+
+// TODO: Usama Ansari - 🗑️ Cleanup required - rename stuff

@@ -1,1 +1,2 @@
-export { TripEntity } from './trip.entity'
+export { TripEntity } from './trip.entity';
+export { UserEntity } from './user.entity';
