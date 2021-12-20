@@ -24,33 +24,56 @@
               {
                 "sourceTag": "app:ui",
                 "onlyDependOnLibsWithTags": [
-                  "lib:shared",
+                  "lib:shared-data",
                   "lib:ui-core",
-                  "lib:ui-elements",
-                  "lib:ui-icon",
                   "lib:ui-layout",
-                  "lib:ui-material"
+                  "lib:ui-shared-elements",
+                  "lib:ui-shared-icons",
+                  "lib:ui-shared-material",
+                  "lib:ui-features-trip"
                 ]
               },
               {
                 "sourceTag": "app:api",
                 "onlyDependOnLibsWithTags": [
-                  "lib:shared",
-                  "lib:api-core"
-                ]
-              },
-              {
-                "sourceTag": "lib:ui-layout",
-                "onlyDependOnLibsWithTags": [
-                  "lib:ui-elements",
-                  "lib:ui-icon",
-                  "lib:ui-material"
+                  "lib:shared-data",
+                  "lib:api-core",
+                  "lib:api-database-typeorm",
+                  "lib:api-database-entities",
+                  "lib:api-features-trip"
                 ]
               },
               {
                 "sourceTag": "lib:ui-core",
                 "onlyDependOnLibsWithTags": [
-                  "lib:shared"
+                  "lib:shared-data",
+                  "lib:ui-shared-elements"
+                ]
+              },
+              {
+                "sourceTag": "lib:ui-layout",
+                "onlyDependOnLibsWithTags": [
+                  "lib:shared-data",
+                  "lib:ui-shared-elements",
+                  "lib:ui-shared-icons",
+                  "lib:ui-shared-material"
+                ]
+              },
+              {
+                "sourceTag": "lib:ui-features-trip",
+                "onlyDependOnLibsWithTags": [
+                  "lib:shared-data",
+                  "lib:ui-core",
+                  "lib:ui-shared-elements",
+                  "lib:ui-shared-icons",
+                  "lib:ui-shared-material"
+                ]
+              },
+              {
+                "sourceTag": "lib:ui-shared-elements",
+                "onlyDependOnLibsWithTags": [
+                  "lib:shared-data",
+                  "lib:ui-shared-material"
                 ]
               }
             ]

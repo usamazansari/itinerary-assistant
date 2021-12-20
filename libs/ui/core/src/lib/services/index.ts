@@ -1,4 +1,4 @@
-export { CoreService } from './core.service';
+export { CoreService } from './core/core.service';
 
-export { EndpointService } from './endpoint/endpoint.service';
-export { RouterService } from './router/router.service';
+export { EndpointService } from './endpoint';
+export { RouterService } from './router';

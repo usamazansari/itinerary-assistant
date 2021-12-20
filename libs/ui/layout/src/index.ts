@@ -7,23 +7,19 @@ export type {
   FooterLinkModel,
   FooterSnackbarMessageModel,
   FooterStringsModel,
-  FooterVMModel,
   ToolbarAssetsModel,
   ToolbarDataModel,
-  ToolbarVMModel,
   NavigationItemModel,
   LayoutDataModel
 } from './lib/models';
 
 export {
   FooterAssetsStub,
-  FooterConstants,
+  FooterAssets,
   FooterDataStub,
-  FooterVMStub,
+  ToolbarAssets,
   ToolbarAssetsStub,
-  ToolbarConstants,
   ToolbarDataStub,
-  ToolbarVMStub,
   NavigationItemStub,
   LayoutDataStub
 } from './lib/constants';

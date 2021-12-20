@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BehaviorSubject } from 'rxjs';
+import type { Observable } from 'rxjs';
 
-import { ApplicationName, Author, LayoutDataStub } from './imports/constants';
 import { RouterService } from './imports/services';
-
 import type { LayoutDataModel } from './imports/models';
+
+import { CoreService } from './services';
 
 @Component({
   selector: 'ia-root',
@@ -13,30 +13,16 @@ import type { LayoutDataModel } from './imports/models';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  layoutData$ = new BehaviorSubject<LayoutDataModel>(LayoutDataStub);
-  #layoutData: LayoutDataModel = { ...LayoutDataStub };
+  layoutData$!: Observable<LayoutDataModel>;
 
-  constructor(private _router: RouterService) { }
+  constructor(
+    private _coreService: CoreService,
+    private _router: RouterService
+  ) { }
 
   ngOnInit(): void {
-    this._setLayoutData();
-  }
-
-  private _setLayoutData() {
-    this.#layoutData = {
-      footer: {
-        fullname: Author.FullName,
-        github: Author.GitHub,
-        linkedin: Author.LinkedIn,
-        discord: Author.Discord,
-        email: Author.Email,
-        location: Author.Location
-      },
-      toolbar: {
-        logo: ApplicationName
-      }
-    };
-    this.layoutData$.next(this.#layoutData);
+    this._coreService.fetchLayoutData();
+    this.layoutData$ = this._coreService.watchLayoutData$();
   }
 
   navigate(): void {

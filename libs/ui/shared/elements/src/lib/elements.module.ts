@@ -7,8 +7,8 @@ import * as Components from './components';
 
 @NgModule({
   declarations: [
-    Components.InlineLoaderContainerComponent,
-    Components.InlineLoaderComponent
+    Components.LoaderContainerComponent,
+    Components.LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +16,7 @@ import * as Components from './components';
     Libraries.MaterialModule
   ],
   exports: [
-    Components.InlineLoaderContainerComponent
+    Components.LoaderContainerComponent
   ]
 })
 export class ElementsModule { }

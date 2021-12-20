@@ -1,1 +1,1 @@
-export type { IconModel, ImageModel } from '@itinerary-assistant/ui/elements';
+export type { IconModel, ImageModel } from '@itinerary-assistant/shared/data';

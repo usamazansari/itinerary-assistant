@@ -1,14 +1,29 @@
 export {
   ApplicationName,
   Author,
+
+  EmptyString,
+
+  FlagStub,
+  IconStub,
+  ImageStub,
+
   HttpStatus,
   ServerResponse,
+
   TripListItemStub
 } from './lib/constants';
 
-export type {
+export {
   APIRequestModel,
-  APIResponseModel,
+  APIResponseModel
+} from './lib/models';
+
+export type {
+
+  FlagModel,
+  IconModel,
+  ImageModel,
 
   TripListItemModel,
   TripListDataModel,

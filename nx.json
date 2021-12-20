@@ -58,6 +58,21 @@
         "lib:api-core"
       ]
     },
+    "api-database-entities": {
+      "tags": [
+        "lib:api-database-entities"
+      ]
+    },
+    "api-database-typeorm": {
+      "tags": [
+        "lib:api-database-typeorm"
+      ]
+    },
+    "api-features-trip": {
+      "tags": [
+        "lib:api-features-trip"
+      ]
+    },
     "shared-data": {
       "tags": [
         "lib:shared-data"
@@ -73,14 +88,9 @@
         "lib:ui-core"
       ]
     },
-    "ui-elements": {
+    "ui-features-trip": {
       "tags": [
-        "lib:ui-elements"
-      ]
-    },
-    "ui-icon": {
-      "tags": [
-        "lib:ui-icon"
+        "lib:ui-features-trip"
       ]
     },
     "ui-layout": {
@@ -88,9 +98,19 @@
         "lib:ui-layout"
       ]
     },
-    "ui-material": {
+    "ui-shared-elements": {
       "tags": [
-        "lib:ui-material"
+        "lib:ui-shared-elements"
+      ]
+    },
+    "ui-shared-icons": {
+      "tags": [
+        "lib:ui-shared-icons"
+      ]
+    },
+    "ui-shared-material": {
+      "tags": [
+        "lib:ui-shared-material"
       ]
     }
   }

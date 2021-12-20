@@ -1,12 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { isDevMode, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import type { Routes } from '@angular/router';
 
 import { RouteConstants as AppRoutes } from './app.routes';
-
-import * as Components from './components';
-
-import type { Routes } from '@angular/router';
 
 // TODO: Use Routing as below
 
@@ -35,13 +32,8 @@ const routes: Routes = [
     children: [
       {
         path: AppRoutes.Trip,
-        component: Components.HomeContainerComponent
-        // children: []
-      },
-      {
-        path: `${AppRoutes.Trip}/${AppRoutes.ViewTrip}`,
         loadChildren: () =>
-          import('./modules/view-trip').then((m) => m.ViewTripModule)
+          import('@itinerary-assistant/ui/features/trip').then((m) => m.TripModule)
       },
       {
         path: AppRoutes.Empty,
@@ -58,7 +50,7 @@ const routes: Routes = [
 
 const imports = [
   RouterModule.forRoot(routes, {
-    // enableTracing: isDevMode(),
+    enableTracing: isDevMode() && false,
     initialNavigation: 'enabledBlocking'
   })
 ];
