@@ -1,9 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
-import type { Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
-
 import { HttpStatus } from '../../imports/constants';
 import { TripOverview } from '../../imports/entities';
 import { APIResponseModel } from '../../imports/models';
@@ -16,8 +13,6 @@ const TripListResponseStub = new APIResponseModel<TripOverviewModel[]>();
 
 @Injectable()
 export class TripService {
-  #tripList$ = new BehaviorSubject<APIResponseModel<TripOverviewModel[]>>(TripListResponseStub);
-  #tripList: APIResponseModel<TripOverviewModel[]> = TripListResponseStub;
   #tripOverviewDict: { [tripName: string]: TripOverviewModel; } = {
     goa,
     ladakh,
@@ -31,34 +26,19 @@ export class TripService {
     private _repository: Repository<TripOverview>
   ) { }
 
-  private _setTripList(tripList: APIResponseModel<TripOverviewModel[]>): void {
-    this.#tripList = { ...tripList ?? TripListResponseStub };
-    this.#tripList$.next(this.#tripList);
-  }
 
-  fetchTripList(): Observable<APIResponseModel<TripOverviewModel[]>> {
-    this._repository.find()
-      .then(trips => {
-
-        // Logpoint of trips
-
-        this._setTripList(new APIResponseModel(
-          [],
-          null,
-          HttpStatus.Ok
-        ));
-      })
-      .catch(error => {
-
-        // Logpoint of error
-
-        this._setTripList(new APIResponseModel(
-          [],
-          error,
-          error.status ?? HttpStatus.InternalServerError
-        ));
-      });
-    return this.#tripList$.asObservable();
+  fetchTripList(): Promise<APIResponseModel<TripOverview[]>> {
+    return this._repository.find()
+      .then(trips => new APIResponseModel(
+        trips,
+        null,
+        HttpStatus.Ok
+      ))
+      .catch(error => new APIResponseModel(
+        [],
+        error,
+        error.status ?? HttpStatus.InternalServerError
+      ));
   };
 
   fetchTrip(id: string | number) {
@@ -69,11 +49,26 @@ export class TripService {
   //   return [...this.#tripList];
   // }
 
+  // TODO: Remove this method
+  /**
+   * @deprecated - Discard this method
+   *
+   * @param {string} tripName
+   * @return {*}  {TripOverviewModel}
+   * @memberof TripService
+   */
   fetchTripOverview(tripName: string): TripOverviewModel {
     this.setTripOverview(tripName);
     return { ...this.#tripOverview };
   }
 
+  // TODO: Remove this method
+  /**
+   * @deprecated - Discard this method
+   *
+   * @param {string} tripName
+   * @memberof TripService
+   */
   setTripOverview(tripName: string): void {
     tripName = kebabToCamel(tripName);
     this.#tripOverview = this.#tripOverviewDict[tripName];

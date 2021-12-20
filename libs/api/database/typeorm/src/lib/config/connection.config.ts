@@ -1,6 +1,6 @@
-import { DBMap } from '../databases';
-
 import { ConnectionOptions } from 'typeorm';
+
+import { DBMap } from '../databases';
 
 import { TripOverview, User } from '../imports/entities';
 
