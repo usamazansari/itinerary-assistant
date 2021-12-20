@@ -1,1 +1,1 @@
-export { CONNECTIONS, ENTITIES } from './connection.config'
+export { DBConnections, Entities } from './connection.config';

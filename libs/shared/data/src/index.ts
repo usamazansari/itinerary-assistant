@@ -14,9 +14,12 @@ export {
   TripListItemStub
 } from './lib/constants';
 
-export type {
+export {
   APIRequestModel,
-  APIResponseModel,
+  APIResponseModel
+} from './lib/models';
+
+export type {
 
   FlagModel,
   IconModel,

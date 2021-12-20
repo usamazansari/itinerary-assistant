@@ -1,18 +1,23 @@
 import { Inject, Injectable } from '@nestjs/common';
-// import { InjectRepository } from '@nestjs/typeorm';
-
 import { Repository } from 'typeorm';
-// import { from, Observable } from 'rxjs';
 
-import { TripListItemModel, TripOverviewModel } from '../../imports/models';
-import { TripEntity } from '../../imports/entities';
+import type { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
-import { TripListStub, goa, ladakh, manali, northEast } from '../../mock';
+import { HttpStatus } from '../../imports/constants';
+import { TripOverview } from '../../imports/entities';
+import { APIResponseModel } from '../../imports/models';
+import type { TripOverviewModel } from '../../imports/models';
+
+import { goa, ladakh, manali, northEast } from '../../mock';
 import { TRIP_REPOSITORY } from '../../constants';
+
+const TripListResponseStub = new APIResponseModel<TripOverviewModel[]>();
 
 @Injectable()
 export class TripService {
-  #tripList: TripListItemModel[] = [...TripListStub];
+  #tripList$ = new BehaviorSubject<APIResponseModel<TripOverviewModel[]>>(TripListResponseStub);
+  #tripList: APIResponseModel<TripOverviewModel[]> = TripListResponseStub;
   #tripOverviewDict: { [tripName: string]: TripOverviewModel; } = {
     goa,
     ladakh,
@@ -22,23 +27,43 @@ export class TripService {
   #tripOverview!: TripOverviewModel;
 
   constructor(
-    // @InjectRepository(TripEntity)
-    // private readonly _repository: Repository<TripEntity>
     @Inject(TRIP_REPOSITORY)
-    private _repository: Repository<TripEntity>
+    private _repository: Repository<TripOverview>
   ) { }
 
-  // fetchTripList(): Observable<TripEntity[]> {
-  //   return from(this._repository.find());
-  // }
-
-  fetchTripList(): Promise<TripEntity[]> {
-    return this._repository.find();
+  private _setTripList(tripList: APIResponseModel<TripOverviewModel[]>): void {
+    this.#tripList = { ...tripList ?? TripListResponseStub };
+    this.#tripList$.next(this.#tripList);
   }
 
-  // fetchTrip(id: string | number): Observable<TripEntity> {
-  //   return from(this._repository.findOne(id));
-  // }
+  fetchTripList(): Observable<APIResponseModel<TripOverviewModel[]>> {
+    this._repository.find()
+      .then(trips => {
+
+        // Logpoint of trips
+
+        this._setTripList(new APIResponseModel(
+          [],
+          null,
+          HttpStatus.Ok
+        ));
+      })
+      .catch(error => {
+
+        // Logpoint of error
+
+        this._setTripList(new APIResponseModel(
+          [],
+          error,
+          error.status ?? HttpStatus.InternalServerError
+        ));
+      });
+    return this.#tripList$.asObservable();
+  };
+
+  fetchTrip(id: string | number) {
+    return this._repository.findOne(id);
+  }
 
   // fetchTripList(): TripListItemModel[] {
   //   return [...this.#tripList];
@@ -72,5 +97,3 @@ function kebabToCamel(input: string): string {
     )
     .join('');
 }
-
-// TODO: Usama Ansari - 🗑️ Cleanup required

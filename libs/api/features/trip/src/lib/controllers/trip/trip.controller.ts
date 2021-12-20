@@ -1,14 +1,14 @@
 import { Controller, Get, Param } from '@nestjs/common';
 
-// import type { Observable } from 'rxjs';
+import type { Observable } from 'rxjs';
 
 // import { HttpStatus } from '../../imports/constants';
-// import type {
-//   APIResponseModel,
-//   TripListDataModel,
-// } from '../../imports/models';
+import type {
+  APIResponseModel,
+  TripOverviewModel
+} from '../../imports/models';
 
-import type { TripEntity } from '../../imports/entities';
+// import type { TripOverview } from '../../imports/entities';
 
 import { TripService } from '../../services';
 
@@ -27,7 +27,7 @@ export class TripController {
   // }
 
   @Get('view-trip')
-  fetchTripList(): Promise<TripEntity[]> {
+  fetchTripList(): Observable<APIResponseModel<TripOverviewModel[]>> {
     return this._service.fetchTripList();
   }
 
