@@ -4,7 +4,7 @@ import type { HttpErrorResponse } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import type { APIResponseModel, TripListDataModel } from '../imports';
+import type { APIResponseModel, TripListDataModel, TripListItemModel } from '../imports';
 import { CoreService, EndpointService } from '../imports';
 
 import type {
@@ -35,7 +35,7 @@ export class TripListService {
   #assets: TripListAssetsModel = { ...TripListAssetsStub };
 
   #data$ = new BehaviorSubject<TripListDataModel>(TripListDataStub);
-  #data: TripListDataModel = { ...TripListDataStub };
+  data: TripListDataModel = { ...TripListDataStub };
 
   #flags$ = new BehaviorSubject<TripListFlagModel>(TripListFlagStub);
   #flags = { ...TripListFlagStub };
@@ -78,10 +78,10 @@ export class TripListService {
       }
     });
     this._endpointService
-      .get<TripListDataModel>(`http://localhost:3333/api/trip/view-trip`)
+      .get<TripListItemModel[]>(`http://localhost:3333/api/trip/view-trip`)
       .pipe()
       .subscribe(
-        (response: APIResponseModel<TripListDataModel>) => {
+        (response: APIResponseModel<TripListItemModel[]>) => {
           this.setFlags({
             ...this.#flags,
             shell: {
@@ -106,9 +106,11 @@ export class TripListService {
       );
   }
 
-  private setData(response: APIResponseModel<TripListDataModel>): void {
-    this.#data = { ...response.data ?? TripListDataStub };
-    this.#data$.next(this.#data);
+  private setData(response: APIResponseModel<TripListItemModel[]>): void {
+    this.data = {
+      trips: [...response.data ?? []] ?? TripListDataStub
+    };
+    this.#data$.next(this.data);
   }
 
   watchData$(): Observable<TripListDataModel> {
@@ -132,7 +134,7 @@ export class TripListService {
     const isServiceAvailable = this._coreService.checkError(<HttpErrorResponse>error.error);
     if (!isServiceAvailable) {
       this.setError({
-        message: this._coreService.getServerResponseMessage(error.error?.status ?? 0)
+        message: this._coreService.getServerResponseMessage((<HttpErrorResponse>error.error)?.status ?? 0)
       });
     } else {
       this.setError({

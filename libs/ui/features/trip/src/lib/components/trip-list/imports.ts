@@ -2,7 +2,8 @@ export type {
   APIResponseModel,
   FlagModel,
   IconModel,
-  TripListDataModel
+  TripListDataModel,
+  TripListItemModel
 } from '../../imports/models';
 
 export {

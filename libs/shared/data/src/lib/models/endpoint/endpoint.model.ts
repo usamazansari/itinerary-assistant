@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+// import { HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import type { HttpStatus } from '../../constants';
 
@@ -8,7 +8,7 @@ import type { HttpStatus } from '../../constants';
  * ```ts
  * type APIResponseModel<DataType> = {
  *   data: DataType;
- *   error: HttpErrorResponse;
+ *   error: unknown;
  *   status: HttpStatus;
  * }
  * ```
@@ -24,19 +24,19 @@ import type { HttpStatus } from '../../constants';
  */
 export class APIResponseModel<DataType> {
   data: DataType | null;
-  error: HttpErrorResponse | null;
+  error: unknown | null;
   status: HttpStatus;
 
   /**
    * Creates an instance of APIResponseModel.
    * @param {(DataType | null)} [data=null]
-   * @param {(HttpErrorResponse | null)} [error=null]
+   * @param {(unknown | null)} [error=null]
    * @param {HttpStatus} [status=0]
    * @memberof APIResponseModel
    */
   constructor(
     data: DataType | null = null,
-    error: HttpErrorResponse | null = null,
+    error: unknown | null = null,
     status: HttpStatus = 0
   ) {
     this.data = data;
@@ -59,19 +59,19 @@ class AuthModel {
 }
 
 export class APIRequestModel {
-  headers?: HttpHeaders;
-  params?: HttpParams;
+  headers?: { [key: string]: string | number | boolean; };
+  params?: { [key: string]: string | number | boolean; };
   body?: unknown;
   auth?: AuthModel;
 
   constructor(
-    headers?: HttpHeaders,
-    params?: HttpParams,
+    headers?: { [key: string]: string | number | boolean; },
+    params?: { [key: string]: string | number | boolean; },
     body?: unknown,
     auth?: AuthModel
   ) {
-    this.headers = headers ?? new HttpHeaders();
-    this.params = params ?? new HttpParams();
+    this.headers = headers ?? {};
+    this.params = params ?? {};
     this.body = body ?? null;
     this.auth = auth ?? new AuthModel();
   }
