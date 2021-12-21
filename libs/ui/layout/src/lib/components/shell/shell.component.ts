@@ -2,7 +2,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
   ViewChild
 } from '@angular/core';
@@ -26,7 +25,7 @@ import { LayoutDataStub } from '../../constants';
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
-export class ShellComponent implements OnInit {
+export class ShellComponent {
   #data$ = new BehaviorSubject<LayoutDataModel>(LayoutDataStub);
 
   @Input()
@@ -36,10 +35,6 @@ export class ShellComponent implements OnInit {
   @Output() navigate$ = new EventEmitter<void>();
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
-
-  constructor() { }
-
-  ngOnInit(): void { }
 
   openSidenav(): void {
     this.sidenav.open();

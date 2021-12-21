@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TripRoutingModule } from './trip-routing.module';
 
-import * as Libraries from './imports/libraries';
+import {
+  IconModule,
+  MaterialModule
+} from './imports/libraries';
 
 import * as Components from './components';
 
@@ -20,8 +23,8 @@ import * as Components from './components';
 
     TripRoutingModule,
 
-    Libraries.MaterialModule,
-    Libraries.IconModule
+    MaterialModule,
+    IconModule
   ]
 })
 export class TripModule { }

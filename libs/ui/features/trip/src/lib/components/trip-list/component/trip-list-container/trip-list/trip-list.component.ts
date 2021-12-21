@@ -19,6 +19,8 @@ import type {
 
 import { fadeIn } from './trip-list.animation';
 
+// TODO: Usama Ansari - Use error flags to show error messages in the API response.
+
 @Component({
   selector: 'ia-trip-list',
   templateUrl: './trip-list.component.html',

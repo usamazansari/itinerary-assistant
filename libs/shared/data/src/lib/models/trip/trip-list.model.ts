@@ -15,6 +15,7 @@ export interface TripListItemModel {
 }
 
 // TODO: 🧐 Documentation required
+// TODO: 🚚 Move to feature/trips/components/trip-list/model since it is not shared between frontend and backend
 /**
  * TODO: 🧐 Documentation required
  *

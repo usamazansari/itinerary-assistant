@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import * as Libraries from './imports/libraries';
+import { MaterialModule } from './imports/libraries';
 
 import * as Components from './components';
 
@@ -13,7 +13,7 @@ import * as Components from './components';
   imports: [
     CommonModule,
 
-    Libraries.MaterialModule
+    MaterialModule
   ],
   exports: [
     Components.LoaderContainerComponent
