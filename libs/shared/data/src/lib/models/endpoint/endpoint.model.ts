@@ -1,47 +1,39 @@
-// import { HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
-
 import type { HttpStatus } from '../../constants';
 
+const ResponseStub: APIResponse = { data: null, error: null, status: 0 };
+
 /**
- * API Response Model
- *
- * ```ts
- * type APIResponseModel<DataType> = {
- *   data: DataType;
- *   error: unknown;
- *   status: HttpStatus;
- * }
- * ```
- *
- * The `APIResponseModel` class requries three properties:
- * 1. `data`: The data returned by the API.
- * 2. `error`: The error returned by the API.
- * 3. `status`: The status code of the API response.
+ * API Response Wrapper
  *
  * @export
  * @class APIResponseModel
  * @template DataType Data type of the response body
  */
-export class APIResponseModel<DataType> {
-  data: DataType | null;
-  error: unknown | null;
-  status: HttpStatus;
+export class APIResponse<DataType = unknown> {
+  data!: DataType | unknown | null;
+  error!: unknown | null;
+  status!: HttpStatus;
 
   /**
-   * Creates an instance of APIResponseModel.
-   * @param {(DataType | null)} [data=null]
-   * @param {(unknown | null)} [error=null]
-   * @param {HttpStatus} [status=0]
+   * ### API Response Wrapper
+   *
+   * ```ts
+   * const response = new APIResponse<string>({
+   *   data: 'Hello World',
+   *   error: null,
+   *   status: HttpStatus.Ok
+   * });
+   * ```
+   *
+   * @param {APIResponseModel} [init={ ...ResponseStub }]
    * @memberof APIResponseModel
    */
   constructor(
-    data: DataType | null = null,
-    error: unknown | null = null,
-    status: HttpStatus = 0
+    init: APIResponse = { ...ResponseStub }
   ) {
-    this.data = data;
-    this.error = error;
-    this.status = status;
+    this.data = init.data;
+    this.error = init.error;
+    this.status = init.status;
   }
 }
 
@@ -58,6 +50,7 @@ class AuthModel {
   }
 }
 
+// TODO: Usama Ansari - Make it the same as APIResponse
 export class APIRequestModel {
   headers?: { [key: string]: string | number | boolean; };
   params?: { [key: string]: string | number | boolean; };

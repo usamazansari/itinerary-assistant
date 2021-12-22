@@ -1,5 +1,5 @@
 export type {
-  APIResponseModel,
+  APIResponse,
   FlagModel,
   IconModel,
   TripListDataModel,

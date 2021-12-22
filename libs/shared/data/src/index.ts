@@ -16,7 +16,7 @@ export {
 
 export {
   APIRequestModel,
-  APIResponseModel
+  APIResponse
 } from './lib/models';
 
 export type {

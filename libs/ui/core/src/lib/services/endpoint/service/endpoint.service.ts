@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
-import type { APIResponseModel } from '../imports';
+import type { APIResponse } from '../imports';
 
 // TODO: 🧐 Documentation Required
 // TODO: Implement other methods - post, put, delete
@@ -36,8 +36,8 @@ export class EndpointService {
    *
    * @memberof EndpointService
    */
-  get<ResponseType>(url: string): Observable<APIResponseModel<ResponseType>> {
-    return this._http.get<APIResponseModel<ResponseType>>(url)
+  get<ResponseType>(url: string): Observable<APIResponse<ResponseType>> {
+    return this._http.get<APIResponse<ResponseType>>(url)
       .pipe(
         delay(3000)
       );
@@ -54,8 +54,8 @@ export class EndpointService {
    *   Observable of response in a custom wrapper of type `APIResponseModel`
    * @memberof EndpointService
    */
-  post<RequestBody, ResponseType>(url: string, body: RequestBody): Observable<APIResponseModel<ResponseType>> {
-    return this._http.post<APIResponseModel<ResponseType>>(url, body)
+  post<RequestBody, ResponseType>(url: string, body: RequestBody): Observable<APIResponse<ResponseType>> {
+    return this._http.post<APIResponse<ResponseType>>(url, body)
       .pipe(
         // delay(3000)
       );
@@ -72,8 +72,8 @@ export class EndpointService {
    *   Observable of response in a custom wrapper of type `APIResponseModel`
    * @memberof EndpointService
    */
-  put<RequestBody, ResponseType>(url: string, body: RequestBody): Observable<APIResponseModel<ResponseType>> {
-    return this._http.put<APIResponseModel<ResponseType>>(url, body)
+  put<RequestBody, ResponseType>(url: string, body: RequestBody): Observable<APIResponse<ResponseType>> {
+    return this._http.put<APIResponse<ResponseType>>(url, body)
       .pipe(
         // delay(3000)
       );
@@ -88,8 +88,8 @@ export class EndpointService {
    *   Observable of response in a custom wrapper of type `APIResponseModel`
    * @memberof EndpointService
    */
-  delete<ResponseType>(url: string): Observable<APIResponseModel<ResponseType>> {
-    return this._http.delete<APIResponseModel<ResponseType>>(url)
+  delete<ResponseType>(url: string): Observable<APIResponse<ResponseType>> {
+    return this._http.delete<APIResponse<ResponseType>>(url)
       .pipe(
         delay(3000)
       );

@@ -4,7 +4,7 @@ import type { HttpErrorResponse } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import type { APIResponseModel, TripListDataModel, TripListItemModel } from '../imports';
+import type { APIResponse, TripListDataModel, TripListItemModel } from '../imports';
 import { CoreService, EndpointService } from '../imports';
 
 import type {
@@ -81,7 +81,7 @@ export class TripListService {
       .get<TripListItemModel[]>(`http://localhost:3333/api/trip/view-trip`)
       .pipe()
       .subscribe(
-        (response: APIResponseModel<TripListItemModel[]>) => {
+        (response: APIResponse<TripListItemModel[]>) => {
           this.setFlags({
             ...this.#flags,
             shell: {
@@ -92,7 +92,7 @@ export class TripListService {
           });
           this.setData(response);
         },
-        (error: APIResponseModel<unknown>) => {
+        (error: APIResponse<unknown>) => {
           this.setFlags({
             ...this.#flags,
             shell: {
@@ -106,7 +106,7 @@ export class TripListService {
       );
   }
 
-  private setData(response: APIResponseModel<TripListItemModel[]>): void {
+  private setData(response: APIResponse<TripListItemModel[]>): void {
     this.data = {
       trips: [...response.data ?? []] ?? TripListDataStub
     };
@@ -130,7 +130,7 @@ export class TripListService {
     return this.#flags$.asObservable();
   }
 
-  private handleError(error: APIResponseModel<unknown>): void {
+  private handleError(error: APIResponse<unknown>): void {
     const isServiceAvailable = this._coreService.checkError(<HttpErrorResponse>error.error);
     if (!isServiceAvailable) {
       this.setError({

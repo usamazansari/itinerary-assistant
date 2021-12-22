@@ -1,1 +1,1 @@
-export type { APIResponseModel } from '../../imports/models'
+export type { APIResponse } from '../../imports/models';
