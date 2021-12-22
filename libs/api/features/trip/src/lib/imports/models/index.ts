@@ -6,5 +6,3 @@ export type {
 } from '@itinerary-assistant/shared/data';
 
 export { APIResponseModel } from '@itinerary-assistant/shared/data';
-
-// TODO: Usama Ansari - 🚨 Lint fix required
