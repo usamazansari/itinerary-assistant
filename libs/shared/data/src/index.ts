@@ -31,4 +31,7 @@ export type {
   TripOverviewModel
 } from './lib/models';
 
-export { getServerResponseMessage } from './lib/utils';
+export {
+  getServerResponseMessage,
+  kebabToCamel
+} from './lib/utils';

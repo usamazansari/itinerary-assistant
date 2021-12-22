@@ -64,7 +64,9 @@
         }
       },
       "tags": [
-        "app:api"
+        "species:api-app",
+        "genus:application",
+        "family:api"
       ]
     },
     "api-core": {
@@ -95,7 +97,9 @@
         }
       },
       "tags": [
-        "lib:api-core"
+        "species:api-core",
+        "genus:library",
+        "family:api"
       ]
     },
     "api-database-entities": {
@@ -126,7 +130,9 @@
         }
       },
       "tags": [
-        "lib:api-database-entities"
+        "species:api-database-entities",
+        "genus:library",
+        "family:api"
       ]
     },
     "api-database-typeorm": {
@@ -157,7 +163,9 @@
         }
       },
       "tags": [
-        "lib:api-database-typeorm"
+        "species:api-database-typeorm",
+        "genus:library",
+        "family:api"
       ]
     },
     "api-features-trip": {
@@ -188,7 +196,9 @@
         }
       },
       "tags": [
-        "lib:api-features-trip"
+        "species:api-features-trip",
+        "genus:library",
+        "family:api"
       ]
     },
     "shared-data": {
@@ -219,7 +229,10 @@
         }
       },
       "tags": [
-        "lib:shared-data"
+        "species:shared-data",
+        "genus:library",
+        "family:shared",
+        "order:model"
       ]
     },
     "shared-styles": {
@@ -250,7 +263,10 @@
         }
       },
       "tags": [
-        "lib:shared-styles"
+        "species:shared-styles",
+        "genus:library",
+        "family:shared",
+        "order:style"
       ]
     },
     "ui": {
@@ -356,7 +372,9 @@
         }
       },
       "tags": [
-        "app:ui"
+        "species:ui-app",
+        "genus:application",
+        "family:ui"
       ]
     },
     "ui-core": {
@@ -389,7 +407,9 @@
         }
       },
       "tags": [
-        "lib:ui-core"
+        "species:ui-core",
+        "genus:library",
+        "family:ui"
       ]
     },
     "ui-e2e": {
@@ -423,7 +443,10 @@
         }
       },
       "tags": [
-        "test:ui-e2e"
+        "species:ui-e2e",
+        "genus:application",
+        "family:ui",
+        "order:e2e-testing"
       ],
       "implicitDependencies": [
         "ui"
@@ -459,7 +482,9 @@
         }
       },
       "tags": [
-        "lib:ui-features-trip"
+        "species:ui-features-trip",
+        "genus:library",
+        "family:ui"
       ]
     },
     "ui-layout": {
@@ -492,7 +517,9 @@
         }
       },
       "tags": [
-        "lib:ui-layout"
+        "species:ui-layout",
+        "genus:library",
+        "family:ui"
       ]
     },
     "ui-shared-elements": {
@@ -525,7 +552,9 @@
         }
       },
       "tags": [
-        "lib:ui-shared-elements"
+        "species:ui-shared-elements",
+        "genus:library",
+        "family:ui"
       ]
     },
     "ui-shared-icons": {
@@ -558,7 +587,9 @@
         }
       },
       "tags": [
-        "lib:ui-shared-icons"
+        "species:ui-shared-icons",
+        "genus:library",
+        "family:ui"
       ]
     },
     "ui-shared-material": {
@@ -591,7 +622,9 @@
         }
       },
       "tags": [
-        "lib:ui-shared-material"
+        "species:ui-shared-material",
+        "genus:library",
+        "family:ui"
       ]
     }
   }
