@@ -15,7 +15,7 @@ export {
 } from './lib/constants';
 
 export {
-  APIRequestModel,
+  APIRequest,
   APIResponse
 } from './lib/models';
 

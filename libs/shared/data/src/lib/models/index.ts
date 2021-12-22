@@ -7,4 +7,4 @@ export type { IconModel } from './icon/icon.model';
 export type { TripListItemModel, TripListDataModel } from './trip/trip-list.model';
 export type { TripOverviewModel } from './trip/trip-overview.model';
 
-export { APIRequestModel, APIResponse } from './endpoint/endpoint.model';
+export { APIRequest, APIResponse } from './endpoint/endpoint.model';

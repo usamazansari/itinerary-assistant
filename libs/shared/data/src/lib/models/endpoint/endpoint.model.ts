@@ -1,12 +1,16 @@
 import type { HttpStatus } from '../../constants';
 
-const ResponseStub: APIResponse = { data: null, error: null, status: 0 };
+const ResponseStub: APIResponse = {
+  data: null,
+  error: null,
+  status: 0
+};
 
 /**
  * API Response Wrapper
  *
  * @export
- * @class APIResponseModel
+ * @class APIResponse
  * @template DataType Data type of the response body
  */
 export class APIResponse<DataType = unknown> {
@@ -19,14 +23,14 @@ export class APIResponse<DataType = unknown> {
    *
    * ```ts
    * const response = new APIResponse<string>({
-   *   data: 'Hello World',
-   *   error: null,
-   *   status: HttpStatus.Ok
+   *   data   : 'Hello World',
+   *   error  : null,
+   *   status : HttpStatus.Ok
    * });
    * ```
    *
-   * @param {APIResponseModel} [init={ ...ResponseStub }]
-   * @memberof APIResponseModel
+   * @param {APIResponse} [init={ ...ResponseStub }]
+   * @memberof APIResponse
    */
   constructor(
     init: APIResponse = { ...ResponseStub }
@@ -51,21 +55,50 @@ class AuthModel {
 }
 
 // TODO: Usama Ansari - Make it the same as APIResponse
-export class APIRequestModel {
-  headers?: { [key: string]: string | number | boolean; };
-  params?: { [key: string]: string | number | boolean; };
-  body?: unknown;
-  auth?: AuthModel;
 
+const RequestStub: APIRequest = {
+  headers: {},
+  body: {},
+  params: {},
+  auth: new AuthModel()
+};
+
+/**
+ * API Request Wrapper
+ *
+ * @export
+ * @class APIRequest
+ */
+export class APIRequest {
+  headers: { [key: string]: string | number | boolean; };
+  params: { [key: string]: string | number | boolean; };
+  body: unknown;
+  auth: AuthModel;
+
+  /**
+   * ### API Request Wrapper
+   *
+   * ```ts
+   * const request = new APIRequest({
+   *   headers : {},
+   *   body    : {},
+   *   params  : {},
+   *   auth    : {
+   *     username : '',
+   *     password : ''
+   *   }
+   * });
+   * ```
+   *
+   * @param {APIRequest} [init={ ...RequestStub }]
+   * @memberof APIRequest
+   */
   constructor(
-    headers?: { [key: string]: string | number | boolean; },
-    params?: { [key: string]: string | number | boolean; },
-    body?: unknown,
-    auth?: AuthModel
+    init: APIRequest = { ...RequestStub }
   ) {
-    this.headers = headers ?? {};
-    this.params = params ?? {};
-    this.body = body ?? null;
-    this.auth = auth ?? new AuthModel();
+    this.headers = init.headers;
+    this.params = init.params;
+    this.body = init.body;
+    this.auth = init.auth;
   }
 }
