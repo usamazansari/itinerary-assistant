@@ -1,7 +1,7 @@
 export {
   APIResponse,
   Flag,
-  IconModel,
+  Icon,
   TripListDataModel,
   TripListItemModel
 } from '@itinerary-assistant/shared/data';

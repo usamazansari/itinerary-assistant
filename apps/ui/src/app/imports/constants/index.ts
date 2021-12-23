@@ -1,7 +1,8 @@
+// TODO: Usama Ansari - 🗑️ Remove this file.
 export {
   ApplicationName,
   Author,
-  IconStub
+  Icon
 } from '@itinerary-assistant/shared/data';
 
 export {

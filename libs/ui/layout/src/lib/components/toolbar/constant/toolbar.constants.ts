@@ -1,4 +1,6 @@
-import { IconStub } from '../imports';
+// TODO: Usama Ansari - 🗑️ Remove this file.
+
+import { Icon } from '../imports';
 import type {
   ToolbarAssetsModel,
   ToolbarDataModel
@@ -14,7 +16,7 @@ import type {
  * ```
  */
 export const ToolbarAssetsStub: ToolbarAssetsModel = {
-  trigger: { ...IconStub }
+  trigger: new Icon()
 };
 
 /**

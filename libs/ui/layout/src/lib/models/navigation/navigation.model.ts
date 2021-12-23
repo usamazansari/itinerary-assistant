@@ -1,4 +1,6 @@
-import type { IconModel } from '../../imports/models';
+// TODO: Usama Ansari - ♻️ Refactor this file.
+
+import { Icon } from '../../imports/models';
 
 /**
  * Interface for Navigation Item
@@ -34,10 +36,10 @@ export interface NavigationItemModel {
   /**
    * Navigation Item Icon
    *
-   * @type {IconModel}
+   * @type {Icon}
    * @memberof NavigationItemModel
    */
-  icon: IconModel;
+  icon: Icon;
 
   /**
    * Array of children Navigation items

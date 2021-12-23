@@ -8,7 +8,7 @@ import {
 
 import { BehaviorSubject } from 'rxjs';
 
-import type { IconModel, ImageModel } from '../../../imports';
+import type { Icon, ImageModel } from '../../../imports';
 import type { FooterAssetsModel, FooterDataModel, FooterIconType } from '../../..';
 import { FooterAssetsStub, FooterDataStub } from '../../..';
 
@@ -60,7 +60,7 @@ export class FooterComponent {
    * @return {*}  {icon is AppFaIconModel}
    * @memberof FooterComponent
    */
-  isIcon(icon: FooterIconType): icon is IconModel {
+  isIcon(icon: FooterIconType): icon is Icon {
     return 'name' in icon;
   }
 

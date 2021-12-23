@@ -1,5 +1,9 @@
-import { IconStub } from '../../imports/constants';
-import type { NavigationItemModel } from '../../models';
+// TODO: Usama Ansari - 🗑️ Remove this file.
+
+import { NavigationItemModel } from '../../models';
+import { Icon } from '../../imports/models';
+
+// TODO: Usama Ansari - Delete this file.
 
 /**
  * Stub for `NavigationItemModel`
@@ -16,6 +20,6 @@ import type { NavigationItemModel } from '../../models';
 export const NavigationItemStub: NavigationItemModel = {
   label: null,
   routes: [],
-  icon: { ...IconStub },
+  icon: new Icon(),
   children: []
 };

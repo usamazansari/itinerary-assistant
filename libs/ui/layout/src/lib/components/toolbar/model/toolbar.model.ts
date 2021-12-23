@@ -1,4 +1,6 @@
-import type { IconModel } from '../imports';
+// TODO: Usama Ansari - ♻️ Refactor this file.
+
+import type { Icon } from '../imports';
 
 /**
  * Assets for `ToolbarComponent`
@@ -17,10 +19,10 @@ export interface ToolbarAssetsModel {
   /**
    * Trigger for the Sidenav
    *
-   * @type {IconModel}
+   * @type {Icon}
    * @memberof ToolbarAssetsModel
    */
-  trigger: IconModel;
+  trigger: Icon;
 }
 
 /**

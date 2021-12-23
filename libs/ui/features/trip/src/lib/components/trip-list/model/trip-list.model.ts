@@ -1,8 +1,10 @@
-import type { Flag, IconModel } from '../imports';
+// TODO: Usama Ansari - ♻️ Refactor this file.
+
+import type { Flag, Icon } from '../imports';
 
 export interface TripListAssetsModel {
   // TODO: Add a button wrapper
-  view: { icon: IconModel; text: string; };
+  view: { icon: Icon; text: string; };
 }
 
 export interface TripListErrorModel {

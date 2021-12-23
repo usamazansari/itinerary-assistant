@@ -1,4 +1,6 @@
-import { IconStub, Flag } from '../imports';
+// TODO: Usama Ansari - 🗑️ Remove this file.
+
+import { Icon, Flag } from '../imports';
 import type { TripListDataModel } from '../imports';
 
 import type {
@@ -13,7 +15,7 @@ import type {
  */
 export const TripListAssetsStub: TripListAssetsModel = {
   view: {
-    icon: { ...IconStub },
+    icon: new Icon(),
     text: ''
   }
 };

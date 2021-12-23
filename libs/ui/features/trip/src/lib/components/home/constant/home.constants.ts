@@ -1,4 +1,6 @@
-import { IconStub } from '../imports';
+// TODO: Usama Ansari - 🗑️ Remove this file.
+
+import { Icon } from '../imports';
 
 import type { HomeAssetModel, HomeAssetsModel } from '..';
 
@@ -13,7 +15,7 @@ import type { HomeAssetModel, HomeAssetsModel } from '..';
  * ```
  */
 const HomeAssetStub: HomeAssetModel = {
-  icon: { ...IconStub },
+  icon: new Icon(),
   text: ''
 };
 

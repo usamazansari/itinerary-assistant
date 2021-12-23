@@ -3,7 +3,6 @@ export {
   Author,
 
   EmptyString,
-  IconStub,
   ImageStub,
 
   HttpStatus,
@@ -16,11 +15,11 @@ export {
   APIRequest,
   APIResponse,
 
-  Flag
+  Flag,
+  Icon
 } from './lib/models';
 
 export type {
-  IconModel,
   ImageModel,
 
   TripListItemModel,

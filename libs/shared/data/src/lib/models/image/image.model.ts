@@ -1,3 +1,5 @@
+// TODO: Usama Ansari - ♻️ Refactor this file.
+
 /**
  * Interface for Image used in the entire application
  *

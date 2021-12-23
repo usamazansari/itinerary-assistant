@@ -1,6 +1,8 @@
-import type { IconModel, ImageModel } from '../imports';
+// TODO: Usama Ansari - ♻️ Refactor this file.
 
-export type FooterIconType = IconModel | ImageModel;
+import type { Icon, ImageModel } from '../imports';
+
+export type FooterIconType = Icon | ImageModel;
 
 /**
  * Interface to denote a footer link

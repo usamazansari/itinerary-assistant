@@ -1,4 +1,6 @@
-import type { IconModel } from '../imports';
+// TODO: Usama Ansari - ♻️ Refactor this file.
+
+import type { Icon } from '../imports';
 
 /**
  * The assets for a Card to be displayed on the Home Page.
@@ -16,10 +18,10 @@ export interface HomeAssetModel {
   /**
    * Icon to be displayed in the card of the home page.
    *
-   * @type {IconModel}
+   * @type {Icon}
    * @memberof HomeAssetModel
    */
-  icon: IconModel;
+  icon: Icon;
 
   /**
    * Text for the icon displayed in the card of the home page.

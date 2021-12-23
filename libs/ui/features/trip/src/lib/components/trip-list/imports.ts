@@ -1,13 +1,9 @@
 export {
   APIResponse,
   Flag,
-  IconModel,
+  Icon,
   TripListDataModel,
   TripListItemModel
 } from '../../imports/models';
-
-export {
-  IconStub
-} from '../../imports/constants';
 
 export { CoreService, EndpointService } from '../../imports/services';

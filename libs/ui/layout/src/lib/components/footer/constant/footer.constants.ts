@@ -1,4 +1,6 @@
-import { IconStub } from '../imports';
+// TODO: Usama Ansari - 🗑️ Remove this file.
+
+import { Icon } from '../imports';
 import type {
   FooterAssetsModel,
   FooterDataModel,
@@ -20,7 +22,7 @@ import type {
  *
  */
 const FooterLinkStub: FooterLinkModel = {
-  icon: { ...IconStub },
+  icon: new Icon(),
   name: '',
   url: ''
 };
