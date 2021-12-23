@@ -1,8 +1,8 @@
 // TODO: Usama Ansari - ♻️ Refactor this file.
 
-import type { Icon, ImageModel } from '../imports';
+import type { Icon, Image } from '../imports';
 
-export type FooterIconType = Icon | ImageModel;
+export type FooterIconType = Icon | Image;
 
 /**
  * Interface to denote a footer link

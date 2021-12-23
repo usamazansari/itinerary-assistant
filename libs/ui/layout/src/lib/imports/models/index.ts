@@ -1,1 +1,1 @@
-export { Icon, ImageModel } from '@itinerary-assistant/shared/data';
+export { Icon, Image } from '@itinerary-assistant/shared/data';

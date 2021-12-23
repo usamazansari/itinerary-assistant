@@ -1,6 +1,6 @@
 export { Flag } from './flag/flag.model';
 
-export type { ImageModel } from './image/image.model';
+export { Image } from './image/image.model';
 
 export { Icon } from './icon/icon.model';
 
