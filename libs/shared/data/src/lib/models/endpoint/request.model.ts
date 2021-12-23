@@ -1,15 +1,66 @@
 import { Authorization } from '.';
 import { GenericObject } from '..';
 
-// TODO: Usama Ansari - 🧐 Documentation required.
-
+/**
+ * API Request Model
+ *
+ * ```ts
+ * interface IAPIRequest {
+ *   headers : GenericObject;
+ *   body    : unknown;
+ *   params  : GenericObject;
+ *   auth    : Authorization;
+ * }
+ * ```
+ *
+ * @interface IAPIRequest
+ */
 interface IAPIRequest {
-  headers: GenericObject,
-  body: unknown,
-  params: GenericObject,
+  /**
+   * Request Headers.
+   *
+   * @type {GenericObject}
+   * @memberof IAPIRequest
+   */
+  headers: GenericObject;
+
+  /**
+   * Request Body.
+   *
+   * @type {unknown}
+   * @memberof IAPIRequest
+   */
+  body: unknown;
+
+  /**
+   * Request Params.
+   *
+   * @type {GenericObject}
+   * @memberof IAPIRequest
+   */
+  params: GenericObject;
+
+  /**
+   * Request Authorization Creditentials.
+   *
+   * @type {Authorization}
+   * @memberof IAPIRequest
+   */
   auth: Authorization;
 }
 
+/**
+ * Stub for API Request Interface.
+ *
+ * ```ts
+ * const RequestStub: IAPIRequest = {
+ *   headers : {},
+ *   body    : {},
+ *   params  : {},
+ *   auth    : new Authorization()
+ * };
+ * ```
+ */
 const RequestStub: IAPIRequest = {
   headers: {},
   body: {},
