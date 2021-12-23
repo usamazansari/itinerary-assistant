@@ -1,13 +1,12 @@
-export type {
+export {
   APIResponse,
-  FlagModel,
+  Flag,
   IconModel,
   TripListDataModel,
   TripListItemModel
 } from '../../imports/models';
 
 export {
-  FlagStub,
   IconStub
 } from '../../imports/constants';
 

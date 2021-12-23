@@ -3,8 +3,6 @@ export {
   Author,
 
   EmptyString,
-
-  FlagStub,
   IconStub,
   ImageStub,
 
@@ -16,12 +14,12 @@ export {
 
 export {
   APIRequest,
-  APIResponse
+  APIResponse,
+
+  Flag
 } from './lib/models';
 
 export type {
-
-  FlagModel,
   IconModel,
   ImageModel,
 

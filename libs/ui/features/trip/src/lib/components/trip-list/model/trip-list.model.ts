@@ -1,4 +1,4 @@
-import type { FlagModel, IconModel } from '../imports';
+import type { Flag, IconModel } from '../imports';
 
 export interface TripListAssetsModel {
   // TODO: Add a button wrapper
@@ -10,5 +10,5 @@ export interface TripListErrorModel {
 }
 
 export interface TripListFlagModel {
-  shell: FlagModel;
+  shell: Flag;
 }

@@ -1,4 +1,4 @@
-export type { FlagModel } from './flag/flag.model';
+export { Flag } from './flag/flag.model';
 
 export type { ImageModel } from './image/image.model';
 

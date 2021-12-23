@@ -1,6 +1,6 @@
-export type {
+export {
   APIResponse,
-  FlagModel,
+  Flag,
   IconModel,
   TripListDataModel,
   TripListItemModel

@@ -1,4 +1,4 @@
-import { IconStub, FlagStub } from '../imports';
+import { IconStub, Flag } from '../imports';
 import type { TripListDataModel } from '../imports';
 
 import type {
@@ -31,7 +31,7 @@ export const TripListDataStub: TripListDataModel = {
  * TODO: 🧐 Documentation Required
  */
 export const TripListFlagStub: TripListFlagModel = {
-  shell: { ...FlagStub }
+  shell: new Flag()
 };
 
 // TODO: 🧐 Documentation Required

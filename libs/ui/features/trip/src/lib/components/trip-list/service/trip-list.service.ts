@@ -108,7 +108,7 @@ export class TripListService {
 
   private setData(response: APIResponse<TripListItemModel[]>): void {
     this.data = {
-      trips: [...response.data ?? []] ?? TripListDataStub
+      trips: [...<TripListItemModel[]>response.data ?? []] ?? TripListDataStub
     };
     this.#data$.next(this.data);
   }
