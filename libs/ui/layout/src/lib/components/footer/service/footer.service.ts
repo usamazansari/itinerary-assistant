@@ -108,17 +108,4 @@ export class FooterService {
       );
     }
   }
-
-  // TODO: Use Lumberjack
-  /**
-   *
-   * @memberof FooterService
-   */
-  log(): void {
-    console.groupCollapsed(
-      `[ ${this.constructor.name} ] - [ ${this.log.name} ]`
-    );
-    console.log('Test Logging Message');
-    console.groupEnd();
-  }
 }
