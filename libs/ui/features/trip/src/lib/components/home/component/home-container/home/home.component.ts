@@ -2,8 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 
 import { BehaviorSubject } from 'rxjs';
 
-import type { HomeAssetsModel } from '../../..';
-import { HomeAssetsStub } from '../../..';
+import { HomeAssets } from '../../..';
 
 @Component({
   selector: 'ia-trip-home',
@@ -12,11 +11,11 @@ import { HomeAssetsStub } from '../../..';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
-  #assets$ = new BehaviorSubject<HomeAssetsModel>(HomeAssetsStub);
+  #assets$ = new BehaviorSubject<HomeAssets>(new HomeAssets());
 
   @Input()
-  set assets(value: HomeAssetsModel) { this.#assets$.next(value ?? HomeAssetsStub); }
-  get assets(): HomeAssetsModel { return this.#assets$.getValue(); }
+  set assets(value: HomeAssets) { this.#assets$.next(value ?? new HomeAssets()); }
+  get assets(): HomeAssets { return this.#assets$.getValue(); }
 
   @Output() gotoViewTrip$: EventEmitter<void> = new EventEmitter<void>();
   @Output() gotoCreateTrip$: EventEmitter<void> = new EventEmitter<void>();

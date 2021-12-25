@@ -6,7 +6,7 @@ import {
 
 import type { Observable } from 'rxjs';
 
-import type { HomeAssetsModel } from '../..';
+import type { HomeAssets } from '../..';
 import { HomeService } from '../..';
 
 
@@ -21,7 +21,7 @@ import { HomeService } from '../..';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeContainerComponent implements OnInit {
-  assets$!: Observable<HomeAssetsModel>;
+  assets$!: Observable<HomeAssets>;
 
   constructor(private _service: HomeService) { }
 
