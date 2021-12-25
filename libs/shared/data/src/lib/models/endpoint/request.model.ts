@@ -53,7 +53,7 @@ interface IAPIRequest {
  * Stub for API Request Interface.
  *
  * ```ts
- * const RequestStub: IAPIRequest = {
+ * const APIRequestStub: IAPIRequest = {
  *   headers : {},
  *   body    : {},
  *   params  : {},
@@ -61,7 +61,7 @@ interface IAPIRequest {
  * };
  * ```
  */
-const RequestStub: IAPIRequest = {
+const APIRequestStub: IAPIRequest = {
   headers: {},
   body: {},
   params: {},
@@ -95,15 +95,15 @@ export class APIRequest implements IAPIRequest {
    * });
    * ```
    *
-   * @param {APIRequest} [init={ ...RequestStub }]
+   * @param {APIRequest} [init=APIRequestStub]
    * @memberof APIRequest
    */
   constructor(
-    init: IAPIRequest = { ...RequestStub }
+    init: Partial<IAPIRequest> = APIRequestStub
   ) {
-    this.headers = init.headers;
-    this.params = init.params;
-    this.body = init.body;
-    this.auth = init.auth;
+    this.headers = init.headers ?? APIRequestStub.headers;
+    this.params = init.params ?? APIRequestStub.params;
+    this.body = init.body ?? APIRequestStub.body;
+    this.auth = init.auth ?? APIRequestStub.auth;
   }
 }

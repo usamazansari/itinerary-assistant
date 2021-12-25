@@ -77,15 +77,15 @@ export class FooterLink implements IFooterLink {
    * });
    * ```
    *
-   * @param {IFooterLink} [init={ ...FooterLinkStub }]
+   * @param {IFooterLink} [init=FooterLinkStub]
    * @memberof FooterLink
    */
   constructor(
-    init: IFooterLink = { ...FooterLinkStub }
+    init: Partial<IFooterLink> = FooterLinkStub
   ) {
-    this.name = init.name;
-    this.url = init.url;
-    this.icon = init.icon;
+    this.name = init.name ?? FooterLinkStub.name;
+    this.url = init.url ?? FooterLinkStub.url;
+    this.icon = init.icon ?? FooterLinkStub.icon;
   }
 }
 
@@ -316,27 +316,27 @@ export class FooterAssets implements IFooterAssets {
    *   location    : new FooterLink()
    * });
    * ```
-   * @param {IFooterAssets} [init={ ...FooterAssetsStub }]
+   * @param {IFooterAssets} [init=FooterAssetsStub]
    * @memberof FooterAssets
    */
   constructor(
-    init: IFooterAssets = { ...FooterAssetsStub }
+    init: Partial<IFooterAssets> = FooterAssetsStub
   ) {
-    this.madeWith = init.madeWith;
-    this.heart = init.heart;
-    this.using = init.using;
-    this.angular = init.angular;
-    this.tailwind = init.tailwind;
-    this.fontawesome = init.fontawesome;
-    this.firebase = init.firebase;
-    this.nx = init.nx;
-    this.by = init.by;
+    this.madeWith = init.madeWith ?? FooterAssetsStub.madeWith;
+    this.heart = init.heart ?? FooterAssetsStub.heart;
+    this.using = init.using ?? FooterAssetsStub.using;
+    this.angular = init.angular ?? FooterAssetsStub.angular;
+    this.tailwind = init.tailwind ?? FooterAssetsStub.tailwind;
+    this.fontawesome = init.fontawesome ?? FooterAssetsStub.fontawesome;
+    this.firebase = init.firebase ?? FooterAssetsStub.firebase;
+    this.nx = init.nx ?? FooterAssetsStub.nx;
+    this.by = init.by ?? FooterAssetsStub.by;
     this.author = '';
-    this.github = init.github;
-    this.linkedin = init.linkedin;
-    this.discord = init.discord;
-    this.email = init.email;
-    this.location = init.location;
+    this.github = init.github ?? FooterAssetsStub.github;
+    this.linkedin = init.linkedin ?? FooterAssetsStub.linkedin;
+    this.discord = init.discord ?? FooterAssetsStub.discord;
+    this.email = init.email ?? FooterAssetsStub.email;
+    this.location = init.location ?? FooterAssetsStub.location;
   }
 }
 
@@ -445,39 +445,97 @@ export class FooterData {
   location: string;
 
   constructor(
-    init: FooterData = { ...FooterDataStub }
+    init: Partial<FooterData> = FooterDataStub
   ) {
-    this.fullname = init.fullname;
-    this.github = init.github;
-    this.linkedin = init.linkedin;
-    this.discord = init.discord;
-    this.email = init.email;
-    this.location = init.location;
+    this.fullname = init.fullname ?? FooterDataStub.fullname;
+    this.github = init.github ?? FooterDataStub.github;
+    this.linkedin = init.linkedin ?? FooterDataStub.linkedin;
+    this.discord = init.discord ?? FooterDataStub.discord;
+    this.email = init.email ?? FooterDataStub.email;
+    this.location = init.location ?? FooterDataStub.location;
   }
 }
 
+/**
+ * Footer Snackbar Message Model.
+ *
+ * ```ts
+ * interface IFooterSnackbarMessage {
+ *   success : SnackbarMessage;
+ *   fail    : SnackbarMessage;
+ * }
+ * ```
+ *
+ * @interface IFooterSnackbarMessage
+ */
 interface IFooterSnackbarMessage {
   success: SnackbarMessage;
   fail: SnackbarMessage;
 }
 
+/**
+ * Stub for Footer Snackbar Message.
+ *
+ * ```ts
+ * const FooterSnackbarMessageStub: IFooterSnackbarMessage = {
+ *   success : new SnackbarMessage(),
+ *   fail    : new SnackbarMessage()
+ * }
+ * ```
+ */
 const FooterSnackbarMessageStub: IFooterSnackbarMessage = {
   success: new SnackbarMessage(),
   fail: new SnackbarMessage()
 };
 
+/**
+ * Footer Snackbar Message class.
+ *
+ * @export
+ * @class FooterSnackbarMessage
+ * @implements {IFooterSnackbarMessage}
+ */
 export class FooterSnackbarMessage implements IFooterSnackbarMessage {
   success: SnackbarMessage;
   fail: SnackbarMessage;
 
+  /**
+   * ### Footer Snackbar Message
+   *
+   * Creates an instance of FooterSnackbarMessage.
+   *
+   * ```ts
+   * const footerSnackbarMessage = new FooterSnackbarMessage({
+   *   success : new SnackbarMessage(),
+   *   fail    : new SnackbarMessage()
+   * })
+   * ```
+   *
+   * @param {Partial<IFooterSnackbarMessage>} [init=FooterSnackbarMessageStub]
+   * @memberof FooterSnackbarMessage
+   */
   constructor(
-    init: IFooterSnackbarMessage = { ...FooterSnackbarMessageStub }
+    init: Partial<IFooterSnackbarMessage> = FooterSnackbarMessageStub
   ) {
-    this.success = init.success;
-    this.fail = init.fail;
+    this.success = init.success ?? FooterSnackbarMessageStub.success;
+    this.fail = init.fail ?? FooterSnackbarMessageStub.fail;
   }
 }
 
+/**
+ * Footer Strings Model.
+ *
+ * ```ts
+ * interface IFooterStrings {
+ *   snackbar  : {
+ *     discord : FooterSnackbarMessage;
+ *     email   : FooterSnackbarMessage;
+ *   };
+ * }
+ * ```
+ *
+ * @interface IFooterStrings
+ */
 interface IFooterStrings {
   snackbar: {
     discord: FooterSnackbarMessage;
@@ -485,6 +543,18 @@ interface IFooterStrings {
   };
 }
 
+/**
+ * Stub for Footer Strings.
+ *
+ * ```ts
+ * const FooterStringsStub: IFooterStrings = {
+ *   snackbar  : {
+ *     discord : new FooterSnackbarMessage(),
+ *     email   : new FooterSnackbarMessage()
+ *   }
+ * }
+ * ```
+ */
 const FooterStringsStub: IFooterStrings = {
   snackbar: {
     discord: new FooterSnackbarMessage(),
@@ -493,18 +563,42 @@ const FooterStringsStub: IFooterStrings = {
 };
 
 
+/**
+ * Footer Strings class.
+ *
+ * @export
+ * @class FooterStrings
+ * @implements {IFooterStrings}
+ */
 export class FooterStrings implements IFooterStrings {
   snackbar: {
     discord: FooterSnackbarMessage;
     email: FooterSnackbarMessage;
   };
 
+  /**
+   * ### Footer Strings
+   *
+   * Creates an instance of FooterStrings.
+   *
+   * ```ts
+   * const footerStrings: IFooterStrings = new FooterStrings({
+   *   snackbar  : {
+   *     discord : new FooterSnackbarMessage(),
+   *     email   : new FooterSnackbarMessage()
+   *   }
+   * })
+   * ```
+   *
+   * @param {Partial<IFooterStrings>} [init=FooterStringsStub]
+   * @memberof FooterStrings
+   */
   constructor(
-    init: IFooterStrings = { ...FooterStringsStub }
+    init: Partial<IFooterStrings> = FooterStringsStub
   ) {
     this.snackbar = {
-      discord: init.snackbar.discord,
-      email: init.snackbar.email
+      discord: init.snackbar?.discord ?? FooterStringsStub.snackbar.discord,
+      email: init.snackbar?.email ?? FooterStringsStub.snackbar.email
     };
   }
 }

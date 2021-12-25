@@ -62,9 +62,9 @@ export class Icon implements IIcon {
    * @memberof Icon
    */
   constructor(
-    init: IIcon = { ...IconStub }
+    init: Partial<IIcon> = { ...IconStub }
   ) {
-    this.style = init.style;
-    this.name = init.name;
+    this.style = init.style ?? IconStub.style;
+    this.name = init.name ?? IconStub.name;
   }
 }

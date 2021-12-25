@@ -57,13 +57,13 @@ export class ToolbarAssets implements IToolbarAssets {
    * });
    * ```
    *
-   * @param {IToolbarAssets} [init={ ...ToolbarAssetsStub }]
+   * @param {IToolbarAssets} [init=ToolbarAssetsStub]
    * @memberof ToolbarAssets
    */
   constructor(
-    init: IToolbarAssets = { ...ToolbarAssetsStub }
+    init: Partial<IToolbarAssets> = ToolbarAssetsStub
   ) {
-    this.trigger = init.trigger;
+    this.trigger = init.trigger ?? ToolbarAssetsStub.trigger;
   }
 }
 
@@ -123,12 +123,12 @@ export class ToolbarData implements IToolbarData {
    * });
    * ```
    *
-   * @param {IToolbarData} [init={ ...ToolbarDataStub }]
+   * @param {IToolbarData} [init=ToolbarDataStub]
    * @memberof ToolbarData
    */
   constructor(
-    init: IToolbarData = { ...ToolbarDataStub }
+    init: Partial<IToolbarData> = ToolbarDataStub
   ) {
-    this.logo = init.logo;
+    this.logo = init.logo ?? ToolbarDataStub.logo;
   }
 }

@@ -61,14 +61,14 @@ export class HomeAsset implements IHomeAsset {
    * });
    * ```
    *
-   * @param {IHomeAsset} [init={ ...HomeAssetStub }]
+   * @param {IHomeAsset} [init=HomeAssetStub]
    * @memberof HomeAsset
    */
   constructor(
-    init: IHomeAsset = { ...HomeAssetStub }
+    init: Partial<IHomeAsset> = HomeAssetStub
   ) {
-    this.icon = init.icon;
-    this.text = init.text;
+    this.icon = init.icon ?? HomeAssetStub.icon;
+    this.text = init.text ?? HomeAssetStub.text;
   }
 }
 
@@ -153,7 +153,7 @@ export class HomeAssets implements IHomeAssets {
    * 2. Create Trip
    *
    * ```ts
-   * interface HomeAssetsModel {
+   * const homeAssets: HomeAssets = new HomeAssets({
    *   view   : {
    *     icon : Icon;
    *     text : string;
@@ -162,15 +162,15 @@ export class HomeAssets implements IHomeAssets {
    *     icon : Icon;
    *     text : string;
    *   };
-   * }
+   * })
    * ```
-   * @param {IHomeAssets} [init={ ...HomeAssetsStub }]
+   * @param {IHomeAssets} [init=HomeAssetsStub]
    * @memberof HomeAssets
    */
   constructor(
-    init: IHomeAssets = { ...HomeAssetsStub }
+    init: Partial<IHomeAssets> = HomeAssetsStub
   ) {
-    this.view = init.view;
-    this.create = init.create;
+    this.view = init.view ?? HomeAssetsStub.view;
+    this.create = init.create ?? HomeAssetsStub.create;
   }
 }

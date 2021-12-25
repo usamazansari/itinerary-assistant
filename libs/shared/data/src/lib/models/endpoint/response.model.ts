@@ -40,7 +40,7 @@ interface IAPIResponse<DataType = unknown> {
   status: HttpStatus;
 }
 
-const ResponseStub: IAPIResponse = {
+const APIResponseStub: IAPIResponse = {
   data: null,
   error: null,
   status: 0
@@ -77,14 +77,14 @@ export class APIResponse<DataType = unknown> implements IAPIResponse<DataType> {
    * });
    * ```
    *
-   * @param {IAPIResponse} [init={ ...ResponseStub }]
+   * @param {IAPIResponse} [init=ResponseStub]
    * @memberof APIResponse
    */
   constructor(
-    init: IAPIResponse = { ...ResponseStub }
+    init: Partial<IAPIResponse> = APIResponseStub
   ) {
-    this.data = init.data;
-    this.error = init.error;
-    this.status = init.status;
+    this.data = init.data ?? APIResponseStub.data;
+    this.error = init.error ?? APIResponseStub.error;
+    this.status = init.status ?? APIResponseStub.status;
   }
 }

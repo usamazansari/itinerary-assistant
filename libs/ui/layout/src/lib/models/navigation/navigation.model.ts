@@ -87,15 +87,15 @@ export class NavigationItem implements INavigationItem {
    * });
    * ```
    *
-   * @param {INavigationItem} [init={ ...NavigationItemStub }]
+   * @param {INavigationItem} [init=NavigationItemStub]
    * @memberof NavigationItem
    */
   constructor(
-    init: INavigationItem = { ...NavigationItemStub }
+    init: Partial<INavigationItem> = NavigationItemStub
   ) {
-    this.label = init.label;
-    this.routes = init.routes;
-    this.icon = init.icon;
-    this.children = init.children;
+    this.label = init.label ?? NavigationItemStub.label;
+    this.routes = init.routes ?? NavigationItemStub.routes;
+    this.icon = init.icon ?? NavigationItemStub.icon;
+    this.children = init.children ?? NavigationItemStub.children;
   }
 }
