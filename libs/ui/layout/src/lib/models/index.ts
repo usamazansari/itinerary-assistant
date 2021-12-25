@@ -1,10 +1,10 @@
-export type {
-  FooterAssetsModel,
-  FooterDataModel,
+export {
+  FooterAssets,
+  FooterData,
   FooterIconType,
-  FooterLinkModel,
-  FooterSnackbarMessageModel,
-  FooterStringsModel
+  FooterLink,
+  FooterSnackbarMessage,
+  FooterStrings
 } from '../components/footer';
 
 export type {

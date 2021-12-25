@@ -6,8 +6,9 @@ export {
   LoaderSize
 } from './lib/constants';
 
-export type {
-  LoaderConfigModel
+export {
+  LoaderConfigModel,
+  SnackbarMessage
 } from './lib/models';
 
 export {

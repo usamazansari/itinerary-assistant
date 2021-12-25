@@ -1,4 +1,4 @@
-import type { FooterDataModel, ToolbarDataModel } from '../';
+import type { FooterData, ToolbarDataModel } from '../';
 
 /**
  * Data to display in the layout
@@ -14,6 +14,6 @@ import type { FooterDataModel, ToolbarDataModel } from '../';
  * @interface LayoutDataModel
  */
 export interface LayoutDataModel {
-  footer: FooterDataModel;
+  footer: FooterData;
   toolbar: ToolbarDataModel;
 }

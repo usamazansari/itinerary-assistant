@@ -1,29 +1,21 @@
-// TODO: Usama Ansari - ♻️ Refactor this file.
+// TODO: Usama Ansari - Update the footer
 
-import type { Icon, Image } from '../imports';
+import { Icon, Image, SnackbarMessage } from '../imports';
 
-export type FooterIconType = Icon | Image;
+export type FooterIconType = Icon | Image | null;
 
 /**
- * Interface to denote a footer link
+ * Footer Link Model.
  *
- * ```ts
- * interface FooterLinkModel {
- *   name : string;
- *   url  : string;
- *   icon : FooterIconType;
- * }
- * ```
- *
- * @private Interface for internal use
- * @interface FooterLinkModel
+ * @export
+ * @interface IFooterLink
  */
-export interface FooterLinkModel {
+export interface IFooterLink {
   /**
    * Name of the footer link
    *
    * @type {(string)}
-   * @memberof FooterLinkModel
+   * @memberof IFooterLink
    */
   name: string;
 
@@ -31,7 +23,7 @@ export interface FooterLinkModel {
    * URL of the footer link
    *
    * @type {(string)}
-   * @memberof FooterLinkModel
+   * @memberof IFooterLink
    */
   url: string;
 
@@ -39,156 +31,320 @@ export interface FooterLinkModel {
    * Icon of the footer link
    *
    * @type {FooterIconType}
-   * @memberof FooterLinkModel
+   * @memberof IFooterLink
    */
   icon: FooterIconType;
+}
+
+/**
+ * Stub for Footer Link model.
+ *
+ * ```ts
+ * const FooterLinkStub: IFooterLink = {
+ *   name : '',
+ *   url  : '',
+ *   icon : null
+ * }
+ * ```
+ */
+const FooterLinkStub: IFooterLink = {
+  name: '',
+  url: '',
+  icon: null
+};
+
+/**
+ * Footer Model class.
+ *
+ * @private Interface for internal use
+ * @interface FooterLink
+ */
+export class FooterLink implements IFooterLink {
+  name: string;
+  url: string;
+  icon: FooterIconType;
+
+  /**
+   * ### Footer Link
+   *
+   * Creates an instance of FooterLink.
+   *
+   * ```ts
+   * const FooterLink: IFooterLink = new FooterLink({
+   *   name : '',
+   *   url  : '',
+   *   icon : null
+   * });
+   * ```
+   *
+   * @param {IFooterLink} [init={ ...FooterLinkStub }]
+   * @memberof FooterLink
+   */
+  constructor(
+    init: IFooterLink = { ...FooterLinkStub }
+  ) {
+    this.name = init.name;
+    this.url = init.url;
+    this.icon = init.icon;
+  }
 }
 
 /**
  * Assets for `FooterComponent`
  *
  * ```ts
- * interface FooterAssetsModel {
+ * interface IFooterAssets {
  *   madeWith    : string;
- *   heart       : FooterLinkModel;
+ *   heart       : FooterLink;
  *   using       : string;
- *   angular     : FooterLinkModel;
- *   tailwind    : FooterLinkModel;
- *   fontawesome : FooterLinkModel;
- *   firebase    : FooterLinkModel;
- *   nx          : FooterLinkModel;
+ *   angular     : FooterLink;
+ *   tailwind    : FooterLink;
+ *   fontawesome : FooterLink;
+ *   firebase    : FooterLink;
+ *   nx          : FooterLink;
  *   by          : string;
  *   author      : string;
- *   github      : FooterLinkModel;
- *   linkedin    : FooterLinkModel;
- *   discord     : FooterLinkModel;
- *   email       : FooterLinkModel;
- *   location    : FooterLinkModel;
+ *   github      : FooterLink;
+ *   linkedin    : FooterLink;
+ *   discord     : FooterLink;
+ *   email       : FooterLink;
+ *   location    : FooterLink;
  * }
  * ```
  *
  * @export
- * @interface FooterAssetsModel
+ * @interface IFooterAssets
  */
-export interface FooterAssetsModel {
+export interface IFooterAssets {
   /**
    * Footer text - `Made with`
    *
    * @type {(string)}
-   * @memberof FooterAssetsModel
+   * @memberof IFooterAssets
    */
   madeWith: string;
 
   /**
    * Spreading Love
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  heart: FooterLinkModel;
+  heart: FooterLink;
 
   /**
    * Footer text - `using`
    *
    * @type {(string)}
-   * @memberof FooterAssetsModel
+   * @memberof IFooterAssets
    */
   using: string;
 
   /**
    * Angular
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  angular: FooterLinkModel;
+  angular: FooterLink;
 
   /**
    * Tailwind
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  tailwind: FooterLinkModel;
+  tailwind: FooterLink;
 
   /**
    * Font Awesome
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  fontawesome: FooterLinkModel;
+  fontawesome: FooterLink;
 
   /**
    * Firebase
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  firebase: FooterLinkModel;
+  firebase: FooterLink;
 
   /**
    * Nx
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  nx: FooterLinkModel;
+  nx: FooterLink;
 
   /**
    * by
    *
    * @type {(string)}
-   * @memberof FooterAssetsModel
+   * @memberof IFooterAssets
    */
   by: string;
 
   /**
    * GitHub
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  github: FooterLinkModel;
+  github: FooterLink;
 
   /**
    * LinkedIn
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  linkedin: FooterLinkModel;
+  linkedin: FooterLink;
 
   /**
    * Discord
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  discord: FooterLinkModel;
+  discord: FooterLink;
 
   /**
    * Email
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  email: FooterLinkModel;
+  email: FooterLink;
 
   /**
    * Location
    *
-   * @type {FooterLinkModel}
-   * @memberof FooterAssetsModel
+   * @type {FooterLink}
+   * @memberof IFooterAssets
    */
-  location: FooterLinkModel;
+  location: FooterLink;
+}
+
+/**
+ * Stub for Footer Assets.
+ *
+ * ```ts
+ * const FooterAssetsStub: IFooterAssets = {
+ *   madeWith    : '',
+ *   heart       : new FooterLink(),
+ *   using       : '',
+ *   angular     : new FooterLink(),
+ *   tailwind    : new FooterLink(),
+ *   fontawesome : new FooterLink(),
+ *   firebase    : new FooterLink(),
+ *   nx          : new FooterLink(),
+ *   by          : '',
+ *   github      : new FooterLink(),
+ *   linkedin    : new FooterLink(),
+ *   discord     : new FooterLink(),
+ *   email       : new FooterLink(),
+ *   location    : new FooterLink()
+ * }
+ * ```
+ */
+const FooterAssetsStub: IFooterAssets = {
+  madeWith: '',
+  heart: new FooterLink(),
+  using: '',
+  angular: new FooterLink(),
+  tailwind: new FooterLink(),
+  fontawesome: new FooterLink(),
+  firebase: new FooterLink(),
+  nx: new FooterLink(),
+  by: '',
+  github: new FooterLink(),
+  linkedin: new FooterLink(),
+  discord: new FooterLink(),
+  email: new FooterLink(),
+  location: new FooterLink()
+};
+
+/**
+ * Footer Model class.
+ *
+ * @export
+ * @class FooterAssets
+ * @implements {IFooterAssets}
+ */
+export class FooterAssets implements IFooterAssets {
+  madeWith: string;
+  heart: FooterLink;
+  using: string;
+  angular: FooterLink;
+  tailwind: FooterLink;
+  fontawesome: FooterLink;
+  firebase: FooterLink;
+  nx: FooterLink;
+  by: string;
+  author: string;
+  github: FooterLink;
+  linkedin: FooterLink;
+  discord: FooterLink;
+  email: FooterLink;
+  location: FooterLink;
+
+  /**
+   * ### Footer Assets
+   *
+   * Creates an instance of FooterAssets.
+   *
+   * ```ts
+   * const FooterAssets: IFooterAssets = new FooterAssets({
+   *   madeWith    : '',
+   *   heart       : new FooterLink(),
+   *   using       : '',
+   *   angular     : new FooterLink(),
+   *   tailwind    : new FooterLink(),
+   *   fontawesome : new FooterLink(),
+   *   firebase    : new FooterLink(),
+   *   nx          : new FooterLink(),
+   *   by          : '',
+   *   author      : '',
+   *   github      : new FooterLink(),
+   *   linkedin    : new FooterLink(),
+   *   discord     : new FooterLink(),
+   *   email       : new FooterLink(),
+   *   location    : new FooterLink()
+   * });
+   * ```
+   * @param {IFooterAssets} [init={ ...FooterAssetsStub }]
+   * @memberof FooterAssets
+   */
+  constructor(
+    init: IFooterAssets = { ...FooterAssetsStub }
+  ) {
+    this.madeWith = init.madeWith;
+    this.heart = init.heart;
+    this.using = init.using;
+    this.angular = init.angular;
+    this.tailwind = init.tailwind;
+    this.fontawesome = init.fontawesome;
+    this.firebase = init.firebase;
+    this.nx = init.nx;
+    this.by = init.by;
+    this.author = '';
+    this.github = init.github;
+    this.linkedin = init.linkedin;
+    this.discord = init.discord;
+    this.email = init.email;
+    this.location = init.location;
+  }
 }
 
 /**
  * Footer Data
  *
  * ```ts
- * interface FooterDataModel {
+ * interface FooterData {
  *   fullname : string;
  *   github   : string;
  *   linkedin : string;
@@ -199,14 +355,14 @@ export interface FooterAssetsModel {
  * ```
  *
  * @export
- * @interface FooterDataModel
+ * @interface FooterData
  */
-export interface FooterDataModel {
+export interface FooterData {
   /**
    * Name of the Author - `Usama Ansari`
    *
    * @type {(string)}
-   * @memberof FooterDataModel
+   * @memberof FooterData
    */
   fullname: string;
 
@@ -214,7 +370,7 @@ export interface FooterDataModel {
    * GitHub Account - `usama251993`
    *
    * @type {string}
-   * @memberof FooterDataModel
+   * @memberof FooterData
    */
   github: string;
 
@@ -222,7 +378,7 @@ export interface FooterDataModel {
    * LinkedIn Account - `usama-ansari-81380080`
    *
    * @type {string}
-   * @memberof FooterDataModel
+   * @memberof FooterData
    */
   linkedin: string;
 
@@ -230,7 +386,7 @@ export interface FooterDataModel {
    * Discord ID - `usama251993#5438`
    *
    * @type {string}
-   * @memberof FooterDataModel
+   * @memberof FooterData
    */
   discord: string;
 
@@ -238,7 +394,7 @@ export interface FooterDataModel {
    * Email ID - `usama251993@gmail.com`
    *
    * @type {string}
-   * @memberof FooterDataModel
+   * @memberof FooterData
    */
   email: string;
 
@@ -246,25 +402,109 @@ export interface FooterDataModel {
    * Location - https://goo.gl/maps/X6syXXRrRML4FUgc6
    *
    * @type {string}
-   * @memberof FooterDataModel
+   * @memberof FooterData
    */
   location: string;
 }
 
-export interface FooterSnackbarMessageModel {
-  success: {
-    message: string;
-    action: string;
-  };
-  fail: {
-    message: string;
-    action: string;
+/**
+ * Stub for Footer Data.
+ *
+ * ```ts
+ * const FooterDataStub: IFooterData = {
+ *   fullname : '',
+ *   github   : '',
+ *   linkedin : '',
+ *   discord  : '',
+ *   email    : '',
+ *   location : ''
+ * }
+ * ```
+ */
+const FooterDataStub: FooterData = {
+  fullname: '',
+  github: '',
+  linkedin: '',
+  discord: '',
+  email: '',
+  location: ''
+};
+
+/**
+ * Footer Data Model class.
+ *
+ * @export
+ * @class FooterData
+ */
+export class FooterData {
+  fullname: string;
+  github: string;
+  linkedin: string;
+  discord: string;
+  email: string;
+  location: string;
+
+  constructor(
+    init: FooterData = { ...FooterDataStub }
+  ) {
+    this.fullname = init.fullname;
+    this.github = init.github;
+    this.linkedin = init.linkedin;
+    this.discord = init.discord;
+    this.email = init.email;
+    this.location = init.location;
+  }
+}
+
+interface IFooterSnackbarMessage {
+  success: SnackbarMessage;
+  fail: SnackbarMessage;
+}
+
+const FooterSnackbarMessageStub: IFooterSnackbarMessage = {
+  success: new SnackbarMessage(),
+  fail: new SnackbarMessage()
+};
+
+export class FooterSnackbarMessage implements IFooterSnackbarMessage {
+  success: SnackbarMessage;
+  fail: SnackbarMessage;
+
+  constructor(
+    init: IFooterSnackbarMessage = { ...FooterSnackbarMessageStub }
+  ) {
+    this.success = init.success;
+    this.fail = init.fail;
+  }
+}
+
+interface IFooterStrings {
+  snackbar: {
+    discord: FooterSnackbarMessage;
+    email: FooterSnackbarMessage;
   };
 }
 
-export interface FooterStringsModel {
+const FooterStringsStub: IFooterStrings = {
   snackbar: {
-    discord: FooterSnackbarMessageModel;
-    email: FooterSnackbarMessageModel;
+    discord: new FooterSnackbarMessage(),
+    email: new FooterSnackbarMessage()
+  }
+};
+
+
+export class FooterStrings implements IFooterStrings {
+  snackbar: {
+    discord: FooterSnackbarMessage;
+    email: FooterSnackbarMessage;
   };
+
+  constructor(
+    init: IFooterStrings = { ...FooterStringsStub }
+  ) {
+    this.snackbar = {
+      discord: init.snackbar.discord,
+      email: init.snackbar.email
+    };
+  }
 }

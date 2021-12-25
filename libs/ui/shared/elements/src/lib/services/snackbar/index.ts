@@ -1,4 +1,4 @@
-export type { } from './model/snackbar.model';
+export { SnackbarMessage } from './model/snackbar.model';
 
 export { SnackbarConfigStub } from './constant/snackbar.constants';
 

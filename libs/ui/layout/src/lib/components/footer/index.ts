@@ -1,18 +1,16 @@
 export {
-  FooterAssetsStub,
-  FooterDataStub,
   FooterAssets,
-  FooterStrings
-} from './constant/footer.constants';
-
-export type {
-  FooterAssetsModel,
-  FooterDataModel,
+  FooterData,
   FooterIconType,
-  FooterLinkModel,
-  FooterSnackbarMessageModel,
-  FooterStringsModel
+  FooterLink,
+  FooterSnackbarMessage,
+  FooterStrings
 } from './model/footer.model';
+
+export {
+  Assets,
+  Strings
+} from './constant/footer.constants';
 
 export { FooterContainerComponent } from './component/footer-container/footer-container.component';
 export { FooterComponent } from './component/footer-container/footer/footer.component';

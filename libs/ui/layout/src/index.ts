@@ -1,12 +1,12 @@
 export { LayoutModule } from './lib/layout.module';
 
 export type {
-  FooterAssetsModel,
-  FooterDataModel,
+  FooterAssets,
+  FooterData,
   FooterIconType,
-  FooterLinkModel,
-  FooterSnackbarMessageModel,
-  FooterStringsModel,
+  FooterLink,
+  FooterSnackbarMessage,
+  FooterStrings,
   ToolbarAssetsModel,
   ToolbarDataModel,
   NavigationItemModel,
@@ -14,9 +14,7 @@ export type {
 } from './lib/models';
 
 export {
-  FooterAssetsStub,
-  FooterAssets,
-  FooterDataStub,
+  Assets,
   ToolbarAssets,
   ToolbarAssetsStub,
   ToolbarDataStub,

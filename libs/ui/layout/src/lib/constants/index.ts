@@ -1,7 +1,5 @@
 export {
-  FooterAssets,
-  FooterAssetsStub,
-  FooterDataStub
+  Assets
 } from '../components/footer';
 
 export { NavigationItemStub } from './navigation/navigation.constants';

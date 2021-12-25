@@ -9,8 +9,7 @@ import {
 import { BehaviorSubject } from 'rxjs';
 
 import type { Icon, Image } from '../../../imports';
-import type { FooterAssetsModel, FooterDataModel, FooterIconType } from '../../..';
-import { FooterAssetsStub, FooterDataStub } from '../../..';
+import { FooterAssets, FooterData, FooterIconType } from '../../..';
 
 @Component({
   selector: 'ia-layout-footer',
@@ -20,17 +19,17 @@ import { FooterAssetsStub, FooterDataStub } from '../../..';
 })
 export class FooterComponent {
 
-  #assets$ = new BehaviorSubject<FooterAssetsModel>(FooterAssetsStub);
+  #assets$ = new BehaviorSubject<FooterAssets>(new FooterAssets());
 
   @Input()
-  set assets(value: FooterAssetsModel) { this.#assets$.next(value); }
-  get assets(): FooterAssetsModel { return this.#assets$.getValue(); }
+  set assets(value: FooterAssets) { this.#assets$.next(value); }
+  get assets(): FooterAssets { return this.#assets$.getValue(); }
 
-  #data$ = new BehaviorSubject<FooterDataModel>(FooterDataStub);
+  #data$ = new BehaviorSubject<FooterData>(new FooterData());
 
   @Input()
-  set data(value: FooterDataModel) { this.#data$.next(value); }
-  get data(): FooterDataModel { return this.#data$.getValue(); }
+  set data(value: FooterData) { this.#data$.next(value); }
+  get data(): FooterData { return this.#data$.getValue(); }
 
   @Output() copyDiscordID$: EventEmitter<void> = new EventEmitter<void>();
   @Output() copyEmailID$: EventEmitter<void> = new EventEmitter<void>();
@@ -61,7 +60,7 @@ export class FooterComponent {
    * @memberof FooterComponent
    */
   isIcon(icon: FooterIconType): icon is Icon {
-    return 'name' in icon;
+    return !!icon ? 'name' in icon : false;
   }
 
   /**
@@ -72,6 +71,6 @@ export class FooterComponent {
    * @memberof FooterComponent
    */
   isImage(icon: FooterIconType): icon is Image {
-    return 'src' in icon;
+    return !!icon ? 'src' in icon : false;
   }
 }

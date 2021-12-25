@@ -1,5 +1,5 @@
-import type { LayoutDataModel } from '../../models';
-import { FooterDataStub, ToolbarDataStub } from '../../constants';
+import { FooterData, LayoutDataModel } from '../../models';
+import { ToolbarDataStub } from '../../constants';
 
 /**
  * Stub for `LayoutDataModel`
@@ -12,6 +12,6 @@ import { FooterDataStub, ToolbarDataStub } from '../../constants';
  * ```
  */
 export const LayoutDataStub: LayoutDataModel = {
-  footer: { ...FooterDataStub },
+  footer: new FooterData(),
   toolbar: { ...ToolbarDataStub }
 };

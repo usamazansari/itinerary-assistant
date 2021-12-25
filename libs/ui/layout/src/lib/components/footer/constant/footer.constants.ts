@@ -1,224 +1,129 @@
-// TODO: Usama Ansari - 🗑️ Remove this file.
-
-import { Icon } from '../imports';
-import type {
-  FooterAssetsModel,
-  FooterDataModel,
-  FooterLinkModel,
-  FooterSnackbarMessageModel,
-  FooterStringsModel
-} from '..';
-
-/**
- * Stub for `FooterLink`
- *
- * ```ts
- * const FooterLinkStub: FooterLink = {
- *   icon : { ...IconStub },
- *   name : '',
- *   url  : ''
- * };
- * ```
- *
- */
-const FooterLinkStub: FooterLinkModel = {
-  icon: new Icon(),
-  name: '',
-  url: ''
-};
-
-/**
- * Stub for `FooterAssetsModel`
- *
- * ```ts
- * const FooterAssetsStub: FooterAssetsModel = {
- *   madeWith    : '',
- *   heart       : FooterLinkStub,
- *   using       : '',
- *
- *   angular     : FooterLinkStub,
- *   tailwind    : FooterLinkStub,
- *   fontawesome : FooterLinkStub,
- *   firebase    : FooterLinkStub,
- *   nx          : FooterLinkStub,
- *
- *   by          : '',
- *
- *   github      : FooterLinkStub,
- *   linkedin    : FooterLinkStub,
- *   discord     : FooterLinkStub,
- *   email       : FooterLinkStub,
- *   location    : FooterLinkStub
- * };
- * ```
- */
-export const FooterAssetsStub: FooterAssetsModel = {
-  madeWith: '',
-  heart: { ...FooterLinkStub },
-  using: '',
-
-  angular: { ...FooterLinkStub },
-  tailwind: { ...FooterLinkStub },
-  fontawesome: { ...FooterLinkStub },
-  firebase: { ...FooterLinkStub },
-  nx: { ...FooterLinkStub },
-
-  by: '',
-
-  github: { ...FooterLinkStub },
-  linkedin: { ...FooterLinkStub },
-  discord: { ...FooterLinkStub },
-  email: { ...FooterLinkStub },
-  location: { ...FooterLinkStub }
-};
-
-/**
- * Stub for `FooterDataModel`
- *
- * ```ts
- * const FooterDataStub: FooterDataModel = {
- *   fullname : '',
- *   github   : '',
- *   linkedin : '',
- *   discord  : '',
- *   email    : '',
- *   location : ''
- * };
- * ```
- */
-export const FooterDataStub: FooterDataModel = {
-  fullname: '',
-  github: '',
-  linkedin: '',
-  discord: '',
-  email: '',
-  location: ''
-};
-
-/**
- * Stub for `FooterSnackbarMessageModel`
- *
- * ```ts
- * const FooterSnackbarMessageStub: FooterSnackbarMessageModel = {
- *   success : { action: '', message: '' },
- *   fail    : { action: '', message: '' }
- * };
- * ```
- */
-const FooterSnackbarMessageStub: FooterSnackbarMessageModel = {
-  success: { action: '', message: '' },
-  fail: { action: '', message: '' }
-};
-
-/**
- * Stub for `FooterStringsModel`
- *
- * ```ts
- * const FooterStringsStub: FooterStringsModel = {
- *   snackbar  : {
- *     discord : { ...FooterSnackbarMessageStub },
- *     email   : { ...FooterSnackbarMessageStub }
- *   }
- * }
- * ```
- */
-export const FooterStringsStub: FooterStringsModel = {
-  snackbar: {
-    discord: { ...FooterSnackbarMessageStub },
-    email: { ...FooterSnackbarMessageStub }
-  }
-};
+import { Icon, Image, SnackbarMessage } from '../imports';
+import { FooterAssets, FooterLink, FooterSnackbarMessage, FooterStrings } from '..';
 
 /**
  * Footer Assets
  */
-export const FooterAssets: FooterAssetsModel = {
+export const Assets: FooterAssets = new FooterAssets({
   madeWith: 'Made with',
 
-  heart: {
+  heart: new FooterLink({
     name: '',
     url: '',
-    icon: { style: 'fas', name: 'heart' } // fetch icon names and styles from constants
-  },
+    icon: new Icon({
+      style: 'fas',
+      name: 'heart'
+    })
+  }),
 
   using: 'using',
 
-  angular: {
+  angular: new FooterLink({
     name: 'Angular',
     url: 'https://angular.io/',
-    icon: { style: 'fab', name: 'angular' }
-  },
-  tailwind: {
+    icon: new Icon({
+      style: 'fab',
+      name: 'angular'
+    })
+  }),
+  tailwind: new FooterLink({
     name: 'Tailwind',
     url: 'https://tailwindcss.com/',
-    icon: { src: 'assets/media/images/tailwindcss.svg', alt: 'Tailwind' }
-  },
-  fontawesome: {
+    icon: new Image({
+      src: 'assets/media/images/tailwindcss.svg',
+      alt: 'Tailwind'
+    })
+  }),
+  fontawesome: new FooterLink({
     name: 'Font Awesome',
     url: 'https://fontawesome.com/',
-    icon: { style: 'fab', name: 'fort-awesome-alt' }
-  },
-  nx: {
+    icon: new Icon({
+      style: 'fab',
+      name: 'fort-awesome-alt'
+    })
+  }),
+  nx: new FooterLink({
     name: 'Nx',
     url: 'https://nx.dev/',
-    icon: { src: 'assets/media/images/nx.svg', alt: 'Nx' }
-  },
-  firebase: {
+    icon: new Image({
+      src: 'assets/media/images/nx.svg',
+      alt: 'Nx'
+    })
+  }),
+  firebase: new FooterLink({
     name: 'Nx',
     url: 'https://nx.dev/',
-    icon: { src: 'assets/media/images/firebase.svg', alt: 'Nx' }
-  },
+    icon: new Image({
+      src: 'assets/media/images/firebase.svg',
+      alt: 'Firebase'
+    })
+  }),
 
   by: 'by',
 
-  github: {
+  github: new FooterLink({
     name: 'GitHub',
     url: '',
-    icon: { style: 'fab', name: 'github' }
-  },
-  linkedin: {
+    icon: new Icon({
+      style: 'fab',
+      name: 'github'
+    })
+  }),
+  linkedin: new FooterLink({
     name: 'LinkedIn',
     url: '',
-    icon: { style: 'fab', name: 'linkedin' }
-  },
-  discord: {
+    icon: new Icon({
+      style: 'fab',
+      name: 'linkedin'
+    })
+  }),
+  discord: new FooterLink({
     name: 'Discord',
     url: '',
-    icon: { style: 'fab', name: 'discord' }
-  },
-  email: {
+    icon: new Icon({
+      style: 'fab',
+      name: 'discord'
+    })
+  }),
+  email: new FooterLink({
     name: 'E-mail',
     url: '',
-    icon: { style: 'fas', name: 'envelope-open-text' }
-  },
-  location: {
+    icon: new Icon({
+      style: 'fas',
+      name: 'envelope-open-text'
+    })
+  }),
+  location: new FooterLink({
     name: 'Location',
     url: '',
-    icon: { style: 'fas', name: 'map-marker-alt' }
-  }
-};
+    icon: new Icon({
+      style: 'fas',
+      name: 'map-marker-alt'
+    })
+  })
+});
 
-export const FooterStrings: FooterStringsModel = {
+export const Strings: FooterStrings = new FooterStrings({
   snackbar: {
-    discord: {
-      success: {
+    discord: new FooterSnackbarMessage({
+      success: new SnackbarMessage({
         message: 'Discord ID Copied!',
         action: '👍'
-      },
-      fail: {
+      }),
+      fail: new SnackbarMessage({
         message: 'Some problem accessing the Clipboard',
         action: '🙁'
-      }
-    },
-    email: {
-      success: {
+      })
+    }),
+    email: new FooterSnackbarMessage({
+      success: new SnackbarMessage({
         message: 'Email ID Copied!',
         action: '👍'
-      },
-      fail: {
+      }),
+      fail: new SnackbarMessage({
         message: 'Some problem accessing the Clipboard',
         action: '🙁'
-      }
-    }
+      })
+    })
   }
-};
+});
