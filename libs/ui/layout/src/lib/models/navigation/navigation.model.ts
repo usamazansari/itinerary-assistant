@@ -1,5 +1,3 @@
-// TODO: Usama Ansari - ♻️ Refactor this file.
-
 import { Icon } from '../../imports/models';
 
 /**

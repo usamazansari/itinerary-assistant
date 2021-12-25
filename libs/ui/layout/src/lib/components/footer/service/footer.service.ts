@@ -77,15 +77,15 @@ export class FooterService {
   copyDiscordID(): void {
     const isTextCopied: boolean = this._clipboard.copy(this.#data.discord);
     if (isTextCopied) {
-      this._snackbar.openSnackbar(
-        _FooterStrings.snackbar.discord.success.message,
-        _FooterStrings.snackbar.discord.success.action
-      );
+      this._snackbar.openSnackbar({
+        message: _FooterStrings.snackbar.discord.success.message,
+        action: _FooterStrings.snackbar.discord.success.action
+      });
     } else {
-      this._snackbar.openSnackbar(
-        _FooterStrings.snackbar.discord.fail.message,
-        _FooterStrings.snackbar.discord.fail.action
-      );
+      this._snackbar.openSnackbar({
+        message: _FooterStrings.snackbar.discord.fail.message,
+        action: _FooterStrings.snackbar.discord.fail.action
+      });
     }
   }
 
@@ -97,15 +97,15 @@ export class FooterService {
   copyEmailID(): void {
     const isTextCopied: boolean = this._clipboard.copy(this.#data.email);
     if (isTextCopied) {
-      this._snackbar.openSnackbar(
-        _FooterStrings.snackbar.email.success.message,
-        _FooterStrings.snackbar.email.success.action
-      );
+      this._snackbar.openSnackbar({
+        message: _FooterStrings.snackbar.email.success.message,
+        action: _FooterStrings.snackbar.email.success.action
+      });
     } else {
-      this._snackbar.openSnackbar(
-        _FooterStrings.snackbar.email.fail.message,
-        _FooterStrings.snackbar.email.fail.action
-      );
+      this._snackbar.openSnackbar({
+        message: _FooterStrings.snackbar.email.fail.message,
+        action: _FooterStrings.snackbar.email.fail.action
+      });
     }
   }
 }

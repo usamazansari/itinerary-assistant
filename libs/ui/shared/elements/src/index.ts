@@ -1,13 +1,9 @@
 export { ElementsModule } from './lib/elements.module';
 
-export {
-  SnackbarConfigStub,
-  LoaderConfigStub,
-  LoaderSize
-} from './lib/constants';
+export { LoaderSize } from './lib/constants';
 
 export {
-  LoaderConfigModel,
+  LoaderConfig,
   SnackbarMessage
 } from './lib/models';
 
