@@ -1,7 +1,3 @@
 export { CoreModule } from './lib/core.module';
-
-export type { RouterPayloadModel } from './lib/models';
-
-export { RouterPayloadStub } from './lib/constants';
-
+export { RouterPayload } from './lib/models';
 export { CoreService, EndpointService, RouterService } from './lib/services';

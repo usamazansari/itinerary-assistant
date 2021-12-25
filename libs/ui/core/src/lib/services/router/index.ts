@@ -1,5 +1,2 @@
-export type { RouterPayloadModel } from './model/router.model';
-
-export { RouterPayloadStub } from './constant/router.constants';
-
+export { RouterPayload } from './model/router.model';
 export { RouterService } from './service/router.service';

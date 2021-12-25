@@ -1,1 +1,1 @@
-export type { RouterPayloadModel } from '../services/router/model/router.model';
+export { RouterPayload } from '../services/router/model/router.model';
