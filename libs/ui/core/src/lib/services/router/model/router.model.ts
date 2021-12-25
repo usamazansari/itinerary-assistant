@@ -1,5 +1,7 @@
 import type { NavigationExtras } from '@angular/router';
 
+// TODO: Usama Ansari - ♻️ refactor this.
+
 /**
  *
  * Used in navigate function of the entire application

@@ -1,6 +1,6 @@
 export { LayoutModule } from './lib/layout.module';
 
-export type {
+export {
   FooterAssets,
   FooterData,
   FooterIconType,
@@ -10,11 +10,10 @@ export type {
   ToolbarAssets,
   ToolbarData,
   NavigationItem,
-  LayoutDataModel
+  LayoutData
 } from './lib/models';
 
 export {
   _FooterAssets,
-  _ToolbarAssets,
-  LayoutDataStub
+  _ToolbarAssets
 } from './lib/constants';
