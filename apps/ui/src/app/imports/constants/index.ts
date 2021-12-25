@@ -1,8 +1,7 @@
-// TODO: Usama Ansari - 🗑️ Remove this file.
+// TODO: Usama Ansari - ♻️ Refactor this file.
 export {
   ApplicationName,
-  Author,
-  Icon
+  Author
 } from '@itinerary-assistant/shared/data';
 
 export {
