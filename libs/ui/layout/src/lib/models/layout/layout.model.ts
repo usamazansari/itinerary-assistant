@@ -1,4 +1,6 @@
-import type { FooterData, ToolbarDataModel } from '../';
+import type { FooterData, ToolbarData } from '..';
+
+// TODO: Usama Ansari - ♻️ Refactor this.
 
 /**
  * Data to display in the layout
@@ -15,5 +17,5 @@ import type { FooterData, ToolbarDataModel } from '../';
  */
 export interface LayoutDataModel {
   footer: FooterData;
-  toolbar: ToolbarDataModel;
+  toolbar: ToolbarData;
 }

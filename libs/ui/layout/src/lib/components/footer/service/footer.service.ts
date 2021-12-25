@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { ClipboardService, SnackbarService } from '../imports';
 
-import { Assets, FooterAssets, FooterData, Strings } from '..';
+import { _FooterAssets, FooterAssets, FooterData, _FooterStrings } from '..';
 
 
 
@@ -41,7 +41,7 @@ export class FooterService {
    * @memberof FooterService
    */
   fetchAssets(): void {
-    this.#assets = { ...Assets };
+    this.#assets = { ..._FooterAssets };
     this._setAssets(this.#assets);
   }
 
@@ -78,13 +78,13 @@ export class FooterService {
     const isTextCopied: boolean = this._clipboard.copy(this.#data.discord);
     if (isTextCopied) {
       this._snackbar.openSnackbar(
-        Strings.snackbar.discord.success.message,
-        Strings.snackbar.discord.success.action
+        _FooterStrings.snackbar.discord.success.message,
+        _FooterStrings.snackbar.discord.success.action
       );
     } else {
       this._snackbar.openSnackbar(
-        Strings.snackbar.discord.fail.message,
-        Strings.snackbar.discord.fail.action
+        _FooterStrings.snackbar.discord.fail.message,
+        _FooterStrings.snackbar.discord.fail.action
       );
     }
   }
@@ -98,13 +98,13 @@ export class FooterService {
     const isTextCopied: boolean = this._clipboard.copy(this.#data.email);
     if (isTextCopied) {
       this._snackbar.openSnackbar(
-        Strings.snackbar.email.success.message,
-        Strings.snackbar.email.success.action
+        _FooterStrings.snackbar.email.success.message,
+        _FooterStrings.snackbar.email.success.action
       );
     } else {
       this._snackbar.openSnackbar(
-        Strings.snackbar.email.fail.message,
-        Strings.snackbar.email.fail.action
+        _FooterStrings.snackbar.email.fail.message,
+        _FooterStrings.snackbar.email.fail.action
       );
     }
   }

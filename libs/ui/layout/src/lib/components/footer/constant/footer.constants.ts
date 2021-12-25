@@ -4,7 +4,7 @@ import { FooterAssets, FooterLink, FooterSnackbarMessage, FooterStrings } from '
 /**
  * Footer Assets
  */
-export const Assets: FooterAssets = new FooterAssets({
+export const _FooterAssets: FooterAssets = new FooterAssets({
   madeWith: 'Made with',
 
   heart: new FooterLink({
@@ -103,7 +103,7 @@ export const Assets: FooterAssets = new FooterAssets({
   })
 });
 
-export const Strings: FooterStrings = new FooterStrings({
+export const _FooterStrings: FooterStrings = new FooterStrings({
   snackbar: {
     discord: new FooterSnackbarMessage({
       success: new SnackbarMessage({

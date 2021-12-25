@@ -29,7 +29,7 @@ export class ShellComponent {
   #data$ = new BehaviorSubject<LayoutDataModel>(LayoutDataStub);
 
   @Input()
-  set data(value: LayoutDataModel) { this.#data$.next(value ?? LayoutDataStub); }
+  set data(value: LayoutDataModel) { this.#data$.next(value); }
   get data(): LayoutDataModel { return this.#data$.getValue(); }
 
   @Output() navigate$ = new EventEmitter<void>();

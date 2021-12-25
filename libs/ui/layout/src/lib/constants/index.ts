@@ -1,13 +1,7 @@
-export {
-  Assets
-} from '../components/footer';
+export { _FooterAssets } from '../components/footer';
 
 export { NavigationItemStub } from './navigation/navigation.constants';
 
-export {
-  ToolbarAssets,
-  ToolbarAssetsStub,
-  ToolbarDataStub
-} from '../components/toolbar';
+export { _ToolbarAssets } from '../components/toolbar';
 
 export { LayoutDataStub } from './layout/layout.constants';

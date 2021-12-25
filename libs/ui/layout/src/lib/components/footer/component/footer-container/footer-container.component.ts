@@ -33,7 +33,7 @@ export class FooterContainerComponent implements OnInit {
   #data$ = new BehaviorSubject<FooterData>(new FooterData());
 
   @Input()
-  set data(value: FooterData) { this.#data$.next(value ?? new FooterData()); }
+  set data(value: FooterData) { this.#data$.next(value); }
   get data(): FooterData { return this.#data$.getValue(); }
 
   assets$!: Observable<FooterAssets>;

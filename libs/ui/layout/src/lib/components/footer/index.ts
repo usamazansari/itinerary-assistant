@@ -8,8 +8,8 @@ export {
 } from './model/footer.model';
 
 export {
-  Assets,
-  Strings
+  _FooterAssets,
+  _FooterStrings
 } from './constant/footer.constants';
 
 export { FooterContainerComponent } from './component/footer-container/footer-container.component';

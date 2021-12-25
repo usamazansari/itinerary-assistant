@@ -10,8 +10,7 @@ import {
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import type { ToolbarAssetsModel, ToolbarDataModel } from '../..';
-import { ToolbarDataStub, ToolbarService } from '../..';
+import { ToolbarAssets, ToolbarData, ToolbarService } from '../..';
 
 @Component({
   selector: 'ia-layout-toolbar-container',
@@ -26,14 +25,14 @@ import { ToolbarDataStub, ToolbarService } from '../..';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarContainerComponent implements OnInit {
-  #data$ = new BehaviorSubject<ToolbarDataModel>(ToolbarDataStub);
+  #data$ = new BehaviorSubject<ToolbarData>(new ToolbarData());
 
   @Input()
-  set data(value: ToolbarDataModel) { this.#data$.next(value ?? ToolbarDataStub); }
-  get data(): ToolbarDataModel { return this.#data$.getValue(); }
+  set data(value: ToolbarData) { this.#data$.next(value); }
+  get data(): ToolbarData { return this.#data$.getValue(); }
 
-  assets$!: Observable<ToolbarAssetsModel>;
-  data$!: Observable<ToolbarDataModel>;
+  assets$!: Observable<ToolbarAssets>;
+  data$!: Observable<ToolbarData>;
 
   @Output() navigate$ = new EventEmitter<void>();
   @Output() toggleSidenav$ = new EventEmitter<void>();

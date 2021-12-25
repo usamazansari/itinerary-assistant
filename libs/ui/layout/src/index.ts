@@ -7,17 +7,15 @@ export type {
   FooterLink,
   FooterSnackbarMessage,
   FooterStrings,
-  ToolbarAssetsModel,
-  ToolbarDataModel,
+  ToolbarAssets,
+  ToolbarData,
   NavigationItemModel,
   LayoutDataModel
 } from './lib/models';
 
 export {
-  Assets,
-  ToolbarAssets,
-  ToolbarAssetsStub,
-  ToolbarDataStub,
+  _FooterAssets,
+  _ToolbarAssets,
   NavigationItemStub,
   LayoutDataStub
 } from './lib/constants';

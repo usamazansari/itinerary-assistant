@@ -14,7 +14,7 @@ export class HomeComponent {
   #assets$ = new BehaviorSubject<HomeAssets>(new HomeAssets());
 
   @Input()
-  set assets(value: HomeAssets) { this.#assets$.next(value ?? new HomeAssets()); }
+  set assets(value: HomeAssets) { this.#assets$.next(value); }
   get assets(): HomeAssets { return this.#assets$.getValue(); }
 
   @Output() gotoViewTrip$: EventEmitter<void> = new EventEmitter<void>();
