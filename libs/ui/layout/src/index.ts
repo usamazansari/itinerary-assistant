@@ -9,13 +9,12 @@ export type {
   FooterStrings,
   ToolbarAssets,
   ToolbarData,
-  NavigationItemModel,
+  NavigationItem,
   LayoutDataModel
 } from './lib/models';
 
 export {
   _FooterAssets,
   _ToolbarAssets,
-  NavigationItemStub,
   LayoutDataStub
 } from './lib/constants';

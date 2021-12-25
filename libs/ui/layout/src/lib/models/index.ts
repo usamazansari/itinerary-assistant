@@ -14,6 +14,6 @@ export {
 
 export type { } from '../components/sidenav';
 
-export type { NavigationItemModel } from './navigation/navigation.model';
+export type { NavigationItem } from './navigation/navigation.model';
 
 export type { LayoutDataModel } from './layout/layout.model';
