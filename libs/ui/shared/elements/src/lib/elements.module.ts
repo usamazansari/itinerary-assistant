@@ -8,7 +8,9 @@ import * as Components from './components';
 @NgModule({
   declarations: [
     Components.LoaderContainerComponent,
-    Components.LoaderComponent
+    Components.LoaderComponent,
+    Components.ButtonContainerComponent,
+    Components.ButtonComponent
   ],
   imports: [
     CommonModule,

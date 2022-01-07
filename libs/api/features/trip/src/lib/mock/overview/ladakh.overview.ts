@@ -1,6 +1,7 @@
-import { TripOverviewModel } from '../../imports/models';
+import { TripOverview } from '../../imports/models';
 
-export const TripOverviewStub: TripOverviewModel = {
+// TODO: Usama Ansari - 🗑️ Obsolete code
+export const TripOverviewStub: TripOverview = {
   tenure: {
     end: '2018-08-05T18:30:00Z',
     start: '2018-07-26T18:30:00Z'

@@ -1,9 +1,9 @@
 export {
   APIResponse,
+  Button,
   Flag,
   Icon,
-  TripListDataModel,
-  TripListItemModel
+  TripListItem
 } from '../../imports/models';
 
 export { CoreService, EndpointService } from '../../imports/services';

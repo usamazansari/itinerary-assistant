@@ -1,15 +1,13 @@
 export {
-  TripListAssetsModel,
-  TripListErrorModel,
-  TripListFlagModel
+  TripListAssets,
+  TripListData,
+  TripListError,
+  TripListFlags
 } from './model/trip-list.model';
 
 export {
-  Constants,
-  TripListAssetsStub,
-  TripListDataStub,
-  TripListErrorStub,
-  TripListFlagStub
+  _TripListAssets,
+  _TripListError
 } from './constant/trip-list.constants';
 
 export { TripListContainerComponent } from './component/trip-list-container/trip-list-container.component';

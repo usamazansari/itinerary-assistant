@@ -4,20 +4,20 @@ import { Repository } from 'typeorm';
 import { HttpStatus } from '../../imports/constants';
 import { TripOverview } from '../../imports/entities';
 import { APIResponseModel } from '../../imports/models';
-import type { TripOverviewModel } from '../../imports/models';
+import type { TripOverview } from '../../imports/models';
 
 import { goa, ladakh, manali, northEast } from '../../mock';
 import { TRIP_REPOSITORY } from '../../constants';
 
 @Injectable()
 export class TripService {
-  #tripOverviewDict: { [tripName: string]: TripOverviewModel; } = {
+  #tripOverviewDict: { [tripName: string]: TripOverview; } = {
     goa,
     ladakh,
     manali,
     northEast
   };
-  #tripOverview!: TripOverviewModel;
+  #tripOverview!: TripOverview;
 
   constructor(
     @Inject(TRIP_REPOSITORY)

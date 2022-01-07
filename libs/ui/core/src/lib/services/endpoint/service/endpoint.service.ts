@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import type { Observable } from 'rxjs';
 
 import type { APIResponse } from '../imports';
 
-// TODO: 🧐 Documentation Required
-// TODO: Implement other methods - post, put, delete
-// TODO: Implement Centralized models for request and response
 /**
- *
+ * Endpoint Service for hitting external API calls.
  *
  * @export
  * @class EndpointService
@@ -37,10 +33,7 @@ export class EndpointService {
    * @memberof EndpointService
    */
   get<ResponseType>(url: string): Observable<APIResponse<ResponseType>> {
-    return this._http.get<APIResponse<ResponseType>>(url)
-      .pipe(
-        delay(3000)
-      );
+    return this._http.get<APIResponse<ResponseType>>(url);
   }
 
   /**
@@ -55,10 +48,7 @@ export class EndpointService {
    * @memberof EndpointService
    */
   post<RequestBody, ResponseType>(url: string, body: RequestBody): Observable<APIResponse<ResponseType>> {
-    return this._http.post<APIResponse<ResponseType>>(url, body)
-      .pipe(
-        // delay(3000)
-      );
+    return this._http.post<APIResponse<ResponseType>>(url, body);
   }
 
   /**
@@ -73,10 +63,7 @@ export class EndpointService {
    * @memberof EndpointService
    */
   put<RequestBody, ResponseType>(url: string, body: RequestBody): Observable<APIResponse<ResponseType>> {
-    return this._http.put<APIResponse<ResponseType>>(url, body)
-      .pipe(
-        // delay(3000)
-      );
+    return this._http.put<APIResponse<ResponseType>>(url, body);
   }
 
   /**
@@ -89,9 +76,6 @@ export class EndpointService {
    * @memberof EndpointService
    */
   delete<ResponseType>(url: string): Observable<APIResponse<ResponseType>> {
-    return this._http.delete<APIResponse<ResponseType>>(url)
-      .pipe(
-        delay(3000)
-      );
+    return this._http.delete<APIResponse<ResponseType>>(url);
   }
 }

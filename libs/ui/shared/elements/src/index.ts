@@ -3,6 +3,7 @@ export { ElementsModule } from './lib/elements.module';
 export { LoaderSize } from './lib/constants';
 
 export {
+  Button,
   LoaderConfig,
   SnackbarMessage
 } from './lib/models';

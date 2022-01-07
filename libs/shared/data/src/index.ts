@@ -5,9 +5,7 @@ export {
   EmptyString,
 
   HttpStatus,
-  ServerResponse,
-
-  TripListItemStub
+  ServerResponse
 } from './lib/constants';
 
 export {
@@ -19,11 +17,9 @@ export {
   Image
 } from './lib/models';
 
-export type {
-  TripListItemModel,
-  TripListDataModel,
-
-  TripOverviewModel
+export {
+  TripListItem,
+  TripOverview
 } from './lib/models';
 
 export {
