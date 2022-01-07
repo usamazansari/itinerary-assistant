@@ -11,14 +11,6 @@ import { BehaviorSubject } from 'rxjs';
 
 import { LayoutData } from '../../models';
 
-// TODO: 🧐 Documentation Required
-/**
- *
- *
- * @export
- * @class ShellComponent
- * @implements {OnInit}
- */
 @Component({
   selector: 'ia-layout-shell',
   templateUrl: './shell.component.html',

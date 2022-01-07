@@ -50,9 +50,7 @@ export class TripListService {
   ) { }
 
   fetchAssets(): void {
-    this.setAssets({
-      ..._TripListAssets
-    });
+    this.setAssets({ ..._TripListAssets });
   }
 
   private setAssets(trips: TripListAssets): void {
@@ -127,7 +125,7 @@ export class TripListService {
   }
 
   private handleError(error: APIResponse<unknown>): void {
-    const isServiceAvailable = this._coreService.checkError(<HttpErrorResponse>error.error);
+    const isServiceAvailable = this._coreService.isServiceAvailable(error);
     if (!isServiceAvailable) {
       this.setError({
         message: this._coreService.getServerResponseMessage((<HttpErrorResponse>error.error)?.status ?? 0)
