@@ -6,13 +6,12 @@ import {
 
 import type { Observable } from 'rxjs';
 
-import type { TripListDataModel } from '../../imports';
-
 import { TripListService } from '../..';
 import type {
-  TripListAssetsModel,
-  TripListErrorModel,
-  TripListFlagModel
+  TripListAssets,
+  TripListData,
+  TripListError,
+  TripListFlags
 } from '../..';
 
 @Component({
@@ -28,10 +27,10 @@ import type {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TripListContainerComponent implements OnInit {
-  assets$!: Observable<TripListAssetsModel>;
-  data$!: Observable<TripListDataModel>;
-  flags$!: Observable<TripListFlagModel>;
-  error$!: Observable<TripListErrorModel>;
+  assets$!: Observable<TripListAssets>;
+  data$!: Observable<TripListData>;
+  flags$!: Observable<TripListFlags>;
+  error$!: Observable<TripListError>;
 
   constructor(private service: TripListService) { }
 

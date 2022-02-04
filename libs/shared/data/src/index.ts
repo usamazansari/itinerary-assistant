@@ -4,31 +4,22 @@ export {
 
   EmptyString,
 
-  FlagStub,
-  IconStub,
-  ImageStub,
-
   HttpStatus,
-  ServerResponse,
-
-  TripListItemStub
+  ServerResponse
 } from './lib/constants';
 
 export {
-  APIRequestModel,
-  APIResponse
+  APIRequest,
+  APIResponse,
+
+  Flag,
+  Icon,
+  Image
 } from './lib/models';
 
-export type {
-
-  FlagModel,
-  IconModel,
-  ImageModel,
-
-  TripListItemModel,
-  TripListDataModel,
-
-  TripOverviewModel
+export {
+  TripListItem,
+  TripOverview
 } from './lib/models';
 
 export {

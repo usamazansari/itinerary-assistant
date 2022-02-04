@@ -15,17 +15,11 @@ export class TripService {
     private _repository: Repository<TripOverview>
   ) { }
 
-
   fetchTripList(): Observable<TripOverview[]> {
     return from(
       this._repository.find()
-        .then(
-          data => data,
-          error => { throw error; }
-        )
-        .catch(
-          error => error
-        )
+        .then(data => data, error => { throw error; })
+        .catch(error => error)
     );
   };
 

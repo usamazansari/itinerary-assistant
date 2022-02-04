@@ -1,27 +1,106 @@
-import type { ExpenseModel, TenureModel } from './trip.model';
+import { TripExpense, TripTenure } from '.';
 
-// TODO: 🧐 Documentation required
 /**
- * TODO: 🧐 Documentation required
+ * Trip List Item Model.
  *
- * @export
- * @interface TripListItemModel
+ * ```ts
+ * interface ITripListItem {
+ *   expense : TripExpense;
+ *   rating  : number;
+ *   title   : string;
+ *   tenure  : TripTenure;
+ * }
+ * ```
+ *
+ * @interface ITripListItem
  */
-export interface TripListItemModel {
-  expense: ExpenseModel;
+interface ITripListItem {
+  /**
+   * Expense of a Trip.
+   *
+   * @type {TripExpense}
+   * @memberof ITripListItem
+   */
+  expense: TripExpense;
+
+  /**
+   * Rating of a Trip.
+   *
+   * @type {number}
+   * @memberof ITripListItem
+   */
   rating: number;
+
+  /**
+   * Title of a Trip.
+   *
+   * @type {string}
+   * @memberof ITripListItem
+   */
   title: string;
-  tenure: TenureModel;
+
+  /**
+   * Tenure of a Trip.
+   *
+   * @type {TripTenure}
+   * @memberof ITripListItem
+   */
+  tenure: TripTenure;
 }
 
-// TODO: 🧐 Documentation required
-// TODO: 🚚 Move to feature/trips/components/trip-list/model since it is not shared between frontend and backend
 /**
- * TODO: 🧐 Documentation required
+ * Stub for Trip List Item.
+ *
+ * ```ts
+ * const TripListItemStub: ITripListItem = {
+ *   expense : new TripExpense(),
+ *   rating  : 0,
+ *   tenure  : new TripTenure(),
+ *   title   : ''
+ * }
+ * ```
+ */
+const TripListItemStub: ITripListItem = {
+  expense: new TripExpense(),
+  rating: 0,
+  tenure: new TripTenure(),
+  title: ''
+};
+
+/**
+ * Trip List Item class.
  *
  * @export
- * @interface TripListDataModel
+ * @class TripListItem
+ * @implements {ITripListItem}
  */
-export interface TripListDataModel {
-  trips: TripListItemModel[];
+export class TripListItem implements ITripListItem {
+  expense: TripExpense;
+  rating: number;
+  title: string;
+  tenure: TripTenure;
+
+  /**
+   * ### Trip List Item
+   *
+   * Creates an instance of TripListItem.
+   *
+   * ```ts
+   * const tripListItem = new TripListItem({
+   *   expense : new TripExpense(),
+   *   rating  : 0,
+   *   tenure  : new TripTenure(),
+   *   title   : ''
+   * });
+   * ```
+   *
+   * @param {Partial<ITripListItem>} [init={}]
+   * @memberof TripListItem
+   */
+  constructor(init: Partial<ITripListItem> = {}) {
+    this.expense = init.expense ?? TripListItemStub.expense;
+    this.rating = init.rating ?? TripListItemStub.rating;
+    this.title = init.title ?? TripListItemStub.title;
+    this.tenure = init.tenure ?? TripListItemStub.tenure;
+  }
 }

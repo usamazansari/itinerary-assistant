@@ -8,8 +8,7 @@ import {
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import type { FooterAssetsModel, FooterDataModel } from '../..';
-import { FooterDataStub, FooterService } from '../..';
+import { FooterAssets, FooterData, FooterService } from '../..';
 
 /**
  * Container for the `FooterComponent`
@@ -31,14 +30,14 @@ import { FooterDataStub, FooterService } from '../..';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterContainerComponent implements OnInit {
-  #data$ = new BehaviorSubject<FooterDataModel>(FooterDataStub);
+  #data$ = new BehaviorSubject<FooterData>(new FooterData());
 
   @Input()
-  set data(value: FooterDataModel) { this.#data$.next(value ?? FooterDataStub); }
-  get data(): FooterDataModel { return this.#data$.getValue(); }
+  set data(value: FooterData) { this.#data$.next(value); }
+  get data(): FooterData { return this.#data$.getValue(); }
 
-  assets$!: Observable<FooterAssetsModel>;
-  data$!: Observable<FooterDataModel>;
+  assets$!: Observable<FooterAssets>;
+  data$!: Observable<FooterData>;
 
   /**
    * Creates an instance of `FooterContainerComponent`.

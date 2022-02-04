@@ -5,8 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { RouterService, RouteConstants } from '../imports';
 
-import { HomeAssets, HomeAssetsStub } from '..';
-import type { HomeAssetsModel } from '..';
+import { Assets, HomeAssets } from '..';
 
 /**
  * Service for `HomeComponent`
@@ -18,8 +17,8 @@ import type { HomeAssetsModel } from '..';
   providedIn: 'root'
 })
 export class HomeService {
-  #assets$ = new BehaviorSubject<HomeAssetsModel>(HomeAssetsStub);
-  #assets: HomeAssetsModel = { ...HomeAssetsStub };
+  #assets$ = new BehaviorSubject<HomeAssets>(new HomeAssets());
+  #assets: HomeAssets = new HomeAssets();
 
   /**
    * Creates an instance of `HomeService`
@@ -33,7 +32,7 @@ export class HomeService {
    * @memberof HomeService
    */
   fetchAssets(): void {
-    this.#assets = { ...HomeAssets };
+    this.#assets = { ...Assets };
     this._setAssets(this.#assets);
   }
 
@@ -41,11 +40,11 @@ export class HomeService {
    * Store the latest value of `assets` in class props and update the `BehaviorSubject` with the same
    *
    * @private
-   * @param {HomeAssetsModel} assets
+   * @param {HomeAssets} assets
    * @memberof HomeService
    */
-  private _setAssets(assets: HomeAssetsModel): void {
-    this.#assets = { ...assets ?? HomeAssetsStub };
+  private _setAssets(assets: HomeAssets): void {
+    this.#assets = { ...assets ?? new HomeAssets() };
     this.#assets$.next(this.#assets);
   }
 
@@ -55,7 +54,7 @@ export class HomeService {
    * @return {*}  {Observable<HomeAssetsModel>}
    * @memberof HomeService
    */
-  watchAssets$(): Observable<HomeAssetsModel> {
+  watchAssets$(): Observable<HomeAssets> {
     return this.#assets$.asObservable();
   }
 

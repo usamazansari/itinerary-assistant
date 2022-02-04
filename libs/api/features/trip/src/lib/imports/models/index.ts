@@ -1,6 +1,6 @@
 export type {
-  TripListItemModel,
-  TripOverviewModel
+  TripListItem,
+  TripOverview
 } from '@itinerary-assistant/shared/data';
 
 export {

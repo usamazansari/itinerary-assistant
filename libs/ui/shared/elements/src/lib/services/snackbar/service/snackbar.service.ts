@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import type { MatSnackBarConfig } from '@angular/material/snack-bar';
 
-import { SnackbarConfigStub } from '..';
+import { SnackbarMessage } from '..';
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +17,18 @@ export class SnackbarService {
   constructor(private _snackbar: MatSnackBar) { }
 
   /**
-   * Opens a material snackbar
+   * Opens a material snackbar.
    *
    * @template SnackbarData
-   * @param {string} message
-   * @param {string} [action='']
-   * @param {MatSnackBarConfig<SnackbarData>} [config=SnackbarConfig]
+   * @param {SnackbarMessage<SnackbarData>} [init=new SnackbarMessage<SnackbarData>()]
    * @memberof SnackbarService
    */
   openSnackbar<SnackbarData>(
-    message: string,
-    action: string = '',
-    config: MatSnackBarConfig<SnackbarData> = SnackbarConfigStub
+    init: SnackbarMessage<SnackbarData> = new SnackbarMessage<SnackbarData>()
   ): void {
-    this._snackbar.open(message, action, config);
+    this._snackbar.open(
+      init.message,
+      init.action,
+      <MatSnackBarConfig<SnackbarData>>init.config);
   }
 }

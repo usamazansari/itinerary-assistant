@@ -9,28 +9,19 @@ import { MatSidenav } from '@angular/material/sidenav';
 
 import { BehaviorSubject } from 'rxjs';
 
-import type { LayoutDataModel } from '../../models';
-import { LayoutDataStub } from '../../constants';
+import { LayoutData } from '../../models';
 
-// TODO: 🧐 Documentation Required
-/**
- *
- *
- * @export
- * @class ShellComponent
- * @implements {OnInit}
- */
 @Component({
   selector: 'ia-layout-shell',
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent {
-  #data$ = new BehaviorSubject<LayoutDataModel>(LayoutDataStub);
+  #data$ = new BehaviorSubject<LayoutData>(new LayoutData());
 
   @Input()
-  set data(value: LayoutDataModel) { this.#data$.next(value ?? LayoutDataStub); }
-  get data(): LayoutDataModel { return this.#data$.getValue(); }
+  set data(value: LayoutData) { this.#data$.next(value); }
+  get data(): LayoutData { return this.#data$.getValue(); }
 
   @Output() navigate$ = new EventEmitter<void>();
 

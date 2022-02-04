@@ -4,20 +4,16 @@ import type { HttpErrorResponse } from '@angular/common/http';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import type { APIResponse, TripListDataModel, TripListItemModel } from '../imports';
+import type { APIResponse, TripListItem } from '../imports';
 import { CoreService, EndpointService } from '../imports';
 
-import type {
-  TripListAssetsModel,
-  TripListErrorModel,
-  TripListFlagModel
-} from '..';
 import {
-  TripListAssetsStub,
-  TripListDataStub,
-  TripListErrorStub,
-  TripListFlagStub,
-  Constants
+  TripListAssets,
+  TripListData,
+  TripListError,
+  TripListFlags,
+  _TripListAssets,
+  _TripListError
 } from '..';
 
 // TODO: Refactor to make it free of loose strings
@@ -31,17 +27,17 @@ import {
   providedIn: 'root'
 })
 export class TripListService {
-  #assets$ = new BehaviorSubject<TripListAssetsModel>(TripListAssetsStub);
-  #assets: TripListAssetsModel = { ...TripListAssetsStub };
+  #assets$ = new BehaviorSubject<TripListAssets>(new TripListAssets());
+  #assets = new TripListAssets();
 
-  #data$ = new BehaviorSubject<TripListDataModel>(TripListDataStub);
-  data: TripListDataModel = { ...TripListDataStub };
+  #data$ = new BehaviorSubject<TripListData>(new TripListData());
+  data = new TripListData();
 
-  #flags$ = new BehaviorSubject<TripListFlagModel>(TripListFlagStub);
-  #flags = { ...TripListFlagStub };
+  #flags$ = new BehaviorSubject<TripListFlags>(new TripListFlags());
+  #flags = new TripListFlags();
 
-  #error$ = new BehaviorSubject<TripListErrorModel>(TripListErrorStub);
-  #error: TripListErrorModel = { ...TripListErrorStub };
+  #error$ = new BehaviorSubject<TripListError>(new TripListError());
+  #error = new TripListError();
 
   /**
    * Creates an instance of TripListService.
@@ -54,17 +50,15 @@ export class TripListService {
   ) { }
 
   fetchAssets(): void {
-    this.setAssets({
-      ...Constants.assets
-    });
+    this.setAssets({ ..._TripListAssets });
   }
 
-  private setAssets(trips: TripListAssetsModel): void {
-    this.#assets = { ...trips ?? TripListAssetsStub };
+  private setAssets(trips: TripListAssets): void {
+    this.#assets = { ...trips ?? new TripListAssets() };
     this.#assets$.next(this.#assets);
   }
 
-  watchAssets$(): Observable<TripListAssetsModel> {
+  watchAssets$(): Observable<TripListAssets> {
     return this.#assets$.asObservable();
   }
 
@@ -78,10 +72,10 @@ export class TripListService {
       }
     });
     this._endpointService
-      .get<TripListItemModel[]>(`http://localhost:3333/api/trip/view-trip`)
+      .get<TripListItem[]>(`http://localhost:3333/api/trip/view-trip`)
       .pipe()
       .subscribe(
-        (response: APIResponse<TripListItemModel[]>) => {
+        (response: APIResponse<TripListItem[]>) => {
           this.setFlags({
             ...this.#flags,
             shell: {
@@ -106,48 +100,46 @@ export class TripListService {
       );
   }
 
-  private setData(response: APIResponse<TripListItemModel[]>): void {
+  private setData(response: APIResponse<TripListItem[]>): void {
     this.data = {
-      trips: [...response.data ?? []] ?? TripListDataStub
+      trips: [...<TripListItem[]>response.data ?? []] ?? new TripListData()
     };
     this.#data$.next(this.data);
   }
 
-  watchData$(): Observable<TripListDataModel> {
+  watchData$(): Observable<TripListData> {
     return this.#data$.asObservable();
   }
 
-  private setFlags(flags: TripListFlagModel): void {
-    this.#flags = { ...flags ?? TripListFlagStub };
+  private setFlags(flags: TripListFlags): void {
+    this.#flags = { ...flags ?? new TripListFlags() };
     this.#flags$.next(this.#flags);
   }
 
   resetFlags(): void {
-    this.setFlags(TripListFlagStub);
+    this.setFlags(new TripListFlags());
   }
 
-  watchFlags$(): Observable<TripListFlagModel> {
+  watchFlags$(): Observable<TripListFlags> {
     return this.#flags$.asObservable();
   }
 
   private handleError(error: APIResponse<unknown>): void {
-    const isServiceAvailable = this._coreService.checkError(<HttpErrorResponse>error.error);
+    const isServiceAvailable = this._coreService.isServiceAvailable(error);
     if (!isServiceAvailable) {
       this.setError({
         message: this._coreService.getServerResponseMessage((<HttpErrorResponse>error.error)?.status ?? 0)
       });
     } else {
-      this.setError({
-        message: 'Generic Error'
-      });
+      this.setError(_TripListError);
     }
   }
-  private setError(error: TripListErrorModel): void {
-    this.#error = { ...error ?? TripListErrorStub };
+  private setError(error: TripListError): void {
+    this.#error = { ...error ?? new TripListError() };
     this.#error$.next(this.#error);
   }
 
-  watchError$(): Observable<TripListErrorModel> {
+  watchError$(): Observable<TripListError> {
     return this.#error$.asObservable();
   }
 }

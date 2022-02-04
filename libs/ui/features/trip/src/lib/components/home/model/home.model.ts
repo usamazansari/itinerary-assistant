@@ -1,84 +1,176 @@
-import type { IconModel } from '../imports';
+import { Icon } from '../imports';
 
 /**
- * The assets for a Card to be displayed on the Home Page.
+ * Home Asset Model
  *
- * ```ts
- * interface HomeAssetModel {
- *   icon : IconModel;
- *   text : string;
- * }
- * ```
- *
- * @interface HomeAssetModel
+ * @interface IHomeAsset
  */
-export interface HomeAssetModel {
+interface IHomeAsset {
   /**
    * Icon to be displayed in the card of the home page.
    *
-   * @type {IconModel}
-   * @memberof HomeAssetModel
+   * @type {Icon}
+   * @memberof IHomeAsset
    */
-  icon: IconModel;
+  icon: Icon;
 
   /**
    * Text for the icon displayed in the card of the home page.
    *
    * @type {(string)}
-   * @memberof HomeAssetModel
+   * @memberof IHomeAsset
    */
   text: string;
 }
 
 /**
- * Home Page shall consist of two cards:
- * 1. View Trip
- * 2. Create Trip
+ * Stub for Home Asset Model.
+ *
+ * ```ts
+ * const HomeAssetStub: IHomeAsset = {
+ *   icon : new Icon(),
+ *   text : ''
+ * }
+ * ```
+ */
+const HomeAssetStub: IHomeAsset = {
+  icon: new Icon(),
+  text: ''
+};
+
+/**
+ * Home Asset class.
+ *
+ * @export
+ * @class HomeAsset
+ * @implements {IHomeAsset}
+ */
+export class HomeAsset implements IHomeAsset {
+  icon: Icon;
+  text: string;
+
+  /**
+   * ### Home Asset
+   *
+   * Atomic asset for the home page.
+   *
+   * ```ts
+   * const homeAsset = new HomeAsset({
+   *   icon: new Icon(),
+   *   text: ''
+   * });
+   * ```
+   *
+   * @param {IHomeAsset} [init=HomeAssetStub]
+   * @memberof HomeAsset
+   */
+  constructor(
+    init: Partial<IHomeAsset> = HomeAssetStub
+  ) {
+    this.icon = init.icon ?? HomeAssetStub.icon;
+    this.text = init.text ?? HomeAssetStub.text;
+  }
+}
+
+/**
+ * Home Page Assets Model
  *
  * ```ts
  * interface HomeAssetsModel {
  *   view   : {
- *     icon : IconModel;
+ *     icon : Icon;
  *     text : string;
  *   };
  *   create : {
- *     icon : IconModel;
+ *     icon : Icon;
  *     text : string;
  *   };
  * }
  * ```
  *
- * @export
- * @interface HomeAssetsModel
+ * @interface IHomeAssets
  */
-export interface HomeAssetsModel {
+interface IHomeAssets {
   /**
    * The card to hold icon and text for `View Trip`.
    *
    * ```ts
    * view   : {
-   *   icon : IconModel;
+   *   icon : Icon;
    *   text : string;
    * };
    * ```
    *
-   * @type {HomeAssetModel}
+   * @type {HomeAsset}
    * @memberof HomeAssetsModel
    */
-  view: HomeAssetModel;
+  view: HomeAsset;
 
   /**
    * The card to hold icon and text for `Create Trip`.
    *
    * ```ts
    * create : {
-   *   icon : IconModel;
+   *   icon : Icon;
    *   text : string;
    * };
    * ```
    *
-   * @type {HomeAssetModel}
+   * @type {HomeAsset}
    * @memberof HomeAssetsModel
    */
-  create: HomeAssetModel;
+  create: HomeAsset;
+}
+
+/**
+ * Stub for HomeAssets.
+ *
+ * ```ts
+ * const HomeAssetsStub: IHomeAssets = {
+ *   view   : new HomeAsset(),
+ *   create : new HomeAsset()
+ * }
+ * ```
+ */
+const HomeAssetsStub: IHomeAssets = {
+  view: new HomeAsset(),
+  create: new HomeAsset()
+};
+
+/**
+ * Home Page Assets class.
+ * @export
+ * @interface HomeAssetsModel
+ */
+export class HomeAssets implements IHomeAssets {
+  view: HomeAsset;
+  create: HomeAsset;
+
+  /**
+   * ### Home Page Assets
+   * The home page shall consist of two cards:
+   * 1. View Trip
+   * 2. Create Trip
+   *
+   * ```ts
+   * const homeAssets: HomeAssets = new HomeAssets({
+   *   view   : {
+   *     icon : Icon;
+   *     text : string;
+   *   };
+   *   create : {
+   *     icon : Icon;
+   *     text : string;
+   *   };
+   * })
+   * ```
+   * @param {IHomeAssets} [init=HomeAssetsStub]
+   * @memberof HomeAssets
+   */
+  constructor(
+    init: Partial<IHomeAssets> = HomeAssetsStub
+  ) {
+    this.view = init.view ?? HomeAssetsStub.view;
+    this.create = init.create ?? HomeAssetsStub.create;
+  }
 }
