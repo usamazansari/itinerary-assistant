@@ -53,7 +53,9 @@ const APIResponseStub: IAPIResponse = {
  * @class APIResponse
  * @template DataType Data type of the response body
  */
-export class APIResponse<DataType = unknown> implements IAPIResponse<DataType> {
+export class APIResponse<DataType = unknown>
+  implements IAPIResponse<DataType>
+{
   data: DataType | unknown | null;
   error: unknown | null;
   status: HttpStatus;
@@ -80,9 +82,7 @@ export class APIResponse<DataType = unknown> implements IAPIResponse<DataType> {
    * @param {IAPIResponse} [init=ResponseStub]
    * @memberof APIResponse
    */
-  constructor(
-    init: Partial<IAPIResponse> = APIResponseStub
-  ) {
+  constructor(init: Partial<IAPIResponse> = APIResponseStub) {
     this.data = init.data ?? APIResponseStub.data;
     this.error = init.error ?? APIResponseStub.error;
     this.status = init.status ?? APIResponseStub.status;

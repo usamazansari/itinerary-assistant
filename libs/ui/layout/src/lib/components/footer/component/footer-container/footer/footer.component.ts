@@ -18,20 +18,28 @@ import { FooterAssets, FooterData, FooterIconType } from '../../..';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
-
   #assets$ = new BehaviorSubject<FooterAssets>(new FooterAssets());
 
   @Input()
-  set assets(value: FooterAssets) { this.#assets$.next(value); }
-  get assets(): FooterAssets { return this.#assets$.getValue(); }
+  set assets(value: FooterAssets) {
+    this.#assets$.next(value);
+  }
+  get assets(): FooterAssets {
+    return this.#assets$.getValue();
+  }
 
   #data$ = new BehaviorSubject<FooterData>(new FooterData());
 
   @Input()
-  set data(value: FooterData) { this.#data$.next(value); }
-  get data(): FooterData { return this.#data$.getValue(); }
+  set data(value: FooterData) {
+    this.#data$.next(value);
+  }
+  get data(): FooterData {
+    return this.#data$.getValue();
+  }
 
-  @Output() copyDiscordID$: EventEmitter<void> = new EventEmitter<void>();
+  @Output() copyDiscordID$: EventEmitter<void> =
+    new EventEmitter<void>();
   @Output() copyEmailID$: EventEmitter<void> = new EventEmitter<void>();
 
   /**

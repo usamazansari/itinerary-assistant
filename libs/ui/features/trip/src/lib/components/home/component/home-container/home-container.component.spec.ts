@@ -14,20 +14,17 @@ describe('HomeContainerComponent', () => {
   let fixture: ComponentFixture<HomeContainerComponent>;
 
   const serviceStub: Partial<HomeService> = {
-    fetchAssets: (): void => { },
+    fetchAssets: (): void => {},
     watchVm$: (): Observable<HomeVMModel> => of(HomeVMStub),
-    gotoCreateTrip: (): void => { },
-    gotoViewTrip: (): void => { }
+    gotoCreateTrip: (): void => {},
+    gotoViewTrip: (): void => {}
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomeContainerComponent],
-      providers: [
-        { provide: HomeService, useValue: serviceStub }
-      ]
-    })
-      .compileComponents();
+      providers: [{ provide: HomeService, useValue: serviceStub }]
+    }).compileComponents();
   });
 
   beforeEach(() => {

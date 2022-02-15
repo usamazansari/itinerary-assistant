@@ -98,9 +98,7 @@ export class APIRequest implements IAPIRequest {
    * @param {APIRequest} [init=APIRequestStub]
    * @memberof APIRequest
    */
-  constructor(
-    init: Partial<IAPIRequest> = APIRequestStub
-  ) {
+  constructor(init: Partial<IAPIRequest> = APIRequestStub) {
     this.headers = init.headers ?? APIRequestStub.headers;
     this.params = init.params ?? APIRequestStub.params;
     this.body = init.body ?? APIRequestStub.body;

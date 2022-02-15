@@ -19,20 +19,20 @@ export class RouterService {
    * @param {Router} _router Angular Router
    * @memberof RouterService
    */
-  constructor(private _router: Router) { }
+  constructor(private _router: Router) {}
 
   /**
    * ### Navigate
    *
-   * Call the `navigate` method of the `Router` service in `@angular/router` package.
+   * Call the `navigate()` method of the `Router` service in `@angular/router` package.
    *
-   * @param {RouterPayload} payload
+   * @param {RouterPayload} {
+   *     routes = [],
+   *     extras = {}
+   *   } - `Route`s and `Extra`s to be passed to the `navigate()` method
    * @memberof RouterService
    */
-  navigate(payload: RouterPayload): void {
-    this._router.navigate(
-      [EmptyString, ...payload.routes],
-      { ...payload.extras }
-    );
+  navigate({ routes = [], extras = {} }: RouterPayload): void {
+    this._router.navigate([EmptyString, ...routes], { ...extras });
   }
 }

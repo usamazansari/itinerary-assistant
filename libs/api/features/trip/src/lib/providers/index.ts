@@ -1,1 +1,1 @@
-export { TripProviders } from './trip.provider'
+export * from './trip/trip.provider';

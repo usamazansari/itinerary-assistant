@@ -5,9 +5,12 @@ import { BehaviorSubject } from 'rxjs';
 
 import { ClipboardService, SnackbarService } from '../imports';
 
-import { _FooterAssets, FooterAssets, FooterData, _FooterStrings } from '..';
-
-
+import {
+  _FooterAssets,
+  FooterAssets,
+  FooterData,
+  _FooterStrings
+} from '..';
 
 /**
  * Service for use in `FooterComponent`
@@ -33,7 +36,7 @@ export class FooterService {
   constructor(
     private _clipboard: ClipboardService,
     private _snackbar: SnackbarService
-  ) { }
+  ) {}
 
   /**
    * Fetch assets for `FooterComponent`
@@ -46,7 +49,7 @@ export class FooterService {
   }
 
   private _setAssets(assets: FooterAssets): void {
-    this.#assets = { ...assets ?? new FooterAssets() };
+    this.#assets = { ...(assets ?? new FooterAssets()) };
     this.#assets$.next(this.#assets);
   }
 
@@ -61,7 +64,7 @@ export class FooterService {
    * @memberof FooterService
    */
   setData(data: FooterData): void {
-    this.#data = { ...data ?? new FooterData() };
+    this.#data = { ...(data ?? new FooterData()) };
     this.#data$.next(this.#data);
   }
 
@@ -75,7 +78,9 @@ export class FooterService {
    * @memberof FooterService
    */
   copyDiscordID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(this.#data.discord);
+    const isTextCopied: boolean = this._clipboard.copy(
+      this.#data.discord
+    );
     if (isTextCopied) {
       this._snackbar.openSnackbar({
         message: _FooterStrings.snackbar.discord.success.message,
@@ -95,7 +100,9 @@ export class FooterService {
    * @memberof FooterService
    */
   copyEmailID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(this.#data.email);
+    const isTextCopied: boolean = this._clipboard.copy(
+      this.#data.email
+    );
     if (isTextCopied) {
       this._snackbar.openSnackbar({
         message: _FooterStrings.snackbar.email.success.message,

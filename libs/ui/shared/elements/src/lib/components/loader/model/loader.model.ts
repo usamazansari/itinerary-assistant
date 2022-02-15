@@ -52,9 +52,7 @@ export class LoaderConfig implements ILoaderConfig {
    * @param {Partial<ILoaderConfig>} [init=LoaderConfigStub]
    * @memberof LoaderConfig
    */
-  constructor(
-    init: Partial<ILoaderConfig> = LoaderConfigStub
-  ) {
+  constructor(init: Partial<ILoaderConfig> = LoaderConfigStub) {
     this.size = init.size ?? LoaderConfigStub.size;
     this.visible = init.visible ?? LoaderConfigStub.visible;
   }

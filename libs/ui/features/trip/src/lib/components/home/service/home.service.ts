@@ -17,14 +17,14 @@ import { Assets, HomeAssets } from '..';
   providedIn: 'root'
 })
 export class HomeService {
-  #assets$ = new BehaviorSubject<HomeAssets>(new HomeAssets());
-  #assets: HomeAssets = new HomeAssets();
+  #assets$ = new BehaviorSubject<HomeAssets>(new HomeAssets({}));
+  #assets: HomeAssets = new HomeAssets({});
 
   /**
    * Creates an instance of `HomeService`
    * @memberof HomeService
    */
-  constructor(private _routerService: RouterService) { }
+  constructor(private _routerService: RouterService) {}
 
   /**
    * Fetch Assets for `HomeComponent`
@@ -44,7 +44,7 @@ export class HomeService {
    * @memberof HomeService
    */
   private _setAssets(assets: HomeAssets): void {
-    this.#assets = { ...assets ?? new HomeAssets() };
+    this.#assets = { ...(assets ?? new HomeAssets({})) };
     this.#assets$.next(this.#assets);
   }
 

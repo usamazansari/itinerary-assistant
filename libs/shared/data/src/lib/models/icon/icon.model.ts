@@ -61,9 +61,7 @@ export class Icon implements IIcon {
    * @param {IIcon} [init={ ...IconStub }]
    * @memberof Icon
    */
-  constructor(
-    init: Partial<IIcon> = { ...IconStub }
-  ) {
+  constructor(init: Partial<IIcon> = { ...IconStub }) {
     this.style = init.style ?? IconStub.style;
     this.name = init.name ?? IconStub.name;
   }

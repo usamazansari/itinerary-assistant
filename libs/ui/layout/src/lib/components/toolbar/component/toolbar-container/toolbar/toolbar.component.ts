@@ -13,13 +13,21 @@ export class ToolbarComponent {
   #assets$ = new BehaviorSubject<ToolbarAssets>(new ToolbarAssets());
 
   @Input()
-  set assets(value: ToolbarAssets) { this.#assets$.next(value); }
-  get assets(): ToolbarAssets { return this.#assets$.getValue(); }
+  set assets(value: ToolbarAssets) {
+    this.#assets$.next(value);
+  }
+  get assets(): ToolbarAssets {
+    return this.#assets$.getValue();
+  }
 
   #data$ = new BehaviorSubject<ToolbarData>(new ToolbarData());
   @Input()
-  set data(value: ToolbarData) { this.#data$.next(value); }
-  get data(): ToolbarData { return this.#data$.getValue(); }
+  set data(value: ToolbarData) {
+    this.#data$.next(value);
+  }
+  get data(): ToolbarData {
+    return this.#data$.getValue();
+  }
 
   @Output() gotoHome$ = new EventEmitter<void>();
   @Output() toggleSidenav$ = new EventEmitter<void>();

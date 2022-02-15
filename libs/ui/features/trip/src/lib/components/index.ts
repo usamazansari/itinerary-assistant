@@ -1,2 +1,6 @@
 export { HomeContainerComponent, HomeComponent } from './home';
-export { TripListContainerComponent, TripListSkeletonComponent, TripListComponent } from './trip-list';
+export {
+  TripListContainerComponent,
+  TripListSkeletonComponent,
+  TripListComponent
+} from './trip-list';

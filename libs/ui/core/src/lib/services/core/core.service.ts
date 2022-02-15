@@ -9,7 +9,6 @@ import { getServerResponseMessage } from '../../imports/utils';
   providedIn: 'root'
 })
 export class CoreService {
-
   // 🧐 Documentation Required
   /**
    *

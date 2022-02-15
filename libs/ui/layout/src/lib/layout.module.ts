@@ -3,10 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
-import {
-  IconModule,
-  MaterialModule
-} from './imports/libraries';
+import { IconModule, MaterialModule } from './imports/libraries';
 
 import * as Components from './components';
 import { Icons } from './icons';
@@ -23,11 +20,7 @@ import { Icons } from './icons';
     Components.ToolbarComponent,
     Components.ShellComponent
   ],
-  imports: [
-    CommonModule,
-    IconModule,
-    MaterialModule
-  ],
+  imports: [CommonModule, IconModule, MaterialModule],
   exports: [Components.ShellComponent]
 })
 export class LayoutModule extends IconModule {

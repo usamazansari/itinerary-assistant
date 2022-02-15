@@ -12,13 +12,7 @@ import * as Components from './components';
     Components.ButtonContainerComponent,
     Components.ButtonComponent
   ],
-  imports: [
-    CommonModule,
-
-    MaterialModule
-  ],
-  exports: [
-    Components.LoaderContainerComponent
-  ]
+  imports: [CommonModule, MaterialModule],
+  exports: [Components.LoaderContainerComponent]
 })
-export class ElementsModule { }
+export class ElementsModule {}

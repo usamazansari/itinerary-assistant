@@ -1,2 +1,2 @@
-export { ApiCoreModule } from '@itinerary-assistant/api/core';
-export { ApiDatabaseTypeormModule } from '@itinerary-assistant/api/database/typeorm';
+export { CoreModule } from '@itinerary-assistant/api/core';
+export { TypeormModule } from '@itinerary-assistant/api/database/typeorm';

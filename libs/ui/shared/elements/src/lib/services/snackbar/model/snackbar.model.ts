@@ -45,7 +45,9 @@ const SnackbarMessageStub: ISnackbarMessage<unknown> = {
  * @implements {ISnackbarMessage<SnackbarData>}
  * @template SnackbarData
  */
-export class SnackbarMessage<SnackbarData = unknown> implements ISnackbarMessage<SnackbarData> {
+export class SnackbarMessage<SnackbarData = unknown>
+  implements ISnackbarMessage<SnackbarData>
+{
   message: string;
   action: string;
   config?: MatSnackBarConfig<SnackbarData> | unknown | null;
@@ -66,9 +68,7 @@ export class SnackbarMessage<SnackbarData = unknown> implements ISnackbarMessage
    * @param {Partial<ISnackbarMessage>} [init=SnackbarMessageStub]
    * @memberof SnackbarMessage
    */
-  constructor(
-    init: Partial<ISnackbarMessage> = SnackbarMessageStub
-  ) {
+  constructor(init: Partial<ISnackbarMessage> = SnackbarMessageStub) {
     this.message = init.message ?? SnackbarMessageStub.message;
     this.action = init.action ?? SnackbarMessageStub.action;
     this.config = init.config ?? SnackbarMessageStub.config;

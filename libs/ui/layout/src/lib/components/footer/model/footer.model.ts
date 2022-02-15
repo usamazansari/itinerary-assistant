@@ -80,9 +80,7 @@ export class FooterLink implements IFooterLink {
    * @param {IFooterLink} [init=FooterLinkStub]
    * @memberof FooterLink
    */
-  constructor(
-    init: Partial<IFooterLink> = FooterLinkStub
-  ) {
+  constructor(init: Partial<IFooterLink> = FooterLinkStub) {
     this.name = init.name ?? FooterLinkStub.name;
     this.url = init.url ?? FooterLinkStub.url;
     this.icon = init.icon ?? FooterLinkStub.icon;
@@ -319,9 +317,7 @@ export class FooterAssets implements IFooterAssets {
    * @param {IFooterAssets} [init=FooterAssetsStub]
    * @memberof FooterAssets
    */
-  constructor(
-    init: Partial<IFooterAssets> = FooterAssetsStub
-  ) {
+  constructor(init: Partial<IFooterAssets> = FooterAssetsStub) {
     this.madeWith = init.madeWith ?? FooterAssetsStub.madeWith;
     this.heart = init.heart ?? FooterAssetsStub.heart;
     this.using = init.using ?? FooterAssetsStub.using;
@@ -444,9 +440,7 @@ export class FooterData {
   email: string;
   location: string;
 
-  constructor(
-    init: Partial<FooterData> = FooterDataStub
-  ) {
+  constructor(init: Partial<FooterData> = FooterDataStub) {
     this.fullname = init.fullname ?? FooterDataStub.fullname;
     this.github = init.github ?? FooterDataStub.github;
     this.linkedin = init.linkedin ?? FooterDataStub.linkedin;
@@ -562,7 +556,6 @@ const FooterStringsStub: IFooterStrings = {
   }
 };
 
-
 /**
  * Footer Strings class.
  *
@@ -593,11 +586,10 @@ export class FooterStrings implements IFooterStrings {
    * @param {Partial<IFooterStrings>} [init=FooterStringsStub]
    * @memberof FooterStrings
    */
-  constructor(
-    init: Partial<IFooterStrings> = FooterStringsStub
-  ) {
+  constructor(init: Partial<IFooterStrings> = FooterStringsStub) {
     this.snackbar = {
-      discord: init.snackbar?.discord ?? FooterStringsStub.snackbar.discord,
+      discord:
+        init.snackbar?.discord ?? FooterStringsStub.snackbar.discord,
       email: init.snackbar?.email ?? FooterStringsStub.snackbar.email
     };
   }

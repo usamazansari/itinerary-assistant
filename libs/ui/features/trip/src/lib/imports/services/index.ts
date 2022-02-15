@@ -1,1 +1,5 @@
-export { CoreService, EndpointService, RouterService } from '@itinerary-assistant/ui/core';
+export {
+  CoreService,
+  EndpointService,
+  RouterService
+} from '@itinerary-assistant/ui/core';

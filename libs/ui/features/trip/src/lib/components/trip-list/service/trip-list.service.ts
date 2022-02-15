@@ -5,15 +5,14 @@ import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
 import type { APIResponse, TripListItem } from '../imports';
-import { CoreService, EndpointService } from '../imports';
+import { EndpointService } from '../imports';
 
 import {
   TripListAssets,
   TripListData,
   TripListError,
   TripListFlags,
-  _TripListAssets,
-  _TripListError
+  _TripListAssets
 } from '..';
 
 // TODO: Refactor to make it free of loose strings
@@ -44,17 +43,14 @@ export class TripListService {
    * @param {EndpointService} _endpointService
    * @memberof TripListService
    */
-  constructor(
-    private _endpointService: EndpointService,
-    private _coreService: CoreService
-  ) { }
+  constructor(private _endpointService: EndpointService) {}
 
   fetchAssets(): void {
     this.setAssets({ ..._TripListAssets });
   }
 
   private setAssets(trips: TripListAssets): void {
-    this.#assets = { ...trips ?? new TripListAssets() };
+    this.#assets = { ...(trips ?? new TripListAssets()) };
     this.#assets$.next(this.#assets);
   }
 
@@ -102,7 +98,8 @@ export class TripListService {
 
   private setData(response: APIResponse<TripListItem[]>): void {
     this.data = {
-      trips: [...<TripListItem[]>response.data ?? []] ?? new TripListData()
+      trips:
+        [...(<TripListItem[]>response.data ?? [])] ?? new TripListData()
     };
     this.#data$.next(this.data);
   }
@@ -112,7 +109,7 @@ export class TripListService {
   }
 
   private setFlags(flags: TripListFlags): void {
-    this.#flags = { ...flags ?? new TripListFlags() };
+    this.#flags = { ...(flags ?? new TripListFlags()) };
     this.#flags$.next(this.#flags);
   }
 
@@ -125,17 +122,19 @@ export class TripListService {
   }
 
   private handleError(error: APIResponse<unknown>): void {
-    const isServiceAvailable = this._coreService.isServiceAvailable(error);
-    if (!isServiceAvailable) {
-      this.setError({
-        message: this._coreService.getServerResponseMessage((<HttpErrorResponse>error.error)?.status ?? 0)
-      });
-    } else {
-      this.setError(_TripListError);
-    }
+    // const isServiceAvailable = this._coreService.isServiceAvailable(error);
+    // if (!isServiceAvailable) {
+    this.setError({
+      message: this._endpointService.getServerResponseMessage(
+        (<HttpErrorResponse>error.error)?.status ?? 0
+      )
+    });
+    // } else {
+    // this.setError(_TripListError);
+    // }
   }
   private setError(error: TripListError): void {
-    this.#error = { ...error ?? new TripListError() };
+    this.#error = { ...(error ?? new TripListError()) };
     this.#error$.next(this.#error);
   }
 

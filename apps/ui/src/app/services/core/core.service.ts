@@ -3,14 +3,18 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ApplicationName, Author } from '../../imports/constants';
-import { FooterData, LayoutData, ToolbarData } from '../../imports/models';
+import {
+  FooterData,
+  LayoutData,
+  ToolbarData
+} from '../../imports/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoreService {
-  #layoutData$ = new BehaviorSubject<LayoutData>(new LayoutData());
-  #layoutData = new LayoutData();
+  #layoutData$ = new BehaviorSubject<LayoutData>(new LayoutData({}));
+  #layoutData = new LayoutData({});
 
   /**
    * Fetch the Layout Data
@@ -35,7 +39,7 @@ export class CoreService {
   }
 
   private _setLayoutData(layoutData: LayoutData): void {
-    this.#layoutData = { ...layoutData ?? new LayoutData() };
+    this.#layoutData = { ...(layoutData ?? new LayoutData({})) };
     this.#layoutData$.next(this.#layoutData);
   }
 

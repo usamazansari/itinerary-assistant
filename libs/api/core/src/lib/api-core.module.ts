@@ -11,4 +11,4 @@ import { ApiCoreService } from './services';
   providers: [ApiCoreService],
   exports: [ApiDatabaseTypeormModule]
 })
-export class ApiCoreModule { }
+export class ApiCoreModule {}

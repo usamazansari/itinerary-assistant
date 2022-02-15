@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
@@ -11,17 +17,24 @@ import { HomeAssets } from '../../..';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
-  #assets$ = new BehaviorSubject<HomeAssets>(new HomeAssets());
+  #assets$ = new BehaviorSubject<HomeAssets>(new HomeAssets({}));
 
   @Input()
-  set assets(value: HomeAssets) { this.#assets$.next(value); }
-  get assets(): HomeAssets { return this.#assets$.getValue(); }
+  set assets(value: HomeAssets) {
+    this.#assets$.next(value);
+  }
+  get assets(): HomeAssets {
+    return this.#assets$.getValue();
+  }
 
-  @Output() gotoViewTrip$: EventEmitter<void> = new EventEmitter<void>();
-  @Output() gotoCreateTrip$: EventEmitter<void> = new EventEmitter<void>();
+  @Output()
+  gotoViewTrip$: EventEmitter<void> = new EventEmitter<void>();
+
+  @Output()
+  gotoCreateTrip$: EventEmitter<void> = new EventEmitter<void>();
 
   gotoViewTrip(): void {
-    this.gotoViewTrip$.emit();
+    // this.gotoViewTrip$.emit();
   }
 
   gotoCreateTrip(): void {

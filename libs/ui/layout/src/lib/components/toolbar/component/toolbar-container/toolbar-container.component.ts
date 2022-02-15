@@ -16,11 +16,10 @@ import { ToolbarAssets, ToolbarData, ToolbarService } from '../..';
   selector: 'ia-layout-toolbar-container',
   template: `
     <ia-layout-toolbar
-      [assets]         = "(assets$ | async)!"
-      [data]           = "(data$   | async)!"
-      (toggleSidenav$) = "toggleSidenav()"
-      (gotoHome$)      = "gotoHome()"
-    ></ia-layout-toolbar>
+      [assets]="(assets$ | async)!"
+      [data]="(data$ | async)!"
+      (toggleSidenav$)="toggleSidenav()"
+      (gotoHome$)="gotoHome()"></ia-layout-toolbar>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -28,8 +27,12 @@ export class ToolbarContainerComponent implements OnInit {
   #data$ = new BehaviorSubject<ToolbarData>(new ToolbarData());
 
   @Input()
-  set data(value: ToolbarData) { this.#data$.next(value); }
-  get data(): ToolbarData { return this.#data$.getValue(); }
+  set data(value: ToolbarData) {
+    this.#data$.next(value);
+  }
+  get data(): ToolbarData {
+    return this.#data$.getValue();
+  }
 
   assets$!: Observable<ToolbarAssets>;
   data$!: Observable<ToolbarData>;
@@ -37,15 +40,14 @@ export class ToolbarContainerComponent implements OnInit {
   @Output() navigate$ = new EventEmitter<void>();
   @Output() toggleSidenav$ = new EventEmitter<void>();
 
-  constructor(private _service: ToolbarService) { }
+  constructor(private _service: ToolbarService) {}
 
   ngOnInit(): void {
     this._service.fetchAssets();
 
-    this.#data$.subscribe(
-      data => {
-        this._service.setData(data);
-      });
+    this.#data$.subscribe(data => {
+      this._service.setData(data);
+    });
     this.assets$ = this._service.watchAssets$();
     this.data$ = this._service.watchData$();
   }

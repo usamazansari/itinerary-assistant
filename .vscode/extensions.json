@@ -1,16 +1,17 @@
 {
   "recommendations": [
-    "nrwl.angular-console",
+    "angular.ng-template",
+    "cweijan.vscode-mysql-client2",
+    "dbaeumer.vscode-eslint",
+    "dominicvonk.parameter-hints",
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
-    "dbaeumer.vscode-eslint",
     "kisstkondoros.vscode-codemetrics",
-    "wix.vscode-import-cost",
+    "nrwl.angular-console",
     "oderwat.indent-rainbow",
-    "yzhang.markdown-all-in-one",
     "pkief.material-icon-theme",
-    "dominicvonk.parameter-hints",
     "visualstudioexptteam.vscodeintellicode",
-    "cweijan.vscode-mysql-client2"
+    "wix.vscode-import-cost",
+    "yzhang.markdown-all-in-one"
   ]
 }

@@ -39,7 +39,7 @@ export class ToolbarService {
    * @memberof ToolbarService
    */
   private _setAssets(assets: ToolbarAssets): void {
-    this.#assets = { ...assets ?? new ToolbarAssets() };
+    this.#assets = { ...(assets ?? new ToolbarAssets()) };
     this.#assets$.next(this.#assets);
   }
 
@@ -60,7 +60,7 @@ export class ToolbarService {
    * @memberof ToolbarService
    */
   setData(data: ToolbarData): void {
-    this.#data = { ...data ?? new ToolbarData() };
+    this.#data = { ...(data ?? new ToolbarData()) };
     this.#data$.next(this.#data);
   }
 

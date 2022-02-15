@@ -1,2 +1,2 @@
-export { ApiDatabaseEntitiesModule } from './lib/api-database-entities.module';
-export { TripOverview, User } from './lib/entities';
+export * from './lib/entities.module';
+export * from './lib/entities';

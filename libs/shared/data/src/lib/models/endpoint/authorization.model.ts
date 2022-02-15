@@ -67,9 +67,7 @@ export class Authorization implements IAuthorization {
    * @param {IAuthorization} [init={ ...AuthorizationStub }]
    * @memberof Authorization
    */
-  constructor(
-    init: Partial<IAuthorization> = AuthorizationStub
-  ) {
+  constructor(init: Partial<IAuthorization> = AuthorizationStub) {
     this.username = init.username ?? AuthorizationStub.username;
     this.password = init.password ?? AuthorizationStub.password;
   }

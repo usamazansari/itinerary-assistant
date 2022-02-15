@@ -6,4 +6,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./trip-list-skeleton.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TripListSkeletonComponent { }
+export class TripListSkeletonComponent {}

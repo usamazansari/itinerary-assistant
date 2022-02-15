@@ -60,9 +60,7 @@ export class ToolbarAssets implements IToolbarAssets {
    * @param {IToolbarAssets} [init=ToolbarAssetsStub]
    * @memberof ToolbarAssets
    */
-  constructor(
-    init: Partial<IToolbarAssets> = ToolbarAssetsStub
-  ) {
+  constructor(init: Partial<IToolbarAssets> = ToolbarAssetsStub) {
     this.trigger = init.trigger ?? ToolbarAssetsStub.trigger;
   }
 }
@@ -126,9 +124,7 @@ export class ToolbarData implements IToolbarData {
    * @param {IToolbarData} [init=ToolbarDataStub]
    * @memberof ToolbarData
    */
-  constructor(
-    init: Partial<IToolbarData> = ToolbarDataStub
-  ) {
+  constructor(init: Partial<IToolbarData> = ToolbarDataStub) {
     this.logo = init.logo ?? ToolbarDataStub.logo;
   }
 }

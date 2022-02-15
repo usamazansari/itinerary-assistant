@@ -20,8 +20,12 @@ export class ShellComponent {
   #data$ = new BehaviorSubject<LayoutData>(new LayoutData());
 
   @Input()
-  set data(value: LayoutData) { this.#data$.next(value); }
-  get data(): LayoutData { return this.#data$.getValue(); }
+  set data(value: LayoutData) {
+    this.#data$.next(value);
+  }
+  get data(): LayoutData {
+    return this.#data$.getValue();
+  }
 
   @Output() navigate$ = new EventEmitter<void>();
 

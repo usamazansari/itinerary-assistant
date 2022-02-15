@@ -9,14 +9,12 @@ describe('HomeService', () => {
   let service: HomeService;
 
   const routerStub: Partial<RouterService> = {
-    navigate: (payload: RouterPayloadModel): void => { }
+    navigate: (payload: RouterPayloadModel): void => {}
   };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        { provide: RouterService, useValue: routerStub }
-      ]
+      providers: [{ provide: RouterService, useValue: routerStub }]
     });
     service = TestBed.inject(HomeService);
   });
