@@ -2,26 +2,33 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TripRoutingModule } from './trip-routing.module';
 
-import * as Libraries from './imports/libraries';
+import { MaterialModule } from './imports/libraries';
 
-import * as Components from './components';
+import {
+  HomeComponent,
+  HomeContainerComponent,
+  TripListComponent,
+  TripListContainerComponent,
+  TripListSkeletonComponent
+} from './components';
+
+import { IconModule } from './modules';
 
 @NgModule({
   declarations: [
-    Components.HomeContainerComponent,
-    Components.HomeComponent,
+    HomeComponent,
+    HomeContainerComponent,
 
-    Components.TripListContainerComponent,
-    Components.TripListComponent,
-    Components.TripListSkeletonComponent
+    TripListComponent,
+    TripListContainerComponent,
+    TripListSkeletonComponent
   ],
   imports: [
     CommonModule,
-
     TripRoutingModule,
-
-    Libraries.MaterialModule,
-    Libraries.IconModule
-  ]
+    MaterialModule,
+    IconModule
+  ],
+  schemas: []
 })
-export class TripModule { }
+export class TripModule {}

@@ -8,16 +8,12 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": [
-              "apps/api/src/assets"
-            ]
+            "assets": ["apps/api/src/assets"]
           },
           "configurations": {
             "production": {
@@ -44,22 +40,20 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/api/**/*.ts"
-            ]
-          }
+            "lintFilePatterns": ["apps/api/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/api"
-          ],
+          "outputs": ["coverage/apps/api"],
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["species:api-app", "genus:application", "family:api"]
     },
     "api-core": {
       "root": "libs/api/core",
@@ -69,22 +63,20 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/api/core/**/*.ts"
-            ]
-          }
+            "lintFilePatterns": ["libs/api/core/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/core"
-          ],
+          "outputs": ["coverage/libs/api/core"],
           "options": {
             "jestConfig": "libs/api/core/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["species:api-core", "genus:library", "family:api"]
     },
     "api-database-entities": {
       "root": "libs/api/database/entities",
@@ -94,22 +86,24 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/api/database/entities/**/*.ts"
-            ]
-          }
+            "lintFilePatterns": ["libs/api/database/entities/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/database/entities"
-          ],
+          "outputs": ["coverage/libs/api/database/entities"],
           "options": {
             "jestConfig": "libs/api/database/entities/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": [
+        "species:api-database-entities",
+        "genus:library",
+        "family:api"
+      ]
     },
     "api-database-typeorm": {
       "root": "libs/api/database/typeorm",
@@ -119,22 +113,24 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/api/database/typeorm/**/*.ts"
-            ]
-          }
+            "lintFilePatterns": ["libs/api/database/typeorm/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/database/typeorm"
-          ],
+          "outputs": ["coverage/libs/api/database/typeorm"],
           "options": {
             "jestConfig": "libs/api/database/typeorm/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": [
+        "species:api-database-typeorm",
+        "genus:library",
+        "family:api"
+      ]
     },
     "api-features-trip": {
       "root": "libs/api/features/trip",
@@ -144,22 +140,24 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/api/features/trip/**/*.ts"
-            ]
-          }
+            "lintFilePatterns": ["libs/api/features/trip/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/api/features/trip"
-          ],
+          "outputs": ["coverage/libs/api/features/trip"],
           "options": {
             "jestConfig": "libs/api/features/trip/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": [
+        "species:api-features-trip",
+        "genus:library",
+        "family:api"
+      ]
     },
     "shared-data": {
       "root": "libs/shared/data",
@@ -169,22 +167,25 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/shared/data/**/*.ts"
-            ]
-          }
+            "lintFilePatterns": ["libs/shared/data/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/data"
-          ],
+          "outputs": ["coverage/libs/shared/data"],
           "options": {
             "jestConfig": "libs/shared/data/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": [
+        "species:shared-data",
+        "genus:library",
+        "family:shared",
+        "order:model"
+      ]
     },
     "shared-styles": {
       "root": "libs/shared/styles",
@@ -194,22 +195,25 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/shared/styles/**/*.ts"
-            ]
-          }
+            "lintFilePatterns": ["libs/shared/styles/**/*.ts"]
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/styles"
-          ],
+          "outputs": ["coverage/libs/shared/styles"],
           "options": {
             "jestConfig": "libs/shared/styles/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": [
+        "species:shared-styles",
+        "genus:library",
+        "family:shared",
+        "order:style"
+      ]
     },
     "ui": {
       "projectType": "application",
@@ -219,9 +223,7 @@
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/ui",
             "index": "apps/ui/src/index.html",
@@ -229,10 +231,7 @@
             "polyfills": "apps/ui/src/polyfills.ts",
             "tsConfig": "apps/ui/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/ui/src/favicon.ico",
-              "apps/ui/src/assets"
-            ],
+            "assets": ["apps/ui/src/favicon.ico", "apps/ui/src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/ui/src/styles.scss"
@@ -297,19 +296,19 @@
               "apps/ui/src/**/*.ts",
               "apps/ui/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/ui"
-          ],
+          "outputs": ["coverage/apps/ui"],
           "options": {
             "jestConfig": "apps/ui/jest.config.js",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": ["species:ui-app", "genus:application", "family:ui"]
     },
     "ui-core": {
       "projectType": "library",
@@ -319,9 +318,7 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/core"
-          ],
+          "outputs": ["coverage/libs/ui/core"],
           "options": {
             "jestConfig": "libs/ui/core/jest.config.js",
             "passWithNoTests": true
@@ -334,9 +331,11 @@
               "libs/ui/core/src/**/*.ts",
               "libs/ui/core/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["species:ui-core", "genus:library", "family:ui"]
     },
     "ui-e2e": {
       "root": "apps/ui-e2e",
@@ -359,39 +358,18 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/ui-e2e/**/*.{js,ts}"
-            ]
-          }
+            "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
-    },
-    "ui-shared-elements": {
-      "projectType": "library",
-      "root": "libs/ui/shared/elements",
-      "sourceRoot": "libs/ui/shared/elements/src",
-      "prefix": "ia-elements",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/shared/elements"
-          ],
-          "options": {
-            "jestConfig": "libs/ui/shared/elements/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/shared/elements/src/**/*.ts",
-              "libs/ui/shared/elements/src/**/*.html"
-            ]
-          }
-        }
-      }
+      },
+      "tags": [
+        "species:ui-e2e",
+        "genus:application",
+        "family:ui",
+        "order:e2e-testing"
+      ],
+      "implicitDependencies": ["ui"]
     },
     "ui-features-trip": {
       "projectType": "library",
@@ -401,9 +379,7 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/features/trip"
-          ],
+          "outputs": ["coverage/libs/ui/features/trip"],
           "options": {
             "jestConfig": "libs/ui/features/trip/jest.config.js",
             "passWithNoTests": true
@@ -416,36 +392,11 @@
               "libs/ui/features/trip/src/**/*.ts",
               "libs/ui/features/trip/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
-    },
-    "ui-shared-icons": {
-      "projectType": "library",
-      "root": "libs/ui/shared/icon",
-      "sourceRoot": "libs/ui/shared/icon/src",
-      "prefix": "ia-icon",
-      "targets": {
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/shared/icon"
-          ],
-          "options": {
-            "jestConfig": "libs/ui/shared/icon/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/ui/shared/icon/src/**/*.ts",
-              "libs/ui/shared/icon/src/**/*.html"
-            ]
-          }
-        }
-      }
+      },
+      "tags": ["species:ui-features-trip", "genus:library", "family:ui"]
     },
     "ui-layout": {
       "projectType": "library",
@@ -455,9 +406,7 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/layout"
-          ],
+          "outputs": ["coverage/libs/ui/layout"],
           "options": {
             "jestConfig": "libs/ui/layout/jest.config.js",
             "passWithNoTests": true
@@ -470,9 +419,69 @@
               "libs/ui/layout/src/**/*.ts",
               "libs/ui/layout/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": ["species:ui-layout", "genus:library", "family:ui"]
+    },
+    "ui-shared-elements": {
+      "projectType": "library",
+      "root": "libs/ui/shared/elements",
+      "sourceRoot": "libs/ui/shared/elements/src",
+      "prefix": "ia-elements",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/shared/elements"],
+          "options": {
+            "jestConfig": "libs/ui/shared/elements/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/shared/elements/src/**/*.ts",
+              "libs/ui/shared/elements/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        }
+      },
+      "tags": [
+        "species:ui-shared-elements",
+        "genus:library",
+        "family:ui"
+      ]
+    },
+    "ui-shared-icons": {
+      "projectType": "library",
+      "root": "libs/ui/shared/icon",
+      "sourceRoot": "libs/ui/shared/icon/src",
+      "prefix": "ia-icon",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui/shared/icon"],
+          "options": {
+            "jestConfig": "libs/ui/shared/icon/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui/shared/icon/src/**/*.ts",
+              "libs/ui/shared/icon/src/**/*.html"
+            ]
+          },
+          "outputs": ["{options.outputFile}"]
+        }
+      },
+      "tags": ["species:ui-shared-icons", "genus:library", "family:ui"]
     },
     "ui-shared-material": {
       "projectType": "library",
@@ -482,9 +491,7 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui/shared/material"
-          ],
+          "outputs": ["coverage/libs/ui/shared/material"],
           "options": {
             "jestConfig": "libs/ui/shared/material/jest.config.js",
             "passWithNoTests": true
@@ -497,29 +504,15 @@
               "libs/ui/shared/material/src/**/*.ts",
               "libs/ui/shared/material/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": [
+        "species:ui-shared-material",
+        "genus:library",
+        "family:ui"
+      ]
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "generators": {
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
-  },
-  "defaultProject": "ui"
+  }
 }

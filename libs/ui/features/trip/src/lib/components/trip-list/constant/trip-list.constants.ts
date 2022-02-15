@@ -1,66 +1,42 @@
-import { IconStub, FlagStub } from '../imports';
-import type { TripListDataModel } from '../imports';
+import { Button, Icon } from '../imports';
+import { TripListAssets, TripListError } from '..';
 
-import type {
-  TripListAssetsModel,
-  TripListErrorModel,
-  TripListFlagModel
-} from '..';
-
-// TODO: 🧐 Documentation Required
 /**
- * TODO: 🧐 Documentation Required
+ * ### Trip List Assets
+ *
+ * ```ts
+ * const _TripListAssets: TripListAssets = new TripListAssets({
+ *   view      : new Button({
+ *     icon    : new Icon({
+ *       name  : 'eye',
+ *       style : 'fas'
+ *     }),
+ *     text    : 'View'
+ *   })
+ * })
+ * ```
+ *
+ * @export
  */
-export const TripListAssetsStub: TripListAssetsModel = {
-  view: {
-    icon: { ...IconStub },
-    text: ''
-  }
-};
+export const _TripListAssets: TripListAssets = new TripListAssets({
+  view: new Button({
+    icon: new Icon({
+      name: 'eye',
+      style: 'fas'
+    }),
+    text: 'View'
+  })
+});
 
-// TODO: 🧐 Documentation Required
 /**
- * TODO: 🧐 Documentation Required
+ * Trip List Initial Error.
+ *
+ * ```ts
+ * const _TripListError: TripListError = new TripListError({
+ *   message : 'Something went wrong'
+ * })
+ * ```
  */
-export const TripListDataStub: TripListDataModel = {
-  trips: []
-};
-
-// TODO: 🧐 Documentation Required
-/**
- * TODO: 🧐 Documentation Required
- */
-export const TripListFlagStub: TripListFlagModel = {
-  shell: { ...FlagStub }
-};
-
-// TODO: 🧐 Documentation Required
-/**
- * TODO: 🧐 Documentation Required
- */
-export const TripListErrorStub: TripListErrorModel = {
+export const _TripListError: TripListError = new TripListError({
   message: ''
-};
-
-// TODO: 🧐 Documentation Required
-/**
- * TODO: 🧐 Documentation Required
- */
-export const Constants: {
-  assets: TripListAssetsModel;
-  data: TripListDataModel;
-  error: TripListErrorModel;
-} = {
-  assets: {
-    view: {
-      icon: {
-        name: 'eye', style: 'fas'
-      },
-      text: 'View'
-    }
-  },
-  data: {
-    trips: []
-  },
-  error: { ...TripListErrorStub }
-};
+});

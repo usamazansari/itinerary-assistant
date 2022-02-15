@@ -5,7 +5,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import type { TripListDataModel } from '../../../../imports/models';
 
-import { TripListDataStub, TripListErrorStub, TripListFlagStub } from '../../../../constants';
+import {
+  TripListDataStub,
+  TripListErrorStub,
+  TripListFlagStub
+} from '../../../../constants';
 
 import { TripListComponent } from './trip-list.component';
 
@@ -16,29 +20,67 @@ describe('TripListComponent', () => {
 
   const singleTripStub: TripListDataModel = {
     trips: [
-      { title: 'Single Trip', rating: 3.5, expense: { amount: 25000, currency: 'INR' }, tenure: { start: '', end: '' } }
+      {
+        title: 'Single Trip',
+        rating: 3.5,
+        expense: { amount: 25000, currency: 'INR' },
+        tenure: { start: '', end: '' }
+      }
     ]
   };
 
   const multipleTripsStub: TripListDataModel = {
     trips: [
-      { title: 'Trip 1', rating: Math.random() * 5, expense: { amount: Math.random() * 5000, currency: 'INR' }, tenure: { start: '', end: '' } },
-      { title: 'Trip 2', rating: Math.random() * 5, expense: { amount: Math.random() * 50000, currency: 'INR' }, tenure: { start: '', end: '' } },
-      { title: 'Trip 3', rating: Math.random() * 5, expense: { amount: Math.random() * 55000, currency: 'INR' }, tenure: { start: '', end: '' } },
-      { title: 'Trip 4', rating: Math.random() * 5, expense: { amount: Math.random() * 5500, currency: 'INR' }, tenure: { start: '', end: '' } },
-      { title: 'Trip 5', rating: Math.random() * 5, expense: { amount: Math.random() * 15000, currency: 'INR' }, tenure: { start: '', end: '' } },
-      { title: 'Trip 6', rating: Math.random() * 5, expense: { amount: Math.random() * 25000, currency: 'INR' }, tenure: { start: '', end: '' } },
-      { title: 'Trip 7', rating: Math.random() * 5, expense: { amount: Math.random() * 52000, currency: 'INR' }, tenure: { start: '', end: '' } }
+      {
+        title: 'Trip 1',
+        rating: Math.random() * 5,
+        expense: { amount: Math.random() * 5000, currency: 'INR' },
+        tenure: { start: '', end: '' }
+      },
+      {
+        title: 'Trip 2',
+        rating: Math.random() * 5,
+        expense: { amount: Math.random() * 50000, currency: 'INR' },
+        tenure: { start: '', end: '' }
+      },
+      {
+        title: 'Trip 3',
+        rating: Math.random() * 5,
+        expense: { amount: Math.random() * 55000, currency: 'INR' },
+        tenure: { start: '', end: '' }
+      },
+      {
+        title: 'Trip 4',
+        rating: Math.random() * 5,
+        expense: { amount: Math.random() * 5500, currency: 'INR' },
+        tenure: { start: '', end: '' }
+      },
+      {
+        title: 'Trip 5',
+        rating: Math.random() * 5,
+        expense: { amount: Math.random() * 15000, currency: 'INR' },
+        tenure: { start: '', end: '' }
+      },
+      {
+        title: 'Trip 6',
+        rating: Math.random() * 5,
+        expense: { amount: Math.random() * 25000, currency: 'INR' },
+        tenure: { start: '', end: '' }
+      },
+      {
+        title: 'Trip 7',
+        rating: Math.random() * 5,
+        expense: { amount: Math.random() * 52000, currency: 'INR' },
+        tenure: { start: '', end: '' }
+      }
     ]
   };
 
   beforeEach(async () => {
-    await TestBed
-      .configureTestingModule({
-        imports: [BrowserAnimationsModule],
-        declarations: [TripListComponent]
-      })
-      .compileComponents();
+    await TestBed.configureTestingModule({
+      imports: [BrowserAnimationsModule],
+      declarations: [TripListComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -64,7 +106,9 @@ describe('TripListComponent', () => {
       }
     };
     fixture.detectChanges();
-    const skeleton: HTMLElement | null = debugEl.query(By.css('ia-trip-list-skeleton'))?.nativeElement;
+    const skeleton: HTMLElement | null = debugEl.query(
+      By.css('ia-trip-list-skeleton')
+    )?.nativeElement;
     expect(skeleton).not.toBeNull();
     expect(skeleton).not.toBeUndefined();
   });
@@ -78,7 +122,9 @@ describe('TripListComponent', () => {
       }
     };
     fixture.detectChanges();
-    const div: HTMLElement | null = debugEl.query(By.css('#trip-list-card-holder'))?.nativeElement;
+    const div: HTMLElement | null = debugEl.query(
+      By.css('#trip-list-card-holder')
+    )?.nativeElement;
     expect(div).not.toBeNull();
     expect(div).not.toBeUndefined();
   });
@@ -93,7 +139,9 @@ describe('TripListComponent', () => {
     };
     component.data = { ...singleTripStub };
     fixture.detectChanges();
-    const div: HTMLElement | null = debugEl.query(By.css('#trip-list-card-holder'))?.nativeElement;
+    const div: HTMLElement | null = debugEl.query(
+      By.css('#trip-list-card-holder')
+    )?.nativeElement;
     const childrenCount: number = div?.children.length ?? 0;
     expect(childrenCount).toBe(singleTripStub.trips.length);
   });
@@ -108,7 +156,9 @@ describe('TripListComponent', () => {
     };
     component.data = { ...multipleTripsStub };
     fixture.detectChanges();
-    const div: HTMLElement | null = debugEl.query(By.css('#trip-list-card-holder'))?.nativeElement;
+    const div: HTMLElement | null = debugEl.query(
+      By.css('#trip-list-card-holder')
+    )?.nativeElement;
     const childrenCount: number = div?.children.length ?? 0;
     expect(childrenCount).toBe(multipleTripsStub.trips.length);
   });
@@ -124,11 +174,14 @@ describe('TripListComponent', () => {
     component.data = { ...TripListDataStub };
     fixture.detectChanges();
 
-    const card: HTMLElement | null = debugEl.query(By.css('#no-trip-card'))?.nativeElement;
+    const card: HTMLElement | null = debugEl.query(
+      By.css('#no-trip-card')
+    )?.nativeElement;
     expect(card).not.toBeNull();
     expect(card).not.toBeUndefined();
 
-    const paragraph: HTMLElement | null | undefined = card?.querySelector('p');
+    const paragraph: HTMLElement | null | undefined =
+      card?.querySelector('p');
     expect(paragraph).not.toBeNull();
     expect(paragraph).not.toBeUndefined();
 
@@ -147,11 +200,14 @@ describe('TripListComponent', () => {
     component.error = { message: 'Server Down' };
     fixture.detectChanges();
 
-    const card: HTMLElement | null | undefined = debugEl.query(By.css('#trip-error-card'))?.nativeElement;
+    const card: HTMLElement | null | undefined = debugEl.query(
+      By.css('#trip-error-card')
+    )?.nativeElement;
     expect(card).not.toBeNull();
     expect(card).not.toBeUndefined();
 
-    const paragraph: HTMLElement | null | undefined = card?.querySelector('p');
+    const paragraph: HTMLElement | null | undefined =
+      card?.querySelector('p');
     expect(paragraph).not.toBeNull();
     expect(paragraph).not.toBeUndefined();
 

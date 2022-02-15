@@ -3,6 +3,10 @@
   "affected": {
     "defaultBase": "master"
   },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "npm"
+  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -12,17 +16,9 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
+      "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
-        "accessToken": "MWNiY2EzZmUtZTFmYS00YWY3LWE3ZWUtNmQ1MjlmMDFiMmJlfHJlYWQtd3JpdGU=",
-        "canTrackAnalytics": false,
-        "showUsageWarnings": true
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -34,84 +30,20 @@
       }
     ]
   },
-  "projects": {
-    "api": {
-      "tags": [
-        "app:api"
-      ]
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "ui": {
-      "tags": [
-        "app:ui"
-      ]
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     },
-    "ui-e2e": {
-      "tags": [
-        "test:ui-e2e"
-      ],
-      "implicitDependencies": [
-        "ui"
-      ]
-    },
-    "api-core": {
-      "tags": [
-        "lib:api-core"
-      ]
-    },
-    "api-database-entities": {
-      "tags": [
-        "lib:api-database-entities"
-      ]
-    },
-    "api-database-typeorm": {
-      "tags": [
-        "lib:api-database-typeorm"
-      ]
-    },
-    "api-features-trip": {
-      "tags": [
-        "lib:api-features-trip"
-      ]
-    },
-    "shared-data": {
-      "tags": [
-        "lib:shared-data"
-      ]
-    },
-    "shared-styles": {
-      "tags": [
-        "lib:shared-styles"
-      ]
-    },
-    "ui-core": {
-      "tags": [
-        "lib:ui-core"
-      ]
-    },
-    "ui-features-trip": {
-      "tags": [
-        "lib:ui-features-trip"
-      ]
-    },
-    "ui-layout": {
-      "tags": [
-        "lib:ui-layout"
-      ]
-    },
-    "ui-shared-elements": {
-      "tags": [
-        "lib:ui-shared-elements"
-      ]
-    },
-    "ui-shared-icons": {
-      "tags": [
-        "lib:ui-shared-icons"
-      ]
-    },
-    "ui-shared-material": {
-      "tags": [
-        "lib:ui-shared-material"
-      ]
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
-  }
+  },
+  "defaultProject": "ui"
 }

@@ -2,15 +2,19 @@ import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { ApplicationName, Author, LayoutDataStub } from '../../imports/constants';
-import type { LayoutDataModel } from '../../imports/models';
+import { ApplicationName, Author } from '../../imports/constants';
+import {
+  FooterData,
+  LayoutData,
+  ToolbarData
+} from '../../imports/models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoreService {
-  #layoutData$ = new BehaviorSubject<LayoutDataModel>(LayoutDataStub);
-  #layoutData: LayoutDataModel = { ...LayoutDataStub };
+  #layoutData$ = new BehaviorSubject<LayoutData>(new LayoutData({}));
+  #layoutData = new LayoutData({});
 
   /**
    * Fetch the Layout Data
@@ -18,34 +22,34 @@ export class CoreService {
    * @memberof CoreService
    */
   fetchLayoutData(): void {
-    const layoutData: LayoutDataModel = {
-      footer: {
+    const layoutData: LayoutData = new LayoutData({
+      footer: new FooterData({
         fullname: Author.FullName,
         github: Author.GitHub,
         linkedin: Author.LinkedIn,
         discord: Author.Discord,
         email: Author.Email,
         location: Author.Location
-      },
-      toolbar: {
+      }),
+      toolbar: new ToolbarData({
         logo: ApplicationName
-      }
-    };
+      })
+    });
     this._setLayoutData(layoutData);
   }
 
-  private _setLayoutData(layoutData: LayoutDataModel): void {
-    this.#layoutData = { ...layoutData ?? LayoutDataStub };
+  private _setLayoutData(layoutData: LayoutData): void {
+    this.#layoutData = { ...(layoutData ?? new LayoutData({})) };
     this.#layoutData$.next(this.#layoutData);
   }
 
   /**
    * Return the Layout Data as an `Observable`
    *
-   * @return {*}  {Observable<LayoutDataModel>}
+   * @return {*}  {Observable<LayoutData>}
    * @memberof CoreService
    */
-  watchLayoutData$(): Observable<LayoutDataModel> {
+  watchLayoutData$(): Observable<LayoutData> {
     return this.#layoutData$.asObservable();
   }
 }

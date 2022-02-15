@@ -12,7 +12,8 @@ import { TRIP_REPOSITORY } from '../constants';
 export const TripProviders: Provider<any>[] = [
   {
     provide: TRIP_REPOSITORY,
-    useFactory: (connection: Connection): Repository<TripOverview> => connection.getRepository(TripOverview),
+    useFactory: (connection: Connection): Repository<TripOverview> =>
+      connection.getRepository(TripOverview),
     inject: [DBConnectionString]
   }
 ];

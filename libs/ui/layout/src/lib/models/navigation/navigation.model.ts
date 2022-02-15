@@ -1,49 +1,99 @@
-import type { IconModel } from '../../imports/models';
+import { Icon } from '../../imports/models';
 
 /**
  * Interface for Navigation Item
  *
  * ```ts
- * interface NavigationItemModel {
- *   label    : string | null
- *   routes   : string[]
- *   icon     : IconModel
- *   children : NavigationItemModel[]
+ * interface INavigationItem {
+ *   label    : string;
+ *   routes   : string[];
+ *   icon     : IconModel;
+ *   children : INavigationItem[];
  * }
  * ```
  *
- * @interface NavigationItemModel
+ * @interface INavigationItem
  */
-export interface NavigationItemModel {
+interface INavigationItem {
   /**
    * Navigation Item Label
    *
-   * @type {(string | null)}
-   * @memberof NavigationItemModel
+   * @type {(string)}
+   * @memberof INavigationItem
    */
-  label: string | null;
+  label: string;
 
   /**
    * Navigation Item Routes
    *
    * @type {string[]}
-   * @memberof NavigationItemModel
+   * @memberof INavigationItem
    */
   routes: string[];
 
   /**
    * Navigation Item Icon
    *
-   * @type {IconModel}
-   * @memberof NavigationItemModel
+   * @type {Icon}
+   * @memberof INavigationItem
    */
-  icon: IconModel;
+  icon: Icon;
 
   /**
    * Array of children Navigation items
    *
-   * @type {NavigationItemModel[]}
-   * @memberof NavigationItemModel
+   * @type {INavigationItem[]}
+   * @memberof INavigationItem
    */
-  children: NavigationItemModel[];
+  children: INavigationItem[];
+}
+
+/**
+ * Stub for Navigation Item
+ *
+ * ```ts
+ * const NavigationItemStub: INavigationItem = {
+ *   label: '',
+ *   routes: [],
+ *   icon: new Icon(),
+ *   children: []
+ * }
+ * ```
+ */
+const NavigationItemStub: INavigationItem = {
+  label: '',
+  routes: [],
+  icon: new Icon(),
+  children: []
+};
+
+export class NavigationItem implements INavigationItem {
+  label: string;
+  routes: string[];
+  icon: Icon;
+  children: INavigationItem[];
+
+  /**
+   * ### Navigation Item
+   *
+   * Creates an instance of NavigationItem.
+   *
+   * ```ts
+   * const _NavigationItem: INavigationItem = new NavigationItem({
+   *   label    : '',
+   *   routes   : [],
+   *   icon     : new Icon(),
+   *   children : []
+   * });
+   * ```
+   *
+   * @param {INavigationItem} [init=NavigationItemStub]
+   * @memberof NavigationItem
+   */
+  constructor(init: Partial<INavigationItem> = NavigationItemStub) {
+    this.label = init.label ?? NavigationItemStub.label;
+    this.routes = init.routes ?? NavigationItemStub.routes;
+    this.icon = init.icon ?? NavigationItemStub.icon;
+    this.children = init.children ?? NavigationItemStub.children;
+  }
 }

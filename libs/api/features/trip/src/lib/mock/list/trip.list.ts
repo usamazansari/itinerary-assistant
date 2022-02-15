@@ -1,6 +1,7 @@
-import { TripListItemModel } from '../../imports/models';
+import { TripListItem } from '../../imports/models';
 
-export const TripListStub: TripListItemModel[] = [
+// TODO: Usama Ansari - 🗑️ Obsolete code
+export const TripListStub: TripListItem[] = [
   {
     expense: {
       amount: 7500,

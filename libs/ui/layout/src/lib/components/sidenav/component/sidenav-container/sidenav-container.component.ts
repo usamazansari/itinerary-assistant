@@ -1,14 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'ia-layout-sidenav-container',
-  template: `
-    <ia-layout-sidenav
-    ></ia-layout-sidenav>
-  `,
+  template: ` <ia-layout-sidenav></ia-layout-sidenav> `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SidenavContainerComponent { }
+export class SidenavContainerComponent {}

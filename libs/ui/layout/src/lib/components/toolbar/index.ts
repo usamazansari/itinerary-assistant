@@ -1,6 +1,6 @@
-export type { ToolbarAssetsModel, ToolbarDataModel } from './model/toolbar.model';
+export { ToolbarAssets, ToolbarData } from './model/toolbar.model';
 
-export { ToolbarAssets, ToolbarAssetsStub, ToolbarDataStub } from './constant/toolbar.constants';
+export { _ToolbarAssets } from './constant/toolbar.constants';
 
 export { ToolbarContainerComponent } from './component/toolbar-container/toolbar-container.component';
 export { ToolbarComponent } from './component/toolbar-container/toolbar/toolbar.component';

@@ -1,1 +1,1 @@
-export { TRIP_REPOSITORY } from './database/database.constants';
+export * from './database/database.constants';

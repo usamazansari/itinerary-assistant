@@ -1,2 +1,2 @@
-export { ApiDatabaseTypeormModule } from './lib/api-database-typeorm.module';
-export { DBConnectionString } from './lib/constants';
+export * from './lib/typeorm.module';
+export * from './lib/constants';

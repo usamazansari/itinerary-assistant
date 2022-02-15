@@ -1,1 +1,1 @@
-export { DBConnectionString } from './database.constants';
+export * from './database.constants';

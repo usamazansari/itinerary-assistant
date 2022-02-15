@@ -1,4 +1,4 @@
-export { TripOverview } from './trip.entity';
-export { User } from './user.entity';
+export * from './trip.entity';
+export * from './user.entity';
 
 // TODO: Usama Ansari - Rename entities

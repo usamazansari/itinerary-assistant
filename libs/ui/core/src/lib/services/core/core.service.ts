@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import type { HttpErrorResponse } from '@angular/common/http';
 
+import type { APIResponse } from '../../imports/models';
 import type { HttpStatus } from '../../imports/constants';
 import { getServerResponseMessage } from '../../imports/utils';
 
@@ -8,7 +9,6 @@ import { getServerResponseMessage } from '../../imports/utils';
   providedIn: 'root'
 })
 export class CoreService {
-
   // 🧐 Documentation Required
   /**
    *
@@ -28,7 +28,7 @@ export class CoreService {
    * @return {*}  {boolean}
    * @memberof CoreService
    */
-  checkError(error: HttpErrorResponse): boolean {
-    return !!error.status;
+  isServiceAvailable(error: APIResponse<unknown>): boolean {
+    return !!(<HttpErrorResponse>error.error).status;
   }
 }

@@ -3,39 +3,37 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { LumberjackModule } from '@ngworker/lumberjack';
-import { LumberjackConsoleDriverModule } from '@ngworker/lumberjack/console-driver';
-
-import * as Libraries from './imports/libraries';
+import {
+  ComponentsModule,
+  CoreModule,
+  IconsModule,
+  LayoutModule,
+  MaterialModule
+} from './imports/libraries';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import * as Modules from './modules';
+// import { IconModule } from './modules';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
 
-    LumberjackModule.forRoot(),
-    LumberjackConsoleDriverModule.forRoot(),
+    ComponentsModule,
+    CoreModule,
+    IconsModule,
+    LayoutModule,
+    MaterialModule,
 
-    Libraries.CoreModule,
-    Libraries.ElementsModule,
-    Libraries.IconModule,
-    Libraries.LayoutModule,
-    Libraries.MaterialModule,
-
-    Modules.IconModule,
+    // IconModule,
 
     AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

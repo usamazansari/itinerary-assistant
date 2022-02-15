@@ -1,7 +1,8 @@
-export type {
-  APIResponseModel,
-  FlagModel,
-  IconModel,
-  TripListDataModel
+export {
+  APIResponse,
+  Flag,
+  Icon,
+  TripListItem
 } from '@itinerary-assistant/shared/data';
-export type { RouterPayloadModel } from '@itinerary-assistant/ui/core';
+export { RouterPayload } from '@itinerary-assistant/ui/core';
+export { Button } from '@itinerary-assistant/ui/design/components';

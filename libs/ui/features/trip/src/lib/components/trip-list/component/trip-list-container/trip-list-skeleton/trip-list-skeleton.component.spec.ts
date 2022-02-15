@@ -9,8 +9,7 @@ describe('TripListSkeletonComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TripListSkeletonComponent]
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

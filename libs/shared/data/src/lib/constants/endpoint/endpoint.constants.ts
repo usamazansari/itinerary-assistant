@@ -78,7 +78,10 @@ export enum HttpStatus {
  *
  * Map the HTTP Status Code with the string message which is represented by it.
  */
-export const ServerResponse: Map<HttpStatus, string> = new Map<HttpStatus, string>([
+export const ServerResponse: Map<HttpStatus, string> = new Map<
+  HttpStatus,
+  string
+>([
   [HttpStatus.ServerDown, 'Server Down'],
   [HttpStatus.Continue, 'Continue'],
   [HttpStatus.SwitchingProtocols, 'Switching Protocols'],
@@ -87,13 +90,16 @@ export const ServerResponse: Map<HttpStatus, string> = new Map<HttpStatus, strin
   [HttpStatus.Ok, 'Ok'],
   [HttpStatus.Created, 'Created'],
   [HttpStatus.Accepted, 'Accepted'],
-  [HttpStatus.NonAuthoritativeInformation, 'Non-Authoritative Information'],
+  [
+    HttpStatus.NonAuthoritativeInformation,
+    'Non-Authoritative Information'
+  ],
   [HttpStatus.NoContent, 'No Content'],
   [HttpStatus.ResetContent, 'Reset Content'],
   [HttpStatus.PartialContent, 'Partial Content'],
   [HttpStatus.MultiStatus, 'Multi Status'],
   [HttpStatus.AlreadyReported, 'Already Reported'],
-  [HttpStatus.ImUsed, 'I\'m Used'],
+  [HttpStatus.ImUsed, "I'm Used"],
   [HttpStatus.MultipleChoices, 'Multiple Choices'],
   [HttpStatus.MovedPermanently, 'Moved Permanently'],
   [HttpStatus.Found, 'Found'],
@@ -110,7 +116,10 @@ export const ServerResponse: Map<HttpStatus, string> = new Map<HttpStatus, strin
   [HttpStatus.NotFound, 'Not Found'],
   [HttpStatus.MethodNotAllowed, 'Method Not Allowed'],
   [HttpStatus.NotAcceptable, 'Not Acceptable'],
-  [HttpStatus.ProxyAuthenticationRequired, 'Proxy Authentication Required'],
+  [
+    HttpStatus.ProxyAuthenticationRequired,
+    'Proxy Authentication Required'
+  ],
   [HttpStatus.RequestTimeout, 'Request Timeout'],
   [HttpStatus.Conflict, 'Conflict'],
   [HttpStatus.Gone, 'Gone'],
@@ -121,7 +130,7 @@ export const ServerResponse: Map<HttpStatus, string> = new Map<HttpStatus, strin
   [HttpStatus.UnsupportedMediaType, 'Unsupported Media Type'],
   [HttpStatus.RangeNotSatisfiable, 'Range Not Satisfiable'],
   [HttpStatus.ExpectationFailed, 'Expectation Failed'],
-  [HttpStatus.ImATeapot, 'I\'m A Teapot'],
+  [HttpStatus.ImATeapot, "I'm A Teapot"],
   [HttpStatus.MisdirectedRequest, 'Misdirected Request'],
   [HttpStatus.UnprocessableEntity, 'Unprocessable Entity'],
   [HttpStatus.Locked, 'Locked'],
@@ -130,8 +139,14 @@ export const ServerResponse: Map<HttpStatus, string> = new Map<HttpStatus, strin
   [HttpStatus.UpgradeRequired, 'Upgrade Required'],
   [HttpStatus.PreconditionRequired, 'Precondition Required'],
   [HttpStatus.TooManyRequests, 'Too Many Requests'],
-  [HttpStatus.RequestHeaderFieldsTooLarge, 'Request Header Fields Too Large'],
-  [HttpStatus.UnavailableForLegalReasons, 'Unavailable For Legal Reasons'],
+  [
+    HttpStatus.RequestHeaderFieldsTooLarge,
+    'Request Header Fields Too Large'
+  ],
+  [
+    HttpStatus.UnavailableForLegalReasons,
+    'Unavailable For Legal Reasons'
+  ],
   [HttpStatus.InternalServerError, 'Internal Server Error'],
   [HttpStatus.NotImplemented, 'Not Implemented'],
   [HttpStatus.BadGateway, 'Bad Gateway'],
@@ -142,5 +157,8 @@ export const ServerResponse: Map<HttpStatus, string> = new Map<HttpStatus, strin
   [HttpStatus.InsufficientStorage, 'Insufficient Storage'],
   [HttpStatus.LoopDetected, 'Loop Detected'],
   [HttpStatus.NotExtended, 'Not Extended'],
-  [HttpStatus.NetworkAuthenticationRequired, 'Network Authentication Required']
+  [
+    HttpStatus.NetworkAuthenticationRequired,
+    'Network Authentication Required'
+  ]
 ]);

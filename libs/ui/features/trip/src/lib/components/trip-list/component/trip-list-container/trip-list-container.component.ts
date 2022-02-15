@@ -6,34 +6,32 @@ import {
 
 import type { Observable } from 'rxjs';
 
-import type { TripListDataModel } from '../../imports';
-
 import { TripListService } from '../..';
 import type {
-  TripListAssetsModel,
-  TripListErrorModel,
-  TripListFlagModel
+  TripListAssets,
+  TripListData,
+  TripListError,
+  TripListFlags
 } from '../..';
 
 @Component({
   selector: 'ia-trip-list-container',
   template: `
     <ia-trip-list
-      [assets] = "(assets$ | async)!"
-      [data]   = "(data$   | async)!"
-      [flags]  = "(flags$  | async)!"
-      [error]  = "(error$  | async)!"
-    ></ia-trip-list>
+      [assets]="(assets$ | async)!"
+      [data]="(data$ | async)!"
+      [flags]="(flags$ | async)!"
+      [error]="(error$ | async)!"></ia-trip-list>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TripListContainerComponent implements OnInit {
-  assets$!: Observable<TripListAssetsModel>;
-  data$!: Observable<TripListDataModel>;
-  flags$!: Observable<TripListFlagModel>;
-  error$!: Observable<TripListErrorModel>;
+  assets$!: Observable<TripListAssets>;
+  data$!: Observable<TripListData>;
+  flags$!: Observable<TripListFlags>;
+  error$!: Observable<TripListError>;
 
-  constructor(private service: TripListService) { }
+  constructor(private service: TripListService) {}
 
   ngOnInit(): void {
     this.service.resetFlags();

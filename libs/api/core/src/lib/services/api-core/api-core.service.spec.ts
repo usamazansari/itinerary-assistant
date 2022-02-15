@@ -6,7 +6,7 @@ describe('ApiCoreService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ApiCoreService],
+      providers: [ApiCoreService]
     }).compile();
 
     service = module.get<ApiCoreService>(ApiCoreService);

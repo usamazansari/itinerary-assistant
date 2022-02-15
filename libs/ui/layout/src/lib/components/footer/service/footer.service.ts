@@ -5,10 +5,12 @@ import { BehaviorSubject } from 'rxjs';
 
 import { ClipboardService, SnackbarService } from '../imports';
 
-import type { FooterAssetsModel, FooterDataModel } from '..';
-import { FooterAssets, FooterAssetsStub, FooterDataStub, FooterStrings } from '..';
-
-
+import {
+  _FooterAssets,
+  FooterAssets,
+  FooterData,
+  _FooterStrings
+} from '..';
 
 /**
  * Service for use in `FooterComponent`
@@ -20,11 +22,11 @@ import { FooterAssets, FooterAssetsStub, FooterDataStub, FooterStrings } from '.
   providedIn: 'root'
 })
 export class FooterService {
-  #assets$ = new BehaviorSubject<FooterAssetsModel>(FooterAssetsStub);
-  #assets = { ...FooterAssetsStub };
+  #assets$ = new BehaviorSubject<FooterAssets>(new FooterAssets());
+  #assets = new FooterAssets();
 
-  #data$ = new BehaviorSubject<FooterDataModel>(FooterDataStub);
-  #data = { ...FooterDataStub };
+  #data$ = new BehaviorSubject<FooterData>(new FooterData());
+  #data = new FooterData();
 
   /**
    * Creates an instance of FooterService.
@@ -34,7 +36,7 @@ export class FooterService {
   constructor(
     private _clipboard: ClipboardService,
     private _snackbar: SnackbarService
-  ) { }
+  ) {}
 
   /**
    * Fetch assets for `FooterComponent`
@@ -42,31 +44,31 @@ export class FooterService {
    * @memberof FooterService
    */
   fetchAssets(): void {
-    this.#assets = { ...FooterAssets };
+    this.#assets = { ..._FooterAssets };
     this._setAssets(this.#assets);
   }
 
-  private _setAssets(assets: FooterAssetsModel): void {
-    this.#assets = { ...assets ?? FooterAssetsStub };
+  private _setAssets(assets: FooterAssets): void {
+    this.#assets = { ...(assets ?? new FooterAssets()) };
     this.#assets$.next(this.#assets);
   }
 
-  watchAssets$(): Observable<FooterAssetsModel> {
+  watchAssets$(): Observable<FooterAssets> {
     return this.#assets$.asObservable();
   }
 
   /**
    * Set Data for `FooterComponent`
    *
-   * @param {FooterDataModel} data
+   * @param {FooterData} data
    * @memberof FooterService
    */
-  setData(data: FooterDataModel): void {
-    this.#data = { ...data ?? FooterDataStub };
+  setData(data: FooterData): void {
+    this.#data = { ...(data ?? new FooterData()) };
     this.#data$.next(this.#data);
   }
 
-  watchData$(): Observable<FooterDataModel> {
+  watchData$(): Observable<FooterData> {
     return this.#data$.asObservable();
   }
 
@@ -76,17 +78,19 @@ export class FooterService {
    * @memberof FooterService
    */
   copyDiscordID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(this.#data.discord);
+    const isTextCopied: boolean = this._clipboard.copy(
+      this.#data.discord
+    );
     if (isTextCopied) {
-      this._snackbar.openSnackbar(
-        FooterStrings.snackbar.discord.success.message,
-        FooterStrings.snackbar.discord.success.action
-      );
+      this._snackbar.openSnackbar({
+        message: _FooterStrings.snackbar.discord.success.message,
+        action: _FooterStrings.snackbar.discord.success.action
+      });
     } else {
-      this._snackbar.openSnackbar(
-        FooterStrings.snackbar.discord.fail.message,
-        FooterStrings.snackbar.discord.fail.action
-      );
+      this._snackbar.openSnackbar({
+        message: _FooterStrings.snackbar.discord.fail.message,
+        action: _FooterStrings.snackbar.discord.fail.action
+      });
     }
   }
 
@@ -96,30 +100,19 @@ export class FooterService {
    * @memberof FooterService
    */
   copyEmailID(): void {
-    const isTextCopied: boolean = this._clipboard.copy(this.#data.email);
-    if (isTextCopied) {
-      this._snackbar.openSnackbar(
-        FooterStrings.snackbar.email.success.message,
-        FooterStrings.snackbar.email.success.action
-      );
-    } else {
-      this._snackbar.openSnackbar(
-        FooterStrings.snackbar.email.fail.message,
-        FooterStrings.snackbar.email.fail.action
-      );
-    }
-  }
-
-  // TODO: Use Lumberjack
-  /**
-   *
-   * @memberof FooterService
-   */
-  log(): void {
-    console.groupCollapsed(
-      `[ ${this.constructor.name} ] - [ ${this.log.name} ]`
+    const isTextCopied: boolean = this._clipboard.copy(
+      this.#data.email
     );
-    console.log('Test Logging Message');
-    console.groupEnd();
+    if (isTextCopied) {
+      this._snackbar.openSnackbar({
+        message: _FooterStrings.snackbar.email.success.message,
+        action: _FooterStrings.snackbar.email.success.action
+      });
+    } else {
+      this._snackbar.openSnackbar({
+        message: _FooterStrings.snackbar.email.fail.message,
+        action: _FooterStrings.snackbar.email.fail.action
+      });
+    }
   }
 }

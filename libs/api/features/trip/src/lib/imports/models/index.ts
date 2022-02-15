@@ -1,8 +1,6 @@
 export type {
-  TripListItemModel,
-  TripListDataModel,
-
-  TripOverviewModel
+  TripListItem,
+  TripOverview
 } from '@itinerary-assistant/shared/data';
 
-export { APIResponseModel } from '@itinerary-assistant/shared/data';
+export { APIResponse } from '@itinerary-assistant/shared/data';

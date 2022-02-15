@@ -1,1 +1,1 @@
-export { DBProviders } from './database.providers';
+export * from './database.providers';

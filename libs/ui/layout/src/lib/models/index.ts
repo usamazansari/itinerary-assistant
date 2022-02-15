@@ -1,19 +1,15 @@
-export type {
-  FooterAssetsModel,
-  FooterDataModel,
+export {
+  FooterAssets,
+  FooterData,
   FooterIconType,
-  FooterLinkModel,
-  FooterSnackbarMessageModel,
-  FooterStringsModel
+  FooterLink,
+  FooterSnackbarMessage,
+  FooterStrings
 } from '../components/footer';
 
-export type {
-  ToolbarAssetsModel,
-  ToolbarDataModel
-} from '../components/toolbar';
+export { ToolbarAssets, ToolbarData } from '../components/toolbar';
 
-export type { } from '../components/sidenav';
+export type {} from '../components/sidenav';
 
-export type { NavigationItemModel } from './navigation/navigation.model';
-
-export type { LayoutDataModel } from './layout/layout.model';
+export { NavigationItem } from './navigation/navigation.model';
+export { LayoutData } from './layout/layout.model';

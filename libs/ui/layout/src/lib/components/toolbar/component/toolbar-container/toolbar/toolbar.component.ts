@@ -1,9 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 
-import type { ToolbarAssetsModel, ToolbarDataModel } from '../../..';
-import { ToolbarAssetsStub, ToolbarDataStub } from '../../..';
+import { ToolbarAssets, ToolbarData } from '../../..';
 
 @Component({
   selector: 'ia-layout-toolbar',
@@ -11,16 +10,24 @@ import { ToolbarAssetsStub, ToolbarDataStub } from '../../..';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-  #assets$ = new BehaviorSubject<ToolbarAssetsModel>(ToolbarAssetsStub);
+  #assets$ = new BehaviorSubject<ToolbarAssets>(new ToolbarAssets());
 
   @Input()
-  set assets(value: ToolbarAssetsModel) { this.#assets$.next(value); }
-  get assets(): ToolbarAssetsModel { return this.#assets$.getValue(); }
+  set assets(value: ToolbarAssets) {
+    this.#assets$.next(value);
+  }
+  get assets(): ToolbarAssets {
+    return this.#assets$.getValue();
+  }
 
-  #data$ = new BehaviorSubject<ToolbarDataModel>(ToolbarDataStub);
+  #data$ = new BehaviorSubject<ToolbarData>(new ToolbarData());
   @Input()
-  set data(value: ToolbarDataModel) { this.#data$.next(value); }
-  get data(): ToolbarDataModel { return this.#data$.getValue(); }
+  set data(value: ToolbarData) {
+    this.#data$.next(value);
+  }
+  get data(): ToolbarData {
+    return this.#data$.getValue();
+  }
 
   @Output() gotoHome$ = new EventEmitter<void>();
   @Output() toggleSidenav$ = new EventEmitter<void>();

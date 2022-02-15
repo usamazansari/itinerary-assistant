@@ -1,7 +1,7 @@
 import { ConnectionOptions } from 'typeorm';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function connection(entities: any): ConnectionOptions {
+function connection(entities: any): ConnectionOptions {
   return {
     type: 'mysql',
     entities,
@@ -12,3 +12,5 @@ export function connection(entities: any): ConnectionOptions {
     database: process.env.MYSQL_DEV_DATABASE || 'nestjs_dev'
   };
 }
+
+export { connection as mysql };

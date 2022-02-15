@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import type { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
-import type { ToolbarAssetsModel, ToolbarDataModel } from '..';
-import { ToolbarAssets, ToolbarAssetsStub, ToolbarDataStub } from '..';
+import { _ToolbarAssets, ToolbarAssets, ToolbarData } from '..';
 
 /**
  * Toolbar Service
@@ -16,11 +15,11 @@ import { ToolbarAssets, ToolbarAssetsStub, ToolbarDataStub } from '..';
   providedIn: 'root'
 })
 export class ToolbarService {
-  #assets$ = new BehaviorSubject<ToolbarAssetsModel>(ToolbarAssetsStub);
-  #assets: ToolbarAssetsModel = { ...ToolbarAssetsStub };
+  #assets$ = new BehaviorSubject<ToolbarAssets>(new ToolbarAssets());
+  #assets: ToolbarAssets = new ToolbarAssets();
 
-  #data$ = new BehaviorSubject<ToolbarDataModel>(ToolbarDataStub);
-  #data: ToolbarDataModel = { ...ToolbarDataStub };
+  #data$ = new BehaviorSubject<ToolbarData>(new ToolbarData());
+  #data: ToolbarData = new ToolbarData();
 
   /**
    * Fetch Assets for `ToolbarComponent`
@@ -28,7 +27,7 @@ export class ToolbarService {
    * @memberof ToolbarService
    */
   fetchAssets(): void {
-    this.#assets = { ...ToolbarAssets };
+    this.#assets = { ..._ToolbarAssets };
     this._setAssets(this.#assets);
   }
 
@@ -36,11 +35,11 @@ export class ToolbarService {
    * Store the latest value of `assets` in class props and update the `BehaviorSubject` with the same
    *
    * @private
-   * @param {ToolbarAssetsModel} assets
+   * @param {ToolbarAssets} assets
    * @memberof ToolbarService
    */
-  private _setAssets(assets: ToolbarAssetsModel): void {
-    this.#assets = { ...assets ?? ToolbarAssetsStub };
+  private _setAssets(assets: ToolbarAssets): void {
+    this.#assets = { ...(assets ?? new ToolbarAssets()) };
     this.#assets$.next(this.#assets);
   }
 
@@ -50,18 +49,18 @@ export class ToolbarService {
    * @return {*}  {Observable<ToolbarAssetsModel>}
    * @memberof ToolbarService
    */
-  watchAssets$(): Observable<ToolbarAssetsModel> {
+  watchAssets$(): Observable<ToolbarAssets> {
     return this.#assets$.asObservable();
   }
 
   /**
    * Store the latest value of `data` in class props and update the `BehaviorSubject` with the same
    *
-   * @param {ToolbarDataModel} data
+   * @param {ToolbarData} data
    * @memberof ToolbarService
    */
-  setData(data: ToolbarDataModel): void {
-    this.#data = { ...data ?? ToolbarDataStub };
+  setData(data: ToolbarData): void {
+    this.#data = { ...(data ?? new ToolbarData()) };
     this.#data$.next(this.#data);
   }
 
@@ -71,7 +70,7 @@ export class ToolbarService {
    * @return {*}  {Observable<ToolbarDataModel>}
    * @memberof ToolbarService
    */
-  watchData$(): Observable<ToolbarDataModel> {
+  watchData$(): Observable<ToolbarData> {
     return this.#data$.asObservable();
   }
 }

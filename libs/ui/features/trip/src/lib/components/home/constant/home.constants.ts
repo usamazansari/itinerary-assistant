@@ -1,42 +1,5 @@
-import { IconStub } from '../imports';
-
-import type { HomeAssetModel, HomeAssetsModel } from '..';
-
-/**
- * Stub for `HomeAssetModel`.
- *
- * ```ts
- * const HomeAssetStub: HomeAssetModel = {
- *   icon : IconStub,
- *   text : null
- * };
- * ```
- */
-const HomeAssetStub: HomeAssetModel = {
-  icon: { ...IconStub },
-  text: ''
-};
-
-/**
- * Stub for `HomeAssetsModel`.
- *
- * ```ts
- * const HomeAssetsStub: HomeAssetsModel = {
- *   view   : {
- *     icon : IconStub,
- *     text : ''
- *   },
- *   create : {
- *     icon : IconStub,
- *     text : ''
- *   }
- * }
- * ```
- */
-export const HomeAssetsStub: HomeAssetsModel = {
-  view: { ...HomeAssetStub },
-  create: { ...HomeAssetStub }
-};
+import { Icon } from '../imports';
+import { HomeAsset, HomeAssets } from '..';
 
 /**
  * Home Page Assets
@@ -54,13 +17,19 @@ export const HomeAssetsStub: HomeAssetsModel = {
  * }
  * ```
  */
-export const HomeAssets: HomeAssetsModel = {
-  view: {
-    icon: { name: 'hiking', style: 'fas' },
-    text: 'View All Trips'
-  },
-  create: {
-    icon: { name: 'map-marked-alt', style: 'fas' },
-    text: 'Create a New Trip'
-  }
-};
+export const Assets: HomeAssets = new HomeAssets({
+  view: new HomeAsset({
+    icon: new Icon({
+      style: 'fas',
+      name: 'hiking'
+    }),
+    text: 'View Trip'
+  }),
+  create: new HomeAsset({
+    icon: new Icon({
+      style: 'fas',
+      name: 'map-marked-alt'
+    }),
+    text: 'Create Trip'
+  })
+});

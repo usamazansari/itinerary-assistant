@@ -5,5 +5,4 @@
  * 2. The service must be used in more than one component in this module
  */
 
-
 export { CoreService } from './core/core.service';

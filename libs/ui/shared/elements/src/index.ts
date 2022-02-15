@@ -1,16 +1,7 @@
 export { ElementsModule } from './lib/elements.module';
 
-export {
-  SnackbarConfigStub,
-  LoaderConfigStub,
-  LoaderSize
-} from './lib/constants';
+export { LoaderSize } from './lib/constants';
 
-export type {
-  LoaderConfigModel
-} from './lib/models';
+export { Button, LoaderConfig, SnackbarMessage } from './lib/models';
 
-export {
-  ClipboardService,
-  SnackbarService
-} from './lib/services';
+export { ClipboardService, SnackbarService } from './lib/services';

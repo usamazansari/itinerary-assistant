@@ -1,1 +1,1 @@
-export { EndpointService } from './service/endpoint.service'
+export * from './service/endpoint.service';

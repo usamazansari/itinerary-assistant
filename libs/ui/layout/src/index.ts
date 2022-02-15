@@ -1,25 +1,16 @@
 export { LayoutModule } from './lib/layout.module';
 
-export type {
-  FooterAssetsModel,
-  FooterDataModel,
+export {
+  FooterAssets,
+  FooterData,
   FooterIconType,
-  FooterLinkModel,
-  FooterSnackbarMessageModel,
-  FooterStringsModel,
-  ToolbarAssetsModel,
-  ToolbarDataModel,
-  NavigationItemModel,
-  LayoutDataModel
+  FooterLink,
+  FooterSnackbarMessage,
+  FooterStrings,
+  ToolbarAssets,
+  ToolbarData,
+  NavigationItem,
+  LayoutData
 } from './lib/models';
 
-export {
-  FooterAssetsStub,
-  FooterAssets,
-  FooterDataStub,
-  ToolbarAssets,
-  ToolbarAssetsStub,
-  ToolbarDataStub,
-  NavigationItemStub,
-  LayoutDataStub
-} from './lib/constants';
+export { _FooterAssets, _ToolbarAssets } from './lib/constants';
