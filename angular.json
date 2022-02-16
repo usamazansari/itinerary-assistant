@@ -3,6 +3,7 @@
   "projects": {
     "api": "apps/api",
     "api-core": "libs/api/core",
+    "api-database-entities": "libs/api/database/entities",
     "api-features-trip": "libs/api/features/trip",
     "shared-data": "libs/shared/data",
     "shared-styles": "libs/shared/styles",
