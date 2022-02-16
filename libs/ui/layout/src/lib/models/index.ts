@@ -7,12 +7,9 @@ export {
   FooterStrings
 } from '../components/footer';
 
-export {
-  ToolbarAssets,
-  ToolbarData
-} from '../components/toolbar';
+export { ToolbarAssets, ToolbarData } from '../components/toolbar';
 
-export type { } from '../components/sidenav';
+export type {} from '../components/sidenav';
 
 export { NavigationItem } from './navigation/navigation.model';
 export { LayoutData } from './layout/layout.model';

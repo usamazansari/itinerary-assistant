@@ -5,23 +5,16 @@ import { transition, style, animate } from '@angular/animations';
 
 export function fadeIn(): AnimationTransitionMetadata[] {
   return [
-    transition(
-      ':enter',
-      [
-        style(
-          {
-            opacity: 0
-          }
-        ),
-        animate(
-          '500ms ease-in',
-          style(
-            {
-              opacity: 1
-            }
-          )
-        )
-      ]
-    )
+    transition(':enter', [
+      style({
+        opacity: 0
+      }),
+      animate(
+        '500ms ease-in',
+        style({
+          opacity: 1
+        })
+      )
+    ])
   ];
 }

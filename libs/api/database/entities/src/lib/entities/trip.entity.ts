@@ -1,4 +1,9 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn
+} from 'typeorm';
 
 @Entity({ name: 'TripOverview' })
 export class TripOverview extends BaseEntity {

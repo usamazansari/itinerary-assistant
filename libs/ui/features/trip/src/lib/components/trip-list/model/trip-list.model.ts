@@ -5,15 +5,13 @@ interface ITripListAssets {
 }
 
 const TripListAssetsStub: ITripListAssets = {
-  view: new Button()
+  view: new Button({})
 };
 
 export class TripListAssets implements ITripListAssets {
   view: Button;
 
-  constructor(
-    init: Partial<ITripListAssets> = TripListAssetsStub
-  ) {
+  constructor(init: Partial<ITripListAssets> = TripListAssetsStub) {
     this.view = init.view ?? TripListAssetsStub.view;
   }
 }
@@ -29,9 +27,7 @@ const TripListErrorStub: ITripListError = {
 export class TripListError implements ITripListError {
   message: string;
 
-  constructor(
-    init: Partial<ITripListError> = TripListErrorStub
-  ) {
+  constructor(init: Partial<ITripListError> = TripListErrorStub) {
     this.message = init.message ?? TripListErrorStub.message;
   }
 }
@@ -41,15 +37,13 @@ interface ITripListFlags {
 }
 
 const TripListFlagStub: ITripListFlags = {
-  shell: new Flag()
+  shell: new Flag({})
 };
 
 export class TripListFlags implements ITripListFlags {
   shell: Flag;
 
-  constructor(
-    init: Partial<ITripListFlags> = TripListFlagStub
-  ) {
+  constructor(init: Partial<ITripListFlags> = TripListFlagStub) {
     this.shell = init.shell ?? TripListFlagStub.shell;
   }
 }
@@ -65,9 +59,7 @@ const TripListDataStub: ITripListData = {
 export class TripListData implements ITripListData {
   trips: TripListItem[];
 
-  constructor(
-    init: Partial<ITripListData> = TripListDataStub
-  ) {
+  constructor(init: Partial<ITripListData> = TripListDataStub) {
     this.trips = init.trips ?? TripListDataStub.trips;
   }
 }

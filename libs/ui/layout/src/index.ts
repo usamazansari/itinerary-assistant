@@ -13,7 +13,4 @@ export {
   LayoutData
 } from './lib/models';
 
-export {
-  _FooterAssets,
-  _ToolbarAssets
-} from './lib/constants';
+export { _FooterAssets, _ToolbarAssets } from './lib/constants';

@@ -1,1 +1,1 @@
-export { TripModule } from './lib/trip.module';
+export * from './lib/trip.module';

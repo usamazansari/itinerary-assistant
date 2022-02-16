@@ -29,23 +29,24 @@ describe('TripListContainerComponent', () => {
   let service: TripListService;
 
   const serviceStub: Partial<TripListService> = {
-    fetchAssets: (): void => { },
-    watchAssets$: (): Observable<TripListAssetsModel> => of(TripListAssetsStub),
-    fetchData: (): void => { },
-    watchData$: (): Observable<TripListDataModel> => of(TripListDataStub),
-    resetFlags: (): void => { },
-    watchFlags$: (): Observable<TripListFlagModel> => of(TripListFlagStub),
-    watchError$: (): Observable<TripListErrorModel> => of({ ...TripListErrorStub })
+    fetchAssets: (): void => {},
+    watchAssets$: (): Observable<TripListAssetsModel> =>
+      of(TripListAssetsStub),
+    fetchData: (): void => {},
+    watchData$: (): Observable<TripListDataModel> =>
+      of(TripListDataStub),
+    resetFlags: (): void => {},
+    watchFlags$: (): Observable<TripListFlagModel> =>
+      of(TripListFlagStub),
+    watchError$: (): Observable<TripListErrorModel> =>
+      of({ ...TripListErrorStub })
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TripListContainerComponent],
-      providers: [
-        { provide: TripListService, useValue: serviceStub }
-      ]
-    })
-      .compileComponents();
+      providers: [{ provide: TripListService, useValue: serviceStub }]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -62,7 +63,9 @@ describe('TripListContainerComponent', () => {
     fixture.detectChanges();
   });
 
-  afterEach(() => { fixture.destroy(); });
+  afterEach(() => {
+    fixture.destroy();
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -78,7 +81,9 @@ describe('TripListContainerComponent', () => {
     watchSpy.mockImplementation(() => of(TripListFlagStub));
 
     let flags;
-    service.watchFlags$().subscribe(_ => { flags = _; });
+    service.watchFlags$().subscribe(_ => {
+      flags = _;
+    });
 
     expect(flags).toEqual(TripListFlagStub);
   });

@@ -1,7 +1,7 @@
 import { TripOverview } from '../../imports/models';
 
 // TODO: Usama Ansari - 🗑️ Obsolete code
-export const TripOverviewStub: TripOverview = {
+const TripOverviewStub: TripOverview = {
   tenure: {
     end: '2018-03-18T18:30:00Z',
     start: '2018-03-11T18:30:00Z'
@@ -49,3 +49,5 @@ export const TripOverviewStub: TripOverview = {
     }
   ]
 };
+
+export { TripOverviewStub as manali };

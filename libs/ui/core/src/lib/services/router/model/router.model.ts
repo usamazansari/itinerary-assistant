@@ -1,7 +1,7 @@
 import type { NavigationExtras } from '@angular/router';
 
 /**
- * Router Paylod Model.
+ * Router Payload Model.
  *
  * ```ts
  * interface RouterPayload {
@@ -47,7 +47,7 @@ const RouterPayloadStub: IRouterPayload = {
 };
 
 /**
- * Router Paylod class.
+ * Router Payload class.
  *
  * @export
  * @class RouterPayload
@@ -58,7 +58,7 @@ export class RouterPayload implements IRouterPayload {
   extras: NavigationExtras;
 
   /**
-   * ### Router Paylod
+   * ### Router Payload
    *
    * Creates an instance of RouterPayload. Used to navigate to a new route within the application.
    *
@@ -69,13 +69,14 @@ export class RouterPayload implements IRouterPayload {
    * });
    * ```
    *
-   * @param {Partial<IRouterPayload>} [init=RouterPayloadStub]
+   * @param {Partial<IRouterPayload>} [RouterPayloadStub]
    * @memberof RouterPayload
    */
-  constructor(
-    init: Partial<IRouterPayload> = RouterPayloadStub
-  ) {
-    this.routes = init.routes ?? RouterPayloadStub.routes;
-    this.extras = init.extras ?? RouterPayloadStub.extras;
+  constructor({
+    routes = RouterPayloadStub.routes,
+    extras = RouterPayloadStub.extras
+  }: Partial<IRouterPayload>) {
+    this.routes = routes;
+    this.extras = extras;
   }
 }

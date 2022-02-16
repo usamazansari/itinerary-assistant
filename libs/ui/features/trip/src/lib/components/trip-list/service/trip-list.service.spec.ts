@@ -15,9 +15,7 @@ describe('TripListService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        { provide: EndpointService, useValue: endpointStub }
-      ]
+      providers: [{ provide: EndpointService, useValue: endpointStub }]
     });
     service = TestBed.inject(TripListService);
   });

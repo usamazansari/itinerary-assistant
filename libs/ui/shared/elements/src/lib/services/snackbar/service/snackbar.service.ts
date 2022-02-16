@@ -14,7 +14,7 @@ export class SnackbarService {
    * @param {MatSnackBar} _snackbar Instance of `MatSnackbar` from `@angular/material/snack-bar`
    * @memberof SnackbarService
    */
-  constructor(private _snackbar: MatSnackBar) { }
+  constructor(private _snackbar: MatSnackBar) {}
 
   /**
    * Opens a material snackbar.
@@ -29,6 +29,7 @@ export class SnackbarService {
     this._snackbar.open(
       init.message,
       init.action,
-      <MatSnackBarConfig<SnackbarData>>init.config);
+      <MatSnackBarConfig<SnackbarData>>init.config
+    );
   }
 }

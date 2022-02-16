@@ -32,9 +32,7 @@ export class Button implements IButton {
   style: ButtonStyle;
   type: ButtonType;
 
-  constructor(
-    init: Partial<IButton> = ButtonStub
-  ) {
+  constructor(init: Partial<IButton> = ButtonStub) {
     this.icon = init.icon ?? ButtonStub.icon;
     this.text = init.text ?? ButtonStub.text;
     this.style = init.style ?? ButtonStub.style;

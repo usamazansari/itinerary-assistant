@@ -34,7 +34,7 @@ interface IHomeAsset {
  * ```
  */
 const HomeAssetStub: IHomeAsset = {
-  icon: new Icon(),
+  icon: new Icon({}),
   text: ''
 };
 
@@ -61,14 +61,15 @@ export class HomeAsset implements IHomeAsset {
    * });
    * ```
    *
-   * @param {IHomeAsset} [init=HomeAssetStub]
+   * @param {IHomeAsset} [HomeAssetStub]
    * @memberof HomeAsset
    */
-  constructor(
-    init: Partial<IHomeAsset> = HomeAssetStub
-  ) {
-    this.icon = init.icon ?? HomeAssetStub.icon;
-    this.text = init.text ?? HomeAssetStub.text;
+  constructor({
+    icon = HomeAssetStub.icon,
+    text = HomeAssetStub.text
+  }: Partial<IHomeAsset> = HomeAssetStub) {
+    this.icon = icon;
+    this.text = text;
   }
 }
 
@@ -164,13 +165,14 @@ export class HomeAssets implements IHomeAssets {
    *   };
    * })
    * ```
-   * @param {IHomeAssets} [init=HomeAssetsStub]
+   * @param {IHomeAssets} [HomeAssetsStub]
    * @memberof HomeAssets
    */
-  constructor(
-    init: Partial<IHomeAssets> = HomeAssetsStub
-  ) {
-    this.view = init.view ?? HomeAssetsStub.view;
-    this.create = init.create ?? HomeAssetsStub.create;
+  constructor({
+    view = HomeAssetsStub.view,
+    create = HomeAssetsStub.create
+  }: Partial<IHomeAssets>) {
+    this.view = view;
+    this.create = create;
   }
 }

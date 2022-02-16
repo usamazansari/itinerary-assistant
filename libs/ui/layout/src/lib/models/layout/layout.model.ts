@@ -58,9 +58,7 @@ export class LayoutData implements ILayoutData {
    * @param {Partial<ILayoutData>} [init=LayoutDataStub]
    * @memberof LayoutData
    */
-  constructor(
-    init: Partial<ILayoutData> = LayoutDataStub
-  ) {
+  constructor(init: Partial<ILayoutData> = LayoutDataStub) {
     this.footer = init.footer ?? LayoutDataStub.footer;
     this.toolbar = init.toolbar ?? LayoutDataStub.toolbar;
   }

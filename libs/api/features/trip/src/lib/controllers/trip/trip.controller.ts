@@ -11,25 +11,30 @@ import { TripService } from '../../services';
 
 @Controller('trip')
 export class TripController {
-
-  constructor(private _service: TripService) { }
+  constructor(private _service: TripService) {}
 
   @Get('view-trip')
   fetchTripList(): Observable<APIResponse<TripOverview[]>> {
-    return this._service.fetchTripList()
-      .pipe(
-        map(
-          response => (response instanceof Error)
-            ? ({ error: response })
-            : ({ data: response })
-        ),
-        map(
-          response => {
-            if (!!response.error)
-              return new APIResponse({ data: null, error: response.error, status: HttpStatus.InternalServerError });
-            return new APIResponse({ data: response.data, error: null, status: HttpStatus.InternalServerError });
-          })
-      );
+    return this._service.fetchTripList().pipe(
+      map(response =>
+        response instanceof Error
+          ? { error: response }
+          : { data: response }
+      ),
+      map(response => {
+        if (!!response.error)
+          return new APIResponse({
+            data: null,
+            error: response.error,
+            status: HttpStatus.InternalServerError
+          });
+        return new APIResponse({
+          data: response.data,
+          error: null,
+          status: HttpStatus.InternalServerError
+        });
+      })
+    );
   }
 
   @Get('view-trip/:tripName')

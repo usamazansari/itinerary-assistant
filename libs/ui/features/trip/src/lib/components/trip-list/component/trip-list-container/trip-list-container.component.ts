@@ -18,11 +18,10 @@ import type {
   selector: 'ia-trip-list-container',
   template: `
     <ia-trip-list
-      [assets] = "(assets$ | async)!"
-      [data]   = "(data$   | async)!"
-      [flags]  = "(flags$  | async)!"
-      [error]  = "(error$  | async)!"
-    ></ia-trip-list>
+      [assets]="(assets$ | async)!"
+      [data]="(data$ | async)!"
+      [flags]="(flags$ | async)!"
+      [error]="(error$ | async)!"></ia-trip-list>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -32,7 +31,7 @@ export class TripListContainerComponent implements OnInit {
   flags$!: Observable<TripListFlags>;
   error$!: Observable<TripListError>;
 
-  constructor(private service: TripListService) { }
+  constructor(private service: TripListService) {}
 
   ngOnInit(): void {
     this.service.resetFlags();

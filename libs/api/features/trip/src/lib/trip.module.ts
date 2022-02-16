@@ -1,20 +1,15 @@
 import { Module } from '@nestjs/common';
 
-import * as Libraries from './imports/modules';
+import { TypeormModule } from './imports/modules';
 
-import * as Controllers from './controllers';
-import * as Services from './services';
+import { TripController } from './controllers';
+import { TripService } from './services';
 
 import { TripProviders } from './providers';
 
 @Module({
-	imports: [Libraries.ApiDatabaseTypeormModule],
-	controllers: [
-		Controllers.TripController
-	],
-	providers: [
-		...TripProviders,
-		Services.TripService
-	]
+  imports: [TypeormModule],
+  controllers: [TripController],
+  providers: [...TripProviders, TripService]
 })
-export class TripModule { }
+export class TripModule {}

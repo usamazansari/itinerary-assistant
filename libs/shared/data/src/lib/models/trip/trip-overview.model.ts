@@ -55,7 +55,6 @@ export class TripOverview {
   tenure: TripTenure;
   days: DayOverview[];
 
-
   /**
    * ### Trip Overview
    *

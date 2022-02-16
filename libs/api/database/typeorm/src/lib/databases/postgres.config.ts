@@ -1,7 +1,7 @@
 import { ConnectionOptions } from 'typeorm';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function connection(entities: any): ConnectionOptions {
+function connection(entities: any): ConnectionOptions {
   return {
     type: 'postgres',
     entities,
@@ -14,3 +14,5 @@ export function connection(entities: any): ConnectionOptions {
     dropSchema: !!process.env.DROP_DB
   };
 }
+
+export { connection as postgres };

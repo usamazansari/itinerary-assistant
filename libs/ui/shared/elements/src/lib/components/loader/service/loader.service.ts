@@ -9,7 +9,6 @@ import { LoaderConfig, LoaderSize, LoaderSizeMap } from '..';
   providedIn: 'root'
 })
 export class LoaderService {
-
   #config$ = new BehaviorSubject<LoaderConfig>(new LoaderConfig());
   #config = new LoaderConfig();
 
@@ -21,7 +20,7 @@ export class LoaderService {
   }
 
   private setConfig(config: LoaderConfig): void {
-    this.#config = { ...config ?? new LoaderConfig() };
+    this.#config = { ...(config ?? new LoaderConfig()) };
     this.setDiameter(this.#config.size);
     this.#config$.next(this.#config);
   }
@@ -31,7 +30,10 @@ export class LoaderService {
   }
 
   private setDiameter(size: LoaderSize): void {
-    this.#diameter = LoaderSizeMap.get(size) ?? LoaderSizeMap.get(LoaderSize.Medium) ?? this.#diameter;
+    this.#diameter =
+      LoaderSizeMap.get(size) ??
+      LoaderSizeMap.get(LoaderSize.Medium) ??
+      this.#diameter;
     this.#diameter$.next(this.#diameter);
   }
 

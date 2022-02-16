@@ -3,6 +3,10 @@
   "affected": {
     "defaultBase": "master"
   },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "npm"
+  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -12,18 +16,9 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/nx-cloud",
+      "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
-        "accessToken": "MWNiY2EzZmUtZTFmYS00YWY3LWE3ZWUtNmQ1MjlmMDFiMmJlfHJlYWQtd3JpdGU=",
-        "canTrackAnalytics": false,
-        "showUsageWarnings": true,
-        "parallel": 1
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
@@ -35,9 +30,6 @@
       }
     ]
   },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
   "generators": {
     "@nrwl/angular:application": {
       "style": "scss",
@@ -46,7 +38,6 @@
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest"
     },

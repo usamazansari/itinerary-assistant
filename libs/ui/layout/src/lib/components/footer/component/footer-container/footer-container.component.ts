@@ -21,11 +21,10 @@ import { FooterAssets, FooterData, FooterService } from '../..';
   selector: 'ia-layout-footer-container',
   template: `
     <ia-layout-footer
-      [assets]         = "(assets$ | async)!"
-      [data]           = "(data$   | async)!"
-      (copyDiscordID$) = "copyDiscordID()"
-      (copyEmailID$)   = "copyEmailID()"
-    ></ia-layout-footer>
+      [assets]="(assets$ | async)!"
+      [data]="(data$ | async)!"
+      (copyDiscordID$)="copyDiscordID()"
+      (copyEmailID$)="copyEmailID()"></ia-layout-footer>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -33,8 +32,12 @@ export class FooterContainerComponent implements OnInit {
   #data$ = new BehaviorSubject<FooterData>(new FooterData());
 
   @Input()
-  set data(value: FooterData) { this.#data$.next(value); }
-  get data(): FooterData { return this.#data$.getValue(); }
+  set data(value: FooterData) {
+    this.#data$.next(value);
+  }
+  get data(): FooterData {
+    return this.#data$.getValue();
+  }
 
   assets$!: Observable<FooterAssets>;
   data$!: Observable<FooterData>;
@@ -45,7 +48,7 @@ export class FooterContainerComponent implements OnInit {
    * @param {FooterService} _service Service associated with `FooterContainerComponent`
    * @memberof FooterContainerComponent
    */
-  constructor(private _service: FooterService) { }
+  constructor(private _service: FooterService) {}
 
   /**
    * Fetch the initial state of the component
@@ -54,10 +57,9 @@ export class FooterContainerComponent implements OnInit {
    */
   ngOnInit(): void {
     this._service.fetchAssets();
-    this.#data$.subscribe(
-      data => {
-        this._service.setData(data);
-      });
+    this.#data$.subscribe(data => {
+      this._service.setData(data);
+    });
 
     this.assets$ = this._service.watchAssets$();
     this.data$ = this._service.watchData$();

@@ -1,1 +1,4 @@
-export { TripOverview, User } from '@itinerary-assistant/api/database/entities';
+export {
+  TripOverview,
+  User
+} from '@itinerary-assistant/api/database/entities';

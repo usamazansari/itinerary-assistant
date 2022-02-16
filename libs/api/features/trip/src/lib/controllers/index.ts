@@ -1,1 +1,1 @@
-export { TripController } from './trip/trip.controller';
+export * from './trip/trip.controller';

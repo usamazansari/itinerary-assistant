@@ -9,19 +9,24 @@ import { TRIP_REPOSITORY } from '../../constants';
 
 @Injectable()
 export class TripService {
-
   constructor(
     @Inject(TRIP_REPOSITORY)
     private _repository: Repository<TripOverview>
-  ) { }
+  ) {}
 
   fetchTripList(): Observable<TripOverview[]> {
     return from(
-      this._repository.find()
-        .then(data => data, error => { throw error; })
+      this._repository
+        .find()
+        .then(
+          data => data,
+          error => {
+            throw error;
+          }
+        )
         .catch(error => error)
     );
-  };
+  }
 
   fetchTrip(id: string | number) {
     return this._repository.findOne(id);

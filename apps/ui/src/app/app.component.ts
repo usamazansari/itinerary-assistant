@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   constructor(
     private _coreService: CoreService,
     private _router: RouterService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this._coreService.fetchLayoutData();

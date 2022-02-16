@@ -3,7 +3,10 @@ import { RouterModule } from '@angular/router';
 import type { Routes } from '@angular/router';
 
 import { RouteConstants } from './trip.routes';
-import { HomeContainerComponent, TripListContainerComponent } from './components';
+import {
+  HomeContainerComponent,
+  TripListContainerComponent
+} from './components';
 
 const routes: Routes = [
   {
@@ -17,9 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TripRoutingModule { }
+export class TripRoutingModule {}

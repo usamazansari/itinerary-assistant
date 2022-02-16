@@ -1,0 +1,23 @@
+{
+  "root": "libs/api/database/typeorm",
+  "sourceRoot": "libs/api/database/typeorm/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/database/typeorm/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/database/typeorm"],
+      "options": {
+        "jestConfig": "libs/api/database/typeorm/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -33,7 +33,9 @@ const routes: Routes = [
       {
         path: AppRoutes.Trip,
         loadChildren: () =>
-          import('@itinerary-assistant/ui/features/trip').then((m) => m.TripModule)
+          import('@itinerary-assistant/ui/features/trip').then(
+            m => m.TripModule
+          )
       },
       {
         path: AppRoutes.Empty,
@@ -61,4 +63,4 @@ const exports = [RouterModule];
   imports: [...imports],
   exports: [...exports]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

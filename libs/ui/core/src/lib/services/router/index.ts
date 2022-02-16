@@ -1,2 +1,2 @@
-export { RouterPayload } from './model/router.model';
-export { RouterService } from './service/router.service';
+export * from './model/router.model';
+export * from './service/router.service';

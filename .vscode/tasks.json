@@ -1,44 +1,9 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [
     {
       "type": "npm",
-      "script": "start-api",
-      "label": "Serve API with Nx",
-      "isBackground": true,
-      "presentation": {
-        "focus": true,
-        "panel": "dedicated"
-      },
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": {
-        "owner": "typescript",
-        "source": "ts",
-        "applyTo": "closedDocuments",
-        "fileLocation": [
-          "relative",
-          "${cwd}"
-        ],
-        "pattern": "$tsc",
-        "background": {
-          "activeOnStart": true,
-          "beginsPattern": {
-            "regexp": "Entrypoint"
-          },
-          "endsPattern": {
-            "regexp": "Listening at"
-          }
-        }
-      }
-    },
-    {
-      "type": "npm",
-      "script": "start-ui",
+      "script": "start:ui",
       "label": "Serve UI with Nx",
       "isBackground": true,
       "presentation": {
@@ -53,10 +18,7 @@
         "owner": "typescript",
         "source": "ts",
         "applyTo": "closedDocuments",
-        "fileLocation": [
-          "relative",
-          "${cwd}"
-        ],
+        "fileLocation": ["relative", "${cwd}"],
         "pattern": "$tsc",
         "background": {
           "activeOnStart": true,
@@ -68,6 +30,6 @@
           }
         }
       }
-    },
+    }
   ]
 }

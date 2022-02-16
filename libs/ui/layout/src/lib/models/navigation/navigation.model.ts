@@ -90,9 +90,7 @@ export class NavigationItem implements INavigationItem {
    * @param {INavigationItem} [init=NavigationItemStub]
    * @memberof NavigationItem
    */
-  constructor(
-    init: Partial<INavigationItem> = NavigationItemStub
-  ) {
+  constructor(init: Partial<INavigationItem> = NavigationItemStub) {
     this.label = init.label ?? NavigationItemStub.label;
     this.routes = init.routes ?? NavigationItemStub.routes;
     this.icon = init.icon ?? NavigationItemStub.icon;
