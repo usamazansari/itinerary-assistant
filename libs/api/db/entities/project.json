@@ -1,0 +1,23 @@
+{
+  "root": "libs/api/db/entities",
+  "sourceRoot": "libs/api/db/entities/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/db/entities/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/db/entities"],
+      "options": {
+        "jestConfig": "libs/api/db/entities/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

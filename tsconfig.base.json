@@ -16,6 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@itinerary-assistant/api/core": ["libs/api/core/src/index.ts"],
+      "@itinerary-assistant/api/db/entities": [
+        "libs/api/db/entities/src/index.ts"
+      ],
       "@itinerary-assistant/api/features/trip": [
         "libs/api/features/trip/src/index.ts"
       ],
