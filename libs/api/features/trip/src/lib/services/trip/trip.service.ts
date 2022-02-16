@@ -1,34 +1,24 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-empty-function */
+
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 
 import type { Observable } from 'rxjs';
 import { from } from 'rxjs';
 
-import { TripOverview } from '../../imports/entities';
 import { TRIP_REPOSITORY } from '../../constants';
 
 @Injectable()
 export class TripService {
-  constructor(
-    @Inject(TRIP_REPOSITORY)
-    private _repository: Repository<TripOverview>
-  ) {}
+  // Inject Trip Repository
+  constructor() {}
 
-  fetchTripList(): Observable<TripOverview[]> {
-    return from(
-      this._repository
-        .find()
-        .then(
-          data => data,
-          error => {
-            throw error;
-          }
-        )
-        .catch(error => error)
-    );
+  // find from repository
+  fetchTripList(): Observable<unknown[]> {
+    return from(new Promise<unknown[]>(resolve => resolve([])));
   }
 
-  fetchTrip(id: string | number) {
-    return this._repository.findOne(id);
-  }
+  // findOne from repository
+  fetchTrip(id: string | number) {}
 }
