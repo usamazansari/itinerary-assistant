@@ -1,1 +1,1 @@
-export * from './lib/api-database-orm.module';
+export * from './lib/orm.module';
