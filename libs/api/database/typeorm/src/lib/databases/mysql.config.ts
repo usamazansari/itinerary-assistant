@@ -1,7 +1,8 @@
-import { ConnectionOptions } from 'typeorm';
+import { ConnectionOptions, EntitySchema } from 'typeorm';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function connection(entities: any): ConnectionOptions {
+function connection(
+  entities: (string | (() => unknown) | EntitySchema<unknown>)[]
+): ConnectionOptions {
   return {
     type: 'mysql',
     entities,
