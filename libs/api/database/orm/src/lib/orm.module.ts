@@ -1,8 +1,16 @@
-import { Module } from '@nestjs/common';
+import { Module, OnModuleDestroy } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Connection } from 'typeorm';
+
+import { MySQLConfig } from './config';
 
 @Module({
-  controllers: [],
-  providers: [],
-  exports: []
+  imports: [TypeOrmModule.forRoot(MySQLConfig)]
 })
-export class OrmModule {}
+export class OrmModule implements OnModuleDestroy {
+  constructor(private connection: Connection) {}
+
+  onModuleDestroy() {
+    this.connection.close();
+  }
+}

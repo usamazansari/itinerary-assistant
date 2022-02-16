@@ -1,16 +1,16 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import type { Observable } from 'rxjs';
 import { from } from 'rxjs';
 
 import { TripOverview } from '../../imports/entities';
-import { TRIP_REPOSITORY } from '../../constants';
 
 @Injectable()
 export class TripService {
   constructor(
-    @Inject(TRIP_REPOSITORY)
+    @InjectRepository(TripOverview)
     private _repository: Repository<TripOverview>
   ) {}
 
