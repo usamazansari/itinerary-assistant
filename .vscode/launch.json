@@ -36,6 +36,7 @@
       "restart": true,
       "timeout": 60000,
       "port": 9229,
+      "outFiles": ["${workspaceFolder}/**/*.js", "!**/node_modules/**"],
       "skipFiles": ["<node_internals>/**"]
     },
     {
@@ -46,6 +47,7 @@
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
       "runtimeArgs": [],
+      "outFiles": ["${workspaceFolder}/**/*.js", "!**/node_modules/**"],
       "sourceMapPathOverrides": {
         "webpack:/*": "${webRoot}/*",
         "/./*": "${webRoot}/*",

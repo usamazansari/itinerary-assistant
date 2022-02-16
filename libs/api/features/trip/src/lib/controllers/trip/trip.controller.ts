@@ -31,7 +31,7 @@ export class TripController {
         return new APIResponse({
           data: response.data,
           error: null,
-          status: HttpStatus.InternalServerError
+          status: HttpStatus.Ok
         });
       })
     );

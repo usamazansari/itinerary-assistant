@@ -1,1 +1,1 @@
-export { TypeormModule } from '@itinerary-assistant/api/database/typeorm';
+export { OrmModule } from '@itinerary-assistant/api/database/orm';

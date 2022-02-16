@@ -4,7 +4,7 @@
     "api": "apps/api",
     "api-core": "libs/api/core",
     "api-database-entities": "libs/api/database/entities",
-    "api-database-typeorm": "libs/api/database/typeorm",
+    "api-database-orm": "libs/api/database/orm",
     "api-features-trip": "libs/api/features/trip",
     "shared-data": "libs/shared/data",
     "shared-styles": "libs/shared/styles",

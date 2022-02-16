@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 
-import { TypeormModule } from './imports/modules';
+import { OrmModule } from './imports/modules';
 
 import { CoreController } from './controllers';
 import { CoreService } from './services';
 
 @Module({
   controllers: [CoreController],
-  imports: [TypeormModule],
+  imports: [OrmModule],
   providers: [CoreService],
-  exports: [TypeormModule]
+  exports: [OrmModule]
 })
 export class CoreModule {}
