@@ -3,6 +3,7 @@
   "projects": {
     "api": "apps/api",
     "ui": "apps/ui",
+    "ui-core": "libs/ui/core",
     "ui-e2e": "apps/ui-e2e"
   }
 }
