@@ -30,18 +30,18 @@ const routes: Routes = [
   {
     path: AppRoutes.Empty,
     children: [
-      {
-        path: AppRoutes.Trip,
-        loadChildren: () =>
-          import('@itinerary-assistant/ui/features/trip').then(
-            m => m.TripModule
-          )
-      },
-      {
-        path: AppRoutes.Empty,
-        redirectTo: AppRoutes.Trip,
-        pathMatch: 'full'
-      }
+      // {
+      //   path: AppRoutes.Trip,
+      //   loadChildren: () =>
+      //     import('@itinerary-assistant/ui/features/trip').then(
+      //       m => m.TripModule
+      //     )
+      // },
+      // {
+      //   path: AppRoutes.Empty,
+      //   redirectTo: AppRoutes.Trip,
+      //   pathMatch: 'full'
+      // }
     ]
   },
   {

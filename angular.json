@@ -2,19 +2,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
-    "api-core": "libs/api/core",
-    "api-database-entities": "libs/api/database/entities",
-    "api-database-orm": "libs/api/database/orm",
-    "api-features-trip": "libs/api/features/trip",
-    "shared-data": "libs/shared/data",
-    "shared-styles": "libs/shared/styles",
     "ui": "apps/ui",
-    "ui-core": "libs/ui/core",
-    "ui-design-components": "libs/ui/design/components",
-    "ui-design-icons": "libs/ui/design/icons",
-    "ui-design-layout": "libs/ui/design/layout",
-    "ui-design-material": "libs/ui/design/material",
-    "ui-e2e": "apps/ui-e2e",
-    "ui-features-trip": "libs/ui/features/trip"
+    "ui-e2e": "apps/ui-e2e"
   }
 }
