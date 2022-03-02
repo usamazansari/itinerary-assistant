@@ -4,6 +4,7 @@
     "api": "apps/api",
     "ui": "apps/ui",
     "ui-core": "libs/ui/core",
+    "ui-design-components": "libs/ui/design/components",
     "ui-e2e": "apps/ui-e2e"
   }
 }
