@@ -3,6 +3,7 @@
   "projects": {
     "api": "apps/api",
     "api-database-entities": "libs/api/database/entities",
+    "api-database-orm": "libs/api/database/orm",
     "core": "libs/core",
     "shared-data": "libs/shared/data",
     "ui": "apps/ui",
