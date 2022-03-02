@@ -5,6 +5,7 @@
     "ui": "apps/ui",
     "ui-core": "libs/ui/core",
     "ui-design-components": "libs/ui/design/components",
+    "ui-design-icons": "libs/ui/design/icons",
     "ui-design-material": "libs/ui/design/material",
     "ui-e2e": "apps/ui-e2e"
   }
