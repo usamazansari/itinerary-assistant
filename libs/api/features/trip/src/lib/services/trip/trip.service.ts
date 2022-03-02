@@ -5,16 +5,16 @@ import { Repository } from 'typeorm';
 import type { Observable } from 'rxjs';
 import { from } from 'rxjs';
 
-import { TripOverview } from '../../imports/entities';
+import { TripMaster } from '../../imports/entities';
 
 @Injectable()
 export class TripService {
   constructor(
-    @InjectRepository(TripOverview)
-    private _repository: Repository<TripOverview>
+    @InjectRepository(TripMaster)
+    private _repository: Repository<TripMaster>
   ) {}
 
-  fetchTripList(): Observable<TripOverview[]> {
+  fetchTripList(): Observable<TripMaster[]> {
     return from(
       this._repository
         .find()

@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { APIResponse } from '../../imports/models';
 import { HttpStatus } from '../../imports/constants';
-import type { TripOverview } from '../../imports/entities';
+import type { TripMaster } from '../../imports/entities';
 
 import { TripService } from '../../services';
 
@@ -14,7 +14,7 @@ export class TripController {
   constructor(private _service: TripService) {}
 
   @Get('view-trip')
-  fetchTripList(): Observable<APIResponse<TripOverview[]>> {
+  fetchTripList(): Observable<APIResponse<TripMaster[]>> {
     return this._service.fetchTripList().pipe(
       map(response =>
         response instanceof Error

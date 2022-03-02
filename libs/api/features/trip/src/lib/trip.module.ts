@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { TripOverview } from './imports/entities';
+import { TripMaster } from './imports/entities';
 
 import { TripController } from './controllers';
 import { TripService } from './services';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([TripOverview])],
+  imports: [TypeOrmModule.forFeature([TripMaster])],
   controllers: [TripController],
   providers: [TripService],
   exports: []
