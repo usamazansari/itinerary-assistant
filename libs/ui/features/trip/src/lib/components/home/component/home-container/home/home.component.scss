@@ -1,0 +1,9 @@
+mat-card.home-card {
+  @apply p-0 m-2 cursor-pointer shadow-mat-2;
+
+  mat-card-content.home-card-content {
+    div {
+      @apply m-6;
+    }
+  }
+}
