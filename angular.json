@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "core": "libs/core",
     "shared-data": "libs/shared/data",
     "ui": "apps/ui",
     "ui-core": "libs/ui/core",
