@@ -1,20 +1,20 @@
 {
-  "root": "libs/core",
-  "sourceRoot": "libs/core/src",
+  "root": "libs/api/core",
+  "sourceRoot": "libs/api/core/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/core/**/*.ts"]
+        "lintFilePatterns": ["libs/api/core/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/core"],
+      "outputs": ["coverage/libs/api/core"],
       "options": {
-        "jestConfig": "libs/core/jest.config.js",
+        "jestConfig": "libs/api/core/jest.config.js",
         "passWithNoTests": true
       }
     }

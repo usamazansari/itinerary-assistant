@@ -15,13 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@itinerary-assistant/api/core": ["libs/api/core/src/index.ts"],
       "@itinerary-assistant/api/database/entities": [
         "libs/api/database/entities/src/index.ts"
       ],
       "@itinerary-assistant/api/database/orm": [
         "libs/api/database/orm/src/index.ts"
       ],
-      "@itinerary-assistant/core": ["libs/core/src/index.ts"],
       "@itinerary-assistant/shared/data": [
         "libs/shared/data/src/index.ts"
       ],
