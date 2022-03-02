@@ -22,6 +22,9 @@
       "@itinerary-assistant/api/database/orm": [
         "libs/api/database/orm/src/index.ts"
       ],
+      "@itinerary-assistant/api/features/trip": [
+        "libs/api/features/trip/src/index.ts"
+      ],
       "@itinerary-assistant/shared/data": [
         "libs/shared/data/src/index.ts"
       ],
