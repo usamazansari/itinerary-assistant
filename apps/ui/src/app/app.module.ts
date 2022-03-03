@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
-  ComponentsModule,
+  // ComponentsModule,
   CoreModule,
   IconsModule,
   // LayoutModule,
@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
 
-    ComponentsModule,
+    // ComponentsModule,
     CoreModule,
     IconsModule,
     // LayoutModule,

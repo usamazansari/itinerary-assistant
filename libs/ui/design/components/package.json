@@ -1,5 +1,5 @@
 {
-  "name": "@itinerary-assistant/ui/design/components",
+  "name": "@itinerary-assistant/ui-design-components",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^13.2.0",

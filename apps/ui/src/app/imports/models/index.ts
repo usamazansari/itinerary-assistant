@@ -4,4 +4,6 @@ export { RouterPayload } from '@itinerary-assistant/ui/core';
 //   LayoutData,
 //   ToolbarData
 // } from '@itinerary-assistant/ui/design/layout';
-export { LoaderConfig } from '@itinerary-assistant/ui/design/components';
+
+// TODO - Usama Ansari: Remove this
+// export { LoaderConfig } from '@itinerary-assistant/ui/design/components';
