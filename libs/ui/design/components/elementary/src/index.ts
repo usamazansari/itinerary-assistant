@@ -1,1 +1,1 @@
-export * from './lib/elementary.module';
+export * from './lib/elementary-components.module';

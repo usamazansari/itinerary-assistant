@@ -1,1 +1,1 @@
-export * from './lib/derivative.module';
+export * from './lib/derivative-components.module';
