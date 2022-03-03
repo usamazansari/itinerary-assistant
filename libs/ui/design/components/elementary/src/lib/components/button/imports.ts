@@ -1,1 +1,1 @@
-export { Icon } from '../../imports/models';
+export { Icon } from '../../models';

@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TripRoutingModule } from './trip-routing.module';
 
-import { MaterialModule } from './imports/libraries';
-
 import {
   HomeComponent,
   HomeContainerComponent,
@@ -23,12 +21,7 @@ import { IconModule } from './modules';
     TripListContainerComponent,
     TripListSkeletonComponent
   ],
-  imports: [
-    CommonModule,
-    TripRoutingModule,
-    MaterialModule,
-    IconModule
-  ],
+  imports: [CommonModule, TripRoutingModule, IconModule],
   schemas: []
 })
 export class TripModule {}

@@ -79,12 +79,16 @@ export class APIResponse<DataType = unknown>
    * });
    * ```
    *
-   * @param {IAPIResponse} [init=ResponseStub]
+   * @param {IAPIResponse} [ResponseStub]
    * @memberof APIResponse
    */
-  constructor(init: Partial<IAPIResponse> = APIResponseStub) {
-    this.data = init.data ?? APIResponseStub.data;
-    this.error = init.error ?? APIResponseStub.error;
-    this.status = init.status ?? APIResponseStub.status;
+  constructor({
+    data = APIResponseStub.data,
+    error = APIResponseStub.error,
+    status = APIResponseStub.status
+  }: Partial<IAPIResponse>) {
+    this.data = data;
+    this.error = error;
+    this.status = status;
   }
 }

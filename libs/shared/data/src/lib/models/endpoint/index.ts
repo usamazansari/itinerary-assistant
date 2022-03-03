@@ -1,3 +1,3 @@
-export { Authorization } from './authorization.model';
-export { APIResponse } from './response.model';
-export { APIRequest } from './request.model';
+export * from './authorization.model';
+export * from './response.model';
+export * from './request.model';
