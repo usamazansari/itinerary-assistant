@@ -1,0 +1,47 @@
+{
+  "projectType": "library",
+  "root": "libs/ui/design/components/elementary",
+  "sourceRoot": "libs/ui/design/components/elementary/src",
+  "prefix": "itinerary-assistant",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/ui/design/components/elementary"],
+      "options": {
+        "project": "libs/ui/design/components/elementary/ng-package.json",
+        "tailwindConfig": "libs/ui/design/components/elementary/tailwind.config.js"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ui/design/components/elementary/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ui/design/components/elementary/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui/design/components/elementary"],
+      "options": {
+        "jestConfig": "libs/ui/design/components/elementary/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui/design/components/elementary/src/**/*.ts",
+          "libs/ui/design/components/elementary/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": [
+    "species:ui-design-components-elementary",
+    "genus:library",
+    "family:ui"
+  ]
+}
