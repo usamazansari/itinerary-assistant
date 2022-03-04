@@ -19,5 +19,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "species:api-database-entities",
+    "genus:library",
+    "family:api"
+  ]
 }

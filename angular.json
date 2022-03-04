@@ -10,9 +10,9 @@
     "shared-styles": "libs/shared/styles",
     "ui": "apps/ui",
     "ui-core": "libs/ui/core",
-    "ui-design-components": "libs/ui/design/components",
+    "ui-design-components-derivative": "libs/ui/design/components/derivative",
+    "ui-design-components-elementary": "libs/ui/design/components/elementary",
     "ui-design-icons": "libs/ui/design/icons",
-    "ui-design-layout": "libs/ui/design/layout",
     "ui-design-material": "libs/ui/design/material",
     "ui-e2e": "apps/ui-e2e",
     "ui-features-trip": "libs/ui/features/trip"

@@ -65,7 +65,7 @@ const APIRequestStub: IAPIRequest = {
   headers: {},
   body: {},
   params: {},
-  auth: new Authorization()
+  auth: new Authorization({})
 };
 
 /**
@@ -95,13 +95,18 @@ export class APIRequest implements IAPIRequest {
    * });
    * ```
    *
-   * @param {APIRequest} [init=APIRequestStub]
+   * @param {APIRequest} [APIRequestStub]
    * @memberof APIRequest
    */
-  constructor(init: Partial<IAPIRequest> = APIRequestStub) {
-    this.headers = init.headers ?? APIRequestStub.headers;
-    this.params = init.params ?? APIRequestStub.params;
-    this.body = init.body ?? APIRequestStub.body;
-    this.auth = init.auth ?? APIRequestStub.auth;
+  constructor({
+    headers = APIRequestStub.headers,
+    body = APIRequestStub.body,
+    params = APIRequestStub.params,
+    auth = APIRequestStub.auth
+  }: Partial<IAPIRequest>) {
+    this.headers = headers;
+    this.params = params;
+    this.body = body;
+    this.auth = auth;
   }
 }

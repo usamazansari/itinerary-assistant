@@ -19,5 +19,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["species:api-features-trip", "genus:library", "family:api"]
 }

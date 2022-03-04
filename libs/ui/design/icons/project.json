@@ -4,6 +4,22 @@
   "sourceRoot": "libs/ui/design/icons/src",
   "prefix": "itinerary-assistant",
   "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/ui/design/icons"],
+      "options": {
+        "project": "libs/ui/design/icons/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ui/design/icons/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ui/design/icons/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/design/icons"],
@@ -22,5 +38,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["species:ui-shared-icons", "genus:library", "family:ui"]
 }

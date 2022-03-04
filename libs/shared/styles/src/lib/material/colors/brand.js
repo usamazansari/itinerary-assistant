@@ -1,4 +1,4 @@
-const COLOR = {
+const Color = {
   'angular-light': '#F65056',
   angular: '#BD0E2D',
   'angular-dark': '#850005',
@@ -24,4 +24,4 @@ const COLOR = {
   'outlook-dark': '#004795'
 };
 
-module.exports = COLOR;
+module.exports = Color;

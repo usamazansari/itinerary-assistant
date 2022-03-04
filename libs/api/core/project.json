@@ -19,5 +19,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["species:api-core", "genus:library", "family:api"]
 }

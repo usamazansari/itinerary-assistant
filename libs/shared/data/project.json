@@ -19,5 +19,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["species:shared-data", "genus:library", "family:shared"]
 }

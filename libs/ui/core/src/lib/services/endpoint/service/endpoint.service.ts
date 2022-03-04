@@ -33,7 +33,7 @@ export class EndpointService {
    *
    * @memberof EndpointService
    */
-  get<ResponseType>(
+  get<ResponseType = unknown>(
     url: string
   ): Observable<APIResponse<ResponseType>> {
     return this._http.get<APIResponse<ResponseType>>(url);
@@ -50,7 +50,7 @@ export class EndpointService {
    *   Observable of response in a custom wrapper of type `APIResponseModel`
    * @memberof EndpointService
    */
-  post<RequestBody, ResponseType>(
+  post<RequestBody = unknown, ResponseType = unknown>(
     url: string,
     body: RequestBody
   ): Observable<APIResponse<ResponseType>> {
@@ -68,7 +68,7 @@ export class EndpointService {
    *   Observable of response in a custom wrapper of type `APIResponseModel`
    * @memberof EndpointService
    */
-  put<RequestBody, ResponseType>(
+  put<RequestBody = unknown, ResponseType = unknown>(
     url: string,
     body: RequestBody
   ): Observable<APIResponse<ResponseType>> {
@@ -84,7 +84,7 @@ export class EndpointService {
    *   Observable of response in a custom wrapper of type `APIResponseModel`
    * @memberof EndpointService
    */
-  delete<ResponseType>(
+  delete<ResponseType = unknown>(
     url: string
   ): Observable<APIResponse<ResponseType>> {
     return this._http.delete<APIResponse<ResponseType>>(url);

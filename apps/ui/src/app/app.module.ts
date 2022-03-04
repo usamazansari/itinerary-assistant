@@ -4,17 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
-  ComponentsModule,
   CoreModule,
-  IconsModule,
-  LayoutModule,
-  MaterialModule
+  ElementaryComponentsModule,
+  IconsModule
 } from './imports/libraries';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-// import { IconModule } from './modules';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,13 +19,9 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
 
-    ComponentsModule,
     CoreModule,
+    ElementaryComponentsModule,
     IconsModule,
-    LayoutModule,
-    MaterialModule,
-
-    // IconModule,
 
     AppRoutingModule
   ],

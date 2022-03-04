@@ -1,4 +1,4 @@
-const COLOR = {
+const Color = {
   '50-light': '#FFFFFF',
   50: '#EFEBE9',
   '50-dark': '#BDB9B7',
@@ -31,4 +31,4 @@ const COLOR = {
   '900-dark': '#1B0000'
 };
 
-module.exports = COLOR;
+module.exports = Color;

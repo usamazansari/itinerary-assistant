@@ -1,1 +1,1 @@
-export * from './trip-overview.entity';
+export * from './trip-master.entity';

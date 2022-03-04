@@ -4,6 +4,22 @@
   "sourceRoot": "libs/ui/design/material/src",
   "prefix": "itinerary-assistant",
   "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/ui/design/material"],
+      "options": {
+        "project": "libs/ui/design/material/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ui/design/material/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ui/design/material/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/design/material"],
@@ -22,5 +38,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["species:ui-shared-material", "genus:library", "family:ui"]
 }

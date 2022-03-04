@@ -25,24 +25,18 @@
       "@itinerary-assistant/api/features/trip": [
         "libs/api/features/trip/src/index.ts"
       ],
-      "@itinerary-assistant/components": [
-        "libs/ui/design/components/src/index.ts"
-      ],
       "@itinerary-assistant/shared/data": [
         "libs/shared/data/src/index.ts"
       ],
-      "@itinerary-assistant/shared/styles": [
-        "libs/shared/styles/src/index.js"
-      ],
       "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
-      "@itinerary-assistant/ui/design/components": [
-        "libs/ui/design/components/src/index.ts"
+      "@itinerary-assistant/ui/design/components/derivative": [
+        "libs/ui/design/components/derivative/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/design/components/elementary": [
+        "libs/ui/design/components/elementary/src/index.ts"
       ],
       "@itinerary-assistant/ui/design/icons": [
         "libs/ui/design/icons/src/index.ts"
-      ],
-      "@itinerary-assistant/ui/design/layout": [
-        "libs/ui/design/layout/src/index.ts"
       ],
       "@itinerary-assistant/ui/design/material": [
         "libs/ui/design/material/src/index.ts"

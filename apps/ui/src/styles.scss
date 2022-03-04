@@ -1,14 +1,5 @@
-// Angular Theming
-// @use 'app/core/styles/app-themes.scss';
+// App-wide TailwindCSS
+@use '../../../libs/shared/styles/src/tailwind';
 
-// Bootstrap
-// @use 'app/core/styles/app-bootstrap.scss';
-
-// Tailwind
-@use '../../../libs/shared/styles/src/_tailwind.scss';
-
-// Global styles
-// @use 'app/core/styles/app-styles.scss';
-
-// Typography
-// @use 'app/core/styles/app-typography.scss';
+// App-wide Material Theme
+@use '../../../libs/ui/design/material/src/material';
