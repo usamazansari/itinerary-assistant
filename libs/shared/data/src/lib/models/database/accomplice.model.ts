@@ -21,7 +21,7 @@ export interface IAccompliceOverview {
 }
 
 const AccompliceOverviewStub: IAccompliceOverview = {
-  id: `new-overview-${new Date().toISOString()}`,
+  id: `new-accomplice-${new Date().toISOString()}`,
   displayName: '',
   displayAvatar: ''
 };
@@ -43,6 +43,7 @@ export class AccompliceOverview implements IAccompliceOverview {
 }
 
 export interface IAccompliceDetails {
+  id: string;
   name: AccompliceName;
   email: string;
   phone: string;
@@ -56,6 +57,7 @@ export interface IAccompliceDetails {
 }
 
 const AccompliceDetailsStub: IAccompliceDetails = {
+  id: `new-accomplice-${new Date().toISOString()}`,
   name: new Name({}),
   email: '',
   phone: '',
@@ -69,6 +71,7 @@ const AccompliceDetailsStub: IAccompliceDetails = {
 };
 
 export class AccompliceDetails implements IAccompliceDetails {
+  id: string;
   name: AccompliceName;
   email: string;
   phone: string;
@@ -81,6 +84,7 @@ export class AccompliceDetails implements IAccompliceDetails {
   gender: AccompliceGender;
 
   constructor({
+    id = AccompliceDetailsStub.id,
     name = AccompliceDetailsStub.name,
     email = AccompliceDetailsStub.email,
     phone = AccompliceDetailsStub.phone,
@@ -92,6 +96,7 @@ export class AccompliceDetails implements IAccompliceDetails {
     identifications = AccompliceDetailsStub.identifications,
     gender = AccompliceDetailsStub.gender
   }: Partial<IAccompliceDetails>) {
+    this.id = id;
     this.name = name;
     this.email = email;
     this.phone = phone;
@@ -112,7 +117,7 @@ export interface IAccomplice {
 }
 
 const AccompliceStub: IAccomplice = {
-  id: '',
+  id: `new-accomplice-${new Date().toISOString()}`,
   // details: new AccompliceDetails({}),
   overview: new AccompliceOverview({})
 };
