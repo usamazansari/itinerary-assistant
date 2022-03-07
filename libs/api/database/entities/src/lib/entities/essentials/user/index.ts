@@ -1,1 +1,2 @@
-export * from './user-master.entity';
+export * from './accomplice-overview.entity';
+export * from './accomplice-master.entity';
