@@ -1,0 +1,27 @@
+{
+  "root": "libs/api/features/authentication",
+  "sourceRoot": "libs/api/features/authentication/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/features/authentication/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/features/authentication"],
+      "options": {
+        "jestConfig": "libs/api/features/authentication/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": [
+    "species:api-features-authentication",
+    "genus:library",
+    "family:api"
+  ]
+}
