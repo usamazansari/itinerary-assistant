@@ -1,6 +1,6 @@
 export {
   TripMaster,
-  AccompliceMaster,
-  AccompliceOverview,
+  UserMaster,
+  UserOverview,
   Name
 } from '@itinerary-assistant/api/database/entities';

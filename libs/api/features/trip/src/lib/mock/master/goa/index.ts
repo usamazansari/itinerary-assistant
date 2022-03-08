@@ -1,4 +1,4 @@
-import { GoaAccomplices } from './accomplices';
+import { GoaUsers } from './users';
 
 export const Goa = {
   id: 'trip-1',
@@ -8,6 +8,6 @@ export const Goa = {
       end: '2022-01-03T02:20:00.000Z' // January 3, 2022, 7:50AM IST
     },
     title: 'Goa',
-    accomplices: [...GoaAccomplices]
+    users: [...GoaUsers]
   }
 };

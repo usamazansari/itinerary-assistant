@@ -2,9 +2,9 @@ import { EntitySchema } from 'typeorm';
 
 import {
   TripMaster,
-  AccompliceMaster,
-  AccompliceOverview,
-  Name
+  UserMaster
+  // UserOverview,
+  // Name
 } from '../imports/entities';
 
 export const Entities: (
@@ -13,7 +13,7 @@ export const Entities: (
   | (() => unknown)
 )[] = [
   (<unknown>TripMaster) as EntitySchema<unknown>,
-  (<unknown>AccompliceMaster) as EntitySchema<unknown>,
-  (<unknown>AccompliceOverview) as EntitySchema<unknown>,
-  (<unknown>Name) as EntitySchema<unknown>
+  (<unknown>UserMaster) as EntitySchema<unknown>
+  // (<unknown>UserOverview) as EntitySchema<unknown>,
+  // (<unknown>Name) as EntitySchema<unknown>
 ];

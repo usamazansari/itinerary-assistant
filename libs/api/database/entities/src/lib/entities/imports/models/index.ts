@@ -1,6 +1,6 @@
 export {
-  IAccomplice,
-  IAccompliceDetails,
-  IAccompliceOverview,
+  IUser,
+  IUserDetails,
+  IUserOverview,
   IName
 } from '@itinerary-assistant/shared/data';

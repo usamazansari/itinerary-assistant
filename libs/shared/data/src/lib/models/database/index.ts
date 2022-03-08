@@ -6,4 +6,4 @@ export * from './name.model';
 export * from './photo.model';
 export * from './social-connection.model';
 
-export * from './accomplice.model';
+export * from './user.model';

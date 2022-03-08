@@ -4,13 +4,10 @@ import {
   Entity,
   PrimaryGeneratedColumn
 } from 'typeorm';
-import { IAccompliceOverview } from '../../imports/models';
+import { IUserOverview } from '../../imports/models';
 
-@Entity({ name: 'AccompliceOverview' })
-export class AccompliceOverview
-  extends BaseEntity
-  implements IAccompliceOverview
-{
+@Entity({ name: 'UserOverview' })
+export class UserOverview extends BaseEntity implements IUserOverview {
   @PrimaryGeneratedColumn()
   id!: string;
 
