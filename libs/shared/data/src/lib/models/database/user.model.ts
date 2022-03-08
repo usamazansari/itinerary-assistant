@@ -7,13 +7,6 @@ import {
   SocialConnection
 } from '.';
 
-// type UserAddress = Address;
-// type UserGender = Gender;
-// type UserIdentifications = Identification[];
-// type UserName = Name;
-// type UserPhoto = Photo;
-// type UserSocialConnections = SocialConnection[];
-
 export interface IUserOverview {
   id: string;
   displayName: string;
@@ -45,21 +38,15 @@ export class UserOverview implements IUserOverview {
 export interface IUserDetails {
   id: string;
   name: Name;
-  // name: UserName;
   email: string;
   phone: string;
-  // address: UserAddress;
   address: Address;
   website: string;
   social: SocialConnection[];
-  // social: UserSocialConnections;
   photo: Photo;
-  // photo: UserPhoto;
   dateOfBirth: string;
   identifications: Identification[];
-  // identifications: UserIdentifications;
   gender: Gender;
-  // gender: UserGender;
 }
 
 const UserDetailsStub: IUserDetails = {
@@ -79,21 +66,15 @@ const UserDetailsStub: IUserDetails = {
 export class UserDetails implements IUserDetails {
   id: string;
   name: Name;
-  // name: UserName;
   email: string;
   phone: string;
   address: Address;
-  // address: UserAddress;
   website: string;
   social: SocialConnection[];
-  // social: UserSocialConnections;
   photo: Photo;
-  // photo: UserPhoto;
   dateOfBirth: string;
   identifications: Identification[];
-  // identifications: UserIdentifications;
   gender: Gender;
-  // gender: UserGender;
 
   constructor({
     id = UserDetailsStub.id,
@@ -124,28 +105,16 @@ export class UserDetails implements IUserDetails {
 
 export interface IUser {
   id: string;
-  // overview: UserOverview;
-  // details: UserDetails;
 }
 
 const UserStub: IUser = {
   id: `new-user-${new Date().toISOString()}`
-  // details: new UserDetails({}),
-  // overview: new UserOverview({})
 };
 
 export class User implements IUser {
   id: string;
-  // overview: UserOverview;
-  // details: UserDetails;
 
-  constructor({
-    id = UserStub.id
-  }: // details = UserStub.details,
-  // overview = UserStub.overview
-  Partial<IUser>) {
+  constructor({ id = UserStub.id }: Partial<IUser>) {
     this.id = id;
-    // this.details = details;
-    // this.overview = overview;
   }
 }
