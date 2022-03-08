@@ -1,5 +1,6 @@
 export {
   IUser,
   IUserDetails,
-  IName
+  IName,
+  ITenure
 } from '@itinerary-assistant/shared/data';
