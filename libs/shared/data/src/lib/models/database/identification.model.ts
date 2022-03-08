@@ -1,40 +1,21 @@
-export interface IValidity {
-  start: string | number;
-  end: string | number;
-}
-
-const ValidityStub: IValidity = {
-  start: '',
-  end: ''
-};
-
-export class Validity implements IValidity {
-  start: string | number;
-  end: string | number;
-
-  constructor({
-    start = ValidityStub.start,
-    end = ValidityStub.end
-  }: Partial<IValidity>) {
-    this.start = start;
-    this.end = end;
-  }
-}
+import { Tenure } from '.';
 
 export interface IIdentification {
   id: string;
   type: string;
   number: string;
   name: string;
-  validity: Validity;
+  validity: Tenure;
+  userId: string;
 }
 
 const IdentificationStub: IIdentification = {
-  id: '',
+  id: `new-identification-${new Date().toISOString()}`,
   type: '',
   number: '',
   name: '',
-  validity: new Validity({})
+  validity: new Tenure({}),
+  userId: `new-identification-for-user-${new Date().toISOString()}`
 };
 
 export class Identification implements IIdentification {
@@ -42,19 +23,48 @@ export class Identification implements IIdentification {
   type: string;
   number: string;
   name: string;
-  validity: Validity;
+  validity: Tenure;
+  userId: string;
 
   constructor({
     id = IdentificationStub.id,
     type = IdentificationStub.type,
     number = IdentificationStub.number,
     name = IdentificationStub.name,
-    validity = new Validity({})
+    validity = new Tenure({}),
+    userId = IdentificationStub.userId
   }: Partial<IIdentification>) {
     this.id = id;
     this.type = type;
     this.number = number;
     this.name = name;
     this.validity = validity;
+    this.userId = userId;
+  }
+}
+
+type IdentificationDTOOmitType = 'id';
+
+export class IdentificationDTO
+  implements Omit<IIdentification, IdentificationDTOOmitType>
+{
+  type: string;
+  number: string;
+  name: string;
+  validity: Tenure;
+  userId: string;
+
+  constructor({
+    type = IdentificationStub.type,
+    number = IdentificationStub.number,
+    name = IdentificationStub.name,
+    validity = new Tenure({}),
+    userId = IdentificationStub.userId
+  }: Partial<IIdentification>) {
+    this.type = type;
+    this.number = number;
+    this.name = name;
+    this.validity = validity;
+    this.userId = userId;
   }
 }

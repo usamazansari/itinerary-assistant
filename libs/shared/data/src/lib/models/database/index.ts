@@ -1,3 +1,8 @@
+export * from './tenure.model';
+
+export * from './coordinates.model';
+export * from './timezone.model';
+
 export * from './location.model';
 export * from './address.model';
 
