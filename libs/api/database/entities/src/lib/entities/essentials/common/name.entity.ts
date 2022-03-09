@@ -25,5 +25,5 @@ export class Name extends BaseEntity implements IName {
 
   // @OneToOne(() => UserDetails)
   // @JoinColumn()
-  userId!: string;
+  user!: string;
 }

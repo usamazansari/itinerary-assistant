@@ -2,7 +2,7 @@ export interface ICoordinates {
   id: string;
   latitude: number;
   longitude: number;
-  locationId: string;
+  location: string;
 }
 
 const Timestamp = new Date().toISOString();
@@ -11,24 +11,24 @@ const CoordinatesStub: ICoordinates = {
   id: `new-coordinates-${Timestamp}`,
   latitude: 0,
   longitude: 0,
-  locationId: `location-for-new-coordinates-${Timestamp}`
+  location: `location-for-new-coordinates-${Timestamp}`
 };
 
 export class Coordinates implements ICoordinates {
   id: string;
   latitude: number;
   longitude: number;
-  locationId: string;
+  location: string;
   constructor({
     id = CoordinatesStub.id,
     latitude = CoordinatesStub.latitude,
     longitude = CoordinatesStub.longitude,
-    locationId = CoordinatesStub.locationId
+    location = CoordinatesStub.location
   }: Partial<ICoordinates>) {
     this.id = id;
     this.latitude = latitude;
     this.longitude = longitude;
-    this.locationId = locationId;
+    this.location = location;
   }
 }
 
@@ -39,15 +39,15 @@ export class CoordinatesDTO
 {
   latitude: number;
   longitude: number;
-  locationId: string;
+  location: string;
 
   constructor({
     latitude = CoordinatesStub.latitude,
     longitude = CoordinatesStub.longitude,
-    locationId = CoordinatesStub.locationId
+    location = CoordinatesStub.location
   }: Partial<ICoordinates>) {
     this.latitude = latitude;
     this.longitude = longitude;
-    this.locationId = locationId;
+    this.location = location;
   }
 }

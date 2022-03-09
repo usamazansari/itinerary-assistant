@@ -22,5 +22,5 @@ export class Timezone extends BaseEntity implements ITimezone {
 
   @OneToOne(() => Location, location => location.timezone)
   @JoinColumn()
-  locationId!: string;
+  location!: string;
 }

@@ -3,7 +3,7 @@ export interface IName {
   full: string;
   first: string;
   last: string;
-  userId: string;
+  user: string;
 }
 
 const Timestamp = new Date().toISOString();
@@ -13,7 +13,7 @@ const NameStub: IName = {
   full: '',
   first: '',
   last: '',
-  userId: `user-for-new-name-${Timestamp}`
+  user: `user-for-new-name-${Timestamp}`
 };
 
 export class Name implements IName {
@@ -21,20 +21,20 @@ export class Name implements IName {
   full: string;
   first: string;
   last: string;
-  userId: string;
+  user: string;
 
   constructor({
     id = NameStub.id,
     full = NameStub.full,
     first = NameStub.first,
     last = NameStub.last,
-    userId = NameStub.userId
+    user = NameStub.user
   }: Partial<IName>) {
     this.id = id;
     this.first = first;
     this.last = last;
     this.full = full ?? `${this.first} ${this.last}`;
-    this.userId = userId;
+    this.user = user;
   }
 }
 
@@ -43,15 +43,15 @@ type NameDTOOmitType = 'id' | 'full';
 export class NameDTO implements Omit<IName, NameDTOOmitType> {
   first: string;
   last: string;
-  userId: string;
+  user: string;
 
   constructor({
     first = NameStub.first,
     last = NameStub.last,
-    userId = NameStub.userId
+    user = NameStub.user
   }: Partial<IName>) {
     this.first = first;
     this.last = last;
-    this.userId = userId;
+    this.user = user;
   }
 }
