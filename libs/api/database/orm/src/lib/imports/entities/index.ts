@@ -4,6 +4,7 @@ export {
   Location,
   Name,
   Photo,
+  SocialConnection,
   Tenure,
   Timezone,
   User,

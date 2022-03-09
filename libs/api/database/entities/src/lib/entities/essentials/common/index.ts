@@ -8,3 +8,4 @@ export * from './location.entity';
 
 export * from './photo.entity';
 export * from './identification.entity';
+export * from './social-connection.entity';

@@ -4,6 +4,7 @@ export {
   ILocation,
   IName,
   IPhoto,
+  ISocialConnection,
   ITenure,
   ITimezone,
   IUser,

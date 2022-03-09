@@ -18,9 +18,7 @@ import {
   IUser
 } from '../../imports/models';
 
-import { Name, Photo } from '..';
-
-import { Identification } from '../common/identification.entity';
+import { Identification, Name, Photo, SocialConnection } from '..';
 
 @Entity({ name: 'User' })
 export class User extends BaseEntity implements IUser {
@@ -59,8 +57,11 @@ export class User extends BaseEntity implements IUser {
   @JoinColumn()
   name!: NameModel;
 
-  // @Column()
-  social!: SocialConnectionModel[];
+  @OneToMany(
+    () => SocialConnection,
+    socialConnection => socialConnection.user
+  )
+  socialConnection!: SocialConnectionModel[];
 
   @OneToMany(() => Photo, photo => photo.user)
   photo!: PhotoModel;
