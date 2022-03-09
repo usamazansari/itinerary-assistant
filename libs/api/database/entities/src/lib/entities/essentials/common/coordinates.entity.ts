@@ -2,7 +2,6 @@ import {
   BaseEntity,
   Column,
   Entity,
-  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn
 } from 'typeorm';
@@ -22,6 +21,5 @@ export class Coordinates extends BaseEntity implements ICoordinates {
   longitude!: number;
 
   @OneToOne(() => Location, location => location.coordinates)
-  @JoinColumn()
   location!: string;
 }

@@ -2,7 +2,6 @@ import {
   BaseEntity,
   Column,
   Entity,
-  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn
 } from 'typeorm';
@@ -21,6 +20,5 @@ export class Timezone extends BaseEntity implements ITimezone {
   offset!: number;
 
   @OneToOne(() => Location, location => location.timezone)
-  @JoinColumn()
   location!: string;
 }
