@@ -1,6 +1,7 @@
 import { EntitySchema } from 'typeorm';
 
 import {
+  Address,
   Coordinates,
   Identification,
   Location,
@@ -14,6 +15,7 @@ import {
 } from '../imports/entities';
 
 export const Entities: EntitySchema<unknown>[] = [
+  (<unknown>Address) as EntitySchema<unknown>,
   (<unknown>Coordinates) as EntitySchema<unknown>,
   (<unknown>Identification) as EntitySchema<unknown>,
   (<unknown>Location) as EntitySchema<unknown>,

@@ -18,7 +18,13 @@ import {
   IUser
 } from '../../imports/models';
 
-import { Identification, Name, Photo, SocialConnection } from '..';
+import {
+  Address,
+  Identification,
+  Name,
+  Photo,
+  SocialConnection
+} from '..';
 
 @Entity({ name: 'User' })
 export class User extends BaseEntity implements IUser {
@@ -37,7 +43,7 @@ export class User extends BaseEntity implements IUser {
   @Column()
   website!: string;
 
-  // @Column()
+  @OneToOne(() => Address)
   address!: AddressModel;
 
   @OneToMany(

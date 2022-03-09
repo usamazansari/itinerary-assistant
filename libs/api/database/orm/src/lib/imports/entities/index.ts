@@ -1,4 +1,5 @@
 export {
+  Address,
   Coordinates,
   Identification,
   Location,

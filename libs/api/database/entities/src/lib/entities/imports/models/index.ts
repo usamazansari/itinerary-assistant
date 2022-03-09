@@ -1,4 +1,5 @@
 export {
+  IAddress,
   ICoordinates,
   IIdentification,
   ILocation,
@@ -12,6 +13,7 @@ export {
   Coordinates as CoordinatesModel,
   Gender as GenderEnum,
   Identification as IdentificationModel,
+  Location as LocationModel,
   Name as NameModel,
   Photo as PhotoModel,
   SocialConnection as SocialConnectionModel,
