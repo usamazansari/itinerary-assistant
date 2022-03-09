@@ -7,14 +7,14 @@ import {
 
 import { ITenure } from '../../imports/models';
 
-@Entity({ name: 'tenure' })
+@Entity({ name: 'Tenure' })
 export class Tenure extends BaseEntity implements ITenure {
   @PrimaryGeneratedColumn()
   id!: string;
 
   @Column()
-  start!: string;
+  start!: Date;
 
   @Column()
-  end!: string;
+  end!: Date;
 }
