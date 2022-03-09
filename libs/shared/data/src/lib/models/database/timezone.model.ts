@@ -11,7 +11,7 @@ const TimezoneStub: ITimezone = {
   id: `new-timezone-${Timestamp}`,
   offset: 0,
   description: '',
-  locationId: `new-location-for-timezone-${Timestamp}`
+  locationId: `location-for-new-timezone-${Timestamp}`
 };
 
 export class Timezone implements ITimezone {

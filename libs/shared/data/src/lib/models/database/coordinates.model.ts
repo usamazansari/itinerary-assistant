@@ -5,11 +5,13 @@ export interface ICoordinates {
   locationId: string;
 }
 
+const Timestamp = new Date().toISOString();
+
 const CoordinatesStub: ICoordinates = {
-  id: `new-coordinates-${new Date().toISOString()}`,
+  id: `new-coordinates-${Timestamp}`,
   latitude: 0,
   longitude: 0,
-  locationId: `new-location-${new Date().toISOString()}`
+  locationId: `location-for-new-coordinates-${Timestamp}`
 };
 
 export class Coordinates implements ICoordinates {

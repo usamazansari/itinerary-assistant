@@ -17,8 +17,10 @@ export interface IAddress {
   location: Location;
 }
 
+const Timestamp = new Date().toISOString();
+
 const AddressStub: IAddress = {
-  id: `new-address-${new Date().toISOString()}`,
+  id: `new-address-${Timestamp}`,
   name: 'New Address',
   room: '',
   apartment: '',

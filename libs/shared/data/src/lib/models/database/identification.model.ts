@@ -9,13 +9,15 @@ export interface IIdentification {
   userId: string;
 }
 
+const Timestamp = new Date().toISOString();
+
 const IdentificationStub: IIdentification = {
-  id: `new-identification-${new Date().toISOString()}`,
+  id: `new-identification-${Timestamp}`,
   type: '',
   number: '',
   name: '',
   validity: new Tenure({}),
-  userId: `new-identification-for-user-${new Date().toISOString()}`
+  userId: `user-for-new-identification-${Timestamp}`
 };
 
 export class Identification implements IIdentification {

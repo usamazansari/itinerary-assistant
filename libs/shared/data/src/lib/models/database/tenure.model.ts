@@ -4,8 +4,10 @@ export interface ITenure {
   end: Date;
 }
 
+const Timestamp = new Date().toISOString();
+
 const TenureStub: ITenure = {
-  id: `new-tenure-${new Date().toISOString()}`,
+  id: `new-tenure-${Timestamp}`,
   start: new Date(),
   end: new Date()
 };

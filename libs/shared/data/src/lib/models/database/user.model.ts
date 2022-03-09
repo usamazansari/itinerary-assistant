@@ -13,8 +13,10 @@ export interface IUserOverview {
   displayAvatar: string;
 }
 
+const Timestamp = new Date().toISOString();
+
 const UserOverviewStub: IUserOverview = {
-  id: `new-user-${new Date().toISOString()}`,
+  id: `new-user-${Timestamp}`,
   displayName: '',
   displayAvatar: ''
 };
@@ -50,7 +52,7 @@ export interface IUserDetails {
 }
 
 const UserDetailsStub: IUserDetails = {
-  id: `new-user-${new Date().toISOString()}`,
+  id: `new-user-${Timestamp}`,
   name: new Name({}),
   email: '',
   phone: '',
@@ -108,7 +110,7 @@ export interface IUser {
 }
 
 const UserStub: IUser = {
-  id: `new-user-${new Date().toISOString()}`
+  id: `new-user-${Timestamp}`
 };
 
 export class User implements IUser {

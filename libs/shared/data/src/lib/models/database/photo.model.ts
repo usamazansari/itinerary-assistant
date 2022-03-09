@@ -6,12 +6,14 @@ export interface IPhoto {
   userId: string;
 }
 
+const Timestamp = new Date().toISOString();
+
 const PhotoStub: IPhoto = {
-  id: `new-photo-${new Date().toISOString()}`,
+  id: `new-photo-${Timestamp}`,
   large: '',
   medium: '',
   thumbnail: '',
-  userId: `new-photo-for-user-${new Date().toISOString()}`
+  userId: `user-for-new-photo-${Timestamp}`
 };
 
 export class Photo implements IPhoto {

@@ -6,12 +6,14 @@ export interface IName {
   userId: string;
 }
 
+const Timestamp = new Date().toISOString();
+
 const NameStub: IName = {
-  id: `new-name-${new Date().toISOString()}`,
+  id: `new-name-${Timestamp}`,
   full: '',
   first: '',
   last: '',
-  userId: `new-name-for-user-${new Date().toISOString()}`
+  userId: `user-for-new-name-${Timestamp}`
 };
 
 export class Name implements IName {

@@ -5,11 +5,13 @@ export interface ISocialConnection {
   userId: string;
 }
 
+const Timestamp = new Date().toISOString();
+
 const SocialConnectionStub: ISocialConnection = {
-  id: `new-connection-${new Date().toISOString()}`,
+  id: `new-connection-${Timestamp}`,
   name: '',
   url: '',
-  userId: `new-connection-for-user-${new Date().toISOString()}`
+  userId: `user-for-new-connection-${Timestamp}`
 };
 
 export class SocialConnection implements ISocialConnection {
