@@ -2,7 +2,7 @@ import {
   BaseEntity,
   Column,
   Entity,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn
 } from 'typeorm';
 
@@ -23,6 +23,6 @@ export class Photo extends BaseEntity implements IPhoto {
   @Column()
   thumbnail!: string;
 
-  @OneToOne(() => User, user => user.photo)
+  @ManyToOne(() => User, user => user.photo)
   user!: string;
 }

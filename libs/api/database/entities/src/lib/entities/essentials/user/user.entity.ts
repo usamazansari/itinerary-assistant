@@ -62,6 +62,6 @@ export class User extends BaseEntity implements IUser {
   // @Column()
   social!: SocialConnectionModel[];
 
-  @OneToOne(() => Photo)
+  @OneToMany(() => Photo, photo => photo.user)
   photo!: PhotoModel;
 }
