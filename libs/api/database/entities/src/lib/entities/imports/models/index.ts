@@ -1,17 +1,19 @@
 export {
-  IUser,
-  IName,
-  ITenure,
   ICoordinates,
+  IIdentification,
   ILocation,
-  ITimezone,
+  IName,
   IPhoto,
-  Coordinates as CoordinatesModel,
-  Timezone as TimezoneModel,
+  ITenure,
+  ITimezone,
+  IUser,
   Address as AddressModel,
-  Identification as IdentificationModel,
+  Coordinates as CoordinatesModel,
   Gender as GenderEnum,
-  SocialConnection as SocialConnectionModel,
+  Identification as IdentificationModel,
   Name as NameModel,
-  Photo as PhotoModel
+  Photo as PhotoModel,
+  SocialConnection as SocialConnectionModel,
+  Tenure as TenureModel,
+  Timezone as TimezoneModel
 } from '@itinerary-assistant/shared/data';

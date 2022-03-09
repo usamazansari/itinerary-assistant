@@ -1,10 +1,11 @@
 export {
-  TripMaster,
-  User,
-  Name,
   Coordinates,
+  Identification,
   Location,
+  Name,
+  Photo,
   Tenure,
   Timezone,
-  Photo
+  User,
+  TripMaster
 } from '@itinerary-assistant/api/database/entities';

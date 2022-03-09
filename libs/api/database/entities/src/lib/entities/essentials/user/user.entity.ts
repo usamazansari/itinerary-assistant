@@ -3,6 +3,7 @@ import {
   Column,
   Entity,
   JoinColumn,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn
 } from 'typeorm';
@@ -18,6 +19,8 @@ import {
 } from '../../imports/models';
 
 import { Name, Photo } from '..';
+
+import { Identification } from '../common/identification.entity';
 
 @Entity({ name: 'User' })
 export class User extends BaseEntity implements IUser {
@@ -39,7 +42,10 @@ export class User extends BaseEntity implements IUser {
   // @Column()
   address!: AddressModel;
 
-  // @Column()
+  @OneToMany(
+    () => Identification,
+    identification => identification.user
+  )
   identifications!: IdentificationModel[];
 
   @Column({
@@ -57,6 +63,5 @@ export class User extends BaseEntity implements IUser {
   social!: SocialConnectionModel[];
 
   @OneToOne(() => Photo)
-  @JoinColumn()
   photo!: PhotoModel;
 }

@@ -7,3 +7,4 @@ export * from './timezone.entity';
 export * from './location.entity';
 
 export * from './photo.entity';
+export * from './identification.entity';
