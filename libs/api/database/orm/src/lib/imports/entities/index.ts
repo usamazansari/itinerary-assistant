@@ -1,6 +1,9 @@
 export {
   TripMaster,
   UserMaster,
-  UserOverview,
-  Name
+  Name,
+  Coordinates,
+  Location,
+  Tenure,
+  Timezone
 } from '@itinerary-assistant/api/database/entities';

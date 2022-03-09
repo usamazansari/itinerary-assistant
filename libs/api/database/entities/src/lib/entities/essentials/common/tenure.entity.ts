@@ -13,8 +13,8 @@ export class Tenure extends BaseEntity implements ITenure {
   id!: string;
 
   @Column()
-  start!: string | number;
+  start!: string;
 
   @Column()
-  end!: string | number;
+  end!: string;
 }

@@ -2,5 +2,10 @@ export {
   IUser,
   IUserDetails,
   IName,
-  ITenure
+  ITenure,
+  ICoordinates,
+  ILocation,
+  ITimezone,
+  Coordinates as CoordinatesModel,
+  Timezone as TimezoneModel
 } from '@itinerary-assistant/shared/data';

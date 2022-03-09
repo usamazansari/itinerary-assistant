@@ -1,7 +1,9 @@
+// TODO - Usama Ansari: Try using `Date` instead of `string`
+
 export interface ITenure {
   id: string;
-  start: string | number;
-  end: string | number;
+  start: string;
+  end: string;
 }
 
 const TenureStub: ITenure = {
@@ -12,8 +14,8 @@ const TenureStub: ITenure = {
 
 export class Tenure implements ITenure {
   id: string;
-  start: string | number;
-  end: string | number;
+  start: string;
+  end: string;
 
   constructor({
     id = TenureStub.id,
@@ -29,8 +31,8 @@ export class Tenure implements ITenure {
 type TenureDTOOmitType = 'id';
 
 export class TenureDTO implements Omit<ITenure, TenureDTOOmitType> {
-  start: string | number;
-  end: string | number;
+  start: string;
+  end: string;
 
   constructor({
     start = TenureStub.start,
