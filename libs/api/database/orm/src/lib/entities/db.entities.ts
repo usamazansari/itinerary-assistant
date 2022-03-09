@@ -6,6 +6,7 @@ import {
   Coordinates,
   Location,
   Name,
+  Photo,
   Tenure,
   Timezone
 } from '../imports/entities';
@@ -21,5 +22,6 @@ export const Entities: (
   (<unknown>Timezone) as EntitySchema<unknown>,
   (<unknown>Location) as EntitySchema<unknown>,
   (<unknown>Name) as EntitySchema<unknown>,
-  (<unknown>Tenure) as EntitySchema<unknown>
+  (<unknown>Tenure) as EntitySchema<unknown>,
+  (<unknown>Photo) as EntitySchema<unknown>
 ];
