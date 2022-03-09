@@ -2,7 +2,7 @@ import { EntitySchema } from 'typeorm';
 
 import {
   TripMaster,
-  UserMaster,
+  User,
   Coordinates,
   Location,
   Name,
@@ -16,7 +16,7 @@ export const Entities: (
   | (() => unknown)
 )[] = [
   (<unknown>TripMaster) as EntitySchema<unknown>,
-  (<unknown>UserMaster) as EntitySchema<unknown>,
+  (<unknown>User) as EntitySchema<unknown>,
   (<unknown>Coordinates) as EntitySchema<unknown>,
   (<unknown>Timezone) as EntitySchema<unknown>,
   (<unknown>Location) as EntitySchema<unknown>,

@@ -1,6 +1,6 @@
 export {
   TripMaster,
-  UserMaster,
+  User,
   Name,
   Coordinates,
   Location,
