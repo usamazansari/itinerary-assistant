@@ -16,7 +16,7 @@ import { Coordinates, Timezone } from '.';
 
 @Entity({ name: 'Location' })
 export class Location extends BaseEntity implements ILocation {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column()

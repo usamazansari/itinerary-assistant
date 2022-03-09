@@ -11,7 +11,7 @@ import { IName } from '../../imports/models';
 
 @Entity({ name: 'Name' })
 export class Name extends BaseEntity implements IName {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column()

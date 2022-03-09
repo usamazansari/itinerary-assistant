@@ -1,6 +1,5 @@
 export {
   IUser,
-  IUserDetails,
   IName,
   ITenure,
   ICoordinates,

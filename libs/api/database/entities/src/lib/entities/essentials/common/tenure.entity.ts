@@ -9,7 +9,7 @@ import { ITenure } from '../../imports/models';
 
 @Entity({ name: 'Tenure' })
 export class Tenure extends BaseEntity implements ITenure {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column()

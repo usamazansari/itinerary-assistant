@@ -2,6 +2,7 @@ import {
   BaseEntity,
   Column,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn
 } from 'typeorm';
@@ -11,7 +12,7 @@ import { Location } from '.';
 
 @Entity({ name: 'Coordinates' })
 export class Coordinates extends BaseEntity implements ICoordinates {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column()
@@ -21,5 +22,6 @@ export class Coordinates extends BaseEntity implements ICoordinates {
   longitude!: number;
 
   @OneToOne(() => Location, location => location.coordinates)
-  locationId!: string;
+  @JoinColumn()
+  location!: string;
 }

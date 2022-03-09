@@ -11,7 +11,7 @@ import { ITimezone } from '../../imports/models';
 import { Location } from '.';
 @Entity({ name: 'Timezone' })
 export class Timezone extends BaseEntity implements ITimezone {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column()
