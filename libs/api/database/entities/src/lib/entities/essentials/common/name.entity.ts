@@ -2,8 +2,6 @@ import {
   BaseEntity,
   Column,
   Entity,
-  // JoinColumn,
-  // OneToOne,
   PrimaryGeneratedColumn
 } from 'typeorm';
 
@@ -22,8 +20,4 @@ export class Name extends BaseEntity implements IName {
 
   @Column()
   full!: string;
-
-  // @OneToOne(() => UserDetails)
-  // @JoinColumn()
-  user!: string;
 }

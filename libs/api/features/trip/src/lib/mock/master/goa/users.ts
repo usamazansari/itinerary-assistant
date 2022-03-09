@@ -1,85 +1,96 @@
-// import { Gender } from '../../../imports/constants';
+import { Gender } from '../../../imports/constants';
 import { User } from '../../../imports/models';
 
 export const GoaUsers: User[] = [
   {
-    id: 'user-1'
-    // overview: {
-    //   displayName: 'Usama Ansari',
-    //   displayAvatar: 'https://randomuser.me/api/portraits/'
-    // },
-    // details: {
-    //   name: {
-    //     full: 'Usama Ansari',
-    //     first: 'Usama',
-    //     last: 'Ansari'
-    //   },
-    //   gender: Gender.Male,
-    //   email: 'usama251993@gmail.com',
-    //   phone: '+91 80977 28350',
-    //   address: {
-    //     id: 'usama-home',
-    //     name: 'Home',
-    //     room: '1301',
-    //     apartment: 'Sayba Nx',
-    //     wing: 'A',
-    //     street: 'S. G. Barve Marg',
-    //     landmark: 'Opposite Kurla Railway Station',
-    //     locality: 'Nehru Nagar',
-    //     suburb: 'Kurla East',
-    //     city: 'Mumbai',
-    //     state: 'Maharashtra',
-    //     country: 'India',
-    //     zip: '400024',
-    //     location: {
-    //       plusCode: '3V7J+59 Mumbai, Maharashtra',
-    //       coordinates: {
-    //         latitude: 19.0628191,
-    //         longitude: 72.8808394
-    //       },
-    //       timezone: {
-    //         offset: 5.5,
-    //         description: 'Asia/Kolkata'
-    //       }
-    //     }
-    //   },
-    //   website: 'https://usamaansari.com',
-    //   social: {
-    //     facebook: 'https://facebook.com/usamaansari',
-    //     twitter: 'https://twitter.com/usamaansari',
-    //     linkedin: 'https://linkedin.com/in/usamaansari',
-    //     instagram: 'https://instagram.com/usamaansari'
-    //   },
-    //   photo: {
-    //     large: 'https://randomuser.me/api/portraits/usamaansari',
-    //     medium:
-    //       'https://randomuser.me/api/portraits/medium/usamaansari',
-    //     thumbnail:
-    //       'https://randomuser.me/api/portraits/thumb/usamaansari'
-    //   },
-    //   dateOfBirth: '1993-10-25T00:00:00.000Z',
-    //   identification: [
-    //     {
-    //       id: 'user-1-id-1',
-    //       type: 'government',
-    //       number: '871797443404',
-    //       name: 'Aadhar Card',
-    //       validity: {
-    //         start: -Infinity,
-    //         end: Infinity
-    //       }
-    //     },
-    //     {
-    //       id: 'user-1-id-2',
-    //       type: 'passport',
-    //       number: 'M6968768',
-    //       name: 'Passport',
-    //       validity: {
-    //         start: '2020-01-01T00:00:00.000Z',
-    //         end: '2021-12-31T00:00:00.000Z'
-    //       }
-    //     }
-    //   ]
-    // }
+    id: 'user-1',
+    name: {
+      id: 'user-1-name',
+      first: 'Usama',
+      last: 'Ansari',
+      full: 'Usama Ansari'
+    },
+    dateOfBirth: new Date(1993, 9, 25),
+    address: {
+      id: 'user-1-address',
+      room: '1301',
+      wing: 'A',
+      apartment: 'Sayba Nx',
+      street: 'S. G. Barve Marg',
+      landmark: 'Opposite Kurla Railway Station',
+      locality: 'Nehru Nagar',
+      suburb: 'Kurla East',
+      city: 'Mumbai',
+      state: 'Maharashtra',
+      country: 'India',
+      zip: '400024',
+      name: 'Rent',
+      location: {
+        id: 'user-1-address-location',
+        plusCode: '3V7J+59 Mumbai, Maharashtra',
+        coordinates: {
+          id: 'user-1-address-location-coordinates',
+          latitude: 19.0628191,
+          longitude: 72.8808394,
+          location: 'user-1-address-location'
+        },
+        timezone: {
+          id: 'user-1-address-location-timezone',
+          offset: 5.5,
+          description: 'Asia/Kolkata',
+          location: 'user-1-address-location'
+        }
+      }
+    },
+    gender: Gender.Male,
+    email: 'usama251993@gmail.com',
+    phone: '+91 80977 28350',
+    website: 'https://usamaansari.com',
+    social: [
+      {
+        id: 'user-1-social-1',
+        url: 'https://www.linkedin.com/in/usama-ansari-81380080/',
+        name: 'LinkedIn',
+        userId: 'user-1'
+      },
+      {
+        id: 'user-1-social-2',
+        url: 'https://instagram.com/usamazansari',
+        name: 'Instagram',
+        userId: 'user-1'
+      },
+      {
+        id: 'user-1-social-3',
+        url: 'https://github.com/usamazansari',
+        name: 'GitHub',
+        userId: 'user-1'
+      }
+    ],
+    photo: {
+      id: 'user-1-photo',
+      large: 'https://randomuser.me/api/portraits/usamaansari',
+      medium: 'https://randomuser.me/api/portraits/medium/usamaansari',
+      thumbnail:
+        'https://randomuser.me/api/portraits/thumb/usamaansari',
+      user: 'user-1'
+    },
+    identifications: [
+      {
+        id: 'user-1-id-1',
+        type: 'government',
+        number: '871797443404',
+        name: 'Aadhar Card',
+        validity: 'user-1-id-1-validity',
+        user: 'user-1'
+      },
+      {
+        id: 'user-1-id-2',
+        type: 'passport',
+        number: 'M6968768',
+        name: 'Passport',
+        validity: 'user-1-id-2-validity',
+        user: 'user-1'
+      }
+    ]
   }
 ];
