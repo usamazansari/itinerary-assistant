@@ -5,6 +5,7 @@ export {
   ICoordinates,
   ILocation,
   ITimezone,
+  IPhoto,
   Coordinates as CoordinatesModel,
   Timezone as TimezoneModel,
   Address as AddressModel,

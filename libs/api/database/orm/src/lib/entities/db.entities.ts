@@ -11,11 +11,7 @@ import {
   Timezone
 } from '../imports/entities';
 
-export const Entities: (
-  | string
-  | EntitySchema<unknown>
-  | (() => unknown)
-)[] = [
+export const Entities: EntitySchema<unknown>[] = [
   (<unknown>TripMaster) as EntitySchema<unknown>,
   (<unknown>User) as EntitySchema<unknown>,
   (<unknown>Coordinates) as EntitySchema<unknown>,
