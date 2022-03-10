@@ -9,8 +9,7 @@ import {
 } from 'typeorm';
 
 import { IIdentification } from '../../imports/models';
-import { Tenure } from '.';
-import { User } from '..';
+import { Tenure, User } from '..';
 
 @Entity({ name: 'Identification' })
 export class Identification

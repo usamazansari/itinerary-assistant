@@ -7,7 +7,8 @@ import {
 } from 'typeorm';
 
 import { ITimezone } from '../../imports/models';
-import { Location } from '.';
+import { Location } from '..';
+
 @Entity({ name: 'Timezone' })
 export class Timezone extends BaseEntity implements ITimezone {
   @PrimaryGeneratedColumn('uuid')
