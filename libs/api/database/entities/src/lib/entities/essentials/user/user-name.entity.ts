@@ -5,10 +5,10 @@ import {
   PrimaryGeneratedColumn
 } from 'typeorm';
 
-import { IName } from '../../imports/models';
+import { IUserName } from '../../imports/models';
 
-@Entity({ name: 'Name' })
-export class Name extends BaseEntity implements IName {
+@Entity({ name: 'UserName' })
+export class UserName extends BaseEntity implements IUserName {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
@@ -18,6 +18,6 @@ export class Name extends BaseEntity implements IName {
   @Column()
   last!: string;
 
-  @Column()
+  @Column({ nullable: true })
   full!: string;
 }

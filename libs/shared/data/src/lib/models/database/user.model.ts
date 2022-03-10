@@ -2,7 +2,7 @@ import { Gender } from '../../constants';
 import {
   Address,
   Identification,
-  Name,
+  UserName,
   Photo,
   SocialConnection
 } from '.';
@@ -11,7 +11,7 @@ const Timestamp = new Date().toISOString();
 
 export interface IUser {
   id: string;
-  name: Name;
+  name: UserName;
   email: string;
   phone: string;
   address: Address;
@@ -25,7 +25,7 @@ export interface IUser {
 
 const UserStub: IUser = {
   id: `new-user-${Timestamp}`,
-  name: new Name({}),
+  name: new UserName({}),
   email: '',
   phone: '',
   address: new Address({}),
@@ -39,7 +39,7 @@ const UserStub: IUser = {
 
 export class User implements IUser {
   id: string;
-  name: Name;
+  name: UserName;
   email: string;
   phone: string;
   address: Address;

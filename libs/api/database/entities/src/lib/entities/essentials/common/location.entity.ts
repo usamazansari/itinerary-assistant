@@ -12,7 +12,7 @@ import {
   CoordinatesModel,
   TimezoneModel
 } from '../../imports/models';
-import { Coordinates, Timezone } from '.';
+import { Coordinates, Timezone } from '..';
 
 @Entity({ name: 'Location' })
 export class Location extends BaseEntity implements ILocation {

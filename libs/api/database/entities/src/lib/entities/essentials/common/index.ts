@@ -1,5 +1,3 @@
-export * from './name.entity';
-
 export * from './tenure.entity';
 
 export * from './coordinates.entity';
