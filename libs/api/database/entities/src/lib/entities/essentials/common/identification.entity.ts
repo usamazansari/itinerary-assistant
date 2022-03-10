@@ -2,6 +2,7 @@ import {
   BaseEntity,
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn
@@ -29,6 +30,7 @@ export class Identification
   name!: string;
 
   @OneToOne(() => Tenure)
+  @JoinColumn()
   validity!: string;
 
   @ManyToOne(() => User, user => user.identifications)

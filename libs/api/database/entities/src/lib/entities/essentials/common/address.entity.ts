@@ -2,6 +2,7 @@ import {
   BaseEntity,
   Column,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn
 } from 'typeorm';
@@ -11,7 +12,7 @@ import { Location } from '.';
 
 @Entity({ name: 'Address' })
 export class Address extends BaseEntity implements IAddress {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column()
@@ -51,5 +52,6 @@ export class Address extends BaseEntity implements IAddress {
   zip!: string;
 
   @OneToOne(() => Location)
+  @JoinColumn()
   location!: LocationModel;
 }

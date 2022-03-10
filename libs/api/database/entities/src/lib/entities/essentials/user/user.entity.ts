@@ -44,6 +44,7 @@ export class User extends BaseEntity implements IUser {
   website!: string;
 
   @OneToOne(() => Address)
+  @JoinColumn()
   address!: AddressModel;
 
   @OneToMany(
