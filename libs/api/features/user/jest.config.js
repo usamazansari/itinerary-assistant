@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'api-features-authentication',
+  displayName: 'api-features-user',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,6 +11,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest'
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory:
-    '../../../../coverage/libs/api/features/authentication'
+  coverageDirectory: '../../../../coverage/libs/api/features/user'
 };
