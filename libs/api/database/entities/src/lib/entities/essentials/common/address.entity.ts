@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 
 import { IAddress, LocationModel } from '../../imports/models';
-import { Location } from '.';
+import { Location } from '..';
 
 @Entity({ name: 'Address' })
 export class Address extends BaseEntity implements IAddress {

@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 
 import { ICoordinates } from '../../imports/models';
-import { Location } from '.';
+import { Location } from '..';
 
 @Entity({ name: 'Coordinates' })
 export class Coordinates extends BaseEntity implements ICoordinates {

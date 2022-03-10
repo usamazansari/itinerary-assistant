@@ -1,4 +1,4 @@
-export interface IName {
+export interface IUserName {
   id: string;
   full?: string;
   first: string;
@@ -7,25 +7,25 @@ export interface IName {
 
 const Timestamp = new Date().toISOString();
 
-const NameStub: IName = {
+const UserNameStub: IUserName = {
   id: `new-name-${Timestamp}`,
   full: '',
   first: '',
   last: ''
 };
 
-export class Name implements IName {
+export class UserName implements IUserName {
   id: string;
   full: string;
   first: string;
   last: string;
 
   constructor({
-    id = NameStub.id,
-    full = NameStub.full,
-    first = NameStub.first,
-    last = NameStub.last
-  }: Partial<IName>) {
+    id = UserNameStub.id,
+    full = UserNameStub.full,
+    first = UserNameStub.first,
+    last = UserNameStub.last
+  }: Partial<IUserName>) {
     this.id = id;
     this.first = first;
     this.last = last;
@@ -35,14 +35,14 @@ export class Name implements IName {
 
 type NameDTOOmitType = 'id' | 'full';
 
-export class NameDTO implements Omit<IName, NameDTOOmitType> {
+export class NameDTO implements Omit<IUserName, NameDTOOmitType> {
   first: string;
   last: string;
 
   constructor({
-    first = NameStub.first,
-    last = NameStub.last
-  }: Partial<IName>) {
+    first = UserNameStub.first,
+    last = UserNameStub.last
+  }: Partial<IUserName>) {
     this.first = first;
     this.last = last;
   }

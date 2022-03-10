@@ -13,7 +13,7 @@ import {
   GenderEnum,
   IdentificationModel,
   SocialConnectionModel,
-  NameModel,
+  UserNameModel,
   PhotoModel,
   IUser
 } from '../../imports/models';
@@ -21,7 +21,7 @@ import {
 import {
   Address,
   Identification,
-  Name,
+  UserName,
   Photo,
   SocialConnection
 } from '..';
@@ -60,9 +60,9 @@ export class User extends BaseEntity implements IUser {
   })
   gender!: GenderEnum;
 
-  @OneToOne(() => Name)
+  @OneToOne(() => UserName)
   @JoinColumn()
-  name!: NameModel;
+  name!: UserNameModel;
 
   @OneToMany(
     () => SocialConnection,
