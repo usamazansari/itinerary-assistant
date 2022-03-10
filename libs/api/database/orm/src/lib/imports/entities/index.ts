@@ -3,7 +3,7 @@ export {
   Coordinates,
   Identification,
   Location,
-  Name,
+  UserName,
   Photo,
   SocialConnection,
   Tenure,
