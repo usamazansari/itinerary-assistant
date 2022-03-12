@@ -14,7 +14,7 @@ export class SocialConnection
   extends BaseEntity
   implements ISocialConnection
 {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column()
