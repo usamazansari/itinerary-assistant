@@ -1,5 +1,5 @@
-import { Gender } from '../../../imports/constants';
-import { User } from '../../../imports/models';
+import { Gender } from '../../imports/constants';
+import { User } from '../../imports/models';
 
 export const GoaUsers: User[] = [
   {
