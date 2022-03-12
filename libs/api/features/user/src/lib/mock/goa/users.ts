@@ -4,7 +4,7 @@ import { User } from '../../imports/models';
 export const GoaUsers: User[] = [
   {
     id: 'user-1',
-    name: {
+    username: {
       id: 'user-1-name',
       first: 'Usama',
       last: 'Ansari',

@@ -1,3 +1,4 @@
+// TODO - Usama Ansari: add more fields (salutation, nickname, etc)
 export interface IUserName {
   id: string;
   full?: string;
