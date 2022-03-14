@@ -8,15 +8,7 @@ import {
   PrimaryGeneratedColumn
 } from 'typeorm';
 
-import {
-  AddressModel,
-  GenderEnum,
-  IdentificationModel,
-  SocialConnectionModel,
-  UserNameModel,
-  PhotoModel,
-  IUser
-} from '../../imports/models';
+import { GenderEnum, IUser } from '../../imports/models';
 
 import {
   Address,
@@ -45,13 +37,13 @@ export class User extends BaseEntity implements IUser {
 
   @OneToOne(() => Address)
   @JoinColumn()
-  address!: AddressModel;
+  address!: string;
 
   @OneToMany(
     () => Identification,
     identification => identification.user
   )
-  identifications!: IdentificationModel[];
+  identifications!: string[];
 
   @Column({
     type: 'enum',
@@ -62,14 +54,14 @@ export class User extends BaseEntity implements IUser {
 
   @OneToOne(() => UserName)
   @JoinColumn()
-  username!: UserNameModel;
+  username!: string;
 
   @OneToMany(
     () => SocialConnection,
     socialConnection => socialConnection.user
   )
-  socialConnection!: SocialConnectionModel[];
+  socialConnection!: string[];
 
   @OneToMany(() => Photo, photo => photo.user)
-  photo!: PhotoModel;
+  photo!: string;
 }

@@ -1,39 +1,32 @@
 import { Gender } from '../../constants';
-import {
-  Address,
-  Identification,
-  UserName,
-  Photo,
-  SocialConnection
-} from '.';
 
 const Timestamp = new Date().toISOString();
 
 export interface IUser {
   id: string;
 
-  // TODO - Usama Ansari: Remove this field and use it as string instead - Make another field for the detailed username (refer comments in IUserName)
-  username: UserName;
+  // TODO - Usama Ansari: Remove this field and use it as string instead - Make another field for the detailed username (refer comments in Istring)
+  username: string;
   email: string;
   phone: string;
-  address: Address;
+  address: string;
   website: string;
-  socialConnection: SocialConnection[];
-  photo: Photo;
+  socialConnection: string[];
+  photo: string;
   dateOfBirth: Date;
-  identifications: Identification[];
+  identifications: string[];
   gender: Gender;
 }
 
 const UserStub: IUser = {
   id: `new-user-${Timestamp}`,
-  username: new UserName({}),
+  username: `username-for-new-user-${Timestamp}`,
   email: '',
   phone: '',
-  address: new Address({}),
+  address: `address-for-new-user-${Timestamp}`,
   website: '',
   socialConnection: [],
-  photo: new Photo({}),
+  photo: `photo-for-new-user-${Timestamp}`,
   dateOfBirth: new Date(),
   identifications: [],
   gender: Gender.Male
@@ -41,15 +34,15 @@ const UserStub: IUser = {
 
 export class User implements IUser {
   id: string;
-  username: UserName;
+  username: string;
   email: string;
   phone: string;
-  address: Address;
+  address: string;
   website: string;
-  socialConnection: SocialConnection[];
-  photo: Photo;
+  socialConnection: string[];
+  photo: string;
   dateOfBirth: Date;
-  identifications: Identification[];
+  identifications: string[];
   gender: Gender;
 
   constructor({
