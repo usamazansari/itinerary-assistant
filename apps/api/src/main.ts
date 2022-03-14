@@ -6,6 +6,8 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
+import { createConnection } from 'typeorm';
+
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
@@ -17,6 +19,9 @@ async function bootstrap() {
   Logger.log(
     `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
   );
+
+  const dbConnection = await createConnection();
+  dbConnection.runMigrations();
 }
 
 bootstrap();
