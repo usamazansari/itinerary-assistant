@@ -4,78 +4,19 @@ import { User } from '../../imports/models';
 export const GoaUsers: User[] = [
   {
     id: 'user-1',
-    username: {
-      id: 'user-1-name',
-      first: 'Usama',
-      last: 'Ansari',
-      full: 'Usama Ansari'
-    },
+    username: 'user-1-name',
     dateOfBirth: new Date(1993, 9, 25),
-    address: {
-      id: 'user-1-address',
-      room: '1301',
-      wing: 'A',
-      apartment: 'Sayba Nx',
-      street: 'S. G. Barve Marg',
-      landmark: 'Opposite Kurla Railway Station',
-      locality: 'Nehru Nagar',
-      suburb: 'Kurla East',
-      city: 'Mumbai',
-      state: 'Maharashtra',
-      country: 'India',
-      zip: '400024',
-      name: 'Rent',
-      location: 'user-1-address-location'
-    },
+    address: 'user-1-address',
     gender: Gender.Male,
     email: 'usama251993@gmail.com',
     phone: '+91 80977 28350',
     website: 'https://usamaansari.com',
     socialConnection: [
-      {
-        id: 'user-1-social-1',
-        url: 'https://www.linkedin.com/in/usama-ansari-81380080/',
-        name: 'LinkedIn',
-        user: 'user-1'
-      },
-      {
-        id: 'user-1-social-2',
-        url: 'https://instagram.com/usamazansari',
-        name: 'Instagram',
-        user: 'user-1'
-      },
-      {
-        id: 'user-1-social-3',
-        url: 'https://github.com/usamazansari',
-        name: 'GitHub',
-        user: 'user-1'
-      }
+      'user-1-social-1',
+      'user-1-social-2',
+      'user-1-social-3'
     ],
-    photo: {
-      id: 'user-1-photo',
-      large: 'https://randomuser.me/api/portraits/usamaansari',
-      medium: 'https://randomuser.me/api/portraits/medium/usamaansari',
-      thumbnail:
-        'https://randomuser.me/api/portraits/thumb/usamaansari',
-      user: 'user-1'
-    },
-    identifications: [
-      {
-        id: 'user-1-id-1',
-        type: 'government',
-        number: '871797443404',
-        name: 'Aadhar Card',
-        validity: 'user-1-id-1-validity',
-        user: 'user-1'
-      },
-      {
-        id: 'user-1-id-2',
-        type: 'passport',
-        number: 'M6968768',
-        name: 'Passport',
-        validity: 'user-1-id-2-validity',
-        user: 'user-1'
-      }
-    ]
+    photo: 'user-1-photo',
+    identifications: ['user-1-id-1', 'user-1-id-2']
   }
 ];
