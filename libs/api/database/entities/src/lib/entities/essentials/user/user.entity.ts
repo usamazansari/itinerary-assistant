@@ -62,7 +62,7 @@ export class User extends BaseEntity implements IUser {
 
   @OneToOne(() => UserName)
   @JoinColumn()
-  name!: UserNameModel;
+  username!: UserNameModel;
 
   @OneToMany(
     () => SocialConnection,

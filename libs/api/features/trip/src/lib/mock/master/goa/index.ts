@@ -1,4 +1,4 @@
-import { GoaUsers } from './users';
+import { GoaUsers } from '../../../imports/mock';
 
 export const Goa = {
   id: 'trip-1',

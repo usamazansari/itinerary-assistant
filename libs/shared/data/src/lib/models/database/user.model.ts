@@ -11,7 +11,9 @@ const Timestamp = new Date().toISOString();
 
 export interface IUser {
   id: string;
-  name: UserName;
+
+  // TODO - Usama Ansari: Remove this field and use it as string instead - Make another field for the detailed username (refer comments in IUserName)
+  username: UserName;
   email: string;
   phone: string;
   address: Address;
@@ -25,7 +27,7 @@ export interface IUser {
 
 const UserStub: IUser = {
   id: `new-user-${Timestamp}`,
-  name: new UserName({}),
+  username: new UserName({}),
   email: '',
   phone: '',
   address: new Address({}),
@@ -39,7 +41,7 @@ const UserStub: IUser = {
 
 export class User implements IUser {
   id: string;
-  name: UserName;
+  username: UserName;
   email: string;
   phone: string;
   address: Address;
@@ -52,7 +54,7 @@ export class User implements IUser {
 
   constructor({
     id = UserStub.id,
-    name = UserStub.name,
+    username = UserStub.username,
     email = UserStub.email,
     phone = UserStub.phone,
     address = UserStub.address,
@@ -64,7 +66,7 @@ export class User implements IUser {
     gender = UserStub.gender
   }: Partial<IUser>) {
     this.id = id;
-    this.name = name;
+    this.username = username;
     this.email = email;
     this.phone = phone;
     this.address = address;
