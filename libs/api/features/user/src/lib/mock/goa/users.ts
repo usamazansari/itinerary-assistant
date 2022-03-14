@@ -28,18 +28,8 @@ export const GoaUsers: User[] = [
       location: {
         id: 'user-1-address-location',
         plusCode: '3V7J+59 Mumbai, Maharashtra',
-        coordinates: {
-          id: 'user-1-address-location-coordinates',
-          latitude: 19.0628191,
-          longitude: 72.8808394,
-          location: 'user-1-address-location'
-        },
-        timezone: {
-          id: 'user-1-address-location-timezone',
-          offset: 5.5,
-          description: 'Asia/Kolkata',
-          location: 'user-1-address-location'
-        }
+        coordinates: 'user-1-address-location-coordinates',
+        timezone: 'user-1-address-location-timezone'
       }
     },
     gender: Gender.Male,

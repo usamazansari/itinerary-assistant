@@ -7,11 +7,7 @@ import {
   PrimaryGeneratedColumn
 } from 'typeorm';
 
-import {
-  ILocation,
-  CoordinatesModel,
-  TimezoneModel
-} from '../../imports/models';
+import { ILocation } from '../../imports/models';
 import { Coordinates, Timezone } from '..';
 
 @Entity({ name: 'Location' })
@@ -24,9 +20,9 @@ export class Location extends BaseEntity implements ILocation {
 
   @OneToOne(() => Coordinates)
   @JoinColumn()
-  coordinates!: CoordinatesModel;
+  coordinates!: string;
 
   @OneToOne(() => Timezone)
   @JoinColumn()
-  timezone!: TimezoneModel;
+  timezone!: string;
 }
