@@ -25,12 +25,7 @@ export const GoaUsers: User[] = [
       country: 'India',
       zip: '400024',
       name: 'Rent',
-      location: {
-        id: 'user-1-address-location',
-        plusCode: '3V7J+59 Mumbai, Maharashtra',
-        coordinates: 'user-1-address-location-coordinates',
-        timezone: 'user-1-address-location-timezone'
-      }
+      location: 'user-1-address-location'
     },
     gender: Gender.Male,
     email: 'usama251993@gmail.com',

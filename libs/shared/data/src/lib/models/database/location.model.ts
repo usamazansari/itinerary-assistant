@@ -1,5 +1,3 @@
-// import { Coordinates, Timezone } from '.';
-
 export interface ILocation {
   id: string;
   plusCode: string;
