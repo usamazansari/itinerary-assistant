@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+// import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { TripMaster } from './imports/entities';
+// import { TripMaster } from './imports/entities';
 
 import { TripController } from './controllers';
 import { TripService } from './services';
