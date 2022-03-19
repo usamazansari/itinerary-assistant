@@ -7,7 +7,7 @@ import { TripController } from './controllers';
 import { TripService } from './services';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([TripMaster])],
+  // imports: [TypeOrmModule.forFeature([TripMaster])],
   controllers: [TripController],
   providers: [TripService],
   exports: []

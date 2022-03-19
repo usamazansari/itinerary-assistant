@@ -10,8 +10,8 @@ import {
   SocialConnection,
   Tenure,
   Timezone,
-  User,
-  TripMaster
+  User
+  // TripMaster
 } from '../imports/entities';
 
 export const Entities: EntitySchema<unknown>[] = [
@@ -24,7 +24,7 @@ export const Entities: EntitySchema<unknown>[] = [
   (<unknown>SocialConnection) as EntitySchema<unknown>,
   (<unknown>Tenure) as EntitySchema<unknown>,
   (<unknown>Timezone) as EntitySchema<unknown>,
-  (<unknown>User) as EntitySchema<unknown>,
+  (<unknown>User) as EntitySchema<unknown>
 
-  (<unknown>TripMaster) as EntitySchema<unknown>
+  // (<unknown>TripMaster) as EntitySchema<unknown>
 ];

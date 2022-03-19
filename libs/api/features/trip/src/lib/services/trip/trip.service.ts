@@ -9,26 +9,25 @@ import { TripMaster } from '../../imports/entities';
 
 @Injectable()
 export class TripService {
-  constructor(
-    @InjectRepository(TripMaster)
-    private _repository: Repository<TripMaster>
-  ) {}
+  constructor() // @InjectRepository(TripMaster)
+  // private _repository: Repository<TripMaster>
+  {}
 
-  fetchTripList(): Observable<TripMaster[]> {
-    return from(
-      this._repository
-        .find()
-        .then(
-          data => data,
-          error => {
-            throw error;
-          }
-        )
-        .catch(error => error)
-    );
-  }
+  // fetchTripList(): Observable<TripMaster[]> {
+  //   return from(
+  //     this._repository
+  //       .find()
+  //       .then(
+  //         data => data,
+  //         error => {
+  //           throw error;
+  //         }
+  //       )
+  //       .catch(error => error)
+  //   );
+  // }
 
-  fetchTrip(id: string | number) {
-    return this._repository.findOne(id);
-  }
+  // fetchTrip(id: string | number) {
+  //   return this._repository.findOne(id);
+  // }
 }
