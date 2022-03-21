@@ -2,6 +2,17 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Tenure {
+  id: String!
+  start: DateTime!
+  end: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Coordinates {
   id: String!
   latitude: Float!
@@ -40,6 +51,15 @@ type Address {
   location: Location!
 }
 
+type Identification {
+  id: String!
+  type: String!
+  number: String!
+  name: String!
+  validity: Tenure!
+  userId: String!
+}
+
 type UserName {
   id: String!
   first: String!
@@ -55,12 +75,8 @@ type User {
   dateOfBirth: DateTime!
   website: String!
   address: Address!
+  identifications: [Identification!]!
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 type Query {
   user(id: String!): User!

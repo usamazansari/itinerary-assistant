@@ -45,7 +45,7 @@ export const GoaUsers: User[] = [
     // gender: Gender.Male,
     email: 'usama251993@gmail.com',
     phone: '+91 80977 28350',
-    website: 'https://usamaansari.com'
+    website: 'https://usamaansari.com',
     // socialConnection: [
     //   {
     //     id: 'user-1-social-1',
@@ -74,23 +74,31 @@ export const GoaUsers: User[] = [
     //     'https://randomuser.me/api/portraits/thumb/usamaansari',
     //   user: 'user-1'
     // },
-    // identifications: [
-    //   {
-    //     id: 'user-1-id-1',
-    //     type: 'government',
-    //     number: '871797443404',
-    //     name: 'Aadhar Card',
-    //     validity: 'user-1-id-1-validity',
-    //     user: 'user-1'
-    //   },
-    //   {
-    //     id: 'user-1-id-2',
-    //     type: 'passport',
-    //     number: 'M6968768',
-    //     name: 'Passport',
-    //     validity: 'user-1-id-2-validity',
-    //     user: 'user-1'
-    //   }
-    // ]
+    identifications: [
+      {
+        id: 'user-1-id-1',
+        type: 'government',
+        number: '871797443404',
+        name: 'Aadhar Card',
+        validity: {
+          id: 'user-1-id-1-validity',
+          start: new Date(1970, 0, 0),
+          end: new Date(1970, 0, 0)
+        },
+        userId: 'user-1'
+      },
+      {
+        id: 'user-1-id-2',
+        type: 'passport',
+        number: 'M6968768',
+        name: 'Passport',
+        validity: {
+          id: 'user-1-id-2-validity',
+          start: new Date(2015, 3, 15),
+          end: new Date(2025, 3, 14)
+        },
+        userId: 'user-1'
+      }
+    ]
   }
 ];

@@ -3,9 +3,10 @@ import { Field, ObjectType } from '@nestjs/graphql';
 import {
   IUser,
   AddressModel,
+  IdentificationModel,
   UserNameModel
 } from '../../imports/models';
-import { Address, UserName } from '..';
+import { Address, Identification, UserName } from '..';
 
 @ObjectType()
 export class User implements IUser {
@@ -46,8 +47,8 @@ export class User implements IUser {
   //   () => Identification,
   //   identification => identification.user
   // )
-  // @Field()
-  // identifications!: IdentificationModel[];
+  @Field(() => [Identification])
+  identifications!: IdentificationModel[];
 
   // @OneToMany(
   //   () => SocialConnection,
