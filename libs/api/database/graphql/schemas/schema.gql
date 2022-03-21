@@ -68,6 +68,13 @@ type Identification {
   userId: String!
 }
 
+type SocialConnection {
+  id: String!
+  name: String!
+  url: String!
+  userId: String!
+}
+
 type UserName {
   id: String!
   first: String!
@@ -84,6 +91,7 @@ type User {
   website: String!
   address: Address!
   identifications: [Identification!]!
+  socialConnections: [SocialConnection!]!
   photos: [Photo!]!
 }
 

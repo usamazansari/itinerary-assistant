@@ -20,7 +20,7 @@ export interface IUser {
   // gender: Gender;
   address: Address;
   website: string;
-  // socialConnection: SocialConnection[];
+  socialConnections: SocialConnection[];
   photos: Photo[];
   identifications: Identification[];
 }
@@ -34,7 +34,7 @@ const UserStub: IUser = {
   // gender: Gender.Male
   address: new Address({}),
   website: '',
-  // socialConnection: [],
+  socialConnections: [],
   photos: [],
   identifications: []
 };
@@ -48,7 +48,7 @@ export class User implements IUser {
   // gender: Gender;
   address: Address;
   website: string;
-  // socialConnection: SocialConnection[];
+  socialConnections: SocialConnection[];
   photos: Photo[];
   identifications: Identification[];
 
@@ -62,9 +62,9 @@ export class User implements IUser {
     address = UserStub.address,
     website = UserStub.website,
     identifications = UserStub.identifications,
-    photos = UserStub.photos
-  }: // socialConnection = UserStub.socialConnection,
-  Partial<IUser>) {
+    photos = UserStub.photos,
+    socialConnections = UserStub.socialConnections
+  }: Partial<IUser>) {
     this.id = id;
     this.username = username;
     this.email = email;
@@ -73,7 +73,7 @@ export class User implements IUser {
     // this.gender = gender;
     this.address = address;
     this.website = website;
-    // this.socialConnection = socialConnection;
+    this.socialConnections = socialConnections;
     this.photos = photos;
     this.identifications = identifications;
   }

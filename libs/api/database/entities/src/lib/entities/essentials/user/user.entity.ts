@@ -5,9 +5,16 @@ import {
   AddressModel,
   IdentificationModel,
   PhotoModel,
+  SocialConnectionModel,
   UserNameModel
 } from '../../imports/models';
-import { Address, Identification, Photo, UserName } from '..';
+import {
+  Address,
+  Identification,
+  Photo,
+  SocialConnection,
+  UserName
+} from '..';
 
 @ObjectType()
 export class User implements IUser {
@@ -43,12 +50,8 @@ export class User implements IUser {
   @Field(() => [Identification])
   identifications!: IdentificationModel[];
 
-  // @OneToMany(
-  //   () => SocialConnection,
-  //   socialConnection => socialConnection.user
-  // )
-  // @Field()
-  // socialConnection!: SocialConnectionModel[];
+  @Field(() => [SocialConnection])
+  socialConnections!: SocialConnectionModel[];
 
   @Field(() => [Photo])
   photos!: PhotoModel[];
