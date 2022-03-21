@@ -1,35 +1,21 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
-
-import { IPhoto } from '../../imports/models';
-import { User } from '..';
 import { Field, ObjectType } from '@nestjs/graphql';
 
+import { IPhoto } from '../../imports/models';
+
 @ObjectType()
-@Entity({ name: 'Photos' })
-export class Photo extends BaseEntity implements IPhoto {
+export class Photo implements IPhoto {
   @Field()
-  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Field()
-  @Column()
   large!: string;
 
   @Field()
-  @Column()
   medium!: string;
 
   @Field()
-  @Column()
   thumbnail!: string;
 
-  // @Field()
-  // @ManyToOne(() => User, user => user.photo)
-  // user!: string;
+  @Field()
+  userId!: string;
 }

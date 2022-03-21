@@ -1,55 +1,36 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  JoinColumn,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
-
 import { Field, ObjectType } from '@nestjs/graphql';
 
 import {
+  IUser,
   AddressModel,
-  GenderEnum,
   IdentificationModel,
-  SocialConnectionModel,
-  UserNameModel,
   PhotoModel,
-  IUser
+  SocialConnectionModel,
+  UserNameModel
 } from '../../imports/models';
-
 import {
   Address,
   Identification,
-  UserName,
   Photo,
-  SocialConnection
+  SocialConnection,
+  UserName
 } from '..';
 
 @ObjectType()
-@Entity({ name: 'User' })
-export class User extends BaseEntity implements IUser {
+export class User implements IUser {
   @Field()
-  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  // @OneToOne(() => UserName)
-  // @JoinColumn()
   @Field(() => UserName)
-  username!: UserName;
+  username!: UserNameModel;
 
   @Field()
-  @Column()
   email!: string;
 
   @Field()
-  @Column()
   phone!: string;
 
   @Field()
-  @Column()
   dateOfBirth!: Date;
 
   // @Field()
@@ -61,29 +42,17 @@ export class User extends BaseEntity implements IUser {
   // gender!: GenderEnum;
 
   @Field()
-  @Column()
   website!: string;
 
-  // @OneToOne(() => Address)
-  // @JoinColumn()
-  // @Field()
-  // address!: AddressModel;
+  @Field(() => Address)
+  address!: AddressModel;
 
-  // @OneToMany(
-  //   () => Identification,
-  //   identification => identification.user
-  // )
-  // @Field()
-  // identifications!: IdentificationModel[];
+  @Field(() => [Identification])
+  identifications!: IdentificationModel[];
 
-  // @OneToMany(
-  //   () => SocialConnection,
-  //   socialConnection => socialConnection.user
-  // )
-  // @Field()
-  // socialConnection!: SocialConnectionModel[];
+  @Field(() => [SocialConnection])
+  socialConnections!: SocialConnectionModel[];
 
-  // @OneToMany(() => Photo, photo => photo.user)
-  // @Field()
-  // photo!: PhotoModel;
+  @Field(() => [Photo])
+  photos!: PhotoModel[];
 }

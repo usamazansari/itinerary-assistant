@@ -18,11 +18,11 @@ export interface IUser {
   phone: string;
   dateOfBirth: Date;
   // gender: Gender;
-  // address: Address;
+  address: Address;
   website: string;
-  // socialConnection: SocialConnection[];
-  // photo: Photo;
-  // identifications: Identification[];
+  socialConnections: SocialConnection[];
+  photos: Photo[];
+  identifications: Identification[];
 }
 
 const UserStub: IUser = {
@@ -32,11 +32,11 @@ const UserStub: IUser = {
   phone: '',
   dateOfBirth: new Date(),
   // gender: Gender.Male
-  // address: new Address({}),
-  website: ''
-  // socialConnection: [],
-  // photo: new Photo({}),
-  // identifications: [],
+  address: new Address({}),
+  website: '',
+  socialConnections: [],
+  photos: [],
+  identifications: []
 };
 
 export class User implements IUser {
@@ -46,11 +46,11 @@ export class User implements IUser {
   phone: string;
   dateOfBirth: Date;
   // gender: Gender;
-  // address: Address;
+  address: Address;
   website: string;
-  // socialConnection: SocialConnection[];
-  // photo: Photo;
-  // identifications: Identification[];
+  socialConnections: SocialConnection[];
+  photos: Photo[];
+  identifications: Identification[];
 
   constructor({
     id = UserStub.id,
@@ -59,22 +59,22 @@ export class User implements IUser {
     phone = UserStub.phone,
     dateOfBirth = UserStub.dateOfBirth,
     // gender = UserStub.gender
-    // address = UserStub.address,
-    website = UserStub.website
-  }: // socialConnection = UserStub.socialConnection,
-  // photo = UserStub.photo,
-  // identifications = UserStub.identifications,
-  Partial<IUser>) {
+    address = UserStub.address,
+    website = UserStub.website,
+    identifications = UserStub.identifications,
+    photos = UserStub.photos,
+    socialConnections = UserStub.socialConnections
+  }: Partial<IUser>) {
     this.id = id;
     this.username = username;
     this.email = email;
     this.phone = phone;
     this.dateOfBirth = dateOfBirth;
     // this.gender = gender;
-    // this.address = address;
+    this.address = address;
     this.website = website;
-    // this.socialConnection = socialConnection;
-    // this.photo = photo;
-    // this.identifications = identifications;
+    this.socialConnections = socialConnections;
+    this.photos = photos;
+    this.identifications = identifications;
   }
 }
