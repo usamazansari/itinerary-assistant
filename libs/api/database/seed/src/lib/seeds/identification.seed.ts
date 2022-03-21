@@ -1,4 +1,5 @@
-import { Identification } from '../imports/models';
+import { Identification, Tenure } from '../imports/models';
+import { TenureSeed } from '.';
 
 export const IdentificationSeed: Identification[] = [
   {
@@ -6,15 +7,19 @@ export const IdentificationSeed: Identification[] = [
     type: 'government',
     number: '871797443404',
     name: 'Aadhar Card',
-    validity: 'user-1-id-1-validity',
-    user: 'user-1'
+    validity:
+      TenureSeed.find(tenure => tenure.id === 'user-1-id-1-validity') ??
+      new Tenure({}),
+    userId: 'user-1'
   },
   {
     id: 'user-1-id-2',
     type: 'passport',
     number: 'M6968768',
     name: 'Passport',
-    validity: 'user-1-id-2-validity',
-    user: 'user-1'
+    validity:
+      TenureSeed.find(tenure => tenure.id === 'user-1-id-2-validity') ??
+      new Tenure({}),
+    userId: 'user-1'
   }
 ];

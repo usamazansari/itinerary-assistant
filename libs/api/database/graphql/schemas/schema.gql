@@ -49,6 +49,7 @@ type Address {
   country: String!
   zip: String!
   location: Location!
+  userId: String!
 }
 
 type Photo {
@@ -80,6 +81,7 @@ type UserName {
   first: String!
   last: String!
   full: String!
+  userId: String!
 }
 
 type User {

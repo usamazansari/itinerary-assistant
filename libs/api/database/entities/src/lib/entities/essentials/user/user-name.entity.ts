@@ -15,4 +15,7 @@ export class UserName implements IUserName {
 
   @Field()
   full!: string;
+
+  @Field()
+  userId!: string;
 }

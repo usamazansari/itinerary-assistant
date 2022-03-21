@@ -1,4 +1,5 @@
-import { Address } from '../imports/models';
+import { Address, Location } from '../imports/models';
+import { LocationSeed } from '.';
 
 export const AddressSeed: Address[] = [
   {
@@ -15,6 +16,10 @@ export const AddressSeed: Address[] = [
     country: 'India',
     zip: '400024',
     name: 'Rent',
-    location: 'user-1-address-location'
+    location:
+      LocationSeed.find(
+        location => location.id === 'user-1-address-location'
+      ) ?? new Location({}),
+    userId: 'user-1'
   }
 ];

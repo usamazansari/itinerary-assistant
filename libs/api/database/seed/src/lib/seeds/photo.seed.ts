@@ -6,6 +6,6 @@ export const PhotoSeed: Photo[] = [
     large: 'https://randomuser.me/api/portraits/usamaansari',
     medium: 'https://randomuser.me/api/portraits/medium/usamaansari',
     thumbnail: 'https://randomuser.me/api/portraits/thumb/usamaansari',
-    user: 'user-1'
+    userId: 'user-1'
   }
 ];

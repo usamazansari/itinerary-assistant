@@ -46,4 +46,7 @@ export class Address implements IAddress {
 
   @Field(() => Location)
   location!: LocationModel;
+
+  @Field()
+  userId!: string;
 }

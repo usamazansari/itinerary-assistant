@@ -1,21 +1,32 @@
-import { Gender, User } from '../imports/models';
+import { Gender, User, UserName, Address } from '../imports/models';
+import {
+  UserNameSeed,
+  AddressSeed,
+  PhotoSeed,
+  SocialConnectionSeed,
+  IdentificationSeed
+} from '.';
 
 export const UserSeed: User[] = [
   {
     id: 'user-1',
-    username: 'user-1-name',
+    username:
+      UserNameSeed.find(username => username.userId === 'user-1') ??
+      new UserName({}),
     dateOfBirth: new Date(1993, 9, 25),
-    address: 'user-1-address',
-    gender: Gender.Male,
+    address:
+      AddressSeed.find(address => address.userId === 'user-1') ??
+      new Address({}),
+    // gender: Gender.Male,
     email: 'usama251993@gmail.com',
     phone: '+91 80977 28350',
     website: 'https://usamaansari.com',
-    socialConnection: [
-      'user-1-social-1',
-      'user-1-social-2',
-      'user-1-social-3'
-    ],
-    photo: 'user-1-photo',
-    identifications: ['user-1-id-1', 'user-1-id-2']
+    socialConnections: SocialConnectionSeed.filter(
+      social => social.userId === 'user-1'
+    ),
+    photos: PhotoSeed.filter(photo => photo.userId === 'user-1'),
+    identifications: IdentificationSeed.filter(
+      identification => identification.userId === 'user-1'
+    )
   }
 ];
