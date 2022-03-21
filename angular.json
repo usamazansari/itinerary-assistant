@@ -5,7 +5,6 @@
     "api-core": "libs/api/core",
     "api-database-entities": "libs/api/database/entities",
     "api-database-graphql": "libs/api/database/graphql",
-    "api-database-orm": "libs/api/database/orm",
     "api-features-trip": "libs/api/features/trip",
     "api-features-user": "libs/api/features/user",
     "shared-data": "libs/shared/data",

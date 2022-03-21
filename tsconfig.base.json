@@ -22,9 +22,6 @@
       "@itinerary-assistant/api/database/graphql": [
         "libs/api/database/graphql/src/index.ts"
       ],
-      "@itinerary-assistant/api/database/orm": [
-        "libs/api/database/orm/src/index.ts"
-      ],
       "@itinerary-assistant/api/features/trip": [
         "libs/api/features/trip/src/index.ts"
       ],

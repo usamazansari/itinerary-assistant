@@ -2,7 +2,7 @@ export interface ITimezone {
   id: string;
   offset: number;
   description: string;
-  location: string;
+  locationId: string;
 }
 
 const Timestamp = new Date().toISOString();
@@ -11,24 +11,24 @@ const TimezoneStub: ITimezone = {
   id: `new-timezone-${Timestamp}`,
   offset: 0,
   description: '',
-  location: `location-for-new-timezone-${Timestamp}`
+  locationId: `location-for-new-timezone-${Timestamp}`
 };
 
 export class Timezone implements ITimezone {
   id: string;
   offset: number;
   description: string;
-  location: string;
+  locationId: string;
   constructor({
     id = TimezoneStub.id,
     offset = TimezoneStub.offset,
     description = TimezoneStub.description,
-    location = TimezoneStub.location
+    locationId = TimezoneStub.locationId
   }: Partial<ITimezone>) {
     this.id = id;
     this.offset = offset;
     this.description = description;
-    this.location = location;
+    this.locationId = locationId;
   }
 }
 
@@ -39,15 +39,15 @@ export class TimezoneDTO
 {
   offset: number;
   description: string;
-  location: string;
+  locationId: string;
 
   constructor({
     offset = TimezoneStub.offset,
     description = TimezoneStub.description,
-    location = TimezoneStub.location
+    locationId = TimezoneStub.locationId
   }: Partial<ITimezone>) {
     this.offset = offset;
     this.description = description;
-    this.location = location;
+    this.locationId = locationId;
   }
 }
