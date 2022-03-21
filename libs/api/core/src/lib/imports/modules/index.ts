@@ -1,1 +1,1 @@
-export { OrmModule } from '@itinerary-assistant/api/database/orm';
+export { GraphQLModule } from '@itinerary-assistant/api/database/graphql';
