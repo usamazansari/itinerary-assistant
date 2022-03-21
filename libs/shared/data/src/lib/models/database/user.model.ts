@@ -2,9 +2,9 @@ import { Gender } from '../../constants';
 import {
   Address,
   Identification,
-  UserName,
   Photo,
-  SocialConnection
+  SocialConnection,
+  UserName
 } from '.';
 
 const Timestamp = new Date().valueOf();
@@ -12,7 +12,7 @@ const Timestamp = new Date().valueOf();
 export interface IUser {
   id: string;
 
-  // TODO - Usama Ansari: Remove this field and use it as string instead - Make another field for the detailed username (refer comments in IUserName)
+  // TODO - Usama Ansari: Remove this field and use it as string instead - Make another field for the detailed username (refer comments in Istring)
   username: UserName;
   email: string;
   phone: string;
@@ -27,7 +27,7 @@ export interface IUser {
 
 const UserStub: IUser = {
   id: `new-user-${Timestamp}`,
-  username: new UserName({}),
+  username: new UserName({ id: `username-for-new-user-${Timestamp}` }),
   email: '',
   phone: '',
   dateOfBirth: new Date(),

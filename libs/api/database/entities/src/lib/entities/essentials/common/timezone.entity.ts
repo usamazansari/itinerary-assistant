@@ -1,10 +1,10 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { ITimezone } from '../../imports/models';
 
 @ObjectType()
 export class Timezone implements ITimezone {
-  @Field()
+  @Field(() => ID)
   id!: string;
 
   @Field()
@@ -13,6 +13,6 @@ export class Timezone implements ITimezone {
   @Field()
   offset!: number;
 
-  @Field()
+  @Field(() => ID)
   locationId!: string;
 }

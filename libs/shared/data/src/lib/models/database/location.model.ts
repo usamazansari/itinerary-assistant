@@ -7,13 +7,17 @@ export interface ILocation {
   timezone: Timezone;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const LocationStub: ILocation = {
   id: `new-location-${Timestamp}`,
   plusCode: '',
-  coordinates: new Coordinates({}),
-  timezone: new Timezone({})
+  coordinates: new Coordinates({
+    id: `coordinates-for-new-location-${Timestamp}`
+  }),
+  timezone: new Timezone({
+    id: `timezone-for-new-location-${Timestamp}`
+  })
 };
 
 export class Location implements ILocation {

@@ -4,7 +4,7 @@ export interface ITenure {
   end: Date;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const TenureStub: ITenure = {
   id: `new-tenure-${Timestamp}`,

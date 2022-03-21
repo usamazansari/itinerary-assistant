@@ -1,10 +1,10 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { ICoordinates } from '../../imports/models';
 
 @ObjectType()
 export class Coordinates implements ICoordinates {
-  @Field()
+  @Field(() => ID)
   id!: string;
 
   @Field()
@@ -13,6 +13,6 @@ export class Coordinates implements ICoordinates {
   @Field()
   longitude!: number;
 
-  @Field()
+  @Field(() => ID)
   locationId!: string;
 }

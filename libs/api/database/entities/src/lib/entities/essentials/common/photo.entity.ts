@@ -1,10 +1,10 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { IPhoto } from '../../imports/models';
 
 @ObjectType()
 export class Photo implements IPhoto {
-  @Field()
+  @Field(() => ID)
   id!: string;
 
   @Field()
@@ -16,6 +16,6 @@ export class Photo implements IPhoto {
   @Field()
   thumbnail!: string;
 
-  @Field()
+  @Field(() => ID)
   userId!: string;
 }

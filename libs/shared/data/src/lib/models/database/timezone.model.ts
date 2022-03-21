@@ -5,7 +5,7 @@ export interface ITimezone {
   locationId: string;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const TimezoneStub: ITimezone = {
   id: `new-timezone-${Timestamp}`,

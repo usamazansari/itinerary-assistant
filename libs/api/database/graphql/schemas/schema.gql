@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 type Tenure {
-  id: String!
+  id: ID!
   start: DateTime!
   end: DateTime!
 }
@@ -14,28 +14,28 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Coordinates {
-  id: String!
+  id: ID!
   latitude: Float!
   longitude: Float!
-  locationId: String!
+  locationId: ID!
 }
 
 type Timezone {
-  id: String!
+  id: ID!
   description: String!
   offset: Float!
-  locationId: String!
+  locationId: ID!
 }
 
 type Location {
-  id: String!
+  id: ID!
   plusCode: String!
   coordinates: Coordinates!
   timezone: Timezone!
 }
 
 type Address {
-  id: String!
+  id: ID!
   name: String!
   room: String!
   apartment: String!
@@ -49,41 +49,43 @@ type Address {
   country: String!
   zip: String!
   location: Location!
+  userId: ID!
 }
 
 type Photo {
-  id: String!
+  id: ID!
   large: String!
   medium: String!
   thumbnail: String!
-  userId: String!
+  userId: ID!
 }
 
 type Identification {
-  id: String!
+  id: ID!
   type: String!
   number: String!
   name: String!
   validity: Tenure!
-  userId: String!
+  userId: ID!
 }
 
 type SocialConnection {
-  id: String!
+  id: ID!
   name: String!
   url: String!
-  userId: String!
+  userId: ID!
 }
 
 type UserName {
-  id: String!
+  id: ID!
   first: String!
   last: String!
   full: String!
+  userId: ID!
 }
 
 type User {
-  id: String!
+  id: ID!
   username: UserName!
   email: String!
   phone: String!
