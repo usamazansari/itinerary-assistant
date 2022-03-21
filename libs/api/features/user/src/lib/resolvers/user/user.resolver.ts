@@ -24,13 +24,4 @@ export class UserResolver {
   users(): UserModel[] {
     return GoaUsers;
   }
-
-  @ResolveField('username', () => UserName)
-  userName(@Parent() user: User): UserNameModel {
-    const { id } = user;
-    return (
-      GoaUsers.find(user => user.id === id)?.username ??
-      new UserNameModel({})
-    );
-  }
 }
