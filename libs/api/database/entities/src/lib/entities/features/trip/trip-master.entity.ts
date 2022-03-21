@@ -9,7 +9,7 @@ import {
 
 @Entity({ name: 'TripMaster' })
 export class TripMaster extends BaseEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column({ type: 'int' })

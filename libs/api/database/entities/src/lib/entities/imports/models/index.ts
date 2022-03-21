@@ -1,0 +1,22 @@
+export {
+  IAddress,
+  ICoordinates,
+  IIdentification,
+  ILocation,
+  IUserName,
+  IPhoto,
+  ISocialConnection,
+  ITenure,
+  ITimezone,
+  IUser,
+  Address as AddressModel,
+  Coordinates as CoordinatesModel,
+  Gender as GenderEnum,
+  Identification as IdentificationModel,
+  Location as LocationModel,
+  UserName as UserNameModel,
+  Photo as PhotoModel,
+  SocialConnection as SocialConnectionModel,
+  Tenure as TenureModel,
+  Timezone as TimezoneModel
+} from '@itinerary-assistant/shared/data';
