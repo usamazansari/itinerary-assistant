@@ -6,7 +6,7 @@ export interface IPhoto {
   userId: string;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const PhotoStub: IPhoto = {
   id: `new-photo-${Timestamp}`,

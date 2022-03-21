@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 // import { InjectRepository } from '@nestjs/typeorm';
 
-import { from } from 'rxjs';
-import type { Observable } from 'rxjs';
+// import { from } from 'rxjs';
+// import type { Observable } from 'rxjs';
 
 // import { Repository } from 'typeorm';
 // import type { SelectQueryBuilder } from 'typeorm';
@@ -22,7 +22,7 @@ import type { Observable } from 'rxjs';
 
 @Injectable()
 export class UserService {
-  constructor() // @InjectRepository(Address)
+  // @InjectRepository(Address)
   // private _address: Repository<Address>,
   // @InjectRepository(Coordinates)
   // private _coordinates: Repository<Coordinates>,
@@ -42,8 +42,7 @@ export class UserService {
   // private _username: Repository<UserName>,
   // @InjectRepository(User)
   // private _user: Repository<User>
-  {}
-
+  // constructor() { }
   // findAll(): Observable<User[]> {
   // const users: SelectQueryBuilder<User> = this._user
   //   .createQueryBuilder()
@@ -77,11 +76,9 @@ export class UserService {
   //     .catch(error => error)
   // );
   // }
-
   // async findOne(id: number): Promise<User | undefined> {
   //   return await this._repository.findOne(id);
   // }
-
   // create(user: User): Observable<User> {
   //   return from(
   //     this._user
@@ -95,11 +92,9 @@ export class UserService {
   //       .catch(error => error)
   //   );
   // }
-
   // async update(id: number, user: User): Promise<User> {
   //   return await this._repository.update(id, user);
   // }
-
   // async delete(id: number): Promise<void> {
   //   await this._user.delete(id);
   // }

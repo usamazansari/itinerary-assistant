@@ -1,10 +1,10 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { ISocialConnection } from '../../imports/models';
 
 @ObjectType()
 export class SocialConnection implements ISocialConnection {
-  @Field()
+  @Field(() => ID)
   id!: string;
 
   @Field()
@@ -13,6 +13,6 @@ export class SocialConnection implements ISocialConnection {
   @Field()
   url!: string;
 
-  @Field()
+  @Field(() => ID)
   userId!: string;
 }

@@ -5,7 +5,7 @@ export interface ISocialConnection {
   userId: string;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const SocialConnectionStub: ISocialConnection = {
   id: `new-connection-${Timestamp}`,

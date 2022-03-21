@@ -5,7 +5,7 @@ export interface ICoordinates {
   locationId: string;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const CoordinatesStub: ICoordinates = {
   id: `new-coordinates-${Timestamp}`,

@@ -9,7 +9,7 @@ export interface IIdentification {
   userId: string;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const IdentificationStub: IIdentification = {
   id: `new-identification-${Timestamp}`,
