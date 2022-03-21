@@ -5,7 +5,7 @@ import {
   Photo,
   SocialConnection,
   UserName
-} from '..';
+} from '.';
 
 const Timestamp = new Date().valueOf();
 

@@ -1,4 +1,4 @@
-import { Coordinates, Timezone } from '..';
+import { Coordinates, Timezone } from '.';
 
 export interface ILocation {
   id: string;

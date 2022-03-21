@@ -45,5 +45,5 @@ export class Address implements IAddress {
   zip!: string;
 
   @Field(() => Location)
-  locationId!: LocationModel;
+  location!: LocationModel;
 }
