@@ -1,3 +1,5 @@
+import { Location } from '..';
+
 export interface IAddress {
   id: string;
   name: string;
@@ -12,10 +14,10 @@ export interface IAddress {
   state: string;
   country: string;
   zip: string;
-  location: string;
+  location: Location;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const AddressStub: IAddress = {
   id: `new-address-${Timestamp}`,
@@ -31,7 +33,9 @@ const AddressStub: IAddress = {
   state: '',
   country: '',
   zip: '',
-  location: `location-for-new-address-${Timestamp}`
+  location: new Location({
+    id: `location-for-new-address-${Timestamp}`
+  })
 };
 
 export class Address implements IAddress {
@@ -48,7 +52,7 @@ export class Address implements IAddress {
   state: string;
   country: string;
   zip: string;
-  location: string;
+  location: Location;
 
   constructor({
     id = AddressStub.id,
@@ -98,7 +102,7 @@ export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
   state: string;
   country: string;
   zip: string;
-  location: string;
+  location: Location;
 
   constructor({
     name = AddressStub.name,

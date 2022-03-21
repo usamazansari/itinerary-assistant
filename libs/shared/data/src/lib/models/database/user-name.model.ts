@@ -6,7 +6,7 @@ export interface IUserName {
   last: string;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const UserNameStub: IUserName = {
   id: `new-name-${Timestamp}`,

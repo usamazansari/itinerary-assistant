@@ -1,67 +1,58 @@
+import { Field, ObjectType } from '@nestjs/graphql';
+
 import {
-  BaseEntity,
-  Column,
-  Entity,
-  JoinColumn,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
-
-import { GenderEnum, IUser } from '../../imports/models';
-
+  IUser,
+  AddressModel,
+  IdentificationModel,
+  PhotoModel,
+  SocialConnectionModel,
+  UserNameModel
+} from '../../imports/models';
 import {
   Address,
   Identification,
-  UserName,
   Photo,
-  SocialConnection
+  SocialConnection,
+  UserName
 } from '..';
 
-@Entity({ name: 'User' })
-export class User extends BaseEntity implements IUser {
-  @PrimaryGeneratedColumn('uuid')
+@ObjectType()
+export class User implements IUser {
+  @Field()
   id!: string;
 
-  @Column()
-  dateOfBirth!: Date;
+  @Field(() => UserName)
+  username!: UserNameModel;
 
-  @Column()
+  @Field()
   email!: string;
 
-  @Column()
+  @Field()
   phone!: string;
 
-  @Column()
+  @Field()
+  dateOfBirth!: Date;
+
+  // @Field()
+  // @Column({
+  //   type: 'enum',
+  //   enum: GenderEnum,
+  //   default: GenderEnum.Male
+  // })
+  // gender!: GenderEnum;
+
+  @Field()
   website!: string;
 
-  @OneToOne(() => Address)
-  @JoinColumn()
-  address!: string;
+  @Field(() => Address)
+  address!: AddressModel;
 
-  @OneToMany(
-    () => Identification,
-    identification => identification.user
-  )
-  identifications!: string[];
+  @Field(() => [Identification])
+  identifications!: IdentificationModel[];
 
-  @Column({
-    type: 'enum',
-    enum: GenderEnum,
-    default: GenderEnum.Male
-  })
-  gender!: GenderEnum;
+  @Field(() => [SocialConnection])
+  socialConnections!: SocialConnectionModel[];
 
-  @OneToOne(() => UserName)
-  @JoinColumn()
-  username!: string;
-
-  @OneToMany(
-    () => SocialConnection,
-    socialConnection => socialConnection.user
-  )
-  socialConnection!: string[];
-
-  @OneToMany(() => Photo, photo => photo.user)
-  photo!: string;
+  @Field(() => [Photo])
+  photos!: PhotoModel[];
 }

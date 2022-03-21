@@ -1,23 +1,18 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  PrimaryGeneratedColumn
-} from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
 
 import { IUserName } from '../../imports/models';
 
-@Entity({ name: 'UserName' })
-export class UserName extends BaseEntity implements IUserName {
-  @PrimaryGeneratedColumn('uuid')
+@ObjectType()
+export class UserName implements IUserName {
+  @Field()
   id!: string;
 
-  @Column()
+  @Field()
   first!: string;
 
-  @Column()
+  @Field()
   last!: string;
 
-  @Column({ nullable: true })
+  @Field()
   full!: string;
 }

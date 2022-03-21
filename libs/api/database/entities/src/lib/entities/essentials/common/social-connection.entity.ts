@@ -1,28 +1,18 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
 
 import { ISocialConnection } from '../../imports/models';
-import { User } from '..';
 
-@Entity({ name: 'SocialConnection' })
-export class SocialConnection
-  extends BaseEntity
-  implements ISocialConnection
-{
-  @PrimaryGeneratedColumn('uuid')
+@ObjectType()
+export class SocialConnection implements ISocialConnection {
+  @Field()
   id!: string;
 
-  @Column()
+  @Field()
   name!: string;
 
-  @Column()
+  @Field()
   url!: string;
 
-  @ManyToOne(() => User, user => user.socialConnection)
-  user!: string;
+  @Field()
+  userId!: string;
 }

@@ -2,34 +2,34 @@ export interface ISocialConnection {
   id: string;
   name: string;
   url: string;
-  user: string;
+  userId: string;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const SocialConnectionStub: ISocialConnection = {
   id: `new-connection-${Timestamp}`,
   name: '',
   url: '',
-  user: `user-for-new-connection-${Timestamp}`
+  userId: `user-for-new-connection-${Timestamp}`
 };
 
 export class SocialConnection implements ISocialConnection {
   id: string;
   name: string;
   url: string;
-  user: string;
+  userId: string;
 
   constructor({
     id = SocialConnectionStub.id,
     name = SocialConnectionStub.name,
     url = SocialConnectionStub.url,
-    user = SocialConnectionStub.user
+    userId = SocialConnectionStub.userId
   }: Partial<ISocialConnection>) {
     this.id = id;
     this.name = name;
     this.url = url;
-    this.user = user;
+    this.userId = userId;
   }
 }
 
@@ -40,15 +40,15 @@ export class SocialConnectionDTO
 {
   name: string;
   url: string;
-  user: string;
+  userId: string;
 
   constructor({
     name = SocialConnectionStub.name,
     url = SocialConnectionStub.url,
-    user = SocialConnectionStub.user
+    userId = SocialConnectionStub.userId
   }: Partial<ISocialConnection>) {
     this.name = name;
     this.url = url;
-    this.user = user;
+    this.userId = userId;
   }
 }

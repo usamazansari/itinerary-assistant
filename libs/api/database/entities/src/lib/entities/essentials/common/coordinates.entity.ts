@@ -1,25 +1,18 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
 
 import { ICoordinates } from '../../imports/models';
-import { Location } from '..';
 
-@Entity({ name: 'Coordinates' })
-export class Coordinates extends BaseEntity implements ICoordinates {
-  @PrimaryGeneratedColumn('uuid')
+@ObjectType()
+export class Coordinates implements ICoordinates {
+  @Field()
   id!: string;
 
-  @Column()
+  @Field()
   latitude!: number;
 
-  @Column()
+  @Field()
   longitude!: number;
 
-  @OneToOne(() => Location, location => location.coordinates)
-  location!: string;
+  @Field()
+  locationId!: string;
 }

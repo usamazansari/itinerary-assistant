@@ -1,20 +1,15 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  PrimaryGeneratedColumn
-} from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
 
 import { ITenure } from '../../imports/models';
 
-@Entity({ name: 'Tenure' })
-export class Tenure extends BaseEntity implements ITenure {
-  @PrimaryGeneratedColumn('uuid')
+@ObjectType()
+export class Tenure implements ITenure {
+  @Field()
   id!: string;
 
-  @Column()
+  @Field()
   start!: Date;
 
-  @Column()
+  @Field()
   end!: Date;
 }

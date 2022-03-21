@@ -1,37 +1,25 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
 
-import { IIdentification } from '../../imports/models';
-import { Tenure, User } from '..';
+import { IIdentification, TenureModel } from '../../imports/models';
+import { Tenure } from '..';
 
-@Entity({ name: 'Identification' })
-export class Identification
-  extends BaseEntity
-  implements IIdentification
-{
-  @PrimaryGeneratedColumn('uuid')
+@ObjectType()
+export class Identification implements IIdentification {
+  @Field()
   id!: string;
 
-  @Column()
+  @Field()
   type!: string;
 
-  @Column()
+  @Field()
   number!: string;
 
-  @Column()
+  @Field()
   name!: string;
 
-  @OneToOne(() => Tenure)
-  @JoinColumn()
-  validity!: string;
+  @Field(() => Tenure)
+  validity!: TenureModel;
 
-  @ManyToOne(() => User, user => user.identifications)
-  user!: string;
+  @Field()
+  userId!: string;
 }

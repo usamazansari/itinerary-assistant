@@ -1,57 +1,49 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  JoinColumn,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
 
-import { IAddress } from '../../imports/models';
+import { IAddress, LocationModel } from '../../imports/models';
 import { Location } from '..';
 
-@Entity({ name: 'Address' })
-export class Address extends BaseEntity implements IAddress {
-  @PrimaryGeneratedColumn('uuid')
+@ObjectType()
+export class Address implements IAddress {
+  @Field()
   id!: string;
 
-  @Column()
+  @Field()
   name!: string;
 
-  @Column()
+  @Field()
   room!: string;
 
-  @Column()
+  @Field()
   apartment!: string;
 
-  @Column()
+  @Field()
   wing!: string;
 
-  @Column()
+  @Field()
   street!: string;
 
-  @Column()
+  @Field()
   landmark!: string;
 
-  @Column()
+  @Field()
   locality!: string;
 
-  @Column()
+  @Field()
   suburb!: string;
 
-  @Column()
+  @Field()
   city!: string;
 
-  @Column()
+  @Field()
   state!: string;
 
-  @Column()
+  @Field()
   country!: string;
 
-  @Column()
+  @Field()
   zip!: string;
 
-  @OneToOne(() => Location)
-  @JoinColumn()
-  location!: string;
+  @Field(() => Location)
+  locationId!: LocationModel;
 }

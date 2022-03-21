@@ -1,24 +1,30 @@
+import { Coordinates, Timezone } from '..';
+
 export interface ILocation {
   id: string;
   plusCode: string;
-  coordinates: string;
-  timezone: string;
+  coordinates: Coordinates;
+  timezone: Timezone;
 }
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().toISOString().valueOf();
 
 const LocationStub: ILocation = {
   id: `new-location-${Timestamp}`,
   plusCode: '',
-  coordinates: `coordinates-for-new-location-${Timestamp}`,
-  timezone: `timezone-for-new-location-${Timestamp}`
+  coordinates: new Coordinates({
+    id: `coordinates-for-new-location-${Timestamp}`
+  }),
+  timezone: new Timezone({
+    id: `timezone-for-new-location-${Timestamp}`
+  })
 };
 
 export class Location implements ILocation {
   id: string;
   plusCode: string;
-  coordinates: string;
-  timezone: string;
+  coordinates: Coordinates;
+  timezone: Timezone;
   constructor({
     id = LocationStub.id,
     plusCode = LocationStub.plusCode,
@@ -38,8 +44,8 @@ export class LocationDTO
   implements Omit<ILocation, LocationDTOOmitType>
 {
   plusCode: string;
-  coordinates: string;
-  timezone: string;
+  coordinates: Coordinates;
+  timezone: Timezone;
 
   constructor({
     plusCode = LocationStub.plusCode,

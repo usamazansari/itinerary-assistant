@@ -1,73 +1,80 @@
 import { Gender } from '../../constants';
+import {
+  Address,
+  Identification,
+  Photo,
+  SocialConnection,
+  UserName
+} from '..';
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().valueOf();
 
 export interface IUser {
   id: string;
 
   // TODO - Usama Ansari: Remove this field and use it as string instead - Make another field for the detailed username (refer comments in Istring)
-  username: string;
+  username: UserName;
   email: string;
   phone: string;
-  address: string;
-  website: string;
-  socialConnection: string[];
-  photo: string;
   dateOfBirth: Date;
-  identifications: string[];
-  gender: Gender;
+  // gender: Gender;
+  address: Address;
+  website: string;
+  socialConnections: SocialConnection[];
+  photos: Photo[];
+  identifications: Identification[];
 }
 
 const UserStub: IUser = {
   id: `new-user-${Timestamp}`,
-  username: `username-for-new-user-${Timestamp}`,
+  username: new UserName({ id: `username-for-new-user-${Timestamp}` }),
   email: '',
   phone: '',
-  address: `address-for-new-user-${Timestamp}`,
-  website: '',
-  socialConnection: [],
-  photo: `photo-for-new-user-${Timestamp}`,
   dateOfBirth: new Date(),
-  identifications: [],
-  gender: Gender.Male
+  // gender: Gender.Male
+  address: new Address({}),
+  website: '',
+  socialConnections: [],
+  photos: [],
+  identifications: []
 };
 
 export class User implements IUser {
   id: string;
-  username: string;
+  username: UserName;
   email: string;
   phone: string;
-  address: string;
-  website: string;
-  socialConnection: string[];
-  photo: string;
   dateOfBirth: Date;
-  identifications: string[];
-  gender: Gender;
+  // gender: Gender;
+  address: Address;
+  website: string;
+  socialConnections: SocialConnection[];
+  photos: Photo[];
+  identifications: Identification[];
 
   constructor({
     id = UserStub.id,
     username = UserStub.username,
     email = UserStub.email,
     phone = UserStub.phone,
+    dateOfBirth = UserStub.dateOfBirth,
+    // gender = UserStub.gender
     address = UserStub.address,
     website = UserStub.website,
-    socialConnection = UserStub.socialConnection,
-    photo = UserStub.photo,
-    dateOfBirth = UserStub.dateOfBirth,
     identifications = UserStub.identifications,
-    gender = UserStub.gender
+    photos = UserStub.photos,
+    socialConnections = UserStub.socialConnections
   }: Partial<IUser>) {
     this.id = id;
     this.username = username;
     this.email = email;
     this.phone = phone;
+    this.dateOfBirth = dateOfBirth;
+    // this.gender = gender;
     this.address = address;
     this.website = website;
-    this.socialConnection = socialConnection;
-    this.photo = photo;
-    this.dateOfBirth = dateOfBirth;
+    this.socialConnections = socialConnections;
+    this.photos = photos;
     this.identifications = identifications;
-    this.gender = gender;
   }
 }

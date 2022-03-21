@@ -1,28 +1,23 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  JoinColumn,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
 
-import { ILocation } from '../../imports/models';
+import {
+  ILocation,
+  CoordinatesModel,
+  TimezoneModel
+} from '../../imports/models';
 import { Coordinates, Timezone } from '..';
 
-@Entity({ name: 'Location' })
-export class Location extends BaseEntity implements ILocation {
-  @PrimaryGeneratedColumn('uuid')
+@ObjectType()
+export class Location implements ILocation {
+  @Field()
   id!: string;
 
-  @Column()
+  @Field()
   plusCode!: string;
 
-  @OneToOne(() => Coordinates)
-  @JoinColumn()
-  coordinates!: string;
+  @Field(() => Coordinates)
+  coordinates!: CoordinatesModel;
 
-  @OneToOne(() => Timezone)
-  @JoinColumn()
-  timezone!: string;
+  @Field(() => Timezone)
+  timezone!: TimezoneModel;
 }

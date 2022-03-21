@@ -1,25 +1,18 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
+import { Field, ObjectType } from '@nestjs/graphql';
 
 import { ITimezone } from '../../imports/models';
-import { Location } from '..';
 
-@Entity({ name: 'Timezone' })
-export class Timezone extends BaseEntity implements ITimezone {
-  @PrimaryGeneratedColumn('uuid')
+@ObjectType()
+export class Timezone implements ITimezone {
+  @Field()
   id!: string;
 
-  @Column()
+  @Field()
   description!: string;
 
-  @Column()
+  @Field()
   offset!: number;
 
-  @OneToOne(() => Location, location => location.timezone)
-  location!: string;
+  @Field()
+  locationId!: string;
 }
