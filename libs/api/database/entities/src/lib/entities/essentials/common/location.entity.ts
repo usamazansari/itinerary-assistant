@@ -1,4 +1,4 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import {
   ILocation,
@@ -9,7 +9,7 @@ import { Coordinates, Timezone } from '..';
 
 @ObjectType()
 export class Location implements ILocation {
-  @Field()
+  @Field(() => ID)
   id!: string;
 
   @Field()

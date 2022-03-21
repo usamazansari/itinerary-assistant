@@ -1,11 +1,11 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { IIdentification, TenureModel } from '../../imports/models';
 import { Tenure } from '..';
 
 @ObjectType()
 export class Identification implements IIdentification {
-  @Field()
+  @Field(() => ID)
   id!: string;
 
   @Field()
@@ -20,6 +20,6 @@ export class Identification implements IIdentification {
   @Field(() => Tenure)
   validity!: TenureModel;
 
-  @Field()
+  @Field(() => ID)
   userId!: string;
 }

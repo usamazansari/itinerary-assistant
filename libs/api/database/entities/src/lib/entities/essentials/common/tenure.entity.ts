@@ -1,10 +1,10 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { ITenure } from '../../imports/models';
 
 @ObjectType()
 export class Tenure implements ITenure {
-  @Field()
+  @Field(() => ID)
   id!: string;
 
   @Field()

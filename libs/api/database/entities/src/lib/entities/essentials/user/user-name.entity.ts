@@ -1,10 +1,10 @@
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { IUserName } from '../../imports/models';
 
 @ObjectType()
 export class UserName implements IUserName {
-  @Field()
+  @Field(() => ID)
   id!: string;
 
   @Field()
@@ -16,6 +16,6 @@ export class UserName implements IUserName {
   @Field()
   full!: string;
 
-  @Field()
+  @Field(() => ID)
   userId!: string;
 }
