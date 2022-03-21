@@ -7,13 +7,13 @@ import {
   SocialConnection
 } from '.';
 
-const Timestamp = new Date().toISOString();
+const Timestamp = new Date().valueOf();
 
 export interface IUser {
   id: string;
 
   // TODO - Usama Ansari: Remove this field and use it as string instead - Make another field for the detailed username (refer comments in IUserName)
-  // username: UserName;
+  username: UserName;
   email: string;
   phone: string;
   // address: Address;
@@ -27,7 +27,7 @@ export interface IUser {
 
 const UserStub: IUser = {
   id: `new-user-${Timestamp}`,
-  // username: new UserName({}),
+  username: new UserName({}),
   email: '',
   phone: '',
   // address: new Address({}),
@@ -41,7 +41,7 @@ const UserStub: IUser = {
 
 export class User implements IUser {
   id: string;
-  // username: UserName;
+  username: UserName;
   email: string;
   phone: string;
   // address: Address;
@@ -54,7 +54,7 @@ export class User implements IUser {
 
   constructor({
     id = UserStub.id,
-    // username = UserStub.username,
+    username = UserStub.username,
     email = UserStub.email,
     phone = UserStub.phone,
     // address = UserStub.address,
@@ -66,7 +66,7 @@ export class User implements IUser {
   // gender = UserStub.gender
   Partial<IUser>) {
     this.id = id;
-    // this.username = username;
+    this.username = username;
     this.email = email;
     this.phone = phone;
     // this.address = address;

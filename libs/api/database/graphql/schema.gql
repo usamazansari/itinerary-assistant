@@ -2,12 +2,20 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type UserName {
+  id: String!
+  first: String!
+  last: String!
+  full: String!
+}
+
 type User {
   id: String!
   dateOfBirth: DateTime!
   email: String!
   phone: String!
   website: String!
+  username: UserName!
 }
 
 """
@@ -16,5 +24,6 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Query {
-  user: User!
+  user(id: String!): User!
+  users: [User!]!
 }

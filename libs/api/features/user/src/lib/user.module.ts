@@ -34,7 +34,7 @@ import { UserResolver } from './resolvers';
     ])
   ],
   controllers: [UserController],
-  providers: [UserService, UserResolver],
+  providers: [UserResolver, UserService],
   exports: []
 })
 export class UserModule {}

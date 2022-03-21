@@ -4,12 +4,12 @@ import { User } from '../../imports/models';
 export const GoaUsers: User[] = [
   {
     id: 'user-1',
-    // username: {
-    //   id: 'user-1-name',
-    //   first: 'Usama',
-    //   last: 'Ansari',
-    //   full: 'Usama Ansari'
-    // },
+    username: {
+      id: 'user-1-name',
+      first: 'Usama',
+      last: 'Ansari',
+      full: 'Usama Ansari'
+    },
     dateOfBirth: new Date(1993, 9, 25),
     // address: {
     //   id: 'user-1-address',
