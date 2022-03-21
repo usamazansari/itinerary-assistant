@@ -1,3 +1,4 @@
+import { Field, ObjectType } from '@nestjs/graphql';
 import {
   BaseEntity,
   Column,
@@ -7,14 +8,18 @@ import {
 
 import { ITenure } from '../../imports/models';
 
+@ObjectType()
 @Entity({ name: 'Tenure' })
 export class Tenure extends BaseEntity implements ITenure {
+  @Field()
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
+  @Field()
   @Column()
   start!: Date;
 
+  @Field()
   @Column()
   end!: Date;
 }

@@ -16,6 +16,7 @@ import {
 
 import { UserController } from './controllers';
 import { UserService } from './services';
+import { UserResolver } from './resolvers';
 
 @Module({
   imports: [
@@ -33,7 +34,7 @@ import { UserService } from './services';
     ])
   ],
   controllers: [UserController],
-  providers: [UserService],
+  providers: [UserService, UserResolver],
   exports: []
 })
 export class UserModule {}

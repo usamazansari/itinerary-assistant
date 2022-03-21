@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 
-import { OrmModule } from './imports/modules';
+import { GraphQLModule, OrmModule } from './imports/modules';
 
 import { CoreController } from './controllers';
 import { CoreService } from './services';
 
 @Module({
   controllers: [CoreController],
-  imports: [OrmModule],
+  imports: [GraphQLModule, OrmModule],
   providers: [CoreService],
-  exports: [OrmModule]
+  exports: [GraphQLModule, OrmModule]
 })
 export class CoreModule {}
