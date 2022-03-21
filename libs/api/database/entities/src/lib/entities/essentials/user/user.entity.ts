@@ -35,9 +35,10 @@ export class User extends BaseEntity implements IUser {
   @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @Field()
-  @Column()
-  dateOfBirth!: Date;
+  // @OneToOne(() => UserName)
+  // @JoinColumn()
+  @Field(() => UserName)
+  username!: UserName;
 
   @Field()
   @Column()
@@ -46,6 +47,18 @@ export class User extends BaseEntity implements IUser {
   @Field()
   @Column()
   phone!: string;
+
+  @Field()
+  @Column()
+  dateOfBirth!: Date;
+
+  // @Field()
+  // @Column({
+  //   type: 'enum',
+  //   enum: GenderEnum,
+  //   default: GenderEnum.Male
+  // })
+  // gender!: GenderEnum;
 
   @Field()
   @Column()
@@ -62,19 +75,6 @@ export class User extends BaseEntity implements IUser {
   // )
   // @Field()
   // identifications!: IdentificationModel[];
-
-  // @Field()
-  // @Column({
-  //   type: 'enum',
-  //   enum: GenderEnum,
-  //   default: GenderEnum.Male
-  // })
-  // gender!: GenderEnum;
-
-  // @OneToOne(() => UserName)
-  // @JoinColumn()
-  @Field(() => UserName)
-  username!: UserName;
 
   // @OneToMany(
   //   () => SocialConnection,

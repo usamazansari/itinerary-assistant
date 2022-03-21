@@ -16,13 +16,13 @@ export interface IUser {
   username: UserName;
   email: string;
   phone: string;
+  dateOfBirth: Date;
+  // gender: Gender;
   // address: Address;
   website: string;
   // socialConnection: SocialConnection[];
   // photo: Photo;
-  dateOfBirth: Date;
   // identifications: Identification[];
-  // gender: Gender;
 }
 
 const UserStub: IUser = {
@@ -30,13 +30,13 @@ const UserStub: IUser = {
   username: new UserName({}),
   email: '',
   phone: '',
+  dateOfBirth: new Date(),
+  // gender: Gender.Male
   // address: new Address({}),
-  website: '',
+  website: ''
   // socialConnection: [],
   // photo: new Photo({}),
-  dateOfBirth: new Date()
   // identifications: [],
-  // gender: Gender.Male
 };
 
 export class User implements IUser {
@@ -44,37 +44,37 @@ export class User implements IUser {
   username: UserName;
   email: string;
   phone: string;
+  dateOfBirth: Date;
+  // gender: Gender;
   // address: Address;
   website: string;
   // socialConnection: SocialConnection[];
   // photo: Photo;
-  dateOfBirth: Date;
   // identifications: Identification[];
-  // gender: Gender;
 
   constructor({
     id = UserStub.id,
     username = UserStub.username,
     email = UserStub.email,
     phone = UserStub.phone,
+    dateOfBirth = UserStub.dateOfBirth,
+    // gender = UserStub.gender
     // address = UserStub.address,
-    website = UserStub.website,
-    // socialConnection = UserStub.socialConnection,
-    // photo = UserStub.photo,
-    dateOfBirth = UserStub.dateOfBirth
-  }: // identifications = UserStub.identifications,
-  // gender = UserStub.gender
+    website = UserStub.website
+  }: // socialConnection = UserStub.socialConnection,
+  // photo = UserStub.photo,
+  // identifications = UserStub.identifications,
   Partial<IUser>) {
     this.id = id;
     this.username = username;
     this.email = email;
     this.phone = phone;
+    this.dateOfBirth = dateOfBirth;
+    // this.gender = gender;
     // this.address = address;
     this.website = website;
     // this.socialConnection = socialConnection;
     // this.photo = photo;
-    this.dateOfBirth = dateOfBirth;
     // this.identifications = identifications;
-    // this.gender = gender;
   }
 }
