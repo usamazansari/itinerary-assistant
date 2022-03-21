@@ -1,2 +1,2 @@
 export { Gender, HttpStatus } from '@itinerary-assistant/shared/data';
-export { UserSeed } from '@itinerary-assistant/api/database/seed';
+export { UsamaUser } from '@itinerary-assistant/api/database/seed';
