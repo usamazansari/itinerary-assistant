@@ -9,9 +9,7 @@ import {
   Photo,
   SocialConnection,
   Tenure,
-  Timezone,
-  UserName,
-  User
+  Timezone
 } from './imports/entities';
 
 import { UserController } from './controllers';
@@ -28,9 +26,7 @@ import { UserResolver } from './resolvers';
       Photo,
       SocialConnection,
       Tenure,
-      Timezone,
-      UserName,
-      User
+      Timezone
     ])
   ],
   controllers: [UserController],

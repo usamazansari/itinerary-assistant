@@ -1,55 +1,25 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  JoinColumn,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn
-} from 'typeorm';
-
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import {
-  AddressModel,
-  GenderEnum,
-  IdentificationModel,
-  SocialConnectionModel,
-  UserNameModel,
-  PhotoModel,
-  IUser
-} from '../../imports/models';
-
-import {
-  Address,
-  Identification,
-  UserName,
-  Photo,
-  SocialConnection
-} from '..';
+import { UserName } from '..';
+import { IUser, UserNameModel } from '../../imports/models';
 
 @ObjectType()
-@Entity({ name: 'User' })
-export class User extends BaseEntity implements IUser {
+export class User implements IUser {
   @Field()
-  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   // @OneToOne(() => UserName)
   // @JoinColumn()
   @Field(() => UserName)
-  username!: UserName;
+  username!: UserNameModel;
 
   @Field()
-  @Column()
   email!: string;
 
   @Field()
-  @Column()
   phone!: string;
 
   @Field()
-  @Column()
   dateOfBirth!: Date;
 
   // @Field()
@@ -61,7 +31,6 @@ export class User extends BaseEntity implements IUser {
   // gender!: GenderEnum;
 
   @Field()
-  @Column()
   website!: string;
 
   // @OneToOne(() => Address)
