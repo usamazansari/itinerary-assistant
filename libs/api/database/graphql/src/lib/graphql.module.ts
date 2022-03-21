@@ -10,7 +10,7 @@ import { join } from 'path';
       playground: true,
       autoSchemaFile: join(
         process.cwd(),
-        'libs/api/database/graphql/schema.gql'
+        'libs/api/database/graphql/schemas/schema.gql'
       )
     })
   ]
