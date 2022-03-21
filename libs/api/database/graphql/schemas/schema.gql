@@ -2,6 +2,44 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Coordinates {
+  id: String!
+  latitude: Float!
+  longitude: Float!
+  locationId: String!
+}
+
+type Timezone {
+  id: String!
+  description: String!
+  offset: Float!
+  locationId: String!
+}
+
+type Location {
+  id: String!
+  plusCode: String!
+  coordinates: Coordinates!
+  timezone: Timezone!
+}
+
+type Address {
+  id: String!
+  name: String!
+  room: String!
+  apartment: String!
+  wing: String!
+  street: String!
+  landmark: String!
+  locality: String!
+  suburb: String!
+  city: String!
+  state: String!
+  country: String!
+  zip: String!
+  location: Location!
+}
+
 type UserName {
   id: String!
   first: String!
@@ -16,6 +54,7 @@ type User {
   phone: String!
   dateOfBirth: DateTime!
   website: String!
+  address: Address!
 }
 
 """

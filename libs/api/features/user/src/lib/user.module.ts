@@ -2,14 +2,10 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import {
-  Address,
-  Coordinates,
   Identification,
-  Location,
   Photo,
   SocialConnection,
-  Tenure,
-  Timezone
+  Tenure
 } from './imports/entities';
 
 import { UserController } from './controllers';
@@ -19,14 +15,10 @@ import { UserResolver } from './resolvers';
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Address,
-      Coordinates,
       Identification,
-      Location,
       Photo,
       SocialConnection,
-      Tenure,
-      Timezone
+      Tenure
     ])
   ],
   controllers: [UserController],

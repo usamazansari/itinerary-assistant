@@ -11,37 +11,37 @@ export const GoaUsers: User[] = [
       full: 'Usama Ansari'
     },
     dateOfBirth: new Date(1993, 9, 25),
-    // address: {
-    //   id: 'user-1-address',
-    //   room: '1301',
-    //   wing: 'A',
-    //   apartment: 'Sayba Nx',
-    //   street: 'S. G. Barve Marg',
-    //   landmark: 'Opposite Kurla Railway Station',
-    //   locality: 'Nehru Nagar',
-    //   suburb: 'Kurla East',
-    //   city: 'Mumbai',
-    //   state: 'Maharashtra',
-    //   country: 'India',
-    //   zip: '400024',
-    //   name: 'Rent',
-    //   location: {
-    //     id: 'user-1-address-location',
-    //     plusCode: '3V7J+59 Mumbai, Maharashtra',
-    //     coordinates: {
-    //       id: 'user-1-address-location-coordinates',
-    //       latitude: 19.0628191,
-    //       longitude: 72.8808394,
-    //       location: 'user-1-address-location'
-    //     },
-    //     timezone: {
-    //       id: 'user-1-address-location-timezone',
-    //       offset: 5.5,
-    //       description: 'Asia/Kolkata',
-    //       location: 'user-1-address-location'
-    //     }
-    //   }
-    // },
+    address: {
+      id: 'user-1-address',
+      room: '1301',
+      wing: 'A',
+      apartment: 'Sayba Nx',
+      street: 'S. G. Barve Marg',
+      landmark: 'Opposite Kurla Railway Station',
+      locality: 'Nehru Nagar',
+      suburb: 'Kurla East',
+      city: 'Mumbai',
+      state: 'Maharashtra',
+      country: 'India',
+      zip: '400024',
+      name: 'Rent',
+      location: {
+        id: 'user-1-address-location',
+        plusCode: '3V7J+59 Mumbai, Maharashtra',
+        coordinates: {
+          id: 'user-1-address-location-coordinates',
+          latitude: 19.0628191,
+          longitude: 72.8808394,
+          locationId: 'user-1-address-location'
+        },
+        timezone: {
+          id: 'user-1-address-location-timezone',
+          offset: 5.5,
+          description: 'Asia/Kolkata',
+          locationId: 'user-1-address-location'
+        }
+      }
+    },
     // gender: Gender.Male,
     email: 'usama251993@gmail.com',
     phone: '+91 80977 28350',

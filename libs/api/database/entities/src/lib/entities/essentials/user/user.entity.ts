@@ -1,7 +1,11 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { UserName } from '..';
-import { IUser, UserNameModel } from '../../imports/models';
+import {
+  IUser,
+  AddressModel,
+  UserNameModel
+} from '../../imports/models';
+import { Address, UserName } from '..';
 
 @ObjectType()
 export class User implements IUser {
@@ -35,8 +39,8 @@ export class User implements IUser {
 
   // @OneToOne(() => Address)
   // @JoinColumn()
-  // @Field()
-  // address!: AddressModel;
+  @Field(() => Address)
+  address!: AddressModel;
 
   // @OneToMany(
   //   () => Identification,

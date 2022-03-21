@@ -18,7 +18,7 @@ export interface IUser {
   phone: string;
   dateOfBirth: Date;
   // gender: Gender;
-  // address: Address;
+  address: Address;
   website: string;
   // socialConnection: SocialConnection[];
   // photo: Photo;
@@ -32,7 +32,7 @@ const UserStub: IUser = {
   phone: '',
   dateOfBirth: new Date(),
   // gender: Gender.Male
-  // address: new Address({}),
+  address: new Address({}),
   website: ''
   // socialConnection: [],
   // photo: new Photo({}),
@@ -46,7 +46,7 @@ export class User implements IUser {
   phone: string;
   dateOfBirth: Date;
   // gender: Gender;
-  // address: Address;
+  address: Address;
   website: string;
   // socialConnection: SocialConnection[];
   // photo: Photo;
@@ -59,7 +59,7 @@ export class User implements IUser {
     phone = UserStub.phone,
     dateOfBirth = UserStub.dateOfBirth,
     // gender = UserStub.gender
-    // address = UserStub.address,
+    address = UserStub.address,
     website = UserStub.website
   }: // socialConnection = UserStub.socialConnection,
   // photo = UserStub.photo,
@@ -71,7 +71,7 @@ export class User implements IUser {
     this.phone = phone;
     this.dateOfBirth = dateOfBirth;
     // this.gender = gender;
-    // this.address = address;
+    this.address = address;
     this.website = website;
     // this.socialConnection = socialConnection;
     // this.photo = photo;
