@@ -21,7 +21,7 @@ export interface IUser {
   address: Address;
   website: string;
   // socialConnection: SocialConnection[];
-  // photo: Photo;
+  photos: Photo[];
   identifications: Identification[];
 }
 
@@ -35,7 +35,7 @@ const UserStub: IUser = {
   address: new Address({}),
   website: '',
   // socialConnection: [],
-  // photo: new Photo({}),
+  photos: [],
   identifications: []
 };
 
@@ -49,7 +49,7 @@ export class User implements IUser {
   address: Address;
   website: string;
   // socialConnection: SocialConnection[];
-  // photo: Photo;
+  photos: Photo[];
   identifications: Identification[];
 
   constructor({
@@ -61,9 +61,9 @@ export class User implements IUser {
     // gender = UserStub.gender
     address = UserStub.address,
     website = UserStub.website,
-    identifications = UserStub.identifications
+    identifications = UserStub.identifications,
+    photos = UserStub.photos
   }: // socialConnection = UserStub.socialConnection,
-  // photo = UserStub.photo,
   Partial<IUser>) {
     this.id = id;
     this.username = username;
@@ -74,7 +74,7 @@ export class User implements IUser {
     this.address = address;
     this.website = website;
     // this.socialConnection = socialConnection;
-    // this.photo = photo;
+    this.photos = photos;
     this.identifications = identifications;
   }
 }

@@ -51,6 +51,14 @@ type Address {
   location: Location!
 }
 
+type Photo {
+  id: String!
+  large: String!
+  medium: String!
+  thumbnail: String!
+  userId: String!
+}
+
 type Identification {
   id: String!
   type: String!
@@ -76,6 +84,7 @@ type User {
   website: String!
   address: Address!
   identifications: [Identification!]!
+  photos: [Photo!]!
 }
 
 type Query {

@@ -4,17 +4,16 @@ import {
   IUser,
   AddressModel,
   IdentificationModel,
+  PhotoModel,
   UserNameModel
 } from '../../imports/models';
-import { Address, Identification, UserName } from '..';
+import { Address, Identification, Photo, UserName } from '..';
 
 @ObjectType()
 export class User implements IUser {
   @Field()
   id!: string;
 
-  // @OneToOne(() => UserName)
-  // @JoinColumn()
   @Field(() => UserName)
   username!: UserNameModel;
 
@@ -38,15 +37,9 @@ export class User implements IUser {
   @Field()
   website!: string;
 
-  // @OneToOne(() => Address)
-  // @JoinColumn()
   @Field(() => Address)
   address!: AddressModel;
 
-  // @OneToMany(
-  //   () => Identification,
-  //   identification => identification.user
-  // )
   @Field(() => [Identification])
   identifications!: IdentificationModel[];
 
@@ -57,7 +50,6 @@ export class User implements IUser {
   // @Field()
   // socialConnection!: SocialConnectionModel[];
 
-  // @OneToMany(() => Photo, photo => photo.user)
-  // @Field()
-  // photo!: PhotoModel;
+  @Field(() => [Photo])
+  photos!: PhotoModel[];
 }

@@ -66,14 +66,17 @@ export const GoaUsers: User[] = [
     //     user: 'user-1'
     //   }
     // ],
-    // photo: {
-    //   id: 'user-1-photo',
-    //   large: 'https://randomuser.me/api/portraits/usamaansari',
-    //   medium: 'https://randomuser.me/api/portraits/medium/usamaansari',
-    //   thumbnail:
-    //     'https://randomuser.me/api/portraits/thumb/usamaansari',
-    //   user: 'user-1'
-    // },
+    photos: [
+      {
+        id: 'user-1-photo',
+        large: 'https://randomuser.me/api/portraits/usamaansari',
+        medium:
+          'https://randomuser.me/api/portraits/medium/usamaansari',
+        thumbnail:
+          'https://randomuser.me/api/portraits/thumb/usamaansari',
+        userId: 'user-1'
+      }
+    ],
     identifications: [
       {
         id: 'user-1-id-1',
