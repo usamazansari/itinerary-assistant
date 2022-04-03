@@ -1,5 +1,5 @@
-import { Address } from '../../imports/models';
-import { EramUserId, EramLocation } from '..';
+import { Address } from '../../../imports/models';
+import { EramUserId, EramLocation } from '../..';
 
 export const EramAddressId = 'user-2-address';
 

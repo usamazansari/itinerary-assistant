@@ -1,4 +1,4 @@
-import { SocialConnection } from '../../imports/models';
+import { SocialConnection } from '../../../imports/models';
 import { EramUserId } from '..';
 
 export const EramSocialConnectionIds = {

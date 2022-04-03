@@ -1,5 +1,5 @@
-import { Identification, Tenure } from '../../imports/models';
-import { UsamaTenures, UsamaTenureIds, UsamaUserId } from '..';
+import { Identification, Tenure } from '../../../imports/models';
+import { UsamaTenures, UsamaTenureIds, UsamaUserId } from '../..';
 
 export const UsamaIdentificationIds = {
   Aadhar: 'user-1-id-1',

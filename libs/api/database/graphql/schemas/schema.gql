@@ -34,7 +34,7 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
-type UserDemographics {
+type Demographics {
   id: ID!
   firstName: String!
   middleName: String!
@@ -45,7 +45,7 @@ type UserDemographics {
 
 type User {
   id: ID!
-  demographics: UserDemographics!
+  demographics: Demographics!
   email: String!
   phone: String!
   dateOfBirth: DateTime!

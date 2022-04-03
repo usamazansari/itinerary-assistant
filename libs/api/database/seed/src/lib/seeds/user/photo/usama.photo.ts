@@ -1,4 +1,4 @@
-import { Photo } from '../../imports/models';
+import { Photo } from '../../../imports/models';
 import { UsamaUserId } from '..';
 
 export const UsamaPhotoIds = {

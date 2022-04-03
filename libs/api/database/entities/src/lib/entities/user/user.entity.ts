@@ -7,14 +7,14 @@ import {
   // Identification as IdentificationModel,
   // Photo as PhotoModel,
   // SocialConnection as SocialConnectionModel,
-  UserDemographics as UserDemographicsModel
+  Demographics as DemographicsModel
 } from '../imports/models';
 import {
   // Address as AddressEntity,
   // Identification as IdentificationEntity,
   // Photo as PhotoEntity,
   // SocialConnection as SocialConnectionEntity,
-  UserDemographics as UserDemographicsEntity
+  Demographics as DemographicsEntity
 } from '.';
 
 @ObjectType()
@@ -22,8 +22,8 @@ export class User implements IUser {
   @Field(() => ID)
   id!: string;
 
-  @Field(() => UserDemographicsEntity)
-  demographics!: UserDemographicsModel;
+  @Field(() => DemographicsEntity)
+  demographics!: DemographicsModel;
 
   @Field()
   email!: string;

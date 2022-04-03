@@ -4,7 +4,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { IDemographics } from '../../imports/models';
 
 @ObjectType()
-export class UserDemographics implements IDemographics {
+export class Demographics implements IDemographics {
   @Field(() => ID)
   id!: string;
 

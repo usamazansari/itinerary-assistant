@@ -1,5 +1,5 @@
 import { Location } from '../../imports/models';
-import { EramCoordinates, EramTimezone } from '..';
+import { EramCoordinates, EramTimezone } from '.';
 
 export const EramLocationId = 'user-2-address-location';
 

@@ -1,5 +1,5 @@
-import { Identification, Tenure } from '../../imports/models';
-import { EramTenures, EramTenureIds, EramUserId } from '..';
+import { Identification, Tenure } from '../../../imports/models';
+import { EramTenures, EramTenureIds, EramUserId } from '../..';
 
 export const EramIdentificationIds = {
   Aadhar: 'user-2-id-1',

@@ -1,5 +1,5 @@
-import { Address } from '../../imports/models';
-import { UsamaUserId, UsamaLocation } from '..';
+import { Address } from '../../../imports/models';
+import { UsamaUserId, UsamaLocation } from '../..';
 
 export const UsamaAddressId = 'user-1-address';
 

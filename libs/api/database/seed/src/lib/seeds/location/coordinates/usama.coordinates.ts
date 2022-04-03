@@ -1,4 +1,4 @@
-import { Coordinates } from '../../imports/models';
+import { Coordinates } from '../../../imports/models';
 import { UsamaLocationId } from '..';
 
 export const UsamaCoordinatesId = 'user-1-address-location-coordinates';

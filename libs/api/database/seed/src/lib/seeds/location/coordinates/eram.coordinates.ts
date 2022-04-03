@@ -1,4 +1,4 @@
-import { Coordinates } from '../../imports/models';
+import { Coordinates } from '../../../imports/models';
 import { EramLocationId } from '..';
 
 export const EramCoordinatesId = 'user-2-address-location-coordinates';

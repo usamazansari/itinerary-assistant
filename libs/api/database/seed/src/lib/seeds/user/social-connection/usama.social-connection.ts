@@ -1,4 +1,4 @@
-import { SocialConnection } from '../../imports/models';
+import { SocialConnection } from '../../../imports/models';
 import { UsamaUserId } from '..';
 
 export const UsamaSocialConnectionIds = {
