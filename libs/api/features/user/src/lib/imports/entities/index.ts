@@ -7,6 +7,6 @@ export {
   SocialConnection,
   Tenure,
   Timezone,
-  UserName,
+  UserDemographics,
   User
 } from '@itinerary-assistant/api/database/entities';

@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { ICoordinates } from '../../imports/models';
+import { ICoordinates } from '../../../imports/models';
 
 @ObjectType()
 export class Coordinates implements ICoordinates {

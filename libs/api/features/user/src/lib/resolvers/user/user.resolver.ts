@@ -6,11 +6,8 @@ import {
   Resolver
 } from '@nestjs/graphql';
 
-import { User, UserName } from '../../imports/entities';
-import {
-  User as UserModel,
-  UserName as UserNameModel
-} from '../../imports/models';
+import { User } from '../../imports/entities';
+import { User as UserModel } from '../../imports/models';
 import { GoaUsers } from '../../mock';
 
 @Resolver(() => User)

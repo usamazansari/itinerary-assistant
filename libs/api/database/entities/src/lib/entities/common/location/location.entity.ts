@@ -2,10 +2,13 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import {
   ILocation,
-  CoordinatesModel,
-  TimezoneModel
+  Coordinates as CoordinatesModel,
+  Timezone as TimezoneModel
 } from '../../imports/models';
-import { Coordinates, Timezone } from '..';
+import {
+  Coordinates as CoordinatesEntity,
+  Timezone as TimezoneEntity
+} from '.';
 
 @ObjectType()
 export class Location implements ILocation {
@@ -15,9 +18,9 @@ export class Location implements ILocation {
   @Field()
   plusCode!: string;
 
-  @Field(() => Coordinates)
+  @Field(() => CoordinatesEntity)
   coordinates!: CoordinatesModel;
 
-  @Field(() => Timezone)
+  @Field(() => TimezoneEntity)
   timezone!: TimezoneModel;
 }

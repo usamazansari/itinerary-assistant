@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { ITimezone } from '../../imports/models';
+import { ITimezone } from '../../../imports/models';
 
 @ObjectType()
 export class Timezone implements ITimezone {

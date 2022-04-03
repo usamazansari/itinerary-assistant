@@ -1,6 +1,4 @@
-// TODO - Usama Ansari: add more fields (salutation, nickname, etc)
-
-import { Salutation } from '../../../constants';
+// import { Salutation } from '../../../constants';
 
 export interface IUserDemographics {
   id: string;
@@ -8,7 +6,7 @@ export interface IUserDemographics {
   middleName: string;
   lastName: string;
   nickname: string;
-  salutation: Salutation;
+  // salutation: Salutation;
   userId: string;
 }
 
@@ -20,7 +18,7 @@ const UserDemographicsStub: IUserDemographics = {
   middleName: '',
   lastName: '',
   nickname: '',
-  salutation: Salutation.Mister,
+  // salutation: Salutation.Mister,
   userId: `user-for-new-demographics-${Timestamp}`
 };
 
@@ -30,7 +28,7 @@ export class UserDemographics implements IUserDemographics {
   middleName: string;
   lastName: string;
   nickname: string;
-  salutation: Salutation;
+  // salutation: Salutation;
   userId: string;
 
   constructor({
@@ -39,7 +37,7 @@ export class UserDemographics implements IUserDemographics {
     middleName = UserDemographicsStub.middleName,
     lastName = UserDemographicsStub.lastName,
     nickname = UserDemographicsStub.nickname,
-    salutation = UserDemographicsStub.salutation,
+    // salutation = UserDemographicsStub.salutation,
     userId = UserDemographicsStub.userId
   }: Partial<IUserDemographics>) {
     this.id = id;
@@ -47,7 +45,7 @@ export class UserDemographics implements IUserDemographics {
     this.middleName = middleName;
     this.lastName = lastName;
     this.nickname = nickname;
-    this.salutation = salutation;
+    // this.salutation = salutation;
     this.userId = userId;
   }
 }
@@ -61,7 +59,7 @@ export class UserDemographicsDTO
   middleName: string;
   lastName: string;
   nickname: string;
-  salutation: Salutation;
+  // salutation: Salutation;
   userId: string;
 
   constructor({
@@ -69,14 +67,14 @@ export class UserDemographicsDTO
     middleName = UserDemographicsStub.middleName,
     lastName = UserDemographicsStub.lastName,
     nickname = UserDemographicsStub.nickname,
-    salutation = UserDemographicsStub.salutation,
+    // salutation = UserDemographicsStub.salutation,
     userId = UserDemographicsStub.userId
   }: Partial<IUserDemographics>) {
     this.firstName = firstName;
     this.middleName = middleName;
     this.lastName = lastName;
     this.nickname = nickname;
-    this.salutation = salutation;
+    // this.salutation = salutation;
     this.userId = userId;
   }
 }
