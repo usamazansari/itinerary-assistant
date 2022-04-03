@@ -1,10 +1,10 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 // import { Salutation } from '../../imports/constants';
-import { IUserDemographics } from '../../imports/models';
+import { IDemographics } from '../../imports/models';
 
 @ObjectType()
-export class UserDemographics implements IUserDemographics {
+export class UserDemographics implements IDemographics {
   @Field(() => ID)
   id!: string;
 

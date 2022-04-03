@@ -1,10 +1,10 @@
-import { UserDemographics } from '.';
+import { Demographics } from '.';
 
 const Timestamp = new Date().valueOf();
 
 export interface IUser {
   id: string;
-  demographics: UserDemographics;
+  demographics: Demographics;
   email: string;
   phone: string;
   dateOfBirth: Date;
@@ -18,7 +18,7 @@ export interface IUser {
 
 const UserStub: IUser = {
   id: `new-user-${Timestamp}`,
-  demographics: new UserDemographics({
+  demographics: new Demographics({
     id: `demographics-for-new-user-${Timestamp}`
   }),
   email: '',
@@ -34,7 +34,7 @@ const UserStub: IUser = {
 
 export class User implements IUser {
   id: string;
-  demographics: UserDemographics;
+  demographics: Demographics;
   email: string;
   phone: string;
   dateOfBirth: Date;

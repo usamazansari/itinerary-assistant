@@ -1,6 +1,6 @@
 // import { Salutation } from '../../../constants';
 
-export interface IUserDemographics {
+export interface IDemographics {
   id: string;
   firstName: string;
   middleName: string;
@@ -12,7 +12,7 @@ export interface IUserDemographics {
 
 const Timestamp = new Date().toISOString().valueOf();
 
-const UserDemographicsStub: IUserDemographics = {
+const UserDemographicsStub: IDemographics = {
   id: `new-demographics-${Timestamp}`,
   firstName: '',
   middleName: '',
@@ -22,7 +22,7 @@ const UserDemographicsStub: IUserDemographics = {
   userId: `user-for-new-demographics-${Timestamp}`
 };
 
-export class UserDemographics implements IUserDemographics {
+export class Demographics implements IDemographics {
   id: string;
   firstName: string;
   middleName: string;
@@ -39,7 +39,7 @@ export class UserDemographics implements IUserDemographics {
     nickname = UserDemographicsStub.nickname,
     // salutation = UserDemographicsStub.salutation,
     userId = UserDemographicsStub.userId
-  }: Partial<IUserDemographics>) {
+  }: Partial<IDemographics>) {
     this.id = id;
     this.firstName = firstName;
     this.middleName = middleName;
@@ -50,10 +50,10 @@ export class UserDemographics implements IUserDemographics {
   }
 }
 
-type UserDemographicsDTOOmitType = 'id';
+type DemographicsDTOOmitType = 'id';
 
-export class UserDemographicsDTO
-  implements Omit<IUserDemographics, UserDemographicsDTOOmitType>
+export class DemographicsDTO
+  implements Omit<IDemographics, DemographicsDTOOmitType>
 {
   firstName: string;
   middleName: string;
@@ -69,7 +69,7 @@ export class UserDemographicsDTO
     nickname = UserDemographicsStub.nickname,
     // salutation = UserDemographicsStub.salutation,
     userId = UserDemographicsStub.userId
-  }: Partial<IUserDemographics>) {
+  }: Partial<IDemographics>) {
     this.firstName = firstName;
     this.middleName = middleName;
     this.lastName = lastName;

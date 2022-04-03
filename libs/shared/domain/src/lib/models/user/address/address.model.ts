@@ -1,6 +1,5 @@
 import { Location } from '../..';
 
-// TODO: Usama Ansari - Change the name to IUserAddress
 export interface IAddress {
   id: string;
   name: string;

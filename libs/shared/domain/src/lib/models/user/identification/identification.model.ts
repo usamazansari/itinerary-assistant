@@ -1,6 +1,5 @@
 import { Tenure } from '../..';
 
-// TODO: Usama Ansari - Change the name to IUserIdentification
 export interface IIdentification {
   id: string;
   type: string;
