@@ -1,3 +1,4 @@
+// TODO: Usama Ansari - Change the name to IUserSocialConnection
 export interface ISocialConnection {
   id: string;
   name: string;

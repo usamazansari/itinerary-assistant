@@ -1,3 +1,4 @@
+// TODO: Usama Ansari - Change the name to IUserPhoto
 export interface IPhoto {
   id: string;
   large: string;
