@@ -1,4 +1,4 @@
-import { Tenure } from '.';
+import { Tenure } from '../..';
 
 export interface IIdentification {
   id: string;

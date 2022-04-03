@@ -1,4 +1,4 @@
-import { Location } from '.';
+import { Location } from '../..';
 
 export interface IAddress {
   id: string;
