@@ -17,6 +17,8 @@ export class UserResolver {
     return GoaUsers.find(user => user.id === id) ?? new UserModel({});
   }
 
+  // TODO: Usama Ansari - Resolve for Address, Identification, Social Connection and Photo
+
   @Query(() => [User])
   users(): UserModel[] {
     return GoaUsers;
