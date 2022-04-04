@@ -4,6 +4,7 @@ const Timestamp = new Date().valueOf();
 
 export interface IUser {
   id: string;
+  fullName: string;
   demographics: Demographics;
   email: string;
   phone: string;
@@ -18,6 +19,7 @@ export interface IUser {
 
 const UserStub: IUser = {
   id: `new-user-${Timestamp}`,
+  fullName: '',
   demographics: new Demographics({
     id: `demographics-for-new-user-${Timestamp}`
   }),
@@ -34,6 +36,7 @@ const UserStub: IUser = {
 
 export class User implements IUser {
   id: string;
+  fullName: string;
   demographics: Demographics;
   email: string;
   phone: string;
@@ -47,6 +50,7 @@ export class User implements IUser {
 
   constructor({
     id = UserStub.id,
+    fullName = UserStub.fullName,
     demographics = UserStub.demographics,
     email = UserStub.email,
     phone = UserStub.phone,
@@ -59,6 +63,7 @@ export class User implements IUser {
   // socialConnections = UserStub.socialConnections
   Partial<IUser>) {
     this.id = id;
+    this.fullName = fullName;
     this.demographics = demographics;
     this.email = email;
     this.phone = phone;
@@ -69,5 +74,39 @@ export class User implements IUser {
     // this.socialConnections = socialConnections;
     // this.photos = photos;
     // this.identifications = identifications;
+  }
+}
+
+type UserDTOOmitType = 'id' | 'demographics';
+// | 'address'
+// | 'socialConnections'
+// | 'photos'
+// | 'identifications';
+
+export class UserDTO implements Omit<IUser, UserDTOOmitType> {
+  id: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  dateOfBirth: Date;
+  // gender: Gender;
+  website: string;
+
+  constructor({
+    id = UserStub.id,
+    fullName = UserStub.fullName,
+    email = UserStub.email,
+    phone = UserStub.phone,
+    dateOfBirth = UserStub.dateOfBirth,
+    // gender = UserStub.gender,
+    website = UserStub.website
+  }: Partial<IUser>) {
+    this.id = id;
+    this.fullName = fullName;
+    this.email = email;
+    this.phone = phone;
+    this.dateOfBirth = dateOfBirth;
+    // this.gender = gender;
+    this.website = website;
   }
 }

@@ -11,6 +11,7 @@ export const EramUserId = 'user-2';
 
 export const EramUser: User = new User({
   id: 'user-2',
+  fullName: 'Eram Shaikh',
   demographics: EramDemographics,
   dateOfBirth: new Date(1993, 3, 18),
   email: 'eramshaikh22@gmail.com',

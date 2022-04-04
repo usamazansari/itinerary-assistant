@@ -1,7 +1,7 @@
 import { Demographics } from '../../../imports/models';
 import { UsamaUserId } from '..';
 
-export const UsamaDemographicsId = 'user-1-name';
+export const UsamaDemographicsId = 'user-1-demographics';
 
 export const UsamaDemographics: Demographics = new Demographics({
   id: UsamaDemographicsId,

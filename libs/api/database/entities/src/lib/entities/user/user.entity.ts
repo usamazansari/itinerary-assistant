@@ -22,6 +22,9 @@ export class User implements IUser {
   @Field(() => ID)
   id!: string;
 
+  @Field()
+  fullName!: string;
+
   @Field(() => DemographicsEntity)
   demographics!: DemographicsModel;
 

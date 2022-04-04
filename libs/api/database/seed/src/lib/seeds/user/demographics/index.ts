@@ -1,2 +1,2 @@
-export * from './usama.demographics';
 export * from './eram.demographics';
+export * from './usama.demographics';

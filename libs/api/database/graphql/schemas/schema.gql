@@ -45,6 +45,7 @@ type Demographics {
 
 type User {
   id: ID!
+  fullName: String!
   demographics: Demographics!
   email: String!
   phone: String!

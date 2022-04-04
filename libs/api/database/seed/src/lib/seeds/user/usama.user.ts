@@ -11,6 +11,7 @@ export const UsamaUserId = 'user-1';
 
 export const UsamaUser: User = new User({
   id: 'user-1',
+  fullName: 'Usama Ansari',
   demographics: UsamaDemographics,
   dateOfBirth: new Date(1993, 9, 25),
   email: 'usama251993@gmail.com',

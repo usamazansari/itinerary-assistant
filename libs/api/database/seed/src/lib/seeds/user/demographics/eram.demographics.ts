@@ -1,7 +1,7 @@
 import { Demographics } from '../../../imports/models';
 import { EramUserId } from '..';
 
-export const EramDemographicsId = 'user-2-name';
+export const EramDemographicsId = 'user-2-demographics';
 
 export const EramDemographics: Demographics = new Demographics({
   id: EramDemographicsId,
