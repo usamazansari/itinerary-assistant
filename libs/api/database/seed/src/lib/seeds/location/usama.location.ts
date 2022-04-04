@@ -1,5 +1,5 @@
 import { Location } from '../../imports/models';
-import { UsamaCoordinates, UsamaTimezone } from '..';
+import { UsamaCoordinates, UsamaTimezone } from '.';
 
 export const UsamaLocationId = 'user-1-address-location';
 

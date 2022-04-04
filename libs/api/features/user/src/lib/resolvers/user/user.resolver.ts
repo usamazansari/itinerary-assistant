@@ -6,11 +6,8 @@ import {
   Resolver
 } from '@nestjs/graphql';
 
-import { User, UserName } from '../../imports/entities';
-import {
-  User as UserModel,
-  UserName as UserNameModel
-} from '../../imports/models';
+import { User } from '../../imports/entities';
+import { User as UserModel } from '../../imports/models';
 import { GoaUsers } from '../../mock';
 
 @Resolver(() => User)
@@ -19,6 +16,8 @@ export class UserResolver {
   user(@Args('id') id: string): UserModel {
     return GoaUsers.find(user => user.id === id) ?? new UserModel({});
   }
+
+  // TODO: Usama Ansari - Resolve for Address, Identification, Social Connection and Photo
 
   @Query(() => [User])
   users(): UserModel[] {

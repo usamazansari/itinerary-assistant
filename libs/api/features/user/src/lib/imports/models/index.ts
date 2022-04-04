@@ -1,5 +1,2 @@
-export {
-  APIResponse,
-  User,
-  UserName
-} from '@itinerary-assistant/shared/data';
+export { APIResponse } from '@itinerary-assistant/shared/data';
+export { Demographics, User } from '@itinerary-assistant/shared/domain';

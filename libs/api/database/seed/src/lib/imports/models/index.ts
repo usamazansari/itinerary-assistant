@@ -8,6 +8,6 @@ export {
   SocialConnection,
   Tenure,
   Timezone,
-  UserName,
+  Demographics,
   User
-} from '@itinerary-assistant/shared/data';
+} from '@itinerary-assistant/shared/domain';

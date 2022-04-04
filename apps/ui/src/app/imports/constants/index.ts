@@ -1,4 +1,4 @@
 export {
   ApplicationName,
   Author
-} from '@itinerary-assistant/shared/data';
+} from '@itinerary-assistant/shared/domain';

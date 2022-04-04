@@ -1,1 +1,1 @@
-export { Icon } from '@itinerary-assistant/shared/data';
+export { Icon } from '@itinerary-assistant/ui/design/components/elementary';
