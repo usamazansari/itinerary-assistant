@@ -1,8 +1,7 @@
-export {
-  APIResponse,
-  Flag,
-  Icon,
-  TripListItem
-} from '@itinerary-assistant/shared/data';
+export { APIResponse } from '@itinerary-assistant/shared/data';
 export { RouterPayload } from '@itinerary-assistant/ui/core';
-// export { Button } from '@itinerary-assistant/ui/design/components';
+
+export {
+  Flag,
+  Icon
+} from '@itinerary-assistant/ui/design/components/elementary';
