@@ -54,6 +54,8 @@ type User {
 }
 
 type Query {
+  gqlSanity: String!
+  neo4jSanity: [User!]!
   user(id: String!): User!
   users: [User!]!
 }
