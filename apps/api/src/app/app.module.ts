@@ -1,5 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { express as Voyager } from 'graphql-voyager/middleware';
+import { Module } from '@nestjs/common';
 
 import { CoreModule, TripModule, UserModule } from './imports/modules';
 
@@ -11,8 +10,4 @@ import { AppService } from './app.service';
   controllers: [AppController],
   providers: [AppService]
 })
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(Voyager({ endpointUrl: '/voyager' })).forRoutes('*');
-  }
-}
+export class AppModule {}
