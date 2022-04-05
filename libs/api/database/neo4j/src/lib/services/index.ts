@@ -1,1 +1,1 @@
-export * from './query/query.service';
+export * from './query/query-repository.service';
