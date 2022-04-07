@@ -1,3 +1,2 @@
-export * from './tenure';
-export * from './location';
-export * from './user';
+export * from './entities';
+export * from './relationships';

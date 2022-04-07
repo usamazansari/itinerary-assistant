@@ -14,14 +14,14 @@ export class SanityRepository {
         node('demographics', 'DEMOGRAPHICS'),
         relation('out', 'demographicsRelationship', 'DEMOGRAPHICS_OF'),
         node('person', 'PERSON'),
-        relation('in', 'socialRelationship', 'SOCIAL_CONNECTION_OF'),
+        relation('in', 'socialRel', 'SOCIAL_CONNECTION_OF'),
         node('social', 'SOCIAL_CONNECTION')
       ])
       .return([
         'demographics',
         'demographicsRelationship',
         'person',
-        'socialRelationship',
+        'socialRel',
         'social'
       ]);
 
