@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { DateTime } from 'neo4j-driver';
 
 import {
   Demographics,
@@ -13,7 +14,9 @@ export class Neo4jUtility {
     return new User({
       ...properties,
       id: identity,
-      dateOfBirth: new Date(Object.values(properties.dateOfBirth).join('-'))
+      dateOfBirth: this.parseDateTime(
+        (<unknown>properties.dateOfBirth) as DateTime
+      )
     });
   }
 
@@ -39,5 +42,19 @@ export class Neo4jUtility {
       start,
       end
     });
+  }
+
+  parseDateTime(dateTime: DateTime): Date {
+    const { year, month, day, hour, minute, second, nanosecond } = dateTime;
+
+    return new Date(
+      +year || 1970,
+      (+month || 1) - 1,
+      +day || 1,
+      +hour || 0,
+      +minute || 0,
+      +second || 0,
+      (+nanosecond || 0) / 1000000
+    );
   }
 }
