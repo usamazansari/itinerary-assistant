@@ -6,14 +6,14 @@ import {
   // Address as AddressModel,
   // Identification as IdentificationModel,
   // Photo as PhotoModel,
-  // SocialConnection as SocialConnectionModel,
+  SocialConnection as SocialConnectionModel,
   Demographics as DemographicsModel
 } from '../imports/models';
 import {
   // Address as AddressEntity,
   // Identification as IdentificationEntity,
   // Photo as PhotoEntity,
-  // SocialConnection as SocialConnectionEntity,
+  SocialConnection as SocialConnectionEntity,
   Demographics as DemographicsEntity
 } from '.';
 
@@ -54,8 +54,8 @@ export class User implements IUser {
   // @Field(() => [Identification])
   // identifications!: IdentificationModel[];
 
-  // @Field(() => [SocialConnection])
-  // socialConnections!: SocialConnectionModel[];
+  @Field(() => [SocialConnectionEntity])
+  socialConnections!: SocialConnectionModel[];
 
   // @Field(() => [Photo])
   // photos!: PhotoModel[];

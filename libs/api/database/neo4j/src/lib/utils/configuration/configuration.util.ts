@@ -1,5 +1,5 @@
 // import { ConfigService } from '@nestjs/config';
-import { Neo4jConfig } from '../models';
+import { Neo4jConfig } from '../../models';
 
 export const createDatabaseConfig = (
   // service: ConfigService,

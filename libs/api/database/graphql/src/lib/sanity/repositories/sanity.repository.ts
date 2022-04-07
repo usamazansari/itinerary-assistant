@@ -8,27 +8,25 @@ export class SanityRepository {
   constructor(private _query: QueryRepositoryService) {}
 
   async neo4jSanity() {
-    const query = await this._query
+    const query = this._query
       .queryBuilder()
       .match([
-        node('people', 'PERSON'),
-        relation('in', 'demographicsRelationship', 'DEMOGRAPHICS_OF'),
-        node('demographics', 'DEMOGRAPHICS')
+        node('demographics', 'DEMOGRAPHICS'),
+        relation('out', 'demographicsRelationship', 'DEMOGRAPHICS_OF'),
+        node('person', 'PERSON'),
+        relation('in', 'socialRelationship', 'SOCIAL_CONNECTION_OF'),
+        node('social', 'SOCIAL_CONNECTION')
       ])
-      .return(['people', 'demographics'])
-      .run();
+      .return([
+        'demographics',
+        'demographicsRelationship',
+        'person',
+        'socialRelationship',
+        'social'
+      ]);
 
-    return query.map(({ people, demographics }) => {
-      const { year, month, day } = people.properties.dateOfBirth;
-      return {
-        id: people.identity,
-        ...people.properties,
-        dateOfBirth: new Date(`${year}-${month}-${day}`),
-        demographics: {
-          id: demographics.identity,
-          ...demographics.properties
-        }
-      };
-    });
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
   }
 }

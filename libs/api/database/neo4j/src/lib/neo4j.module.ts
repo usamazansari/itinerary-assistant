@@ -12,11 +12,12 @@ import {
   ConnectionErrorType
 } from './models';
 import { QueryRepositoryService } from './services';
-import { createDatabaseConfig } from './utils';
+import { createDatabaseConfig, Neo4jUtility } from './utils';
 
 @Module({
   controllers: [],
-  providers: [QueryRepositoryService]
+  providers: [QueryRepositoryService, Neo4jUtility],
+  exports: [Neo4jUtility]
 })
 export class Neo4jModule {
   // static forRootAsync(config: Neo4jConfig): DynamicModule {

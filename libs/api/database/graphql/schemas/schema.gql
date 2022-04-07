@@ -43,6 +43,13 @@ type Demographics {
   userId: String!
 }
 
+type SocialConnection {
+  id: ID!
+  name: String!
+  url: String!
+  userId: ID!
+}
+
 type User {
   id: ID!
   fullName: String!
@@ -51,6 +58,7 @@ type User {
   phone: String!
   dateOfBirth: DateTime!
   website: String!
+  socialConnections: [SocialConnection!]!
 }
 
 type Query {

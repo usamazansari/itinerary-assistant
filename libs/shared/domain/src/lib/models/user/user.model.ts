@@ -1,3 +1,4 @@
+import { SocialConnection } from '..';
 import { Demographics } from '.';
 
 const Timestamp = new Date().valueOf();
@@ -12,7 +13,7 @@ export interface IUser {
   // gender: Gender;
   website: string;
   // address: Address;
-  // socialConnections: SocialConnection[];
+  socialConnections: SocialConnection[];
   // photos: Photo[];
   // identifications: Identification[];
 }
@@ -27,9 +28,9 @@ const UserStub: IUser = {
   phone: '',
   dateOfBirth: new Date(),
   // gender: Gender.Male
-  website: ''
+  website: '',
   // address: new Address({}),
-  // socialConnections: [],
+  socialConnections: []
   // photos: [],
   // identifications: []
 };
@@ -44,7 +45,7 @@ export class User implements IUser {
   // gender: Gender;
   website: string;
   // address: Address;
-  // socialConnections: SocialConnection[];
+  socialConnections: SocialConnection[];
   // photos: Photo[];
   // identifications: Identification[];
 
@@ -56,11 +57,11 @@ export class User implements IUser {
     phone = UserStub.phone,
     dateOfBirth = UserStub.dateOfBirth,
     // gender = UserStub.gender
-    website = UserStub.website
+    website = UserStub.website,
+    socialConnections = UserStub.socialConnections
   }: // address = UserStub.address,
   // identifications = UserStub.identifications,
   // photos = UserStub.photos,
-  // socialConnections = UserStub.socialConnections
   Partial<IUser>) {
     this.id = id;
     this.fullName = fullName;
@@ -71,7 +72,7 @@ export class User implements IUser {
     // this.gender = gender;
     this.website = website;
     // this.address = address;
-    // this.socialConnections = socialConnections;
+    this.socialConnections = socialConnections;
     // this.photos = photos;
     // this.identifications = identifications;
   }
@@ -91,6 +92,7 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
   dateOfBirth: Date;
   // gender: Gender;
   website: string;
+  socialConnections: SocialConnection[];
 
   constructor({
     id = UserStub.id,
@@ -99,7 +101,8 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
     phone = UserStub.phone,
     dateOfBirth = UserStub.dateOfBirth,
     // gender = UserStub.gender,
-    website = UserStub.website
+    website = UserStub.website,
+    socialConnections = UserStub.socialConnections
   }: Partial<IUser>) {
     this.id = id;
     this.fullName = fullName;
@@ -108,5 +111,6 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
     this.dateOfBirth = dateOfBirth;
     // this.gender = gender;
     this.website = website;
+    this.socialConnections = socialConnections;
   }
 }
