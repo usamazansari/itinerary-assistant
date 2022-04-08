@@ -13,14 +13,19 @@ import {
 } from './models';
 import {
   Neo4jNodeMapperService,
-  Neo4jQueryRepositoryService
+  Neo4jQueryRepositoryService,
+  Neo4jRelationshipMapperService
 } from './services';
 import { createDatabaseConfig } from './utils';
 
 @Module({
   controllers: [],
-  providers: [Neo4jNodeMapperService, Neo4jQueryRepositoryService],
-  exports: [Neo4jNodeMapperService]
+  providers: [
+    Neo4jNodeMapperService,
+    Neo4jQueryRepositoryService,
+    Neo4jRelationshipMapperService
+  ],
+  exports: [Neo4jNodeMapperService, Neo4jRelationshipMapperService]
 })
 export class Neo4jModule {
   // static forRootAsync(config: Neo4jConfig): DynamicModule {
