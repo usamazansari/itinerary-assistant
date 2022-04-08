@@ -4,8 +4,10 @@ import {
   Neo4jNode,
   Neo4jRelationship,
   Demographics,
+  SocialConnection,
   User,
-  DemographicsRelationship
+  DemographicsRelationship,
+  SocialConnectionRelationship
 } from '../../imports/models';
 import {
   Neo4jNodeMapperService,
@@ -20,6 +22,8 @@ export class SanityService {
   people: User[] = [];
   demographics: Demographics[] = [];
   demographicsRelationships: DemographicsRelationship[] = [];
+  socialConnections: SocialConnection[] = [];
+  socialConnectionRelationships: SocialConnectionRelationship[] = [];
   result: User[] = [];
 
   constructor(
@@ -43,6 +47,9 @@ export class SanityService {
     this.demographics = this.extractDemographics(result);
     this.demographicsRelationships =
       this.extractDemographicRelationships(result);
+    this.socialConnections = this.extractSocialConnections(result);
+    this.socialConnectionRelationships =
+      this.extractSocialConnectionRelationships(result);
   }
 
   private relateModels(): void {
@@ -88,6 +95,17 @@ export class SanityService {
       .map(this._mapNode.toDemographics);
   }
 
+  private extractSocialConnections(result: unknown[]): SocialConnection[] {
+    type Neo4jSocialConnection = {
+      socialConnection: Neo4jRelationship<SocialConnection>;
+    };
+
+    return (<Neo4jSocialConnection[]>result)
+      .map(({ socialConnection }) => socialConnection)
+      .filter(deduplicateDictionary)
+      .map(this._mapNode.toSocialConnection);
+  }
+
   private extractDemographicRelationships(
     result: unknown[]
   ): DemographicsRelationship[] {
@@ -99,5 +117,18 @@ export class SanityService {
       .map(({ demographicsRelationship }) => demographicsRelationship)
       .filter(deduplicateDictionary)
       .map(this._mapRelationship.toDemographicsRelationship);
+  }
+
+  private extractSocialConnectionRelationships(
+    result: unknown[]
+  ): SocialConnectionRelationship[] {
+    type Neo4jSocialConnectionRelationship = {
+      socialConnectionRelationship: Neo4jRelationship<SocialConnectionRelationship>;
+    };
+
+    return (<Neo4jSocialConnectionRelationship[]>result)
+      .map(({ socialConnectionRelationship }) => socialConnectionRelationship)
+      .filter(deduplicateDictionary)
+      .map(this._mapRelationship.toSocialConnectionRelationship);
   }
 }

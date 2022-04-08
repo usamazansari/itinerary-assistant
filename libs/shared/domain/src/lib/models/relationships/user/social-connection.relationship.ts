@@ -33,9 +33,9 @@ export class SocialConnectionRelationship extends BaseRelationship<SocialConnect
     end: userId = SocialConnectionRelationshipStub.end,
     data = SocialConnectionRelationshipStub.data
   }: Partial<SocialConnectionRelationship>) {
-    super({ id, end: userId, data });
+    super({ id, start: socialConnectionId, end: userId, data });
     this.id = id;
-    this.end = socialConnectionId;
+    this.start = socialConnectionId;
     this.end = userId;
     this.data = data;
   }

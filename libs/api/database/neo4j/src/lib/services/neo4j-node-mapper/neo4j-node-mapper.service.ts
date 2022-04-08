@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import type { DateTime } from 'neo4j-driver';
 
-import { User, Demographics } from '../../imports/models';
+import { Demographics, SocialConnection, User } from '../../imports/models';
 import { Neo4jNode } from '../../models';
 import { parseDateTime } from '../../utils';
 
@@ -20,6 +20,16 @@ export class Neo4jNodeMapperService {
     properties
   }: Neo4jNode<Demographics>): Demographics {
     return new Demographics({
+      ...properties,
+      id: identity
+    });
+  }
+
+  toSocialConnection({
+    identity,
+    properties
+  }: Neo4jNode<SocialConnection>): SocialConnection {
+    return new SocialConnection({
       ...properties,
       id: identity
     });
