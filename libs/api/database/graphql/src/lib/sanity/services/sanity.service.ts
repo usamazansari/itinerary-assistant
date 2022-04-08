@@ -61,6 +61,15 @@ export class SanityService {
             demographicsRelationship.start === demographic.id
         )?.end ?? ''
     }));
+
+    this.socialConnections = this.socialConnections.map(socialConnection => ({
+      ...socialConnection,
+      userId:
+        this.socialConnectionRelationships.find(
+          socialConnectionRelationship =>
+            socialConnectionRelationship.start === socialConnection.id
+        )?.end ?? ''
+    }));
   }
 
   private processOutput(): void {
@@ -69,7 +78,11 @@ export class SanityService {
       demographics:
         this.demographics.find(
           demographics => person.id === demographics.userId
-        ) ?? new Demographics({ id: person.id })
+        ) ?? new Demographics({ id: person.id }),
+      socialConnections:
+        this.socialConnections.filter(
+          socialConnection => person.id === socialConnection.userId
+        ) ?? []
     }));
   }
 
