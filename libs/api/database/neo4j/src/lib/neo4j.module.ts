@@ -11,12 +11,12 @@ import {
   Neo4jConfig,
   ConnectionErrorType
 } from './models';
-import { QueryRepositoryService } from './services';
-import { createDatabaseConfig, Neo4jUtility } from './utils';
+import { Neo4jQueryRepositoryService, Neo4jUtility } from './services';
+import { createDatabaseConfig } from './utils';
 
 @Module({
   controllers: [],
-  providers: [QueryRepositoryService, Neo4jUtility],
+  providers: [Neo4jQueryRepositoryService, Neo4jUtility],
   exports: [Neo4jUtility]
 })
 export class Neo4jModule {
@@ -48,30 +48,22 @@ export class Neo4jModule {
                 username,
                 password
               } = config;
-              const connection = new Connection(
-                `${scheme}://${host}:${port}`,
-                {
-                  username,
-                  password
-                }
-              ) as ConnectionWithDriver;
+              const connection = new Connection(`${scheme}://${host}:${port}`, {
+                username,
+                password
+              }) as ConnectionWithDriver;
 
               console.log(`Connecting to Neo4j`);
 
-              const result =
-                await connection.driver.verifyConnectivity();
+              const result = await connection.driver.verifyConnectivity();
 
               // console.log({ result });
-              console.log(
-                `Connection Successful at: ${result.address}`
-              );
+              console.log(`Connection Successful at: ${result.address}`);
 
               return connection;
             } catch (error: unknown) {
               console.log(
-                `Error in connection - ${
-                  (<ConnectionErrorType>error).code
-                }`
+                `Error in connection - ${(<ConnectionErrorType>error).code}`
               );
               // throw new Error(`Could not connect to Neo4j`);
               console.log(`Could not connect to Neo4j`);
@@ -80,7 +72,7 @@ export class Neo4jModule {
           }
         }
       ],
-      exports: [QueryRepositoryService]
+      exports: [Neo4jQueryRepositoryService]
     };
   }
 }
