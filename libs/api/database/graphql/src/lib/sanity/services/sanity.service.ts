@@ -7,7 +7,7 @@ import {
   User,
   DemographicsRelationship
 } from '../../imports/models';
-import { Neo4jUtility } from '../../imports/services';
+import { Neo4jNodeMapperService, Neo4jUtility } from '../../imports/services';
 
 import { SanityRepository } from '..';
 
@@ -19,11 +19,13 @@ export class SanityService {
 
   constructor(
     private readonly _repository: SanityRepository,
-    private readonly _utility: Neo4jUtility
+    private readonly _utility: Neo4jUtility,
+    private _mapNode: Neo4jNodeMapperService
   ) {}
 
   async neo4jSanity() {
     const result = await this._repository.neo4jSanity();
+    this._mapNode.test();
 
     this.people = this.extractPeople(result);
     this.demographics = this.extractDemographics(result);
