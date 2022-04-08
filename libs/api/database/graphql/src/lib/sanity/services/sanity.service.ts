@@ -7,7 +7,8 @@ import {
   User,
   DemographicsRelationship
 } from '../../imports/models';
-import { Neo4jNodeMapperService, Neo4jUtility } from '../../imports/services';
+import { Neo4jNodeMapperService } from '../../imports/services';
+import { deduplicateDictionary } from '../../imports/utils';
 
 import { SanityRepository } from '..';
 
@@ -19,18 +20,16 @@ export class SanityService {
 
   constructor(
     private readonly _repository: SanityRepository,
-    private readonly _utility: Neo4jUtility,
     private _mapNode: Neo4jNodeMapperService
   ) {}
 
   async neo4jSanity() {
     const result = await this._repository.neo4jSanity();
-    this._mapNode.test();
 
     this.people = this.extractPeople(result);
     this.demographics = this.extractDemographics(result);
-    this.demographicsRelationships =
-      this.extractDemographicRelationships(result);
+    // this.demographicsRelationships =
+    //   this.extractDemographicRelationships(result);
 
     this.demographics = this.demographics.map(demographic => ({
       ...demographic,
@@ -53,39 +52,27 @@ export class SanityService {
   private extractDemographics(result: unknown[]): Demographics[] {
     return (<{ demographics: Neo4jNode<Demographics> }[]>result)
       .map(({ demographics }) => demographics)
-      .filter(this.deduplicateDictionary)
-      .map(demographics => this._utility.mapToDemographics(demographics));
+      .filter(deduplicateDictionary)
+      .map(this._mapNode.toDemographics);
   }
 
   private extractPeople(result: unknown[]): User[] {
     return (<{ person: Neo4jNode<User> }[]>result)
       .map(({ person }) => person)
-      .filter(this.deduplicateDictionary)
-      .map(person => this._utility.mapToPerson(person));
+      .filter(deduplicateDictionary)
+      .map(this._mapNode.toPerson);
   }
 
-  private deduplicateDictionary(
-    dictionary: Neo4jNode | Neo4jRelationship,
-    index: unknown,
-    array: Neo4jNode[] | Neo4jRelationship[]
-  ): boolean {
-    return (
-      array.findIndex(
-        arrayItem => arrayItem.identity === dictionary.identity
-      ) === index
-    );
-  }
-
-  private extractDemographicRelationships(result: unknown[]) {
-    return (<
-      {
-        demographicsRelationship: Neo4jRelationship<DemographicsRelationship>;
-      }[]
-    >result)
-      .map(({ demographicsRelationship }) => demographicsRelationship)
-      .filter(this.deduplicateDictionary)
-      .map(demographicsRelationship =>
-        this._utility.mapToDemographicsRelationship(demographicsRelationship)
-      );
-  }
+  // private extractDemographicRelationships(result: unknown[]) {
+  //   return (<
+  //     {
+  //       demographicsRelationship: Neo4jRelationship<DemographicsRelationship>;
+  //     }[]
+  //   >result)
+  //     .map(({ demographicsRelationship }) => demographicsRelationship)
+  //     .filter(deduplicateDictionary)
+  //     .map(demographicsRelationship =>
+  //       this._utility.mapToDemographicsRelationship(demographicsRelationship)
+  //     );
+  // }
 }

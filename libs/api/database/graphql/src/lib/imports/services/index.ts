@@ -1,5 +1,4 @@
 export {
   Neo4jNodeMapperService,
-  Neo4jQueryRepositoryService,
-  Neo4jUtility
+  Neo4jQueryRepositoryService
 } from '@itinerary-assistant/api/database/neo4j';
