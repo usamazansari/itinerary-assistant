@@ -17,12 +17,78 @@ export class SanityRepository {
         relation('in', 'socialConnectionRelationship', 'SOCIAL_CONNECTION_OF'),
         node('socialConnection', 'SOCIAL_CONNECTION')
       ])
-      .return([
+      .with([
         'demographics',
         'demographicsRelationship',
         'person',
         'socialConnectionRelationship',
         'socialConnection'
+      ])
+      .match([
+        node('person', 'PERSON'),
+        relation('out', 'addressRelationship', 'RESIDES_AT'),
+        node('address', 'ADDRESS'),
+        relation('in', 'locationRelationship', 'LOCATION_OF'),
+        node('location', 'LOCATION')
+      ])
+      .with([
+        'demographics',
+        'demographicsRelationship',
+        'person',
+        'socialConnectionRelationship',
+        'socialConnection',
+        'addressRelationship',
+        'address',
+        'locationRelationship',
+        'location'
+      ])
+      .match([
+        node('coordinates', 'COORDINATES'),
+        relation('out', 'coordinatesRelationship', 'COORDINATES_OF'),
+        node('location', 'LOCATION'),
+        relation('in', 'timezoneRelationship', 'TIMEZONE_OF'),
+        node('timezone', 'TIMEZONE')
+      ])
+      .with([
+        'demographics',
+        'demographicsRelationship',
+        'person',
+        'socialConnectionRelationship',
+        'socialConnection',
+        'addressRelationship',
+        'address',
+        'locationRelationship',
+        'location',
+        'coordinatesRelationship',
+        'coordinates',
+        'timezoneRelationship',
+        'timezone'
+      ])
+      .match([
+        node('person', 'PERSON'),
+        relation('in', 'identificationRelationship', 'IDENTIFICATION_OF'),
+        node('identification', 'IDENTIFICATION'),
+        relation('in', 'validityRelationship', 'TENURE_OF'),
+        node('validity', 'TENURE')
+      ])
+      .return([
+        'demographics',
+        'demographicsRelationship',
+        'person',
+        'socialConnectionRelationship',
+        'socialConnection',
+        'addressRelationship',
+        'address',
+        'locationRelationship',
+        'location',
+        'coordinatesRelationship',
+        'coordinates',
+        'timezoneRelationship',
+        'timezone',
+        'identificationRelationship',
+        'identification',
+        'validityRelationship',
+        'validity'
       ]);
 
     console.log({ query: query.toString() });
