@@ -1,5 +1,9 @@
 export {
-  Demographics,
   User,
-  DemographicsRelationship
+  Demographics,
+  DemographicsRelationship,
+  DemographicsRelationshipData,
+  SocialConnection,
+  SocialConnectionRelationship,
+  SocialConnectionRelationshipData
 } from '@itinerary-assistant/shared/domain';
