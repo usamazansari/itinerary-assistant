@@ -3,11 +3,34 @@ import { Injectable } from '@nestjs/common';
 import {
   Neo4jNode,
   Neo4jRelationship,
+  Address,
+  Coordinates,
   Demographics,
+  Identification,
+  Location,
+  Photo,
+  Tenure,
+  Timezone,
   SocialConnection,
   User,
+  AddressRelationship,
+  AddressRelationshipData,
+  CoordinatesRelationship,
+  CoordinatesRelationshipData,
   DemographicsRelationship,
-  SocialConnectionRelationship
+  DemographicsRelationshipData,
+  IdentificationRelationship,
+  IdentificationRelationshipData,
+  LocationRelationship,
+  LocationRelationshipData,
+  PhotoRelationship,
+  PhotoRelationshipData,
+  SocialConnectionRelationship,
+  SocialConnectionRelationshipData,
+  TenureRelationship,
+  TenureRelationshipData,
+  TimezoneRelationship,
+  TimezoneRelationshipData
 } from '../../imports/models';
 import {
   Neo4jNodeMapperService,
@@ -24,6 +47,8 @@ export class SanityService {
   demographicsRelationships: DemographicsRelationship[] = [];
   socialConnections: SocialConnection[] = [];
   socialConnectionRelationships: SocialConnectionRelationship[] = [];
+  addresses: Address[] = [];
+  addressRelationships: AddressRelationship[] = [];
   result: User[] = [];
 
   constructor(
@@ -50,6 +75,8 @@ export class SanityService {
     this.socialConnections = this.extractSocialConnections(result);
     this.socialConnectionRelationships =
       this.extractSocialConnectionRelationships(result);
+    this.addresses = this.extractAddresses(result);
+    this.addressRelationships = this.extractAddressRelationships(result);
   }
 
   private relateModels(): void {
@@ -70,6 +97,14 @@ export class SanityService {
             socialConnectionRelationship.start === socialConnection.id
         )?.end ?? ''
     }));
+
+    this.addresses = this.addresses.map(address => ({
+      ...address,
+      userId:
+        this.addressRelationships.find(
+          addressRelationship => addressRelationship.start === address.id
+        )?.end ?? ''
+    }));
   }
 
   private processOutput(): void {
@@ -82,7 +117,10 @@ export class SanityService {
       socialConnections:
         this.socialConnections.filter(
           socialConnection => person.id === socialConnection.userId
-        ) ?? []
+        ) ?? [],
+      address:
+        this.addresses.find(address => person.id === address.userId) ??
+        new Address({ id: person.id })
     }));
   }
 
@@ -108,6 +146,17 @@ export class SanityService {
       .map(this._mapNode.toDemographics);
   }
 
+  private extractAddresses(result: unknown[]): Address[] {
+    type Neo4jAddress = {
+      address: Neo4jNode<Address>;
+    };
+
+    return (<Neo4jAddress[]>result)
+      .map(({ address }) => address)
+      .filter(deduplicateDictionary)
+      .map(this._mapNode.toAddress);
+  }
+
   private extractSocialConnections(result: unknown[]): SocialConnection[] {
     type Neo4jSocialConnection = {
       socialConnection: Neo4jRelationship<SocialConnection>;
@@ -117,6 +166,19 @@ export class SanityService {
       .map(({ socialConnection }) => socialConnection)
       .filter(deduplicateDictionary)
       .map(this._mapNode.toSocialConnection);
+  }
+
+  private extractAddressRelationships(
+    result: unknown[]
+  ): AddressRelationship[] {
+    type Neo4jAddressRelationship = {
+      addressRelationship: Neo4jRelationship<AddressRelationshipData>;
+    };
+
+    return (<Neo4jAddressRelationship[]>result)
+      .map(({ addressRelationship }) => addressRelationship)
+      .filter(deduplicateDictionary)
+      .map(this._mapRelationship.toAddressRelationship);
   }
 
   private extractDemographicRelationships(

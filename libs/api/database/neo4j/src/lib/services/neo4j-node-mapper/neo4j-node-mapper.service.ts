@@ -1,12 +1,30 @@
 import { Injectable } from '@nestjs/common';
 import type { DateTime } from 'neo4j-driver';
 
-import { Demographics, SocialConnection, User } from '../../imports/models';
+import {
+  Address,
+  Coordinates,
+  Demographics,
+  Identification,
+  Location,
+  Photo,
+  Tenure,
+  Timezone,
+  SocialConnection,
+  User
+} from '../../imports/models';
 import { Neo4jNode } from '../../models';
 import { parseDateTime } from '../../utils';
 
 @Injectable()
 export class Neo4jNodeMapperService {
+  toAddress({ identity, properties }: Neo4jNode<Address>): Address {
+    return new Address({
+      ...properties,
+      id: identity
+    });
+  }
+
   toPerson({ identity, properties }: Neo4jNode<User>): User {
     return new User({
       ...properties,

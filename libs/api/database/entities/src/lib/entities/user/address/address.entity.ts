@@ -1,9 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import {
-  IAddress,
-  Location as LocationModel
-} from '../../imports/models';
+import { IAddress, Location as LocationModel } from '../../imports/models';
 import { Location as LocationEntity } from '../..';
 
 @ObjectType()

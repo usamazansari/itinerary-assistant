@@ -1,5 +1,10 @@
-import { SocialConnection } from '..';
-import { Demographics } from '.';
+import {
+  Address,
+  Demographics,
+  Identification,
+  Photo,
+  SocialConnection
+} from '.';
 
 const Timestamp = new Date().valueOf();
 
@@ -12,10 +17,10 @@ export interface IUser {
   dateOfBirth: Date;
   // gender: Gender;
   website: string;
-  // address: Address;
+  address: Address;
+  identifications: Identification[];
   socialConnections: SocialConnection[];
-  // photos: Photo[];
-  // identifications: Identification[];
+  photos: Photo[];
 }
 
 const UserStub: IUser = {
@@ -29,10 +34,10 @@ const UserStub: IUser = {
   dateOfBirth: new Date(),
   // gender: Gender.Male
   website: '',
-  // address: new Address({}),
-  socialConnections: []
-  // photos: [],
-  // identifications: []
+  address: new Address({}),
+  identifications: [],
+  socialConnections: [],
+  photos: []
 };
 
 export class User implements IUser {
@@ -44,10 +49,10 @@ export class User implements IUser {
   dateOfBirth: Date;
   // gender: Gender;
   website: string;
-  // address: Address;
+  address: Address;
+  identifications: Identification[];
   socialConnections: SocialConnection[];
-  // photos: Photo[];
-  // identifications: Identification[];
+  photos: Photo[];
 
   constructor({
     id = UserStub.id,
@@ -58,11 +63,11 @@ export class User implements IUser {
     dateOfBirth = UserStub.dateOfBirth,
     // gender = UserStub.gender
     website = UserStub.website,
-    socialConnections = UserStub.socialConnections
-  }: // address = UserStub.address,
-  // identifications = UserStub.identifications,
-  // photos = UserStub.photos,
-  Partial<IUser>) {
+    address = UserStub.address,
+    identifications = UserStub.identifications,
+    socialConnections = UserStub.socialConnections,
+    photos = UserStub.photos
+  }: Partial<IUser>) {
     this.id = id;
     this.fullName = fullName;
     this.demographics = demographics;
@@ -71,10 +76,10 @@ export class User implements IUser {
     this.dateOfBirth = dateOfBirth;
     // this.gender = gender;
     this.website = website;
-    // this.address = address;
+    this.address = address;
+    this.identifications = identifications;
     this.socialConnections = socialConnections;
-    // this.photos = photos;
-    // this.identifications = identifications;
+    this.photos = photos;
   }
 }
 
@@ -92,7 +97,10 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
   dateOfBirth: Date;
   // gender: Gender;
   website: string;
+  address: Address;
+  identifications: Identification[];
   socialConnections: SocialConnection[];
+  photos: Photo[];
 
   constructor({
     id = UserStub.id,
@@ -102,7 +110,10 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
     dateOfBirth = UserStub.dateOfBirth,
     // gender = UserStub.gender,
     website = UserStub.website,
-    socialConnections = UserStub.socialConnections
+    address = UserStub.address,
+    identifications = UserStub.identifications,
+    socialConnections = UserStub.socialConnections,
+    photos = UserStub.photos
   }: Partial<IUser>) {
     this.id = id;
     this.fullName = fullName;
@@ -111,6 +122,9 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
     this.dateOfBirth = dateOfBirth;
     // this.gender = gender;
     this.website = website;
+    this.address = address;
+    this.identifications = identifications;
     this.socialConnections = socialConnections;
+    this.photos = photos;
   }
 }
