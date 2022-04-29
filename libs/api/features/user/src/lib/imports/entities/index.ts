@@ -8,5 +8,5 @@ export {
   Tenure,
   Timezone,
   Demographics,
-  User
+  Person
 } from '@itinerary-assistant/api/database/entities';

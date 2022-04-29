@@ -12,7 +12,7 @@ import {
   Tenure,
   Timezone,
   SocialConnection,
-  User,
+  Person,
   AddressRelationship,
   AddressRelationshipData,
   CoordinatesRelationship,
@@ -42,14 +42,14 @@ import { SanityRepository } from '..';
 
 @Injectable()
 export class SanityService {
-  people: User[] = [];
+  people: Person[] = [];
   demographics: Demographics[] = [];
   demographicsRelationships: DemographicsRelationship[] = [];
   socialConnections: SocialConnection[] = [];
   socialConnectionRelationships: SocialConnectionRelationship[] = [];
   addresses: Address[] = [];
   addressRelationships: AddressRelationship[] = [];
-  result: User[] = [];
+  result: Person[] = [];
 
   constructor(
     private readonly _repository: SanityRepository,
@@ -124,9 +124,9 @@ export class SanityService {
     }));
   }
 
-  private extractPeople(result: unknown[]): User[] {
+  private extractPeople(result: unknown[]): Person[] {
     type Neo4jPerson = {
-      person: Neo4jNode<User>;
+      person: Neo4jNode<Person>;
     };
 
     return (<Neo4jPerson[]>result)

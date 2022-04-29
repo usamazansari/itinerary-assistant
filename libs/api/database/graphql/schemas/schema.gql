@@ -64,10 +64,10 @@ type Demographics {
 
 """The salutation associated with the demographics of the person"""
 enum Salutation {
-  Mister
-  Mistress
-  Miss
-  Doctor
+  MISTER
+  MISTRESS
+  MISS
+  DOCTOR
 }
 
 type Identification {
@@ -94,7 +94,7 @@ type SocialConnection {
   personId: ID!
 }
 
-type User {
+type Person {
   id: ID!
   fullName: String!
   demographics: Demographics!
@@ -111,14 +111,14 @@ type User {
 
 """The gender of the person"""
 enum Gender {
-  Female
-  Male
-  Other
+  FEMALE
+  MALE
+  OTHER
 }
 
 type Query {
   gqlSanity: String!
-  neo4jSanity: [User!]!
-  user(id: String!): User!
-  users: [User!]!
+  neo4jSanity: [Person!]!
+  user(id: String!): Person!
+  users: [Person!]!
 }

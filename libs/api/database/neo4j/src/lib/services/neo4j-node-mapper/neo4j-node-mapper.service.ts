@@ -11,7 +11,7 @@ import {
   Tenure,
   Timezone,
   SocialConnection,
-  User
+  Person
 } from '../../imports/models';
 import { Neo4jNode } from '../../models';
 import { parseDateTime } from '../../utils';
@@ -25,8 +25,8 @@ export class Neo4jNodeMapperService {
     });
   }
 
-  toPerson({ identity, properties }: Neo4jNode<User>): User {
-    return new User({
+  toPerson({ identity, properties }: Neo4jNode<Person>): Person {
+    return new Person({
       ...properties,
       id: identity,
       dateOfBirth: parseDateTime((<unknown>properties.dateOfBirth) as DateTime)

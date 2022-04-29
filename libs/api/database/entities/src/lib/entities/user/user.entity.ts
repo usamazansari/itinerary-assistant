@@ -2,7 +2,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { Gender } from '../imports/constants';
 import {
-  IUser,
+  IPerson,
   Address as AddressModel,
   Demographics as DemographicsModel,
   Identification as IdentificationModel,
@@ -18,7 +18,7 @@ import {
 } from '.';
 
 @ObjectType()
-export class User implements IUser {
+export class Person implements IPerson {
   @Field(() => ID)
   id!: string;
 

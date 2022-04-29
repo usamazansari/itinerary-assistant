@@ -1,4 +1,4 @@
-import { User } from '../../imports/models';
+import { Person } from '../../imports/models';
 import {
   // UsamaAddress,
   // UsamaIdentifications,
@@ -9,7 +9,7 @@ import {
 
 export const UsamaPersonId = 'person-1';
 
-export const UsamaPerson: User = new User({
+export const UsamaPerson: Person = new Person({
   id: 'person-1',
   fullName: 'Usama Ansari',
   demographics: UsamaDemographics,

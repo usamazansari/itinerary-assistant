@@ -1,4 +1,4 @@
-import { User } from '../../imports/models';
+import { Person } from '../../imports/models';
 import {
   // EramAddress,
   // EramIdentifications,
@@ -9,7 +9,7 @@ import {
 
 export const EramPersonId = 'person-2';
 
-export const EramPerson: User = new User({
+export const EramPerson: Person = new Person({
   id: 'person-2',
   fullName: 'Eram Shaikh',
   demographics: EramDemographics,

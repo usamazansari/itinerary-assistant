@@ -1,1 +1,1 @@
-export { User } from '@itinerary-assistant/api/database/entities';
+export { Person } from '@itinerary-assistant/api/database/entities';

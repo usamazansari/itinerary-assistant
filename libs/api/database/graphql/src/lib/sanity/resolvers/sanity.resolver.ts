@@ -1,6 +1,6 @@
 import { Query, Resolver } from '@nestjs/graphql';
 
-import { User } from '../../imports/entities';
+import { Person } from '../../imports/entities';
 import { SanityService } from '..';
 
 @Resolver()
@@ -12,7 +12,7 @@ export class SanityResolver {
     return 'GraphQL connection is configured correctly';
   }
 
-  @Query(() => [User])
+  @Query(() => [Person])
   async neo4jSanity() {
     return await this._service.neo4jSanity();
   }
