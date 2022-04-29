@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-// import { Gender } from '../imports/constants';
+import { Gender } from '../imports/constants';
 import {
   IUser,
   Address as AddressModel,
@@ -37,13 +37,8 @@ export class User implements IUser {
   @Field()
   dateOfBirth!: Date;
 
-  // @Field()
-  // @Column({
-  //   type: 'enum',
-  //   enum: GenderEnum,
-  //   default: GenderEnum.Male
-  // })
-  // gender!: GenderEnum;
+  @Field(() => Gender)
+  gender!: Gender;
 
   @Field()
   website!: string;

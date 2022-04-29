@@ -1,3 +1,5 @@
+import { Gender } from '../../../constants';
+
 import {
   Address,
   Demographics,
@@ -15,7 +17,7 @@ export interface IUser {
   email: string;
   phone: string;
   dateOfBirth: Date;
-  // gender: Gender;
+  gender: Gender;
   website: string;
   address: Address;
   identifications: Identification[];
@@ -32,7 +34,7 @@ const UserStub: IUser = {
   email: '',
   phone: '',
   dateOfBirth: new Date(),
-  // gender: Gender.Male
+  gender: Gender.Male,
   website: '',
   address: new Address({}),
   identifications: [],
@@ -47,7 +49,7 @@ export class User implements IUser {
   email: string;
   phone: string;
   dateOfBirth: Date;
-  // gender: Gender;
+  gender: Gender;
   website: string;
   address: Address;
   identifications: Identification[];
@@ -61,7 +63,7 @@ export class User implements IUser {
     email = UserStub.email,
     phone = UserStub.phone,
     dateOfBirth = UserStub.dateOfBirth,
-    // gender = UserStub.gender
+    gender = UserStub.gender,
     website = UserStub.website,
     address = UserStub.address,
     identifications = UserStub.identifications,
@@ -74,7 +76,7 @@ export class User implements IUser {
     this.email = email;
     this.phone = phone;
     this.dateOfBirth = dateOfBirth;
-    // this.gender = gender;
+    this.gender = gender;
     this.website = website;
     this.address = address;
     this.identifications = identifications;
@@ -83,11 +85,13 @@ export class User implements IUser {
   }
 }
 
-type UserDTOOmitType = 'id' | 'demographics';
-// | 'address'
-// | 'socialConnections'
-// | 'photos'
-// | 'identifications';
+type UserDTOOmitType =
+  | 'id'
+  | 'demographics'
+  | 'address'
+  | 'socialConnections'
+  | 'photos'
+  | 'identifications';
 
 export class UserDTO implements Omit<IUser, UserDTOOmitType> {
   id: string;
@@ -95,7 +99,7 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
   email: string;
   phone: string;
   dateOfBirth: Date;
-  // gender: Gender;
+  gender: Gender;
   website: string;
   address: Address;
   identifications: Identification[];
@@ -108,7 +112,7 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
     email = UserStub.email,
     phone = UserStub.phone,
     dateOfBirth = UserStub.dateOfBirth,
-    // gender = UserStub.gender,
+    gender = UserStub.gender,
     website = UserStub.website,
     address = UserStub.address,
     identifications = UserStub.identifications,
@@ -120,7 +124,7 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
     this.email = email;
     this.phone = phone;
     this.dateOfBirth = dateOfBirth;
-    // this.gender = gender;
+    this.gender = gender;
     this.website = website;
     this.address = address;
     this.identifications = identifications;
