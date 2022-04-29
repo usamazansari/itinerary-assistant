@@ -1,10 +1,10 @@
 import { registerEnumType } from '@nestjs/graphql';
 
 export enum Salutation {
-  Mister = 'Mr.',
-  Mistress = 'Mrs.',
-  Miss = 'Ms.',
-  Doctor = 'Dr.'
+  MISTER = 'Mr.',
+  MISTRESS = 'Mrs.',
+  MISS = 'Ms.',
+  DOCTOR = 'Dr.'
 }
 
 registerEnumType(Salutation, {

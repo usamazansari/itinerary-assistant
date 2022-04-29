@@ -1,25 +1,24 @@
+import { AddressType, RentFrequency } from '../../../constants';
 import { BaseRelationship } from '..';
 
 const Timestamp = new Date().valueOf();
 
 interface IAddressRelationshipData {
   expense: number;
-  // TODO: Usama Ansari - Convert it to enum
-  frequency: 'monthly' | 'yearly';
-  // TODO: Usama Ansari - Convert it to enum
-  type: 'rent' | 'owner';
+  frequency: RentFrequency;
+  type: AddressType;
 }
 
 const AddressRelationshipDataStub: IAddressRelationshipData = {
   expense: 0,
-  frequency: 'yearly',
-  type: 'rent'
+  frequency: RentFrequency.MONTHLY,
+  type: AddressType.RENT
 };
 
 export class AddressRelationshipData implements IAddressRelationshipData {
   expense: number;
-  frequency: 'monthly' | 'yearly';
-  type: 'rent' | 'owner';
+  frequency: RentFrequency;
+  type: AddressType;
 
   constructor({
     expense = AddressRelationshipDataStub.expense,
