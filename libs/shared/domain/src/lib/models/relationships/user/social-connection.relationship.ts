@@ -22,7 +22,7 @@ const SocialConnectionRelationshipStub =
   new BaseRelationship<SocialConnectionRelationshipData>({
     id: `new-social-connection-relationship-${Timestamp}`,
     // socialConnectionId: `social-connection-for-new-social-connection-relationship-${Timestamp}`,
-    end: `user-for-new-social-connection-relationship-${Timestamp}`,
+    end: `person-for-new-social-connection-relationship-${Timestamp}`,
     data: new SocialConnectionRelationshipData({})
   });
 
@@ -30,13 +30,13 @@ export class SocialConnectionRelationship extends BaseRelationship<SocialConnect
   constructor({
     id = SocialConnectionRelationshipStub.id,
     start: socialConnectionId = SocialConnectionRelationshipStub.start,
-    end: userId = SocialConnectionRelationshipStub.end,
+    end: personId = SocialConnectionRelationshipStub.end,
     data = SocialConnectionRelationshipStub.data
   }: Partial<SocialConnectionRelationship>) {
-    super({ id, start: socialConnectionId, end: userId, data });
+    super({ id, start: socialConnectionId, end: personId, data });
     this.id = id;
     this.start = socialConnectionId;
-    this.end = userId;
+    this.end = personId;
     this.data = data;
   }
 }

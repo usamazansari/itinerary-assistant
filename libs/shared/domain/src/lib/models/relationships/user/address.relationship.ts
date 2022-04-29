@@ -34,7 +34,7 @@ export class AddressRelationshipData implements IAddressRelationshipData {
 
 const AddressRelationshipStub = new BaseRelationship<AddressRelationshipData>({
   id: `new-address-relationship-${Timestamp}`,
-  start: `user-for-new-address-relationship-${Timestamp}`,
+  start: `person-for-new-address-relationship-${Timestamp}`,
   end: `address-for-new-address-relationship-${Timestamp}`,
   data: new AddressRelationshipData({})
 });
@@ -42,13 +42,13 @@ const AddressRelationshipStub = new BaseRelationship<AddressRelationshipData>({
 export class AddressRelationship extends BaseRelationship<AddressRelationshipData> {
   constructor({
     id = AddressRelationshipStub.id,
-    start: userId = AddressRelationshipStub.start,
+    start: personId = AddressRelationshipStub.start,
     end: addressId = AddressRelationshipStub.end,
     data = AddressRelationshipStub.data
   }: Partial<AddressRelationship>) {
-    super({ id, start: userId, end: addressId, data });
+    super({ id, start: personId, end: addressId, data });
     this.id = id;
-    this.start = userId;
+    this.start = personId;
     this.end = addressId;
     this.data = data;
   }

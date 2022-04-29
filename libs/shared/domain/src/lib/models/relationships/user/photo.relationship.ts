@@ -18,7 +18,7 @@ export class PhotoRelationshipData implements IPhotoRelationshipData {
 const PhotoRelationshipStub = new BaseRelationship<PhotoRelationshipData>({
   id: `new-photo-relationship-${Timestamp}`,
   start: `photo-for-new-photo-relationship-${Timestamp}`,
-  end: `user-for-new-photo-relationship-${Timestamp}`,
+  end: `person-for-new-photo-relationship-${Timestamp}`,
   data: new PhotoRelationshipData({})
 });
 
@@ -26,13 +26,13 @@ export class PhotoRelationship extends BaseRelationship<PhotoRelationshipData> {
   constructor({
     id = PhotoRelationshipStub.id,
     start: photoId = PhotoRelationshipStub.start,
-    end: userId = PhotoRelationshipStub.end,
+    end: personId = PhotoRelationshipStub.end,
     data = PhotoRelationshipStub.data
   }: Partial<PhotoRelationship>) {
-    super({ id, start: photoId, end: userId, data });
+    super({ id, start: photoId, end: personId, data });
     this.id = id;
     this.start = photoId;
-    this.end = userId;
+    this.end = personId;
     this.data = data;
   }
 }

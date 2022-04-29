@@ -21,7 +21,7 @@ const IdentificationRelationshipStub =
   new BaseRelationship<IdentificationRelationshipData>({
     id: `new-identification-relationship-${Timestamp}`,
     start: `identification-for-new-identification-relationship-${Timestamp}`,
-    end: `user-for-new-identification-relationship-${Timestamp}`,
+    end: `person-for-new-identification-relationship-${Timestamp}`,
     data: new IdentificationRelationshipData({})
   });
 
@@ -29,13 +29,13 @@ export class IdentificationRelationship extends BaseRelationship<IdentificationR
   constructor({
     id = IdentificationRelationshipStub.id,
     start: identificationId = IdentificationRelationshipStub.start,
-    end: userId = IdentificationRelationshipStub.end,
+    end: personId = IdentificationRelationshipStub.end,
     data = IdentificationRelationshipStub.data
   }: Partial<IdentificationRelationship>) {
-    super({ id, start: identificationId, end: userId, data });
+    super({ id, start: identificationId, end: personId, data });
     this.id = id;
     this.start = identificationId;
-    this.end = userId;
+    this.end = personId;
     this.data = data;
   }
 }

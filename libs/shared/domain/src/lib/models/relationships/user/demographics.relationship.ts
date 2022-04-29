@@ -21,7 +21,7 @@ const DemographicsRelationshipStub =
   new BaseRelationship<DemographicsRelationshipData>({
     id: `new-demographics-relationship-${Timestamp}`,
     start: `demographics-for-new-demographics-relationship-${Timestamp}`,
-    end: `user-for-new-demographics-relationship-${Timestamp}`,
+    end: `person-for-new-demographics-relationship-${Timestamp}`,
     data: new DemographicsRelationshipData({})
   });
 
@@ -29,13 +29,13 @@ export class DemographicsRelationship extends BaseRelationship<DemographicsRelat
   constructor({
     id = DemographicsRelationshipStub.id,
     start: demographicsId = DemographicsRelationshipStub.start,
-    end: userId = DemographicsRelationshipStub.end,
+    end: personId = DemographicsRelationshipStub.end,
     data = DemographicsRelationshipStub.data
   }: Partial<DemographicsRelationship>) {
-    super({ id, start: demographicsId, end: userId, data });
+    super({ id, start: demographicsId, end: personId, data });
     this.id = id;
     this.start = demographicsId;
-    this.end = userId;
+    this.end = personId;
     this.data = data;
   }
 }
