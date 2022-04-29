@@ -26,6 +26,7 @@ export interface IPerson {
 }
 
 const PersonStub: IPerson = {
+  // TODO: Use { id: '' } to check whether or not the person exists
   id: `new-person-${Timestamp}`,
   fullName: '',
   demographics: new Demographics({

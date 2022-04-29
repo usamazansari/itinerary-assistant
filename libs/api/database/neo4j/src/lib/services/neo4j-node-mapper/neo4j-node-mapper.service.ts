@@ -18,6 +18,7 @@ import { parseDateTime } from '../../utils';
 
 @Injectable()
 export class Neo4jNodeMapperService {
+  // TODO: Use node.id instead of internal Neo4j <id>
   toAddress({ identity, properties }: Neo4jNode<Address>): Address {
     return new Address({
       ...properties,

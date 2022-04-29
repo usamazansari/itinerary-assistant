@@ -24,6 +24,7 @@ import { Neo4jRelationship } from '../../models';
 
 @Injectable()
 export class Neo4jRelationshipMapperService {
+  // TODO: Use relationship.id instead of internal Neo4j <id>
   toAddressRelationship({
     identity,
     start,
