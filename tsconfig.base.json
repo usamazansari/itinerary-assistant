@@ -34,6 +34,7 @@
       "@itinerary-assistant/api/features/user": [
         "libs/api/features/user/src/index.ts"
       ],
+      "@itinerary-assistant/domain": ["libs/domain/src/index.ts"],
       "@itinerary-assistant/shared/data": ["libs/shared/data/src/index.ts"],
       "@itinerary-assistant/shared/domain": ["libs/shared/domain/src/index.ts"],
       "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
