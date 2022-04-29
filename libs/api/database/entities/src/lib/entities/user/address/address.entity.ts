@@ -48,5 +48,5 @@ export class Address implements IAddress {
   location!: LocationModel;
 
   @Field(() => ID)
-  userId!: string;
+  personId!: string;
 }

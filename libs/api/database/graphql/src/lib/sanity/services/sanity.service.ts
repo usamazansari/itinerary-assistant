@@ -119,7 +119,7 @@ export class SanityService {
           socialConnection => person.id === socialConnection.userId
         ) ?? [],
       address:
-        this.addresses.find(address => person.id === address.userId) ??
+        this.addresses.find(address => person.id === address.personId) ??
         new Address({ id: person.id })
     }));
   }

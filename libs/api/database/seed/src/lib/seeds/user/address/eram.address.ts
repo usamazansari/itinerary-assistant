@@ -17,6 +17,6 @@ export const EramAddress: Address = new Address({
   state: 'Maharashtra',
   country: 'India',
   zip: '400605',
-  userId: EramUserId,
+  personId: EramUserId,
   location: EramLocation
 });

@@ -17,6 +17,6 @@ export const UsamaAddress: Address = new Address({
   state: 'Maharashtra',
   country: 'India',
   zip: '400024',
-  userId: UsamaUserId,
+  personId: UsamaUserId,
   location: UsamaLocation
 });

@@ -15,7 +15,7 @@ export interface IAddress {
   country: string;
   zip: string;
   location: Location;
-  userId: string;
+  personId: string;
 }
 
 const Timestamp = new Date().toISOString().valueOf();
@@ -37,7 +37,7 @@ const AddressStub: IAddress = {
   location: new Location({
     id: `location-for-new-address-${Timestamp}`
   }),
-  userId: `user-for-new-address-${Timestamp}`
+  personId: `user-for-new-address-${Timestamp}`
 };
 
 export class Address implements IAddress {
@@ -55,7 +55,7 @@ export class Address implements IAddress {
   country: string;
   zip: string;
   location: Location;
-  userId: string;
+  personId: string;
 
   constructor({
     id = AddressStub.id,
@@ -72,7 +72,7 @@ export class Address implements IAddress {
     country = AddressStub.country,
     zip = AddressStub.zip,
     location = AddressStub.location,
-    userId = AddressStub.userId
+    personId = AddressStub.personId
   }: Partial<IAddress>) {
     this.id = id;
     this.name = name;
@@ -88,7 +88,7 @@ export class Address implements IAddress {
     this.country = country;
     this.zip = zip;
     this.location = location;
-    this.userId = userId;
+    this.personId = personId;
   }
 }
 
@@ -108,7 +108,7 @@ export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
   country: string;
   zip: string;
   location: Location;
-  userId: string;
+  personId: string;
 
   constructor({
     name = AddressStub.name,
@@ -124,7 +124,7 @@ export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
     country = AddressStub.country,
     zip = AddressStub.zip,
     location = AddressStub.location,
-    userId = AddressStub.userId
+    personId = AddressStub.personId
   }: Partial<IAddress>) {
     this.name = name;
     this.room = room;
@@ -139,6 +139,6 @@ export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
     this.country = country;
     this.zip = zip;
     this.location = location;
-    this.userId = userId;
+    this.personId = personId;
   }
 }
