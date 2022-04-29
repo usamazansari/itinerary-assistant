@@ -34,7 +34,7 @@ const UserStub: IUser = {
   email: '',
   phone: '',
   dateOfBirth: new Date(),
-  gender: Gender.Male,
+  gender: Gender.MALE,
   website: '',
   address: new Address({}),
   identifications: [],

@@ -18,7 +18,7 @@ const DemographicsStub: IDemographics = {
   middleName: '',
   lastName: '',
   nickname: '',
-  salutation: Salutation.Mister,
+  salutation: Salutation.MISTER,
   personId: `person-for-new-demographics-${Timestamp}`
 };
 
