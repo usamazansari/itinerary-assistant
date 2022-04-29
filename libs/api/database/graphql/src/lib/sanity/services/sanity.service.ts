@@ -82,7 +82,7 @@ export class SanityService {
   private relateModels(): void {
     this.demographics = this.demographics.map(demographic => ({
       ...demographic,
-      userId:
+      personId:
         this.demographicsRelationships.find(
           demographicsRelationship =>
             demographicsRelationship.start === demographic.id
@@ -91,7 +91,7 @@ export class SanityService {
 
     this.socialConnections = this.socialConnections.map(socialConnection => ({
       ...socialConnection,
-      userId:
+      personId:
         this.socialConnectionRelationships.find(
           socialConnectionRelationship =>
             socialConnectionRelationship.start === socialConnection.id
@@ -100,7 +100,7 @@ export class SanityService {
 
     this.addresses = this.addresses.map(address => ({
       ...address,
-      userId:
+      personId:
         this.addressRelationships.find(
           addressRelationship => addressRelationship.start === address.id
         )?.end ?? ''
