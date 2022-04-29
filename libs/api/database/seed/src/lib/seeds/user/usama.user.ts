@@ -7,10 +7,10 @@ import {
   UsamaDemographics
 } from '..';
 
-export const UsamaUserId = 'user-1';
+export const UsamaPersonId = 'person-1';
 
-export const UsamaUser: User = new User({
-  id: 'user-1',
+export const UsamaPerson: User = new User({
+  id: 'person-1',
   fullName: 'Usama Ansari',
   demographics: UsamaDemographics,
   dateOfBirth: new Date(1993, 9, 25),

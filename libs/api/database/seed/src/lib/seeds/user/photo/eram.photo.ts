@@ -1,5 +1,5 @@
 import { Photo } from '../../../imports/models';
-import { EramUserId } from '..';
+import { EramPersonId } from '..';
 
 export const EramPhotoIds = {
   Profile: 'person-2-photo-1'
@@ -11,6 +11,6 @@ export const EramPhotos: Photo[] = [
     large: 'https://randomuser.me/api/portraits/eramshaikh',
     medium: 'https://randomuser.me/api/portraits/medium/eramshaikh',
     thumbnail: 'https://randomuser.me/api/portraits/thumb/eramshaikh',
-    personId: EramUserId
+    personId: EramPersonId
   })
 ];

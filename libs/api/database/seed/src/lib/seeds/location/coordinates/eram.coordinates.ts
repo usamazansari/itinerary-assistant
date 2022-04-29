@@ -1,7 +1,7 @@
 import { Coordinates } from '../../../imports/models';
 import { EramLocationId } from '..';
 
-export const EramCoordinatesId = 'user-2-address-location-coordinates';
+export const EramCoordinatesId = 'person-2-address-location-coordinates';
 
 export const EramCoordinates: Coordinates = new Coordinates({
   id: EramCoordinatesId,

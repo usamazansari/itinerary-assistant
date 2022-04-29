@@ -1,7 +1,7 @@
 import { Demographics } from '../../../imports/models';
-import { UsamaUserId } from '..';
+import { UsamaPersonId } from '..';
 
-export const UsamaDemographicsId = 'user-1-demographics';
+export const UsamaDemographicsId = 'person-1-demographics';
 
 export const UsamaDemographics: Demographics = new Demographics({
   id: UsamaDemographicsId,
@@ -9,5 +9,5 @@ export const UsamaDemographics: Demographics = new Demographics({
   middleName: 'Zulfiquar',
   lastName: 'Ansari',
   nickname: 'Sam',
-  personId: UsamaUserId
+  personId: UsamaPersonId
 });

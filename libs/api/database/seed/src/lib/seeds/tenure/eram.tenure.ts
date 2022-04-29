@@ -1,8 +1,8 @@
 import { Tenure } from '../../imports/models';
 
 export const EramTenureIds = {
-  Aadhar: 'user-2-id-1-validity',
-  Passport: 'user-2-id-2-validity'
+  Aadhar: 'person-2-id-1-validity',
+  Passport: 'person-2-id-2-validity'
 };
 
 export const EramTenures: Tenure[] = [

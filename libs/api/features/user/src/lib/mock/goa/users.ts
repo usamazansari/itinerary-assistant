@@ -1,4 +1,4 @@
-import { EramUser, UsamaUser } from '../../imports/constants';
+import { EramPerson, UsamaPerson } from '../../imports/constants';
 import { User } from '../../imports/models';
 
-export const GoaUsers: User[] = [UsamaUser, EramUser];
+export const GoaUsers: User[] = [UsamaPerson, EramPerson];

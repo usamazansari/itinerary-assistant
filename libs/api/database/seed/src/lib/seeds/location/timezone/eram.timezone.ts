@@ -1,7 +1,7 @@
 import { Timezone } from '../../../imports/models';
 import { EramLocationId } from '..';
 
-export const EramTimezoneId = 'user-2-address-location-timezone';
+export const EramTimezoneId = 'person-2-address-location-timezone';
 
 export const EramTimezone: Timezone = new Timezone({
   id: EramTimezoneId,
