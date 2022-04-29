@@ -24,5 +24,5 @@ export class Demographics implements IDemographics {
   nickname!: string;
 
   @Field()
-  userId!: string;
+  personId!: string;
 }

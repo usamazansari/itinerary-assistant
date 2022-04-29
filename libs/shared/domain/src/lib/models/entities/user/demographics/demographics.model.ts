@@ -7,19 +7,19 @@ export interface IDemographics {
   lastName: string;
   nickname: string;
   salutation: Salutation;
-  userId: string;
+  personId: string;
 }
 
 const Timestamp = new Date().toISOString().valueOf();
 
-const UserDemographicsStub: IDemographics = {
+const DemographicsStub: IDemographics = {
   id: `new-demographics-${Timestamp}`,
   firstName: '',
   middleName: '',
   lastName: '',
   nickname: '',
   salutation: Salutation.Mister,
-  userId: `user-for-new-demographics-${Timestamp}`
+  personId: `person-for-new-demographics-${Timestamp}`
 };
 
 export class Demographics implements IDemographics {
@@ -29,16 +29,16 @@ export class Demographics implements IDemographics {
   lastName: string;
   nickname: string;
   salutation: Salutation;
-  userId: string;
+  personId: string;
 
   constructor({
-    id = UserDemographicsStub.id,
-    firstName = UserDemographicsStub.firstName,
-    middleName = UserDemographicsStub.middleName,
-    lastName = UserDemographicsStub.lastName,
-    nickname = UserDemographicsStub.nickname,
-    salutation = UserDemographicsStub.salutation,
-    userId = UserDemographicsStub.userId
+    id = DemographicsStub.id,
+    firstName = DemographicsStub.firstName,
+    middleName = DemographicsStub.middleName,
+    lastName = DemographicsStub.lastName,
+    nickname = DemographicsStub.nickname,
+    salutation = DemographicsStub.salutation,
+    personId = DemographicsStub.personId
   }: Partial<IDemographics>) {
     this.id = id;
     this.firstName = firstName;
@@ -46,7 +46,7 @@ export class Demographics implements IDemographics {
     this.lastName = lastName;
     this.nickname = nickname;
     this.salutation = salutation;
-    this.userId = userId;
+    this.personId = personId;
   }
 }
 
@@ -60,21 +60,21 @@ export class DemographicsDTO
   lastName: string;
   nickname: string;
   salutation: Salutation;
-  userId: string;
+  personId: string;
 
   constructor({
-    firstName = UserDemographicsStub.firstName,
-    middleName = UserDemographicsStub.middleName,
-    lastName = UserDemographicsStub.lastName,
-    nickname = UserDemographicsStub.nickname,
-    salutation = UserDemographicsStub.salutation,
-    userId = UserDemographicsStub.userId
+    firstName = DemographicsStub.firstName,
+    middleName = DemographicsStub.middleName,
+    lastName = DemographicsStub.lastName,
+    nickname = DemographicsStub.nickname,
+    salutation = DemographicsStub.salutation,
+    personId = DemographicsStub.personId
   }: Partial<IDemographics>) {
     this.firstName = firstName;
     this.middleName = middleName;
     this.lastName = lastName;
     this.nickname = nickname;
     this.salutation = salutation;
-    this.userId = userId;
+    this.personId = personId;
   }
 }

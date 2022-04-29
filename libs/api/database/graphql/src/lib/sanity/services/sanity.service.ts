@@ -112,7 +112,7 @@ export class SanityService {
       ...person,
       demographics:
         this.demographics.find(
-          demographics => person.id === demographics.userId
+          demographics => person.id === demographics.personId
         ) ?? new Demographics({ id: person.id }),
       socialConnections:
         this.socialConnections.filter(

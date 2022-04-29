@@ -9,5 +9,5 @@ export const UsamaDemographics: Demographics = new Demographics({
   middleName: 'Zulfiquar',
   lastName: 'Ansari',
   nickname: 'Sam',
-  userId: UsamaUserId
+  personId: UsamaUserId
 });

@@ -9,5 +9,5 @@ export const EramDemographics: Demographics = new Demographics({
   lastName: 'Shaikh',
   middleName: 'Abdul Aziz',
   nickname: 'Rum',
-  userId: EramUserId
+  personId: EramUserId
 });

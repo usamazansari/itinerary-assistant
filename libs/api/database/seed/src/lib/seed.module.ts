@@ -6,3 +6,5 @@ import { Module } from '@nestjs/common';
   exports: []
 })
 export class SeedModule {}
+
+// TODO: 🗑️ remove this module
