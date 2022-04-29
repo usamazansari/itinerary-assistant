@@ -1,17 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import {
+  Controller
+  // Get
+} from '@nestjs/common';
 
-import type { Observable } from 'rxjs';
-import { map } from 'rxjs';
+// import type { Observable } from 'rxjs';
+// import { map } from 'rxjs';
 
-import { HttpStatus } from '../../imports/constants';
-import { APIResponse, User } from '../../imports/models';
-import { UserService } from '../../services';
+// import { HttpStatus } from '../../imports/constants';
+// import { APIResponse, User } from '../../imports/models';
+// import { UserService } from '../../services';
 
-@Controller('user')
+@Controller('person')
 export class UserController {
-  constructor(private readonly _service: UserService) {}
-
-  // @Get('all-users')
+  // constructor(private readonly _service: UserService) {}
+  // @Get('')
   // fetchTripList(): Observable<APIResponse<User[]>> {
   //   return this._service.findAll().pipe(
   //     map(response =>
