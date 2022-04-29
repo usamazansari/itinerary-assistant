@@ -37,7 +37,7 @@ const AddressStub: IAddress = {
   location: new Location({
     id: `location-for-new-address-${Timestamp}`
   }),
-  personId: `user-for-new-address-${Timestamp}`
+  personId: `person-for-new-address-${Timestamp}`
 };
 
 export class Address implements IAddress {

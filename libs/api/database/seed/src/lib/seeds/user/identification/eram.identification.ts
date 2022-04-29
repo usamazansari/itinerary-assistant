@@ -15,7 +15,7 @@ export const EramIdentifications: Identification[] = [
     validity:
       EramTenures.find(tenure => tenure.id === EramTenureIds.Aadhar) ??
       new Tenure({}),
-    userId: EramUserId
+    personId: EramUserId
   }),
   new Identification({
     id: EramIdentificationIds.Passport,
@@ -23,9 +23,8 @@ export const EramIdentifications: Identification[] = [
     number: '',
     name: 'Passport',
     validity:
-      EramTenures.find(
-        tenure => tenure.id === EramTenureIds.Passport
-      ) ?? new Tenure({}),
-    userId: EramUserId
+      EramTenures.find(tenure => tenure.id === EramTenureIds.Passport) ??
+      new Tenure({}),
+    personId: EramUserId
   })
 ];

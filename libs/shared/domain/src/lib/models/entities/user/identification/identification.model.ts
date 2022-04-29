@@ -6,7 +6,7 @@ export interface IIdentification {
   number: string;
   name: string;
   validity: Tenure;
-  userId: string;
+  personId: string;
 }
 
 const Timestamp = new Date().toISOString().valueOf();
@@ -19,7 +19,7 @@ const IdentificationStub: IIdentification = {
   validity: new Tenure({
     id: `tenure-for-new-identification-${Timestamp}`
   }),
-  userId: `user-for-new-identification-${Timestamp}`
+  personId: `person-for-new-identification-${Timestamp}`
 };
 
 export class Identification implements IIdentification {
@@ -28,7 +28,7 @@ export class Identification implements IIdentification {
   number: string;
   name: string;
   validity: Tenure;
-  userId: string;
+  personId: string;
 
   constructor({
     id = IdentificationStub.id,
@@ -36,14 +36,14 @@ export class Identification implements IIdentification {
     number = IdentificationStub.number,
     name = IdentificationStub.name,
     validity = IdentificationStub.validity,
-    userId = IdentificationStub.userId
+    personId = IdentificationStub.personId
   }: Partial<IIdentification>) {
     this.id = id;
     this.type = type;
     this.number = number;
     this.name = name;
     this.validity = validity;
-    this.userId = userId;
+    this.personId = personId;
   }
 }
 
@@ -56,19 +56,19 @@ export class IdentificationDTO
   number: string;
   name: string;
   validity: Tenure;
-  userId: string;
+  personId: string;
 
   constructor({
     type = IdentificationStub.type,
     number = IdentificationStub.number,
     name = IdentificationStub.name,
     validity = IdentificationStub.validity,
-    userId = IdentificationStub.userId
+    personId = IdentificationStub.personId
   }: Partial<IIdentification>) {
     this.type = type;
     this.number = number;
     this.name = name;
     this.validity = validity;
-    this.userId = userId;
+    this.personId = personId;
   }
 }

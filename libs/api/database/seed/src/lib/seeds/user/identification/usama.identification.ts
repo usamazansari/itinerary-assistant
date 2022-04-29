@@ -13,10 +13,9 @@ export const UsamaIdentifications: Identification[] = [
     number: '871797443404',
     name: 'Aadhar Card',
     validity:
-      UsamaTenures.find(
-        tenure => tenure.id === UsamaTenureIds.Aadhar
-      ) ?? new Tenure({}),
-    userId: UsamaUserId
+      UsamaTenures.find(tenure => tenure.id === UsamaTenureIds.Aadhar) ??
+      new Tenure({}),
+    personId: UsamaUserId
   }),
   new Identification({
     id: UsamaIdentificationIds.Passport,
@@ -24,9 +23,8 @@ export const UsamaIdentifications: Identification[] = [
     number: 'M6968768',
     name: 'Passport',
     validity:
-      UsamaTenures.find(
-        tenure => tenure.id === UsamaTenureIds.Passport
-      ) ?? new Tenure({}),
-    userId: UsamaUserId
+      UsamaTenures.find(tenure => tenure.id === UsamaTenureIds.Passport) ??
+      new Tenure({}),
+    personId: UsamaUserId
   })
 ];
