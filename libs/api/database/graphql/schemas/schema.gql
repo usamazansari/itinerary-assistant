@@ -84,7 +84,7 @@ type Photo {
   large: String!
   medium: String!
   thumbnail: String!
-  userId: ID!
+  personId: ID!
 }
 
 type SocialConnection {

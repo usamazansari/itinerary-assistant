@@ -3,7 +3,7 @@ export interface IPhoto {
   large: string;
   medium: string;
   thumbnail: string;
-  userId: string;
+  personId: string;
 }
 
 const Timestamp = new Date().toISOString().valueOf();
@@ -13,7 +13,7 @@ const PhotoStub: IPhoto = {
   large: '',
   medium: '',
   thumbnail: '',
-  userId: `user-for-new-photo-${Timestamp}`
+  personId: `person-for-new-photo-${Timestamp}`
 };
 
 export class Photo implements IPhoto {
@@ -21,20 +21,20 @@ export class Photo implements IPhoto {
   large: string;
   medium: string;
   thumbnail: string;
-  userId: string;
+  personId: string;
 
   constructor({
     id = PhotoStub.id,
     large = PhotoStub.large,
     medium = PhotoStub.medium,
     thumbnail = PhotoStub.thumbnail,
-    userId = PhotoStub.userId
+    personId = PhotoStub.personId
   }: Partial<IPhoto>) {
     this.id = id;
     this.large = large;
     this.medium = medium;
     this.thumbnail = thumbnail;
-    this.userId = userId;
+    this.personId = personId;
   }
 }
 
@@ -44,17 +44,17 @@ export class PhotoDTO implements Omit<IPhoto, PhotoDTOOmitType> {
   large: string;
   medium: string;
   thumbnail: string;
-  userId: string;
+  personId: string;
 
   constructor({
     large = PhotoStub.large,
     medium = PhotoStub.medium,
     thumbnail = PhotoStub.thumbnail,
-    userId = PhotoStub.userId
+    personId = PhotoStub.personId
   }: Partial<IPhoto>) {
     this.large = large;
     this.medium = medium;
     this.thumbnail = thumbnail;
-    this.userId = userId;
+    this.personId = personId;
   }
 }

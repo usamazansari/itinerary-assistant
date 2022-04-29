@@ -17,5 +17,5 @@ export class Photo implements IPhoto {
   thumbnail!: string;
 
   @Field(() => ID)
-  userId!: string;
+  personId!: string;
 }
