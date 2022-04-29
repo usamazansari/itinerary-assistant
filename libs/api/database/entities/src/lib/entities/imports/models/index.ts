@@ -8,7 +8,7 @@ export {
   ISocialConnection,
   ITenure,
   ITimezone,
-  IUser,
+  IPerson,
   Address,
   Coordinates,
   Gender,
@@ -19,4 +19,4 @@ export {
   SocialConnection,
   Tenure,
   Timezone
-} from '@itinerary-assistant/shared/domain';
+} from '@itinerary-assistant/domain';

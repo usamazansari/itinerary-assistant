@@ -9,5 +9,5 @@ export {
   Tenure,
   Timezone,
   Demographics,
-  User
-} from '@itinerary-assistant/shared/domain';
+  Person
+} from '@itinerary-assistant/domain';

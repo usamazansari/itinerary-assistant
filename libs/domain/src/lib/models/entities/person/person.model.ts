@@ -10,7 +10,7 @@ import {
 
 const Timestamp = new Date().valueOf();
 
-export interface IUser {
+export interface IPerson {
   id: string;
   fullName: string;
   demographics: Demographics;
@@ -25,11 +25,11 @@ export interface IUser {
   photos: Photo[];
 }
 
-const UserStub: IUser = {
-  id: `new-user-${Timestamp}`,
+const PersonStub: IPerson = {
+  id: `new-person-${Timestamp}`,
   fullName: '',
   demographics: new Demographics({
-    id: `demographics-for-new-user-${Timestamp}`
+    id: `demographics-for-new-person-${Timestamp}`
   }),
   email: '',
   phone: '',
@@ -42,7 +42,7 @@ const UserStub: IUser = {
   photos: []
 };
 
-export class User implements IUser {
+export class Person implements IPerson {
   id: string;
   fullName: string;
   demographics: Demographics;
@@ -57,19 +57,19 @@ export class User implements IUser {
   photos: Photo[];
 
   constructor({
-    id = UserStub.id,
-    fullName = UserStub.fullName,
-    demographics = UserStub.demographics,
-    email = UserStub.email,
-    phone = UserStub.phone,
-    dateOfBirth = UserStub.dateOfBirth,
-    gender = UserStub.gender,
-    website = UserStub.website,
-    address = UserStub.address,
-    identifications = UserStub.identifications,
-    socialConnections = UserStub.socialConnections,
-    photos = UserStub.photos
-  }: Partial<IUser>) {
+    id = PersonStub.id,
+    fullName = PersonStub.fullName,
+    demographics = PersonStub.demographics,
+    email = PersonStub.email,
+    phone = PersonStub.phone,
+    dateOfBirth = PersonStub.dateOfBirth,
+    gender = PersonStub.gender,
+    website = PersonStub.website,
+    address = PersonStub.address,
+    identifications = PersonStub.identifications,
+    socialConnections = PersonStub.socialConnections,
+    photos = PersonStub.photos
+  }: Partial<IPerson>) {
     this.id = id;
     this.fullName = fullName;
     this.demographics = demographics;
@@ -85,7 +85,7 @@ export class User implements IUser {
   }
 }
 
-type UserDTOOmitType =
+type PersonDTOOmitType =
   | 'id'
   | 'demographics'
   | 'address'
@@ -93,7 +93,7 @@ type UserDTOOmitType =
   | 'photos'
   | 'identifications';
 
-export class UserDTO implements Omit<IUser, UserDTOOmitType> {
+export class PersonDTO implements Omit<IPerson, PersonDTOOmitType> {
   id: string;
   fullName: string;
   email: string;
@@ -107,18 +107,18 @@ export class UserDTO implements Omit<IUser, UserDTOOmitType> {
   photos: Photo[];
 
   constructor({
-    id = UserStub.id,
-    fullName = UserStub.fullName,
-    email = UserStub.email,
-    phone = UserStub.phone,
-    dateOfBirth = UserStub.dateOfBirth,
-    gender = UserStub.gender,
-    website = UserStub.website,
-    address = UserStub.address,
-    identifications = UserStub.identifications,
-    socialConnections = UserStub.socialConnections,
-    photos = UserStub.photos
-  }: Partial<IUser>) {
+    id = PersonStub.id,
+    fullName = PersonStub.fullName,
+    email = PersonStub.email,
+    phone = PersonStub.phone,
+    dateOfBirth = PersonStub.dateOfBirth,
+    gender = PersonStub.gender,
+    website = PersonStub.website,
+    address = PersonStub.address,
+    identifications = PersonStub.identifications,
+    socialConnections = PersonStub.socialConnections,
+    photos = PersonStub.photos
+  }: Partial<IPerson>) {
     this.id = id;
     this.fullName = fullName;
     this.email = email;

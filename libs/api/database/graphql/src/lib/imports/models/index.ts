@@ -8,7 +8,7 @@ export {
   Identification,
   Photo,
   SocialConnection,
-  User,
+  Person,
   TenureRelationship,
   TenureRelationshipData,
   CoordinatesRelationship,
@@ -27,7 +27,7 @@ export {
   PhotoRelationshipData,
   SocialConnectionRelationship,
   SocialConnectionRelationshipData
-} from '@itinerary-assistant/shared/domain';
+} from '@itinerary-assistant/domain';
 
 export {
   Neo4jNode,
