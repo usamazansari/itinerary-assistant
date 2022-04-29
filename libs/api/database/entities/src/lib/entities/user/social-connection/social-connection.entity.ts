@@ -14,5 +14,5 @@ export class SocialConnection implements ISocialConnection {
   url!: string;
 
   @Field(() => ID)
-  userId!: string;
+  personId!: string;
 }

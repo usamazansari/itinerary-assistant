@@ -116,7 +116,7 @@ export class SanityService {
         ) ?? new Demographics({ id: person.id }),
       socialConnections:
         this.socialConnections.filter(
-          socialConnection => person.id === socialConnection.userId
+          socialConnection => person.id === socialConnection.personId
         ) ?? [],
       address:
         this.addresses.find(address => person.id === address.personId) ??

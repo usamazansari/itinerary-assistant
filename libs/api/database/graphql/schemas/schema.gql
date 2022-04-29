@@ -91,7 +91,7 @@ type SocialConnection {
   id: ID!
   name: String!
   url: String!
-  userId: ID!
+  personId: ID!
 }
 
 type User {
