@@ -1,5 +1,5 @@
 import { Address } from '../../../imports/models';
-import { UsamaPersonId, UsamaLocation } from '../..';
+import { UsamaPerson, UsamaLocation } from '../..';
 
 export const UsamaAddressId = 'person-1-address';
 
@@ -17,6 +17,6 @@ export const UsamaAddress: Address = new Address({
   state: 'Maharashtra',
   country: 'India',
   zip: '400024',
-  personId: UsamaPersonId,
+  residents: [UsamaPerson],
   location: UsamaLocation
 });

@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { IAddress, Location as LocationModel } from '../../imports/models';
-import { Location as LocationEntity } from '../..';
+import { IAddress, Location, Person } from '../../imports/models';
+import { Location as LocationEntity, Person as PersonEntity } from '../..';
 
 @ObjectType()
 export class Address implements IAddress {
@@ -45,8 +45,8 @@ export class Address implements IAddress {
   zip!: string;
 
   @Field(() => LocationEntity)
-  location!: LocationModel;
+  location!: Location;
 
-  @Field(() => ID)
-  personId!: string;
+  @Field(() => [PersonEntity])
+  residents!: Person[];
 }

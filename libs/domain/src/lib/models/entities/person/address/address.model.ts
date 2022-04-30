@@ -1,4 +1,5 @@
 import { Location } from '../..';
+import { Person } from '..';
 
 export interface IAddress {
   id: string;
@@ -15,14 +16,12 @@ export interface IAddress {
   country: string;
   zip: string;
   location: Location;
-  personId: string;
+  residents: Person[];
 }
 
-const Timestamp = new Date().toISOString().valueOf();
-
 const AddressStub: IAddress = {
-  id: `new-address-${Timestamp}`,
-  name: 'New Address',
+  id: '',
+  name: '',
   room: '',
   apartment: '',
   wing: '',
@@ -35,9 +34,9 @@ const AddressStub: IAddress = {
   country: '',
   zip: '',
   location: new Location({
-    id: `location-for-new-address-${Timestamp}`
+    id: ''
   }),
-  personId: `person-for-new-address-${Timestamp}`
+  residents: []
 };
 
 export class Address implements IAddress {
@@ -55,7 +54,7 @@ export class Address implements IAddress {
   country: string;
   zip: string;
   location: Location;
-  personId: string;
+  residents: Person[];
 
   constructor({
     id = AddressStub.id,
@@ -72,7 +71,7 @@ export class Address implements IAddress {
     country = AddressStub.country,
     zip = AddressStub.zip,
     location = AddressStub.location,
-    personId = AddressStub.personId
+    residents: residentIds = AddressStub.residents
   }: Partial<IAddress>) {
     this.id = id;
     this.name = name;
@@ -88,7 +87,7 @@ export class Address implements IAddress {
     this.country = country;
     this.zip = zip;
     this.location = location;
-    this.personId = personId;
+    this.residents = residentIds;
   }
 }
 
@@ -108,7 +107,7 @@ export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
   country: string;
   zip: string;
   location: Location;
-  personId: string;
+  residents: Person[];
 
   constructor({
     name = AddressStub.name,
@@ -124,7 +123,7 @@ export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
     country = AddressStub.country,
     zip = AddressStub.zip,
     location = AddressStub.location,
-    personId = AddressStub.personId
+    residents: residentIds = AddressStub.residents
   }: Partial<IAddress>) {
     this.name = name;
     this.room = room;
@@ -139,6 +138,6 @@ export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
     this.country = country;
     this.zip = zip;
     this.location = location;
-    this.personId = personId;
+    this.residents = residentIds;
   }
 }

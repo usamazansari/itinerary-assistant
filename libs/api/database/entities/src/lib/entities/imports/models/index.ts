@@ -18,5 +18,6 @@ export {
   Photo,
   SocialConnection,
   Tenure,
-  Timezone
+  Timezone,
+  Person
 } from '@itinerary-assistant/domain';
