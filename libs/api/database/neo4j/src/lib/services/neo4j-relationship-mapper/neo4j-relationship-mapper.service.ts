@@ -66,4 +66,88 @@ export class Neo4jRelationshipMapperService {
       data: properties
     });
   }
+
+  toLocationRelationship({
+    identity,
+    start,
+    end,
+    properties
+  }: Neo4jRelationship<LocationRelationshipData>): LocationRelationship {
+    return new LocationRelationship({
+      id: identity,
+      start: start,
+      end: end,
+      data: properties
+    });
+  }
+
+  toCoordinatesRelationship({
+    identity,
+    start,
+    end,
+    properties
+  }: Neo4jRelationship<CoordinatesRelationshipData>): CoordinatesRelationship {
+    return new CoordinatesRelationship({
+      id: identity,
+      start: start,
+      end: end,
+      data: properties
+    });
+  }
+
+  toTimezoneRelationship({
+    identity,
+    start,
+    end,
+    properties
+  }: Neo4jRelationship<TimezoneRelationshipData>): TimezoneRelationship {
+    return new TimezoneRelationship({
+      id: identity,
+      start: start,
+      end: end,
+      data: properties
+    });
+  }
+
+  toIdentificationRelationship({
+    identity,
+    start,
+    end,
+    properties
+  }: Neo4jRelationship<IdentificationRelationshipData>): IdentificationRelationship {
+    return new IdentificationRelationship({
+      id: identity,
+      start: start,
+      end: end,
+      data: properties
+    });
+  }
+
+  toPhotoRelationship({
+    identity,
+    start,
+    end,
+    properties
+  }: Neo4jRelationship<PhotoRelationshipData>): PhotoRelationship {
+    return new PhotoRelationship({
+      id: identity,
+      start: start,
+      end: end,
+      data: properties
+    });
+  }
+
+  toTenureRelationship({
+    identity,
+    start,
+    end,
+    properties
+  }: Neo4jRelationship<TenureRelationshipData>): TenureRelationship {
+    return new TenureRelationship({
+      id: identity,
+      start: start,
+      end: end,
+      data: properties
+    });
+  }
 }

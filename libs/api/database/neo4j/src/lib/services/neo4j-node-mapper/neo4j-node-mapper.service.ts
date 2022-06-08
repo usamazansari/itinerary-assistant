@@ -53,4 +53,49 @@ export class Neo4jNodeMapperService {
       id: identity
     });
   }
+
+  toLocation({ identity, properties }: Neo4jNode<Location>): Location {
+    return new Location({
+      ...properties,
+      id: identity
+    });
+  }
+
+  toCoordinates({ identity, properties }: Neo4jNode<Coordinates>): Coordinates {
+    return new Coordinates({
+      ...properties,
+      id: identity
+    });
+  }
+
+  toTimezone({ identity, properties }: Neo4jNode<Timezone>): Timezone {
+    return new Timezone({
+      ...properties,
+      id: identity
+    });
+  }
+
+  toIdentification({
+    identity,
+    properties
+  }: Neo4jNode<Identification>): Identification {
+    return new Identification({
+      ...properties,
+      id: identity
+    });
+  }
+
+  toPhoto({ identity, properties }: Neo4jNode<Photo>): Photo {
+    return new Photo({
+      ...properties,
+      id: identity
+    });
+  }
+
+  toTenure({ identity, properties }: Neo4jNode<Tenure>): Tenure {
+    return new Tenure({
+      ...properties,
+      id: identity
+    });
+  }
 }
