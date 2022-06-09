@@ -1,5 +1,5 @@
 import { Identification, Tenure } from '../../../imports/models';
-import { UsamaTenures, UsamaTenureIds, UsamaPerson } from '../..';
+import { UsamaTenures, UsamaTenureIds } from '../..';
 
 export const UsamaIdentificationIds = {
   Aadhar: 'person-1-id-1',
@@ -14,8 +14,7 @@ export const UsamaIdentifications: Identification[] = [
     name: 'Aadhar Card',
     validity:
       UsamaTenures.find(tenure => tenure.id === UsamaTenureIds.Aadhar) ??
-      new Tenure({}),
-    person: UsamaPerson
+      new Tenure({})
   }),
   new Identification({
     id: UsamaIdentificationIds.Passport,
@@ -24,7 +23,6 @@ export const UsamaIdentifications: Identification[] = [
     name: 'Passport',
     validity:
       UsamaTenures.find(tenure => tenure.id === UsamaTenureIds.Passport) ??
-      new Tenure({}),
-    person: UsamaPerson
+      new Tenure({})
   })
 ];

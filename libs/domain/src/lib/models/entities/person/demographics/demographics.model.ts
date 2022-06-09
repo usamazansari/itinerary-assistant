@@ -1,5 +1,4 @@
 import { Salutation } from '../../../../constants';
-import { Person, PersonDTO } from '..';
 
 interface IDemographicsBase {
   firstName: string;
@@ -19,7 +18,6 @@ const BaseStub: IDemographicsBase = {
 
 export interface IDemographics extends IDemographicsBase {
   id: string;
-  person: Person;
 }
 
 export class Demographics implements IDemographics {
@@ -29,7 +27,6 @@ export class Demographics implements IDemographics {
   lastName: string;
   nickname: string;
   salutation: Salutation;
-  person: Person;
 
   constructor({
     id = '',
@@ -37,8 +34,7 @@ export class Demographics implements IDemographics {
     middleName = BaseStub.middleName,
     lastName = BaseStub.lastName,
     nickname = BaseStub.nickname,
-    salutation = BaseStub.salutation,
-    person = new Person({ id: '' })
+    salutation = BaseStub.salutation
   }: Partial<IDemographics>) {
     this.id = id;
     this.firstName = firstName;
@@ -46,13 +42,10 @@ export class Demographics implements IDemographics {
     this.lastName = lastName;
     this.nickname = nickname;
     this.salutation = salutation;
-    this.person = person;
   }
 }
 
-interface IDemographicsDTO extends IDemographicsBase {
-  person: PersonDTO;
-}
+type IDemographicsDTO = IDemographicsBase;
 
 export class DemographicsDTO implements IDemographicsDTO {
   firstName: string;
@@ -60,21 +53,18 @@ export class DemographicsDTO implements IDemographicsDTO {
   lastName: string;
   nickname: string;
   salutation: Salutation;
-  person: PersonDTO;
 
   constructor({
     firstName = BaseStub.firstName,
     middleName = BaseStub.middleName,
     lastName = BaseStub.lastName,
     nickname = BaseStub.nickname,
-    salutation = BaseStub.salutation,
-    person = new PersonDTO({})
+    salutation = BaseStub.salutation
   }: Partial<IDemographicsDTO>) {
     this.firstName = firstName;
     this.middleName = middleName;
     this.lastName = lastName;
     this.nickname = nickname;
     this.salutation = salutation;
-    this.person = person;
   }
 }

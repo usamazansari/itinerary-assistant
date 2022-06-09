@@ -39,12 +39,12 @@ import { SanityRepository } from '..';
 
 @Injectable()
 export class SanityService {
-  people: Person[] = [];
+  person: Person = new Person({ id: '' });
   demographics: Demographics[] = [];
   demographicsRelationships: DemographicsRelationship[] = [];
   socialConnections: SocialConnection[] = [];
   socialConnectionRelationships: SocialConnectionRelationship[] = [];
-  addresses: Address[] = [];
+  address: Address = new Address({ id: '' });
   addressRelationships: AddressRelationship[] = [];
   coordinates: Coordinates[] = [];
   coordinatesRelationships: CoordinatesRelationship[] = [];
@@ -57,138 +57,123 @@ export class SanityService {
   tenures: Tenure[] = [];
   tenureRelationships: TenureRelationship[] = [];
 
-  result: Person[] = [];
-
   constructor(
     private readonly _repository: SanityRepository,
     private readonly _mapNode: Neo4jNodeMapperService,
     private readonly _mapRelationship: Neo4jRelationshipMapperService
   ) {}
 
-  async neo4jSanity() {
-    const result = await this._repository.neo4jSanity();
+  async getAddress(email: string) {
+    const address = await this._repository.getAddress(email);
 
-    this.extractModels(result);
-    this.relateModels();
-    this.processOutput();
+    // this.extractModels(address);
+    this.address = this.extractAddress(address);
+    // this.relateModels();
+    // this.processOutput();
 
-    return this.result;
+    return this.address;
   }
 
-  private extractModels(result: unknown[]): void {
-    this.people = this.extractPeople(result);
-    this.demographics = this.extractDemographics(result);
-    this.demographicsRelationships =
-      this.extractDemographicRelationships(result);
-    this.socialConnections = this.extractSocialConnections(result);
-    this.socialConnectionRelationships =
-      this.extractSocialConnectionRelationships(result);
-    this.addresses = this.extractAddresses(result);
-    this.addressRelationships = this.extractAddressRelationships(result);
-    this.locations = this.extractLocations(result);
-    this.locationRelationships = this.extractLocationRelationships(result);
-    this.coordinates = this.extractCoordinates(result);
-    this.coordinatesRelationships =
-      this.extractCoordinatesRelationships(result);
-    this.timezones = this.extractTimezones(result);
-    this.timezoneRelationships = this.extractTimezoneRelationships(result);
-    this.identifications = this.extractIdentifications(result);
-    this.identificationRelationships =
-      this.extractIdentificationRelationships(result);
-    // this.tenures = this.extractTenures(result);
-    // this.tenureRelationships = this.extractTenureRelationships(result);
+  async getPerson(email: string) {
+    const person = await this._repository.getPerson(email);
+
+    // this.extractModels(person);
+    this.person = this.extractPerson(person);
+    // this.relateModels();
+    // this.processOutput();
+
+    return this.person;
   }
 
-  private relateModels(): void {
-    this.demographics = this.demographics.map(demographic => ({
-      ...demographic,
-      personId:
-        this.demographicsRelationships.find(
-          demographicsRelationship =>
-            demographicsRelationship.start === demographic.id
-        )?.end ?? ''
-    }));
+  // private extractModels(result: unknown[]): void {
+  // this.person = this.extractPeople(person);
+  // this.demographics = this.extractDemographics(result);
+  // this.demographicsRelationships = this.extractDemographicRelationships(result);
+  // this.socialConnections = this.extractSocialConnections(result);
+  // this.socialConnectionRelationships = this.extractSocialConnectionRelationships(result);
+  // this.addresses = this.extractAddresses(result);
+  // this.addressRelationships = this.extractAddressRelationships(result);
+  // this.locations = this.extractLocations(result);
+  // this.locationRelationships = this.extractLocationRelationships(result);
+  // this.coordinates = this.extractCoordinates(result);
+  // this.coordinatesRelationships = this.extractCoordinatesRelationships(result);
+  // this.timezones = this.extractTimezones(result);
+  // this.timezoneRelationships = this.extractTimezoneRelationships(result);
+  // this.identifications = this.extractIdentifications(result);
+  // this.identificationRelationships = this.extractIdentificationRelationships(result);
+  // this.tenures = this.extractTenures(result);
+  // this.tenureRelationships = this.extractTenureRelationships(result);
+  // }
 
-    this.socialConnections = this.socialConnections.map(socialConnection => ({
-      ...socialConnection,
-      personId:
-        this.socialConnectionRelationships.find(
-          socialConnectionRelationship =>
-            socialConnectionRelationship.start === socialConnection.id
-        )?.end ?? ''
-    }));
+  // private relateModels(): void {
+  // this.demographics = this.demographics.map(demographic => ({
+  //   ...demographic,
+  //   personId:
+  //     this.demographicsRelationships.find(
+  //       demographicsRelationship =>
+  //         demographicsRelationship.start === demographic.id
+  //     )?.end ?? ''
+  // }));
+  // this.socialConnections = this.socialConnections.map(socialConnection => ({
+  //   ...socialConnection,
+  //   personId:
+  //     this.socialConnectionRelationships.find(
+  //       socialConnectionRelationship =>
+  //         socialConnectionRelationship.start === socialConnection.id
+  //     )?.end ?? ''
+  // }));
+  // this.addresses = this.addresses.map(address => ({
+  //   ...address,
+  //   personId:
+  //     this.addressRelationships.find(
+  //       addressRelationship => addressRelationship.start === address.id
+  //     )?.end ?? ''
+  // }));
+  // this.locations = this.locations.map(location => ({
+  //   ...location,
+  //   addressId:
+  //     this.locationRelationships.find(
+  //       locationRelationship => locationRelationship.start === location.id
+  //     )?.end ?? ''
+  // }));
+  // this.coordinates = this.coordinates.map(coordinate => ({
+  //   ...coordinate,
+  //   locationId:
+  //     this.coordinatesRelationships.find(
+  //       coordinatesRelationship =>
+  //         coordinatesRelationship.start === coordinate.id
+  //     )?.end ?? ''
+  // }));
+  // this.timezones = this.timezones.map(timezone => ({
+  //   ...timezone,
+  //   locationId:
+  //     this.timezoneRelationships.find(
+  //       timezoneRelationship => timezoneRelationship.start === timezone.id
+  //     )?.end ?? ''
+  // }));
+  // this.identifications = this.identifications.map(identification => ({
+  //   ...identification,
+  //   personId:
+  //     this.identificationRelationships.find(
+  //       identificationRelationship =>
+  //         identificationRelationship.start === identification.id
+  //     )?.end ?? ''
+  // }));
+  // TODO: Usama Ansari - Relate all the other models
+  // }
 
-    this.addresses = this.addresses.map(address => ({
-      ...address,
-      personId:
-        this.addressRelationships.find(
-          addressRelationship => addressRelationship.start === address.id
-        )?.end ?? ''
-    }));
+  // private processOutput(): void {
+  // this.result = this.person;
+  // }
 
-    this.locations = this.locations.map(location => ({
-      ...location,
-      addressId:
-        this.locationRelationships.find(
-          locationRelationship => locationRelationship.start === location.id
-        )?.end ?? ''
-    }));
-
-    this.coordinates = this.coordinates.map(coordinate => ({
-      ...coordinate,
-      locationId:
-        this.coordinatesRelationships.find(
-          coordinatesRelationship =>
-            coordinatesRelationship.start === coordinate.id
-        )?.end ?? ''
-    }));
-
-    this.timezones = this.timezones.map(timezone => ({
-      ...timezone,
-      locationId:
-        this.timezoneRelationships.find(
-          timezoneRelationship => timezoneRelationship.start === timezone.id
-        )?.end ?? ''
-    }));
-
-    this.identifications = this.identifications.map(identification => ({
-      ...identification,
-      personId:
-        this.identificationRelationships.find(
-          identificationRelationship =>
-            identificationRelationship.start === identification.id
-        )?.end ?? ''
-    }));
-
-    // TODO: Usama Ansari - Relate all the other models
-  }
-
-  private processOutput(): void {
-    this.result = this.people.map(person => ({
-      ...person,
-      demographics:
-        this.demographics.find(
-          demographics => person.id === demographics.person.id
-        ) ?? new Demographics({ id: person.id }),
-      socialConnections:
-        this.socialConnections.filter(
-          socialConnection => person.id === socialConnection.person.id
-        ) ?? []
-      // address:
-      //   this.addresses.find(address => person.id === address.residentIds) ??
-      //   new Address({ id: person.id })
-    }));
-  }
-
-  private extractPeople(result: unknown[]): Person[] {
+  private extractPerson(result: unknown[]): Person {
     type Neo4jPerson = {
       person: Neo4jNode<Person>;
     };
 
     return (<Neo4jPerson[]>result)
       .map(({ person }) => person)
-      .filter(deduplicateDictionary)
-      .map(this._mapNode.toPerson);
+      .map(this._mapNode.toPerson)[0];
   }
 
   private extractDemographics(result: unknown[]): Demographics[] {
@@ -202,7 +187,7 @@ export class SanityService {
       .map(this._mapNode.toDemographics);
   }
 
-  private extractAddresses(result: unknown[]): Address[] {
+  private extractAddress(result: unknown[]): Address {
     type Neo4jAddress = {
       address: Neo4jNode<Address>;
     };
@@ -210,7 +195,7 @@ export class SanityService {
     return (<Neo4jAddress[]>result)
       .map(({ address }) => address)
       .filter(deduplicateDictionary)
-      .map(this._mapNode.toAddress);
+      .map(this._mapNode.toAddress)[0];
   }
 
   private extractSocialConnections(result: unknown[]): SocialConnection[] {
@@ -270,11 +255,11 @@ export class SanityService {
 
   private extractTenures(result: unknown[]): Tenure[] {
     type Neo4jTenure = {
-      tenure: Neo4jNode<Tenure>;
+      validity: Neo4jNode<Tenure>;
     };
 
     return (<Neo4jTenure[]>result)
-      .map(({ tenure }) => tenure)
+      .map(({ validity }) => validity)
       .filter(deduplicateDictionary)
       .map(this._mapNode.toTenure);
   }
@@ -372,11 +357,11 @@ export class SanityService {
 
   private extractTenureRelationships(result: unknown[]): TenureRelationship[] {
     type Neo4jTenureRelationship = {
-      tenureRelationship: Neo4jRelationship<TenureRelationshipData>;
+      validityRelationship: Neo4jRelationship<TenureRelationshipData>;
     };
 
     return (<Neo4jTenureRelationship[]>result)
-      .map(({ tenureRelationship }) => tenureRelationship)
+      .map(({ validityRelationship }) => validityRelationship)
       .filter(deduplicateDictionary)
       .map(this._mapRelationship.toTenureRelationship);
   }

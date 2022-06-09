@@ -59,7 +59,6 @@ type Demographics {
   middleName: String!
   lastName: String!
   nickname: String!
-  personId: String!
 }
 
 """The salutation associated with the demographics of the person"""
@@ -76,22 +75,12 @@ type Identification {
   number: String!
   name: String!
   validity: Tenure!
-  personId: ID!
-}
-
-type Photo {
-  id: ID!
-  large: String!
-  medium: String!
-  thumbnail: String!
-  personId: ID!
 }
 
 type SocialConnection {
   id: ID!
   name: String!
   url: String!
-  personId: ID!
 }
 
 type Person {
@@ -103,10 +92,9 @@ type Person {
   dateOfBirth: DateTime!
   gender: Gender!
   website: String!
-  address: Address!
   identifications: [Identification!]!
   socialConnections: [SocialConnection!]!
-  photos: [Photo!]!
+  address: Address!
 }
 
 """The gender of the person"""
@@ -117,8 +105,7 @@ enum Gender {
 }
 
 type Query {
-  gqlSanity: String!
-  neo4jSanity: [Person!]!
+  getPerson(email: String!): Person!
   user(id: String!): Person!
   users: [Person!]!
 }

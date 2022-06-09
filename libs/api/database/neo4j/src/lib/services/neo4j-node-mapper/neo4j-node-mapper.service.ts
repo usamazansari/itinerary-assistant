@@ -25,10 +25,9 @@ export class Neo4jNodeMapperService {
     });
   }
 
-  toPerson({ identity, properties }: Neo4jNode<Person>): Person {
+  toPerson({ properties }: Neo4jNode<Person>): Person {
     return new Person({
       ...properties,
-      id: identity,
       dateOfBirth: parseDateTime((<unknown>properties.dateOfBirth) as DateTime)
     });
   }

@@ -1,8 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { Salutation } from '../../imports/constants';
-import { IDemographics, Person as PersonModel } from '../../imports/models';
-import { Person as PersonEntity } from '..';
+import { IDemographics } from '../../imports/models';
 
 @ObjectType()
 export class Demographics implements IDemographics {
@@ -23,7 +22,4 @@ export class Demographics implements IDemographics {
 
   @Field()
   nickname!: string;
-
-  @Field(() => PersonEntity)
-  person!: PersonModel;
 }

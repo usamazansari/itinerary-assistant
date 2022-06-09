@@ -95,4 +95,30 @@ export class SanityRepository {
     const result = await query.run();
     return result;
   }
+
+  async getPerson(email: string) {
+    const query = this._query
+      .queryBuilder()
+      .match([node('person', 'PERSON', { ['email']: email })])
+      .return(['person']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async getAddress(email: string) {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node('person', 'PERSON', { ['email']: email }),
+        relation('out', 'addressRelationship', 'RESIDES_AT'),
+        node('address', 'ADDRESS')
+      ])
+      .return(['address']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
 }
