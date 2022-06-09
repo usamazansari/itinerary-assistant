@@ -194,7 +194,6 @@ export class SanityService {
 
     return (<Neo4jAddress[]>result)
       .map(({ address }) => address)
-      .filter(deduplicateDictionary)
       .map(this._mapNode.toAddress)[0];
   }
 

@@ -4,11 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 import { join } from 'path';
 
-import {
-  SanityRepository,
-  SanityResolver,
-  SanityService
-} from './sanity';
+import { SanityRepository, SanityResolver, SanityService } from './sanity';
 
 @Module({
   imports: [

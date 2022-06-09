@@ -65,7 +65,6 @@ export class Neo4jModule {
 
               const result = await connection.driver.verifyConnectivity();
 
-              // console.log({ result });
               console.log(`Connection Successful at: ${result.address}`);
 
               return connection;
@@ -73,7 +72,6 @@ export class Neo4jModule {
               console.log(
                 `Error in connection - ${(<ConnectionErrorType>error).code}`
               );
-              // throw new Error(`Could not connect to Neo4j`);
               console.log(`Could not connect to Neo4j`);
               return null;
             }
