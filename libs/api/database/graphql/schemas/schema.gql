@@ -86,15 +86,15 @@ type SocialConnection {
 type Person {
   id: ID!
   fullName: String!
-  demographics: Demographics!
   email: String!
   phone: String!
   dateOfBirth: DateTime!
   gender: Gender!
   website: String!
+  address: Address!
+  demographics: Demographics!
   identifications: [Identification!]!
   socialConnections: [SocialConnection!]!
-  address: Address!
 }
 
 """The gender of the person"""

@@ -3,11 +3,13 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { Gender } from '../imports/constants';
 import {
   IPerson,
+  Address as AddressModel,
   Demographics as DemographicsModel,
   Identification as IdentificationModel,
   SocialConnection as SocialConnectionModel
 } from '../imports/models';
 import {
+  Address as AddressEntity,
   Identification as IdentificationEntity,
   Demographics as DemographicsEntity,
   SocialConnection as SocialConnectionEntity
@@ -20,9 +22,6 @@ export class Person implements IPerson {
 
   @Field()
   fullName!: string;
-
-  @Field(() => DemographicsEntity)
-  demographics!: DemographicsModel;
 
   @Field()
   email!: string;
@@ -38,6 +37,12 @@ export class Person implements IPerson {
 
   @Field()
   website!: string;
+
+  @Field(() => AddressEntity)
+  address!: AddressModel;
+
+  @Field(() => DemographicsEntity)
+  demographics!: DemographicsModel;
 
   @Field(() => [IdentificationEntity])
   identifications!: IdentificationModel[];
