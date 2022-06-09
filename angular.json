@@ -7,6 +7,7 @@
     "api-database-graphql": "libs/api/database/graphql",
     "api-database-neo4j": "libs/api/database/neo4j",
     "api-database-seed": "libs/api/database/seed",
+    "api-features-person": "libs/api/features/person",
     "api-features-trip": "libs/api/features/trip",
     "domain": "libs/domain",
     "shared-data": "libs/shared/data",
