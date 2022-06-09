@@ -1,1 +1,4 @@
-export { GoaUsers } from '@itinerary-assistant/api/features/user';
+export {
+  UsamaPerson,
+  EramPerson
+} from '@itinerary-assistant/api/database/seed';

@@ -1,7 +1,5 @@
-import { TripOverview } from '../../imports/models';
-
 // TODO: Usama Ansari - 🗑️ Obsolete code
-const TripOverviewStub: TripOverview = {
+const TripOverviewStub = {
   tenure: {
     end: '2018-08-05T18:30:00Z',
     start: '2018-07-26T18:30:00Z'
