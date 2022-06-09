@@ -1,6 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { ISocialConnection } from '../../imports/models';
+import { ISocialConnection, Person as PersonModel } from '../../imports/models';
+import { Person as PersonEntity } from '..';
 
 @ObjectType()
 export class SocialConnection implements ISocialConnection {
@@ -13,6 +14,6 @@ export class SocialConnection implements ISocialConnection {
   @Field()
   url!: string;
 
-  @Field(() => ID)
-  personId!: string;
+  @Field(() => PersonEntity)
+  person!: PersonModel;
 }

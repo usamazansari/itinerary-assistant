@@ -3,7 +3,6 @@ export {
   Coordinates,
   Identification,
   Location,
-  Photo,
   SocialConnection,
   Tenure,
   Timezone,

@@ -1,26 +1,26 @@
 import { Salutation } from '../../../../constants';
+import { Person, PersonDTO } from '..';
 
-export interface IDemographics {
-  id: string;
+interface IDemographicsBase {
   firstName: string;
   middleName: string;
   lastName: string;
   nickname: string;
   salutation: Salutation;
-  personId: string;
 }
 
-const Timestamp = new Date().toISOString().valueOf();
-
-const DemographicsStub: IDemographics = {
-  id: `new-demographics-${Timestamp}`,
+const BaseStub: IDemographicsBase = {
   firstName: '',
   middleName: '',
   lastName: '',
   nickname: '',
-  salutation: Salutation.MISTER,
-  personId: `person-for-new-demographics-${Timestamp}`
+  salutation: Salutation.MISTER
 };
+
+export interface IDemographics extends IDemographicsBase {
+  id: string;
+  person: Person;
+}
 
 export class Demographics implements IDemographics {
   id: string;
@@ -29,16 +29,16 @@ export class Demographics implements IDemographics {
   lastName: string;
   nickname: string;
   salutation: Salutation;
-  personId: string;
+  person: Person;
 
   constructor({
-    id = DemographicsStub.id,
-    firstName = DemographicsStub.firstName,
-    middleName = DemographicsStub.middleName,
-    lastName = DemographicsStub.lastName,
-    nickname = DemographicsStub.nickname,
-    salutation = DemographicsStub.salutation,
-    personId = DemographicsStub.personId
+    id = '',
+    firstName = BaseStub.firstName,
+    middleName = BaseStub.middleName,
+    lastName = BaseStub.lastName,
+    nickname = BaseStub.nickname,
+    salutation = BaseStub.salutation,
+    person = new Person({ id: '' })
   }: Partial<IDemographics>) {
     this.id = id;
     this.firstName = firstName;
@@ -46,35 +46,35 @@ export class Demographics implements IDemographics {
     this.lastName = lastName;
     this.nickname = nickname;
     this.salutation = salutation;
-    this.personId = personId;
+    this.person = person;
   }
 }
 
-type DemographicsDTOOmitType = 'id';
+interface IDemographicsDTO extends IDemographicsBase {
+  person: PersonDTO;
+}
 
-export class DemographicsDTO
-  implements Omit<IDemographics, DemographicsDTOOmitType>
-{
+export class DemographicsDTO implements IDemographicsDTO {
   firstName: string;
   middleName: string;
   lastName: string;
   nickname: string;
   salutation: Salutation;
-  personId: string;
+  person: PersonDTO;
 
   constructor({
-    firstName = DemographicsStub.firstName,
-    middleName = DemographicsStub.middleName,
-    lastName = DemographicsStub.lastName,
-    nickname = DemographicsStub.nickname,
-    salutation = DemographicsStub.salutation,
-    personId = DemographicsStub.personId
-  }: Partial<IDemographics>) {
+    firstName = BaseStub.firstName,
+    middleName = BaseStub.middleName,
+    lastName = BaseStub.lastName,
+    nickname = BaseStub.nickname,
+    salutation = BaseStub.salutation,
+    person = new PersonDTO({})
+  }: Partial<IDemographicsDTO>) {
     this.firstName = firstName;
     this.middleName = middleName;
     this.lastName = lastName;
     this.nickname = nickname;
     this.salutation = salutation;
-    this.personId = personId;
+    this.person = person;
   }
 }

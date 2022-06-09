@@ -1,53 +1,45 @@
+interface ITimezoneBase {
+  offset: number;
+  description: string;
+}
+
+const BaseStub: ITimezoneBase = {
+  offset: 0,
+  description: ''
+};
+
 export interface ITimezone {
   id: string;
   offset: number;
   description: string;
-  locationId: string;
 }
-
-const Timestamp = new Date().toISOString().valueOf();
-
-const TimezoneStub: ITimezone = {
-  id: `new-timezone-${Timestamp}`,
-  offset: 0,
-  description: '',
-  locationId: `location-for-new-timezone-${Timestamp}`
-};
 
 export class Timezone implements ITimezone {
   id: string;
   offset: number;
   description: string;
-  locationId: string;
   constructor({
-    id = TimezoneStub.id,
-    offset = TimezoneStub.offset,
-    description = TimezoneStub.description,
-    locationId = TimezoneStub.locationId
+    id = '',
+    offset = BaseStub.offset,
+    description = BaseStub.description
   }: Partial<ITimezone>) {
     this.id = id;
     this.offset = offset;
     this.description = description;
-    this.locationId = locationId;
   }
 }
 
-type TimezoneDTOOmitType = 'id';
+type ITimezoneDTO = ITimezoneBase;
 
-export class TimezoneDTO
-  implements Omit<ITimezone, TimezoneDTOOmitType>
-{
+export class TimezoneDTO implements ITimezoneBase {
   offset: number;
   description: string;
-  locationId: string;
 
   constructor({
-    offset = TimezoneStub.offset,
-    description = TimezoneStub.description,
-    locationId = TimezoneStub.locationId
-  }: Partial<ITimezone>) {
+    offset = BaseStub.offset,
+    description = BaseStub.description
+  }: Partial<ITimezoneDTO>) {
     this.offset = offset;
     this.description = description;
-    this.locationId = locationId;
   }
 }

@@ -1,26 +1,22 @@
-import { Tenure } from '../..';
+import { Person, PersonDTO, Tenure, TenureDTO } from '../..';
 
-export interface IIdentification {
-  id: string;
+interface IIdentificationBase {
   type: string;
   number: string;
   name: string;
-  validity: Tenure;
-  personId: string;
 }
 
-const Timestamp = new Date().toISOString().valueOf();
-
-const IdentificationStub: IIdentification = {
-  id: `new-identification-${Timestamp}`,
+const BaseStub: IIdentificationBase = {
   type: '',
   number: '',
-  name: '',
-  validity: new Tenure({
-    id: `tenure-for-new-identification-${Timestamp}`
-  }),
-  personId: `person-for-new-identification-${Timestamp}`
+  name: ''
 };
+
+export interface IIdentification extends IIdentificationBase {
+  id: string;
+  validity: Tenure;
+  person: Person;
+}
 
 export class Identification implements IIdentification {
   id: string;
@@ -28,47 +24,48 @@ export class Identification implements IIdentification {
   number: string;
   name: string;
   validity: Tenure;
-  personId: string;
+  person: Person;
 
   constructor({
-    id = IdentificationStub.id,
-    type = IdentificationStub.type,
-    number = IdentificationStub.number,
-    name = IdentificationStub.name,
-    validity = IdentificationStub.validity,
-    personId = IdentificationStub.personId
+    id = '',
+    type = BaseStub.type,
+    number = BaseStub.number,
+    name = BaseStub.name,
+    validity = new Tenure({ id: '' }),
+    person = new Person({ id: '' })
   }: Partial<IIdentification>) {
     this.id = id;
     this.type = type;
     this.number = number;
     this.name = name;
     this.validity = validity;
-    this.personId = personId;
+    this.person = person;
   }
 }
 
-type IdentificationDTOOmitType = 'id';
+interface IIdentificationDTO extends IIdentificationBase {
+  validity: TenureDTO;
+  person: PersonDTO;
+}
 
-export class IdentificationDTO
-  implements Omit<IIdentification, IdentificationDTOOmitType>
-{
+export class IdentificationDTO implements IIdentificationDTO {
   type: string;
   number: string;
   name: string;
-  validity: Tenure;
-  personId: string;
+  validity: TenureDTO;
+  person: PersonDTO;
 
   constructor({
-    type = IdentificationStub.type,
-    number = IdentificationStub.number,
-    name = IdentificationStub.name,
-    validity = IdentificationStub.validity,
-    personId = IdentificationStub.personId
-  }: Partial<IIdentification>) {
+    type = BaseStub.type,
+    number = BaseStub.number,
+    name = BaseStub.name,
+    validity = new TenureDTO({}),
+    person = new PersonDTO({})
+  }: Partial<IIdentificationDTO>) {
     this.type = type;
     this.number = number;
     this.name = name;
     this.validity = validity;
-    this.personId = personId;
+    this.person = person;
   }
 }

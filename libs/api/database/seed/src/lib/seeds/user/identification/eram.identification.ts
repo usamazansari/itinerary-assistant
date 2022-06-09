@@ -1,5 +1,5 @@
 import { Identification, Tenure } from '../../../imports/models';
-import { EramTenures, EramTenureIds, EramPersonId } from '../..';
+import { EramTenures, EramTenureIds, EramPerson } from '../..';
 
 export const EramIdentificationIds = {
   Aadhar: 'person-2-id-1',
@@ -15,7 +15,7 @@ export const EramIdentifications: Identification[] = [
     validity:
       EramTenures.find(tenure => tenure.id === EramTenureIds.Aadhar) ??
       new Tenure({}),
-    personId: EramPersonId
+    person: EramPerson
   }),
   new Identification({
     id: EramIdentificationIds.Passport,
@@ -25,6 +25,6 @@ export const EramIdentifications: Identification[] = [
     validity:
       EramTenures.find(tenure => tenure.id === EramTenureIds.Passport) ??
       new Tenure({}),
-    personId: EramPersonId
+    person: EramPerson
   })
 ];

@@ -7,7 +7,6 @@ import {
   Demographics,
   Identification,
   Location,
-  Photo,
   Tenure,
   Timezone,
   SocialConnection,
@@ -80,13 +79,6 @@ export class Neo4jNodeMapperService {
     properties
   }: Neo4jNode<Identification>): Identification {
     return new Identification({
-      ...properties,
-      id: identity
-    });
-  }
-
-  toPhoto({ identity, properties }: Neo4jNode<Photo>): Photo {
-    return new Photo({
       ...properties,
       id: identity
     });

@@ -8,7 +8,6 @@ import {
   Demographics,
   Identification,
   Location,
-  Photo,
   Tenure,
   Timezone,
   SocialConnection,
@@ -23,8 +22,6 @@ import {
   IdentificationRelationshipData,
   LocationRelationship,
   LocationRelationshipData,
-  PhotoRelationship,
-  PhotoRelationshipData,
   SocialConnectionRelationship,
   SocialConnectionRelationshipData,
   TenureRelationship,
@@ -57,8 +54,6 @@ export class SanityService {
   locationRelationships: LocationRelationship[] = [];
   identifications: Identification[] = [];
   identificationRelationships: IdentificationRelationship[] = [];
-  photos: Photo[] = [];
-  photoRelationships: PhotoRelationship[] = [];
   tenures: Tenure[] = [];
   tenureRelationships: TenureRelationship[] = [];
 
@@ -100,8 +95,6 @@ export class SanityService {
     this.identifications = this.extractIdentifications(result);
     this.identificationRelationships =
       this.extractIdentificationRelationships(result);
-    // this.photos = this.extractPhotos(result);
-    // this.photoRelationships = this.extractPhotoRelationships(result);
     // this.tenures = this.extractTenures(result);
     // this.tenureRelationships = this.extractTenureRelationships(result);
   }
@@ -175,11 +168,11 @@ export class SanityService {
       ...person,
       demographics:
         this.demographics.find(
-          demographics => person.id === demographics.personId
+          demographics => person.id === demographics.person.id
         ) ?? new Demographics({ id: person.id }),
       socialConnections:
         this.socialConnections.filter(
-          socialConnection => person.id === socialConnection.personId
+          socialConnection => person.id === socialConnection.person.id
         ) ?? []
       // address:
       //   this.addresses.find(address => person.id === address.residentIds) ??
@@ -273,17 +266,6 @@ export class SanityService {
       .map(({ identification }) => identification)
       .filter(deduplicateDictionary)
       .map(this._mapNode.toIdentification);
-  }
-
-  private extractPhotos(result: unknown[]): Photo[] {
-    type Neo4jPhoto = {
-      photo: Neo4jNode<Photo>;
-    };
-
-    return (<Neo4jPhoto[]>result)
-      .map(({ photo }) => photo)
-      .filter(deduplicateDictionary)
-      .map(this._mapNode.toPhoto);
   }
 
   private extractTenures(result: unknown[]): Tenure[] {
@@ -386,17 +368,6 @@ export class SanityService {
       .map(({ identificationRelationship }) => identificationRelationship)
       .filter(deduplicateDictionary)
       .map(this._mapRelationship.toIdentificationRelationship);
-  }
-
-  private extractPhotoRelationships(result: unknown[]): PhotoRelationship[] {
-    type Neo4jPhotoRelationship = {
-      photoRelationship: Neo4jRelationship<PhotoRelationshipData>;
-    };
-
-    return (<Neo4jPhotoRelationship[]>result)
-      .map(({ photoRelationship }) => photoRelationship)
-      .filter(deduplicateDictionary)
-      .map(this._mapRelationship.toPhotoRelationship);
   }
 
   private extractTenureRelationships(result: unknown[]): TenureRelationship[] {

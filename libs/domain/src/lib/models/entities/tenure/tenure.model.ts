@@ -1,16 +1,16 @@
-export interface ITenure {
-  id: string;
+interface ITenureBase {
   start: Date;
   end: Date;
 }
 
-const Timestamp = new Date().toISOString().valueOf();
-
-const TenureStub: ITenure = {
-  id: `new-tenure-${Timestamp}`,
+const BaseStub: ITenureBase = {
   start: new Date(),
   end: new Date()
 };
+
+export interface ITenure extends ITenureBase {
+  id: string;
+}
 
 export class Tenure implements ITenure {
   id: string;
@@ -18,9 +18,9 @@ export class Tenure implements ITenure {
   end: Date;
 
   constructor({
-    id = TenureStub.id,
-    start = TenureStub.start,
-    end = TenureStub.end
+    id = '',
+    start = BaseStub.start,
+    end = BaseStub.end
   }: Partial<ITenure>) {
     this.id = id;
     this.start = start;
@@ -28,16 +28,16 @@ export class Tenure implements ITenure {
   }
 }
 
-type TenureDTOOmitType = 'id';
+type ITenureDTO = ITenureBase;
 
-export class TenureDTO implements Omit<ITenure, TenureDTOOmitType> {
+export class TenureDTO implements ITenureDTO {
   start: Date;
   end: Date;
 
   constructor({
-    start = TenureStub.start,
-    end = TenureStub.end
-  }: Partial<ITenure>) {
+    start = BaseStub.start,
+    end = BaseStub.end
+  }: Partial<ITenureDTO>) {
     this.start = start;
     this.end = end;
   }

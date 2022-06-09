@@ -4,7 +4,6 @@ export {
   Gender,
   Identification,
   Location,
-  Photo,
   SocialConnection,
   Tenure,
   Timezone,

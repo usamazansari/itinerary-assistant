@@ -6,7 +6,6 @@ export {
   Address,
   Demographics,
   Identification,
-  Photo,
   SocialConnection,
   Person,
   TenureRelationship,
@@ -23,8 +22,6 @@ export {
   DemographicsRelationshipData,
   IdentificationRelationship,
   IdentificationRelationshipData,
-  PhotoRelationship,
-  PhotoRelationshipData,
   SocialConnectionRelationship,
   SocialConnectionRelationshipData
 } from '@itinerary-assistant/domain';

@@ -1,53 +1,43 @@
-export interface ICoordinates {
-  id: string;
+interface ICoordinatesBase {
   latitude: number;
   longitude: number;
-  locationId: string;
 }
 
-const Timestamp = new Date().toISOString().valueOf();
-
-const CoordinatesStub: ICoordinates = {
-  id: `new-coordinates-${Timestamp}`,
+const BaseStub: ICoordinatesBase = {
   latitude: 0,
-  longitude: 0,
-  locationId: `location-for-new-coordinates-${Timestamp}`
+  longitude: 0
 };
+
+export interface ICoordinates extends ICoordinatesBase {
+  id: string;
+}
 
 export class Coordinates implements ICoordinates {
   id: string;
   latitude: number;
   longitude: number;
-  locationId: string;
   constructor({
-    id = CoordinatesStub.id,
-    latitude = CoordinatesStub.latitude,
-    longitude = CoordinatesStub.longitude,
-    locationId = CoordinatesStub.locationId
+    id = '',
+    latitude = BaseStub.latitude,
+    longitude = BaseStub.longitude
   }: Partial<ICoordinates>) {
     this.id = id;
     this.latitude = latitude;
     this.longitude = longitude;
-    this.locationId = locationId;
   }
 }
 
-type CoordinatesDTOOmitType = 'id';
+type ICoordinatesDTO = ICoordinatesBase;
 
-export class CoordinatesDTO
-  implements Omit<ICoordinates, CoordinatesDTOOmitType>
-{
+export class CoordinatesDTO implements ICoordinatesDTO {
   latitude: number;
   longitude: number;
-  locationId: string;
 
   constructor({
-    latitude = CoordinatesStub.latitude,
-    longitude = CoordinatesStub.longitude,
-    locationId = CoordinatesStub.locationId
-  }: Partial<ICoordinates>) {
+    latitude = BaseStub.latitude,
+    longitude = BaseStub.longitude
+  }: Partial<ICoordinatesDTO>) {
     this.latitude = latitude;
     this.longitude = longitude;
-    this.locationId = locationId;
   }
 }

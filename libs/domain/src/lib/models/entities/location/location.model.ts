@@ -1,24 +1,18 @@
-import { Coordinates, Timezone } from '.';
+import { Coordinates, CoordinatesDTO, Timezone, TimezoneDTO } from '.';
 
-export interface ILocation {
-  id: string;
+interface ILocationBase {
   plusCode: string;
+}
+
+const BaseStub: ILocationBase = {
+  plusCode: ''
+};
+
+export interface ILocation extends ILocationBase {
+  id: string;
   coordinates: Coordinates;
   timezone: Timezone;
 }
-
-const Timestamp = new Date().toISOString().valueOf();
-
-const LocationStub: ILocation = {
-  id: `new-location-${Timestamp}`,
-  plusCode: '',
-  coordinates: new Coordinates({
-    id: `coordinates-for-new-location-${Timestamp}`
-  }),
-  timezone: new Timezone({
-    id: `timezone-for-new-location-${Timestamp}`
-  })
-};
 
 export class Location implements ILocation {
   id: string;
@@ -26,10 +20,10 @@ export class Location implements ILocation {
   coordinates: Coordinates;
   timezone: Timezone;
   constructor({
-    id = LocationStub.id,
-    plusCode = LocationStub.plusCode,
-    coordinates = LocationStub.coordinates,
-    timezone = LocationStub.timezone
+    id = '',
+    plusCode = BaseStub.plusCode,
+    coordinates = new Coordinates({ id: '' }),
+    timezone = new Timezone({ id: '' })
   }: Partial<ILocation>) {
     this.id = id;
     this.plusCode = plusCode;
@@ -38,20 +32,21 @@ export class Location implements ILocation {
   }
 }
 
-type LocationDTOOmitType = 'id';
+interface ILocationDTO extends ILocationBase {
+  coordinates: CoordinatesDTO;
+  timezone: TimezoneDTO;
+}
 
-export class LocationDTO
-  implements Omit<ILocation, LocationDTOOmitType>
-{
+export class LocationDTO implements ILocationDTO {
   plusCode: string;
-  coordinates: Coordinates;
-  timezone: Timezone;
+  coordinates: CoordinatesDTO;
+  timezone: TimezoneDTO;
 
   constructor({
-    plusCode = LocationStub.plusCode,
-    coordinates = LocationStub.coordinates,
-    timezone = LocationStub.timezone
-  }: Partial<ILocation>) {
+    plusCode = BaseStub.plusCode,
+    coordinates = new CoordinatesDTO({}),
+    timezone = new TimezoneDTO({})
+  }: Partial<ILocationDTO>) {
     this.plusCode = plusCode;
     this.coordinates = coordinates;
     this.timezone = timezone;

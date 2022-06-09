@@ -11,8 +11,6 @@ import {
   IdentificationRelationshipData,
   LocationRelationship,
   LocationRelationshipData,
-  PhotoRelationship,
-  PhotoRelationshipData,
   SocialConnectionRelationship,
   SocialConnectionRelationshipData,
   TenureRelationship,
@@ -116,20 +114,6 @@ export class Neo4jRelationshipMapperService {
     properties
   }: Neo4jRelationship<IdentificationRelationshipData>): IdentificationRelationship {
     return new IdentificationRelationship({
-      id: identity,
-      start: start,
-      end: end,
-      data: properties
-    });
-  }
-
-  toPhotoRelationship({
-    identity,
-    start,
-    end,
-    properties
-  }: Neo4jRelationship<PhotoRelationshipData>): PhotoRelationship {
-    return new PhotoRelationship({
       id: identity,
       start: start,
       end: end,

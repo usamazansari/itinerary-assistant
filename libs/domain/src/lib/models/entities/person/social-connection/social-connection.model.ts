@@ -1,54 +1,55 @@
-export interface ISocialConnection {
-  id: string;
+import { Person, PersonDTO } from '..';
+
+interface ISocialConnectionBase {
   name: string;
   url: string;
-  personId: string;
 }
 
-const Timestamp = new Date().toISOString().valueOf();
-
-const SocialConnectionStub: ISocialConnection = {
-  id: `new-connection-${Timestamp}`,
+const BaseStub: ISocialConnectionBase = {
   name: '',
-  url: '',
-  personId: `person-for-new-connection-${Timestamp}`
+  url: ''
 };
+
+export interface ISocialConnection extends ISocialConnectionBase {
+  id: string;
+  person: Person;
+}
 
 export class SocialConnection implements ISocialConnection {
   id: string;
   name: string;
   url: string;
-  personId: string;
+  person: Person;
 
   constructor({
-    id = SocialConnectionStub.id,
-    name = SocialConnectionStub.name,
-    url = SocialConnectionStub.url,
-    personId = SocialConnectionStub.personId
+    id = '',
+    name = BaseStub.name,
+    url = BaseStub.url,
+    person = new Person({ id: '' })
   }: Partial<ISocialConnection>) {
     this.id = id;
     this.name = name;
     this.url = url;
-    this.personId = personId;
+    this.person = person;
   }
 }
 
-type SocialConnectionDTOOmitType = 'id';
+interface ISocialConnectionDTO extends ISocialConnectionBase {
+  person: PersonDTO;
+}
 
-export class SocialConnectionDTO
-  implements Omit<ISocialConnection, SocialConnectionDTOOmitType>
-{
+export class SocialConnectionDTO implements ISocialConnectionDTO {
   name: string;
   url: string;
-  personId: string;
+  person: PersonDTO;
 
   constructor({
-    name = SocialConnectionStub.name,
-    url = SocialConnectionStub.url,
-    personId = SocialConnectionStub.personId
-  }: Partial<ISocialConnection>) {
+    name = BaseStub.name,
+    url = BaseStub.url,
+    person = new PersonDTO({})
+  }: Partial<ISocialConnectionDTO>) {
     this.name = name;
     this.url = url;
-    this.personId = personId;
+    this.person = person;
   }
 }

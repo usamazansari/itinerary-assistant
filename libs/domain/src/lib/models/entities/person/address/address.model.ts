@@ -1,8 +1,7 @@
-import { Location } from '../..';
-import { Person } from '..';
+import { Location, LocationDTO } from '../..';
+import { Person, PersonDTO } from '..';
 
-export interface IAddress {
-  id: string;
+interface IAddressBase {
   name: string;
   room: string;
   apartment: string;
@@ -15,12 +14,9 @@ export interface IAddress {
   state: string;
   country: string;
   zip: string;
-  location: Location;
-  residents: Person[];
 }
 
-const AddressStub: IAddress = {
-  id: '',
+const BaseStub: IAddressBase = {
   name: '',
   room: '',
   apartment: '',
@@ -32,12 +28,14 @@ const AddressStub: IAddress = {
   city: '',
   state: '',
   country: '',
-  zip: '',
-  location: new Location({
-    id: ''
-  }),
-  residents: []
+  zip: ''
 };
+
+export interface IAddress extends IAddressBase {
+  id: string;
+  location: Location;
+  residents: Person[];
+}
 
 export class Address implements IAddress {
   id: string;
@@ -57,21 +55,21 @@ export class Address implements IAddress {
   residents: Person[];
 
   constructor({
-    id = AddressStub.id,
-    name = AddressStub.name,
-    room = AddressStub.room,
-    apartment = AddressStub.apartment,
-    wing = AddressStub.wing,
-    street = AddressStub.street,
-    landmark = AddressStub.landmark,
-    locality = AddressStub.locality,
-    suburb = AddressStub.suburb,
-    city = AddressStub.city,
-    state = AddressStub.state,
-    country = AddressStub.country,
-    zip = AddressStub.zip,
-    location = AddressStub.location,
-    residents: residentIds = AddressStub.residents
+    id = '',
+    name = BaseStub.name,
+    room = BaseStub.room,
+    apartment = BaseStub.apartment,
+    wing = BaseStub.wing,
+    street = BaseStub.street,
+    landmark = BaseStub.landmark,
+    locality = BaseStub.locality,
+    suburb = BaseStub.suburb,
+    city = BaseStub.city,
+    state = BaseStub.state,
+    country = BaseStub.country,
+    zip = BaseStub.zip,
+    location = new Location({ id: '' }),
+    residents = []
   }: Partial<IAddress>) {
     this.id = id;
     this.name = name;
@@ -87,13 +85,16 @@ export class Address implements IAddress {
     this.country = country;
     this.zip = zip;
     this.location = location;
-    this.residents = residentIds;
+    this.residents = residents;
   }
 }
 
-type AddressDTOOmitType = 'id';
+interface IAddressDTO extends IAddressBase {
+  location: LocationDTO;
+  residents: PersonDTO[];
+}
 
-export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
+export class AddressDTO implements IAddressDTO {
   name: string;
   room: string;
   apartment: string;
@@ -106,25 +107,25 @@ export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
   state: string;
   country: string;
   zip: string;
-  location: Location;
-  residents: Person[];
+  location: LocationDTO;
+  residents: PersonDTO[];
 
   constructor({
-    name = AddressStub.name,
-    room = AddressStub.room,
-    apartment = AddressStub.apartment,
-    wing = AddressStub.wing,
-    street = AddressStub.street,
-    landmark = AddressStub.landmark,
-    locality = AddressStub.locality,
-    suburb = AddressStub.suburb,
-    city = AddressStub.city,
-    state = AddressStub.state,
-    country = AddressStub.country,
-    zip = AddressStub.zip,
-    location = AddressStub.location,
-    residents: residentIds = AddressStub.residents
-  }: Partial<IAddress>) {
+    name = BaseStub.name,
+    room = BaseStub.room,
+    apartment = BaseStub.apartment,
+    wing = BaseStub.wing,
+    street = BaseStub.street,
+    landmark = BaseStub.landmark,
+    locality = BaseStub.locality,
+    suburb = BaseStub.suburb,
+    city = BaseStub.city,
+    state = BaseStub.state,
+    country = BaseStub.country,
+    zip = BaseStub.zip,
+    location = new LocationDTO({}),
+    residents = []
+  }: Partial<IAddressDTO>) {
     this.name = name;
     this.room = room;
     this.apartment = apartment;
@@ -138,6 +139,6 @@ export class AddressDTO implements Omit<IAddress, AddressDTOOmitType> {
     this.country = country;
     this.zip = zip;
     this.location = location;
-    this.residents = residentIds;
+    this.residents = residents;
   }
 }
