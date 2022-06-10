@@ -8,6 +8,11 @@ import { PersonService } from '../../services';
 export class PersonResolver {
   constructor(private _service: PersonService) {}
 
+  @Query(() => [PersonEntity])
+  async getPeople(): Promise<PersonModel[]> {
+    return await this._service.getPeople();
+  }
+
   @Query(() => PersonEntity)
   async getPerson(
     @Args('email', { type: () => String }) email: string
