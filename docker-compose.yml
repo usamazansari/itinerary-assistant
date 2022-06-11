@@ -1,0 +1,10 @@
+version: '0.2.0'
+
+services:
+  database:
+    image: neo4j:latest
+    ports:
+      - '7474:7474'
+      - '7687:7687'
+    volumes:
+      - 'C:\Users\Usama Ansari\neo4j\data:/data'
