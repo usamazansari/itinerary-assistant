@@ -14,11 +14,6 @@ import { PersonRepository } from '../../repositories';
 
 @Injectable()
 export class PersonService {
-  #person!: Person;
-  #people!: Person[];
-  #address!: Address;
-  #demographics!: Demographics;
-
   constructor(
     private _repository: PersonRepository,
     private _mapNode: Neo4jNodeMapperService
@@ -58,40 +53,36 @@ export class PersonService {
 
   async getPerson(person: Person): Promise<Person> {
     const result = await this._repository.getPerson(person);
-    this.#person =
+    return (
       this.extractPeople(
         (<unknown>result) as { person: Neo4jNode<Person> }[]
-      ).at(0) ?? new Person({});
-
-    return this.#person;
+      ).at(0) ?? new Person({ id: '' })
+    );
   }
 
   async getPeople(): Promise<Person[]> {
     const result = await this._repository.getPeople();
-    this.#people = this.extractPeople(
+    return this.extractPeople(
       (<unknown>result) as { person: Neo4jNode<Person> }[]
     );
-    return this.#people;
   }
 
   async getAddress(person: Person): Promise<Address> {
     const result = await this._repository.getAddress(person);
-    this.#address =
+    return (
       this.extractAddress(
         (<unknown>result) as { address: Neo4jNode<Address> }[]
-      ).at(0) ?? new Address({});
-
-    return this.#address;
+      ).at(0) ?? new Address({ id: '' })
+    );
   }
 
   async getDemographics(person: Person): Promise<Demographics> {
     const result = await this._repository.getDemographics(person);
-    this.#demographics =
+    return (
       this.extractDemographics(
         (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-      ).at(0) ?? new Demographics({});
-
-    return this.#demographics;
+      ).at(0) ?? new Demographics({ id: '' })
+    );
   }
 
   async getIdentifications(person: Person): Promise<Identification[]> {
