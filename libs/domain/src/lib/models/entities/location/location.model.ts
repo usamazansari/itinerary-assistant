@@ -30,6 +30,13 @@ export class Location implements ILocation {
     this.coordinates = coordinates;
     this.timezone = timezone;
   }
+
+  filterForInput(): Partial<Location> {
+    let clone: Partial<Location> = {};
+    if (!!this.id) clone = { ...clone, id: this.id };
+    if (!!this.plusCode) clone = { ...clone, plusCode: this.plusCode };
+    return clone;
+  }
 }
 
 interface ILocationDTO extends ILocationBase {

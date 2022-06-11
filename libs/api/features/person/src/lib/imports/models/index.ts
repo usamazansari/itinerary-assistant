@@ -1,9 +1,11 @@
 export {
   Address,
+  Coordinates,
   Demographics,
   Identification,
   Location,
   Person,
-  SocialConnection
+  SocialConnection,
+  Timezone
 } from '@itinerary-assistant/domain';
 export { Neo4jNode } from '@itinerary-assistant/api/database/neo4j';

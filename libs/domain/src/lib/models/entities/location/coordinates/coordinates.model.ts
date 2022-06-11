@@ -1,3 +1,5 @@
+import { Point } from 'neo4j-driver';
+
 interface ICoordinatesBase {
   latitude: number;
   longitude: number;
@@ -16,6 +18,7 @@ export class Coordinates implements ICoordinates {
   id: string;
   latitude: number;
   longitude: number;
+  coordinates: Point | '' = '';
   constructor({
     id = '',
     latitude = BaseStub.latitude,

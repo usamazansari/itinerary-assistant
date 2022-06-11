@@ -12,7 +12,4 @@ export class Timezone implements ITimezone {
 
   @Field()
   offset!: number;
-
-  @Field(() => ID)
-  locationId!: string;
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import type { DateTime } from 'neo4j-driver';
+import type { DateTime, Point } from 'neo4j-driver';
 
 import {
   Address,
@@ -47,7 +47,11 @@ export class Neo4jNodeMapperService {
   }
 
   toCoordinates({ properties }: Neo4jNode<Coordinates>): Coordinates {
-    return new Coordinates({ ...properties });
+    return new Coordinates({
+      ...properties,
+      latitude: (properties.coordinates as Point).x,
+      longitude: (properties.coordinates as Point).y
+    });
   }
 
   toTimezone({ properties }: Neo4jNode<Timezone>): Timezone {

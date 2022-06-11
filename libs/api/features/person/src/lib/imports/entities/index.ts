@@ -1,8 +1,10 @@
 export {
   Address,
+  Coordinates,
   Demographics,
   Identification,
   Location,
   Person,
-  SocialConnection
+  SocialConnection,
+  Timezone
 } from '@itinerary-assistant/api/database/entities';

@@ -6,14 +6,12 @@ type Coordinates {
   id: ID!
   latitude: Float!
   longitude: Float!
-  locationId: ID!
 }
 
 type Timezone {
   id: ID!
   description: String!
   offset: Float!
-  locationId: ID!
 }
 
 type Location {
