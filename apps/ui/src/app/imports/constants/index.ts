@@ -1,4 +1,1 @@
-export {
-  ApplicationName,
-  Author
-} from '@itinerary-assistant/shared/domain';
+export { ApplicationName, Author } from '@itinerary-assistant/domain';

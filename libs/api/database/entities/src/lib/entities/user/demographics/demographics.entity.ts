@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-// import { Salutation } from '../../imports/constants';
+import { Salutation } from '../../imports/constants';
 import { IDemographics } from '../../imports/models';
 
 @ObjectType()
@@ -8,8 +8,8 @@ export class Demographics implements IDemographics {
   @Field(() => ID)
   id!: string;
 
-  // @Field()
-  // salutation!: Salutation;
+  @Field(() => Salutation)
+  salutation!: Salutation;
 
   @Field()
   firstName!: string;
@@ -22,7 +22,4 @@ export class Demographics implements IDemographics {
 
   @Field()
   nickname!: string;
-
-  @Field()
-  userId!: string;
 }

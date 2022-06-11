@@ -12,7 +12,4 @@ export class Coordinates implements ICoordinates {
 
   @Field()
   longitude!: number;
-
-  @Field(() => ID)
-  locationId!: string;
 }

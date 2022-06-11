@@ -12,7 +12,4 @@ export class SocialConnection implements ISocialConnection {
 
   @Field()
   url!: string;
-
-  @Field(() => ID)
-  userId!: string;
 }

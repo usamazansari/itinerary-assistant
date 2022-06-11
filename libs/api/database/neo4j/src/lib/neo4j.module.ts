@@ -11,12 +11,21 @@ import {
   Neo4jConfig,
   ConnectionErrorType
 } from './models';
-import { QueryRepositoryService } from './services';
+import {
+  Neo4jNodeMapperService,
+  Neo4jQueryRepositoryService,
+  Neo4jRelationshipMapperService
+} from './services';
 import { createDatabaseConfig } from './utils';
 
 @Module({
   controllers: [],
-  providers: [QueryRepositoryService]
+  providers: [
+    Neo4jNodeMapperService,
+    Neo4jQueryRepositoryService,
+    Neo4jRelationshipMapperService
+  ],
+  exports: [Neo4jNodeMapperService, Neo4jRelationshipMapperService]
 })
 export class Neo4jModule {
   // static forRootAsync(config: Neo4jConfig): DynamicModule {
@@ -47,39 +56,29 @@ export class Neo4jModule {
                 username,
                 password
               } = config;
-              const connection = new Connection(
-                `${scheme}://${host}:${port}`,
-                {
-                  username,
-                  password
-                }
-              ) as ConnectionWithDriver;
+              const connection = new Connection(`${scheme}://${host}:${port}`, {
+                username,
+                password
+              }) as ConnectionWithDriver;
 
               console.log(`Connecting to Neo4j`);
 
-              const result =
-                await connection.driver.verifyConnectivity();
+              const result = await connection.driver.verifyConnectivity();
 
-              // console.log({ result });
-              console.log(
-                `Connection Successful at: ${result.address}`
-              );
+              console.log(`Connection Successful at: ${result.address}`);
 
               return connection;
             } catch (error: unknown) {
               console.log(
-                `Error in connection - ${
-                  (<ConnectionErrorType>error).code
-                }`
+                `Error in connection - ${(<ConnectionErrorType>error).code}`
               );
-              // throw new Error(`Could not connect to Neo4j`);
               console.log(`Could not connect to Neo4j`);
               return null;
             }
           }
         }
       ],
-      exports: [QueryRepositoryService]
+      exports: [Neo4jQueryRepositoryService]
     };
   }
 }

@@ -4,10 +4,9 @@ export {
   Gender,
   Identification,
   Location,
-  Photo,
   SocialConnection,
   Tenure,
   Timezone,
   Demographics,
-  User
-} from '@itinerary-assistant/shared/domain';
+  Person
+} from '@itinerary-assistant/domain';

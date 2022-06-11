@@ -1,19 +1,17 @@
-import { Query, Resolver } from '@nestjs/graphql';
+import { Args, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 
-import { User } from '../../imports/entities';
+import { Address, Person } from '../../imports/entities';
 import { SanityService } from '..';
 
-@Resolver()
+@Resolver(() => Person)
 export class SanityResolver {
-  constructor(private _service: SanityService) {}
-
-  @Query(() => String)
-  gqlSanity(): string {
-    return 'GraphQL connection is configured correctly';
-  }
-
-  @Query(() => [User])
-  async neo4jSanity() {
-    return await this._service.neo4jSanity();
-  }
+  // constructor(private _service: SanityService) {}
+  // @Query(() => Person)
+  // async getPerson(@Args('email', { type: () => String }) email: string) {
+  //   return await this._service.getPerson(email);
+  // }
+  // @ResolveField(() => Address, { name: 'address' })
+  // async getAddress(@Parent() { email }: Person) {
+  //   return await this._service.getAddress(email);
+  // }
 }

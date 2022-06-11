@@ -1,1 +1,2 @@
-export * from './configuration.model';
+export * from './configuration';
+export * from './cypher';
