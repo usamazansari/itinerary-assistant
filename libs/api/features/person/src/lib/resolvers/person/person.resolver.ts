@@ -23,7 +23,7 @@ export class PersonResolver {
   }
 
   @ResolveField(() => Address, { name: 'address' })
-  async getAddress(@Parent() { email }: PersonEntity): Promise<Address> {
-    return await this._service.getAddress(new PersonModel({ email }));
+  async getAddress(@Parent() person: PersonEntity): Promise<Address> {
+    return await this._service.getAddress(new PersonModel(person));
   }
 }

@@ -82,7 +82,6 @@ export class Person implements IPerson {
     if (!!this.fullName) clone = { ...clone, fullName: this.fullName };
     if (!!this.email) clone = { ...clone, email: this.email };
     if (!!this.phone) clone = { ...clone, phone: this.phone };
-    if (!!this.dateOfBirth) clone = { ...clone, dateOfBirth: this.dateOfBirth };
     if (!!this.website) clone = { ...clone, website: this.website };
     return clone;
   }

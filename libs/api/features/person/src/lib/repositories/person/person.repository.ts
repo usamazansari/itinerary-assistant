@@ -31,11 +31,12 @@ export class PersonRepository {
     return result;
   }
 
-  async getAddress(email = '') {
+  async getAddress(person = new Person({ id: '' })) {
+    const clone = person.filterForInput();
     const query = this._query
       .queryBuilder()
       .match([
-        node('person', 'PERSON', { ['email']: email }),
+        node('person', 'PERSON', { ...clone }),
         relation('out', 'addressRelationship', 'RESIDES_AT'),
         node('address', 'ADDRESS')
       ])

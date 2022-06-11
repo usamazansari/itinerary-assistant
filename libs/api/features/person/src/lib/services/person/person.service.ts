@@ -42,8 +42,8 @@ export class PersonService {
     return this.#people;
   }
 
-  async getAddress({ email }: Person) {
-    const result = await this._repository.getAddress(email);
+  async getAddress(person: Person) {
+    const result = await this._repository.getAddress(person);
     this.#address =
       this.extractAddress(
         (<unknown>result) as { address: Neo4jNode<Address> }[]
