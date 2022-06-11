@@ -17,12 +17,8 @@ import { parseDateTime } from '../../utils';
 
 @Injectable()
 export class Neo4jNodeMapperService {
-  // TODO: Use node.id instead of internal Neo4j <id>
-  toAddress({ identity, properties }: Neo4jNode<Address>): Address {
-    return new Address({
-      ...properties,
-      id: identity
-    });
+  toAddress({ properties }: Neo4jNode<Address>): Address {
+    return new Address({ ...properties });
   }
 
   toPerson({ properties }: Neo4jNode<Person>): Person {
@@ -32,61 +28,37 @@ export class Neo4jNodeMapperService {
     });
   }
 
-  toDemographics({
-    identity,
-    properties
-  }: Neo4jNode<Demographics>): Demographics {
-    return new Demographics({
-      ...properties,
-      id: identity
-    });
+  toDemographics({ properties }: Neo4jNode<Demographics>): Demographics {
+    return new Demographics({ ...properties });
+  }
+
+  toIdentification({ properties }: Neo4jNode<Identification>): Identification {
+    return new Identification({ ...properties });
   }
 
   toSocialConnection({
-    identity,
     properties
   }: Neo4jNode<SocialConnection>): SocialConnection {
-    return new SocialConnection({
-      ...properties,
-      id: identity
-    });
+    return new SocialConnection({ ...properties });
   }
 
-  toLocation({ identity, properties }: Neo4jNode<Location>): Location {
-    return new Location({
-      ...properties,
-      id: identity
-    });
+  toLocation({ properties }: Neo4jNode<Location>): Location {
+    return new Location({ ...properties });
   }
 
-  toCoordinates({ identity, properties }: Neo4jNode<Coordinates>): Coordinates {
-    return new Coordinates({
-      ...properties,
-      id: identity
-    });
+  toCoordinates({ properties }: Neo4jNode<Coordinates>): Coordinates {
+    return new Coordinates({ ...properties });
   }
 
-  toTimezone({ identity, properties }: Neo4jNode<Timezone>): Timezone {
-    return new Timezone({
-      ...properties,
-      id: identity
-    });
+  toTimezone({ properties }: Neo4jNode<Timezone>): Timezone {
+    return new Timezone({ ...properties });
   }
 
-  toIdentification({
-    identity,
-    properties
-  }: Neo4jNode<Identification>): Identification {
-    return new Identification({
-      ...properties,
-      id: identity
-    });
-  }
-
-  toTenure({ identity, properties }: Neo4jNode<Tenure>): Tenure {
+  toTenure({ properties }: Neo4jNode<Tenure>): Tenure {
     return new Tenure({
       ...properties,
-      id: identity
+      start: parseDateTime((<unknown>properties.start) as DateTime),
+      end: parseDateTime((<unknown>properties.end) as DateTime)
     });
   }
 }
