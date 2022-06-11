@@ -3,7 +3,6 @@ import { Field, InputType } from '@nestjs/graphql';
 import { Gender } from '../../imports/constants';
 import { Person } from '../../imports/entities';
 
-// TODO: CC326634 - rename this file
 @InputType()
 export class PersonInput extends Person {
   @Field({ nullable: true })

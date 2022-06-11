@@ -1,4 +1,4 @@
-import { PersonInput } from './person-input';
+import { PersonInput } from './person.input';
 
 describe('PersonInput', () => {
   it('should be defined', () => {
