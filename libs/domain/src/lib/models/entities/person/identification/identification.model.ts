@@ -37,6 +37,15 @@ export class Identification implements IIdentification {
     this.name = name;
     this.validity = validity;
   }
+
+  filterForInput(): Partial<Identification> {
+    let clone: Partial<Identification> = {};
+    if (!!this.id) clone = { ...clone, id: this.id };
+    if (!!this.type) clone = { ...clone, type: this.type };
+    if (!!this.number) clone = { ...clone, number: this.number };
+    if (!!this.name) clone = { ...clone, name: this.name };
+    return clone;
+  }
 }
 
 interface IIdentificationDTO extends IIdentificationBase {

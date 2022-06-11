@@ -2,17 +2,31 @@ import { Module } from '@nestjs/common';
 
 import {
   AddressRepository,
+  IdentificationRepository,
   LocationRepository,
   PersonRepository
 } from './repositories';
-import { AddressResolver, LocationResolver, PersonResolver } from './resolvers';
-import { AddressService, LocationService, PersonService } from './services';
+import {
+  AddressResolver,
+  IdentificationResolver,
+  LocationResolver,
+  PersonResolver
+} from './resolvers';
+import {
+  AddressService,
+  IdentificationService,
+  LocationService,
+  PersonService
+} from './services';
 
 @Module({
   providers: [
     AddressRepository,
     AddressResolver,
     AddressService,
+    IdentificationRepository,
+    IdentificationResolver,
+    IdentificationService,
     LocationRepository,
     LocationResolver,
     LocationService,
