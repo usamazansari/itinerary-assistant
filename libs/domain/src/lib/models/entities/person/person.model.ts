@@ -15,8 +15,8 @@ interface IPersonBase {
   fullName: string;
   email: string;
   phone: string;
-  dateOfBirth: Date;
-  gender: Gender;
+  dateOfBirth: Date | '';
+  gender: Gender | '';
   website: string;
 }
 
@@ -24,8 +24,8 @@ const BaseStub: IPersonBase = {
   fullName: '',
   email: '',
   phone: '',
-  dateOfBirth: new Date(),
-  gender: Gender.MALE,
+  dateOfBirth: '',
+  gender: '',
   website: ''
 };
 
@@ -42,8 +42,8 @@ export class Person implements IPerson {
   fullName: string;
   email: string;
   phone: string;
-  dateOfBirth: Date;
-  gender: Gender;
+  dateOfBirth: Date | '';
+  gender: Gender | '';
   website: string;
   address: Address;
   demographics: Demographics;
@@ -75,6 +75,17 @@ export class Person implements IPerson {
     this.identifications = identifications;
     this.socialConnections = socialConnections;
   }
+
+  filterForInput(): Partial<Person> {
+    let clone: Partial<Person> = {};
+    if (!!this.id) clone = { ...clone, id: this.id };
+    if (!!this.fullName) clone = { ...clone, fullName: this.fullName };
+    if (!!this.email) clone = { ...clone, email: this.email };
+    if (!!this.phone) clone = { ...clone, phone: this.phone };
+    if (!!this.dateOfBirth) clone = { ...clone, dateOfBirth: this.dateOfBirth };
+    if (!!this.website) clone = { ...clone, website: this.website };
+    return clone;
+  }
 }
 
 interface IPersonDTO extends IPersonBase {
@@ -88,8 +99,8 @@ export class PersonDTO implements IPersonDTO {
   fullName: string;
   email: string;
   phone: string;
-  dateOfBirth: Date;
-  gender: Gender;
+  dateOfBirth: Date | '';
+  gender: Gender | '';
   website: string;
   address: AddressDTO;
   demographics: DemographicsDTO;

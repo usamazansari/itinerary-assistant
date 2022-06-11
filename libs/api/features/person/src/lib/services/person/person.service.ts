@@ -24,8 +24,8 @@ export class PersonService {
     return result.map(({ address }) => address).map(this._mapNode.toAddress);
   }
 
-  async getPerson({ email }: Partial<Person>) {
-    const result = await this._repository.getPerson(email);
+  async getPerson(person: Person) {
+    const result = await this._repository.getPerson(person);
     this.#person =
       this.extractPeople(
         (<unknown>result) as { person: Neo4jNode<Person> }[]

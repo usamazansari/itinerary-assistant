@@ -106,5 +106,14 @@ enum Gender {
 
 type Query {
   getPeople: [Person!]!
-  getPerson(email: String!): Person!
+  getPerson(person: PersonInput!): Person!
+}
+
+input PersonInput {
+  id: String
+  fullName: String
+  email: String
+  phone: String
+  gender: Gender
+  website: String
 }
