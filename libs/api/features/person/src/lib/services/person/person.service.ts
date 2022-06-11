@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common';
 
-import { Address, Person, Neo4jNode } from '../../imports/models';
+import { Address, Demographics, Person, Neo4jNode } from '../../imports/models';
 import { Neo4jNodeMapperService } from '../../imports/services';
 
 import { PersonRepository } from '../../repositories';
 
 @Injectable()
 export class PersonService {
-  #address!: Address;
   #person!: Person;
   #people!: Person[];
+  #address!: Address;
+  #demographics!: Demographics;
 
   constructor(
     private _repository: PersonRepository,
@@ -24,7 +25,15 @@ export class PersonService {
     return result.map(({ address }) => address).map(this._mapNode.toAddress);
   }
 
-  async getPerson(person: Person) {
+  private extractDemographics(
+    result: { demographics: Neo4jNode<Demographics> }[]
+  ): Demographics[] {
+    return result
+      .map(({ demographics }) => demographics)
+      .map(this._mapNode.toDemographics);
+  }
+
+  async getPerson(person: Person): Promise<Person> {
     const result = await this._repository.getPerson(person);
     this.#person =
       this.extractPeople(
@@ -34,7 +43,7 @@ export class PersonService {
     return this.#person;
   }
 
-  async getPeople() {
+  async getPeople(): Promise<Person[]> {
     const result = await this._repository.getPeople();
     this.#people = this.extractPeople(
       (<unknown>result) as { person: Neo4jNode<Person> }[]
@@ -42,7 +51,7 @@ export class PersonService {
     return this.#people;
   }
 
-  async getAddress(person: Person) {
+  async getAddress(person: Person): Promise<Address> {
     const result = await this._repository.getAddress(person);
     this.#address =
       this.extractAddress(
@@ -50,5 +59,15 @@ export class PersonService {
       ).at(0) ?? new Address({});
 
     return this.#address;
+  }
+
+  async getDemographics(person: Person): Promise<Demographics> {
+    const result = await this._repository.getDemographics(person);
+    this.#demographics =
+      this.extractDemographics(
+        (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
+      ).at(0) ?? new Demographics({});
+
+    return this.#demographics;
   }
 }

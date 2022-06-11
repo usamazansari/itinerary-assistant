@@ -46,4 +46,20 @@ export class PersonRepository {
     const result = await query.run();
     return result;
   }
+
+  async getDemographics(person = new Person({ id: '' })) {
+    const clone = person.filterForInput();
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node('person', 'PERSON', { ...clone }),
+        relation('in', 'demographicRelationship', 'DEMOGRAPHICS_OF'),
+        node('demographics', 'DEMOGRAPHICS')
+      ])
+      .return(['demographics']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
 }
