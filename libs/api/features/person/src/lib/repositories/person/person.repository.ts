@@ -62,4 +62,20 @@ export class PersonRepository {
     const result = await query.run();
     return result;
   }
+
+  async getIdentifications(person = new Person({ id: '' })) {
+    const clone = person.filterForInput();
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node('person', 'PERSON', { ...clone }),
+        relation('in', 'identificationRelationship', 'IDENTIFICATION_OF'),
+        node('identification', 'IDENTIFICATION')
+      ])
+      .return(['identification']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
 }

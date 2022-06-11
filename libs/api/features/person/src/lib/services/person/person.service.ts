@@ -1,6 +1,12 @@
 import { Injectable } from '@nestjs/common';
 
-import { Address, Demographics, Person, Neo4jNode } from '../../imports/models';
+import {
+  Address,
+  Demographics,
+  Identification,
+  Person,
+  Neo4jNode
+} from '../../imports/models';
 import { Neo4jNodeMapperService } from '../../imports/services';
 
 import { PersonRepository } from '../../repositories';
@@ -31,6 +37,14 @@ export class PersonService {
     return result
       .map(({ demographics }) => demographics)
       .map(this._mapNode.toDemographics);
+  }
+
+  extractIdentifications(
+    result: { identification: Neo4jNode<Identification> }[]
+  ): Identification[] {
+    return result
+      .map(({ identification }) => identification)
+      .map(this._mapNode.toIdentification);
   }
 
   async getPerson(person: Person): Promise<Person> {
@@ -69,5 +83,12 @@ export class PersonService {
       ).at(0) ?? new Demographics({});
 
     return this.#demographics;
+  }
+
+  async getIdentifications(person: Person): Promise<Identification[]> {
+    const result = await this._repository.getIdentifications(person);
+    return this.extractIdentifications(
+      (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+    );
   }
 }

@@ -3,6 +3,7 @@ import { Args, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import {
   Address,
   Demographics,
+  Identification,
   Person as PersonEntity
 } from '../../imports/entities';
 import { Person as PersonModel } from '../../imports/models';
@@ -34,5 +35,14 @@ export class PersonResolver {
   @ResolveField(() => Demographics, { name: 'demographics' })
   async getDemographics(@Parent() person: PersonEntity): Promise<Demographics> {
     return await this._service.getDemographics(new PersonModel({ ...person }));
+  }
+
+  @ResolveField(() => [Identification], { name: 'identifications' })
+  async getIdentifications(
+    @Parent() person: PersonEntity
+  ): Promise<Identification[]> {
+    return await this._service.getIdentifications(
+      new PersonModel({ ...person })
+    );
   }
 }
