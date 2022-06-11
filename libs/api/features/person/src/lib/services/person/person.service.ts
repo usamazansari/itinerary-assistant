@@ -4,8 +4,9 @@ import {
   Address,
   Demographics,
   Identification,
+  Neo4jNode,
   Person,
-  Neo4jNode
+  SocialConnection
 } from '../../imports/models';
 import { Neo4jNodeMapperService } from '../../imports/services';
 
@@ -45,6 +46,14 @@ export class PersonService {
     return result
       .map(({ identification }) => identification)
       .map(this._mapNode.toIdentification);
+  }
+
+  extractSocialConnections(
+    result: { socialConnection: Neo4jNode<SocialConnection> }[]
+  ): SocialConnection[] {
+    return result
+      .map(({ socialConnection }) => socialConnection)
+      .map(this._mapNode.toSocialConnection);
   }
 
   async getPerson(person: Person): Promise<Person> {
@@ -89,6 +98,13 @@ export class PersonService {
     const result = await this._repository.getIdentifications(person);
     return this.extractIdentifications(
       (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+    );
+  }
+
+  async getSocialConnections(person: Person): Promise<SocialConnection[]> {
+    const result = await this._repository.getSocialConnections(person);
+    return this.extractSocialConnections(
+      (<unknown>result) as { socialConnection: Neo4jNode<SocialConnection> }[]
     );
   }
 }

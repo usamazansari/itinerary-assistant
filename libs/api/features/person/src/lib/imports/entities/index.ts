@@ -2,5 +2,6 @@ export {
   Address,
   Demographics,
   Identification,
-  Person
+  Person,
+  SocialConnection
 } from '@itinerary-assistant/api/database/entities';

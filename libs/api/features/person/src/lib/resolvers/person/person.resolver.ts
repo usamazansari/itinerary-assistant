@@ -4,7 +4,8 @@ import {
   Address,
   Demographics,
   Identification,
-  Person as PersonEntity
+  Person as PersonEntity,
+  SocialConnection
 } from '../../imports/entities';
 import { Person as PersonModel } from '../../imports/models';
 
@@ -42,6 +43,15 @@ export class PersonResolver {
     @Parent() person: PersonEntity
   ): Promise<Identification[]> {
     return await this._service.getIdentifications(
+      new PersonModel({ ...person })
+    );
+  }
+
+  @ResolveField(() => [SocialConnection], { name: 'socialConnections' })
+  async getSocialConnections(
+    @Parent() person: PersonEntity
+  ): Promise<SocialConnection[]> {
+    return await this._service.getSocialConnections(
       new PersonModel({ ...person })
     );
   }

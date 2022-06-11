@@ -78,4 +78,20 @@ export class PersonRepository {
     const result = await query.run();
     return result;
   }
+
+  async getSocialConnections(person = new Person({ id: '' })) {
+    const clone = person.filterForInput();
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node('person', 'PERSON', { ...clone }),
+        relation('in', 'socialConnectionRelationship', 'SOCIAL_CONNECTION_OF'),
+        node('socialConnection', 'SOCIAL_CONNECTION')
+      ])
+      .return(['socialConnection']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
 }
