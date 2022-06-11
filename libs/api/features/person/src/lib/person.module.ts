@@ -1,10 +1,17 @@
 import { Module } from '@nestjs/common';
 
-import { PersonRepository } from './repositories';
-import { PersonResolver } from './resolvers';
-import { PersonService } from './services';
+import { AddressRepository, PersonRepository } from './repositories';
+import { AddressResolver, PersonResolver } from './resolvers';
+import { AddressService, PersonService } from './services';
 
 @Module({
-  providers: [PersonRepository, PersonResolver, PersonService]
+  providers: [
+    AddressRepository,
+    AddressResolver,
+    AddressService,
+    PersonRepository,
+    PersonResolver,
+    PersonService
+  ]
 })
 export class PersonModule {}

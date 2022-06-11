@@ -87,6 +87,24 @@ export class Address implements IAddress {
     this.location = location;
     this.residents = residents;
   }
+
+  filterForInput(): Partial<Address> {
+    let clone: Partial<Address> = {};
+    if (!!this.id) clone = { ...clone, id: this.id };
+    if (!!this.name) clone = { ...clone, name: this.name };
+    if (!!this.room) clone = { ...clone, room: this.room };
+    if (!!this.apartment) clone = { ...clone, apartment: this.apartment };
+    if (!!this.wing) clone = { ...clone, wing: this.wing };
+    if (!!this.street) clone = { ...clone, street: this.street };
+    if (!!this.landmark) clone = { ...clone, landmark: this.landmark };
+    if (!!this.locality) clone = { ...clone, locality: this.locality };
+    if (!!this.suburb) clone = { ...clone, suburb: this.suburb };
+    if (!!this.city) clone = { ...clone, city: this.city };
+    if (!!this.state) clone = { ...clone, state: this.state };
+    if (!!this.country) clone = { ...clone, country: this.country };
+    if (!!this.zip) clone = { ...clone, zip: this.zip };
+    return clone;
+  }
 }
 
 interface IAddressDTO extends IAddressBase {
