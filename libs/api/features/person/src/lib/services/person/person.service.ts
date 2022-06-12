@@ -6,6 +6,7 @@ import {
   Identification,
   Neo4jNode,
   Person,
+  PersonDTO,
   SocialConnection
 } from '../../imports/models';
 import { Neo4jNodeMapperService } from '../../imports/services';
@@ -96,6 +97,25 @@ export class PersonService {
     const result = await this._repository.getSocialConnections(person);
     return this.extractSocialConnections(
       (<unknown>result) as { socialConnection: Neo4jNode<SocialConnection> }[]
+    );
+  }
+
+  async createPerson(person: PersonDTO): Promise<Person> {
+    const id = new Person({ ...person }).generateUUID();
+    const result = await this._repository.createPerson(id, person);
+    return (
+      this.extractPeople(
+        (<unknown>result) as { person: Neo4jNode<Person> }[]
+      ).at(0) ?? new Person({ id: '' })
+    );
+  }
+
+  async updatePerson(id: string, person: PersonDTO): Promise<Person> {
+    const result = await this._repository.updatePerson(id, person);
+    return (
+      this.extractPeople(
+        (<unknown>result) as { person: Neo4jNode<Person> }[]
+      ).at(0) ?? new Person({ id: '' })
     );
   }
 }

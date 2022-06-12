@@ -1,58 +1,76 @@
-import { Args, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Mutation,
+  Parent,
+  Query,
+  ResolveField,
+  Resolver
+} from '@nestjs/graphql';
 
 import {
   Address,
   Demographics,
   Identification,
-  Person as PersonEntity,
+  Person as Entity,
   SocialConnection
 } from '../../imports/entities';
-import { Person as PersonModel } from '../../imports/models';
+import { Person, PersonDTO } from '../../imports/models';
 
 import { PersonInput } from '../../inputs';
 import { PersonService } from '../../services';
 
-@Resolver(() => PersonEntity)
+@Resolver(() => Entity)
 export class PersonResolver {
   constructor(private _service: PersonService) {}
 
-  @Query(() => [PersonEntity])
-  async getPeople(): Promise<PersonModel[]> {
+  @Query(() => [Entity])
+  async getPeople(): Promise<Person[]> {
     return await this._service.getPeople();
   }
 
-  @Query(() => PersonEntity)
+  @Query(() => Entity)
   async getPerson(
-    @Args('person', { type: () => PersonInput }) person: PersonEntity
-  ): Promise<PersonModel> {
-    return await this._service.getPerson(new PersonModel({ ...person }));
+    @Args('person', { type: () => PersonInput }) person: Entity
+  ): Promise<Person> {
+    return await this._service.getPerson(new Person({ ...person }));
   }
 
   @ResolveField(() => Address, { name: 'address' })
-  async getAddress(@Parent() person: PersonEntity): Promise<Address> {
-    return await this._service.getAddress(new PersonModel({ ...person }));
+  async getAddress(@Parent() person: Entity): Promise<Address> {
+    return await this._service.getAddress(new Person({ ...person }));
   }
 
   @ResolveField(() => Demographics, { name: 'demographics' })
-  async getDemographics(@Parent() person: PersonEntity): Promise<Demographics> {
-    return await this._service.getDemographics(new PersonModel({ ...person }));
+  async getDemographics(@Parent() person: Entity): Promise<Demographics> {
+    return await this._service.getDemographics(new Person({ ...person }));
   }
 
   @ResolveField(() => [Identification], { name: 'identifications' })
   async getIdentifications(
-    @Parent() person: PersonEntity
+    @Parent() person: Entity
   ): Promise<Identification[]> {
-    return await this._service.getIdentifications(
-      new PersonModel({ ...person })
-    );
+    return await this._service.getIdentifications(new Person({ ...person }));
   }
 
   @ResolveField(() => [SocialConnection], { name: 'socialConnections' })
   async getSocialConnections(
-    @Parent() person: PersonEntity
+    @Parent() person: Entity
   ): Promise<SocialConnection[]> {
-    return await this._service.getSocialConnections(
-      new PersonModel({ ...person })
-    );
+    return await this._service.getSocialConnections(new Person({ ...person }));
+  }
+
+  @Mutation(() => Entity)
+  async createPerson(
+    @Args('person', { type: () => PersonInput }) person: Entity
+  ): Promise<Person> {
+    return await this._service.createPerson(new PersonDTO({ ...person }));
+  }
+
+  @Mutation(() => Entity)
+  async updatePerson(
+    @Args('id', { type: () => String }) id: string,
+    @Args('person', { type: () => PersonInput }) person: Entity
+  ): Promise<Person> {
+    return await this._service.updatePerson(id, new PersonDTO({ ...person }));
   }
 }
