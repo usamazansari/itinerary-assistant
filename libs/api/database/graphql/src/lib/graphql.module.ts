@@ -4,8 +4,6 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 import { join } from 'path';
 
-import { SanityRepository, SanityResolver, SanityService } from './sanity';
-
 @Module({
   imports: [
     NestJSGraphQLModule.forRoot<ApolloDriverConfig>({
@@ -16,7 +14,6 @@ import { SanityRepository, SanityResolver, SanityService } from './sanity';
         'libs/api/database/graphql/schemas/schema.gql'
       )
     })
-  ],
-  providers: [SanityRepository, SanityResolver, SanityService]
+  ]
 })
 export class GraphQLModule {}
