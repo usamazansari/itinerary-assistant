@@ -3,11 +3,15 @@ import { node, relation } from 'cypher-query-builder';
 
 import { Person, PersonDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
-import { parseToDateTime } from '../../imports/utilities';
+
+import { PersonHelper } from '../../helpers';
 
 @Injectable()
 export class PersonRepository {
-  constructor(private _query: Neo4jQueryRepositoryService) {}
+  constructor(
+    private _query: Neo4jQueryRepositoryService,
+    private _helper: PersonHelper
+  ) {}
 
   async getPerson(person = new Person({ id: '' })) {
     const clone = person.filterForInput();
@@ -97,7 +101,7 @@ export class PersonRepository {
   }
 
   async createPerson(id = '', person = new PersonDTO({})) {
-    const create = this.#generateCreateObject({ id, person });
+    const create = this._helper.generateCreateObject({ id, person });
     const query = this._query
       .queryBuilder()
       .create([node('person', 'PERSON', { ...create })])
@@ -109,49 +113,15 @@ export class PersonRepository {
   }
 
   async updatePerson(id = '', person = new PersonDTO({})) {
-    const update = this.#generateUpdateObject(person);
-
+    const update = this._helper.generateUpdateObject(person);
     const query = this._query
       .queryBuilder()
       .match([node('person', 'PERSON', { id })])
-      .set({
-        values: { ...update }
-      })
+      .set({ values: { ...update } })
       .return(['person']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
     return result;
-  }
-
-  #generateCreateObject(create: { id: string; person: PersonDTO }) {
-    const {
-      id,
-      person: { dateOfBirth, email, fullName, gender, phone, website }
-    } = create;
-
-    let _ = {};
-    if (!!dateOfBirth) _ = { ..._, dateOfBirth: parseToDateTime(dateOfBirth) };
-    if (!!email) _ = { ..._, email };
-    if (!!fullName) _ = { ..._, fullName };
-    if (!!gender) _ = { ..._, gender };
-    if (!!phone) _ = { ..._, phone };
-    if (!!website) _ = { ..._, website };
-
-    return { id, ..._ };
-  }
-
-  #generateUpdateObject(person: PersonDTO) {
-    const { dateOfBirth, email, fullName, gender, phone, website } = person;
-
-    let _ = {};
-    if (!!dateOfBirth)
-      _ = { ..._, [`person.dateOfBirth`]: parseToDateTime(dateOfBirth) };
-    if (!!email) _ = { ..._, [`person.email`]: email };
-    if (!!fullName) _ = { ..._, [`person.fullName`]: fullName };
-    if (!!gender) _ = { ..._, [`person.gender`]: gender };
-    if (!!phone) _ = { ..._, [`person.phone`]: phone };
-    if (!!website) _ = { ..._, [`person.website`]: website };
-    return _;
   }
 }

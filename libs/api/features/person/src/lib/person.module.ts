@@ -12,6 +12,7 @@ import {
   LocationResolver,
   PersonResolver
 } from './resolvers';
+import { PersonHelper } from './helpers';
 import {
   AddressService,
   IdentificationService,
@@ -30,6 +31,7 @@ import {
     LocationRepository,
     LocationResolver,
     LocationService,
+    PersonHelper,
     PersonRepository,
     PersonResolver,
     PersonService
