@@ -119,4 +119,16 @@ export class PersonRepository {
     const result = await query.run();
     return result;
   }
+
+  async deletePerson(id = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([node('person', 'PERSON', { id })])
+      .delete(['person'])
+      .return(['person']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
 }
