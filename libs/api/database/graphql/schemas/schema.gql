@@ -120,4 +120,5 @@ input PersonInput {
 type Mutation {
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
+  deletePerson(id: String!): Person!
 }
