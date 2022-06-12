@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
-import { Person, PersonDTO } from '../../imports/models';
+import { PersonDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
 
 import { PersonHelper } from '../../helpers';
@@ -13,11 +13,10 @@ export class PersonRepository {
     private _helper: PersonHelper
   ) {}
 
-  async getPerson(person = new Person({ id: '' })) {
-    const clone = person.filterForInput();
+  async getPerson(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('person', 'PERSON', { ...clone })])
+      .match([node('person', 'PERSON', { id })])
       .return(['person']);
 
     console.log({ query: query.toString() });
@@ -36,12 +35,11 @@ export class PersonRepository {
     return result;
   }
 
-  async getAddress(person = new Person({ id: '' })) {
-    const clone = person.filterForInput();
+  async getAddress(id = '') {
     const query = this._query
       .queryBuilder()
       .match([
-        node('person', 'PERSON', { ...clone }),
+        node('person', 'PERSON', { id }),
         relation('out', 'addressRelationship', 'RESIDES_AT'),
         node('address', 'ADDRESS')
       ])
@@ -52,12 +50,11 @@ export class PersonRepository {
     return result;
   }
 
-  async getDemographics(person = new Person({ id: '' })) {
-    const clone = person.filterForInput();
+  async getDemographics(id = '') {
     const query = this._query
       .queryBuilder()
       .match([
-        node('person', 'PERSON', { ...clone }),
+        node('person', 'PERSON', { id }),
         relation('in', 'demographicRelationship', 'DEMOGRAPHICS_OF'),
         node('demographics', 'DEMOGRAPHICS')
       ])
@@ -68,12 +65,11 @@ export class PersonRepository {
     return result;
   }
 
-  async getIdentifications(person = new Person({ id: '' })) {
-    const clone = person.filterForInput();
+  async getIdentifications(id = '') {
     const query = this._query
       .queryBuilder()
       .match([
-        node('person', 'PERSON', { ...clone }),
+        node('person', 'PERSON', { id }),
         relation('in', 'identificationRelationship', 'IDENTIFICATION_OF'),
         node('identification', 'IDENTIFICATION')
       ])
@@ -84,12 +80,11 @@ export class PersonRepository {
     return result;
   }
 
-  async getSocialConnections(person = new Person({ id: '' })) {
-    const clone = person.filterForInput();
+  async getSocialConnections(id = '') {
     const query = this._query
       .queryBuilder()
       .match([
-        node('person', 'PERSON', { ...clone }),
+        node('person', 'PERSON', { id }),
         relation('in', 'socialConnectionRelationship', 'SOCIAL_CONNECTION_OF'),
         node('socialConnection', 'SOCIAL_CONNECTION')
       ])

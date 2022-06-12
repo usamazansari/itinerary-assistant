@@ -68,16 +68,6 @@ export class Person implements IPerson {
     if (!!gender) this.gender = gender;
   }
 
-  filterForInput(): Partial<Person> {
-    let clone: Partial<Person> = {};
-    if (!!this.id) clone = { ...clone, id: this.id };
-    if (!!this.fullName) clone = { ...clone, fullName: this.fullName };
-    if (!!this.email) clone = { ...clone, email: this.email };
-    if (!!this.phone) clone = { ...clone, phone: this.phone };
-    if (!!this.website) clone = { ...clone, website: this.website };
-    return clone;
-  }
-
   generateUUID(): string {
     this.id = uuid();
     return this.id;

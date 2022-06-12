@@ -14,7 +14,7 @@ import {
   Person as Entity,
   SocialConnection
 } from '../../imports/entities';
-import { Person, PersonDTO } from '../../imports/models';
+import { Person } from '../../imports/models';
 
 import { PersonInput } from '../../inputs';
 import { PersonService } from '../../services';
@@ -32,38 +32,38 @@ export class PersonResolver {
   async getPerson(
     @Args('person', { type: () => PersonInput }) person: Entity
   ): Promise<Person> {
-    return await this._service.getPerson(new Person({ ...person }));
+    return await this._service.getPerson(person.id);
   }
 
   @ResolveField(() => Address, { name: 'address' })
-  async getAddress(@Parent() person: Entity): Promise<Address> {
-    return await this._service.getAddress(new Person({ ...person }));
+  async getAddress(@Parent() { id }: Entity): Promise<Address> {
+    return await this._service.getAddress(id);
   }
 
   @ResolveField(() => Demographics, { name: 'demographics' })
-  async getDemographics(@Parent() person: Entity): Promise<Demographics> {
-    return await this._service.getDemographics(new Person({ ...person }));
+  async getDemographics(@Parent() { id }: Entity): Promise<Demographics> {
+    return await this._service.getDemographics(id);
   }
 
   @ResolveField(() => [Identification], { name: 'identifications' })
   async getIdentifications(
-    @Parent() person: Entity
+    @Parent() { id }: Entity
   ): Promise<Identification[]> {
-    return await this._service.getIdentifications(new Person({ ...person }));
+    return await this._service.getIdentifications(id);
   }
 
   @ResolveField(() => [SocialConnection], { name: 'socialConnections' })
   async getSocialConnections(
-    @Parent() person: Entity
+    @Parent() { id }: Entity
   ): Promise<SocialConnection[]> {
-    return await this._service.getSocialConnections(new Person({ ...person }));
+    return await this._service.getSocialConnections(id);
   }
 
   @Mutation(() => Entity)
   async createPerson(
     @Args('person', { type: () => PersonInput }) person: Entity
   ): Promise<Person> {
-    return await this._service.createPerson(new PersonDTO({ ...person }));
+    return await this._service.createPerson(person);
   }
 
   @Mutation(() => Entity)
@@ -71,6 +71,6 @@ export class PersonResolver {
     @Args('id', { type: () => String }) id: string,
     @Args('person', { type: () => PersonInput }) person: Entity
   ): Promise<Person> {
-    return await this._service.updatePerson(id, new PersonDTO({ ...person }));
+    return await this._service.updatePerson(id, person);
   }
 }

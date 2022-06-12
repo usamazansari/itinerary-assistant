@@ -52,8 +52,8 @@ export class PersonService {
       .map(this._mapNode.toSocialConnection);
   }
 
-  async getPerson(person: Person): Promise<Person> {
-    const result = await this._repository.getPerson(person);
+  async getPerson(id = ''): Promise<Person> {
+    const result = await this._repository.getPerson(id);
     return (
       this.extractPeople(
         (<unknown>result) as { person: Neo4jNode<Person> }[]
@@ -68,8 +68,8 @@ export class PersonService {
     );
   }
 
-  async getAddress(person: Person): Promise<Address> {
-    const result = await this._repository.getAddress(person);
+  async getAddress(id = ''): Promise<Address> {
+    const result = await this._repository.getAddress(id);
     return (
       this.extractAddress(
         (<unknown>result) as { address: Neo4jNode<Address> }[]
@@ -77,8 +77,8 @@ export class PersonService {
     );
   }
 
-  async getDemographics(person: Person): Promise<Demographics> {
-    const result = await this._repository.getDemographics(person);
+  async getDemographics(id = ''): Promise<Demographics> {
+    const result = await this._repository.getDemographics(id);
     return (
       this.extractDemographics(
         (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
@@ -86,15 +86,15 @@ export class PersonService {
     );
   }
 
-  async getIdentifications(person: Person): Promise<Identification[]> {
-    const result = await this._repository.getIdentifications(person);
+  async getIdentifications(id = ''): Promise<Identification[]> {
+    const result = await this._repository.getIdentifications(id);
     return this.extractIdentifications(
       (<unknown>result) as { identification: Neo4jNode<Identification> }[]
     );
   }
 
-  async getSocialConnections(person: Person): Promise<SocialConnection[]> {
-    const result = await this._repository.getSocialConnections(person);
+  async getSocialConnections(id = ''): Promise<SocialConnection[]> {
+    const result = await this._repository.getSocialConnections(id);
     return this.extractSocialConnections(
       (<unknown>result) as { socialConnection: Neo4jNode<SocialConnection> }[]
     );
