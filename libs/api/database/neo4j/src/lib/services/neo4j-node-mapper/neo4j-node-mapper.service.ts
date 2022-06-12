@@ -13,7 +13,7 @@ import {
   Person
 } from '../../imports/models';
 import { Neo4jNode } from '../../models';
-import { parseDateTime } from '../../utils';
+import { parseFromDateTime } from '../../utils';
 
 @Injectable()
 export class Neo4jNodeMapperService {
@@ -22,10 +22,13 @@ export class Neo4jNodeMapperService {
   }
 
   toPerson({ properties }: Neo4jNode<Person>): Person {
-    return new Person({
-      ...properties,
-      dateOfBirth: parseDateTime((<unknown>properties.dateOfBirth) as DateTime)
-    });
+    const { dateOfBirth, ...rest } = properties;
+    return !!dateOfBirth
+      ? new Person({
+          ...rest,
+          dateOfBirth: parseFromDateTime((<unknown>dateOfBirth) as DateTime)
+        })
+      : new Person({ ...rest });
   }
 
   toDemographics({ properties }: Neo4jNode<Demographics>): Demographics {
@@ -61,8 +64,8 @@ export class Neo4jNodeMapperService {
   toTenure({ properties }: Neo4jNode<Tenure>): Tenure {
     return new Tenure({
       ...properties,
-      start: parseDateTime((<unknown>properties.start) as DateTime),
-      end: parseDateTime((<unknown>properties.end) as DateTime)
+      start: parseFromDateTime((<unknown>properties.start) as DateTime),
+      end: parseFromDateTime((<unknown>properties.end) as DateTime)
     });
   }
 }

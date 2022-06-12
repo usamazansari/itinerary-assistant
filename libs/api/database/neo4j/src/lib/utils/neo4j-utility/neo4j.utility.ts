@@ -1,8 +1,8 @@
-import { DateTime } from 'neo4j-driver';
+import { DateTime, types } from 'neo4j-driver';
 
 import { Neo4jNode, Neo4jRelationship } from '../../models';
 
-export const parseDateTime = (dateTime: DateTime): Date => {
+export const parseFromDateTime = (dateTime: DateTime): Date => {
   const { year, month, day, hour, minute, second, nanosecond } = dateTime;
 
   return new Date(
@@ -16,6 +16,30 @@ export const parseDateTime = (dateTime: DateTime): Date => {
   );
 };
 
+export const parseToDateTime = (date: Date): DateTime<number> => {
+  const { DateTime: DateTimeConstructor } = types;
+
+  return new DateTimeConstructor<number>(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    date.getDate(),
+    date.getHours(),
+    date.getMinutes(),
+    date.getSeconds(),
+    date.getMilliseconds() * 1000000,
+    date.getTimezoneOffset() * 60
+  );
+};
+
+/**
+ * @deprecated - Avoid using this function. If you are still using it, you need
+ * to make some changes in you query.
+ *
+ * @param {(Neo4jNode | Neo4jRelationship)} dictionary
+ * @param {unknown} index
+ * @param {(Neo4jNode[] | Neo4jRelationship[])} array
+ * @return {*}  {boolean}
+ */
 export const deduplicateDictionary = (
   dictionary: Neo4jNode | Neo4jRelationship,
   index: unknown,

@@ -86,9 +86,9 @@ type Person {
   fullName: String!
   email: String!
   phone: String!
-  dateOfBirth: DateTime!
-  gender: Gender!
   website: String!
+  dateOfBirth: DateTime
+  gender: Gender
   address: Address!
   demographics: Demographics!
   identifications: [Identification!]!
@@ -112,6 +112,12 @@ input PersonInput {
   fullName: String
   email: String
   phone: String
-  gender: Gender
   website: String
+  gender: Gender
+  dateOfBirth: DateTime
+}
+
+type Mutation {
+  createPerson(person: PersonInput!): Person!
+  updatePerson(id: String!, person: PersonInput!): Person!
 }

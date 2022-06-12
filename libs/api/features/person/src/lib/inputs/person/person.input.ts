@@ -17,9 +17,12 @@ export class PersonInput extends Person {
   @Field({ nullable: true })
   phone!: string;
 
+  @Field({ nullable: true })
+  website!: string;
+
   @Field(() => Gender, { nullable: true })
   gender!: Gender;
 
-  @Field({ nullable: true })
-  website!: string;
+  @Field(() => Date, { nullable: true })
+  dateOfBirth!: Date;
 }

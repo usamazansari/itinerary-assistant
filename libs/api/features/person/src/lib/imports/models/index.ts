@@ -5,6 +5,7 @@ export {
   Identification,
   Location,
   Person,
+  PersonDTO,
   SocialConnection,
   Tenure,
   Timezone

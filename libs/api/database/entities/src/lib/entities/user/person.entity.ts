@@ -30,13 +30,13 @@ export class Person implements IPerson {
   phone!: string;
 
   @Field()
+  website!: string;
+
+  @Field({ nullable: true })
   dateOfBirth!: Date;
 
-  @Field(() => Gender)
+  @Field(() => Gender, { nullable: true })
   gender!: Gender;
-
-  @Field()
-  website!: string;
 
   @Field(() => AddressEntity)
   address!: AddressModel;

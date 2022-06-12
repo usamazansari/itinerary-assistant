@@ -1,22 +1,15 @@
+import { v4 as uuid } from 'uuid';
+
 import { Gender } from '../../../constants';
 
-import {
-  Address,
-  Demographics,
-  Identification,
-  SocialConnection,
-  AddressDTO,
-  DemographicsDTO,
-  IdentificationDTO,
-  SocialConnectionDTO
-} from '.';
+import { Address, Demographics, Identification, SocialConnection } from '.';
 
 interface IPersonBase {
   fullName: string;
   email: string;
   phone: string;
-  dateOfBirth: Date | '';
-  gender: Gender | '';
+  dateOfBirth?: Date;
+  gender?: Gender;
   website: string;
 }
 
@@ -24,8 +17,6 @@ const BaseStub: IPersonBase = {
   fullName: '',
   email: '',
   phone: '',
-  dateOfBirth: '',
-  gender: '',
   website: ''
 };
 
@@ -42,8 +33,8 @@ export class Person implements IPerson {
   fullName: string;
   email: string;
   phone: string;
-  dateOfBirth: Date | '';
-  gender: Gender | '';
+  dateOfBirth?: Date;
+  gender?: Gender;
   website: string;
   address: Address;
   demographics: Demographics;
@@ -55,8 +46,8 @@ export class Person implements IPerson {
     fullName = BaseStub.fullName,
     email = BaseStub.email,
     phone = BaseStub.phone,
-    dateOfBirth = BaseStub.dateOfBirth,
-    gender = BaseStub.gender,
+    dateOfBirth,
+    gender,
     website = BaseStub.website,
     address = new Address({ id: '' }),
     demographics = new Demographics({ id: '' }),
@@ -67,13 +58,14 @@ export class Person implements IPerson {
     this.fullName = fullName;
     this.email = email;
     this.phone = phone;
-    this.dateOfBirth = dateOfBirth;
-    this.gender = gender;
     this.website = website;
     this.address = address;
     this.demographics = demographics;
     this.identifications = identifications;
     this.socialConnections = socialConnections;
+
+    if (!!dateOfBirth) this.dateOfBirth = dateOfBirth;
+    if (!!gender) this.gender = gender;
   }
 
   filterForInput(): Partial<Person> {
@@ -85,48 +77,37 @@ export class Person implements IPerson {
     if (!!this.website) clone = { ...clone, website: this.website };
     return clone;
   }
+
+  generateUUID(): string {
+    this.id = uuid();
+    return this.id;
+  }
 }
 
-interface IPersonDTO extends IPersonBase {
-  address: AddressDTO;
-  demographics: DemographicsDTO;
-  identifications: IdentificationDTO[];
-  socialConnections: SocialConnectionDTO[];
-}
+type IPersonDTO = IPersonBase;
 
 export class PersonDTO implements IPersonDTO {
   fullName: string;
   email: string;
   phone: string;
-  dateOfBirth: Date | '';
-  gender: Gender | '';
+  dateOfBirth?: Date;
+  gender?: Gender;
   website: string;
-  address: AddressDTO;
-  demographics: DemographicsDTO;
-  identifications: IdentificationDTO[];
-  socialConnections: SocialConnectionDTO[];
 
   constructor({
     fullName = BaseStub.fullName,
     email = BaseStub.email,
     phone = BaseStub.phone,
-    dateOfBirth = BaseStub.dateOfBirth,
-    gender = BaseStub.gender,
-    website = BaseStub.website,
-    address = new AddressDTO({}),
-    demographics = new DemographicsDTO({}),
-    identifications = [],
-    socialConnections = []
+    dateOfBirth,
+    gender,
+    website = BaseStub.website
   }: Partial<IPersonDTO>) {
     this.fullName = fullName;
     this.email = email;
     this.phone = phone;
-    this.dateOfBirth = dateOfBirth;
-    this.gender = gender;
     this.website = website;
-    this.address = address;
-    this.demographics = demographics;
-    this.identifications = identifications;
-    this.socialConnections = socialConnections;
+
+    if (!!dateOfBirth) this.dateOfBirth = dateOfBirth;
+    if (!!gender) this.gender = gender;
   }
 }
