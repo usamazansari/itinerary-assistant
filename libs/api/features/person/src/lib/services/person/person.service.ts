@@ -118,4 +118,13 @@ export class PersonService {
       ).at(0) ?? new Person({ id: '' })
     );
   }
+
+  async deletePerson(id: string): Promise<Person> {
+    const result = await this._repository.deletePerson(id);
+    return (
+      this.extractPeople(
+        (<unknown>result) as { person: Neo4jNode<Person> }[]
+      ).at(0) ?? new Person({ id: '' })
+    );
+  }
 }

@@ -68,6 +68,7 @@ export class Person implements IPerson {
     if (!!gender) this.gender = gender;
   }
 
+  // TODO: Deprecate this - use id instead
   filterForInput(): Partial<Person> {
     let clone: Partial<Person> = {};
     if (!!this.id) clone = { ...clone, id: this.id };

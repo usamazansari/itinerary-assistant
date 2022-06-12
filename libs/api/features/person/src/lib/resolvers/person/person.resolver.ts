@@ -73,4 +73,11 @@ export class PersonResolver {
   ): Promise<Person> {
     return await this._service.updatePerson(id, new PersonDTO({ ...person }));
   }
+
+  @Mutation(() => Entity)
+  async deletePerson(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Person> {
+    return await this._service.deletePerson(id);
+  }
 }
