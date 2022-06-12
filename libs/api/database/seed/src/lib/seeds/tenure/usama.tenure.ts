@@ -1,8 +1,8 @@
 import { Tenure } from '../../imports/models';
 
 export const UsamaTenureIds = {
-  Aadhar: 'user-1-id-1-validity',
-  Passport: 'user-1-id-2-validity'
+  Aadhar: 'person-1-id-1-validity',
+  Passport: 'person-1-id-2-validity'
 };
 
 export const UsamaTenures: Tenure[] = [

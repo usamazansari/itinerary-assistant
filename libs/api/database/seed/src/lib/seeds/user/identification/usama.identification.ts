@@ -1,9 +1,9 @@
 import { Identification, Tenure } from '../../../imports/models';
-import { UsamaTenures, UsamaTenureIds, UsamaUserId } from '../..';
+import { UsamaTenures, UsamaTenureIds } from '../..';
 
 export const UsamaIdentificationIds = {
-  Aadhar: 'user-1-id-1',
-  Passport: 'user-1-id-2'
+  Aadhar: 'person-1-id-1',
+  Passport: 'person-1-id-2'
 };
 
 export const UsamaIdentifications: Identification[] = [
@@ -13,10 +13,8 @@ export const UsamaIdentifications: Identification[] = [
     number: '871797443404',
     name: 'Aadhar Card',
     validity:
-      UsamaTenures.find(
-        tenure => tenure.id === UsamaTenureIds.Aadhar
-      ) ?? new Tenure({}),
-    userId: UsamaUserId
+      UsamaTenures.find(tenure => tenure.id === UsamaTenureIds.Aadhar) ??
+      new Tenure({})
   }),
   new Identification({
     id: UsamaIdentificationIds.Passport,
@@ -24,9 +22,7 @@ export const UsamaIdentifications: Identification[] = [
     number: 'M6968768',
     name: 'Passport',
     validity:
-      UsamaTenures.find(
-        tenure => tenure.id === UsamaTenureIds.Passport
-      ) ?? new Tenure({}),
-    userId: UsamaUserId
+      UsamaTenures.find(tenure => tenure.id === UsamaTenureIds.Passport) ??
+      new Tenure({})
   })
 ];
