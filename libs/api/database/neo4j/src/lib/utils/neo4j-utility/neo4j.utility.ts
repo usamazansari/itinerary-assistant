@@ -31,6 +31,15 @@ export const parseToDateTime = (date: Date): DateTime<number> => {
   );
 };
 
+/**
+ * @deprecated - Avoid using this function. If you are still using it, you need
+ * to make some changes in you query.
+ *
+ * @param {(Neo4jNode | Neo4jRelationship)} dictionary
+ * @param {unknown} index
+ * @param {(Neo4jNode[] | Neo4jRelationship[])} array
+ * @return {*}  {boolean}
+ */
 export const deduplicateDictionary = (
   dictionary: Neo4jNode | Neo4jRelationship,
   index: unknown,
