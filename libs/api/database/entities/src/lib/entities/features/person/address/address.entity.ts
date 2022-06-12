@@ -4,8 +4,8 @@ import {
   IAddress,
   Location as LocationModel,
   Person as PersonModel
-} from '../../imports/models';
-import { Location as LocationEntity, Person as PersonEntity } from '../..';
+} from '../../../imports/models';
+import { Location as LocationEntity, Person as PersonEntity } from '../../..';
 
 @ObjectType()
 export class Address implements IAddress {

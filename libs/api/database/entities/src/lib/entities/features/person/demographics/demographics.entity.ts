@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { Salutation } from '../../imports/constants';
-import { IDemographics } from '../../imports/models';
+import { Salutation } from '../../../imports/constants';
+import { IDemographics } from '../../../imports/models';
 
 @ObjectType()
 export class Demographics implements IDemographics {

@@ -1,7 +1,10 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { IIdentification, Tenure as TenureModel } from '../../imports/models';
-import { Tenure as TenureEntity } from '../..';
+import {
+  IIdentification,
+  Tenure as TenureModel
+} from '../../../imports/models';
+import { Tenure as TenureEntity } from '../../..';
 
 @ObjectType()
 export class Identification implements IIdentification {

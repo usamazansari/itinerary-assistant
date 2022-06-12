@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { ISocialConnection } from '../../imports/models';
+import { ISocialConnection } from '../../../imports/models';
 
 @ObjectType()
 export class SocialConnection implements ISocialConnection {
