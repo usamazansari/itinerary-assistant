@@ -106,16 +106,21 @@ type Query {
   getAddress(id: String!): Address!
   getPeople: [Person!]!
   getPerson(id: String!): Person!
+  getLocation(id: String!): Location!
 }
 
 type Mutation {
   createAddress(address: AddressInput!): Address!
-  associateAddressWithPerson(addressId: String!, personId: String!): Address!
   updateAddress(id: String!, address: AddressInput!): Address!
   deleteAddress(id: String!): Address!
+  associateAddressWithPerson(addressId: String!, personId: String!): Address!
+  associateAddressWithLocation(addressId: String!, locationId: String!): Address!
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!
+  createLocation(location: LocationInput!): Location!
+  updateLocation(id: String!, location: LocationInput!): Location!
+  deleteLocation(id: String!): Location!
 }
 
 input AddressInput {
@@ -142,4 +147,9 @@ input PersonInput {
   website: String
   gender: Gender
   dateOfBirth: DateTime
+}
+
+input LocationInput {
+  id: String
+  plusCode: String
 }

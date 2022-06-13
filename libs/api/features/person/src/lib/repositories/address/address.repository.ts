@@ -29,7 +29,7 @@ export class AddressRepository {
       .queryBuilder()
       .match([
         node('address', 'ADDRESS', { id }),
-        relation('in', 'locationRelationship', 'LOCATION_OF'),
+        relation('out', 'locationRelationship', 'HAS_LOCATION'),
         node('location', 'LOCATION')
       ])
       .return(['location']);
@@ -66,40 +66,6 @@ export class AddressRepository {
     return result;
   }
 
-  async associateAddressWithPerson(addressId = '', personId = '') {
-    const query = this._query
-      .queryBuilder()
-      .match([node('address', 'ADDRESS', { id: addressId })])
-      .with(['address'])
-      .match([node('person', 'PERSON', { id: personId })])
-      .with(['address', 'person'])
-      .create([
-        node('address'),
-        relation('out', 'residentRelationship', 'ADDRESS_OF'),
-        node('person')
-      ])
-      .return(['address']);
-
-    console.log({ query: query.toString() });
-    const result = await query.run();
-    return result;
-  }
-
-  async checkExistingRelationship(addressId = '', personId = '') {
-    const query = this._query
-      .queryBuilder()
-      .match([
-        node('address', 'ADDRESS', { id: addressId }),
-        relation('out', 'residentRelationship', 'ADDRESS_OF'),
-        node('person', 'PERSON', { id: personId })
-      ])
-      .return(['residentRelationship']);
-
-    console.log({ query: query.toString() });
-    const result = await query.run();
-    return result;
-  }
-
   async updateAddress(id = '', address = new AddressDTO({})) {
     const update = this._helper.generateUpdateObject(address);
     const query = this._query
@@ -119,6 +85,74 @@ export class AddressRepository {
       .match([node('address', 'ADDRESS', { id })])
       .detachDelete('address')
       .return(['address']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async associateAddressWithPerson(addressId = '', personId = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([node('address', 'ADDRESS', { id: addressId })])
+      .with(['address'])
+      .match([node('person', 'PERSON', { id: personId })])
+      .with(['address', 'person'])
+      .create([
+        node('address'),
+        relation('out', 'residentRelationship', 'ADDRESS_OF'),
+        node('person')
+      ])
+      .return(['address']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async associateAddressWithLocation(addressId = '', locationId = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([node('address', 'ADDRESS', { id: addressId })])
+      .with(['address'])
+      .match([node('location', 'LOCATION', { id: locationId })])
+      .with(['address', 'location'])
+      .create([
+        node('address'),
+        relation('out', 'locationRelationship', 'HAS_LOCATION'),
+        node('location')
+      ])
+      .return(['address']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async checkAddressOfRelationship(addressId = '', personId = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node('address', 'ADDRESS', { id: addressId }),
+        relation('out', 'residentRelationship', 'ADDRESS_OF'),
+        node('person', 'PERSON', { id: personId })
+      ])
+      .return(['residentRelationship']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async checkHasLocationRelationship(addressId = '', locationId = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node('address', 'ADDRESS', { id: addressId }),
+        relation('out', 'locationRelationship', 'HAS_LOCATION'),
+        node('location', 'LOCATION', { id: locationId })
+      ])
+      .return(['locationRelationship']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

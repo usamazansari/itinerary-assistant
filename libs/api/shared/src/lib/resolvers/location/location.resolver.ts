@@ -1,11 +1,23 @@
-import { Parent, ResolveField, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Mutation,
+  Parent,
+  Query,
+  ResolveField,
+  Resolver
+} from '@nestjs/graphql';
 
 import {
-  Coordinates,
+  Coordinates as CoordinatesEntity,
   Location as Entity,
-  Timezone
+  Timezone as TimezoneEntity
 } from '../../imports/entities';
-import { Location as LocationModel } from '../../imports/models';
+import { LocationInput } from '../../inputs';
+import {
+  Coordinates as CoordinatesModel,
+  Location,
+  Timezone as TimezoneModel
+} from '../../imports/models';
 
 import { LocationService } from '../../services';
 
@@ -13,15 +25,42 @@ import { LocationService } from '../../services';
 export class LocationResolver {
   constructor(private _service: LocationService) {}
 
-  @ResolveField(() => Coordinates, { name: 'coordinates' })
-  async getLocation(@Parent() location: Entity): Promise<Coordinates> {
-    return await this._service.getCoordinates(
-      new LocationModel({ ...location })
-    );
+  @Query(() => Entity)
+  async getLocation(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Location> {
+    return await this._service.getLocation(id);
   }
 
-  @ResolveField(() => Timezone, { name: 'timezone' })
-  async getTimezone(@Parent() location: Entity): Promise<Timezone> {
-    return await this._service.getTimezone(new LocationModel({ ...location }));
+  @ResolveField(() => CoordinatesEntity, { name: 'coordinates' })
+  async getCoordinates(@Parent() { id }: Entity): Promise<CoordinatesModel> {
+    return await this._service.getCoordinates(id);
+  }
+
+  @ResolveField(() => TimezoneEntity, { name: 'timezone' })
+  async getTimezone(@Parent() { id }: Entity): Promise<TimezoneModel> {
+    return await this._service.getTimezone(id);
+  }
+
+  @Mutation(() => Entity)
+  async createLocation(
+    @Args('location', { type: () => LocationInput }) location: Location
+  ): Promise<Location> {
+    return await this._service.createLocation(location);
+  }
+
+  @Mutation(() => Entity)
+  async updateLocation(
+    @Args('id', { type: () => String }) id: string,
+    @Args('location', { type: () => LocationInput }) location: Location
+  ): Promise<Location> {
+    return await this._service.updateLocation(id, location);
+  }
+
+  @Mutation(() => Entity)
+  async deleteLocation(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Location> {
+    return await this._service.deleteLocation(id);
   }
 }
