@@ -1,26 +1,25 @@
 import { Module } from '@nestjs/common';
 
+import { ApiSharedModule } from './imports/modules';
 import {
   AddressRepository,
   IdentificationRepository,
-  LocationRepository,
   PersonRepository
 } from './repositories';
 import {
   AddressResolver,
   IdentificationResolver,
-  LocationResolver,
   PersonResolver
 } from './resolvers';
 import { PersonHelper } from './helpers';
 import {
   AddressService,
   IdentificationService,
-  LocationService,
   PersonService
 } from './services';
 
 @Module({
+  imports: [ApiSharedModule],
   providers: [
     AddressRepository,
     AddressResolver,
@@ -28,9 +27,6 @@ import {
     IdentificationRepository,
     IdentificationResolver,
     IdentificationService,
-    LocationRepository,
-    LocationResolver,
-    LocationService,
     PersonHelper,
     PersonRepository,
     PersonResolver,
