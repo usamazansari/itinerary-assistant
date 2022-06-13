@@ -26,6 +26,30 @@ export class SocialConnection implements ISocialConnection {
     this.name = name;
     this.url = url;
   }
+
+  getId(): string {
+    return this.id;
+  }
+
+  setId(id: string): void {
+    this.id = id;
+  }
+
+  getName(): string {
+    return this.name;
+  }
+
+  setName(name: string): void {
+    this.name = name;
+  }
+
+  getUrl(): string {
+    return this.url;
+  }
+
+  setUrl(url: string): void {
+    this.url = url;
+  }
 }
 
 type ISocialConnectionDTO = ISocialConnectionBase;

@@ -31,6 +31,21 @@ export class Location implements ILocation {
     this.timezone = timezone;
   }
 
+  getId(): string {
+    return this.id;
+  }
+
+  setId(id: string): void {
+    this.id = id;
+  }
+  getPlusCode(): string {
+    return this.plusCode;
+  }
+
+  setPlusCode(plusCode: string): void {
+    this.plusCode = plusCode;
+  }
+
   filterForInput(): Partial<Location> {
     let clone: Partial<Location> = {};
     if (!!this.id) clone = { ...clone, id: this.id };

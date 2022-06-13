@@ -88,6 +88,98 @@ export class Address implements IAddress {
     this.residents = residents;
   }
 
+  getId(): string {
+    return this.id;
+  }
+
+  setId(id: string): void {
+    this.id = id;
+  }
+  getName(): string {
+    return this.name;
+  }
+
+  setName(name: string): void {
+    this.name = name;
+  }
+  getRoom(): string {
+    return this.room;
+  }
+
+  setRoom(room: string): void {
+    this.room = room;
+  }
+  getApartment(): string {
+    return this.apartment;
+  }
+
+  setApartment(apartment: string): void {
+    this.apartment = apartment;
+  }
+  getWing(): string {
+    return this.wing;
+  }
+
+  setWing(wing: string): void {
+    this.wing = wing;
+  }
+  getStreet(): string {
+    return this.street;
+  }
+
+  setStreet(street: string): void {
+    this.street = street;
+  }
+  getLandmark(): string {
+    return this.landmark;
+  }
+
+  setLandmark(landmark: string): void {
+    this.landmark = landmark;
+  }
+  getLocality(): string {
+    return this.locality;
+  }
+
+  setLocality(locality: string): void {
+    this.locality = locality;
+  }
+  getSuburb(): string {
+    return this.suburb;
+  }
+
+  setSuburb(suburb: string): void {
+    this.suburb = suburb;
+  }
+  getCity(): string {
+    return this.city;
+  }
+
+  setCity(city: string): void {
+    this.city = city;
+  }
+  getState(): string {
+    return this.state;
+  }
+
+  setState(state: string): void {
+    this.state = state;
+  }
+  getCountry(): string {
+    return this.country;
+  }
+
+  setCountry(country: string): void {
+    this.country = country;
+  }
+  getZip(): string {
+    return this.zip;
+  }
+
+  setZip(zip: string): void {
+    this.zip = zip;
+  }
+
   filterForInput(): Partial<Address> {
     let clone: Partial<Address> = {};
     if (!!this.id) clone = { ...clone, id: this.id };

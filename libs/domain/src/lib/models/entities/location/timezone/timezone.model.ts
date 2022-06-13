@@ -27,6 +27,30 @@ export class Timezone implements ITimezone {
     this.offset = offset;
     this.description = description;
   }
+
+  getId(): string {
+    return this.id;
+  }
+
+  setId(id: string): void {
+    this.id = id;
+  }
+
+  getOffset(): number {
+    return this.offset;
+  }
+
+  setOffset(offset: number): void {
+    this.offset = offset;
+  }
+
+  getDescription(): string {
+    return this.description;
+  }
+
+  setDescription(description: string): void {
+    this.description = description;
+  }
 }
 
 type ITimezoneDTO = ITimezoneBase;
