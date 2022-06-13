@@ -43,6 +43,46 @@ export class Demographics implements IDemographics {
     this.nickname = nickname;
     this.salutation = salutation;
   }
+
+  getFirstName(): string {
+    return this.firstName;
+  }
+
+  setFirstName(firstName: string): void {
+    this.firstName = firstName;
+  }
+
+  getMiddleName(): string {
+    return this.middleName;
+  }
+
+  setMiddleName(middleName: string): void {
+    this.middleName = middleName;
+  }
+
+  getLastName(): string {
+    return this.lastName;
+  }
+
+  setLastName(lastName: string): void {
+    this.lastName = lastName;
+  }
+
+  getNickname(): string {
+    return this.nickname;
+  }
+
+  setNickname(nickname: string): void {
+    this.nickname = nickname;
+  }
+
+  getSalutation(): Salutation {
+    return this.salutation;
+  }
+
+  setSalutation(salutation: Salutation): void {
+    this.salutation = salutation;
+  }
 }
 
 type IDemographicsDTO = IDemographicsBase;
