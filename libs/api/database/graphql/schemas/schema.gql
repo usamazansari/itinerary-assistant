@@ -103,8 +103,35 @@ enum Gender {
 }
 
 type Query {
+  getAddress(id: String!): Address!
   getPeople: [Person!]!
-  getPerson(person: PersonInput!): Person!
+  getPerson(id: String!): Person!
+}
+
+type Mutation {
+  createAddress(address: AddressInput!): Address!
+  associateAddressWithPerson(addressId: String!, personId: String!): Address!
+  updateAddress(id: String!, address: AddressInput!): Address!
+  deleteAddress(id: String!): Address!
+  createPerson(person: PersonInput!): Person!
+  updatePerson(id: String!, person: PersonInput!): Person!
+  deletePerson(id: String!): Person!
+}
+
+input AddressInput {
+  id: String
+  name: String
+  room: String
+  apartment: String
+  wing: String
+  street: String
+  landmark: String
+  locality: String
+  suburb: String
+  city: String
+  state: String
+  country: String
+  zip: String
 }
 
 input PersonInput {
@@ -115,10 +142,4 @@ input PersonInput {
   website: String
   gender: Gender
   dateOfBirth: DateTime
-}
-
-type Mutation {
-  createPerson(person: PersonInput!): Person!
-  updatePerson(id: String!, person: PersonInput!): Person!
-  deletePerson(id: String!): Person!
 }
