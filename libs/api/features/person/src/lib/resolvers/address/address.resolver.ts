@@ -9,10 +9,14 @@ import {
 
 import {
   Address as Entity,
-  Location,
+  Location as LocationEntity,
   Person as PersonEntity
 } from '../../imports/entities';
-import { Address, Person as PersonModel } from '../../imports/models';
+import {
+  Address,
+  Location as LocationModel,
+  Person as PersonModel
+} from '../../imports/models';
 
 import { AddressInput } from '../../inputs';
 import { AddressService } from '../../services';
@@ -26,8 +30,8 @@ export class AddressResolver {
     return await this._service.getAddress(id);
   }
 
-  @ResolveField(() => Location, { name: 'location' })
-  async getLocation(@Parent() { id }: Entity): Promise<Location> {
+  @ResolveField(() => LocationEntity, { name: 'location' })
+  async getLocation(@Parent() { id }: Entity): Promise<LocationModel> {
     return await this._service.getLocation(id);
   }
 
@@ -49,5 +53,12 @@ export class AddressResolver {
     @Args('address', { type: () => AddressInput }) address: Entity
   ): Promise<Address> {
     return await this._service.updateAddress(id, address);
+  }
+
+  @Mutation(() => Entity)
+  async deleteAddress(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Address> {
+    return await this._service.deleteAddress(id);
   }
 }

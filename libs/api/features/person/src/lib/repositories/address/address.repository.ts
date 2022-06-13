@@ -78,4 +78,16 @@ export class AddressRepository {
     const result = await query.run();
     return result;
   }
+
+  async deleteAddress(id = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([node('address', 'ADDRESS', { id })])
+      .detachDelete('address')
+      .return(['address']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
 }

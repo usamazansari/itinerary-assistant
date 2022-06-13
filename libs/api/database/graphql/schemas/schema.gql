@@ -121,6 +121,7 @@ input PersonInput {
 type Mutation {
   createAddress(address: AddressInput!): Address!
   updateAddress(id: String!, address: AddressInput!): Address!
+  deleteAddress(id: String!): Address!
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!

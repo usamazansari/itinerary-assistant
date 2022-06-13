@@ -65,4 +65,13 @@ export class AddressService {
         .at(0) ?? new Address({ id: '' })
     );
   }
+
+  async deleteAddress(id: string): Promise<Address> {
+    const result = await this._repository.deleteAddress(id);
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
+  }
 }
