@@ -58,7 +58,7 @@ export class LocationRepository {
     const create = this._helper.generateCreateObject({ id, location });
     const query = this._query
       .queryBuilder()
-      .create([node('location', 'LOCATION', { create })])
+      .create([node('location', 'LOCATION', { ...create })])
       .return(['location']);
 
     console.log({ query: query.toString() });
@@ -73,6 +73,17 @@ export class LocationRepository {
       .match([node('location', 'LOCATION', { id })])
       .set({ values: { ...update } })
       .return(['location']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async deleteLocation(id = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([node('location', 'LOCATION', { id })])
+      .delete(['location']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

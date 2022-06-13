@@ -73,4 +73,15 @@ export class LocationService {
         .at(0) ?? new Location({ id: '' })
     );
   }
+
+  async deleteLocation(id = ''): Promise<Location> {
+    const result = await this._repository.deleteLocation(id);
+    return (
+      this._extractor
+        .extractLocations(
+          (<unknown>result) as { location: Neo4jNode<Location> }[]
+        )
+        .at(0) ?? new Location({ id: '' })
+    );
+  }
 }

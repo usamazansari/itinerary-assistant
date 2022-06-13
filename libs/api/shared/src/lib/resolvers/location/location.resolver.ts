@@ -56,4 +56,11 @@ export class LocationResolver {
   ): Promise<Location> {
     return await this._service.updateLocation(id, location);
   }
+
+  @Mutation(() => Entity)
+  async deleteLocation(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Location> {
+    return await this._service.deleteLocation(id);
+  }
 }

@@ -119,6 +119,7 @@ type Mutation {
   deletePerson(id: String!): Person!
   createLocation(location: LocationInput!): Location!
   updateLocation(id: String!, location: LocationInput!): Location!
+  deleteLocation(id: String!): Location!
 }
 
 input AddressInput {
