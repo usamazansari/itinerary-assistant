@@ -72,7 +72,7 @@ export class Person implements IPerson {
     return this.id;
   }
 
-  setId(id = ''): void {
+  setId(id: string): void {
     this.id = id;
   }
 
