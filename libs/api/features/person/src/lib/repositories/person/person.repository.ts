@@ -40,7 +40,7 @@ export class PersonRepository {
       .queryBuilder()
       .match([
         node('person', 'PERSON', { id }),
-        relation('out', 'addressRelationship', 'RESIDES_AT'),
+        relation('in', 'addressRelationship', 'ADDRESS_OF'),
         node('address', 'ADDRESS')
       ])
       .return(['address']);

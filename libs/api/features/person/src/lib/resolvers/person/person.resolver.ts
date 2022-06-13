@@ -8,13 +8,19 @@ import {
 } from '@nestjs/graphql';
 
 import {
-  Address,
-  Demographics,
-  Identification,
+  Address as AddressEntity,
+  Demographics as DemographicsEntity,
+  Identification as IdentificationEntity,
   Person as Entity,
-  SocialConnection
+  SocialConnection as SocialConnectionEntity
 } from '../../imports/entities';
-import { Person } from '../../imports/models';
+import {
+  Address as AddressModel,
+  Demographics as DemographicsModel,
+  Identification as IdentificationModel,
+  Person,
+  SocialConnection as SocialConnectionModel
+} from '../../imports/models';
 
 import { PersonInput } from '../../inputs';
 import { PersonService } from '../../services';
@@ -35,27 +41,27 @@ export class PersonResolver {
     return await this._service.getPerson(person.id);
   }
 
-  @ResolveField(() => Address, { name: 'address' })
-  async getAddress(@Parent() { id }: Entity): Promise<Address> {
+  @ResolveField(() => AddressEntity, { name: 'address' })
+  async getAddress(@Parent() { id }: Entity): Promise<AddressModel> {
     return await this._service.getAddress(id);
   }
 
-  @ResolveField(() => Demographics, { name: 'demographics' })
-  async getDemographics(@Parent() { id }: Entity): Promise<Demographics> {
+  @ResolveField(() => DemographicsEntity, { name: 'demographics' })
+  async getDemographics(@Parent() { id }: Entity): Promise<DemographicsModel> {
     return await this._service.getDemographics(id);
   }
 
-  @ResolveField(() => [Identification], { name: 'identifications' })
+  @ResolveField(() => [IdentificationEntity], { name: 'identifications' })
   async getIdentifications(
     @Parent() { id }: Entity
-  ): Promise<Identification[]> {
+  ): Promise<IdentificationModel[]> {
     return await this._service.getIdentifications(id);
   }
 
-  @ResolveField(() => [SocialConnection], { name: 'socialConnections' })
+  @ResolveField(() => [SocialConnectionEntity], { name: 'socialConnections' })
   async getSocialConnections(
     @Parent() { id }: Entity
-  ): Promise<SocialConnection[]> {
+  ): Promise<SocialConnectionModel[]> {
     return await this._service.getSocialConnections(id);
   }
 

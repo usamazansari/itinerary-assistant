@@ -1,31 +1,43 @@
 import { Injectable } from '@nestjs/common';
 
-import {
-  Address,
-  Location,
-  Neo4jNode
-} from '../../imports/models';
-import { Neo4jNodeMapperService } from '../../imports/services';
+import { Address, Location, Neo4jNode, Person } from '../../imports/models';
 
+import { ExtractorService } from '../../helpers';
 import { AddressRepository } from '../../repositories';
 
 @Injectable()
 export class AddressService {
   constructor(
     private _repository: AddressRepository,
-    private _mapNode: Neo4jNodeMapperService
-  ) { }
+    private _extractor: ExtractorService
+  ) {}
 
-  private extractLocation(result: { location: Neo4jNode<Location> }[]): Location[] {
-    return result.map(({ location }) => location).map(this._mapNode.toLocation);
+  async getAddress(id = ''): Promise<Address> {
+    const result = await this._repository.getAddress(id);
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
   }
 
-  async getLocation(address: Address): Promise<Location> {
-    const result = await this._repository.getLocation(address);
+  async getLocation(id = ''): Promise<Location> {
+    const result = await this._repository.getLocation(id);
     return (
-      this.extractLocation(
-        (<unknown>result) as { location: Neo4jNode<Location> }[]
-      ).at(0) ?? new Location({ id: '' })
+      this._extractor
+        .extractLocation(
+          (<unknown>result) as { location: Neo4jNode<Location> }[]
+        )
+        .at(0) ?? new Location({ id: '' })
+    );
+  }
+
+  async getResidents(id = ''): Promise<Person[]> {
+    const result = await this._repository.getResidents(id);
+    return (
+      this._extractor.extractPeople(
+        (<unknown>result) as { person: Neo4jNode<Person> }[]
+      ) ?? []
     );
   }
 }
