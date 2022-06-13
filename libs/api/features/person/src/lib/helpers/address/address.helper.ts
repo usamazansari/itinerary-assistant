@@ -39,6 +39,7 @@ export class AddressHelper {
 
     return { id, ..._ };
   }
+
   generateUpdateObject(address: AddressDTO) {
     const {
       apartment,

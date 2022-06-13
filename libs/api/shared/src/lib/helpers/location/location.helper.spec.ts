@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { LocationHelper } from './location.service';
+import { LocationHelper } from './location.helper';
 
 describe('LocationService', () => {
   let service: LocationHelper;

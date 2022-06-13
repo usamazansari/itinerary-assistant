@@ -44,9 +44,10 @@ export class LocationRepository {
   }
 
   async createLocation(id = '', location: LocationDTO) {
+    const create = this._helper.generateCreateObject({ id, location });
     const query = this._query
       .queryBuilder()
-      .create([node('location', 'LOCATION', { id, ...location })])
+      .create([node('location', 'LOCATION', { create })])
       .return(['location']);
 
     console.log({ query: query.toString() });
