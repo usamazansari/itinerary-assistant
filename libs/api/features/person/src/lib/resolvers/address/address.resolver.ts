@@ -26,7 +26,9 @@ export class AddressResolver {
   constructor(private _service: AddressService) {}
 
   @Query(() => Entity)
-  async getAddress(@Parent() { id }: Entity): Promise<Address> {
+  async getAddress(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Address> {
     return await this._service.getAddress(id);
   }
 

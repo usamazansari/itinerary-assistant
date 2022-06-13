@@ -36,9 +36,9 @@ export class PersonResolver {
 
   @Query(() => Entity)
   async getPerson(
-    @Args('person', { type: () => PersonInput }) person: Entity
+    @Args('id', { type: () => String }) id: string
   ): Promise<Person> {
-    return await this._service.getPerson(person.id);
+    return await this._service.getPerson(id);
   }
 
   @ResolveField(() => AddressEntity, { name: 'address' })

@@ -103,19 +103,9 @@ enum Gender {
 }
 
 type Query {
-  getAddress: Address!
+  getAddress(id: String!): Address!
   getPeople: [Person!]!
-  getPerson(person: PersonInput!): Person!
-}
-
-input PersonInput {
-  id: String
-  fullName: String
-  email: String
-  phone: String
-  website: String
-  gender: Gender
-  dateOfBirth: DateTime
+  getPerson(id: String!): Person!
 }
 
 type Mutation {
@@ -142,4 +132,14 @@ input AddressInput {
   state: String
   country: String
   zip: String
+}
+
+input PersonInput {
+  id: String
+  fullName: String
+  email: String
+  phone: String
+  website: String
+  gender: Gender
+  dateOfBirth: DateTime
 }
