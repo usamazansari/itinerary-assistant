@@ -116,6 +116,7 @@ type Mutation {
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!
+  createLocation(location: LocationInput!): Location!
 }
 
 input AddressInput {
@@ -142,4 +143,9 @@ input PersonInput {
   website: String
   gender: Gender
   dateOfBirth: DateTime
+}
+
+input LocationInput {
+  id: String
+  plusCode: String
 }
