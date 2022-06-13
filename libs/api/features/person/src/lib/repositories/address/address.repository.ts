@@ -29,7 +29,7 @@ export class AddressRepository {
       .queryBuilder()
       .match([
         node('address', 'ADDRESS', { id }),
-        relation('in', 'locationRelationship', 'LOCATION_OF'),
+        relation('out', 'locationRelationship', 'HAS_LOCATION'),
         node('location', 'LOCATION')
       ])
       .return(['location']);
