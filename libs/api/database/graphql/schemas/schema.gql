@@ -106,6 +106,7 @@ type Query {
   getAddress(id: String!): Address!
   getPeople: [Person!]!
   getPerson(id: String!): Person!
+  getLocation(id: String!): Location!
 }
 
 type Mutation {

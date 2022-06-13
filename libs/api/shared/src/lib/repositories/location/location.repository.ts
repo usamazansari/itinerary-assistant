@@ -13,6 +13,17 @@ export class LocationRepository {
     private _helper: LocationHelper
   ) {}
 
+  async getLocation(id = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([node('location', 'LOCATION', { id })])
+      .return(['location']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
   async getCoordinates(id = '') {
     const query = this._query
       .queryBuilder()

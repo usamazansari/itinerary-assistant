@@ -18,6 +18,17 @@ export class LocationService {
     private _extractor: ExtractorService
   ) {}
 
+  async getLocation(id = ''): Promise<Location> {
+    const result = await this._repository.getLocation(id);
+    return (
+      this._extractor
+        .extractLocations(
+          (<unknown>result) as { location: Neo4jNode<Location> }[]
+        )
+        .at(0) ?? new Location({ id: '' })
+    );
+  }
+
   async getCoordinates(id = ''): Promise<Coordinates> {
     const result = await this._repository.getCoordinates(id);
     return (

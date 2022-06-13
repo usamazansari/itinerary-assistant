@@ -2,6 +2,7 @@ import {
   Args,
   Mutation,
   Parent,
+  Query,
   ResolveField,
   Resolver
 } from '@nestjs/graphql';
@@ -23,6 +24,13 @@ import { LocationService } from '../../services';
 @Resolver(() => Entity)
 export class LocationResolver {
   constructor(private _service: LocationService) {}
+
+  @Query(() => Entity)
+  async getLocation(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Location> {
+    return await this._service.getLocation(id);
+  }
 
   @ResolveField(() => CoordinatesEntity, { name: 'coordinates' })
   async getCoordinates(@Parent() { id }: Entity): Promise<CoordinatesModel> {
