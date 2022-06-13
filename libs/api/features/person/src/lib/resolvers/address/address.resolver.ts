@@ -42,4 +42,12 @@ export class AddressResolver {
   ): Promise<Address> {
     return await this._service.createAddress(address);
   }
+
+  @Mutation(() => Entity)
+  async updateAddress(
+    @Args('id', { type: () => String }) id: string,
+    @Args('address', { type: () => AddressInput }) address: Entity
+  ): Promise<Address> {
+    return await this._service.updateAddress(id, address);
+  }
 }

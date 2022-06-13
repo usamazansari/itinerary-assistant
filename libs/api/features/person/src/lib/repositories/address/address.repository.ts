@@ -65,4 +65,17 @@ export class AddressRepository {
     const result = await query.run();
     return result;
   }
+
+  async updateAddress(id = '', address = new AddressDTO({})) {
+    const update = this._helper.generateUpdateObject(address);
+    const query = this._query
+      .queryBuilder()
+      .match([node('address', 'ADDRESS', { id })])
+      .set({ values: { ...update } })
+      .return(['address']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
 }

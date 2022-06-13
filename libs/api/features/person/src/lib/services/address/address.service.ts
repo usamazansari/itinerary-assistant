@@ -56,4 +56,13 @@ export class AddressService {
         .at(0) ?? new Address({ id: '' })
     );
   }
+
+  async updateAddress(id: string, address: AddressDTO): Promise<Address> {
+    const result = await this._repository.updateAddress(id, address);
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
+  }
 }
