@@ -1,5 +1,6 @@
 export {
   Address,
+  AddressDTO,
   Coordinates,
   Demographics,
   Identification,

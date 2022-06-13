@@ -11,7 +11,7 @@ import {
   IdentificationResolver,
   PersonResolver
 } from './resolvers';
-import { ExtractorService, PersonHelper } from './helpers';
+import { AddressHelper, ExtractorService, PersonHelper } from './helpers';
 import {
   AddressService,
   IdentificationService,
@@ -21,6 +21,7 @@ import {
 @Module({
   imports: [ApiSharedModule],
   providers: [
+    AddressHelper,
     AddressRepository,
     AddressResolver,
     AddressService,
