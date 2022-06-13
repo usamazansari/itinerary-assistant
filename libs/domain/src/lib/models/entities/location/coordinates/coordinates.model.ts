@@ -28,6 +28,28 @@ export class Coordinates implements ICoordinates {
     this.latitude = latitude;
     this.longitude = longitude;
   }
+
+  getId(): string {
+    return this.id;
+  }
+
+  setId(id: string): void {
+    this.id = id;
+  }
+  getLatitude(): number {
+    return this.latitude;
+  }
+
+  setLatitude(latitude: number): void {
+    this.latitude = latitude;
+  }
+  getLongitude(): number {
+    return this.longitude;
+  }
+
+  setLongitude(longitude: number): void {
+    this.longitude = longitude;
+  }
 }
 
 type ICoordinatesDTO = ICoordinatesBase;
