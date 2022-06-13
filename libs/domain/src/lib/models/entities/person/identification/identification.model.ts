@@ -38,6 +38,38 @@ export class Identification implements IIdentification {
     this.validity = validity;
   }
 
+  getId(): string {
+    return this.id;
+  }
+
+  setId(id: string): void {
+    this.id = id;
+  }
+
+  getType(): string {
+    return this.type;
+  }
+
+  setType(type: string): void {
+    this.type = type;
+  }
+
+  getNumber(): string {
+    return this.number;
+  }
+
+  setNumber(number: string): void {
+    this.number = number;
+  }
+
+  getName(): string {
+    return this.name;
+  }
+
+  setName(name: string): void {
+    this.name = name;
+  }
+
   filterForInput(): Partial<Identification> {
     let clone: Partial<Identification> = {};
     if (!!this.id) clone = { ...clone, id: this.id };
