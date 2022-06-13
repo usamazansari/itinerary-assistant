@@ -57,32 +57,6 @@ export class AddressService {
     );
   }
 
-  async associateAddressWithPerson(
-    addressId: string,
-    personId: string
-  ): Promise<Address> {
-    const check = await this.checkExistingRelationship(addressId, personId);
-    const result = check
-      ? await this._repository.getAddress(addressId)
-      : await this._repository.associateAddressWithPerson(addressId, personId);
-    return (
-      this._extractor
-        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
-        .at(0) ?? new Address({ id: '' })
-    );
-  }
-
-  async checkExistingRelationship(
-    addressId: string,
-    personId: string
-  ): Promise<boolean> {
-    const result = await this._repository.checkExistingRelationship(
-      addressId,
-      personId
-    );
-    return !!result.length;
-  }
-
   async updateAddress(id: string, address: AddressDTO): Promise<Address> {
     const result = await this._repository.updateAddress(id, address);
     return (
@@ -99,5 +73,63 @@ export class AddressService {
         .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
         .at(0) ?? new Address({ id: '' })
     );
+  }
+
+  async associateAddressWithPerson(
+    addressId: string,
+    personId: string
+  ): Promise<Address> {
+    const check = await this.checkAddressOfRelationship(addressId, personId);
+    const result = check
+      ? await this._repository.getAddress(addressId)
+      : await this._repository.associateAddressWithPerson(addressId, personId);
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
+  }
+
+  async associateAddressWithLocation(
+    addressId: string,
+    locationId: string
+  ): Promise<Address> {
+    const check = await this.checkHasLocationRelationship(
+      addressId,
+      locationId
+    );
+    const result = check
+      ? await this._repository.getAddress(addressId)
+      : await this._repository.associateAddressWithLocation(
+          addressId,
+          locationId
+        );
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
+  }
+
+  async checkAddressOfRelationship(
+    addressId: string,
+    personId: string
+  ): Promise<boolean> {
+    const result = await this._repository.checkAddressOfRelationship(
+      addressId,
+      personId
+    );
+    return !!result.length;
+  }
+
+  async checkHasLocationRelationship(
+    addressId: string,
+    locationId: string
+  ): Promise<boolean> {
+    const result = await this._repository.checkHasLocationRelationship(
+      addressId,
+      locationId
+    );
+    return !!result.length;
   }
 }
