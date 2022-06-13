@@ -48,6 +48,14 @@ export class AddressResolver {
   }
 
   @Mutation(() => Entity)
+  async associateAddressWithPerson(
+    @Args('addressId', { type: () => String }) addressId: string,
+    @Args('personId', { type: () => String }) personId: string
+  ): Promise<Address> {
+    return await this._service.associateAddressWithPerson(addressId, personId);
+  }
+
+  @Mutation(() => Entity)
   async updateAddress(
     @Args('id', { type: () => String }) id: string,
     @Args('address', { type: () => AddressInput }) address: Entity

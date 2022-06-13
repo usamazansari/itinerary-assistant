@@ -66,6 +66,40 @@ export class AddressRepository {
     return result;
   }
 
+  async associateAddressWithPerson(addressId = '', personId = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([node('address', 'ADDRESS', { id: addressId })])
+      .with(['address'])
+      .match([node('person', 'PERSON', { id: personId })])
+      .with(['address', 'person'])
+      .create([
+        node('address'),
+        relation('out', 'residentRelationship', 'ADDRESS_OF'),
+        node('person')
+      ])
+      .return(['address']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async checkExistingRelationship(addressId = '', personId = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node('address', 'ADDRESS', { id: addressId }),
+        relation('out', 'residentRelationship', 'ADDRESS_OF'),
+        node('person', 'PERSON', { id: personId })
+      ])
+      .return(['residentRelationship']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
   async updateAddress(id = '', address = new AddressDTO({})) {
     const update = this._helper.generateUpdateObject(address);
     const query = this._query

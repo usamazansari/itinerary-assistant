@@ -120,6 +120,7 @@ input PersonInput {
 
 type Mutation {
   createAddress(address: AddressInput!): Address!
+  associateAddressWithPerson(addressId: String!, personId: String!): Address!
   updateAddress(id: String!, address: AddressInput!): Address!
   deleteAddress(id: String!): Address!
   createPerson(person: PersonInput!): Person!
