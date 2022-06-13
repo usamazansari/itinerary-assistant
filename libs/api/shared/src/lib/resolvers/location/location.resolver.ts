@@ -48,4 +48,12 @@ export class LocationResolver {
   ): Promise<Location> {
     return await this._service.createLocation(location);
   }
+
+  @Mutation(() => Entity)
+  async updateLocation(
+    @Args('id', { type: () => String }) id: string,
+    @Args('location', { type: () => LocationInput }) location: Location
+  ): Promise<Location> {
+    return await this._service.updateLocation(id, location);
+  }
 }

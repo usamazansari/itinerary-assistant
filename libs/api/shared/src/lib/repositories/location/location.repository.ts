@@ -65,4 +65,17 @@ export class LocationRepository {
     const result = await query.run();
     return result;
   }
+
+  async updateLocation(id = '', location: LocationDTO) {
+    const update = this._helper.generateUpdateObject(location);
+    const query = this._query
+      .queryBuilder()
+      .match([node('location', 'LOCATION', { id })])
+      .set({ values: { ...update } })
+      .return(['location']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
 }

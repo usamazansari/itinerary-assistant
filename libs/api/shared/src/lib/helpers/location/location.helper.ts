@@ -15,4 +15,13 @@ export class LocationHelper {
 
     return { id, ..._ };
   }
+
+  generateUpdateObject(location: LocationDTO) {
+    const { plusCode } = location;
+
+    let _ = {};
+    if (!!plusCode) _ = { ..._, [`location.plusCode`]: plusCode };
+
+    return { ..._ };
+  }
 }

@@ -62,4 +62,15 @@ export class LocationService {
         .at(0) ?? new Location({ id: '' })
     );
   }
+
+  async updateLocation(id = '', location: LocationDTO): Promise<Location> {
+    const result = await this._repository.updateLocation(id, location);
+    return (
+      this._extractor
+        .extractLocations(
+          (<unknown>result) as { location: Neo4jNode<Location> }[]
+        )
+        .at(0) ?? new Location({ id: '' })
+    );
+  }
 }
