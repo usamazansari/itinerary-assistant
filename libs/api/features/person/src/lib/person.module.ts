@@ -11,7 +11,12 @@ import {
   IdentificationResolver,
   PersonResolver
 } from './resolvers';
-import { AddressHelper, ExtractorService, PersonHelper } from './helpers';
+import {
+  AddressHelper,
+  ExtractorService,
+  IdentificationHelper,
+  PersonHelper
+} from './helpers';
 import {
   AddressService,
   IdentificationService,
@@ -26,6 +31,7 @@ import {
     AddressResolver,
     AddressService,
     ExtractorService,
+    IdentificationHelper,
     IdentificationRepository,
     IdentificationResolver,
     IdentificationService,

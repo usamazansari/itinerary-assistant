@@ -53,7 +53,7 @@ export class CoordinatesRepository {
     const query = this._query
       .queryBuilder()
       .match([node('coordinates', 'COORDINATES', { id })])
-      .delete(['coordinates']);
+      .detachDelete(['coordinates']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

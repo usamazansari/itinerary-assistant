@@ -108,6 +108,7 @@ enum Gender {
 
 type Query {
   getAddress(id: String!): Address!
+  getIdentification(id: String!): Identification!
   getPeople: [Person!]!
   getPerson(id: String!): Person!
   getCoordinates(id: String!): Coordinates!
@@ -121,7 +122,11 @@ type Mutation {
   deleteAddress(id: String!): Address!
   associateAddressWithPerson(addressId: String!, personId: String!): Address!
   associateAddressWithLocation(addressId: String!, locationId: String!): Address!
+  createIdentification(identification: IdentificationInput!): Identification!
+  updateIdentification(id: String!, identification: IdentificationInput!): Identification!
+  deleteIdentification(id: String!): Boolean!
   associateIdentificationWithTenure(identificationId: String!, tenureId: String!): Identification!
+  associateIdentificationWithPerson(identificationId: String!, personId: String!): Identification!
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!
@@ -151,6 +156,13 @@ input AddressInput {
   state: String
   country: String
   zip: String
+}
+
+input IdentificationInput {
+  id: String
+  name: String
+  number: String
+  type: String
 }
 
 input PersonInput {

@@ -83,7 +83,7 @@ export class LocationRepository {
     const query = this._query
       .queryBuilder()
       .match([node('location', 'LOCATION', { id })])
-      .delete(['location']);
+      .detachDelete(['location']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

@@ -4,6 +4,7 @@ export {
   Coordinates,
   Demographics,
   Identification,
+  IdentificationDTO,
   Location,
   Person,
   PersonDTO,

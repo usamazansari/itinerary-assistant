@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
 
-import { Identification, Tenure, Neo4jNode } from '../../imports/models';
+import {
+  Identification,
+  IdentificationDTO,
+  Tenure,
+  Neo4jNode
+} from '../../imports/models';
 
 import { IdentificationRepository } from '../../repositories';
 import { ExtractorService } from '../../helpers';
@@ -12,6 +17,17 @@ export class IdentificationService {
     private _extractor: ExtractorService
   ) {}
 
+  async getIdentification(id = ''): Promise<Identification> {
+    const result = await this._repository.getIdentification(id);
+    return (
+      this._extractor
+        .extractIdentifications(
+          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+        )
+        .at(0) ?? new Identification({ id: '' })
+    );
+  }
+
   async getTenure(id = ''): Promise<Tenure> {
     const result = await this._repository.getTenure(id);
     return (
@@ -19,6 +35,50 @@ export class IdentificationService {
         .extractTenures((<unknown>result) as { tenure: Neo4jNode<Tenure> }[])
         .at(0) ?? new Tenure({ id: '' })
     );
+  }
+
+  async createIdentification(
+    identification: IdentificationDTO
+  ): Promise<Identification> {
+    const id = new Identification({ ...identification }).generateUUID();
+    const result = await this._repository.createIdentification(
+      id,
+      identification
+    );
+    return (
+      this._extractor
+        .extractIdentifications(
+          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+        )
+        .at(0) ?? new Identification({ id: '' })
+    );
+  }
+
+  async updateIdentification(
+    id: string,
+    identification: IdentificationDTO
+  ): Promise<Identification> {
+    const result = await this._repository.updateIdentification(
+      id,
+      identification
+    );
+    return (
+      this._extractor
+        .extractIdentifications(
+          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+        )
+        .at(0) ?? new Identification({ id: '' })
+    );
+  }
+
+  // TODO: Usama Ansari - improve this logic
+  async deleteIdentification(id: string): Promise<boolean> {
+    const result = await this._repository.deleteIdentification(id);
+    return !!this._extractor
+      .extractIdentifications(
+        (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+      )
+      .at(0)?.id;
   }
 
   async associateIdentificationWithTenure(
@@ -44,6 +104,29 @@ export class IdentificationService {
     );
   }
 
+  async associateIdentificationWithPerson(
+    identificationId: string,
+    personId: string
+  ): Promise<Identification> {
+    const check = await this.checkIdentificationOfRelationship(
+      identificationId,
+      personId
+    );
+    const result = check
+      ? await this._repository.getIdentification(identificationId)
+      : await this._repository.associateIdentificationWithPerson(
+          identificationId,
+          personId
+        );
+    return (
+      this._extractor
+        .extractIdentifications(
+          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+        )
+        .at(0) ?? new Identification({ id: '' })
+    );
+  }
+
   async checkHasValidityRelationship(
     identificationId: string,
     tenureId: string
@@ -51,6 +134,17 @@ export class IdentificationService {
     const result = await this._repository.checkHasValidityRelationship(
       identificationId,
       tenureId
+    );
+    return !!result.length;
+  }
+
+  async checkIdentificationOfRelationship(
+    identificationId: string,
+    personId: string
+  ): Promise<boolean> {
+    const result = await this._repository.checkIdentificationOfRelationship(
+      identificationId,
+      personId
     );
     return !!result.length;
   }

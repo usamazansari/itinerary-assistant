@@ -53,7 +53,7 @@ export class TenureRepository {
     const query = this._query
       .queryBuilder()
       .match([node('tenure', 'TENURE', { id })])
-      .delete(['tenure']);
+      .detachDelete(['tenure']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

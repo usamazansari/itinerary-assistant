@@ -1,4 +1,6 @@
-import { Tenure, TenureDTO } from '../..';
+import { v4 as uuid } from 'uuid';
+
+import { Tenure } from '../..';
 
 interface IIdentificationBase {
   type: string;
@@ -70,35 +72,26 @@ export class Identification implements IIdentification {
     this.name = name;
   }
 
-  filterForInput(): Partial<Identification> {
-    let clone: Partial<Identification> = {};
-    if (!!this.id) clone = { ...clone, id: this.id };
-    if (!!this.type) clone = { ...clone, type: this.type };
-    if (!!this.number) clone = { ...clone, number: this.number };
-    if (!!this.name) clone = { ...clone, name: this.name };
-    return clone;
+  generateUUID(): string {
+    this.setId(uuid());
+    return this.getId();
   }
 }
 
-interface IIdentificationDTO extends IIdentificationBase {
-  validity: TenureDTO;
-}
+type IIdentificationDTO = IIdentificationBase;
 
 export class IdentificationDTO implements IIdentificationDTO {
   type: string;
   number: string;
   name: string;
-  validity: TenureDTO;
 
   constructor({
     type = BaseStub.type,
     number = BaseStub.number,
-    name = BaseStub.name,
-    validity = new TenureDTO({})
+    name = BaseStub.name
   }: Partial<IIdentificationDTO>) {
     this.type = type;
     this.number = number;
     this.name = name;
-    this.validity = validity;
   }
 }
