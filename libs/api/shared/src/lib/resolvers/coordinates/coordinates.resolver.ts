@@ -17,4 +17,13 @@ export class CoordinatesResolver {
   ): Promise<Coordinates> {
     return await this._service.createCoordinates(coordinates);
   }
+
+  @Mutation(() => Entity)
+  async updateCoordinates(
+    @Args('id', { type: () => String }) id: string,
+    @Args('coordinates', { type: () => CoordinatesInput })
+    coordinates: Coordinates
+  ): Promise<Coordinates> {
+    return await this._service.updateCoordinates(id, coordinates);
+  }
 }

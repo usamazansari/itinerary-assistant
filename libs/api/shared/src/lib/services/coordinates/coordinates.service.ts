@@ -23,4 +23,18 @@ export class CoordinatesService {
         .at(0) ?? new Coordinates({ id: '' })
     );
   }
+
+  async updateCoordinates(
+    id = '',
+    coordinates: CoordinatesDTO
+  ): Promise<Coordinates> {
+    const result = await this._repository.updateCoordinates(id, coordinates);
+    return (
+      this._extractor
+        .extractCoordinates(
+          (<unknown>result) as { coordinates: Neo4jNode<Coordinates> }[]
+        )
+        .at(0) ?? new Coordinates({ id: '' })
+    );
+  }
 }
