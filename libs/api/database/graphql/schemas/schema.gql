@@ -83,7 +83,6 @@ type SocialConnection {
   id: ID!
   name: String!
   url: String!
-  validity: Tenure!
 }
 
 type Person {
@@ -109,6 +108,7 @@ enum Gender {
 
 type Query {
   getAddress(id: String!): Address!
+  getDemographics(id: String!): Demographics!
   getIdentification(id: String!): Identification!
   getPeople: [Person!]!
   getPerson(id: String!): Person!
@@ -124,6 +124,10 @@ type Mutation {
   deleteAddress(id: String!): Address!
   associateAddressWithPerson(addressId: String!, personId: String!): Address!
   associateAddressWithLocation(addressId: String!, locationId: String!): Address!
+  createDemographics(demographics: DemographicsInput!): Demographics!
+  updateDemographics(id: String!, demographics: DemographicsInput!): Demographics!
+  deleteDemographics(id: String!): Boolean!
+  associateDemographicsWithPerson(demographicsId: String!, personId: String!): Demographics!
   createIdentification(identification: IdentificationInput!): Identification!
   updateIdentification(id: String!, identification: IdentificationInput!): Identification!
   deleteIdentification(id: String!): Boolean!
@@ -162,6 +166,15 @@ input AddressInput {
   state: String
   country: String
   zip: String
+}
+
+input DemographicsInput {
+  id: String
+  firstName: String
+  lastName: String
+  middleName: String
+  nickname: String
+  salutation: Salutation
 }
 
 input IdentificationInput {

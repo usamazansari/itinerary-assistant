@@ -3,18 +3,21 @@ import { Module } from '@nestjs/common';
 import { ApiSharedModule } from './imports/modules';
 import {
   AddressRepository,
+  DemographicsRepository,
   IdentificationRepository,
   PersonRepository,
   SocialConnectionRepository
 } from './repositories';
 import {
   AddressResolver,
+  DemographicsResolver,
   IdentificationResolver,
   PersonResolver,
   SocialConnectionResolver
 } from './resolvers';
 import {
   AddressHelper,
+  DemographicsHelper,
   ExtractorService,
   IdentificationHelper,
   PersonHelper,
@@ -22,6 +25,7 @@ import {
 } from './helpers';
 import {
   AddressService,
+  DemographicsService,
   IdentificationService,
   PersonService,
   SocialConnectionService
@@ -34,6 +38,10 @@ import {
     AddressRepository,
     AddressResolver,
     AddressService,
+    DemographicsRepository,
+    DemographicsResolver,
+    DemographicsHelper,
+    DemographicsService,
     ExtractorService,
     IdentificationHelper,
     IdentificationRepository,

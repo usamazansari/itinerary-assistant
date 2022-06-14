@@ -1,1 +1,1 @@
-export { Gender } from '@itinerary-assistant/domain';
+export { Gender, Salutation } from '@itinerary-assistant/domain';
