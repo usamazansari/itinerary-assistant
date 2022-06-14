@@ -4,9 +4,13 @@
 
 type Coordinates {
   id: ID!
-  latitude: Float!
-  longitude: Float!
+  coordinates: Point!
+  latitude: Float
+  longitude: Float
 }
+
+"""Point scalar type"""
+scalar Point
 
 type Timezone {
   id: ID!
@@ -118,6 +122,9 @@ type Mutation {
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!
+  createCoordinates(coordinates: CoordinatesInput!): Coordinates!
+  updateCoordinates(id: String!, coordinates: CoordinatesInput!): Coordinates!
+  deleteCoordinates(id: String!): Coordinates!
   createLocation(location: LocationInput!): Location!
   updateLocation(id: String!, location: LocationInput!): Location!
   deleteLocation(id: String!): Location!
@@ -147,6 +154,12 @@ input PersonInput {
   website: String
   gender: Gender
   dateOfBirth: DateTime
+}
+
+input CoordinatesInput {
+  id: String
+  latitude: Float
+  longitude: Float
 }
 
 input LocationInput {

@@ -1,5 +1,6 @@
 export {
   Coordinates,
+  CoordinatesDTO,
   Location,
   LocationDTO,
   Timezone
