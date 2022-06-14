@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import { PersonDTO } from '../../imports/models';
-import { parseToDateTime } from '../../imports/utilities';
+import { parseToDateTime } from '../../imports/utils';
 
 @Injectable()
 export class PersonHelper {
