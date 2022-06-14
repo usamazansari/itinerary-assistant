@@ -9,6 +9,7 @@ export {
   Person,
   PersonDTO,
   SocialConnection,
+  SocialConnectionDTO,
   Tenure,
   Timezone
 } from '@itinerary-assistant/domain';

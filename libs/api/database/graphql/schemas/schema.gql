@@ -83,6 +83,7 @@ type SocialConnection {
   id: ID!
   name: String!
   url: String!
+  validity: Tenure!
 }
 
 type Person {
@@ -111,6 +112,7 @@ type Query {
   getIdentification(id: String!): Identification!
   getPeople: [Person!]!
   getPerson(id: String!): Person!
+  getSocialConnection(id: String!): SocialConnection!
   getCoordinates(id: String!): Coordinates!
   getLocation(id: String!): Location!
   getTenure(id: String!): Tenure!
@@ -130,6 +132,10 @@ type Mutation {
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!
+  createSocialConnection(socialConnection: SocialConnectionInput!): SocialConnection!
+  updateSocialConnection(id: String!, socialConnection: SocialConnectionInput!): SocialConnection!
+  deleteSocialConnection(id: String!): Boolean!
+  associateSocialConnectionWithPerson(socialConnectionId: String!, personId: String!): SocialConnection!
   createCoordinates(coordinates: CoordinatesInput!): Coordinates!
   updateCoordinates(id: String!, coordinates: CoordinatesInput!): Coordinates!
   deleteCoordinates(id: String!): Coordinates!
@@ -173,6 +179,12 @@ input PersonInput {
   website: String
   gender: Gender
   dateOfBirth: DateTime
+}
+
+input SocialConnectionInput {
+  id: String
+  name: String
+  url: String
 }
 
 input CoordinatesInput {
