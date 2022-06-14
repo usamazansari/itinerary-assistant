@@ -112,6 +112,7 @@ type Query {
   getPerson(id: String!): Person!
   getCoordinates(id: String!): Coordinates!
   getLocation(id: String!): Location!
+  getTenure(id: String!): Tenure!
 }
 
 type Mutation {
@@ -120,6 +121,7 @@ type Mutation {
   deleteAddress(id: String!): Address!
   associateAddressWithPerson(addressId: String!, personId: String!): Address!
   associateAddressWithLocation(addressId: String!, locationId: String!): Address!
+  associateIdentificationWithTenure(identificationId: String!, tenureId: String!): Identification!
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!
@@ -130,6 +132,9 @@ type Mutation {
   createLocation(location: LocationInput!): Location!
   updateLocation(id: String!, location: LocationInput!): Location!
   deleteLocation(id: String!): Location!
+  createTenure(tenure: TenureInput!): Tenure!
+  updateTenure(id: String!, tenure: TenureInput!): Tenure!
+  deleteTenure(id: String!): Tenure!
 }
 
 input AddressInput {
@@ -167,4 +172,10 @@ input CoordinatesInput {
 input LocationInput {
   id: String
   plusCode: String
+}
+
+input TenureInput {
+  id: String
+  start: DateTime
+  end: DateTime
 }
