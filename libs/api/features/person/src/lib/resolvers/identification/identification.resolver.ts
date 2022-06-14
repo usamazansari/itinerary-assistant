@@ -49,6 +49,13 @@ export class IdentificationResolver {
     return await this._service.updateIdentification(id, identification);
   }
 
+  @Mutation(() => Boolean)
+  async deleteIdentification(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<boolean> {
+    return await this._service.deleteIdentification(id);
+  }
+
   @Mutation(() => Entity)
   async associateIdentificationWithTenure(
     @Args('identificationId', { type: () => String }) identificationId: string,

@@ -64,6 +64,18 @@ export class IdentificationRepository {
     return result;
   }
 
+  async deleteIdentification(id: string) {
+    const query = this._query
+      .queryBuilder()
+      .match([node('identification', 'IDENTIFICATION', { id })])
+      .detachDelete(['identification'])
+      .return(['identification']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
   async associateIdentificationWithTenure(
     identificationId: string,
     tenureId: string

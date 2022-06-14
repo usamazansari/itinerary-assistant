@@ -71,6 +71,16 @@ export class IdentificationService {
     );
   }
 
+  // TODO: Usama Ansari - improve this logic
+  async deleteIdentification(id: string): Promise<boolean> {
+    const result = await this._repository.deleteIdentification(id);
+    return !!this._extractor
+      .extractIdentifications(
+        (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+      )
+      .at(0)?.id;
+  }
+
   async associateIdentificationWithTenure(
     identificationId: string,
     tenureId: string
