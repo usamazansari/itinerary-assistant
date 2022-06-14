@@ -100,6 +100,30 @@ export class IdentificationRepository {
     return result;
   }
 
+  async associateIdentificationWithPerson(
+    identificationId: string,
+    personId: string
+  ) {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node('identification', 'IDENTIFICATION', { id: identificationId })
+      ])
+      .with(['identification'])
+      .match([node('person', 'PERSON', { id: personId })])
+      .with(['identification', 'person'])
+      .create([
+        node('identification'),
+        relation('out', 'residentRelationship', 'IDENTIFICATION_OF'),
+        node('person')
+      ])
+      .return(['identification']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
   async checkHasValidityRelationship(
     identificationId: string,
     tenureId: string
@@ -110,6 +134,24 @@ export class IdentificationRepository {
         node('identification', 'IDENTIFICATION', { id: identificationId }),
         relation('out', 'identificationRelationship', 'HAS_VALIDITY'),
         node('tenure', 'TENURE', { id: tenureId })
+      ])
+      .return(['identification']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async checkIdentificationOfRelationship(
+    identificationId: string,
+    personId: string
+  ) {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node('identification', 'IDENTIFICATION', { id: identificationId }),
+        relation('out', 'identificationRelationship', 'IDENTIFICATION_OF'),
+        node('person', 'PERSON', { id: personId })
       ])
       .return(['identification']);
 

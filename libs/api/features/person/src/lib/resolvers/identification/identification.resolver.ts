@@ -66,4 +66,15 @@ export class IdentificationResolver {
       tenureId
     );
   }
+
+  @Mutation(() => Entity)
+  async associateIdentificationWithPerson(
+    @Args('identificationId', { type: () => String }) identificationId: string,
+    @Args('personId', { type: () => String }) personId: string
+  ): Promise<Identification> {
+    return await this._service.associateIdentificationWithPerson(
+      identificationId,
+      personId
+    );
+  }
 }

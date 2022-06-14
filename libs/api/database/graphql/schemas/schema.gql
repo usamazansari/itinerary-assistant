@@ -126,6 +126,7 @@ type Mutation {
   updateIdentification(id: String!, identification: IdentificationInput!): Identification!
   deleteIdentification(id: String!): Boolean!
   associateIdentificationWithTenure(identificationId: String!, tenureId: String!): Identification!
+  associateIdentificationWithPerson(identificationId: String!, personId: String!): Identification!
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!

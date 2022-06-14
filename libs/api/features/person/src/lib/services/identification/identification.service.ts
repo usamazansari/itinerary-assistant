@@ -104,6 +104,29 @@ export class IdentificationService {
     );
   }
 
+  async associateIdentificationWithPerson(
+    identificationId: string,
+    personId: string
+  ): Promise<Identification> {
+    const check = await this.checkIdentificationOfRelationship(
+      identificationId,
+      personId
+    );
+    const result = check
+      ? await this._repository.getIdentification(identificationId)
+      : await this._repository.associateIdentificationWithPerson(
+          identificationId,
+          personId
+        );
+    return (
+      this._extractor
+        .extractIdentifications(
+          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+        )
+        .at(0) ?? new Identification({ id: '' })
+    );
+  }
+
   async checkHasValidityRelationship(
     identificationId: string,
     tenureId: string
@@ -111,6 +134,17 @@ export class IdentificationService {
     const result = await this._repository.checkHasValidityRelationship(
       identificationId,
       tenureId
+    );
+    return !!result.length;
+  }
+
+  async checkIdentificationOfRelationship(
+    identificationId: string,
+    personId: string
+  ): Promise<boolean> {
+    const result = await this._repository.checkIdentificationOfRelationship(
+      identificationId,
+      personId
     );
     return !!result.length;
   }
