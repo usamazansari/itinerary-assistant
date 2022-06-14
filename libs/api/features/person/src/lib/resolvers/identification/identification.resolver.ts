@@ -2,6 +2,7 @@ import {
   Args,
   Mutation,
   Parent,
+  Query,
   ResolveField,
   Resolver
 } from '@nestjs/graphql';
@@ -17,6 +18,13 @@ import { IdentificationService } from '../../services';
 @Resolver(() => Entity)
 export class IdentificationResolver {
   constructor(private _service: IdentificationService) {}
+
+  @Query(() => Entity)
+  async getIdentification(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Identification> {
+    return await this._service.getIdentification(id);
+  }
 
   @ResolveField(() => TenureEntity, { name: 'validity' })
   async getTenure(@Parent() { id }: Entity): Promise<TenureModel> {

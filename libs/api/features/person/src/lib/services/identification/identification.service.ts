@@ -12,6 +12,17 @@ export class IdentificationService {
     private _extractor: ExtractorService
   ) {}
 
+  async getIdentification(id = ''): Promise<Identification> {
+    const result = await this._repository.getIdentification(id);
+    return (
+      this._extractor
+        .extractIdentifications(
+          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+        )
+        .at(0) ?? new Identification({ id: '' })
+    );
+  }
+
   async getTenure(id = ''): Promise<Tenure> {
     const result = await this._repository.getTenure(id);
     return (

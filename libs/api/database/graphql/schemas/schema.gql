@@ -108,6 +108,7 @@ enum Gender {
 
 type Query {
   getAddress(id: String!): Address!
+  getIdentification(id: String!): Identification!
   getPeople: [Person!]!
   getPerson(id: String!): Person!
   getCoordinates(id: String!): Coordinates!
