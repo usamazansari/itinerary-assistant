@@ -7,7 +7,8 @@ import {
   Location,
   Neo4jNode,
   Person,
-  SocialConnection
+  SocialConnection,
+  Tenure
 } from '../../imports/models';
 import { Neo4jNodeMapperService } from '../../imports/services';
 
@@ -41,6 +42,10 @@ export class ExtractorService {
     return result
       .map(({ identification }) => identification)
       .map(this._mapNode.toIdentification);
+  }
+
+  extractTenures(result: { tenure: Neo4jNode<Tenure> }[]): Tenure[] {
+    return result.map(({ tenure }) => tenure).map(this._mapNode.toTenure);
   }
 
   extractSocialConnections(

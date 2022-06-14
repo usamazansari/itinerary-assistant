@@ -121,6 +121,7 @@ type Mutation {
   deleteAddress(id: String!): Address!
   associateAddressWithPerson(addressId: String!, personId: String!): Address!
   associateAddressWithLocation(addressId: String!, locationId: String!): Address!
+  associateIdentificationWithTenure(identificationId: String!, tenureId: String!): Identification!
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!

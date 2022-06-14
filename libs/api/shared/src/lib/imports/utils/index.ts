@@ -1,1 +1,1 @@
-export { parseToPoint } from '@itinerary-assistant/domain';
+export { parseToDateTime, parseToPoint } from '@itinerary-assistant/domain';
