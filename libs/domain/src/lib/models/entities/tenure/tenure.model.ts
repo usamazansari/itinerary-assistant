@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 interface ITenureBase {
   start: Date;
   end: Date;
@@ -46,6 +48,11 @@ export class Tenure implements ITenure {
   }
   setEnd(end: Date): void {
     this.end = end;
+  }
+
+  generateUUID(): string {
+    this.setId(uuid());
+    return this.getId();
   }
 }
 

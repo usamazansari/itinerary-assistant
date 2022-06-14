@@ -1,9 +1,22 @@
 import { Module } from '@nestjs/common';
 
-import { CoordinatesHelper, ExtractorService, LocationHelper } from './helpers';
-import { CoordinatesRepository, LocationRepository } from './repositories';
-import { CoordinatesResolver, LocationResolver } from './resolvers';
-import { CoordinatesService, LocationService } from './services';
+import {
+  CoordinatesHelper,
+  ExtractorService,
+  LocationHelper,
+  TenureHelper
+} from './helpers';
+import {
+  CoordinatesRepository,
+  LocationRepository,
+  TenureRepository
+} from './repositories';
+import {
+  CoordinatesResolver,
+  LocationResolver,
+  TenureResolver
+} from './resolvers';
+import { CoordinatesService, LocationService, TenureService } from './services';
 
 @Module({
   providers: [
@@ -15,7 +28,11 @@ import { CoordinatesService, LocationService } from './services';
     LocationHelper,
     LocationRepository,
     LocationResolver,
-    LocationService
+    LocationService,
+    TenureHelper,
+    TenureRepository,
+    TenureResolver,
+    TenureService
   ],
   exports: [
     CoordinatesRepository,
@@ -23,7 +40,10 @@ import { CoordinatesService, LocationService } from './services';
     CoordinatesService,
     LocationRepository,
     LocationResolver,
-    LocationService
+    LocationService,
+    TenureRepository,
+    TenureResolver,
+    TenureService
   ]
 })
 export class ApiSharedModule {}

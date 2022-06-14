@@ -4,6 +4,7 @@ import {
   Coordinates,
   Location,
   Neo4jNode,
+  Tenure,
   Timezone
 } from '../../imports/models';
 import { Neo4jNodeMapperService } from '../../imports/services';
@@ -26,5 +27,9 @@ export class ExtractorService {
 
   extractTimezones(result: { timezone: Neo4jNode<Timezone> }[]): Timezone[] {
     return result.map(({ timezone }) => timezone).map(this._mapNode.toTimezone);
+  }
+
+  extractTenures(result: { tenure: Neo4jNode<Tenure> }[]): Tenure[] {
+    return result.map(({ tenure }) => tenure).map(this._mapNode.toTenure);
   }
 }
