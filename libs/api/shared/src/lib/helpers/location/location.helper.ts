@@ -20,7 +20,7 @@ export class LocationHelper {
     const { plusCode } = location;
 
     let _ = {};
-    if (!!plusCode) _ = { ..._, [`location.plusCode`]: plusCode };
+    if (!!plusCode) _ = { ..._, ['location.plusCode']: plusCode };
 
     return { ..._ };
   }

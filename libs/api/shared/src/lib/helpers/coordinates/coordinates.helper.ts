@@ -18,7 +18,7 @@ export class CoordinatesHelper {
     const { latitude, longitude } = coordinates;
 
     return {
-      [`coordinates.coordinates`]: parseToPoint({ latitude, longitude })
+      ['coordinates.coordinates']: parseToPoint({ latitude, longitude })
     };
   }
 }
