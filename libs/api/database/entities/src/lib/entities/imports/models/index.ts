@@ -4,19 +4,18 @@ export {
   IIdentification,
   ILocation,
   IDemographics,
-  IPhoto,
   ISocialConnection,
   ITenure,
   ITimezone,
-  IUser,
+  IPerson,
   Address,
   Coordinates,
   Gender,
   Identification,
   Location,
   Demographics,
-  Photo,
   SocialConnection,
   Tenure,
-  Timezone
-} from '@itinerary-assistant/shared/domain';
+  Timezone,
+  Person
+} from '@itinerary-assistant/domain';
