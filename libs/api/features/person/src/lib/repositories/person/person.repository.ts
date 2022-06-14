@@ -40,7 +40,7 @@ export class PersonRepository {
       .queryBuilder()
       .match([
         node('person', 'PERSON', { id }),
-        relation('out', 'addressRelationship', 'RESIDES_AT'),
+        relation('in', 'addressRelationship', 'ADDRESS_OF'),
         node('address', 'ADDRESS')
       ])
       .return(['address']);
@@ -124,7 +124,7 @@ export class PersonRepository {
     const query = this._query
       .queryBuilder()
       .match([node('person', 'PERSON', { id })])
-      .delete(['person'])
+      .detachDelete(['person'])
       .return(['person']);
 
     console.log({ query: query.toString() });

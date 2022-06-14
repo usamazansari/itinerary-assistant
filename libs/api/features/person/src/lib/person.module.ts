@@ -1,40 +1,60 @@
 import { Module } from '@nestjs/common';
 
+import { ApiSharedModule } from './imports/modules';
 import {
   AddressRepository,
+  DemographicsRepository,
   IdentificationRepository,
-  LocationRepository,
-  PersonRepository
+  PersonRepository,
+  SocialConnectionRepository
 } from './repositories';
 import {
   AddressResolver,
+  DemographicsResolver,
   IdentificationResolver,
-  LocationResolver,
-  PersonResolver
+  PersonResolver,
+  SocialConnectionResolver
 } from './resolvers';
-import { PersonHelper } from './helpers';
+import {
+  AddressHelper,
+  DemographicsHelper,
+  ExtractorService,
+  IdentificationHelper,
+  PersonHelper,
+  SocialConnectionHelper
+} from './helpers';
 import {
   AddressService,
+  DemographicsService,
   IdentificationService,
-  LocationService,
-  PersonService
+  PersonService,
+  SocialConnectionService
 } from './services';
 
 @Module({
+  imports: [ApiSharedModule],
   providers: [
+    AddressHelper,
     AddressRepository,
     AddressResolver,
     AddressService,
+    DemographicsRepository,
+    DemographicsResolver,
+    DemographicsHelper,
+    DemographicsService,
+    ExtractorService,
+    IdentificationHelper,
     IdentificationRepository,
     IdentificationResolver,
     IdentificationService,
-    LocationRepository,
-    LocationResolver,
-    LocationService,
     PersonHelper,
     PersonRepository,
     PersonResolver,
-    PersonService
+    PersonService,
+    SocialConnectionHelper,
+    SocialConnectionResolver,
+    SocialConnectionRepository,
+    SocialConnectionService
   ]
 })
 export class PersonModule {}

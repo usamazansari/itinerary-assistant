@@ -4,9 +4,13 @@
 
 type Coordinates {
   id: ID!
-  latitude: Float!
-  longitude: Float!
+  coordinates: Point!
+  latitude: Float
+  longitude: Float
 }
+
+"""Point scalar type"""
+scalar Point
 
 type Timezone {
   id: ID!
@@ -103,8 +107,81 @@ enum Gender {
 }
 
 type Query {
+  getAddress(id: String!): Address!
+  getDemographics(id: String!): Demographics!
+  getIdentification(id: String!): Identification!
   getPeople: [Person!]!
-  getPerson(person: PersonInput!): Person!
+  getPerson(id: String!): Person!
+  getSocialConnection(id: String!): SocialConnection!
+  getCoordinates(id: String!): Coordinates!
+  getLocation(id: String!): Location!
+  getTenure(id: String!): Tenure!
+}
+
+type Mutation {
+  createAddress(address: AddressInput!): Address!
+  updateAddress(id: String!, address: AddressInput!): Address!
+  deleteAddress(id: String!): Address!
+  associateAddressWithPerson(addressId: String!, personId: String!): Address!
+  associateAddressWithLocation(addressId: String!, locationId: String!): Address!
+  createDemographics(demographics: DemographicsInput!): Demographics!
+  updateDemographics(id: String!, demographics: DemographicsInput!): Demographics!
+  deleteDemographics(id: String!): Boolean!
+  associateDemographicsWithPerson(demographicsId: String!, personId: String!): Demographics!
+  createIdentification(identification: IdentificationInput!): Identification!
+  updateIdentification(id: String!, identification: IdentificationInput!): Identification!
+  deleteIdentification(id: String!): Boolean!
+  associateIdentificationWithTenure(identificationId: String!, tenureId: String!): Identification!
+  associateIdentificationWithPerson(identificationId: String!, personId: String!): Identification!
+  createPerson(person: PersonInput!): Person!
+  updatePerson(id: String!, person: PersonInput!): Person!
+  deletePerson(id: String!): Person!
+  createSocialConnection(socialConnection: SocialConnectionInput!): SocialConnection!
+  updateSocialConnection(id: String!, socialConnection: SocialConnectionInput!): SocialConnection!
+  deleteSocialConnection(id: String!): Boolean!
+  associateSocialConnectionWithPerson(socialConnectionId: String!, personId: String!): SocialConnection!
+  createCoordinates(coordinates: CoordinatesInput!): Coordinates!
+  updateCoordinates(id: String!, coordinates: CoordinatesInput!): Coordinates!
+  deleteCoordinates(id: String!): Coordinates!
+  associateCoordinatesWithLocation(coordinatesId: String!, locationId: String!): Coordinates!
+  createLocation(location: LocationInput!): Location!
+  updateLocation(id: String!, location: LocationInput!): Location!
+  deleteLocation(id: String!): Location!
+  createTenure(tenure: TenureInput!): Tenure!
+  updateTenure(id: String!, tenure: TenureInput!): Tenure!
+  deleteTenure(id: String!): Tenure!
+}
+
+input AddressInput {
+  id: String
+  name: String
+  room: String
+  apartment: String
+  wing: String
+  street: String
+  landmark: String
+  locality: String
+  suburb: String
+  city: String
+  state: String
+  country: String
+  zip: String
+}
+
+input DemographicsInput {
+  id: String
+  firstName: String
+  lastName: String
+  middleName: String
+  nickname: String
+  salutation: Salutation
+}
+
+input IdentificationInput {
+  id: String
+  name: String
+  number: String
+  type: String
 }
 
 input PersonInput {
@@ -117,8 +194,25 @@ input PersonInput {
   dateOfBirth: DateTime
 }
 
-type Mutation {
-  createPerson(person: PersonInput!): Person!
-  updatePerson(id: String!, person: PersonInput!): Person!
-  deletePerson(id: String!): Person!
+input SocialConnectionInput {
+  id: String
+  name: String
+  url: String
+}
+
+input CoordinatesInput {
+  id: String
+  latitude: Float
+  longitude: Float
+}
+
+input LocationInput {
+  id: String
+  plusCode: String
+}
+
+input TenureInput {
+  id: String
+  start: DateTime
+  end: DateTime
 }

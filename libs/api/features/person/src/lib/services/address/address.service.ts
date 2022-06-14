@@ -2,30 +2,134 @@ import { Injectable } from '@nestjs/common';
 
 import {
   Address,
+  AddressDTO,
   Location,
-  Neo4jNode
+  Neo4jNode,
+  Person
 } from '../../imports/models';
-import { Neo4jNodeMapperService } from '../../imports/services';
 
+import { ExtractorService } from '../../helpers';
 import { AddressRepository } from '../../repositories';
 
 @Injectable()
 export class AddressService {
   constructor(
     private _repository: AddressRepository,
-    private _mapNode: Neo4jNodeMapperService
-  ) { }
+    private _extractor: ExtractorService
+  ) {}
 
-  private extractLocation(result: { location: Neo4jNode<Location> }[]): Location[] {
-    return result.map(({ location }) => location).map(this._mapNode.toLocation);
+  async getAddress(id = ''): Promise<Address> {
+    const result = await this._repository.getAddress(id);
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
   }
 
-  async getLocation(address: Address): Promise<Location> {
-    const result = await this._repository.getLocation(address);
+  async getLocation(id = ''): Promise<Location> {
+    const result = await this._repository.getLocation(id);
     return (
-      this.extractLocation(
-        (<unknown>result) as { location: Neo4jNode<Location> }[]
-      ).at(0) ?? new Location({ id: '' })
+      this._extractor
+        .extractLocation(
+          (<unknown>result) as { location: Neo4jNode<Location> }[]
+        )
+        .at(0) ?? new Location({ id: '' })
     );
+  }
+
+  async getResidents(id = ''): Promise<Person[]> {
+    const result = await this._repository.getResidents(id);
+    return (
+      this._extractor.extractPeople(
+        (<unknown>result) as { person: Neo4jNode<Person> }[]
+      ) ?? []
+    );
+  }
+
+  async createAddress(address: AddressDTO): Promise<Address> {
+    const id = new Address({ ...address }).generateUUID();
+    const result = await this._repository.createAddress(id, address);
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
+  }
+
+  async updateAddress(id: string, address: AddressDTO): Promise<Address> {
+    const result = await this._repository.updateAddress(id, address);
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
+  }
+
+  async deleteAddress(id: string): Promise<Address> {
+    const result = await this._repository.deleteAddress(id);
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
+  }
+
+  async associateAddressWithPerson(
+    addressId: string,
+    personId: string
+  ): Promise<Address> {
+    const check = await this.checkAddressOfRelationship(addressId, personId);
+    const result = check
+      ? await this._repository.getAddress(addressId)
+      : await this._repository.associateAddressWithPerson(addressId, personId);
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
+  }
+
+  async associateAddressWithLocation(
+    addressId: string,
+    locationId: string
+  ): Promise<Address> {
+    const check = await this.checkHasLocationRelationship(
+      addressId,
+      locationId
+    );
+    const result = check
+      ? await this._repository.getAddress(addressId)
+      : await this._repository.associateAddressWithLocation(
+          addressId,
+          locationId
+        );
+    return (
+      this._extractor
+        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
+        .at(0) ?? new Address({ id: '' })
+    );
+  }
+
+  async checkAddressOfRelationship(
+    addressId: string,
+    personId: string
+  ): Promise<boolean> {
+    const result = await this._repository.checkAddressOfRelationship(
+      addressId,
+      personId
+    );
+    return !!result.length;
+  }
+
+  async checkHasLocationRelationship(
+    addressId: string,
+    locationId: string
+  ): Promise<boolean> {
+    const result = await this._repository.checkHasLocationRelationship(
+      addressId,
+      locationId
+    );
+    return !!result.length;
   }
 }

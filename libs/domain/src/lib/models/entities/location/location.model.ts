@@ -1,4 +1,6 @@
-import { Coordinates, CoordinatesDTO, Timezone, TimezoneDTO } from '.';
+import { v4 as uuid } from 'uuid';
+
+import { Coordinates, Timezone } from '.';
 
 interface ILocationBase {
   plusCode: string;
@@ -31,31 +33,33 @@ export class Location implements ILocation {
     this.timezone = timezone;
   }
 
-  filterForInput(): Partial<Location> {
-    let clone: Partial<Location> = {};
-    if (!!this.id) clone = { ...clone, id: this.id };
-    if (!!this.plusCode) clone = { ...clone, plusCode: this.plusCode };
-    return clone;
+  getId(): string {
+    return this.id;
+  }
+
+  setId(id: string): void {
+    this.id = id;
+  }
+  getPlusCode(): string {
+    return this.plusCode;
+  }
+
+  setPlusCode(plusCode: string): void {
+    this.plusCode = plusCode;
+  }
+
+  generateUUID(): string {
+    this.setId(uuid());
+    return this.getId();
   }
 }
 
-interface ILocationDTO extends ILocationBase {
-  coordinates: CoordinatesDTO;
-  timezone: TimezoneDTO;
-}
+type ILocationDTO = ILocationBase;
 
 export class LocationDTO implements ILocationDTO {
   plusCode: string;
-  coordinates: CoordinatesDTO;
-  timezone: TimezoneDTO;
 
-  constructor({
-    plusCode = BaseStub.plusCode,
-    coordinates = new CoordinatesDTO({}),
-    timezone = new TimezoneDTO({})
-  }: Partial<ILocationDTO>) {
+  constructor({ plusCode = BaseStub.plusCode }: Partial<ILocationDTO>) {
     this.plusCode = plusCode;
-    this.coordinates = coordinates;
-    this.timezone = timezone;
   }
 }

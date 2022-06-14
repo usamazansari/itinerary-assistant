@@ -1,5 +1,7 @@
-import { Location, LocationDTO } from '../..';
-import { Person, PersonDTO } from '..';
+import { v4 as uuid } from 'uuid';
+
+import { Location } from '../..';
+import { Person } from '..';
 
 interface IAddressBase {
   name: string;
@@ -88,29 +90,105 @@ export class Address implements IAddress {
     this.residents = residents;
   }
 
-  filterForInput(): Partial<Address> {
-    let clone: Partial<Address> = {};
-    if (!!this.id) clone = { ...clone, id: this.id };
-    if (!!this.name) clone = { ...clone, name: this.name };
-    if (!!this.room) clone = { ...clone, room: this.room };
-    if (!!this.apartment) clone = { ...clone, apartment: this.apartment };
-    if (!!this.wing) clone = { ...clone, wing: this.wing };
-    if (!!this.street) clone = { ...clone, street: this.street };
-    if (!!this.landmark) clone = { ...clone, landmark: this.landmark };
-    if (!!this.locality) clone = { ...clone, locality: this.locality };
-    if (!!this.suburb) clone = { ...clone, suburb: this.suburb };
-    if (!!this.city) clone = { ...clone, city: this.city };
-    if (!!this.state) clone = { ...clone, state: this.state };
-    if (!!this.country) clone = { ...clone, country: this.country };
-    if (!!this.zip) clone = { ...clone, zip: this.zip };
-    return clone;
+  getId(): string {
+    return this.id;
+  }
+
+  setId(id: string): void {
+    this.id = id;
+  }
+  getName(): string {
+    return this.name;
+  }
+
+  setName(name: string): void {
+    this.name = name;
+  }
+  getRoom(): string {
+    return this.room;
+  }
+
+  setRoom(room: string): void {
+    this.room = room;
+  }
+  getApartment(): string {
+    return this.apartment;
+  }
+
+  setApartment(apartment: string): void {
+    this.apartment = apartment;
+  }
+  getWing(): string {
+    return this.wing;
+  }
+
+  setWing(wing: string): void {
+    this.wing = wing;
+  }
+  getStreet(): string {
+    return this.street;
+  }
+
+  setStreet(street: string): void {
+    this.street = street;
+  }
+  getLandmark(): string {
+    return this.landmark;
+  }
+
+  setLandmark(landmark: string): void {
+    this.landmark = landmark;
+  }
+  getLocality(): string {
+    return this.locality;
+  }
+
+  setLocality(locality: string): void {
+    this.locality = locality;
+  }
+  getSuburb(): string {
+    return this.suburb;
+  }
+
+  setSuburb(suburb: string): void {
+    this.suburb = suburb;
+  }
+  getCity(): string {
+    return this.city;
+  }
+
+  setCity(city: string): void {
+    this.city = city;
+  }
+  getState(): string {
+    return this.state;
+  }
+
+  setState(state: string): void {
+    this.state = state;
+  }
+  getCountry(): string {
+    return this.country;
+  }
+
+  setCountry(country: string): void {
+    this.country = country;
+  }
+  getZip(): string {
+    return this.zip;
+  }
+
+  setZip(zip: string): void {
+    this.zip = zip;
+  }
+
+  generateUUID(): string {
+    this.setId(uuid());
+    return this.getId();
   }
 }
 
-interface IAddressDTO extends IAddressBase {
-  location: LocationDTO;
-  residents: PersonDTO[];
-}
+type IAddressDTO = IAddressBase;
 
 export class AddressDTO implements IAddressDTO {
   name: string;
@@ -125,8 +203,6 @@ export class AddressDTO implements IAddressDTO {
   state: string;
   country: string;
   zip: string;
-  location: LocationDTO;
-  residents: PersonDTO[];
 
   constructor({
     name = BaseStub.name,
@@ -140,9 +216,7 @@ export class AddressDTO implements IAddressDTO {
     city = BaseStub.city,
     state = BaseStub.state,
     country = BaseStub.country,
-    zip = BaseStub.zip,
-    location = new LocationDTO({}),
-    residents = []
+    zip = BaseStub.zip
   }: Partial<IAddressDTO>) {
     this.name = name;
     this.room = room;
@@ -156,7 +230,5 @@ export class AddressDTO implements IAddressDTO {
     this.state = state;
     this.country = country;
     this.zip = zip;
-    this.location = location;
-    this.residents = residents;
   }
 }

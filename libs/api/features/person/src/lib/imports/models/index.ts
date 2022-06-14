@@ -1,12 +1,16 @@
 export {
   Address,
+  AddressDTO,
   Coordinates,
   Demographics,
+  DemographicsDTO,
   Identification,
+  IdentificationDTO,
   Location,
   Person,
   PersonDTO,
   SocialConnection,
+  SocialConnectionDTO,
   Tenure,
   Timezone
 } from '@itinerary-assistant/domain';

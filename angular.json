@@ -9,6 +9,7 @@
     "api-database-seed": "libs/api/database/seed",
     "api-features-person": "libs/api/features/person",
     "api-features-trip": "libs/api/features/trip",
+    "api-shared": "libs/api/shared",
     "domain": "libs/domain",
     "shared-data": "libs/shared/data",
     "shared-styles": "libs/shared/styles",
