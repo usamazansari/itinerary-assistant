@@ -40,7 +40,28 @@ export class IdentificationService {
   async createIdentification(
     identification: IdentificationDTO
   ): Promise<Identification> {
-    const result = await this._repository.createIdentification(identification);
+    const id = new Identification({ ...identification }).generateUUID();
+    const result = await this._repository.createIdentification(
+      id,
+      identification
+    );
+    return (
+      this._extractor
+        .extractIdentifications(
+          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+        )
+        .at(0) ?? new Identification({ id: '' })
+    );
+  }
+
+  async updateIdentification(
+    id: string,
+    identification: IdentificationDTO
+  ): Promise<Identification> {
+    const result = await this._repository.updateIdentification(
+      id,
+      identification
+    );
     return (
       this._extractor
         .extractIdentifications(

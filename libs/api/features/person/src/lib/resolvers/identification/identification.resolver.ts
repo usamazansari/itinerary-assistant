@@ -41,6 +41,15 @@ export class IdentificationResolver {
   }
 
   @Mutation(() => Entity)
+  async updateIdentification(
+    @Args('id', { type: () => String }) id: string,
+    @Args('identification', { type: () => IdentificationInput })
+    identification: Identification
+  ): Promise<Identification> {
+    return await this._service.updateIdentification(id, identification);
+  }
+
+  @Mutation(() => Entity)
   async associateIdentificationWithTenure(
     @Args('identificationId', { type: () => String }) identificationId: string,
     @Args('tenureId', { type: () => String }) tenureId: string

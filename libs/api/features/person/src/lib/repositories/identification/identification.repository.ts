@@ -1,12 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
-import { Identification, IdentificationDTO } from '../../imports/models';
+import { IdentificationDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
+
+import { IdentificationHelper } from '../../helpers';
 
 @Injectable()
 export class IdentificationRepository {
-  constructor(private _query: Neo4jQueryRepositoryService) {}
+  constructor(
+    private _query: Neo4jQueryRepositoryService,
+    private _helper: IdentificationHelper
+  ) {}
 
   async getIdentification(id = '') {
     const query = this._query
@@ -34,13 +39,24 @@ export class IdentificationRepository {
     return result;
   }
 
-  async createIdentification(identification: IdentificationDTO) {
-    const id = new Identification({ ...identification }).generateUUID();
+  async createIdentification(id = '', identification: IdentificationDTO) {
+    const create = this._helper.generateCreateObject({ id, identification });
     const query = this._query
       .queryBuilder()
-      .create([
-        node('identification', 'IDENTIFICATION', { id, ...identification })
-      ])
+      .create([node('identification', 'IDENTIFICATION', { ...create })])
+      .return(['identification']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async updateIdentification(id: string, identification: IdentificationDTO) {
+    const update = this._helper.generateUpdateObject(identification);
+    const query = this._query
+      .queryBuilder()
+      .match([node('identification', 'IDENTIFICATION', { id })])
+      .set({ values: { ...update } })
       .return(['identification']);
 
     console.log({ query: query.toString() });
