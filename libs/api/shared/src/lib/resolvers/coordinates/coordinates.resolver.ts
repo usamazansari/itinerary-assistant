@@ -40,4 +40,15 @@ export class CoordinatesResolver {
   ): Promise<Coordinates> {
     return await this._service.deleteCoordinates(id);
   }
+
+  @Mutation(() => Entity)
+  async associateCoordinatesWithLocation(
+    @Args('coordinatesId', { type: () => String }) coordinatesId: string,
+    @Args('locationId', { type: () => String }) locationId: string
+  ): Promise<Coordinates> {
+    return await this._service.associateCoordinatesWithLocation(
+      coordinatesId,
+      locationId
+    );
+  }
 }

@@ -59,4 +59,38 @@ export class CoordinatesService {
         .at(0) ?? new Coordinates({ id: '' })
     );
   }
+
+  async associateCoordinatesWithLocation(
+    coordinatesId = '',
+    locationId = ''
+  ): Promise<Coordinates> {
+    const check = await this.checkCoordinatesOfRelationship(
+      coordinatesId,
+      locationId
+    );
+    const result = check
+      ? await this._repository.getCoordinates(coordinatesId)
+      : await this._repository.associateCoordinatesWithLocation(
+          coordinatesId,
+          locationId
+        );
+    return (
+      this._extractor
+        .extractCoordinates(
+          (<unknown>result) as { coordinates: Neo4jNode<Coordinates> }[]
+        )
+        .at(0) ?? new Coordinates({ id: '' })
+    );
+  }
+
+  async checkCoordinatesOfRelationship(
+    coordinatesId: string,
+    locationId: string
+  ): Promise<boolean> {
+    const result = await this._repository.checkCoordinatesOfRelationship(
+      coordinatesId,
+      locationId
+    );
+    return !!result.length;
+  }
 }
