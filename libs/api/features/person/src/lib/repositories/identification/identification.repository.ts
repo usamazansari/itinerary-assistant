@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
+import { Identification, IdentificationDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
 
 @Injectable()
@@ -27,6 +28,20 @@ export class IdentificationRepository {
         node('tenure', 'TENURE')
       ])
       .return(['tenure']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
+  async createIdentification(identification: IdentificationDTO) {
+    const id = new Identification({ ...identification }).generateUUID();
+    const query = this._query
+      .queryBuilder()
+      .create([
+        node('identification', 'IDENTIFICATION', { id, ...identification })
+      ])
+      .return(['identification']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

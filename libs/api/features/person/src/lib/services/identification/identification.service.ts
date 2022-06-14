@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
 
-import { Identification, Tenure, Neo4jNode } from '../../imports/models';
+import {
+  Identification,
+  IdentificationDTO,
+  Tenure,
+  Neo4jNode
+} from '../../imports/models';
 
 import { IdentificationRepository } from '../../repositories';
 import { ExtractorService } from '../../helpers';
@@ -29,6 +34,19 @@ export class IdentificationService {
       this._extractor
         .extractTenures((<unknown>result) as { tenure: Neo4jNode<Tenure> }[])
         .at(0) ?? new Tenure({ id: '' })
+    );
+  }
+
+  async createIdentification(
+    identification: IdentificationDTO
+  ): Promise<Identification> {
+    const result = await this._repository.createIdentification(identification);
+    return (
+      this._extractor
+        .extractIdentifications(
+          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
+        )
+        .at(0) ?? new Identification({ id: '' })
     );
   }
 

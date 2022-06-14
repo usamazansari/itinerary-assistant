@@ -13,6 +13,7 @@ import {
 } from '../../imports/entities';
 import { Identification, Tenure as TenureModel } from '../../imports/models';
 
+import { IdentificationInput } from '../../inputs';
 import { IdentificationService } from '../../services';
 
 @Resolver(() => Entity)
@@ -29,6 +30,14 @@ export class IdentificationResolver {
   @ResolveField(() => TenureEntity, { name: 'validity' })
   async getTenure(@Parent() { id }: Entity): Promise<TenureModel> {
     return await this._service.getTenure(id);
+  }
+
+  @Mutation(() => Entity)
+  async createIdentification(
+    @Args('identification', { type: () => IdentificationInput })
+    identification: Identification
+  ): Promise<Identification> {
+    return await this._service.createIdentification(identification);
   }
 
   @Mutation(() => Entity)

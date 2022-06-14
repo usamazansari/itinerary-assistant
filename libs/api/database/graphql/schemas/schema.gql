@@ -122,6 +122,7 @@ type Mutation {
   deleteAddress(id: String!): Address!
   associateAddressWithPerson(addressId: String!, personId: String!): Address!
   associateAddressWithLocation(addressId: String!, locationId: String!): Address!
+  createIdentification(identification: IdentificationInput!): Identification!
   associateIdentificationWithTenure(identificationId: String!, tenureId: String!): Identification!
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
@@ -152,6 +153,13 @@ input AddressInput {
   state: String
   country: String
   zip: String
+}
+
+input IdentificationInput {
+  id: String
+  name: String
+  number: String
+  type: String
 }
 
 input PersonInput {
