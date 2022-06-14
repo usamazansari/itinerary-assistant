@@ -57,18 +57,18 @@ export class AddressHelper {
     } = address;
 
     let _ = {};
-    if (!!apartment) _ = { ..._, [`address.apartment`]: apartment };
-    if (!!city) _ = { ..._, [`address.city`]: city };
-    if (!!country) _ = { ..._, [`address.country`]: country };
-    if (!!landmark) _ = { ..._, [`address.landmark`]: landmark };
-    if (!!locality) _ = { ..._, [`address.locality`]: locality };
-    if (!!name) _ = { ..._, [`address.name`]: name };
-    if (!!room) _ = { ..._, [`address.room`]: room };
-    if (!!state) _ = { ..._, [`address.state`]: state };
-    if (!!street) _ = { ..._, [`address.street`]: street };
-    if (!!suburb) _ = { ..._, [`address.suburb`]: suburb };
-    if (!!wing) _ = { ..._, [`address.wing`]: wing };
-    if (!!zip) _ = { ..._, [`address.zip`]: zip };
+    if (!!apartment) _ = { ..._, ['address.apartment']: apartment };
+    if (!!city) _ = { ..._, ['address.city']: city };
+    if (!!country) _ = { ..._, ['address.country']: country };
+    if (!!landmark) _ = { ..._, ['address.landmark']: landmark };
+    if (!!locality) _ = { ..._, ['address.locality']: locality };
+    if (!!name) _ = { ..._, ['address.name']: name };
+    if (!!room) _ = { ..._, ['address.room']: room };
+    if (!!state) _ = { ..._, ['address.state']: state };
+    if (!!street) _ = { ..._, ['address.street']: street };
+    if (!!suburb) _ = { ..._, ['address.suburb']: suburb };
+    if (!!wing) _ = { ..._, ['address.wing']: wing };
+    if (!!zip) _ = { ..._, ['address.zip']: zip };
     return _;
   }
 }

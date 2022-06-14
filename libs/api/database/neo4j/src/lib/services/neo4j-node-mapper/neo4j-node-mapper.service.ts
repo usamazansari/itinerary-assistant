@@ -12,8 +12,9 @@ import {
   SocialConnection,
   Person
 } from '../../imports/models';
+import { parseFromDateTime, parseFromPoint } from '../../imports/utils';
+
 import { Neo4jNode } from '../../models';
-import { parseFromDateTime } from '../../utils';
 
 @Injectable()
 export class Neo4jNodeMapperService {
@@ -50,10 +51,13 @@ export class Neo4jNodeMapperService {
   }
 
   toCoordinates({ properties }: Neo4jNode<Coordinates>): Coordinates {
+    const { latitude, longitude } = parseFromPoint(
+      (<unknown>properties.coordinates) as Point<number>
+    );
     return new Coordinates({
       ...properties,
-      latitude: (properties.coordinates as Point).x,
-      longitude: (properties.coordinates as Point).y
+      latitude,
+      longitude
     });
   }
 
