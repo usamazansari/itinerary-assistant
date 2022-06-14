@@ -65,7 +65,7 @@ export class IdentificationRepository {
       .queryBuilder()
       .match([
         node('identification', 'IDENTIFICATION', { id: identificationId }),
-        relation('in', 'identificationRelationship', 'HAS_VALIDITY'),
+        relation('out', 'identificationRelationship', 'HAS_VALIDITY'),
         node('tenure', 'TENURE', { id: tenureId })
       ])
       .return(['identification']);
