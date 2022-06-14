@@ -26,4 +26,11 @@ export class CoordinatesResolver {
   ): Promise<Coordinates> {
     return await this._service.updateCoordinates(id, coordinates);
   }
+
+  @Mutation(() => Entity)
+  async deleteCoordinates(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Coordinates> {
+    return await this._service.deleteCoordinates(id);
+  }
 }

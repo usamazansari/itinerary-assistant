@@ -124,6 +124,7 @@ type Mutation {
   deletePerson(id: String!): Person!
   createCoordinates(coordinates: CoordinatesInput!): Coordinates!
   updateCoordinates(id: String!, coordinates: CoordinatesInput!): Coordinates!
+  deleteCoordinates(id: String!): Coordinates!
   createLocation(location: LocationInput!): Location!
   updateLocation(id: String!, location: LocationInput!): Location!
   deleteLocation(id: String!): Location!

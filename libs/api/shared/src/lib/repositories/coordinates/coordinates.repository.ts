@@ -37,4 +37,15 @@ export class CoordinatesRepository {
     const result = await query.run();
     return result;
   }
+
+  async deleteCoordinates(id = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([node('coordinates', 'COORDINATES', { id })])
+      .delete(['coordinates']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
 }

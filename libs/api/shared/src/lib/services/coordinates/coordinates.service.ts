@@ -37,4 +37,15 @@ export class CoordinatesService {
         .at(0) ?? new Coordinates({ id: '' })
     );
   }
+
+  async deleteCoordinates(id = ''): Promise<Coordinates> {
+    const result = await this._repository.deleteCoordinates(id);
+    return (
+      this._extractor
+        .extractCoordinates(
+          (<unknown>result) as { coordinates: Neo4jNode<Coordinates> }[]
+        )
+        .at(0) ?? new Coordinates({ id: '' })
+    );
+  }
 }
