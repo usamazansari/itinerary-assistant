@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 import { Salutation } from '../../../../constants';
 
 interface IDemographicsBase {
@@ -44,6 +46,14 @@ export class Demographics implements IDemographics {
     this.salutation = salutation;
   }
 
+  getId(): string {
+    return this.id;
+  }
+
+  setId(id: string): void {
+    this.id = id;
+  }
+
   getFirstName(): string {
     return this.firstName;
   }
@@ -82,6 +92,11 @@ export class Demographics implements IDemographics {
 
   setSalutation(salutation: Salutation): void {
     this.salutation = salutation;
+  }
+
+  generateUUID(): string {
+    this.setId(uuid());
+    return this.getId();
   }
 }
 

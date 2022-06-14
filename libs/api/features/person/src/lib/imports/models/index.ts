@@ -3,6 +3,7 @@ export {
   AddressDTO,
   Coordinates,
   Demographics,
+  DemographicsDTO,
   Identification,
   IdentificationDTO,
   Location,

@@ -27,11 +27,6 @@ export class SocialConnectionResolver {
     return await this._service.getSocialConnection(id);
   }
 
-  @ResolveField(() => TenureEntity, { name: 'validity' })
-  async getTenure(@Parent() { id }: Entity): Promise<TenureModel> {
-    return await this._service.getTenure(id);
-  }
-
   @Mutation(() => Entity)
   async createSocialConnection(
     @Args('socialConnection', { type: () => SocialConnectionInput })
