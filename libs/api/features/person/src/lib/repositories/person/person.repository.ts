@@ -124,7 +124,7 @@ export class PersonRepository {
     const query = this._query
       .queryBuilder()
       .match([node('person', 'PERSON', { id })])
-      .delete(['person'])
+      .detachDelete(['person'])
       .return(['person']);
 
     console.log({ query: query.toString() });
