@@ -4,23 +4,27 @@ import { ApiSharedModule } from './imports/modules';
 import {
   AddressRepository,
   IdentificationRepository,
-  PersonRepository
+  PersonRepository,
+  SocialConnectionRepository
 } from './repositories';
 import {
   AddressResolver,
   IdentificationResolver,
-  PersonResolver
+  PersonResolver,
+  SocialConnectionResolver
 } from './resolvers';
 import {
   AddressHelper,
   ExtractorService,
   IdentificationHelper,
-  PersonHelper
+  PersonHelper,
+  SocialConnectionHelper
 } from './helpers';
 import {
   AddressService,
   IdentificationService,
-  PersonService
+  PersonService,
+  SocialConnectionService
 } from './services';
 
 @Module({
@@ -38,7 +42,11 @@ import {
     PersonHelper,
     PersonRepository,
     PersonResolver,
-    PersonService
+    PersonService,
+    SocialConnectionHelper,
+    SocialConnectionResolver,
+    SocialConnectionRepository,
+    SocialConnectionService
   ]
 })
 export class PersonModule {}

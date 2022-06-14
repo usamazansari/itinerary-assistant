@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 interface ISocialConnectionBase {
   name: string;
   url: string;
@@ -49,6 +51,11 @@ export class SocialConnection implements ISocialConnection {
 
   setUrl(url: string): void {
     this.url = url;
+  }
+
+  generateUUID(): string {
+    this.setId(uuid());
+    return this.getId();
   }
 }
 
