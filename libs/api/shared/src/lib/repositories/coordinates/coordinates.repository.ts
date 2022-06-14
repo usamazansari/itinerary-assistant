@@ -13,6 +13,17 @@ export class CoordinatesRepository {
     private _helper: CoordinatesHelper
   ) {}
 
+  async getCoordinates(id = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([node('coordinates', 'COORDINATES', { id })])
+      .return(['coordinates']);
+
+    console.log({ query: query.toString() });
+    const result = await query.run();
+    return result;
+  }
+
   async createCoordinates(id = '', coordinates: CoordinatesDTO) {
     const create = this._helper.generateCreateObject({ id, coordinates });
     const query = this._query

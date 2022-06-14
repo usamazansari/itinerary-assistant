@@ -1,4 +1,4 @@
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
 import { Coordinates as Entity } from '../../imports/entities';
 import { CoordinatesInput } from '../../inputs';
@@ -9,6 +9,13 @@ import { CoordinatesService } from '../../services';
 @Resolver(() => Entity)
 export class CoordinatesResolver {
   constructor(private _service: CoordinatesService) {}
+
+  @Query(() => Entity)
+  async getCoordinates(
+    @Args('id', { type: () => String }) id: string
+  ): Promise<Coordinates> {
+    return await this._service.getCoordinates(id);
+  }
 
   @Mutation(() => Entity)
   async createCoordinates(

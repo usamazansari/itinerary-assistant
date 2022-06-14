@@ -12,6 +12,17 @@ export class CoordinatesService {
     private _extractor: ExtractorService
   ) {}
 
+  async getCoordinates(id = ''): Promise<Coordinates> {
+    const result = await this._repository.getCoordinates(id);
+    return (
+      this._extractor
+        .extractCoordinates(
+          (<unknown>result) as { coordinates: Neo4jNode<Coordinates> }[]
+        )
+        .at(0) ?? new Coordinates({ id: '' })
+    );
+  }
+
   async createCoordinates(coordinates: CoordinatesDTO): Promise<Coordinates> {
     const id = new Coordinates({ ...coordinates }).generateUUID();
     const result = await this._repository.createCoordinates(id, coordinates);

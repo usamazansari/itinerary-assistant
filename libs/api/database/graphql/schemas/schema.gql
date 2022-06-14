@@ -110,6 +110,7 @@ type Query {
   getAddress(id: String!): Address!
   getPeople: [Person!]!
   getPerson(id: String!): Person!
+  getCoordinates(id: String!): Coordinates!
   getLocation(id: String!): Location!
 }
 
