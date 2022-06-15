@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
+import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { LocationDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
 
@@ -16,9 +17,18 @@ export class LocationRepository {
   async getLocation(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('location', 'LOCATION', { id })])
-      .with({ location: 'output' })
-      .return(['output']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location,
+          { id }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Location}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -29,12 +39,26 @@ export class LocationRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('location', 'LOCATION', { id }),
-        relation('in', 'coordinatesRelationship', 'COORDINATES_OF'),
-        node('coordinates', 'COORDINATES')
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location,
+          { id }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.IN,
+          REPOSITORY_CONSTANTS.Relationships.Coordinates,
+          REPOSITORY_CONSTANTS.Labels.CoordinatesOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Coordinates,
+          REPOSITORY_CONSTANTS.Labels.Coordinates
+        )
       ])
-      .with({ coordinates: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Coordinates}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -45,9 +69,18 @@ export class LocationRepository {
     const create = this._helper.generateCreateObject({ id, location });
     const query = this._query
       .queryBuilder()
-      .create([node('location', 'LOCATION', { ...create })])
-      .with({ location: 'output' })
-      .return(['output']);
+      .create([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location,
+          { ...create }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Location}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -58,10 +91,19 @@ export class LocationRepository {
     const update = this._helper.generateUpdateObject(location);
     const query = this._query
       .queryBuilder()
-      .match([node('location', 'LOCATION', { id })])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location,
+          { id }
+        )
+      ])
       .set({ values: { ...update } })
-      .with({ location: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Location}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -71,8 +113,14 @@ export class LocationRepository {
   async deleteLocation(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('location', 'LOCATION', { id })])
-      .detachDelete(['location']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location,
+          { id }
+        )
+      ])
+      .detachDelete([REPOSITORY_CONSTANTS.Variables.Location]);
 
     console.log({ query: query.toString() });
     const result = await query.run();

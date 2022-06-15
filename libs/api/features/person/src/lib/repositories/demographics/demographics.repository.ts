@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
+import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { DemographicsDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
 
@@ -16,9 +17,20 @@ export class DemographicsRepository {
   async getDemographics(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('demographics', 'DEMOGRAPHICS', { id })])
-      .with({ demographics: 'output' })
-      .return(['output']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Demographics,
+          REPOSITORY_CONSTANTS.Labels.Demographics,
+          {
+            id
+          }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Demographics}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -29,9 +41,20 @@ export class DemographicsRepository {
     const create = this._helper.generateCreateObject({ id, demographics });
     const query = this._query
       .queryBuilder()
-      .create([node('demographics', 'DEMOGRAPHICS', { ...create })])
-      .with({ demographics: 'output' })
-      .return(['output']);
+      .create([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Demographics,
+          REPOSITORY_CONSTANTS.Labels.Demographics,
+          {
+            ...create
+          }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Demographics}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -42,10 +65,21 @@ export class DemographicsRepository {
     const update = this._helper.generateUpdateObject(demographics);
     const query = this._query
       .queryBuilder()
-      .match([node('demographics', 'DEMOGRAPHICS', { id })])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Demographics,
+          REPOSITORY_CONSTANTS.Labels.Demographics,
+          {
+            id
+          }
+        )
+      ])
       .set({ values: { ...update } })
-      .with({ demographics: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Demographics}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -55,10 +89,21 @@ export class DemographicsRepository {
   async deleteDemographics(id: string) {
     const query = this._query
       .queryBuilder()
-      .match([node('demographics', 'DEMOGRAPHICS', { id })])
-      .detachDelete(['demographics'])
-      .with({ demographics: 'output' })
-      .return(['output']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Demographics,
+          REPOSITORY_CONSTANTS.Labels.Demographics,
+          {
+            id
+          }
+        )
+      ])
+      .detachDelete([REPOSITORY_CONSTANTS.Variables.Demographics])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Demographics}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -71,17 +116,41 @@ export class DemographicsRepository {
   ) {
     const query = this._query
       .queryBuilder()
-      .match([node('demographics', 'DEMOGRAPHICS', { id: demographicsId })])
-      .with(['demographics'])
-      .match([node('person', 'PERSON', { id: personId })])
-      .with(['demographics', 'person'])
-      .create([
-        node('demographics'),
-        relation('out', 'demographicsRelationship', 'DEMOGRAPHICS_OF'),
-        node('person')
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Demographics,
+          REPOSITORY_CONSTANTS.Labels.Demographics,
+          {
+            id: demographicsId
+          }
+        )
       ])
-      .with({ demographics: 'output' })
-      .return(['output']);
+      .with([REPOSITORY_CONSTANTS.Variables.Demographics])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Person,
+          REPOSITORY_CONSTANTS.Labels.Person,
+          { id: personId }
+        )
+      ])
+      .with([
+        REPOSITORY_CONSTANTS.Variables.Demographics,
+        REPOSITORY_CONSTANTS.Variables.Person
+      ])
+      .create([
+        node(REPOSITORY_CONSTANTS.Variables.Demographics),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Demographics,
+          REPOSITORY_CONSTANTS.Labels.DemographicsOf
+        ),
+        node(REPOSITORY_CONSTANTS.Variables.Person)
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Demographics}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -95,12 +164,29 @@ export class DemographicsRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('demographics', 'DEMOGRAPHICS', { id: demographicsId }),
-        relation('out', 'demographicsRelationship', 'DEMOGRAPHICS_OF'),
-        node('person', 'PERSON', { id: personId })
+        node(
+          REPOSITORY_CONSTANTS.Variables.Demographics,
+          REPOSITORY_CONSTANTS.Labels.Demographics,
+          {
+            id: demographicsId
+          }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Demographics,
+          REPOSITORY_CONSTANTS.Labels.DemographicsOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Person,
+          REPOSITORY_CONSTANTS.Labels.Person,
+          { id: personId }
+        )
       ])
-      .with({ demographics: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Demographics}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();

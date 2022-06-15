@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { node } from 'cypher-query-builder';
 
+import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { TenureDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
 
@@ -16,9 +17,18 @@ export class TenureRepository {
   async getTenure(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('tenure', 'TENURE', { id })])
-      .with({ tenure: 'output' })
-      .return(['output']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Tenure,
+          REPOSITORY_CONSTANTS.Labels.Tenure,
+          { id }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Tenure}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -29,9 +39,18 @@ export class TenureRepository {
     const create = this._helper.generateCreateObject({ id, tenure });
     const query = this._query
       .queryBuilder()
-      .create([node('tenure', 'TENURE', { ...create })])
-      .with({ tenure: 'output' })
-      .return(['output']);
+      .create([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Tenure,
+          REPOSITORY_CONSTANTS.Labels.Tenure,
+          { ...create }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Tenure}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -42,10 +61,19 @@ export class TenureRepository {
     const update = this._helper.generateUpdateObject(tenure);
     const query = this._query
       .queryBuilder()
-      .match([node('tenure', 'TENURE', { id })])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Tenure,
+          REPOSITORY_CONSTANTS.Labels.Tenure,
+          { id }
+        )
+      ])
       .set({ values: { ...update } })
-      .with({ tenure: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Tenure}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -55,8 +83,14 @@ export class TenureRepository {
   async deleteTenure(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('tenure', 'TENURE', { id })])
-      .detachDelete(['tenure']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Tenure,
+          REPOSITORY_CONSTANTS.Labels.Tenure,
+          { id }
+        )
+      ])
+      .detachDelete([REPOSITORY_CONSTANTS.Variables.Tenure]);
 
     console.log({ query: query.toString() });
     const result = await query.run();

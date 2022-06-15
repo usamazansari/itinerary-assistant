@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
+import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { IdentificationDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
 
@@ -16,9 +17,20 @@ export class IdentificationRepository {
   async getIdentification(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('identification', 'IDENTIFICATION', { id })])
-      .with({ identification: 'output' })
-      .return(['output']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Identification,
+          REPOSITORY_CONSTANTS.Labels.Identification,
+          {
+            id
+          }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Identification}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -29,12 +41,28 @@ export class IdentificationRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('identification', 'IDENTIFICATION', { id }),
-        relation('out', 'identificationRelationship', 'HAS_VALIDITY'),
-        node('tenure', 'TENURE')
+        node(
+          REPOSITORY_CONSTANTS.Variables.Identification,
+          REPOSITORY_CONSTANTS.Labels.Identification,
+          {
+            id
+          }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Identification,
+          REPOSITORY_CONSTANTS.Labels.HasValidity
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Tenure,
+          REPOSITORY_CONSTANTS.Labels.Tenure
+        )
       ])
-      .with({ tenure: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Tenure}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -45,9 +73,20 @@ export class IdentificationRepository {
     const create = this._helper.generateCreateObject({ id, identification });
     const query = this._query
       .queryBuilder()
-      .create([node('identification', 'IDENTIFICATION', { ...create })])
-      .with({ identification: 'output' })
-      .return(['output']);
+      .create([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Identification,
+          REPOSITORY_CONSTANTS.Labels.Identification,
+          {
+            ...create
+          }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Identification}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -58,10 +97,21 @@ export class IdentificationRepository {
     const update = this._helper.generateUpdateObject(identification);
     const query = this._query
       .queryBuilder()
-      .match([node('identification', 'IDENTIFICATION', { id })])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Identification,
+          REPOSITORY_CONSTANTS.Labels.Identification,
+          {
+            id
+          }
+        )
+      ])
       .set({ values: { ...update } })
-      .with({ identification: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Identification}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -71,10 +121,21 @@ export class IdentificationRepository {
   async deleteIdentification(id: string) {
     const query = this._query
       .queryBuilder()
-      .match([node('identification', 'IDENTIFICATION', { id })])
-      .detachDelete(['identification'])
-      .with({ identification: 'output' })
-      .return(['output']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Identification,
+          REPOSITORY_CONSTANTS.Labels.Identification,
+          {
+            id
+          }
+        )
+      ])
+      .detachDelete([REPOSITORY_CONSTANTS.Variables.Identification])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Identification}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -88,18 +149,40 @@ export class IdentificationRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('identification', 'IDENTIFICATION', { id: identificationId })
+        node(
+          REPOSITORY_CONSTANTS.Variables.Identification,
+          REPOSITORY_CONSTANTS.Labels.Identification,
+          {
+            id: identificationId
+          }
+        )
       ])
-      .with(['identification'])
-      .match([node('tenure', 'TENURE', { id: tenureId })])
-      .with(['identification', 'tenure'])
+      .with([REPOSITORY_CONSTANTS.Variables.Identification])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Tenure,
+          REPOSITORY_CONSTANTS.Labels.Tenure,
+          { id: tenureId }
+        )
+      ])
+      .with([
+        REPOSITORY_CONSTANTS.Variables.Identification,
+        REPOSITORY_CONSTANTS.Variables.Tenure
+      ])
       .create([
-        node('identification'),
-        relation('out', 'residentRelationship', 'HAS_VALIDITY'),
-        node('tenure')
+        node(REPOSITORY_CONSTANTS.Variables.Identification),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Resident,
+          REPOSITORY_CONSTANTS.Labels.HasValidity
+        ),
+        node(REPOSITORY_CONSTANTS.Variables.Tenure)
       ])
-      .with({ identification: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Identification}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -113,18 +196,40 @@ export class IdentificationRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('identification', 'IDENTIFICATION', { id: identificationId })
+        node(
+          REPOSITORY_CONSTANTS.Variables.Identification,
+          REPOSITORY_CONSTANTS.Labels.Identification,
+          {
+            id: identificationId
+          }
+        )
       ])
-      .with(['identification'])
-      .match([node('person', 'PERSON', { id: personId })])
-      .with(['identification', 'person'])
+      .with([REPOSITORY_CONSTANTS.Variables.Identification])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Person,
+          REPOSITORY_CONSTANTS.Labels.Person,
+          { id: personId }
+        )
+      ])
+      .with([
+        REPOSITORY_CONSTANTS.Variables.Identification,
+        REPOSITORY_CONSTANTS.Variables.Person
+      ])
       .create([
-        node('identification'),
-        relation('out', 'residentRelationship', 'IDENTIFICATION_OF'),
-        node('person')
+        node(REPOSITORY_CONSTANTS.Variables.Identification),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Resident,
+          REPOSITORY_CONSTANTS.Labels.IdentificationOf
+        ),
+        node(REPOSITORY_CONSTANTS.Variables.Person)
       ])
-      .with({ identification: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Identification}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -138,12 +243,29 @@ export class IdentificationRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('identification', 'IDENTIFICATION', { id: identificationId }),
-        relation('out', 'identificationRelationship', 'HAS_VALIDITY'),
-        node('tenure', 'TENURE', { id: tenureId })
+        node(
+          REPOSITORY_CONSTANTS.Variables.Identification,
+          REPOSITORY_CONSTANTS.Labels.Identification,
+          {
+            id: identificationId
+          }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Identification,
+          REPOSITORY_CONSTANTS.Labels.HasValidity
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Tenure,
+          REPOSITORY_CONSTANTS.Labels.Tenure,
+          { id: tenureId }
+        )
       ])
-      .with({ identification: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Identification}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -157,12 +279,29 @@ export class IdentificationRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('identification', 'IDENTIFICATION', { id: identificationId }),
-        relation('out', 'identificationRelationship', 'IDENTIFICATION_OF'),
-        node('person', 'PERSON', { id: personId })
+        node(
+          REPOSITORY_CONSTANTS.Variables.Identification,
+          REPOSITORY_CONSTANTS.Labels.Identification,
+          {
+            id: identificationId
+          }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Identification,
+          REPOSITORY_CONSTANTS.Labels.IdentificationOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Person,
+          REPOSITORY_CONSTANTS.Labels.Person,
+          { id: personId }
+        )
       ])
-      .with({ identification: 'output' })
-      .return(['output']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Identification}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
