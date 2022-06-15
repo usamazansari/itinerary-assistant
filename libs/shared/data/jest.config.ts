@@ -1,5 +1,5 @@
 /* eslint-disable */
-module.exports = {
+export default {
   displayName: 'shared-data',
   preset: '../../../jest.preset.js',
   globals: {
