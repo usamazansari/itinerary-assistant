@@ -7,12 +7,12 @@ export const EramSocialConnectionIds = {
 
 export const EramSocialConnections: SocialConnection[] = [
   new SocialConnection({
-    id: 'person-2-social-1',
+    id: EramSocialConnectionIds.LinkedIn,
     url: 'https://www.linkedin.com/in/usama-ansari-81380080/',
     name: 'LinkedIn'
   }),
   new SocialConnection({
-    id: 'person-2-social-2',
+    id: EramSocialConnectionIds.Instagram,
     url: 'https://instagram.com/rum_rum',
     name: 'Instagram'
   })

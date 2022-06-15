@@ -13,7 +13,6 @@ export class AddressHelper {
         country,
         landmark,
         locality,
-        name,
         room,
         state,
         street,
@@ -29,7 +28,6 @@ export class AddressHelper {
     if (!!country) _ = { ..._, country };
     if (!!landmark) _ = { ..._, landmark };
     if (!!locality) _ = { ..._, locality };
-    if (!!name) _ = { ..._, name };
     if (!!room) _ = { ..._, room };
     if (!!state) _ = { ..._, state };
     if (!!street) _ = { ..._, street };
@@ -47,7 +45,6 @@ export class AddressHelper {
       country,
       landmark,
       locality,
-      name,
       room,
       state,
       street,
@@ -62,7 +59,6 @@ export class AddressHelper {
     if (!!country) _ = { ..._, ['address.country']: country };
     if (!!landmark) _ = { ..._, ['address.landmark']: landmark };
     if (!!locality) _ = { ..._, ['address.locality']: locality };
-    if (!!name) _ = { ..._, ['address.name']: name };
     if (!!room) _ = { ..._, ['address.room']: room };
     if (!!state) _ = { ..._, ['address.state']: state };
     if (!!street) _ = { ..._, ['address.street']: street };

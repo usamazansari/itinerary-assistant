@@ -4,7 +4,6 @@ import { Location } from '../..';
 import { Person } from '..';
 
 interface IAddressBase {
-  name: string;
   room: string;
   apartment: string;
   wing: string;
@@ -19,7 +18,6 @@ interface IAddressBase {
 }
 
 const BaseStub: IAddressBase = {
-  name: '',
   room: '',
   apartment: '',
   wing: '',
@@ -41,7 +39,6 @@ export interface IAddress extends IAddressBase {
 
 export class Address implements IAddress {
   id: string;
-  name: string;
   room: string;
   apartment: string;
   wing: string;
@@ -58,7 +55,6 @@ export class Address implements IAddress {
 
   constructor({
     id = '',
-    name = BaseStub.name,
     room = BaseStub.room,
     apartment = BaseStub.apartment,
     wing = BaseStub.wing,
@@ -74,7 +70,6 @@ export class Address implements IAddress {
     residents = []
   }: Partial<IAddress>) {
     this.id = id;
-    this.name = name;
     this.room = room;
     this.apartment = apartment;
     this.wing = wing;
@@ -97,13 +92,7 @@ export class Address implements IAddress {
   setId(id: string): void {
     this.id = id;
   }
-  getName(): string {
-    return this.name;
-  }
 
-  setName(name: string): void {
-    this.name = name;
-  }
   getRoom(): string {
     return this.room;
   }
@@ -191,7 +180,6 @@ export class Address implements IAddress {
 type IAddressDTO = IAddressBase;
 
 export class AddressDTO implements IAddressDTO {
-  name: string;
   room: string;
   apartment: string;
   wing: string;
@@ -205,7 +193,6 @@ export class AddressDTO implements IAddressDTO {
   zip: string;
 
   constructor({
-    name = BaseStub.name,
     room = BaseStub.room,
     apartment = BaseStub.apartment,
     wing = BaseStub.wing,
@@ -218,7 +205,6 @@ export class AddressDTO implements IAddressDTO {
     country = BaseStub.country,
     zip = BaseStub.zip
   }: Partial<IAddressDTO>) {
-    this.name = name;
     this.room = room;
     this.apartment = apartment;
     this.wing = wing;
