@@ -1,6 +1,7 @@
+/* eslint-disable */
 module.exports = {
-  displayName: 'shared-data',
-  preset: '../../../jest.preset.js',
+  displayName: 'api-database-graphql',
+  preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json'
@@ -11,5 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest'
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/shared/data'
+  coverageDirectory: '../../../../coverage/libs/api/database/graphql'
 };
