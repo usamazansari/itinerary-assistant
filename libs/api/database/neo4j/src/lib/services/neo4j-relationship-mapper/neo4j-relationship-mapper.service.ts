@@ -14,9 +14,7 @@ import {
   SocialConnectionRelationship,
   SocialConnectionRelationshipData,
   TenureRelationship,
-  TenureRelationshipData,
-  TimezoneRelationship,
-  TimezoneRelationshipData
+  TenureRelationshipData
 } from '../../imports/models';
 import { Neo4jRelationship } from '../../models';
 
@@ -86,20 +84,6 @@ export class Neo4jRelationshipMapperService {
     properties
   }: Neo4jRelationship<CoordinatesRelationshipData>): CoordinatesRelationship {
     return new CoordinatesRelationship({
-      id: identity,
-      start: start,
-      end: end,
-      data: properties
-    });
-  }
-
-  toTimezoneRelationship({
-    identity,
-    start,
-    end,
-    properties
-  }: Neo4jRelationship<TimezoneRelationshipData>): TimezoneRelationship {
-    return new TimezoneRelationship({
       id: identity,
       start: start,
       end: end,
