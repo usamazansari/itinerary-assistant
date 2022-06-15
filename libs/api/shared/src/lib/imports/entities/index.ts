@@ -1,6 +1,5 @@
 export {
   Coordinates,
   Location,
-  Tenure,
-  Timezone
+  Tenure
 } from '@itinerary-assistant/api/database/entities';

@@ -12,17 +12,10 @@ type Coordinates {
 """Point scalar type"""
 scalar Point
 
-type Timezone {
-  id: ID!
-  description: String!
-  offset: Float!
-}
-
 type Location {
   id: ID!
   plusCode: String!
   coordinates: Coordinates!
-  timezone: Timezone!
 }
 
 type Tenure {

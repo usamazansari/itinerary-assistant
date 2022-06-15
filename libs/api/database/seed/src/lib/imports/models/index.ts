@@ -6,7 +6,6 @@ export {
   Location,
   SocialConnection,
   Tenure,
-  Timezone,
   Demographics,
   Person
 } from '@itinerary-assistant/domain';

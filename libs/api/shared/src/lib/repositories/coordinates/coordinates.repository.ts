@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
+import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { CoordinatesDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
 
@@ -16,8 +17,18 @@ export class CoordinatesRepository {
   async getCoordinates(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('coordinates', 'COORDINATES', { id })])
-      .return(['coordinates']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Coordinates,
+          REPOSITORY_CONSTANTS.Labels.Coordinates,
+          { id }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Coordinates}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -28,8 +39,20 @@ export class CoordinatesRepository {
     const create = this._helper.generateCreateObject({ id, coordinates });
     const query = this._query
       .queryBuilder()
-      .create([node('coordinates', 'COORDINATES', { ...create })])
-      .return(['coordinates']);
+      .create([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Coordinates,
+          REPOSITORY_CONSTANTS.Labels.Coordinates,
+          {
+            ...create
+          }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Coordinates}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -40,9 +63,19 @@ export class CoordinatesRepository {
     const update = this._helper.generateUpdateObject(coordinates);
     const query = this._query
       .queryBuilder()
-      .match([node('coordinates', 'COORDINATES', { id })])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Coordinates,
+          REPOSITORY_CONSTANTS.Labels.Coordinates,
+          { id }
+        )
+      ])
       .set({ values: { ...update } })
-      .return(['coordinates']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Coordinates}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -52,8 +85,14 @@ export class CoordinatesRepository {
   async deleteCoordinates(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('coordinates', 'COORDINATES', { id })])
-      .detachDelete(['coordinates']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Coordinates,
+          REPOSITORY_CONSTANTS.Labels.Coordinates,
+          { id }
+        )
+      ])
+      .detachDelete([REPOSITORY_CONSTANTS.Variables.Coordinates]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -63,16 +102,43 @@ export class CoordinatesRepository {
   async associateCoordinatesWithLocation(coordinatesId = '', locationId = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('coordinates', 'COORDINATES', { id: coordinatesId })])
-      .with(['coordinates'])
-      .match([node('location', 'LOCATION', { id: locationId })])
-      .with(['coordinates', 'location'])
-      .create([
-        node('coordinates'),
-        relation('out', 'residentRelationship', 'COORDINATES_OF'),
-        node('location')
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Coordinates,
+          REPOSITORY_CONSTANTS.Labels.Coordinates,
+          {
+            id: coordinatesId
+          }
+        )
       ])
-      .return(['coordinates']);
+      .with([REPOSITORY_CONSTANTS.Variables.Coordinates])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location,
+          {
+            id: locationId
+          }
+        )
+      ])
+      .with([
+        REPOSITORY_CONSTANTS.Variables.Coordinates,
+        REPOSITORY_CONSTANTS.Variables.Location
+      ])
+      .create([
+        node(REPOSITORY_CONSTANTS.Variables.Coordinates),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Resident,
+          REPOSITORY_CONSTANTS.Labels.CoordinatesOf
+        ),
+        node(REPOSITORY_CONSTANTS.Variables.Location)
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Coordinates}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -83,11 +149,31 @@ export class CoordinatesRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('coordinates', 'COORDINATES', { id: coordinatesId }),
-        relation('out', 'coordinatesRelationship', 'COORDINATES_OF'),
-        node('location', 'LOCATION', { id: locationId })
+        node(
+          REPOSITORY_CONSTANTS.Variables.Coordinates,
+          REPOSITORY_CONSTANTS.Labels.Coordinates,
+          {
+            id: coordinatesId
+          }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Coordinates,
+          REPOSITORY_CONSTANTS.Labels.CoordinatesOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location,
+          {
+            id: locationId
+          }
+        )
       ])
-      .return(['coordinates']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Coordinates}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();

@@ -4,7 +4,7 @@ import {
   Address,
   AddressDTO,
   Location,
-  Neo4jNode,
+  Neo4jOutput,
   Person
 } from '../../imports/models';
 
@@ -20,59 +20,33 @@ export class AddressService {
 
   async getAddress(id = ''): Promise<Address> {
     const result = await this._repository.getAddress(id);
-    return (
-      this._extractor
-        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
-        .at(0) ?? new Address({ id: '' })
-    );
+    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
   }
 
   async getLocation(id = ''): Promise<Location> {
     const result = await this._repository.getLocation(id);
-    return (
-      this._extractor
-        .extractLocation(
-          (<unknown>result) as { location: Neo4jNode<Location> }[]
-        )
-        .at(0) ?? new Location({ id: '' })
-    );
+    return this._extractor.extractLocation(result as Neo4jOutput<Location>);
   }
 
   async getResidents(id = ''): Promise<Person[]> {
     const result = await this._repository.getResidents(id);
-    return (
-      this._extractor.extractPeople(
-        (<unknown>result) as { person: Neo4jNode<Person> }[]
-      ) ?? []
-    );
+    return this._extractor.extractPeople(result as Neo4jOutput<Person>);
   }
 
   async createAddress(address: AddressDTO): Promise<Address> {
     const id = new Address({ ...address }).generateUUID();
     const result = await this._repository.createAddress(id, address);
-    return (
-      this._extractor
-        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
-        .at(0) ?? new Address({ id: '' })
-    );
+    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
   }
 
   async updateAddress(id: string, address: AddressDTO): Promise<Address> {
     const result = await this._repository.updateAddress(id, address);
-    return (
-      this._extractor
-        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
-        .at(0) ?? new Address({ id: '' })
-    );
+    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
   }
 
   async deleteAddress(id: string): Promise<Address> {
     const result = await this._repository.deleteAddress(id);
-    return (
-      this._extractor
-        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
-        .at(0) ?? new Address({ id: '' })
-    );
+    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
   }
 
   async associateAddressWithPerson(
@@ -83,11 +57,7 @@ export class AddressService {
     const result = check
       ? await this._repository.getAddress(addressId)
       : await this._repository.associateAddressWithPerson(addressId, personId);
-    return (
-      this._extractor
-        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
-        .at(0) ?? new Address({ id: '' })
-    );
+    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
   }
 
   async associateAddressWithLocation(
@@ -104,11 +74,7 @@ export class AddressService {
           addressId,
           locationId
         );
-    return (
-      this._extractor
-        .extractAddress((<unknown>result) as { address: Neo4jNode<Address> }[])
-        .at(0) ?? new Address({ id: '' })
-    );
+    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
   }
 
   async checkAddressOfRelationship(

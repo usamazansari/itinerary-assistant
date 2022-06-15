@@ -5,54 +5,88 @@ import {
   Demographics,
   Identification,
   Location,
-  Neo4jNode,
+  Neo4jOutput,
   Person,
   SocialConnection,
   Tenure
 } from '../../imports/models';
-import { Neo4jNodeMapperService } from '../../imports/services';
+import {
+  Neo4jNodeMapperService,
+  ExtractorService as SharedExtractorService
+} from '../../imports/services';
 
 @Injectable()
 export class ExtractorService {
-  constructor(private _mapNode: Neo4jNodeMapperService) {}
+  constructor(
+    private _mapNode: Neo4jNodeMapperService,
+    private _extractor: SharedExtractorService
+  ) {}
 
-  extractPeople(result: { person: Neo4jNode<Person> }[]): Person[] {
-    return result.map(({ person }) => person).map(this._mapNode.toPerson);
+  extractPeople(result: Neo4jOutput<Person>): Person[] {
+    return result.map(({ output }) => output).map(this._mapNode.toPerson) ?? [];
   }
 
-  extractAddress(result: { address: Neo4jNode<Address> }[]): Address[] {
-    return result.map(({ address }) => address).map(this._mapNode.toAddress);
+  extractPerson(result: Neo4jOutput<Person>): Person {
+    return this.extractPeople(result).at(0) ?? new Person({});
   }
 
-  extractLocation(result: { location: Neo4jNode<Location> }[]): Location[] {
-    return result.map(({ location }) => location).map(this._mapNode.toLocation);
+  extractAddresses(result: Neo4jOutput<Address>): Address[] {
+    return result.map(({ output }) => output).map(this._mapNode.toAddress);
   }
 
-  extractDemographics(
-    result: { demographics: Neo4jNode<Demographics> }[]
-  ): Demographics[] {
-    return result
-      .map(({ demographics }) => demographics)
-      .map(this._mapNode.toDemographics);
+  extractAddress(result: Neo4jOutput<Address>): Address {
+    return this.extractAddresses(result).at(0) ?? new Address({});
+  }
+
+  extractLocations(result: Neo4jOutput<Location>): Location[] {
+    return this._extractor.extractLocations(result);
+  }
+
+  extractLocation(result: Neo4jOutput<Location>): Location {
+    return this._extractor.extractLocation(result);
+  }
+
+  extractDemographics(result: Neo4jOutput<Demographics>): Demographics[] {
+    return result.map(({ output }) => output).map(this._mapNode.toDemographics);
+  }
+
+  extractDemographic(result: Neo4jOutput<Demographics>): Demographics {
+    return this.extractDemographics(result).at(0) ?? new Demographics({});
   }
 
   extractIdentifications(
-    result: { identification: Neo4jNode<Identification> }[]
+    result: Neo4jOutput<Identification>
   ): Identification[] {
     return result
-      .map(({ identification }) => identification)
+      .map(({ output }) => output)
       .map(this._mapNode.toIdentification);
   }
 
-  extractTenures(result: { tenure: Neo4jNode<Tenure> }[]): Tenure[] {
-    return result.map(({ tenure }) => tenure).map(this._mapNode.toTenure);
+  extractIdentification(result: Neo4jOutput<Identification>): Identification {
+    return this.extractIdentifications(result).at(0) ?? new Identification({});
+  }
+
+  extractTenures(result: Neo4jOutput<Tenure>): Tenure[] {
+    return this._extractor.extractTenures(result);
+  }
+
+  extractTenure(result: Neo4jOutput<Tenure>): Tenure {
+    return this._extractor.extractTenure(result);
   }
 
   extractSocialConnections(
-    result: { socialConnection: Neo4jNode<SocialConnection> }[]
+    result: Neo4jOutput<SocialConnection>
   ): SocialConnection[] {
     return result
-      .map(({ socialConnection }) => socialConnection)
+      .map(({ output }) => output)
       .map(this._mapNode.toSocialConnection);
+  }
+
+  extractSocialConnection(
+    result: Neo4jOutput<SocialConnection>
+  ): SocialConnection {
+    return (
+      this.extractSocialConnections(result).at(0) ?? new SocialConnection({})
+    );
   }
 }

@@ -4,7 +4,7 @@ import {
   Identification,
   IdentificationDTO,
   Tenure,
-  Neo4jNode
+  Neo4jOutput
 } from '../../imports/models';
 
 import { IdentificationRepository } from '../../repositories';
@@ -19,21 +19,16 @@ export class IdentificationService {
 
   async getIdentification(id = ''): Promise<Identification> {
     const result = await this._repository.getIdentification(id);
-    return (
-      this._extractor
-        .extractIdentifications(
-          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
-        )
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 
   async getTenure(id = ''): Promise<Tenure> {
     const result = await this._repository.getTenure(id);
     return (
-      this._extractor
-        .extractTenures((<unknown>result) as { tenure: Neo4jNode<Tenure> }[])
-        .at(0) ?? new Tenure({ id: '' })
+      this._extractor.extractTenures(result as Neo4jOutput<Tenure>).at(0) ??
+      new Tenure({ id: '' })
     );
   }
 
@@ -45,12 +40,8 @@ export class IdentificationService {
       id,
       identification
     );
-    return (
-      this._extractor
-        .extractIdentifications(
-          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
-        )
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 
@@ -62,12 +53,8 @@ export class IdentificationService {
       id,
       identification
     );
-    return (
-      this._extractor
-        .extractIdentifications(
-          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
-        )
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 
@@ -75,9 +62,7 @@ export class IdentificationService {
   async deleteIdentification(id: string): Promise<boolean> {
     const result = await this._repository.deleteIdentification(id);
     return !!this._extractor
-      .extractIdentifications(
-        (<unknown>result) as { identification: Neo4jNode<Identification> }[]
-      )
+      .extractIdentifications(result as Neo4jOutput<Identification>)
       .at(0)?.id;
   }
 
@@ -95,12 +80,8 @@ export class IdentificationService {
           identificationId,
           tenureId
         );
-    return (
-      this._extractor
-        .extractIdentifications(
-          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
-        )
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 
@@ -118,12 +99,8 @@ export class IdentificationService {
           identificationId,
           personId
         );
-    return (
-      this._extractor
-        .extractIdentifications(
-          (<unknown>result) as { identification: Neo4jNode<Identification> }[]
-        )
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 

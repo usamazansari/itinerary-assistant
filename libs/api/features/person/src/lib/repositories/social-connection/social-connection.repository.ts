@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
+import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { SocialConnectionDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
 
@@ -16,8 +17,18 @@ export class SocialConnectionRepository {
   async getSocialConnection(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('socialConnection', 'SOCIAL_CONNECTION', { id })])
-      .return(['socialConnection']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.SocialConnection,
+          REPOSITORY_CONSTANTS.Labels.SocialConnection,
+          { id }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.SocialConnection}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -28,8 +39,18 @@ export class SocialConnectionRepository {
     const create = this._helper.generateCreateObject({ id, socialConnection });
     const query = this._query
       .queryBuilder()
-      .create([node('socialConnection', 'SOCIAL_CONNECTION', { ...create })])
-      .return(['socialConnection']);
+      .create([
+        node(
+          REPOSITORY_CONSTANTS.Variables.SocialConnection,
+          REPOSITORY_CONSTANTS.Labels.SocialConnection,
+          { ...create }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.SocialConnection}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -43,9 +64,19 @@ export class SocialConnectionRepository {
     const update = this._helper.generateUpdateObject(socialConnection);
     const query = this._query
       .queryBuilder()
-      .match([node('socialConnection', 'SOCIAL_CONNECTION', { id })])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.SocialConnection,
+          REPOSITORY_CONSTANTS.Labels.SocialConnection,
+          { id }
+        )
+      ])
       .set({ values: { ...update } })
-      .return(['socialConnection']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.SocialConnection}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -55,9 +86,19 @@ export class SocialConnectionRepository {
   async deleteSocialConnection(id: string) {
     const query = this._query
       .queryBuilder()
-      .match([node('socialConnection', 'SOCIAL_CONNECTION', { id })])
-      .detachDelete(['socialConnection'])
-      .return(['socialConnection']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.SocialConnection,
+          REPOSITORY_CONSTANTS.Labels.SocialConnection,
+          { id }
+        )
+      ])
+      .detachDelete([REPOSITORY_CONSTANTS.Variables.SocialConnection])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.SocialConnection}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -71,19 +112,40 @@ export class SocialConnectionRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('socialConnection', 'SOCIAL_CONNECTION', {
-          id: socialConnectionId
-        })
+        node(
+          REPOSITORY_CONSTANTS.Variables.SocialConnection,
+          REPOSITORY_CONSTANTS.Labels.SocialConnection,
+          {
+            id: socialConnectionId
+          }
+        )
       ])
-      .with(['socialConnection'])
-      .match([node('person', 'PERSON', { id: personId })])
-      .with(['socialConnection', 'person'])
+      .with([REPOSITORY_CONSTANTS.Variables.SocialConnection])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Person,
+          REPOSITORY_CONSTANTS.Labels.Person,
+          { id: personId }
+        )
+      ])
+      .with([
+        REPOSITORY_CONSTANTS.Variables.SocialConnection,
+        REPOSITORY_CONSTANTS.Variables.Person
+      ])
       .create([
-        node('socialConnection'),
-        relation('out', 'socialConnectionRelationship', 'SOCIAL_CONNECTION_OF'),
-        node('person')
+        node(REPOSITORY_CONSTANTS.Variables.SocialConnection),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.SocialConnection,
+          REPOSITORY_CONSTANTS.Labels.SocialConnectionOf
+        ),
+        node(REPOSITORY_CONSTANTS.Variables.Person)
       ])
-      .return(['socialConnection']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.SocialConnection}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -97,13 +159,29 @@ export class SocialConnectionRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('socialConnection', 'SOCIAL_CONNECTION', {
-          id: socialConnectionId
-        }),
-        relation('out', 'socialConnectionRelationship', 'SOCIAL_CONNECTION_OF'),
-        node('person', 'PERSON', { id: personId })
+        node(
+          REPOSITORY_CONSTANTS.Variables.SocialConnection,
+          REPOSITORY_CONSTANTS.Labels.SocialConnection,
+          {
+            id: socialConnectionId
+          }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.SocialConnection,
+          REPOSITORY_CONSTANTS.Labels.SocialConnectionOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Person,
+          REPOSITORY_CONSTANTS.Labels.Person,
+          { id: personId }
+        )
       ])
-      .return(['socialConnection']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.SocialConnection}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();

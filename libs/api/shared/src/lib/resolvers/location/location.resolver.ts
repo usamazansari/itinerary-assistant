@@ -9,14 +9,12 @@ import {
 
 import {
   Coordinates as CoordinatesEntity,
-  Location as Entity,
-  Timezone as TimezoneEntity
+  Location as Entity
 } from '../../imports/entities';
 import { LocationInput } from '../../inputs';
 import {
   Coordinates as CoordinatesModel,
-  Location,
-  Timezone as TimezoneModel
+  Location
 } from '../../imports/models';
 
 import { LocationService } from '../../services';
@@ -35,11 +33,6 @@ export class LocationResolver {
   @ResolveField(() => CoordinatesEntity, { name: 'coordinates' })
   async getCoordinates(@Parent() { id }: Entity): Promise<CoordinatesModel> {
     return await this._service.getCoordinates(id);
-  }
-
-  @ResolveField(() => TimezoneEntity, { name: 'timezone' })
-  async getTimezone(@Parent() { id }: Entity): Promise<TimezoneModel> {
-    return await this._service.getTimezone(id);
   }
 
   @Mutation(() => Entity)

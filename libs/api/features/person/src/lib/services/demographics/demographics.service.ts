@@ -1,6 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
-import { Demographics, DemographicsDTO, Neo4jNode } from '../../imports/models';
+import {
+  Demographics,
+  DemographicsDTO,
+  Neo4jOutput
+} from '../../imports/models';
 
 import { DemographicsRepository } from '../../repositories';
 import { ExtractorService } from '../../helpers';
@@ -14,12 +18,8 @@ export class DemographicsService {
 
   async getDemographics(id = ''): Promise<Demographics> {
     const result = await this._repository.getDemographics(id);
-    return (
-      this._extractor
-        .extractDemographics(
-          (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-        )
-        .at(0) ?? new Demographics({ id: '' })
+    return this._extractor.extractDemographic(
+      result as Neo4jOutput<Demographics>
     );
   }
 
@@ -28,12 +28,8 @@ export class DemographicsService {
   ): Promise<Demographics> {
     const id = new Demographics({ ...demographics }).generateUUID();
     const result = await this._repository.createDemographics(id, demographics);
-    return (
-      this._extractor
-        .extractDemographics(
-          (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-        )
-        .at(0) ?? new Demographics({ id: '' })
+    return this._extractor.extractDemographic(
+      result as Neo4jOutput<Demographics>
     );
   }
 
@@ -42,12 +38,8 @@ export class DemographicsService {
     demographics: DemographicsDTO
   ): Promise<Demographics> {
     const result = await this._repository.updateDemographics(id, demographics);
-    return (
-      this._extractor
-        .extractDemographics(
-          (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-        )
-        .at(0) ?? new Demographics({ id: '' })
+    return this._extractor.extractDemographic(
+      result as Neo4jOutput<Demographics>
     );
   }
 
@@ -55,9 +47,7 @@ export class DemographicsService {
   async deleteDemographics(id: string): Promise<boolean> {
     const result = await this._repository.deleteDemographics(id);
     return !!this._extractor
-      .extractDemographics(
-        (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-      )
+      .extractDemographics(result as Neo4jOutput<Demographics>)
       .at(0)?.id;
   }
 
@@ -75,12 +65,8 @@ export class DemographicsService {
           demographicsId,
           personId
         );
-    return (
-      this._extractor
-        .extractDemographics(
-          (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-        )
-        .at(0) ?? new Demographics({ id: '' })
+    return this._extractor.extractDemographic(
+      result as Neo4jOutput<Demographics>
     );
   }
 

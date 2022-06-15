@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
+import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { AddressDTO } from '../../imports/models';
 import { Neo4jQueryRepositoryService } from '../../imports/services';
 
@@ -16,8 +17,18 @@ export class AddressRepository {
   getAddress(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('address', 'ADDRESS', { id })])
-      .return(['address']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          { id }
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Address}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = query.run();
@@ -28,11 +39,26 @@ export class AddressRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('address', 'ADDRESS', { id }),
-        relation('out', 'locationRelationship', 'HAS_LOCATION'),
-        node('location', 'LOCATION')
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          { id }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Location,
+          REPOSITORY_CONSTANTS.Labels.HasLocation
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location
+        )
       ])
-      .return(['location']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Location}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -43,11 +69,26 @@ export class AddressRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('address', 'ADDRESS', { id }),
-        relation('out', 'residentRelationship', 'ADDRESS_OF'),
-        node('person', 'PERSON')
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          { id }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Resident,
+          REPOSITORY_CONSTANTS.Labels.AddressOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Person,
+          REPOSITORY_CONSTANTS.Labels.Person
+        )
       ])
-      .return(['person']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Person}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -58,8 +99,18 @@ export class AddressRepository {
     const create = this._helper.generateCreateObject({ id, address });
     const query = this._query
       .queryBuilder()
-      .create(node('address', 'ADDRESS', { ...create }))
-      .return(['address']);
+      .create(
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          { ...create }
+        )
+      )
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Address}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -70,9 +121,19 @@ export class AddressRepository {
     const update = this._helper.generateUpdateObject(address);
     const query = this._query
       .queryBuilder()
-      .match([node('address', 'ADDRESS', { id })])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          { id }
+        )
+      ])
       .set({ values: { ...update } })
-      .return(['address']);
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Address}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -82,9 +143,19 @@ export class AddressRepository {
   async deleteAddress(id = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('address', 'ADDRESS', { id })])
-      .detachDelete('address')
-      .return(['address']);
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          { id }
+        )
+      ])
+      .detachDelete(REPOSITORY_CONSTANTS.Variables.Address)
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Address}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -94,16 +165,41 @@ export class AddressRepository {
   async associateAddressWithPerson(addressId = '', personId = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('address', 'ADDRESS', { id: addressId })])
-      .with(['address'])
-      .match([node('person', 'PERSON', { id: personId })])
-      .with(['address', 'person'])
-      .create([
-        node('address'),
-        relation('out', 'residentRelationship', 'ADDRESS_OF'),
-        node('person')
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          {
+            id: addressId
+          }
+        )
       ])
-      .return(['address']);
+      .with([REPOSITORY_CONSTANTS.Variables.Address])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Person,
+          REPOSITORY_CONSTANTS.Labels.Person,
+          { id: personId }
+        )
+      ])
+      .with([
+        REPOSITORY_CONSTANTS.Variables.Address,
+        REPOSITORY_CONSTANTS.Variables.Person
+      ])
+      .create([
+        node(REPOSITORY_CONSTANTS.Variables.Address),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Resident,
+          REPOSITORY_CONSTANTS.Labels.AddressOf
+        ),
+        node(REPOSITORY_CONSTANTS.Variables.Person)
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Address}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -113,16 +209,43 @@ export class AddressRepository {
   async associateAddressWithLocation(addressId = '', locationId = '') {
     const query = this._query
       .queryBuilder()
-      .match([node('address', 'ADDRESS', { id: addressId })])
-      .with(['address'])
-      .match([node('location', 'LOCATION', { id: locationId })])
-      .with(['address', 'location'])
-      .create([
-        node('address'),
-        relation('out', 'locationRelationship', 'HAS_LOCATION'),
-        node('location')
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          {
+            id: addressId
+          }
+        )
       ])
-      .return(['address']);
+      .with([REPOSITORY_CONSTANTS.Variables.Address])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location,
+          {
+            id: locationId
+          }
+        )
+      ])
+      .with([
+        REPOSITORY_CONSTANTS.Variables.Address,
+        REPOSITORY_CONSTANTS.Variables.Location
+      ])
+      .create([
+        node(REPOSITORY_CONSTANTS.Variables.Address),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Location,
+          REPOSITORY_CONSTANTS.Labels.HasLocation
+        ),
+        node(REPOSITORY_CONSTANTS.Variables.Location)
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.Variables.Address}`]:
+          REPOSITORY_CONSTANTS.Variables.Output
+      })
+      .return([REPOSITORY_CONSTANTS.Variables.Output]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -133,11 +256,25 @@ export class AddressRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('address', 'ADDRESS', { id: addressId }),
-        relation('out', 'residentRelationship', 'ADDRESS_OF'),
-        node('person', 'PERSON', { id: personId })
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          {
+            id: addressId
+          }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Resident,
+          REPOSITORY_CONSTANTS.Labels.AddressOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Person,
+          REPOSITORY_CONSTANTS.Labels.Person,
+          { id: personId }
+        )
       ])
-      .return(['residentRelationship']);
+      .return([REPOSITORY_CONSTANTS.Relationships.Resident]);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -148,11 +285,27 @@ export class AddressRepository {
     const query = this._query
       .queryBuilder()
       .match([
-        node('address', 'ADDRESS', { id: addressId }),
-        relation('out', 'locationRelationship', 'HAS_LOCATION'),
-        node('location', 'LOCATION', { id: locationId })
+        node(
+          REPOSITORY_CONSTANTS.Variables.Address,
+          REPOSITORY_CONSTANTS.Labels.Address,
+          {
+            id: addressId
+          }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RelationshipDirection.OUT,
+          REPOSITORY_CONSTANTS.Relationships.Location,
+          REPOSITORY_CONSTANTS.Labels.HasLocation
+        ),
+        node(
+          REPOSITORY_CONSTANTS.Variables.Location,
+          REPOSITORY_CONSTANTS.Labels.Location,
+          {
+            id: locationId
+          }
+        )
       ])
-      .return(['locationRelationship']);
+      .return([REPOSITORY_CONSTANTS.Relationships.Location]);
 
     console.log({ query: query.toString() });
     const result = await query.run();

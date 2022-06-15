@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import {
   SocialConnection,
   SocialConnectionDTO,
-  Neo4jNode
+  Neo4jOutput
 } from '../../imports/models';
 
 import { SocialConnectionRepository } from '../../repositories';
@@ -18,14 +18,8 @@ export class SocialConnectionService {
 
   async getSocialConnection(id = ''): Promise<SocialConnection> {
     const result = await this._repository.getSocialConnection(id);
-    return (
-      this._extractor
-        .extractSocialConnections(
-          (<unknown>result) as {
-            socialConnection: Neo4jNode<SocialConnection>;
-          }[]
-        )
-        .at(0) ?? new SocialConnection({ id: '' })
+    return this._extractor.extractSocialConnection(
+      result as Neo4jOutput<SocialConnection>
     );
   }
 
@@ -37,14 +31,8 @@ export class SocialConnectionService {
       id,
       socialConnection
     );
-    return (
-      this._extractor
-        .extractSocialConnections(
-          (<unknown>result) as {
-            socialConnection: Neo4jNode<SocialConnection>;
-          }[]
-        )
-        .at(0) ?? new SocialConnection({ id: '' })
+    return this._extractor.extractSocialConnection(
+      result as Neo4jOutput<SocialConnection>
     );
   }
 
@@ -56,14 +44,8 @@ export class SocialConnectionService {
       id,
       socialConnection
     );
-    return (
-      this._extractor
-        .extractSocialConnections(
-          (<unknown>result) as {
-            socialConnection: Neo4jNode<SocialConnection>;
-          }[]
-        )
-        .at(0) ?? new SocialConnection({ id: '' })
+    return this._extractor.extractSocialConnection(
+      result as Neo4jOutput<SocialConnection>
     );
   }
 
@@ -71,9 +53,7 @@ export class SocialConnectionService {
   async deleteSocialConnection(id: string): Promise<boolean> {
     const result = await this._repository.deleteSocialConnection(id);
     return !!this._extractor
-      .extractSocialConnections(
-        (<unknown>result) as { socialConnection: Neo4jNode<SocialConnection> }[]
-      )
+      .extractSocialConnections(result as Neo4jOutput<SocialConnection>)
       .at(0)?.id;
   }
 
@@ -91,14 +71,8 @@ export class SocialConnectionService {
           socialConnectionId,
           personId
         );
-    return (
-      this._extractor
-        .extractSocialConnections(
-          (<unknown>result) as {
-            socialConnection: Neo4jNode<SocialConnection>;
-          }[]
-        )
-        .at(0) ?? new SocialConnection({ id: '' })
+    return this._extractor.extractSocialConnection(
+      result as Neo4jOutput<SocialConnection>
     );
   }
 
