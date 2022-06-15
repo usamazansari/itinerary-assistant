@@ -1,15 +1,10 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [
     {
       "type": "npm",
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "label": "Serve Angular",
-      "script": "start",
+      "script": "start:ui",
+      "label": "Serve UI with Nx",
       "isBackground": true,
       "presentation": {
         "focus": true,
@@ -23,10 +18,7 @@
         "owner": "typescript",
         "source": "ts",
         "applyTo": "closedDocuments",
-        "fileLocation": [
-          "relative",
-          "${cwd}"
-        ],
+        "fileLocation": ["relative", "${cwd}"],
         "pattern": "$tsc",
         "background": {
           "activeOnStart": true,
@@ -34,7 +26,7 @@
             "regexp": "(.*?)"
           },
           "endsPattern": {
-            "regexp": "Compiled|Failed to compile"
+            "regexp": "Compiled|Failed to compile."
           }
         }
       }

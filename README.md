@@ -1,122 +1,98 @@
-# Itinerary Assistant
+# ItineraryAssistant
 
-## 1. Hosting URL
+This project was generated using [Nx](https://nx.dev).
 
-Hosting URL would be setup later
+<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
-## 2. Workflow
+🔎 **Smart, Fast and Extensible Build System**
 
-### 2.1. Fetch indexes for any updates in remote
+## Quick Start & Documentation
 
-```
-git fetch
-```
+[Nx Documentation](https://nx.dev/angular)
 
-### 2.2. Create a new branch for development of each feature
+[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
 
-- Create a new branch from `develop` from [GitHub](https://github.com/usama251993/itinerary-assistant)
-```
-git fetch
-git checkout -b <branch_name>
-```
-**OR**
-- Create a new branch and set upstream to [GitHub](https://github.com/usama251993/itinerary-assistant)
-```
-git checkout -b <branch_name>
-git push -u origin <branch_name>
-```
+[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
 
-### 2.3. Commit code to newly created branch
+## Adding capabilities to your workspace
 
-- Develop the code
-- Ready to commit
-```
-git commit -m "<commit_message>"
-```
-- Get the latest code from existing `develop` branch
-```
-git pull origin develop
-```
-- Resolve merge conflicts if any
-- Commit when conflicts resolved
-```
-git commit -m "<default_commit_message>" // Merge into https://remote-url from branch <branch_name>
-```
-- Push to feature branch
-```
-git push
-```
+Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 
-### 2.4. Merge code in `develop` branch
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
 
-1. Creating Pull Request
-   - Update `README.md` each time
-   - `New Pull Request` from [here](https://github.com/usama251993/itinerary-assistant/pulls)
-   - Verify code changes
-   - Mention Reviewers
-   - Leave a suitable message
-   - Done
+Below are our core plugins:
 
-2. Merging the code directly into develop *(not recommended)*
-```
-git checkout develop
-git merge origin/<branch_name>
-git push
-```
+- [Angular](https://angular.io)
+  - `ng add @nrwl/angular`
+- [React](https://reactjs.org)
+  - `ng add @nrwl/react`
+- Web (no framework frontends)
+  - `ng add @nrwl/web`
+- [Nest](https://nestjs.com)
+  - `ng add @nrwl/nest`
+- [Express](https://expressjs.com)
+  - `ng add @nrwl/express`
+- [Node](https://nodejs.org)
+  - `ng add @nrwl/node`
 
-### 2.5. Test code in `test` branch
+There are also many [community plugins](https://nx.dev/community) you could add.
 
-- Fetch the code in `test` branch from `develop` branch
-```
-git checkout test
-git merge origin/develop
-```
-- Perform tests
-- Commit the code when test cases pass
-```
-git commit -m "<test_commit_message>"
-git push
-```
-- Revert to develop whe test cases fail
+## Generate an application
 
+Run `ng g @nrwl/angular:app my-app` to generate an application.
 
-### 2.6. Merge into `deploy` branch
+> You can use any of the plugins above to generate applications as well.
 
-- Fetch the code in `deploy` branch from `test` branch
-```
-git checkout deploy
-git merge origin/test
-```
+When using Nx, you can create multiple applications and libraries in the same workspace.
 
-### 2.7. Deploy to `firebase`
+## Generate a library
 
-- Setup `firebase`
-- Configure `firebase`
-- Deploy to `firebase`
-```
-firebase deploy
-```
+Run `ng g @nrwl/angular:lib my-lib` to generate a library.
 
-## 3. Coding Practices
+> You can also use any of the plugins above to generate libraries as well.
 
-### 3.1 Environment Setup
+Libraries are shareable across libraries and applications. They can be imported from `@itinerary-assistant/mylib`.
 
-- Microsoft Visual Studio Code
-- Windows Powershell
-- Use `npm` commands everywhere, even for `ng` commands - *just for developing a habit*
+## Development server
 
-### 3.2 IDE Settings &amp; Extensions
+Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-- `Fira Code` with ligatures
-- Dark theme
-- Angular Language Service
-- Better Comments
-- Document This
-- Firebase
-- Import Cost
-- Markdown All in One
-- Beautify
+## Code scaffolding
 
-## 4. CHANGELOG
+Run `ng g component my-component --project=my-app` to generate a new component.
 
-Refer `CHANGELOG.md` for details of each and every commit
+## Build
+
+Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+
+Run `nx affected:test` to execute the unit tests affected by a change.
+
+## Running end-to-end tests
+
+Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+
+Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+
+## Understand your workspace
+
+Run `nx graph` to see a diagram of the dependencies of your projects.
+
+## Further help
+
+Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
+
+## ☁ Nx Cloud
+
+### Distributed Computation Caching & Distributed Task Execution
+
+<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+
+Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+
+Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+
+Visit [Nx Cloud](https://nx.app/) to learn more.

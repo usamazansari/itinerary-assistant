@@ -1,30 +1,59 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "rootDir": ".",
+    "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "lib": [
-      "dom",
-      "es2018"
-    ],
-    "module": "es2020",
-    "moduleResolution": "node",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
     "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
     "paths": {
-      "@shared/*": [
-        "src/app/shared/*"
+      "@itinerary-assistant/api/core": ["libs/api/core/src/index.ts"],
+      "@itinerary-assistant/api/database/entities": [
+        "libs/api/database/entities/src/index.ts"
       ],
-      "@ia-core/*": [
-        "src/app/core/*"
+      "@itinerary-assistant/api/database/graphql": [
+        "libs/api/database/graphql/src/index.ts"
       ],
-      "@environments/*": [
-        "src/environments/*"
+      "@itinerary-assistant/api/database/neo4j": [
+        "libs/api/database/neo4j/src/index.ts"
+      ],
+      "@itinerary-assistant/api/database/seed": [
+        "libs/api/database/seed/src/index.ts"
+      ],
+      "@itinerary-assistant/api/features/person": [
+        "libs/api/features/person/src/index.ts"
+      ],
+      "@itinerary-assistant/api/features/trip": [
+        "libs/api/features/trip/src/index.ts"
+      ],
+      "@itinerary-assistant/api/shared": ["libs/api/shared/src/index.ts"],
+      "@itinerary-assistant/domain": ["libs/domain/src/index.ts"],
+      "@itinerary-assistant/shared/data": ["libs/shared/data/src/index.ts"],
+      "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
+      "@itinerary-assistant/ui/design/components/derivative": [
+        "libs/ui/design/components/derivative/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/design/components/elementary": [
+        "libs/ui/design/components/elementary/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/design/icons": [
+        "libs/ui/design/icons/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/design/material": [
+        "libs/ui/design/material/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/features/trip": [
+        "libs/ui/features/trip/src/index.ts"
       ]
     }
-  }
+  },
+  "exclude": ["node_modules", "tmp"]
 }
