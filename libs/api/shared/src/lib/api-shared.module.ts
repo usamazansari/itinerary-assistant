@@ -38,6 +38,7 @@ import { CoordinatesService, LocationService, TenureService } from './services';
     CoordinatesRepository,
     CoordinatesResolver,
     CoordinatesService,
+    ExtractorService,
     LocationRepository,
     LocationResolver,
     LocationService,

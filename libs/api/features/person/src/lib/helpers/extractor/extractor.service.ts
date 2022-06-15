@@ -10,11 +10,17 @@ import {
   SocialConnection,
   Tenure
 } from '../../imports/models';
-import { Neo4jNodeMapperService } from '../../imports/services';
+import {
+  Neo4jNodeMapperService,
+  ExtractorService as SharedExtractorService
+} from '../../imports/services';
 
 @Injectable()
 export class ExtractorService {
-  constructor(private _mapNode: Neo4jNodeMapperService) {}
+  constructor(
+    private _mapNode: Neo4jNodeMapperService,
+    private _extractor: SharedExtractorService
+  ) {}
 
   extractPeople(result: Neo4jOutput<Person>): Person[] {
     return result.map(({ output }) => output).map(this._mapNode.toPerson);
@@ -25,7 +31,7 @@ export class ExtractorService {
   }
 
   extractLocation(result: Neo4jOutput<Location>): Location[] {
-    return result.map(({ output }) => output).map(this._mapNode.toLocation);
+    return this._extractor.extractLocations(result);
   }
 
   extractDemographics(result: Neo4jOutput<Demographics>): Demographics[] {
@@ -41,7 +47,7 @@ export class ExtractorService {
   }
 
   extractTenures(result: Neo4jOutput<Tenure>): Tenure[] {
-    return result.map(({ output }) => output).map(this._mapNode.toTenure);
+    return this._extractor.extractTenures(result);
   }
 
   extractSocialConnections(
