@@ -1,6 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
-import { Demographics, DemographicsDTO, Neo4jNode } from '../../imports/models';
+import {
+  Demographics,
+  DemographicsDTO,
+  Neo4jOutput
+} from '../../imports/models';
 
 import { DemographicsRepository } from '../../repositories';
 import { ExtractorService } from '../../helpers';
@@ -16,9 +20,7 @@ export class DemographicsService {
     const result = await this._repository.getDemographics(id);
     return (
       this._extractor
-        .extractDemographics(
-          (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-        )
+        .extractDemographics(result as Neo4jOutput<Demographics>)
         .at(0) ?? new Demographics({ id: '' })
     );
   }
@@ -30,9 +32,7 @@ export class DemographicsService {
     const result = await this._repository.createDemographics(id, demographics);
     return (
       this._extractor
-        .extractDemographics(
-          (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-        )
+        .extractDemographics(result as Neo4jOutput<Demographics>)
         .at(0) ?? new Demographics({ id: '' })
     );
   }
@@ -44,9 +44,7 @@ export class DemographicsService {
     const result = await this._repository.updateDemographics(id, demographics);
     return (
       this._extractor
-        .extractDemographics(
-          (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-        )
+        .extractDemographics(result as Neo4jOutput<Demographics>)
         .at(0) ?? new Demographics({ id: '' })
     );
   }
@@ -55,9 +53,7 @@ export class DemographicsService {
   async deleteDemographics(id: string): Promise<boolean> {
     const result = await this._repository.deleteDemographics(id);
     return !!this._extractor
-      .extractDemographics(
-        (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-      )
+      .extractDemographics(result as Neo4jOutput<Demographics>)
       .at(0)?.id;
   }
 
@@ -77,9 +73,7 @@ export class DemographicsService {
         );
     return (
       this._extractor
-        .extractDemographics(
-          (<unknown>result) as { demographics: Neo4jNode<Demographics> }[]
-        )
+        .extractDemographics(result as Neo4jOutput<Demographics>)
         .at(0) ?? new Demographics({ id: '' })
     );
   }

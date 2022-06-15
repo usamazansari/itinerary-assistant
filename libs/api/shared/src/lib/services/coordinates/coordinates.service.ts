@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-import { Coordinates, CoordinatesDTO, Neo4jNode } from '../../imports/models';
+import { Coordinates, CoordinatesDTO, Neo4jOutput } from '../../imports/models';
 
 import { ExtractorService } from '../../helpers';
 import { CoordinatesRepository } from '../../repositories';
@@ -16,9 +16,7 @@ export class CoordinatesService {
     const result = await this._repository.getCoordinates(id);
     return (
       this._extractor
-        .extractCoordinates(
-          (<unknown>result) as { coordinates: Neo4jNode<Coordinates> }[]
-        )
+        .extractCoordinates(result as Neo4jOutput<Coordinates>)
         .at(0) ?? new Coordinates({ id: '' })
     );
   }
@@ -28,9 +26,7 @@ export class CoordinatesService {
     const result = await this._repository.createCoordinates(id, coordinates);
     return (
       this._extractor
-        .extractCoordinates(
-          (<unknown>result) as { coordinates: Neo4jNode<Coordinates> }[]
-        )
+        .extractCoordinates(result as Neo4jOutput<Coordinates>)
         .at(0) ?? new Coordinates({ id: '' })
     );
   }
@@ -42,9 +38,7 @@ export class CoordinatesService {
     const result = await this._repository.updateCoordinates(id, coordinates);
     return (
       this._extractor
-        .extractCoordinates(
-          (<unknown>result) as { coordinates: Neo4jNode<Coordinates> }[]
-        )
+        .extractCoordinates(result as Neo4jOutput<Coordinates>)
         .at(0) ?? new Coordinates({ id: '' })
     );
   }
@@ -53,9 +47,7 @@ export class CoordinatesService {
     const result = await this._repository.deleteCoordinates(id);
     return (
       this._extractor
-        .extractCoordinates(
-          (<unknown>result) as { coordinates: Neo4jNode<Coordinates> }[]
-        )
+        .extractCoordinates(result as Neo4jOutput<Coordinates>)
         .at(0) ?? new Coordinates({ id: '' })
     );
   }
@@ -76,9 +68,7 @@ export class CoordinatesService {
         );
     return (
       this._extractor
-        .extractCoordinates(
-          (<unknown>result) as { coordinates: Neo4jNode<Coordinates> }[]
-        )
+        .extractCoordinates(result as Neo4jOutput<Coordinates>)
         .at(0) ?? new Coordinates({ id: '' })
     );
   }

@@ -17,7 +17,8 @@ export class IdentificationRepository {
     const query = this._query
       .queryBuilder()
       .match([node('identification', 'IDENTIFICATION', { id })])
-      .return(['identification']);
+      .with({ identification: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -32,7 +33,8 @@ export class IdentificationRepository {
         relation('out', 'identificationRelationship', 'HAS_VALIDITY'),
         node('tenure', 'TENURE')
       ])
-      .return(['tenure']);
+      .with({ tenure: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -44,7 +46,8 @@ export class IdentificationRepository {
     const query = this._query
       .queryBuilder()
       .create([node('identification', 'IDENTIFICATION', { ...create })])
-      .return(['identification']);
+      .with({ identification: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -57,7 +60,8 @@ export class IdentificationRepository {
       .queryBuilder()
       .match([node('identification', 'IDENTIFICATION', { id })])
       .set({ values: { ...update } })
-      .return(['identification']);
+      .with({ identification: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -69,7 +73,8 @@ export class IdentificationRepository {
       .queryBuilder()
       .match([node('identification', 'IDENTIFICATION', { id })])
       .detachDelete(['identification'])
-      .return(['identification']);
+      .with({ identification: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -93,7 +98,8 @@ export class IdentificationRepository {
         relation('out', 'residentRelationship', 'HAS_VALIDITY'),
         node('tenure')
       ])
-      .return(['identification']);
+      .with({ identification: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -117,7 +123,8 @@ export class IdentificationRepository {
         relation('out', 'residentRelationship', 'IDENTIFICATION_OF'),
         node('person')
       ])
-      .return(['identification']);
+      .with({ identification: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -135,7 +142,8 @@ export class IdentificationRepository {
         relation('out', 'identificationRelationship', 'HAS_VALIDITY'),
         node('tenure', 'TENURE', { id: tenureId })
       ])
-      .return(['identification']);
+      .with({ identification: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -153,7 +161,8 @@ export class IdentificationRepository {
         relation('out', 'identificationRelationship', 'IDENTIFICATION_OF'),
         node('person', 'PERSON', { id: personId })
       ])
-      .return(['identification']);
+      .with({ identification: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

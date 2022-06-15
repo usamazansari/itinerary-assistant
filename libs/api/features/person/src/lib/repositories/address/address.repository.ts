@@ -17,7 +17,8 @@ export class AddressRepository {
     const query = this._query
       .queryBuilder()
       .match([node('address', 'ADDRESS', { id })])
-      .return(['address']);
+      .with({ address: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = query.run();
@@ -32,7 +33,8 @@ export class AddressRepository {
         relation('out', 'locationRelationship', 'HAS_LOCATION'),
         node('location', 'LOCATION')
       ])
-      .return(['location']);
+      .with({ location: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -47,7 +49,8 @@ export class AddressRepository {
         relation('out', 'residentRelationship', 'ADDRESS_OF'),
         node('person', 'PERSON')
       ])
-      .return(['person']);
+      .with({ person: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -59,7 +62,8 @@ export class AddressRepository {
     const query = this._query
       .queryBuilder()
       .create(node('address', 'ADDRESS', { ...create }))
-      .return(['address']);
+      .with({ address: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -72,7 +76,8 @@ export class AddressRepository {
       .queryBuilder()
       .match([node('address', 'ADDRESS', { id })])
       .set({ values: { ...update } })
-      .return(['address']);
+      .with({ address: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -84,7 +89,8 @@ export class AddressRepository {
       .queryBuilder()
       .match([node('address', 'ADDRESS', { id })])
       .detachDelete('address')
-      .return(['address']);
+      .with({ address: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -103,7 +109,8 @@ export class AddressRepository {
         relation('out', 'residentRelationship', 'ADDRESS_OF'),
         node('person')
       ])
-      .return(['address']);
+      .with({ address: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -122,7 +129,8 @@ export class AddressRepository {
         relation('out', 'locationRelationship', 'HAS_LOCATION'),
         node('location')
       ])
-      .return(['address']);
+      .with({ address: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

@@ -17,7 +17,8 @@ export class CoordinatesRepository {
     const query = this._query
       .queryBuilder()
       .match([node('coordinates', 'COORDINATES', { id })])
-      .return(['coordinates']);
+      .with({ coordinates: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -29,7 +30,8 @@ export class CoordinatesRepository {
     const query = this._query
       .queryBuilder()
       .create([node('coordinates', 'COORDINATES', { ...create })])
-      .return(['coordinates']);
+      .with({ coordinates: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -42,7 +44,8 @@ export class CoordinatesRepository {
       .queryBuilder()
       .match([node('coordinates', 'COORDINATES', { id })])
       .set({ values: { ...update } })
-      .return(['coordinates']);
+      .with({ coordinates: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -72,7 +75,8 @@ export class CoordinatesRepository {
         relation('out', 'residentRelationship', 'COORDINATES_OF'),
         node('location')
       ])
-      .return(['coordinates']);
+      .with({ coordinates: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -87,7 +91,8 @@ export class CoordinatesRepository {
         relation('out', 'coordinatesRelationship', 'COORDINATES_OF'),
         node('location', 'LOCATION', { id: locationId })
       ])
-      .return(['coordinates']);
+      .with({ coordinates: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

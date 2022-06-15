@@ -17,7 +17,8 @@ export class SocialConnectionRepository {
     const query = this._query
       .queryBuilder()
       .match([node('socialConnection', 'SOCIAL_CONNECTION', { id })])
-      .return(['socialConnection']);
+      .with({ socialConnection: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -29,7 +30,8 @@ export class SocialConnectionRepository {
     const query = this._query
       .queryBuilder()
       .create([node('socialConnection', 'SOCIAL_CONNECTION', { ...create })])
-      .return(['socialConnection']);
+      .with({ socialConnection: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -45,7 +47,8 @@ export class SocialConnectionRepository {
       .queryBuilder()
       .match([node('socialConnection', 'SOCIAL_CONNECTION', { id })])
       .set({ values: { ...update } })
-      .return(['socialConnection']);
+      .with({ socialConnection: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -57,7 +60,8 @@ export class SocialConnectionRepository {
       .queryBuilder()
       .match([node('socialConnection', 'SOCIAL_CONNECTION', { id })])
       .detachDelete(['socialConnection'])
-      .return(['socialConnection']);
+      .with({ socialConnection: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -83,7 +87,8 @@ export class SocialConnectionRepository {
         relation('out', 'socialConnectionRelationship', 'SOCIAL_CONNECTION_OF'),
         node('person')
       ])
-      .return(['socialConnection']);
+      .with({ socialConnection: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -103,7 +108,8 @@ export class SocialConnectionRepository {
         relation('out', 'socialConnectionRelationship', 'SOCIAL_CONNECTION_OF'),
         node('person', 'PERSON', { id: personId })
       ])
-      .return(['socialConnection']);
+      .with({ socialConnection: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

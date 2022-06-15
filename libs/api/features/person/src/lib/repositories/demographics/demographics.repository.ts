@@ -17,7 +17,8 @@ export class DemographicsRepository {
     const query = this._query
       .queryBuilder()
       .match([node('demographics', 'DEMOGRAPHICS', { id })])
-      .return(['demographics']);
+      .with({ demographics: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -29,7 +30,8 @@ export class DemographicsRepository {
     const query = this._query
       .queryBuilder()
       .create([node('demographics', 'DEMOGRAPHICS', { ...create })])
-      .return(['demographics']);
+      .with({ demographics: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -42,7 +44,8 @@ export class DemographicsRepository {
       .queryBuilder()
       .match([node('demographics', 'DEMOGRAPHICS', { id })])
       .set({ values: { ...update } })
-      .return(['demographics']);
+      .with({ demographics: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -54,7 +57,8 @@ export class DemographicsRepository {
       .queryBuilder()
       .match([node('demographics', 'DEMOGRAPHICS', { id })])
       .detachDelete(['demographics'])
-      .return(['demographics']);
+      .with({ demographics: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -76,7 +80,8 @@ export class DemographicsRepository {
         relation('out', 'demographicsRelationship', 'DEMOGRAPHICS_OF'),
         node('person')
       ])
-      .return(['demographics']);
+      .with({ demographics: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -94,7 +99,8 @@ export class DemographicsRepository {
         relation('out', 'demographicsRelationship', 'DEMOGRAPHICS_OF'),
         node('person', 'PERSON', { id: personId })
       ])
-      .return(['demographics']);
+      .with({ demographics: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

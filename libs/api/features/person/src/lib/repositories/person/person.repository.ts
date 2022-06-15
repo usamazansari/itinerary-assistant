@@ -17,7 +17,8 @@ export class PersonRepository {
     const query = this._query
       .queryBuilder()
       .match([node('person', 'PERSON', { id })])
-      .return(['person']);
+      .with({ person: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -28,7 +29,8 @@ export class PersonRepository {
     const query = this._query
       .queryBuilder()
       .match([node('person', 'PERSON')])
-      .return(['person']);
+      .with({ person: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -43,7 +45,8 @@ export class PersonRepository {
         relation('in', 'addressRelationship', 'ADDRESS_OF'),
         node('address', 'ADDRESS')
       ])
-      .return(['address']);
+      .with({ address: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -58,7 +61,8 @@ export class PersonRepository {
         relation('in', 'demographicRelationship', 'DEMOGRAPHICS_OF'),
         node('demographics', 'DEMOGRAPHICS')
       ])
-      .return(['demographics']);
+      .with({ demographics: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -73,7 +77,8 @@ export class PersonRepository {
         relation('in', 'identificationRelationship', 'IDENTIFICATION_OF'),
         node('identification', 'IDENTIFICATION')
       ])
-      .return(['identification']);
+      .with({ identification: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -88,7 +93,8 @@ export class PersonRepository {
         relation('in', 'socialConnectionRelationship', 'SOCIAL_CONNECTION_OF'),
         node('socialConnection', 'SOCIAL_CONNECTION')
       ])
-      .return(['socialConnection']);
+      .with({ socialConnection: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -100,7 +106,8 @@ export class PersonRepository {
     const query = this._query
       .queryBuilder()
       .create([node('person', 'PERSON', { ...create })])
-      .return(['person']);
+      .with({ person: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -113,7 +120,8 @@ export class PersonRepository {
       .queryBuilder()
       .match([node('person', 'PERSON', { id })])
       .set({ values: { ...update } })
-      .return(['person']);
+      .with({ person: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -125,7 +133,8 @@ export class PersonRepository {
       .queryBuilder()
       .match([node('person', 'PERSON', { id })])
       .detachDelete(['person'])
-      .return(['person']);
+      .with({ person: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

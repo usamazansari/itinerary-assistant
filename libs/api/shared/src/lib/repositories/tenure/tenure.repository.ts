@@ -17,7 +17,8 @@ export class TenureRepository {
     const query = this._query
       .queryBuilder()
       .match([node('tenure', 'TENURE', { id })])
-      .return(['tenure']);
+      .with({ tenure: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -29,7 +30,8 @@ export class TenureRepository {
     const query = this._query
       .queryBuilder()
       .create([node('tenure', 'TENURE', { ...create })])
-      .return(['tenure']);
+      .with({ tenure: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();
@@ -42,7 +44,8 @@ export class TenureRepository {
       .queryBuilder()
       .match([node('tenure', 'TENURE', { id })])
       .set({ values: { ...update } })
-      .return(['tenure']);
+      .with({ tenure: 'output' })
+      .return(['output']);
 
     console.log({ query: query.toString() });
     const result = await query.run();

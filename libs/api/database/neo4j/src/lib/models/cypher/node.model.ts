@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const Timestamp = new Date().valueOf();
-
 export interface INeo4jNode<NodeData = any> {
   identity: string;
   labels: string[];
@@ -9,7 +7,7 @@ export interface INeo4jNode<NodeData = any> {
 }
 
 const Neo4jNodeStub: INeo4jNode = {
-  identity: `new-node-${Timestamp}`,
+  identity: '',
   labels: [],
   properties: {} as any
 };

@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import {
   Coordinates,
   Location,
-  Neo4jNode,
+  Neo4jOutput,
   Tenure,
   Timezone
 } from '../../imports/models';
@@ -13,23 +13,19 @@ import { Neo4jNodeMapperService } from '../../imports/services';
 export class ExtractorService {
   constructor(private _mapNode: Neo4jNodeMapperService) {}
 
-  extractLocations(result: { location: Neo4jNode<Location> }[]): Location[] {
-    return result.map(({ location }) => location).map(this._mapNode.toLocation);
+  extractLocations(result: Neo4jOutput<Location>): Location[] {
+    return result.map(({ output }) => output).map(this._mapNode.toLocation);
   }
 
-  extractCoordinates(
-    result: { coordinates: Neo4jNode<Coordinates> }[]
-  ): Coordinates[] {
-    return result
-      .map(({ coordinates }) => coordinates)
-      .map(this._mapNode.toCoordinates);
+  extractCoordinates(result: Neo4jOutput<Coordinates>): Coordinates[] {
+    return result.map(({ output }) => output).map(this._mapNode.toCoordinates);
   }
 
-  extractTimezones(result: { timezone: Neo4jNode<Timezone> }[]): Timezone[] {
-    return result.map(({ timezone }) => timezone).map(this._mapNode.toTimezone);
+  extractTimezones(result: Neo4jOutput<Timezone>): Timezone[] {
+    return result.map(({ output }) => output).map(this._mapNode.toTimezone);
   }
 
-  extractTenures(result: { tenure: Neo4jNode<Tenure> }[]): Tenure[] {
-    return result.map(({ tenure }) => tenure).map(this._mapNode.toTenure);
+  extractTenures(result: Neo4jOutput<Tenure>): Tenure[] {
+    return result.map(({ output }) => output).map(this._mapNode.toTenure);
   }
 }
