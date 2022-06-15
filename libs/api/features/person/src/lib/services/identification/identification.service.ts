@@ -19,10 +19,8 @@ export class IdentificationService {
 
   async getIdentification(id = ''): Promise<Identification> {
     const result = await this._repository.getIdentification(id);
-    return (
-      this._extractor
-        .extractIdentifications(result as Neo4jOutput<Identification>)
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 
@@ -42,10 +40,8 @@ export class IdentificationService {
       id,
       identification
     );
-    return (
-      this._extractor
-        .extractIdentifications(result as Neo4jOutput<Identification>)
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 
@@ -57,10 +53,8 @@ export class IdentificationService {
       id,
       identification
     );
-    return (
-      this._extractor
-        .extractIdentifications(result as Neo4jOutput<Identification>)
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 
@@ -86,10 +80,8 @@ export class IdentificationService {
           identificationId,
           tenureId
         );
-    return (
-      this._extractor
-        .extractIdentifications(result as Neo4jOutput<Identification>)
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 
@@ -107,10 +99,8 @@ export class IdentificationService {
           identificationId,
           personId
         );
-    return (
-      this._extractor
-        .extractIdentifications(result as Neo4jOutput<Identification>)
-        .at(0) ?? new Identification({ id: '' })
+    return this._extractor.extractIdentification(
+      result as Neo4jOutput<Identification>
     );
   }
 

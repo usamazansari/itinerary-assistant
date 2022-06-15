@@ -22,10 +22,7 @@ export class PersonService {
 
   async getPerson(id = ''): Promise<Person> {
     const result = await this._repository.getPerson(id);
-    return (
-      this._extractor.extractPeople(result as Neo4jOutput<Person>).at(0) ??
-      new Person({ id: '' })
-    );
+    return this._extractor.extractPerson(result as Neo4jOutput<Person>);
   }
 
   async getPeople(): Promise<Person[]> {
@@ -35,18 +32,13 @@ export class PersonService {
 
   async getAddress(id = ''): Promise<Address> {
     const result = await this._repository.getAddress(id);
-    return (
-      this._extractor.extractAddress(result as Neo4jOutput<Address>).at(0) ??
-      new Address({ id: '' })
-    );
+    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
   }
 
   async getDemographics(id = ''): Promise<Demographics> {
     const result = await this._repository.getDemographics(id);
-    return (
-      this._extractor
-        .extractDemographics(result as Neo4jOutput<Demographics>)
-        .at(0) ?? new Demographics({ id: '' })
+    return this._extractor.extractDemographic(
+      result as Neo4jOutput<Demographics>
     );
   }
 
@@ -67,25 +59,16 @@ export class PersonService {
   async createPerson(person: PersonDTO): Promise<Person> {
     const id = new Person({ ...person }).generateUUID();
     const result = await this._repository.createPerson(id, person);
-    return (
-      this._extractor.extractPeople(result as Neo4jOutput<Person>).at(0) ??
-      new Person({ id: '' })
-    );
+    return this._extractor.extractPerson(result as Neo4jOutput<Person>);
   }
 
   async updatePerson(id: string, person: PersonDTO): Promise<Person> {
     const result = await this._repository.updatePerson(id, person);
-    return (
-      this._extractor.extractPeople(result as Neo4jOutput<Person>).at(0) ??
-      new Person({ id: '' })
-    );
+    return this._extractor.extractPerson(result as Neo4jOutput<Person>);
   }
 
   async deletePerson(id: string): Promise<Person> {
     const result = await this._repository.deletePerson(id);
-    return (
-      this._extractor.extractPeople(result as Neo4jOutput<Person>).at(0) ??
-      new Person({ id: '' })
-    );
+    return this._extractor.extractPerson(result as Neo4jOutput<Person>);
   }
 }

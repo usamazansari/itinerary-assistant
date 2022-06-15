@@ -18,10 +18,8 @@ export class SocialConnectionService {
 
   async getSocialConnection(id = ''): Promise<SocialConnection> {
     const result = await this._repository.getSocialConnection(id);
-    return (
-      this._extractor
-        .extractSocialConnections(result as Neo4jOutput<SocialConnection>)
-        .at(0) ?? new SocialConnection({ id: '' })
+    return this._extractor.extractSocialConnection(
+      result as Neo4jOutput<SocialConnection>
     );
   }
 
@@ -33,10 +31,8 @@ export class SocialConnectionService {
       id,
       socialConnection
     );
-    return (
-      this._extractor
-        .extractSocialConnections(result as Neo4jOutput<SocialConnection>)
-        .at(0) ?? new SocialConnection({ id: '' })
+    return this._extractor.extractSocialConnection(
+      result as Neo4jOutput<SocialConnection>
     );
   }
 
@@ -48,10 +44,8 @@ export class SocialConnectionService {
       id,
       socialConnection
     );
-    return (
-      this._extractor
-        .extractSocialConnections(result as Neo4jOutput<SocialConnection>)
-        .at(0) ?? new SocialConnection({ id: '' })
+    return this._extractor.extractSocialConnection(
+      result as Neo4jOutput<SocialConnection>
     );
   }
 
@@ -77,10 +71,8 @@ export class SocialConnectionService {
           socialConnectionId,
           personId
         );
-    return (
-      this._extractor
-        .extractSocialConnections(result as Neo4jOutput<SocialConnection>)
-        .at(0) ?? new SocialConnection({ id: '' })
+    return this._extractor.extractSocialConnection(
+      result as Neo4jOutput<SocialConnection>
     );
   }
 

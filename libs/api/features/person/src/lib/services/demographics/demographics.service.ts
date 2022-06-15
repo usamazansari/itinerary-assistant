@@ -18,10 +18,8 @@ export class DemographicsService {
 
   async getDemographics(id = ''): Promise<Demographics> {
     const result = await this._repository.getDemographics(id);
-    return (
-      this._extractor
-        .extractDemographics(result as Neo4jOutput<Demographics>)
-        .at(0) ?? new Demographics({ id: '' })
+    return this._extractor.extractDemographic(
+      result as Neo4jOutput<Demographics>
     );
   }
 
@@ -30,10 +28,8 @@ export class DemographicsService {
   ): Promise<Demographics> {
     const id = new Demographics({ ...demographics }).generateUUID();
     const result = await this._repository.createDemographics(id, demographics);
-    return (
-      this._extractor
-        .extractDemographics(result as Neo4jOutput<Demographics>)
-        .at(0) ?? new Demographics({ id: '' })
+    return this._extractor.extractDemographic(
+      result as Neo4jOutput<Demographics>
     );
   }
 
@@ -42,10 +38,8 @@ export class DemographicsService {
     demographics: DemographicsDTO
   ): Promise<Demographics> {
     const result = await this._repository.updateDemographics(id, demographics);
-    return (
-      this._extractor
-        .extractDemographics(result as Neo4jOutput<Demographics>)
-        .at(0) ?? new Demographics({ id: '' })
+    return this._extractor.extractDemographic(
+      result as Neo4jOutput<Demographics>
     );
   }
 
@@ -71,10 +65,8 @@ export class DemographicsService {
           demographicsId,
           personId
         );
-    return (
-      this._extractor
-        .extractDemographics(result as Neo4jOutput<Demographics>)
-        .at(0) ?? new Demographics({ id: '' })
+    return this._extractor.extractDemographic(
+      result as Neo4jOutput<Demographics>
     );
   }
 
