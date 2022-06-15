@@ -8,7 +8,6 @@ import {
   Identification,
   Location,
   Tenure,
-  Timezone,
   SocialConnection,
   Person
 } from '../../imports/models';
@@ -59,10 +58,6 @@ export class Neo4jNodeMapperService {
       latitude,
       longitude
     });
-  }
-
-  toTimezone({ properties }: Neo4jNode<Timezone>): Timezone {
-    return new Timezone({ ...properties });
   }
 
   toTenure({ properties }: Neo4jNode<Tenure>): Tenure {

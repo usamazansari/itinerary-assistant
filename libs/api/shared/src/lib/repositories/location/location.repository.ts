@@ -41,22 +41,6 @@ export class LocationRepository {
     return result;
   }
 
-  async getTimezone(id = '') {
-    const query = this._query
-      .queryBuilder()
-      .match([
-        node('location', 'LOCATION', { id }),
-        relation('in', 'timezoneRelationship', 'TIMEZONE_OF'),
-        node('timezone', 'TIMEZONE')
-      ])
-      .with({ timezone: 'output' })
-      .return(['output']);
-
-    console.log({ query: query.toString() });
-    const result = await query.run();
-    return result;
-  }
-
   async createLocation(id = '', location: LocationDTO) {
     const create = this._helper.generateCreateObject({ id, location });
     const query = this._query

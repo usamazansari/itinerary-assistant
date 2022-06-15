@@ -20,8 +20,5 @@ export {
   Tenure,
   TenureRelationship,
   TenureRelationshipData,
-  Timezone,
-  TimezoneRelationship,
-  TimezoneRelationshipData,
   Person
 } from '@itinerary-assistant/domain';

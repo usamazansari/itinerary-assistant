@@ -6,7 +6,6 @@ export {
   IDemographics,
   ISocialConnection,
   ITenure,
-  ITimezone,
   IPerson,
   Address,
   Coordinates,
@@ -16,6 +15,5 @@ export {
   Demographics,
   SocialConnection,
   Tenure,
-  Timezone,
   Person
 } from '@itinerary-assistant/domain';

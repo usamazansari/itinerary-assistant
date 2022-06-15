@@ -4,8 +4,7 @@ import {
   Coordinates,
   Location,
   LocationDTO,
-  Neo4jOutput,
-  Timezone
+  Neo4jOutput
 } from '../../imports/models';
 
 import { ExtractorService } from '../../helpers';
@@ -32,14 +31,6 @@ export class LocationService {
       this._extractor
         .extractCoordinates(result as Neo4jOutput<Coordinates>)
         .at(0) ?? new Coordinates({ id: '' })
-    );
-  }
-
-  async getTimezone(id = ''): Promise<Timezone> {
-    const result = await this._repository.getTimezone(id);
-    return (
-      this._extractor.extractTimezones(result as Neo4jOutput<Timezone>).at(0) ??
-      new Timezone({ id: '' })
     );
   }
 

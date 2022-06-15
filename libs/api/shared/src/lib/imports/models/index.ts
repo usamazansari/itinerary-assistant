@@ -4,7 +4,6 @@ export {
   Location,
   LocationDTO,
   Tenure,
-  TenureDTO,
-  Timezone
+  TenureDTO
 } from '@itinerary-assistant/domain';
 export { Neo4jOutput } from '@itinerary-assistant/api/database/neo4j';
