@@ -8,17 +8,17 @@ export const UsamaSocialConnectionIds = {
 
 export const UsamaSocialConnections: SocialConnection[] = [
   new SocialConnection({
-    id: 'person-1-social-1',
+    id: UsamaSocialConnectionIds.LinkedIn,
     url: 'https://www.linkedin.com/in/usama-ansari-81380080/',
     name: 'LinkedIn'
   }),
   new SocialConnection({
-    id: 'person-1-social-2',
+    id: UsamaSocialConnectionIds.Instagram,
     url: 'https://instagram.com/usamazansari',
     name: 'Instagram'
   }),
   new SocialConnection({
-    id: 'person-1-social-3',
+    id: UsamaSocialConnectionIds.GitHub,
     url: 'https://github.com/usamazansari',
     name: 'GitHub'
   })

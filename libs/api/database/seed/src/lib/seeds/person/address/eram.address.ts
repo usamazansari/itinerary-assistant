@@ -1,11 +1,9 @@
 import { Address } from '../../../imports/models';
-import { EramPerson, EramLocation } from '../..';
 
 export const EramAddressId = 'person-2-address';
 
 export const EramAddress: Address = new Address({
   id: EramAddressId,
-  name: 'Owner',
   room: 'G2',
   wing: '',
   apartment: 'Al-Noor',
@@ -16,7 +14,5 @@ export const EramAddress: Address = new Address({
   city: 'Thane',
   state: 'Maharashtra',
   country: 'India',
-  zip: '400605',
-  residents: [EramPerson],
-  location: EramLocation
+  zip: '400605'
 });

@@ -13,9 +13,6 @@ export class Address implements IAddress {
   id!: string;
 
   @Field()
-  name!: string;
-
-  @Field()
   room!: string;
 
   @Field()
