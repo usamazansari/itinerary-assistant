@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/database/seed",
   "sourceRoot": "libs/api/database/seed/src",
   "projectType": "library",
   "targets": {
@@ -14,7 +13,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/database/seed"],
       "options": {
-        "jestConfig": "libs/api/database/seed/jest.config.js",
+        "jestConfig": "libs/api/database/seed/jest.config.ts",
         "passWithNoTests": true
       }
     }

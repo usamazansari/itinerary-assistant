@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/ui/design/components/elementary",
   "sourceRoot": "libs/ui/design/components/elementary/src",
   "prefix": "itinerary-assistant",
   "targets": {
@@ -25,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/design/components/elementary"],
       "options": {
-        "jestConfig": "libs/ui/design/components/elementary/jest.config.js",
+        "jestConfig": "libs/ui/design/components/elementary/jest.config.ts",
         "passWithNoTests": true
       }
     },

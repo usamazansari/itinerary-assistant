@@ -1,6 +1,7 @@
-module.exports = {
-  displayName: 'ui-design-components-elementary',
-  preset: '../../../../../jest.preset.js',
+/* eslint-disable */
+export default {
+  displayName: 'ui-design-icons',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,8 +9,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$'
     }
   },
-  coverageDirectory:
-    '../../../../../coverage/libs/ui/design/components/elementary',
+  coverageDirectory: '../../../../coverage/libs/ui/design/icons',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
   },

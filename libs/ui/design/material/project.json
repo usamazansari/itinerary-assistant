@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/ui/design/material",
   "sourceRoot": "libs/ui/design/material/src",
   "prefix": "itinerary-assistant",
   "targets": {
@@ -24,7 +23,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/design/material"],
       "options": {
-        "jestConfig": "libs/ui/design/material/jest.config.js",
+        "jestConfig": "libs/ui/design/material/jest.config.ts",
         "passWithNoTests": true
       }
     },

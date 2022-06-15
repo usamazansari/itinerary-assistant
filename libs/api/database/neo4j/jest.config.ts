@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'api-database-neo4j',
   preset: '../../../../jest.preset.js',
   globals: {

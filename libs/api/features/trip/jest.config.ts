@@ -1,6 +1,7 @@
-module.exports = {
-  displayName: 'api-core',
-  preset: '../../../jest.preset.js',
+/* eslint-disable */
+export default {
+  displayName: 'api-features-trip',
+  preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json'
@@ -11,5 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest'
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/api/core'
+  coverageDirectory: '../../../../coverage/libs/api/features/trip'
 };

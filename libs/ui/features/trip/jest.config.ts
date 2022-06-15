@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'ui-design-material',
+/* eslint-disable */
+export default {
+  displayName: 'ui-features-trip',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +9,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$'
     }
   },
-  coverageDirectory: '../../../../coverage/libs/ui/design/material',
+  coverageDirectory: '../../../../coverage/libs/ui/features/trip',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
   },

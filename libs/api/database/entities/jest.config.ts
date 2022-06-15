@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'api-features-trip',
+/* eslint-disable */
+export default {
+  displayName: 'api-database-entities',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest'
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/api/features/trip'
+  coverageDirectory: '../../../../coverage/libs/api/database/entities'
 };

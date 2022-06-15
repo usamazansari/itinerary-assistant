@@ -1,6 +1,7 @@
-module.exports = {
-  displayName: 'ui-core',
-  preset: '../../../jest.preset.js',
+/* eslint-disable */
+export default {
+  displayName: 'ui-design-components-derivative',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +9,8 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$'
     }
   },
-  coverageDirectory: '../../../coverage/libs/ui/core',
+  coverageDirectory:
+    '../../../../../coverage/libs/ui/design/components/derivative',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
   },
