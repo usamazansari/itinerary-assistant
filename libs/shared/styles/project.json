@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/shared/styles",
   "sourceRoot": "libs/shared/styles",
   "targets": {},
   "tags": []
