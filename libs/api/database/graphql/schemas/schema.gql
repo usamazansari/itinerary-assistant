@@ -31,6 +31,7 @@ scalar DateTime
 
 type Address {
   id: ID!
+  name: String!
   room: String!
   apartment: String!
   wing: String!
