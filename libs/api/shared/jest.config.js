@@ -1,4 +1,3 @@
-/* eslint-disable */
 module.exports = {
   displayName: 'api-shared',
   preset: '../../../jest.preset.js',

@@ -1,5 +1,6 @@
 {
   "projectType": "library",
+  "root": "libs/ui/design/components/derivative",
   "sourceRoot": "libs/ui/design/components/derivative/src",
   "prefix": "itinerary-assistant",
   "targets": {
@@ -24,7 +25,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/design/components/derivative"],
       "options": {
-        "jestConfig": "libs/ui/design/components/derivative/jest.config.ts",
+        "jestConfig": "libs/ui/design/components/derivative/jest.config.js",
         "passWithNoTests": true
       }
     },

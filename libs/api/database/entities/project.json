@@ -1,4 +1,5 @@
 {
+  "root": "libs/api/database/entities",
   "sourceRoot": "libs/api/database/entities/src",
   "projectType": "library",
   "targets": {
@@ -13,7 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/database/entities"],
       "options": {
-        "jestConfig": "libs/api/database/entities/jest.config.ts",
+        "jestConfig": "libs/api/database/entities/jest.config.js",
         "passWithNoTests": true
       }
     }

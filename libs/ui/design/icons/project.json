@@ -1,5 +1,6 @@
 {
   "projectType": "library",
+  "root": "libs/ui/design/icons",
   "sourceRoot": "libs/ui/design/icons/src",
   "prefix": "itinerary-assistant",
   "targets": {
@@ -23,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/design/icons"],
       "options": {
-        "jestConfig": "libs/ui/design/icons/jest.config.ts",
+        "jestConfig": "libs/ui/design/icons/jest.config.js",
         "passWithNoTests": true
       }
     },

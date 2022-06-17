@@ -1,6 +1,5 @@
-/* eslint-disable */
 module.exports = {
-  displayName: 'api-features-trip',
+  displayName: 'api-database-graphql',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -12,5 +11,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest'
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/api/features/trip'
+  coverageDirectory: '../../../../coverage/libs/api/database/graphql'
 };
