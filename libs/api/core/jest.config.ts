@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default {
+module.exports = {
   displayName: 'api-core',
   preset: '../../../jest.preset.js',
   globals: {

@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default {
+module.exports = {
   displayName: 'domain',
   preset: '../../jest.preset.js',
   globals: {

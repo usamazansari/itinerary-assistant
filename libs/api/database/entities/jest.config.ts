@@ -1,5 +1,5 @@
 /* eslint-disable */
-export default {
+module.exports = {
   displayName: 'api-database-entities',
   preset: '../../../../jest.preset.js',
   globals: {
