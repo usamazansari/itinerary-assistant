@@ -3,15 +3,9 @@
   "files": [],
   "include": [],
   "references": [
-    {
-      "path": "./tsconfig.app.json"
-    },
-    {
-      "path": "./tsconfig.spec.json"
-    },
-    {
-      "path": "./tsconfig.editor.json"
-    }
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.spec.json" },
+    { "path": "./tsconfig.editor.json" }
   ],
   "compilerOptions": {
     "forceConsistentCasingInFileNames": true,
@@ -19,8 +13,7 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "target": "es2020"
+    "noFallthroughCasesInSwitch": true
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

@@ -1,5 +1,6 @@
 {
   "projectType": "library",
+  "root": "libs/ui/features/trip",
   "sourceRoot": "libs/ui/features/trip/src",
   "prefix": "itinerary-assistant",
   "targets": {
@@ -7,7 +8,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/features/trip"],
       "options": {
-        "jestConfig": "libs/ui/features/trip/jest.config.ts",
+        "jestConfig": "libs/ui/features/trip/jest.config.js",
         "passWithNoTests": true
       }
     },
