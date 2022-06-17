@@ -47,9 +47,6 @@
       "@itinerary-assistant/ui/design/icons": [
         "libs/ui/design/icons/src/index.ts"
       ],
-      "@itinerary-assistant/ui/design/material": [
-        "libs/ui/design/material/src/index.ts"
-      ],
       "@itinerary-assistant/ui/features/trip": [
         "libs/ui/features/trip/src/index.ts"
       ]

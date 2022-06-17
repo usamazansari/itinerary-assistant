@@ -1,4 +1,4 @@
-import { MatSnackBarConfig } from '@angular/material/snack-bar';
+// import { MatSnackBarConfig } from '@angular/material/snack-bar';
 
 /**
  * Snackbar Message Model.
@@ -17,7 +17,7 @@ import { MatSnackBarConfig } from '@angular/material/snack-bar';
 interface ISnackbarMessage<SnackbarData = unknown> {
   message: string;
   action: string;
-  config?: MatSnackBarConfig<SnackbarData> | unknown | null;
+  // config?: MatSnackBarConfig<SnackbarData> | unknown | null;
 }
 
 /**
@@ -33,8 +33,8 @@ interface ISnackbarMessage<SnackbarData = unknown> {
  */
 const SnackbarMessageStub: ISnackbarMessage<unknown> = {
   message: '',
-  action: '',
-  config: null
+  action: ''
+  // config: null
 };
 
 /**
@@ -50,7 +50,7 @@ export class SnackbarMessage<SnackbarData = unknown>
 {
   message: string;
   action: string;
-  config?: MatSnackBarConfig<SnackbarData> | unknown | null;
+  // config?: MatSnackBarConfig<SnackbarData> | unknown | null;
 
   /**
    * ### Snackbar Message
@@ -70,11 +70,11 @@ export class SnackbarMessage<SnackbarData = unknown>
    */
   constructor({
     message = SnackbarMessageStub.message,
-    action = SnackbarMessageStub.action,
-    config = SnackbarMessageStub.config
-  }: Partial<ISnackbarMessage>) {
+    action = SnackbarMessageStub.action
+  }: // config = SnackbarMessageStub.config
+  Partial<ISnackbarMessage>) {
     this.message = message;
     this.action = action;
-    this.config = config;
+    // this.config = config;
   }
 }

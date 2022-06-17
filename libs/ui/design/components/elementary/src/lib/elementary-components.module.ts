@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MaterialModule } from './imports/libraries';
-
 import {
   ButtonComponent,
   ButtonContainerComponent,
@@ -18,7 +16,7 @@ import { ClipboardService, SnackbarService } from './services';
     LoaderComponent,
     LoaderContainerComponent
   ],
-  imports: [CommonModule, MaterialModule],
+  imports: [CommonModule],
   exports: [ButtonContainerComponent, LoaderContainerComponent],
   providers: [ClipboardService, SnackbarService]
 })
