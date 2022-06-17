@@ -1,4 +1,6 @@
+export { EndpointService, RouterService } from '@itinerary-assistant/ui/core';
+
 export {
-  EndpointService,
-  RouterService
-} from '@itinerary-assistant/ui/core';
+  GetPersonGQL,
+  GetPeopleGQL
+} from '@itinerary-assistant/ui/database/graphql';
