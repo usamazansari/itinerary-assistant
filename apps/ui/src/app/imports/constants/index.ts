@@ -1,1 +1,1 @@
-export { ApplicationName, Author } from '@itinerary-assistant/domain';
+export { ApplicationName, Author, Gender } from '@itinerary-assistant/domain';

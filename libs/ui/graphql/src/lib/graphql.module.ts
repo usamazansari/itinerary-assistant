@@ -1,7 +1,16 @@
 import { NgModule } from '@angular/core';
-import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
+
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
+
+import {
+  CreatePersonGQL,
+  DeletePersonGQL,
+  GetPersonGQL,
+  GetPeopleGQL,
+  UpdatePersonGQL
+} from './generated-endpoints';
 
 const uri = 'http://localhost:3333/graphql'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<unknown> {
@@ -18,7 +27,12 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<unknown> {
       provide: APOLLO_OPTIONS,
       useFactory: createApollo,
       deps: [HttpLink]
-    }
+    },
+    CreatePersonGQL,
+    DeletePersonGQL,
+    GetPersonGQL,
+    GetPeopleGQL,
+    UpdatePersonGQL
   ]
 })
 export class GraphQLModule {}
