@@ -1,8 +1,8 @@
 overwrite: true
 schema: 'libs\api\database\graphql\schemas\schema.gql'
 generates:
-  libs/ui/graphql/src/lib/generated-endpoints/person.endpoints.ts:
-    documents: 'libs/ui/graphql/src/lib/operations/person-operations.gql'
+  libs/ui/database/graphql/src/lib/generated-endpoints/person.endpoints.ts:
+    documents: 'libs/ui/database/graphql/src/lib/operations/person-operations.gql'
     plugins:
       - 'typescript'
       - 'typescript-operations'

@@ -1,1 +1,1 @@
-export { GraphQLModule } from '@itinerary-assistant/ui/graphql';
+export { GraphQLModule } from '@itinerary-assistant/ui/database/graphql';
