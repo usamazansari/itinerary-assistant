@@ -1,23 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {
-  ButtonComponent,
-  ButtonContainerComponent,
-  LoaderComponent,
-  LoaderContainerComponent
-} from './components';
-import { ClipboardService, SnackbarService } from './services';
+import { LoaderComponent, LoaderContainerComponent } from './components';
 
 @NgModule({
-  declarations: [
-    ButtonComponent,
-    ButtonContainerComponent,
-    LoaderComponent,
-    LoaderContainerComponent
-  ],
+  declarations: [LoaderComponent, LoaderContainerComponent],
   imports: [CommonModule],
-  exports: [ButtonContainerComponent, LoaderContainerComponent],
-  providers: [ClipboardService, SnackbarService]
+  exports: [LoaderContainerComponent]
 })
 export class ElementaryComponentsModule {}
