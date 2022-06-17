@@ -1,15 +1,14 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {
-  CoreService,
-  EndpointService,
-  RouterService
-} from './services';
+import { GraphQLModule } from './imports/modules';
+
+import { CoreService, EndpointService, RouterService } from './services';
 
 @NgModule({
-  imports: [CommonModule],
-  providers: [CoreService, EndpointService, RouterService]
+  imports: [CommonModule, GraphQLModule],
+  providers: [CoreService, EndpointService, RouterService],
+  exports: [GraphQLModule]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

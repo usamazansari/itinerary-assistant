@@ -1,7 +1,6 @@
 {
   "recommendations": [
     "angular.ng-template",
-    "cweijan.vscode-mysql-client2",
     "dbaeumer.vscode-eslint",
     "dominicvonk.parameter-hints",
     "esbenp.prettier-vscode",
@@ -9,9 +8,9 @@
     "kisstkondoros.vscode-codemetrics",
     "nrwl.angular-console",
     "oderwat.indent-rainbow",
-    "pkief.material-icon-theme",
     "visualstudioexptteam.vscodeintellicode",
     "wix.vscode-import-cost",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "DominicVonk.parameter-hints"
   ]
 }

@@ -10,7 +10,7 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2017", "dom", "esnext.asynciterable"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -38,6 +38,9 @@
       "@itinerary-assistant/domain": ["libs/domain/src/index.ts"],
       "@itinerary-assistant/shared/data": ["libs/shared/data/src/index.ts"],
       "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
+      "@itinerary-assistant/ui/database/graphql": [
+        "libs/ui/database/graphql/src/index.ts"
+      ],
       "@itinerary-assistant/ui/design/components/derivative": [
         "libs/ui/design/components/derivative/src/index.ts"
       ],
@@ -50,7 +53,8 @@
       "@itinerary-assistant/ui/features/trip": [
         "libs/ui/features/trip/src/index.ts"
       ]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "tmp"]
 }
