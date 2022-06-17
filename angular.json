@@ -18,7 +18,6 @@
     "ui-design-components-derivative": "libs/ui/design/components/derivative",
     "ui-design-components-elementary": "libs/ui/design/components/elementary",
     "ui-design-icons": "libs/ui/design/icons",
-    "ui-design-material": "libs/ui/design/material",
     "ui-e2e": "apps/ui-e2e",
     "ui-features-trip": "libs/ui/features/trip",
     "ui-graphql": "libs/ui/graphql"

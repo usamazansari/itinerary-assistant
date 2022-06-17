@@ -11,6 +11,7 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,9 @@ import { AppComponent } from './app.component';
     ElementaryComponentsModule,
     IconsModule,
 
-    AppRoutingModule
+    AppRoutingModule,
+
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent]

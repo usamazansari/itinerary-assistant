@@ -1,4 +1,5 @@
 {
+  "root": "libs/api/features/person",
   "sourceRoot": "libs/api/features/person/src",
   "projectType": "library",
   "targets": {
@@ -13,7 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/features/person"],
       "options": {
-        "jestConfig": "libs/api/features/person/jest.config.ts",
+        "jestConfig": "libs/api/features/person/jest.config.js",
         "passWithNoTests": true
       }
     }
