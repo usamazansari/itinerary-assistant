@@ -7,7 +7,7 @@ import {
   Demographics as DemographicsModel,
   Identification as IdentificationModel,
   SocialConnection as SocialConnectionModel
-} from '../../imports/models';
+} from '../../../imports/models';
 import {
   Address as AddressEntity,
   Identification as IdentificationEntity,

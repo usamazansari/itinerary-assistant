@@ -3,7 +3,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 import {
   ILocation,
   Coordinates as CoordinatesModel
-} from '../../imports/models';
+} from '../../../imports/models';
 import { Coordinates as CoordinatesEntity } from '.';
 
 @ObjectType()

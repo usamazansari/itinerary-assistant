@@ -4,7 +4,7 @@ import {
   IAddress,
   Location as LocationModel,
   Person as PersonModel
-} from '../../../imports/models';
+} from '../../../../imports/models';
 import { Location as LocationEntity, Person as PersonEntity } from '../../..';
 
 @ObjectType()

@@ -2,7 +2,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { isPoint, Point as Neo4jPoint } from 'neo4j-driver';
 import { GraphQLScalarType } from 'graphql';
 
-import { ICoordinates } from '../../../imports/models';
+import { ICoordinates } from '../../../../imports/models';
 
 const Point = new GraphQLScalarType({
   name: 'Point',
