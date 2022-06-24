@@ -15,7 +15,7 @@ export class SanityResolver {
   stringSanity(): string {
     const value = (Math.random() * 10) >> 0;
     if (!(value % 2)) return `Response from Sanity Resolver : ${value}`;
-    throw new Error(`${value} not divisible by 2`);
+    throw new Error(`Error from Sanity Resolver: ${value} not divisible by 2`);
   }
 
   @Query(() => SanityEntity, {
