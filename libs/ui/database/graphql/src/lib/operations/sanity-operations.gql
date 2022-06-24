@@ -1,0 +1,8 @@
+query StringSanity {
+  stringSanity
+}
+query ClassSanity {
+  classSanity(number: 2) {
+    message
+  }
+}

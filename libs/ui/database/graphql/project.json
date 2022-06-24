@@ -4,6 +4,16 @@
   "sourceRoot": "libs/ui/database/graphql/src",
   "prefix": "itinerary-assistant",
   "targets": {
+    "generate": {
+      "builder": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npx graphql-codegen --config configs/graphql-codegen/sanity.yml"
+          }
+        ]
+      }
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/database/graphql"],
