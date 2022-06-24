@@ -3,6 +3,7 @@ import { GraphQLModule as NestJSGraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 import { join } from 'path';
+import { SanityResolver } from './resolvers/sanity/sanity.resolver';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { join } from 'path';
         'libs/api/database/graphql/schemas/schema.gql'
       )
     })
-  ]
+  ],
+  providers: [SanityResolver]
 })
 export class GraphQLModule {}
