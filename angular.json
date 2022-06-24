@@ -15,6 +15,7 @@
     "shared-styles": "libs/shared/styles",
     "ui": "apps/ui",
     "ui-core": "libs/ui/core",
+    "ui-database-entities": "libs/ui/database/entities",
     "ui-database-graphql": "libs/ui/database/graphql",
     "ui-design-components-derivative": "libs/ui/design/components/derivative",
     "ui-design-components-elementary": "libs/ui/design/components/elementary",

@@ -5,7 +5,7 @@
   "prefix": "itinerary-assistant",
   "targets": {
     "generate": {
-      "builder": "@nrwl/workspace:run-commands",
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
         "commands": [
           {
