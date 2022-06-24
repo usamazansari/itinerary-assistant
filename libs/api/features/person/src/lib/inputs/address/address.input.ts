@@ -1,9 +1,10 @@
 import { Field, InputType } from '@nestjs/graphql';
 
-import { Address } from '../../imports/entities';
+// import { Address } from '../../imports/entities';
 
 @InputType()
-export class AddressInput extends Address {
+// export class AddressInput extends Address {
+export class AddressInput {
   @Field({ nullable: true })
   id!: string;
 

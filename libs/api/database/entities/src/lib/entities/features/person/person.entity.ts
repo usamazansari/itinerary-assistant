@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { Gender } from '../../imports/constants';
+import { Gender } from '../../../imports/constants';
 import {
   IPerson,
   Address as AddressModel,

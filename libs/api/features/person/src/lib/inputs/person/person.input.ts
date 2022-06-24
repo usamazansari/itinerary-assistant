@@ -1,10 +1,11 @@
 import { Field, InputType } from '@nestjs/graphql';
 
 import { Gender } from '../../imports/constants';
-import { Person } from '../../imports/entities';
+// import { Person } from '../../imports/entities';
 
 @InputType()
-export class PersonInput extends Person {
+// export class PersonInput extends Person {
+export class PersonInput {
   @Field({ nullable: true })
   id!: string;
 
