@@ -1,5 +1,6 @@
+/* eslint-disable */
 module.exports = {
-  displayName: 'ui-design-components-elementary',
+  displayName: 'ui-design-components-derivative',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -9,7 +10,7 @@ module.exports = {
     }
   },
   coverageDirectory:
-    '../../../../../coverage/libs/ui/design/components/elementary',
+    '../../../../../coverage/libs/ui/design/components/derivative',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
   },

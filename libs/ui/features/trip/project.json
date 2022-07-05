@@ -8,7 +8,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/features/trip"],
       "options": {
-        "jestConfig": "libs/ui/features/trip/jest.config.js",
+        "jestConfig": "libs/ui/features/trip/jest.config.ts",
         "passWithNoTests": true
       }
     },

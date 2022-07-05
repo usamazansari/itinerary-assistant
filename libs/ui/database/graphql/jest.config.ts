@@ -1,4 +1,5 @@
 /* eslint-disable */
+/* eslint-disable */
 export default {
   displayName: 'ui-graphql',
   preset: '../../../jest.preset.js',

@@ -24,7 +24,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/design/icons"],
       "options": {
-        "jestConfig": "libs/ui/design/icons/jest.config.js",
+        "jestConfig": "libs/ui/design/icons/jest.config.ts",
         "passWithNoTests": true
       }
     },

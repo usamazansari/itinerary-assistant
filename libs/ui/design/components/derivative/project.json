@@ -25,7 +25,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/design/components/derivative"],
       "options": {
-        "jestConfig": "libs/ui/design/components/derivative/jest.config.js",
+        "jestConfig": "libs/ui/design/components/derivative/jest.config.ts",
         "passWithNoTests": true
       }
     },

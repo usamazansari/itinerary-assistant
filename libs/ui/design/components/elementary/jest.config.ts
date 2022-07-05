@@ -1,6 +1,7 @@
+/* eslint-disable */
 module.exports = {
-  displayName: 'ui-features-trip',
-  preset: '../../../../jest.preset.js',
+  displayName: 'ui-design-components-elementary',
+  preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -8,7 +9,8 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$'
     }
   },
-  coverageDirectory: '../../../../coverage/libs/ui/features/trip',
+  coverageDirectory:
+    '../../../../../coverage/libs/ui/design/components/elementary',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
   },

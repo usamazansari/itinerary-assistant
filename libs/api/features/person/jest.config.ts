@@ -1,5 +1,6 @@
+/* eslint-disable */
 module.exports = {
-  displayName: 'api-database-seed',
+  displayName: 'api-features-person',
   preset: '../../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest'
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../../coverage/libs/api/database/seed'
+  coverageDirectory: '../../../../coverage/libs/api/features/person'
 };

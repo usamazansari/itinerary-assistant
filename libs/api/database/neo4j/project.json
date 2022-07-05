@@ -14,7 +14,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/database/neo4j"],
       "options": {
-        "jestConfig": "libs/api/database/neo4j/jest.config.js",
+        "jestConfig": "libs/api/database/neo4j/jest.config.ts",
         "passWithNoTests": true
       }
     }
