@@ -9,7 +9,7 @@ import {
   GetPeopleGQL,
   GetPersonGQL
 } from './imports/services';
-import { StringSanityQuery, ClassSanityQuery, Exact } from './imports/types';
+import { StringSanityQuery, Exact } from './imports/types';
 
 @Component({
   selector: 'ia-root',
@@ -19,11 +19,6 @@ import { StringSanityQuery, ClassSanityQuery, Exact } from './imports/types';
 export class AppComponent implements OnInit {
   #stringSanityQuery$!: QueryRef<
     StringSanityQuery,
-    Exact<{ [key: string]: never }>
-  >;
-
-  #classSanityQuery$!: QueryRef<
-    ClassSanityQuery,
     Exact<{ [key: string]: never }>
   >;
 
@@ -47,7 +42,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.showData = false;
     this.#stringSanityQuery$ = this._stringSanity.watch();
-    this.#classSanityQuery$ = this._classSanity.watch({}, {});
   }
 
   fetchData(): void {
@@ -91,19 +85,6 @@ export class AppComponent implements OnInit {
       catchError(err => {
         console.log({ err });
         return of(`${err.message}`);
-      })
-    );
-
-    this.classSanity$ = this.#classSanityQuery$.valueChanges.pipe(
-      map(({ data: { classSanity }, error, errors }) => {
-        if (!!error) {
-          console.log({ error });
-        }
-        if (!!errors) {
-          console.log({ errors });
-        }
-        // return classSanity;
-        return new SanityModel({ ...classSanity });
       })
     );
   }

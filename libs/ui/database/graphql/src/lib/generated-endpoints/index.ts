@@ -2,7 +2,6 @@ export {
   ClassSanityGQL,
   StringSanityGQL,
   StringSanityQuery,
-  ClassSanityQuery,
   Exact
 } from './sanity.endpoints';
 export {
