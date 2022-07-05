@@ -1,5 +1,4 @@
 export {
-  SanityBase,
   IAddress,
   ICoordinates,
   IIdentification,

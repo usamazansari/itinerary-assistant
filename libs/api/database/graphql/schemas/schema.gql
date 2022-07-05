@@ -2,18 +2,9 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type SanityEntity {
-  message: String!
-}
-
 type Query {
   """
   Test connectivity with the backend. Return a number from backend service which is even, throws an error if odd
   """
   stringSanity: String!
-
-  """
-  Test connectivity with the backend. Return a number wrapped in a class from backend service which is even, throws an error if odd
-  """
-  classSanity(number: Int!): SanityEntity!
 }
