@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/ui/core",
   "sourceRoot": "libs/ui/core/src",
   "prefix": "itinerary-assistant",
   "targets": {

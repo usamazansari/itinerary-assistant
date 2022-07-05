@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/database/neo4j",
   "sourceRoot": "libs/api/database/neo4j/src",
   "projectType": "library",
   "targets": {

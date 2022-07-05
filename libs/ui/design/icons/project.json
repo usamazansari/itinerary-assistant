@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/ui/design/icons",
   "sourceRoot": "libs/ui/design/icons/src",
   "prefix": "itinerary-assistant",
   "targets": {

@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/database/seed",
   "sourceRoot": "libs/api/database/seed/src",
   "projectType": "library",
   "targets": {

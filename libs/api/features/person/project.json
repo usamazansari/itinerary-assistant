@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/features/person",
   "sourceRoot": "libs/api/features/person/src",
   "projectType": "library",
   "targets": {

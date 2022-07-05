@@ -1,6 +1,5 @@
 {
   "projectType": "application",
-  "root": "apps/ui",
   "sourceRoot": "apps/ui/src",
   "prefix": "itinerary-assistant",
   "targets": {

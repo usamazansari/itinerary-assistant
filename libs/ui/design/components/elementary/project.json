@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/ui/design/components/elementary",
   "sourceRoot": "libs/ui/design/components/elementary/src",
   "prefix": "itinerary-assistant",
   "targets": {

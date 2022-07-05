@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/database/graphql",
   "sourceRoot": "libs/api/database/graphql/src",
   "projectType": "library",
   "targets": {

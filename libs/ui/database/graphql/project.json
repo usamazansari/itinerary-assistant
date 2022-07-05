@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/ui/database/graphql",
   "sourceRoot": "libs/ui/database/graphql/src",
   "prefix": "itinerary-assistant",
   "targets": {

@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/core",
   "sourceRoot": "libs/api/core/src",
   "projectType": "library",
   "targets": {

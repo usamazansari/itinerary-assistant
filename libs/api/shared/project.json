@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/shared",
   "sourceRoot": "libs/api/shared/src",
   "projectType": "library",
   "targets": {

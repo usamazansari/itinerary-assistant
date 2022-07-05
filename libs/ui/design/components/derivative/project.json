@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/ui/design/components/derivative",
   "sourceRoot": "libs/ui/design/components/derivative/src",
   "prefix": "itinerary-assistant",
   "targets": {

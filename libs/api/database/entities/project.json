@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/database/entities",
   "sourceRoot": "libs/api/database/entities/src",
   "projectType": "library",
   "targets": {

@@ -1,5 +1,4 @@
 {
-  "root": "libs/api/features/trip",
   "sourceRoot": "libs/api/features/trip/src",
   "projectType": "library",
   "targets": {
