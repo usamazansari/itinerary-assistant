@@ -28,25 +28,19 @@
     {
       "name": "Debug API",
       "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "start:api"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "restart": true,
-      "timeout": 60000,
-      "port": 9229,
-      "outFiles": ["${workspaceFolder}/**/*.js", "!**/node_modules/**"],
-      "skipFiles": ["<node_internals>/**"]
+      "request": "attach",
+      "processId": "${command:PickProcess}",
+      "skipFiles": ["<node_internals>/**"],
+      "internalConsoleOptions": "neverOpen"
     },
     {
       "name": "Debug UI",
       "type": "pwa-msedge",
       "request": "launch",
-      "preLaunchTask": "Serve UI with Nx",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
       "runtimeArgs": [],
+      "internalConsoleOptions": "neverOpen",
       "outFiles": ["${workspaceFolder}/**/*.js", "!**/node_modules/**"],
       "sourceMapPathOverrides": {
         "webpack:/*": "${webRoot}/*",
