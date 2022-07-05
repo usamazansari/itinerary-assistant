@@ -1,5 +1,5 @@
 /* eslint-disable */
-module.exports = {
+export default {
   displayName: 'api-features-trip',
   preset: '../../../../jest.preset.js',
   globals: {
