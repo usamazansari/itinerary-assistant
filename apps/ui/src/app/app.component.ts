@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
+import { Gender } from './imports/constants';
+import { Person } from './imports/models';
 import { GetPeopleGQL, GetPersonGQL } from './imports/services';
 
 @Component({
@@ -11,7 +13,7 @@ import { GetPeopleGQL, GetPersonGQL } from './imports/services';
 export class AppComponent implements OnInit {
   showData = false;
 
-  person$!: Observable<unknown>;
+  person$!: Observable<Person>;
 
   people$!: Observable<unknown[]>;
 
@@ -38,7 +40,19 @@ export class AppComponent implements OnInit {
             throw error;
           }
           return getPerson;
-        })
+        }),
+        map(
+          ({ dateOfBirth, email, fullName, gender, id, phone, website }) =>
+            new Person({
+              dateOfBirth,
+              email,
+              fullName,
+              gender: (<unknown>gender) as Gender,
+              id,
+              phone,
+              website
+            })
+        )
       );
     this.people$ = this._getPeople.fetch().pipe(
       map(({ data: { getPeople }, loading, error, errors }) => {

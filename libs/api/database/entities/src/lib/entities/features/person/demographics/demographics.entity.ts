@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { Salutation } from '../../../imports/constants';
+import { Salutation } from '../../../../imports/constants';
 import { IDemographics } from '../../../../imports/models';
 
 @ObjectType()
