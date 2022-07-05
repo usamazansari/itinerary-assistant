@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
+    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "build": "nx build",
     "postbuild": "purgecss --config ./configs/purgecss.config.js",
     "start:api": "nx run api:serve",
