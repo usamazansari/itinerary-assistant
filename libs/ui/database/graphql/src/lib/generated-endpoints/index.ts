@@ -1,9 +1,4 @@
-export {
-  ClassSanityGQL,
-  StringSanityGQL,
-  StringSanityQuery,
-  Exact
-} from './sanity.endpoints';
+export { ClassSanityGQL, StringSanityGQL } from './sanity.endpoints';
 export {
   GetPeopleGQL,
   GetPeopleQuery,
