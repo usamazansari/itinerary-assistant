@@ -1,4 +1,5 @@
 export {
-  StringSanityQuery,
-  Exact
+  ClassSanityQuery,
+  Exact,
+  StringSanityQuery
 } from '@itinerary-assistant/ui/database/graphql';
