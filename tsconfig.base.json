@@ -31,9 +31,6 @@
       "@itinerary-assistant/api/features/person": [
         "libs/api/features/person/src/index.ts"
       ],
-      "@itinerary-assistant/api/features/trip": [
-        "libs/api/features/trip/src/index.ts"
-      ],
       "@itinerary-assistant/api/shared": ["libs/api/shared/src/index.ts"],
       "@itinerary-assistant/domain": ["libs/domain/src/index.ts"],
       "@itinerary-assistant/shared/data": ["libs/shared/data/src/index.ts"],
