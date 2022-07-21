@@ -37,9 +37,6 @@
       "@itinerary-assistant/ui/database/graphql": [
         "libs/ui/database/graphql/src/index.ts"
       ],
-      "@itinerary-assistant/ui/design/components/derivative": [
-        "libs/ui/design/components/derivative/src/index.ts"
-      ],
       "@itinerary-assistant/ui/design/icons": [
         "libs/ui/design/icons/src/index.ts"
       ]
