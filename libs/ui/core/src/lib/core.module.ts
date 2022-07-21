@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { GraphQLModule } from './imports/modules';
 
-import { CoreService, EndpointService, RouterService } from './services';
+import { CoreService } from './services';
 
 @NgModule({
   imports: [CommonModule, GraphQLModule],
-  providers: [CoreService, EndpointService, RouterService],
+  providers: [CoreService],
   exports: [GraphQLModule]
 })
 export class CoreModule {

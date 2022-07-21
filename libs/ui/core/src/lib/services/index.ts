@@ -1,3 +1,1 @@
-export * from './core';
-export * from './endpoint';
-export * from './router';
+export * from './core/core.service';
