@@ -10,7 +10,6 @@
     "api-features-person": "libs/api/features/person",
     "api-shared": "libs/api/shared",
     "domain": "libs/domain",
-    "shared-data": "libs/shared/data",
     "shared-styles": "libs/shared/styles",
     "ui": "apps/ui",
     "ui-core": "libs/ui/core",

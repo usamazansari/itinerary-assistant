@@ -33,7 +33,6 @@
       ],
       "@itinerary-assistant/api/shared": ["libs/api/shared/src/index.ts"],
       "@itinerary-assistant/domain": ["libs/domain/src/index.ts"],
-      "@itinerary-assistant/shared/data": ["libs/shared/data/src/index.ts"],
       "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
       "@itinerary-assistant/ui/database/graphql": [
         "libs/ui/database/graphql/src/index.ts"
