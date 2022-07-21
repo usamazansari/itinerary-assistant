@@ -1,4 +1,5 @@
 {
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "itinerary-assistant",
   "affected": {
     "defaultBase": "master"
@@ -17,14 +18,14 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
-        "accessToken": "ZTI0YmNlNTgtNjIwMS00M2NmLTlmMzctZGExM2VlYjcyZWVjfHJlYWQtd3JpdGU="
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "OGQ4MTA4OWYtZmY3NC00ZmE3LTliNzctMjQ4OWUxZDI4ODE0fHJlYWQtd3JpdGU="
       }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
     }
   },
   "generators": {
@@ -42,13 +43,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "ui",
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "targetDefaults": {
-    "build": {
-      "dependsOn": [
-        "^build"
-      ]
-    }
-  }
+  "defaultProject": "ui"
 }

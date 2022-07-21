@@ -5,37 +5,16 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
-      "name": "Jest Current File",
-      "request": "launch",
-      "program": "${workspaceFolder}/node_modules/@nrwl/cli/bin/nx",
-      "cwd": "${workspaceFolder}",
-      "args": [
-        "test",
-        "--runInBand",
-        "--testPathPattern=${fileBasenameNoExtension}",
-        "--config=${workspaceFolder}/jest.config.js",
-        "--skip-nx-cache"
-      ],
-      "skipFiles": ["<node_internals>/**"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "resolveSourceMapLocations": [
-        "${workspaceFolder}/**",
-        "!**/node_modules/**"
-      ]
-    },
-    {
       "name": "Debug API",
-      "type": "node",
-      "request": "attach",
       "processId": "${command:PickProcess}",
+      "request": "attach",
       "skipFiles": ["<node_internals>/**"],
+      "type": "node",
       "internalConsoleOptions": "neverOpen"
     },
     {
       "name": "Debug UI",
-      "type": "pwa-msedge",
+      "type": "msedge",
       "request": "launch",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",

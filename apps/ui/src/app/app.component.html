@@ -1,18 +1,23 @@
 <div class="flex flex-col">
   <div class="flex justify-center py-4 bg-blue-300">
-    <button class="p-4 bg-green-700 text-white rounded-md shadow-md"
+    <button
+      class="p-4 bg-green-700 text-white rounded-md shadow-md"
       type="button"
-      (click)="fetchData()">Fetch Data</button>
+      (click)="fetchData()">
+      Fetch Data
+    </button>
   </div>
 
   <ng-container *ngIf="showData">
     <div class="grid grid-cols-2 justify-center">
       <div class="bg-red-300">
         <p class="py-4 bg-red-700 text-white font-mono text-center">Person</p>
-        <pre class="whitespace-pre-wrap">{{ person$ | async | json }}</pre>
+        <!-- <pre class="whitespace-pre-wrap">{{ person$ | async | json }}</pre> -->
       </div>
       <div class="bg-yellow-200">
-        <p class="py-4 bg-yellow-700 text-white font-mono text-center">People</p>
+        <p class="py-4 bg-yellow-700 text-white font-mono text-center">
+          People
+        </p>
         <pre class="whitespace-pre-wrap">{{ people$ | async | json }}</pre>
       </div>
     </div>
