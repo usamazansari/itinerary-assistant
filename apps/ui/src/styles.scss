@@ -1,2 +1,3 @@
-// App-wide TailwindCSS
-@use '../../../libs/shared/styles/src/tailwind';
+@use '~tailwindcss/base';
+@use '~tailwindcss/components';
+@use '~tailwindcss/utilities';
