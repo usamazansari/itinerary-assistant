@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@itinerary-assistant/api/features/person": [
+        "libs/api/features/person/src/index.ts"
+      ],
       "@itinerary-assistant/domain": ["libs/domain/src/index.ts"]
     }
   },

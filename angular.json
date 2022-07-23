@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "api-features-person": "libs/api/features/person",
     "domain": "libs/domain",
     "ui": "apps/ui",
     "ui-e2e": "apps/ui-e2e"
