@@ -5,6 +5,7 @@
     "api": "apps/api",
     "api-core": "libs/api/core",
     "api-database-entities": "libs/api/database/entities",
+    "api-database-neo4j": "libs/api/database/neo4j",
     "api-features-person": "libs/api/features/person",
     "domain": "libs/domain",
     "ui": "apps/ui",
