@@ -19,6 +19,9 @@
       "@itinerary-assistant/api/database/entities": [
         "libs/api/database/entities/src/index.ts"
       ],
+      "@itinerary-assistant/api/database/graphql": [
+        "libs/api/database/graphql/src/index.ts"
+      ],
       "@itinerary-assistant/api/database/neo4j": [
         "libs/api/database/neo4j/src/index.ts"
       ],
