@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/ui/database/entities/src",
+  "prefix": "itinerary-assistant",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui/database/entities"],
+      "options": {
+        "jestConfig": "libs/ui/database/entities/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui/database/entities/**/*.ts",
+          "libs/ui/database/entities/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
