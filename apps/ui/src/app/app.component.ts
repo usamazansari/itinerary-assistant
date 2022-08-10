@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { map, Observable, tap } from 'rxjs';
 
 // import { Gender } from './imports/constants';
-// import { Person } from './imports/models';
+import { Person } from './imports/models';
 // import { GetPeopleGQL, GetPersonGQL } from './imports/services';
 
 @Component({
@@ -15,9 +15,10 @@ import { map, Observable, tap } from 'rxjs';
 export class AppComponent implements OnInit {
   // showData = false;
   showPing = false;
+  showPerson = false;
 
   ping$!: Observable<unknown>;
-  // person$!: Observable<Person>;
+  person$!: Observable<Person>;
   // people$!: Observable<unknown[]>;
 
   constructor(
@@ -26,12 +27,23 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.showPing = false;
+    this.showPerson = false;
     // this.showData = false;
   }
 
   pingServer() {
     this.showPing = true;
-    this.ping$ = this._http.get('/api/greeting').pipe(
+    this.ping$ = this._http.get<{ message: string }>('/api/greeting').pipe(
+      map(_ => _),
+      tap(res => {
+        console.log({ res });
+      })
+    );
+  }
+
+  fetchPerson() {
+    this.showPerson = true;
+    this.person$ = this._http.get<Person>('/api/person').pipe(
       map(_ => _),
       tap(res => {
         console.log({ res });
