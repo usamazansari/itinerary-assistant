@@ -7,6 +7,7 @@
     "api-database-entities": "libs/api/database/entities",
     "api-database-graphql": "libs/api/database/graphql",
     "api-database-neo4j": "libs/api/database/neo4j",
+    "api-database-seed": "libs/api/database/seed",
     "api-features-person": "libs/api/features/person",
     "domain": "libs/domain",
     "ui": "apps/ui",

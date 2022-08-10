@@ -25,6 +25,9 @@
       "@itinerary-assistant/api/database/neo4j": [
         "libs/api/database/neo4j/src/index.ts"
       ],
+      "@itinerary-assistant/api/database/seed": [
+        "libs/api/database/seed/src/index.ts"
+      ],
       "@itinerary-assistant/api/features/person": [
         "libs/api/features/person/src/index.ts"
       ],
