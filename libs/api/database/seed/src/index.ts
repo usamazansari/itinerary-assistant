@@ -1,1 +1,2 @@
-export * from './lib/api-database-seed.module';
+export * from './lib/seed.module';
+export * from './lib/seeds';
