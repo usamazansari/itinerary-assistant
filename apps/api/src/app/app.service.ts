@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-// import { Person } from './imports/models';
+import { Person } from './imports/models';
 
 @Injectable()
 export class AppService {
@@ -8,7 +8,7 @@ export class AppService {
     return { message: 'Welcome to NestJS!' };
   }
 
-  // getPerson(): Person {
-  //   return new Person({});
-  // }
+  getPerson(): Person {
+    return new Person({});
+  }
 }

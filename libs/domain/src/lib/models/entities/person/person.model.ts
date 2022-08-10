@@ -20,15 +20,14 @@ const BaseStub: IPersonBase = {
 type IPerson = IPersonBase;
 
 abstract class PersonBase extends BaseModel implements IPerson {
-  fullName: string;
-  email: string;
-  phone: string;
-  dateOfBirth?: Date;
-  gender?: Gender;
-  website: string;
+  public fullName: string;
+  public email: string;
+  public phone: string;
+  public dateOfBirth?: Date;
+  public gender?: Gender;
+  public website: string;
 
   constructor({
-    id = '',
     fullName = BaseStub.fullName,
     email = BaseStub.email,
     phone = BaseStub.phone,
@@ -36,7 +35,7 @@ abstract class PersonBase extends BaseModel implements IPerson {
     gender,
     website = BaseStub.website
   }: Partial<IPerson & BaseModel>) {
-    super({ id });
+    super();
     this.fullName = fullName;
     this.email = email;
     this.phone = phone;
@@ -46,51 +45,51 @@ abstract class PersonBase extends BaseModel implements IPerson {
     if (!!gender) this.gender = gender;
   }
 
-  getFullName(): string {
+  public getFullName(): string {
     return this.fullName;
   }
 
-  setFullName(fullName: string): void {
+  public setFullName(fullName: string): void {
     this.fullName = fullName;
   }
 
-  getEmail(): string {
+  public getEmail(): string {
     return this.email;
   }
 
-  setEmail(email: string): void {
+  public setEmail(email: string): void {
     this.email = email;
   }
 
-  getPhone(): string {
+  public getPhone(): string {
     return this.phone;
   }
 
-  setPhone(phone: string): void {
+  public setPhone(phone: string): void {
     this.phone = phone;
   }
 
-  getWebsite(): string {
+  public getWebsite(): string {
     return this.website;
   }
 
-  setWebsite(website: string): void {
+  public setWebsite(website: string): void {
     this.website = website;
   }
 
-  getDateOfBirth(): Date | undefined {
+  public getDateOfBirth(): Date | undefined {
     return this.dateOfBirth;
   }
 
-  setDateOfBirth(dateOfBirth: Date): void {
+  public setDateOfBirth(dateOfBirth: Date): void {
     this.dateOfBirth = dateOfBirth;
   }
 
-  getGender(): Gender | undefined {
+  public getGender(): Gender | undefined {
     return this.gender;
   }
 
-  setGender(gender: Gender): void {
+  public setGender(gender: Gender): void {
     this.gender = gender;
   }
 }
@@ -98,12 +97,12 @@ abstract class PersonBase extends BaseModel implements IPerson {
 type IPersonDTO = IPersonBase;
 
 abstract class PersonDTO implements IPersonDTO {
-  fullName: string;
-  email: string;
-  phone: string;
-  dateOfBirth?: Date;
-  gender?: Gender;
-  website: string;
+  public fullName: string;
+  public email: string;
+  public phone: string;
+  public dateOfBirth?: Date;
+  public gender?: Gender;
+  public website: string;
 
   constructor({
     fullName = BaseStub.fullName,

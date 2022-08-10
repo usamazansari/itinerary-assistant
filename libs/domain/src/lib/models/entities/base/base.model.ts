@@ -1,22 +1,18 @@
 import { v4 as uuid } from 'uuid';
 
 abstract class BaseModel {
-  public id: string;
+  public id!: string;
 
-  constructor({ id = '' }: Partial<BaseModel>) {
-    this.id = id;
+  constructor() {
+    this.setId(uuid());
   }
 
-  public setId(id = ''): void {
+  private setId(id = ''): void {
     this.id = id;
   }
 
   public getId(): string {
     return this.id;
-  }
-
-  public generateUUID(): void {
-    this.setId(uuid());
   }
 }
 
