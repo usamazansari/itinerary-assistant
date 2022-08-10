@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "api-core": "libs/api/core",
     "api-database-entities": "libs/api/database/entities",
     "api-features-person": "libs/api/features/person",
     "domain": "libs/domain",
