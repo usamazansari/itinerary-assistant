@@ -8,7 +8,7 @@
     "build": "nx build",
     "postbuild": "purgecss --config ./configs/purgecss.config.js",
     "start:api": "nx run api:serve",
-    "start:app": "nx run-many --target=serve --projects=api,ui",
+    "start": "nx run-many --target=serve --all=true",
     "start:ui": "nx run ui:serve:development",
     "test": "nx test",
     "analyze:source-map": "source-map-explorer dist/apps/ui/*.{js,css} --no-border-checks",
