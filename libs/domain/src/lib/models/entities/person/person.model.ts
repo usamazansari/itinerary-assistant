@@ -28,14 +28,15 @@ abstract class PersonBase extends BaseModel implements IPerson {
   public website: string;
 
   constructor({
+    id,
     fullName = BaseStub.fullName,
     email = BaseStub.email,
     phone = BaseStub.phone,
     dateOfBirth,
     gender,
     website = BaseStub.website
-  }: Partial<IPerson & BaseModel>) {
-    super();
+  }: Partial<PersonBase & BaseModel>) {
+    super({ id });
     this.fullName = fullName;
     this.email = email;
     this.phone = phone;
@@ -96,7 +97,7 @@ abstract class PersonBase extends BaseModel implements IPerson {
 
 type IPersonDTO = IPersonBase;
 
-abstract class PersonDTO implements IPersonDTO {
+abstract class PersonBaseDTO implements IPersonDTO {
   public fullName: string;
   public email: string;
   public phone: string;
@@ -111,7 +112,7 @@ abstract class PersonDTO implements IPersonDTO {
     dateOfBirth,
     gender,
     website = BaseStub.website
-  }: Partial<IPersonDTO>) {
+  }: Partial<PersonBaseDTO>) {
     this.fullName = fullName;
     this.email = email;
     this.phone = phone;
@@ -122,4 +123,4 @@ abstract class PersonDTO implements IPersonDTO {
   }
 }
 
-export { IPerson, PersonBase, PersonDTO };
+export { IPerson, PersonBase, PersonBaseDTO };
