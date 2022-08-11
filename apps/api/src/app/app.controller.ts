@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { Person } from './imports/models';
 
 @Controller()
-export class AppController {
+class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('greeting')
@@ -17,3 +17,5 @@ export class AppController {
     return this.appService.getPerson();
   }
 }
+
+export { AppController };

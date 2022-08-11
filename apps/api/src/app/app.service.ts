@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { Person } from './imports/models';
 
 @Injectable()
-export class AppService {
+class AppService {
   getData(): { message: string } {
     return { message: 'Welcome to NestJS!' };
   }
@@ -12,3 +12,5 @@ export class AppService {
     return new Person({});
   }
 }
+
+export { AppService };

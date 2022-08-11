@@ -1,1 +1,1 @@
-export * from './lib/api-database-graphql.module';
+export * from './lib/graphql.module';

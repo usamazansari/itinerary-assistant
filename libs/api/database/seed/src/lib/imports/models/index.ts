@@ -1,1 +1,1 @@
-export { Person } from '@itinerary-assistant/api/database/entities';
+export { PersonModel as Person } from '@itinerary-assistant/api/features/person';
