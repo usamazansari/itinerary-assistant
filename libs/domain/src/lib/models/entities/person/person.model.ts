@@ -28,7 +28,7 @@ abstract class PersonBase extends BaseModel implements IPerson {
   public website: string;
 
   constructor({
-    id,
+    id = '',
     fullName = BaseStub.fullName,
     email = BaseStub.email,
     phone = BaseStub.phone,
@@ -46,51 +46,51 @@ abstract class PersonBase extends BaseModel implements IPerson {
     if (!!gender) this.gender = gender;
   }
 
-  public getFullName(): string {
+  public getFullName() {
     return this.fullName;
   }
 
-  public setFullName(fullName: string): void {
+  public setFullName(fullName = '') {
     this.fullName = fullName;
   }
 
-  public getEmail(): string {
+  public getEmail() {
     return this.email;
   }
 
-  public setEmail(email: string): void {
+  public setEmail(email = '') {
     this.email = email;
   }
 
-  public getPhone(): string {
+  public getPhone() {
     return this.phone;
   }
 
-  public setPhone(phone: string): void {
+  public setPhone(phone = '') {
     this.phone = phone;
   }
 
-  public getWebsite(): string {
+  public getWebsite() {
     return this.website;
   }
 
-  public setWebsite(website: string): void {
+  public setWebsite(website = '') {
     this.website = website;
   }
 
-  public getDateOfBirth(): Date | undefined {
+  public getDateOfBirth() {
     return this.dateOfBirth;
   }
 
-  public setDateOfBirth(dateOfBirth: Date): void {
+  public setDateOfBirth(dateOfBirth: Date | undefined) {
     this.dateOfBirth = dateOfBirth;
   }
 
-  public getGender(): Gender | undefined {
+  public getGender() {
     return this.gender;
   }
 
-  public setGender(gender: Gender): void {
+  public setGender(gender: Gender | undefined) {
     this.gender = gender;
   }
 }
