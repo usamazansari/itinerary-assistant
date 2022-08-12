@@ -1,8 +1,10 @@
 import { Module } from '@nestjs/common';
 
+import { AddressNodeMapper, PersonNodeMapper } from './services';
+
 @Module({
   controllers: [],
-  providers: [],
+  providers: [AddressNodeMapper, PersonNodeMapper],
   exports: []
 })
 export class PersonModule {}
