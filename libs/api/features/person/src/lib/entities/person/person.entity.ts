@@ -4,7 +4,7 @@ import { Gender } from '../../imports/constants';
 import { IPerson } from '../../imports/models';
 
 @ObjectType()
-class PersonEntity implements IPerson {
+class Person implements IPerson {
   @Field(() => ID)
   id!: string;
 
@@ -27,4 +27,4 @@ class PersonEntity implements IPerson {
   website!: string;
 }
 
-export { PersonEntity };
+export { Person as PersonEntity };

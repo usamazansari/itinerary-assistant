@@ -2,7 +2,7 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type PersonEntity {
+type Person {
   id: ID!
   fullName: String!
   email: String!
@@ -10,6 +10,7 @@ type PersonEntity {
   dateOfBirth: DateTime
   gender: Gender
   website: String!
+  address: Address!
 }
 
 """
@@ -24,6 +25,22 @@ enum Gender {
   OTHER
 }
 
+type Address {
+  id: ID!
+  room: String!
+  apartment: String!
+  wing: String!
+  street: String!
+  landmark: String!
+  locality: String!
+  suburb: String!
+  city: String!
+  state: String!
+  country: String!
+  zip: String!
+  residents: [Person!]!
+}
+
 type Query {
-  gqlSanity: PersonEntity!
+  gqlSanity: Person!
 }

@@ -1,1 +1,4 @@
-export { PersonEntity as Person } from '@itinerary-assistant/api/features/person';
+export {
+  PersonEntity as Person,
+  AddressEntity as Address
+} from '@itinerary-assistant/api/features/person';
