@@ -2,7 +2,8 @@ import { RelationDirection } from 'cypher-query-builder/dist/typings/clauses/rel
 
 enum VARIABLE {
   Address = 'address',
-  Person = 'person'
+  Person = 'person',
+  Output = 'output'
 }
 
 enum RELATIONSHIP {

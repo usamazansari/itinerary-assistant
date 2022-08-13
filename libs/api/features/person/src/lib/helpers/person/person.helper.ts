@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
+import { DateTime } from 'neo4j-driver';
 
 import { Neo4jNode, Neo4jOutput } from '../../imports/models';
-import { parseToDateTime } from '../../imports/utils';
+import { toJSDate, toNeo4jDateTime } from '../../imports/utils';
 
 import { Person, PersonDTO } from '../../models';
 
@@ -16,7 +17,13 @@ export class PersonHelper {
   }
 
   mapOutputToModel({ properties }: Neo4jNode<Person>) {
-    return new Person({ ...properties });
+    const { dateOfBirth, ...rest } = properties;
+    return !!dateOfBirth
+      ? new Person({
+          ...rest,
+          dateOfBirth: toJSDate((<unknown>dateOfBirth) as DateTime)
+        })
+      : new Person({ ...rest });
   }
 
   generateCreateObject(create: { id: string; person: PersonDTO }) {
@@ -26,7 +33,7 @@ export class PersonHelper {
     } = create;
 
     let _ = {};
-    if (!!dateOfBirth) _ = { ..._, dateOfBirth: parseToDateTime(dateOfBirth) };
+    if (!!dateOfBirth) _ = { ..._, dateOfBirth: toNeo4jDateTime(dateOfBirth) };
     if (!!email) _ = { ..._, email };
     if (!!fullName) _ = { ..._, fullName };
     if (!!gender) _ = { ..._, gender };
@@ -41,7 +48,7 @@ export class PersonHelper {
 
     let _ = {};
     if (!!dateOfBirth)
-      _ = { ..._, ['person.dateOfBirth']: parseToDateTime(dateOfBirth) };
+      _ = { ..._, ['person.dateOfBirth']: toNeo4jDateTime(dateOfBirth) };
     if (!!email) _ = { ..._, ['person.email']: email };
     if (!!fullName) _ = { ..._, ['person.fullName']: fullName };
     if (!!gender) _ = { ..._, ['person.gender']: gender };

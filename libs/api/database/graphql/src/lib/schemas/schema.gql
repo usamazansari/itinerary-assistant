@@ -43,4 +43,5 @@ type Address {
 
 type Query {
   gqlSanity: Person!
+  getPeople: [Person!]!
 }

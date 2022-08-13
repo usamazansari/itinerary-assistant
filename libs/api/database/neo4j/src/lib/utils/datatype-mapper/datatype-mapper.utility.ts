@@ -26,7 +26,7 @@ const updatePoint = (
   { latitude, longitude }: Coordinates
 ) => new PointConstructor<number>(srid, longitude ?? x, latitude ?? y);
 
-const parseFromDateTime = ({
+const toJSDate = ({
   year,
   month,
   day,
@@ -45,7 +45,7 @@ const parseFromDateTime = ({
     (+nanosecond || 0) / 1000000
   );
 
-const parseToDateTime = (date: Date): DateTime<number> =>
+const toNeo4jDateTime = (date: Date): DateTime<number> =>
   new DateTimeConstructor<number>(
     date.getFullYear(),
     date.getMonth() + 1,
@@ -57,10 +57,4 @@ const parseToDateTime = (date: Date): DateTime<number> =>
     date.getTimezoneOffset() * 60
   );
 
-export {
-  parseFromPoint,
-  parseToPoint,
-  updatePoint,
-  parseFromDateTime,
-  parseToDateTime
-};
+export { parseFromPoint, parseToPoint, updatePoint, toJSDate, toNeo4jDateTime };

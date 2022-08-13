@@ -1,1 +1,4 @@
-export { parseToDateTime } from '@itinerary-assistant/api/database/neo4j';
+export {
+  toJSDate,
+  toNeo4jDateTime
+} from '@itinerary-assistant/api/database/neo4j';
