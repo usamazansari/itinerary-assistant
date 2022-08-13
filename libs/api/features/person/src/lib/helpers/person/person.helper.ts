@@ -40,7 +40,7 @@ export class PersonHelper {
     if (!!phone) _ = { ..._, phone };
     if (!!website) _ = { ..._, website };
 
-    return { id, ..._ };
+    return { id, ..._ } as Partial<PersonDTO>;
   }
 
   generateUpdateObject(person: PersonDTO) {
@@ -54,6 +54,6 @@ export class PersonHelper {
     if (!!gender) _ = { ..._, ['person.gender']: gender };
     if (!!phone) _ = { ..._, ['person.phone']: phone };
     if (!!website) _ = { ..._, ['person.website']: website };
-    return _;
+    return _ as Partial<PersonDTO>;
   }
 }

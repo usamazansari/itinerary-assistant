@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-export interface INeo4jNode<NodeData = any> {
+export interface INeo4jNode<T = any> {
   identity: string;
   labels: string[];
-  properties: NodeData;
+  properties: T;
 }
 
 const Neo4jNodeStub: INeo4jNode = {
@@ -12,10 +12,10 @@ const Neo4jNodeStub: INeo4jNode = {
   properties: {} as any
 };
 
-export class Neo4jNode<NodeData = any> implements INeo4jNode {
+export class Neo4jNode<T = any> implements INeo4jNode {
   identity: string;
   labels: string[];
-  properties: NodeData;
+  properties: T;
 
   constructor({
     identity = Neo4jNodeStub.identity,
