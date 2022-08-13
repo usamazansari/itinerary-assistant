@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
-import { IAddress, PersonBase } from '../../../imports/models';
-import { PersonEntity } from '../person.entity';
+import { IAddress, PersonBase } from '../../imports/models';
+import { PersonEntity } from '..';
 
 @ObjectType()
 class Address implements IAddress {

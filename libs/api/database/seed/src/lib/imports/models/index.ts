@@ -1,4 +1,1 @@
-export {
-  AddressModel as Address,
-  PersonModel as Person
-} from '@itinerary-assistant/api/features/person';
+export { Address, Person } from '@itinerary-assistant/api/features/person';

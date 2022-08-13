@@ -1,7 +1,7 @@
-import { PersonModel } from './person.model';
+import { Person } from './person.model';
 
-describe('PersonModel', () => {
+describe('Person', () => {
   it('should be defined', () => {
-    expect(new PersonModel({})).toBeDefined();
+    expect(new Person({})).toBeDefined();
   });
 });
