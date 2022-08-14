@@ -12,8 +12,8 @@ export class PersonResolver {
     return await this._service.getPeople();
   }
 
-  @ResolveField(() => [AddressEntity], { name: 'addresses' })
-  async resolvePersonAddress(@Parent() { id }: Entity) {
-    return await this._service.getPersonAddress(id);
-  }
+  // @ResolveField(() => [AddressEntity], { name: 'addresses' })
+  // async resolvePersonAddress(@Parent() { id }: Entity) {
+  //   return await this._service.getPersonAddress(id);
+  // }
 }

@@ -38,6 +38,7 @@ type Address {
   state: String!
   country: String!
   zip: String!
+  addressType: String!
   residents: [Person!]!
 }
 

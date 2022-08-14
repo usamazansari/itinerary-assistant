@@ -14,6 +14,7 @@ interface IAddressBase {
   state: string;
   country: string;
   zip: string;
+  addressType: string;
 }
 
 const BaseStub: IAddressBase = {
@@ -27,7 +28,8 @@ const BaseStub: IAddressBase = {
   city: '',
   state: '',
   country: '',
-  zip: ''
+  zip: '',
+  addressType: ''
 };
 
 interface IAddress extends IAddressBase {
@@ -46,6 +48,9 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public state: string;
   public country: string;
   public zip: string;
+
+  // TODO: Usama Ansari - Convert this to enum
+  public addressType: string;
   public residents?: PersonBase[];
 
   constructor({
@@ -61,6 +66,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
     state = BaseStub.state,
     country = BaseStub.country,
     zip = BaseStub.zip,
+    addressType = BaseStub.addressType,
     residents
   }: Partial<AddressBase>) {
     super({ id });
@@ -75,6 +81,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
     this.state = state;
     this.country = country;
     this.zip = zip;
+    this.addressType = addressType;
 
     if (!!residents) this.residents = !!residents.length ? residents : [];
   }
@@ -86,6 +93,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setRoom(room = '') {
     this.room = room;
   }
+
   public getApartment() {
     return this.apartment;
   }
@@ -93,6 +101,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setApartment(apartment = '') {
     this.apartment = apartment;
   }
+
   public getWing() {
     return this.wing;
   }
@@ -100,6 +109,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setWing(wing = '') {
     this.wing = wing;
   }
+
   public getStreet() {
     return this.street;
   }
@@ -107,6 +117,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setStreet(street = '') {
     this.street = street;
   }
+
   public getLandmark() {
     return this.landmark;
   }
@@ -114,6 +125,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setLandmark(landmark = '') {
     this.landmark = landmark;
   }
+
   public getLocality() {
     return this.locality;
   }
@@ -121,6 +133,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setLocality(locality = '') {
     this.locality = locality;
   }
+
   public getSuburb() {
     return this.suburb;
   }
@@ -128,6 +141,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setSuburb(suburb = '') {
     this.suburb = suburb;
   }
+
   public getCity() {
     return this.city;
   }
@@ -135,6 +149,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setCity(city = '') {
     this.city = city;
   }
+
   public getState() {
     return this.state;
   }
@@ -142,6 +157,7 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setState(state = '') {
     this.state = state;
   }
+
   public getCountry() {
     return this.country;
   }
@@ -149,12 +165,21 @@ abstract class AddressBase extends BaseModel implements IAddress {
   public setCountry(country = '') {
     this.country = country;
   }
+
   public getZip() {
     return this.zip;
   }
 
   public setZip(zip = '') {
     this.zip = zip;
+  }
+
+  public getAddressType() {
+    return this.addressType;
+  }
+
+  public setAddressType(addresstype = '') {
+    this.addressType = addresstype;
   }
 
   public getResidents() {
@@ -180,6 +205,7 @@ class AddressBaseDTO implements IAddressDTO {
   state: string;
   country: string;
   zip: string;
+  addressType: string;
 
   constructor({
     room = BaseStub.room,
@@ -192,7 +218,8 @@ class AddressBaseDTO implements IAddressDTO {
     city = BaseStub.city,
     state = BaseStub.state,
     country = BaseStub.country,
-    zip = BaseStub.zip
+    zip = BaseStub.zip,
+    addressType = BaseStub.addressType
   }: Partial<AddressBaseDTO>) {
     this.room = room;
     this.apartment = apartment;
@@ -205,6 +232,7 @@ class AddressBaseDTO implements IAddressDTO {
     this.state = state;
     this.country = country;
     this.zip = zip;
+    this.addressType = addressType;
   }
 }
 

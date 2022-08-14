@@ -1,6 +1,6 @@
 export {
-  EramAddress,
+  EramAddresses,
   EramPerson,
-  UsamaAddress,
+  UsamaAddresses,
   UsamaPerson
 } from '@itinerary-assistant/api/database/seed';

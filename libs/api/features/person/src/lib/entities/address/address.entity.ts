@@ -43,6 +43,9 @@ class Address implements IAddress {
   @Field()
   zip!: string;
 
+  @Field()
+  addressType!: string;
+
   @Field(() => [PersonEntity])
   residents!: Person[];
 }

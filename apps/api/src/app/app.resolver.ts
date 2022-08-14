@@ -3,14 +3,14 @@ import { Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import { Address as AddressEntity, Person as Entity } from './imports/entities';
 import { Address, Person } from './imports/models';
 import {
-  EramAddress,
+  EramAddresses,
   EramPerson,
-  UsamaAddress,
+  UsamaAddresses,
   UsamaPerson
 } from './imports/seed';
 
 const people: Person[] = [UsamaPerson, EramPerson];
-const addresses: Address[] = [UsamaAddress, EramAddress];
+const addresses: Address[] = [...UsamaAddresses, ...EramAddresses];
 
 @Resolver(() => Entity)
 export class AppResolver {
@@ -21,6 +21,6 @@ export class AppResolver {
 
   @ResolveField(() => [AddressEntity], { name: 'addresses' })
   getAddress(@Parent() { id }: Entity) {
-    return addresses.filter(address => address.id === id);
+    return addresses.filter(address => new RegExp(id).test(address.id));
   }
 }
