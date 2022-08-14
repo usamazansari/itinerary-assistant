@@ -4,7 +4,7 @@ import { Gender } from '../../imports/constants';
 import { IPerson } from '../../imports/models';
 
 @InputType()
-class PersonInput extends IPerson {
+class PersonInput implements IPerson {
   @Field({ nullable: true })
   id!: string;
 

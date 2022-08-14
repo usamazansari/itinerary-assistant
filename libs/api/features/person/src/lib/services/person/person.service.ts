@@ -14,4 +14,9 @@ export class PersonService {
     const result = await this._repository.getPeople();
     return this._helper.extractPeople(result);
   }
+
+  async getPersonAddress(id: string) {
+    const result = await this._repository.getPersonAddress(id);
+    return this._helper.extractAddresses(result);
+  }
 }

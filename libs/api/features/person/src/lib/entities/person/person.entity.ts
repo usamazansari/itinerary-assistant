@@ -3,6 +3,9 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { Gender } from '../../imports/constants';
 import { IPerson } from '../../imports/models';
 
+import { Address } from '../../models';
+import { AddressEntity } from '..';
+
 @ObjectType()
 class Person implements IPerson {
   @Field(() => ID)
@@ -25,6 +28,9 @@ class Person implements IPerson {
 
   @Field()
   website!: string;
+
+  @Field(() => AddressEntity, { nullable: true })
+  address!: Address;
 }
 
 export { Person as PersonEntity };
