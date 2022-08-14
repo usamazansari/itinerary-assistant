@@ -29,8 +29,8 @@ class Person implements IPerson {
   @Field()
   website!: string;
 
-  @Field(() => AddressEntity, { nullable: true })
-  address!: Address;
+  @Field(() => [AddressEntity], { nullable: true })
+  addresses!: Address[];
 }
 
 export { Person as PersonEntity };

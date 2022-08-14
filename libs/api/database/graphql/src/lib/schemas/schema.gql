@@ -10,7 +10,7 @@ type Person {
   dateOfBirth: DateTime
   gender: Gender
   website: String!
-  address: Address!
+  addresses: [Address!]!
 }
 
 """

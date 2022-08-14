@@ -31,7 +31,7 @@ export class PersonRepository {
     return result as Neo4jOutput<Person>;
   }
 
-  async getPersonAddress(id: string) {
+  async getPersonAddress(id = '') {
     const query = this._query
       .queryBuilder()
       .match([

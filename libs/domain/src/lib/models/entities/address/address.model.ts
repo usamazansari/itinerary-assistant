@@ -1,6 +1,6 @@
-import { BaseModel } from '../../base/base.model';
+import { BaseModel } from '../base/base.model';
 
-import { PersonBase } from '../person.model';
+import { PersonBase } from '../person/person.model';
 
 interface IAddressBase {
   room: string;

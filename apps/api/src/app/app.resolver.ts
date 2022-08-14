@@ -19,8 +19,8 @@ export class AppResolver {
     return Math.random() > 0.5 ? people[0] : people[1];
   }
 
-  @ResolveField(() => AddressEntity, { name: 'address' })
+  @ResolveField(() => [AddressEntity], { name: 'addresses' })
   getAddress(@Parent() { id }: Entity) {
-    return addresses.at(people.findIndex(person => person.id === id));
+    return addresses.filter(address => address.id === id);
   }
 }

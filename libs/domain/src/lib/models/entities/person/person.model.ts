@@ -1,6 +1,8 @@
 import { BaseModel } from '../base/base.model';
 import { Gender } from '../../../constants';
 
+import { AddressBase } from '../address/address.model';
+
 interface IPersonBase {
   fullName: string;
   email: string;
@@ -17,7 +19,9 @@ const BaseStub: IPersonBase = {
   website: ''
 };
 
-type IPerson = IPersonBase;
+interface IPerson extends IPersonBase {
+  addresses?: AddressBase[];
+}
 
 abstract class PersonBase extends BaseModel implements IPerson {
   public fullName: string;
@@ -26,6 +30,7 @@ abstract class PersonBase extends BaseModel implements IPerson {
   public dateOfBirth?: Date;
   public gender?: Gender;
   public website: string;
+  public addresses?: AddressBase[];
 
   constructor({
     id = '',
@@ -34,7 +39,8 @@ abstract class PersonBase extends BaseModel implements IPerson {
     phone = BaseStub.phone,
     dateOfBirth,
     gender,
-    website = BaseStub.website
+    website = BaseStub.website,
+    addresses
   }: Partial<PersonBase & BaseModel>) {
     super({ id });
     this.fullName = fullName;
@@ -44,6 +50,7 @@ abstract class PersonBase extends BaseModel implements IPerson {
 
     if (!!dateOfBirth) this.dateOfBirth = dateOfBirth;
     if (!!gender) this.gender = gender;
+    if (!!addresses) this.addresses = !!addresses.length ? addresses : [];
   }
 
   public getFullName() {
@@ -92,6 +99,14 @@ abstract class PersonBase extends BaseModel implements IPerson {
 
   public setGender(gender: Gender | undefined) {
     this.gender = gender;
+  }
+
+  public getAddresses() {
+    return this.addresses;
+  }
+
+  public setAddresses(addresses: AddressBase[]) {
+    this.addresses = addresses;
   }
 }
 

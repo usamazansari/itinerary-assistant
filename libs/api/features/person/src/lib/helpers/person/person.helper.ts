@@ -14,8 +14,7 @@ export class PersonHelper {
   extractAddresses(result: Neo4jOutput<Address>) {
     return extractEntity<Address>(result)
       .map(({ properties }) => generateCreateAddressObject(properties))
-      .map(address => nodeMapper(Address, address))
-      .at(0);
+      .map(address => nodeMapper(Address, address));
   }
 
   extractPeople(result: Neo4jOutput<Person>) {

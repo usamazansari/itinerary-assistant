@@ -1,2 +1,3 @@
 export * from './base/base.model';
-export * from './person';
+export * from './address/address.model';
+export * from './person/person.model';
