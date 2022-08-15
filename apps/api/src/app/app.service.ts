@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 
 import { Person } from './imports/models';
+import { EramPerson, UsamaPerson } from './imports/seed';
+
+const people: Person[] = [UsamaPerson, EramPerson];
 
 @Injectable()
 class AppService {
@@ -9,7 +12,7 @@ class AppService {
   }
 
   getPerson(): Person {
-    return new Person({});
+    return Math.random() > 0.5 ? people[0] : people[1];
   }
 }
 

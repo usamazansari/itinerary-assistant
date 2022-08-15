@@ -13,13 +13,13 @@ import { Person } from './imports/models';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  // showData = false;
+  showData = false;
   showPing = false;
   showPerson = false;
 
   ping$!: Observable<unknown>;
   person$!: Observable<Person>;
-  // people$!: Observable<unknown[]>;
+  people$!: Observable<unknown[]>;
 
   constructor(
     private _http: HttpClient // private _getPerson: GetPersonGQL, // private _getPeople: GetPeopleGQL
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.showPing = false;
     this.showPerson = false;
-    // this.showData = false;
+    this.showData = false;
   }
 
   pingServer() {
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
   }
 
   fetchData(): void {
-    // this.showData = true;
+    this.showData = true;
     // this.person$ = this._getPerson
     //   .fetch({ personId: '149b729f-a0a8-4025-9d3a-a25ff6a9e28a' })
     //   .pipe(

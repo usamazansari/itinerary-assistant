@@ -1,51 +1,52 @@
 <div class="flex flex-col">
-  <div class="flex justify-center py-4 bg-blue-300">
-    <!-- <button class="p-4 bg-green-700 text-white rounded-md shadow-md"
+  <div class="flex border-b-2 py-2">
+    <button
+      class="px-4 py-1 mx-4 font-semibold rounded-l-xl rounded-r-xl border-2 hover:bg-amber-100 hover:text-amber-700 hover:border-amber-100 transition-colors duration-[250ms]"
       type="button"
       (click)="fetchData()">
-      Fetch Data
-    </button> -->
-    <button class="p-4 bg-green-700 text-white rounded-md shadow-md"
+      Fetch GraphQL Data
+    </button>
+    <button class="px-4 mx-4 font-semibold hover:text-amber-500 transition-colors duration-[250ms]"
       type="button"
       (click)="pingServer()">
       Ping Server
     </button>
-    <button class="p-4 bg-green-700 text-white rounded-md shadow-md"
+    <button class="px-4 mx-4 font-semibold hover:text-amber-500 transition-colors duration-[250ms]"
       type="button"
       (click)="fetchPerson()">
       Fetch Person
     </button>
   </div>
 
-  <!-- <ng-container *ngIf="showData">
-    <div class="grid grid-cols-2 justify-center">
-      <div class="bg-red-300">
-        <p class="py-4 bg-red-700 text-white font-mono text-center">Person</p>
-        <pre class="whitespace-pre-wrap">{{ person$ | async | json }}</pre>
+  <ng-container *ngIf="showData">
+    <div class="grid grid-cols-2">
+      <div class="bg-red-200 rounded-md">
+        <p class="py-4 bg-amber-500 text-black font-mono text-center rounded-md">Person</p>
+        <pre class="whitespace-pre-wrap p-2">{{ person$ | async | json }}</pre>
       </div>
-      <div class="bg-yellow-200">
-        <p class="py-4 bg-yellow-700 text-white font-mono text-center">
+      <div class="bg-yellow-200 rounded-md">
+        <p class="py-4 bg-lime-500 text-black font-mono text-center rounded-md">
           People
         </p>
-        <pre class="whitespace-pre-wrap">{{ people$ | async | json }}</pre>
+        <pre class="whitespace-pre-wrap p-2">{{ people$ | async | json }}</pre>
       </div>
     </div>
-  </ng-container> -->
+  </ng-container>
 
   <ng-container *ngIf="showPing">
-    <div class="grid justify-center">
+    <div class="grid">
       <div class="bg-blue-500">
         <p class="py-4 bg-red-700 text-white font-mono text-center">Ping</p>
-        <pre class="whitespace-pre-wrap">{{ ping$ | async | json }}</pre>
+        <pre class="whitespace-pre-wrap p-2">{{ ping$ | async | json }}</pre>
       </div>
     </div>
   </ng-container>
 
   <ng-container *ngIf="showPerson">
-    <div class="grid justify-center">
+    <div class="grid">
       <div class="bg-blue-500">
         <p class="py-4 bg-red-700 text-white font-mono text-center">Person</p>
-        <pre class="whitespace-pre-wrap">{{ person$ | async | json }}</pre>
+        <pre class="whitespace-pre-wrap p-2">{{ person$ | async | json }}</pre>
       </div>
     </div>
   </ng-container>
