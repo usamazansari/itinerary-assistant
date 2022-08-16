@@ -1,11 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Apollo } from 'apollo-angular';
 
 import { map, Observable, of, tap } from 'rxjs';
 
 import { Person } from './imports/models';
-import { PERSON_QUERY } from './imports/queries';
 
 @Component({
   selector: 'ia-root',
@@ -21,7 +19,7 @@ export class AppComponent implements OnInit {
   person$!: Observable<Person>;
   people$!: Observable<Person[]>;
 
-  constructor(private _http: HttpClient, private _apollo: Apollo) {}
+  constructor(private _http: HttpClient) {}
 
   ngOnInit() {
     this.showPing = false;
@@ -51,15 +49,6 @@ export class AppComponent implements OnInit {
 
   fetchData() {
     this.showData = true;
-    this.people$ = this._apollo
-      .query<{ getPeople: (Person & { __typename?: string })[] }>({
-        query: PERSON_QUERY.GET_PEOPLE
-      })
-      .pipe(
-        map(({ data: { getPeople } }) =>
-          getPeople.map(person => new Person({ ...person }))
-        )
-      );
     // this.person$ = this._getPerson
     //   .fetch({ personId: '149b729f-a0a8-4025-9d3a-a25ff6a9e28a' })
     //   .pipe(
