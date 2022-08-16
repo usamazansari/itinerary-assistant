@@ -31,6 +31,13 @@ const routes: Routes = [
     path: AppRoutes.Empty,
     children: [
       // {
+      //   path: AppRoutes.Empty,
+      //   loadChildren: () =>
+      //     import('@itinerary-assistant/ui/features/person').then(
+      //       ({ PersonModule }) => PersonModule
+      //     )
+      // }
+      // {
       //   path: AppRoutes.Trip,
       //   loadChildren: () =>
       //     import('@itinerary-assistant/ui/features/trip').then(

@@ -12,13 +12,6 @@ interface IPersonBase {
   website: string;
 }
 
-const BaseStub: IPersonBase = {
-  fullName: '',
-  email: '',
-  phone: '',
-  website: ''
-};
-
 interface IPerson extends IPersonBase {
   addresses?: AddressBase[];
 }
@@ -34,12 +27,12 @@ abstract class PersonBase extends BaseModel implements IPerson {
 
   constructor({
     id = '',
-    fullName = BaseStub.fullName,
-    email = BaseStub.email,
-    phone = BaseStub.phone,
+    fullName = '',
+    email = '',
+    phone = '',
     dateOfBirth,
     gender,
-    website = BaseStub.website,
+    website = '',
     addresses
   }: Partial<PersonBase & BaseModel>) {
     super({ id });
@@ -121,12 +114,12 @@ abstract class PersonBaseDTO implements IPersonDTO {
   public website: string;
 
   constructor({
-    fullName = BaseStub.fullName,
-    email = BaseStub.email,
-    phone = BaseStub.phone,
+    fullName = '',
+    email = '',
+    phone = '',
     dateOfBirth,
     gender,
-    website = BaseStub.website
+    website = ''
   }: Partial<PersonBaseDTO>) {
     this.fullName = fullName;
     this.email = email;

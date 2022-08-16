@@ -43,7 +43,6 @@ type Address {
 }
 
 type Query {
-  gqlSanity: Person!
   getAddress(id: String!): Address!
   getPeople: [Person!]!
   getPerson(id: String!): Person!

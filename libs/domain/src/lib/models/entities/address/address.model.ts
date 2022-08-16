@@ -17,21 +17,6 @@ interface IAddressBase {
   addressType: string;
 }
 
-const BaseStub: IAddressBase = {
-  room: '',
-  apartment: '',
-  wing: '',
-  street: '',
-  landmark: '',
-  locality: '',
-  suburb: '',
-  city: '',
-  state: '',
-  country: '',
-  zip: '',
-  addressType: ''
-};
-
 interface IAddress extends IAddressBase {
   residents?: PersonBase[];
 }
@@ -55,18 +40,18 @@ abstract class AddressBase extends BaseModel implements IAddress {
 
   constructor({
     id = '',
-    room = BaseStub.room,
-    apartment = BaseStub.apartment,
-    wing = BaseStub.wing,
-    street = BaseStub.street,
-    landmark = BaseStub.landmark,
-    locality = BaseStub.locality,
-    suburb = BaseStub.suburb,
-    city = BaseStub.city,
-    state = BaseStub.state,
-    country = BaseStub.country,
-    zip = BaseStub.zip,
-    addressType = BaseStub.addressType,
+    room = '',
+    apartment = '',
+    wing = '',
+    street = '',
+    landmark = '',
+    locality = '',
+    suburb = '',
+    city = '',
+    state = '',
+    country = '',
+    zip = '',
+    addressType = '',
     residents
   }: Partial<AddressBase>) {
     super({ id });
@@ -208,18 +193,18 @@ class AddressBaseDTO implements IAddressDTO {
   addressType: string;
 
   constructor({
-    room = BaseStub.room,
-    apartment = BaseStub.apartment,
-    wing = BaseStub.wing,
-    street = BaseStub.street,
-    landmark = BaseStub.landmark,
-    locality = BaseStub.locality,
-    suburb = BaseStub.suburb,
-    city = BaseStub.city,
-    state = BaseStub.state,
-    country = BaseStub.country,
-    zip = BaseStub.zip,
-    addressType = BaseStub.addressType
+    room = '',
+    apartment = '',
+    wing = '',
+    street = '',
+    landmark = '',
+    locality = '',
+    suburb = '',
+    city = '',
+    state = '',
+    country = '',
+    zip = '',
+    addressType = ''
   }: Partial<AddressBaseDTO>) {
     this.room = room;
     this.apartment = apartment;
