@@ -1,2 +1,2 @@
 export * from './lib/graphql.module';
-// export * from './lib/generated-endpoints';
+export * from './lib/queries';
