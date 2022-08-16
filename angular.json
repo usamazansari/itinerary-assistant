@@ -11,6 +11,7 @@
     "api-features-person": "libs/api/features/person",
     "domain": "libs/domain",
     "ui": "apps/ui",
+    "ui-core": "libs/ui/core",
     "ui-database-entities": "libs/ui/database/entities",
     "ui-e2e": "apps/ui-e2e",
     "ui-features-person": "libs/ui/features/person"

@@ -32,6 +32,7 @@
         "libs/api/features/person/src/index.ts"
       ],
       "@itinerary-assistant/domain": ["libs/domain/src/index.ts"],
+      "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
       "@itinerary-assistant/ui/database/entities": [
         "libs/ui/database/entities/src/index.ts"
       ],
