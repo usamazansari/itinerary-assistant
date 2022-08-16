@@ -28,7 +28,7 @@ const generateCreateAddressObject = ({
   if (!!wing) _ = { ..._, wing };
   if (!!zip) _ = { ..._, zip };
 
-  return { ..._ } as Partial<Address>;
+  return { ..._ } as Address;
 };
 
 const generateUpdateAddressObject = ({
@@ -57,6 +57,13 @@ const generateUpdateAddressObject = ({
   if (!!wing) _ = { ..._, ['address.wing']: wing };
   if (!!zip) _ = { ..._, ['address.zip']: zip };
 
-  return _ as Partial<AddressDTO>;
+  return _ as AddressDTO;
 };
-export { generateCreateAddressObject, generateUpdateAddressObject };
+
+const generateReadAddressObject = generateCreateAddressObject;
+
+export {
+  generateCreateAddressObject,
+  generateReadAddressObject,
+  generateUpdateAddressObject
+};

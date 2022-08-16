@@ -7,7 +7,8 @@ enum VARIABLE {
 }
 
 enum RELATIONSHIP {
-  Address = 'addressRelationship'
+  Address = 'addressRelationship',
+  Resident = 'residentRelationship'
 }
 
 const RELATIONSHIP_DIRECTION = {

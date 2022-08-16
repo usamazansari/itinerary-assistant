@@ -11,7 +11,7 @@ import { join } from 'path';
       playground: true,
       autoSchemaFile: join(
         process.cwd(),
-        'libs/api/database/graphql/src/lib/schemas/schema.gql'
+        'libs/domain/src/lib/schema/schema.gql'
       )
     })
   ]

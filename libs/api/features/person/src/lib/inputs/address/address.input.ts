@@ -3,7 +3,7 @@ import { Field, InputType } from '@nestjs/graphql';
 import { IAddress } from '../../imports/models';
 
 @InputType()
-export class AddressInput implements IAddress {
+class AddressInput implements IAddress {
   @Field({ nullable: true })
   room!: string;
 
@@ -36,4 +36,9 @@ export class AddressInput implements IAddress {
 
   @Field({ nullable: true })
   zip!: string;
+
+  @Field({ nullable: true })
+  addressType!: string;
 }
+
+export { AddressInput };

@@ -1,0 +1,70 @@
+query GetPeople {
+  getPeople {
+    id
+    fullName
+    gender
+    phone
+    dateOfBirth
+    website
+    email
+  }
+}
+
+query GetPerson($personId: String!) {
+  getPerson(id: $personId) {
+    id
+    fullName
+    gender
+    phone
+    dateOfBirth
+    website
+    email
+    addresses {
+      room
+      apartment
+      wing
+      street
+      landmark
+      locality
+      suburb
+      city
+      zip
+      state
+      country
+      residents {
+        fullName
+        email
+      }
+    }
+  }
+}
+
+mutation CreatePerson($createInput: PersonInput!) {
+  createPerson(person: $createInput) {
+    id
+    fullName
+    gender
+    phone
+    dateOfBirth
+    website
+    email
+  }
+}
+
+mutation UpdatePerson($personId: String!, $updateInput: PersonInput!) {
+  updatePerson(id: $personId, person: $updateInput) {
+    id
+    fullName
+    gender
+    phone
+    dateOfBirth
+    website
+    email
+  }
+}
+
+mutation DeletePerson($personId: String!) {
+  deletePerson(id: $personId) {
+    fullName
+  }
+}

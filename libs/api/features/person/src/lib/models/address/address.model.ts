@@ -4,4 +4,9 @@ class Address extends AddressBase {}
 
 class AddressDTO extends AddressBaseDTO {}
 
-export { Address, AddressDTO };
+type AddressPersonAssociation = {
+  addressId: string;
+  personId: string;
+};
+
+export { Address, AddressDTO, AddressPersonAssociation };

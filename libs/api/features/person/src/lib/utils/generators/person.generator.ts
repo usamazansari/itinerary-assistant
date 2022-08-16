@@ -11,7 +11,7 @@ const generateCreatePersonObject = ({
   gender,
   phone,
   website
-}: Person) => {
+}: Partial<Person>) => {
   let _ = {};
   if (!!id) _ = { ..._, id };
   if (!!dateOfBirth) _ = { ..._, dateOfBirth: toNeo4jDateTime(dateOfBirth) };
@@ -21,7 +21,7 @@ const generateCreatePersonObject = ({
   if (!!phone) _ = { ..._, phone };
   if (!!website) _ = { ..._, website };
 
-  return { ..._ } as Partial<Person>;
+  return { ..._ } as Person;
 };
 
 const generateReadPersonObject = ({
@@ -32,7 +32,7 @@ const generateReadPersonObject = ({
   gender,
   phone,
   website
-}: Person) => {
+}: Partial<Person>) => {
   let _ = {};
   if (!!id) _ = { ..._, id };
   if (!!dateOfBirth)
@@ -43,7 +43,7 @@ const generateReadPersonObject = ({
   if (!!phone) _ = { ..._, phone };
   if (!!website) _ = { ..._, website };
 
-  return { ..._ } as Partial<Person>;
+  return { ..._ } as Person;
 };
 
 const generateUpdatePersonObject = ({
@@ -53,7 +53,7 @@ const generateUpdatePersonObject = ({
   gender,
   phone,
   website
-}: PersonDTO) => {
+}: Partial<PersonDTO>) => {
   let _ = {};
   if (!!dateOfBirth)
     _ = { ..._, ['person.dateOfBirth']: toNeo4jDateTime(dateOfBirth) };
@@ -62,7 +62,7 @@ const generateUpdatePersonObject = ({
   if (!!gender) _ = { ..._, ['person.gender']: gender };
   if (!!phone) _ = { ..._, ['person.phone']: phone };
   if (!!website) _ = { ..._, ['person.website']: website };
-  return _ as Partial<PersonDTO>;
+  return _ as PersonDTO;
 };
 
 export {
