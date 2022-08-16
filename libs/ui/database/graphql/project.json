@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/ui/database/graphql/src",
+  "prefix": "itinerary-assistant",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ui/database/graphql"],
+      "options": {
+        "jestConfig": "libs/ui/database/graphql/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ui/database/graphql/**/*.ts",
+          "libs/ui/database/graphql/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
