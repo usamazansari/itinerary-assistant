@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 
 // import { Gender } from './imports/constants';
 import { Person } from './imports/models';
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     private _http: HttpClient // private _getPerson: GetPersonGQL, // private _getPeople: GetPeopleGQL
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.showPing = false;
     this.showPerson = false;
     this.showData = false;
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  fetchData(): void {
+  fetchData() {
     this.showData = true;
     // this.person$ = this._getPerson
     //   .fetch({ personId: '149b729f-a0a8-4025-9d3a-a25ff6a9e28a' })
@@ -91,5 +91,17 @@ export class AppComponent implements OnInit {
     //     return getPeople;
     //   })
     // );
+  }
+
+  resetFlags() {
+    this.showData = false;
+    this.showPerson = false;
+    this.showPing = false;
+  }
+
+  clearData() {
+    this.person$ = of({} as Person);
+    this.people$ = of([]);
+    this.ping$ = of('');
   }
 }
