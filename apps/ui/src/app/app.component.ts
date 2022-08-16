@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { map, Observable, of, tap } from 'rxjs';
 
+// import { Gender } from './imports/constants';
 import { Person } from './imports/models';
+// import { GetPeopleGQL, GetPersonGQL } from './imports/services';
 
 @Component({
   selector: 'ia-root',
@@ -17,9 +19,11 @@ export class AppComponent implements OnInit {
 
   ping$!: Observable<unknown>;
   person$!: Observable<Person>;
-  people$!: Observable<Person[]>;
+  people$!: Observable<unknown[]>;
 
-  constructor(private _http: HttpClient) {}
+  constructor(
+    private _http: HttpClient // private _getPerson: GetPersonGQL, // private _getPeople: GetPeopleGQL
+  ) {}
 
   ngOnInit() {
     this.showPing = false;
@@ -54,8 +58,12 @@ export class AppComponent implements OnInit {
     //   .pipe(
     //     map(({ data: { getPerson }, loading, error, errors }) => {
     //       console.log({ loading });
-    //       if (error) throw error;
-    //       if (errors) throw errors;
+    //       if (error) {
+    //         throw error;
+    //       }
+    //       if (errors) {
+    //         throw error;
+    //       }
     //       return getPerson;
     //     }),
     //     map(
