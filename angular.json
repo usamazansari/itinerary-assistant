@@ -14,6 +14,7 @@
     "ui-core": "libs/ui/core",
     "ui-database-graphql": "libs/ui/database/graphql",
     "ui-e2e": "apps/ui-e2e",
-    "ui-features-person": "libs/ui/features/person"
+    "ui-features-person": "libs/ui/features/person",
+    "ui-features-trip": "libs/ui/features/trip"
   }
 }
