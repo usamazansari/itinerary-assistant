@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { gql } from 'apollo-angular';
 import { Injectable } from '@angular/core';
 import * as Apollo from 'apollo-angular';
@@ -263,7 +264,7 @@ export class GetAddressGQL extends Apollo.Query<
   GetAddressQuery,
   GetAddressQueryVariables
 > {
-  document = GetAddressDocument;
+  override document = GetAddressDocument;
 
   constructor(apollo: Apollo.Apollo) {
     super(apollo);
@@ -295,7 +296,7 @@ export class CreateAddressGQL extends Apollo.Mutation<
   CreateAddressMutation,
   CreateAddressMutationVariables
 > {
-  document = CreateAddressDocument;
+  override document = CreateAddressDocument;
 
   constructor(apollo: Apollo.Apollo) {
     super(apollo);
@@ -327,7 +328,7 @@ export class UpdateAddressGQL extends Apollo.Mutation<
   UpdateAddressMutation,
   UpdateAddressMutationVariables
 > {
-  document = UpdateAddressDocument;
+  override document = UpdateAddressDocument;
 
   constructor(apollo: Apollo.Apollo) {
     super(apollo);
@@ -351,7 +352,7 @@ export class DeleteAddressGQL extends Apollo.Mutation<
   DeleteAddressMutation,
   DeleteAddressMutationVariables
 > {
-  document = DeleteAddressDocument;
+  override document = DeleteAddressDocument;
 
   constructor(apollo: Apollo.Apollo) {
     super(apollo);

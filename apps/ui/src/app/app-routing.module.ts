@@ -30,13 +30,13 @@ const routes: Routes = [
   {
     path: AppRoutes.Empty,
     children: [
-      // {
-      //   path: AppRoutes.Empty,
-      //   loadChildren: () =>
-      //     import('@itinerary-assistant/ui/features/person').then(
-      //       ({ PersonModule }) => PersonModule
-      //     )
-      // }
+      {
+        path: AppRoutes.Person,
+        loadChildren: () =>
+          import('@itinerary-assistant/ui/features/person').then(
+            ({ PersonModule: m }) => m
+          )
+      },
       // {
       //   path: AppRoutes.Trip,
       //   loadChildren: () =>
@@ -44,11 +44,11 @@ const routes: Routes = [
       //       m => m.TripModule
       //     )
       // },
-      // {
-      //   path: AppRoutes.Empty,
-      //   redirectTo: AppRoutes.Trip,
-      //   pathMatch: 'full'
-      // }
+      {
+        path: AppRoutes.Empty,
+        redirectTo: AppRoutes.Trip,
+        pathMatch: 'full'
+      }
     ]
   },
   {
