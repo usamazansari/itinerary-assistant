@@ -4,7 +4,6 @@
   "projects": {
     "api": "apps/api",
     "api-core": "libs/api/core",
-    "api-database-entities": "libs/api/database/entities",
     "api-database-graphql": "libs/api/database/graphql",
     "api-database-neo4j": "libs/api/database/neo4j",
     "api-database-seed": "libs/api/database/seed",

@@ -16,9 +16,6 @@
     "baseUrl": ".",
     "paths": {
       "@itinerary-assistant/api/core": ["libs/api/core/src/index.ts"],
-      "@itinerary-assistant/api/database/entities": [
-        "libs/api/database/entities/src/index.ts"
-      ],
       "@itinerary-assistant/api/database/graphql": [
         "libs/api/database/graphql/src/index.ts"
       ],
