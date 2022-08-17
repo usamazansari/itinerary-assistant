@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { isDevMode, NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import type { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { RouteConstants as AppRoutes } from './app.routes';
 
@@ -30,6 +30,13 @@ const routes: Routes = [
   {
     path: AppRoutes.Empty,
     children: [
+      {
+        path: AppRoutes.Person,
+        loadChildren: () =>
+          import('@itinerary-assistant/ui/features/person').then(
+            ({ PersonModule: m }) => m
+          )
+      },
       // {
       //   path: AppRoutes.Trip,
       //   loadChildren: () =>
@@ -37,11 +44,11 @@ const routes: Routes = [
       //       m => m.TripModule
       //     )
       // },
-      // {
-      //   path: AppRoutes.Empty,
-      //   redirectTo: AppRoutes.Trip,
-      //   pathMatch: 'full'
-      // }
+      {
+        path: AppRoutes.Empty,
+        redirectTo: AppRoutes.Person,
+        pathMatch: 'full'
+      }
     ]
   },
   {
@@ -50,17 +57,13 @@ const routes: Routes = [
   }
 ];
 
-const imports = [
-  RouterModule.forRoot(routes, {
-    enableTracing: isDevMode() && false,
-    initialNavigation: 'enabledBlocking'
-  })
-];
-
-const exports = [RouterModule];
-
 @NgModule({
-  imports: [...imports],
-  exports: [...exports]
+  imports: [
+    RouterModule.forRoot(routes, {
+      enableTracing: isDevMode() && false,
+      initialNavigation: 'enabledBlocking'
+    })
+  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}

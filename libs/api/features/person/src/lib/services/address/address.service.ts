@@ -1,101 +1,73 @@
 import { Injectable } from '@nestjs/common';
 
-import {
-  Address,
-  AddressDTO,
-  Location,
-  Neo4jOutput,
-  Person
-} from '../../imports/models';
-
-import { ExtractorService } from '../../helpers';
+import { AddressHelper } from '../../helpers';
+import { AddressDTO, AddressPersonAssociation } from '../../models';
 import { AddressRepository } from '../../repositories';
 
 @Injectable()
 export class AddressService {
   constructor(
-    private _repository: AddressRepository,
-    private _extractor: ExtractorService
+    private _helper: AddressHelper,
+    private _repository: AddressRepository
   ) {}
 
-  async getAddress(id = ''): Promise<Address> {
+  async getAddress(id = '') {
     const result = await this._repository.getAddress(id);
-    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
+    const [response] = this._helper.extractAddresses(result);
+    return response;
   }
 
-  async getLocation(id = ''): Promise<Location> {
-    const result = await this._repository.getLocation(id);
-    return this._extractor.extractLocation(result as Neo4jOutput<Location>);
+  async createAddress(dto: AddressDTO) {
+    const address = this._helper.createAddressPayload(dto);
+    const result = await this._repository.createAddress(address);
+    const [response] = this._helper.extractAddresses(result);
+    return response;
   }
 
-  async getResidents(id = ''): Promise<Person[]> {
-    const result = await this._repository.getResidents(id);
-    return this._extractor.extractPeople(result as Neo4jOutput<Person>);
+  async updateAddress(id: string, dto: AddressDTO) {
+    const update = this._helper.updateAddressPayload(dto);
+    const result = await this._repository.updateAddress(id, update);
+    const [response] = this._helper.extractAddresses(result);
+    return response;
   }
 
-  async createAddress(address: AddressDTO): Promise<Address> {
-    const id = new Address({ ...address }).generateUUID();
-    const result = await this._repository.createAddress(id, address);
-    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
-  }
-
-  async updateAddress(id: string, address: AddressDTO): Promise<Address> {
-    const result = await this._repository.updateAddress(id, address);
-    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
-  }
-
-  async deleteAddress(id: string): Promise<Address> {
+  async deleteAddress(id: string) {
     const result = await this._repository.deleteAddress(id);
-    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
+    const [response] = this._helper.extractAddresses(result);
+    return response;
   }
 
-  async associateAddressWithPerson(
-    addressId: string,
-    personId: string
-  ): Promise<Address> {
-    const check = await this.checkAddressOfRelationship(addressId, personId);
-    const result = check
-      ? await this._repository.getAddress(addressId)
-      : await this._repository.associateAddressWithPerson(addressId, personId);
-    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
+  async getResidents(id = '') {
+    const result = await this._repository.getResidents(id);
+    return this._helper.extractPeople(result);
   }
 
-  async associateAddressWithLocation(
-    addressId: string,
-    locationId: string
-  ): Promise<Address> {
-    const check = await this.checkHasLocationRelationship(
-      addressId,
-      locationId
-    );
-    const result = check
-      ? await this._repository.getAddress(addressId)
-      : await this._repository.associateAddressWithLocation(
-          addressId,
-          locationId
-        );
-    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
-  }
-
-  async checkAddressOfRelationship(
-    addressId: string,
-    personId: string
-  ): Promise<boolean> {
-    const result = await this._repository.checkAddressOfRelationship(
+  async associateAddressWithPerson({
+    addressId,
+    personId
+  }: AddressPersonAssociation) {
+    const check = await this.checkAddressOfRelationship({
       addressId,
       personId
-    );
-    return !!result.length;
+    });
+    const result = check
+      ? await this._repository.getAddress(addressId)
+      : await this._repository.associateAddressWithPerson({
+          addressId,
+          personId
+        });
+    const [response] = this._helper.extractAddresses(result);
+    return response;
   }
 
-  async checkHasLocationRelationship(
-    addressId: string,
-    locationId: string
-  ): Promise<boolean> {
-    const result = await this._repository.checkHasLocationRelationship(
+  async checkAddressOfRelationship({
+    addressId,
+    personId
+  }: AddressPersonAssociation) {
+    const result = await this._repository.checkAddressOfRelationship({
       addressId,
-      locationId
-    );
+      personId
+    });
     return !!result.length;
   }
 }

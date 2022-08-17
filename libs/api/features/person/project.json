@@ -1,5 +1,5 @@
 {
-  "root": "libs/api/features/person",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/api/features/person/src",
   "projectType": "library",
   "targets": {
@@ -14,10 +14,10 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/features/person"],
       "options": {
-        "jestConfig": "libs/api/features/person/jest.config.js",
+        "jestConfig": "libs/api/features/person/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["species:person", "genus:library", "family:api"]
+  "tags": []
 }

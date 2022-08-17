@@ -1,12 +1,13 @@
 export {
-  GetPeopleGQL,
-  GetPeopleQuery,
-  GetPersonGQL,
-  GetPersonQuery,
+  CreateAddressGQL,
+  DeleteAddressGQL,
+  GetAddressGQL,
+  UpdateAddressGQL
+} from './address.endpoints';
+export {
   CreatePersonGQL,
-  CreatePersonMutation,
   DeletePersonGQL,
-  DeletePersonMutation,
-  UpdatePersonGQL,
-  UpdatePersonMutation
+  GetPersonGQL,
+  GetPeopleGQL,
+  UpdatePersonGQL
 } from './person.endpoints';

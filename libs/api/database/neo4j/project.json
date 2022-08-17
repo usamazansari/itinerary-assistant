@@ -1,5 +1,5 @@
 {
-  "root": "libs/api/database/neo4j",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/api/database/neo4j/src",
   "projectType": "library",
   "targets": {
@@ -14,10 +14,10 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/database/neo4j"],
       "options": {
-        "jestConfig": "libs/api/database/neo4j/jest.config.js",
+        "jestConfig": "libs/api/database/neo4j/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["species:api-database-neo4j", "genus:library", "family:api"]
+  "tags": []
 }

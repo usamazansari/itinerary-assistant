@@ -2,236 +2,97 @@ import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
 import { REPOSITORY_CONSTANTS } from '../../imports/constants';
-import { PersonDTO } from '../../imports/models';
-import { Neo4jQueryRepositoryService } from '../../imports/services';
+import { Neo4jOutput } from '../../imports/models';
+import { QueryRepositoryService } from '../../imports/services';
 
-import { PersonHelper } from '../../helpers';
+import { Address, Person, PersonDTO } from '../../models';
 
 @Injectable()
 export class PersonRepository {
-  constructor(
-    private _query: Neo4jQueryRepositoryService,
-    private _helper: PersonHelper
-  ) {}
+  constructor(private _query: QueryRepositoryService) {}
+
+  async getPeople() {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Person}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
+      })
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
+
+    console.log({ query: query.interpolate() });
+    const result = await query.run();
+    return result as Neo4jOutput<Person>;
+  }
 
   async getPerson(id = '') {
     const query = this._query
       .queryBuilder()
       .match([
         node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person,
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
           { id }
         )
       ])
       .with({
-        [`${REPOSITORY_CONSTANTS.Variables.Person}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Person}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
       })
-      .return([REPOSITORY_CONSTANTS.Variables.Output]);
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
+    console.log({ query: query.interpolate() });
     const result = await query.run();
-    return result;
+    return result as Neo4jOutput<Person>;
   }
 
-  async getPeople() {
-    const query_log = this._query
-      .queryBuilder()
-      .match([
-        node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person
-        )
-      ])
-      .with({
-        [`${REPOSITORY_CONSTANTS.Variables.Person}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
-      })
-      .return([REPOSITORY_CONSTANTS.Variables.Output])
-      .interpolate();
-    const query = this._query
-      .queryBuilder()
-      .match([
-        node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person
-        )
-      ])
-      .with({
-        [`${REPOSITORY_CONSTANTS.Variables.Person}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
-      })
-      .return([REPOSITORY_CONSTANTS.Variables.Output]);
-
-    console.log({ query: query_log });
-    const result = await query.run();
-    return result;
-  }
-
-  async getAddress(id = '') {
-    const query = this._query
-      .queryBuilder()
-      .match([
-        node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person,
-          { id }
-        ),
-        relation(
-          REPOSITORY_CONSTANTS.RelationshipDirection.IN,
-          REPOSITORY_CONSTANTS.Relationships.Address,
-          REPOSITORY_CONSTANTS.Labels.AddressOf
-        ),
-        node(
-          REPOSITORY_CONSTANTS.Variables.Address,
-          REPOSITORY_CONSTANTS.Labels.Address
-        )
-      ])
-      .with({
-        [`${REPOSITORY_CONSTANTS.Variables.Address}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
-      })
-      .return([REPOSITORY_CONSTANTS.Variables.Output]);
-
-    console.log({ query: query.toString() });
-    const result = await query.run();
-    return result;
-  }
-
-  async getDemographics(id = '') {
-    const query = this._query
-      .queryBuilder()
-      .match([
-        node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person,
-          { id }
-        ),
-        relation(
-          REPOSITORY_CONSTANTS.RelationshipDirection.IN,
-          REPOSITORY_CONSTANTS.Relationships.Demographics,
-          REPOSITORY_CONSTANTS.Labels.DemographicsOf
-        ),
-        node(
-          REPOSITORY_CONSTANTS.Variables.Demographics,
-          REPOSITORY_CONSTANTS.Labels.Demographics
-        )
-      ])
-      .with({
-        [`${REPOSITORY_CONSTANTS.Variables.Demographics}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
-      })
-      .return([REPOSITORY_CONSTANTS.Variables.Output]);
-
-    console.log({ query: query.toString() });
-    const result = await query.run();
-    return result;
-  }
-
-  async getIdentifications(id = '') {
-    const query = this._query
-      .queryBuilder()
-      .match([
-        node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person,
-          { id }
-        ),
-        relation(
-          REPOSITORY_CONSTANTS.RelationshipDirection.IN,
-          REPOSITORY_CONSTANTS.Relationships.Identification,
-          REPOSITORY_CONSTANTS.Labels.IdentificationOf
-        ),
-        node(
-          REPOSITORY_CONSTANTS.Variables.Identification,
-          REPOSITORY_CONSTANTS.Labels.Identification
-        )
-      ])
-      .with({
-        [`${REPOSITORY_CONSTANTS.Variables.Identification}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
-      })
-      .return([REPOSITORY_CONSTANTS.Variables.Output]);
-
-    console.log({ query: query.toString() });
-    const result = await query.run();
-    return result;
-  }
-
-  async getSocialConnections(id = '') {
-    const query = this._query
-      .queryBuilder()
-      .match([
-        node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person,
-          { id }
-        ),
-        relation(
-          REPOSITORY_CONSTANTS.RelationshipDirection.IN,
-          REPOSITORY_CONSTANTS.Relationships.SocialConnection,
-          REPOSITORY_CONSTANTS.Labels.SocialConnectionOf
-        ),
-        node(
-          REPOSITORY_CONSTANTS.Variables.SocialConnection,
-          REPOSITORY_CONSTANTS.Labels.SocialConnection
-        )
-      ])
-      .with({
-        [`${REPOSITORY_CONSTANTS.Variables.SocialConnection}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
-      })
-      .return([REPOSITORY_CONSTANTS.Variables.Output]);
-
-    console.log({ query: query.toString() });
-    const result = await query.run();
-    return result;
-  }
-
-  async createPerson(id = '', person = new PersonDTO({})) {
-    const create = this._helper.generateCreateObject({ id, person });
+  async createPerson(dto = new PersonDTO({})) {
     const query = this._query
       .queryBuilder()
       .create([
         node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person,
-          { ...create }
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
+          { ...dto }
         )
       ])
       .with({
-        [`${REPOSITORY_CONSTANTS.Variables.Person}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Person}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
       })
-      .return([REPOSITORY_CONSTANTS.Variables.Output]);
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
+    console.log({ query: query.interpolate() });
     const result = await query.run();
-    return result;
+    return result as Neo4jOutput<Person>;
   }
 
-  async updatePerson(id = '', person = new PersonDTO({})) {
-    const update = this._helper.generateUpdateObject(person);
+  async updatePerson(id = '', update = new PersonDTO({})) {
     const query = this._query
       .queryBuilder()
       .match([
         node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person,
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
           { id }
         )
       ])
       .set({ values: { ...update } })
       .with({
-        [`${REPOSITORY_CONSTANTS.Variables.Person}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Person}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
       })
-      .return([REPOSITORY_CONSTANTS.Variables.Output]);
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
+    console.log({ query: query.interpolate() });
     const result = await query.run();
-    return result;
+    return result as Neo4jOutput<Person>;
   }
 
   async deletePerson(id = '') {
@@ -239,20 +100,50 @@ export class PersonRepository {
       .queryBuilder()
       .match([
         node(
-          REPOSITORY_CONSTANTS.Variables.Person,
-          REPOSITORY_CONSTANTS.Labels.Person,
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
           { id }
         )
       ])
-      .detachDelete([REPOSITORY_CONSTANTS.Variables.Person])
+      .detachDelete([REPOSITORY_CONSTANTS.VARIABLE.Person])
       .with({
-        [`${REPOSITORY_CONSTANTS.Variables.Person}`]:
-          REPOSITORY_CONSTANTS.Variables.Output
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Person}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
       })
-      .return([REPOSITORY_CONSTANTS.Variables.Output]);
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
+    console.log({ query: query.interpolate() });
     const result = await query.run();
-    return result;
+    return result as Neo4jOutput<Person>;
+  }
+
+  async getPersonAddress(id = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
+          { id }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RELATIONSHIP_DIRECTION.IN,
+          REPOSITORY_CONSTANTS.RELATIONSHIP.Address,
+          REPOSITORY_CONSTANTS.LABEL.AddressOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Address,
+          REPOSITORY_CONSTANTS.LABEL.Address
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Address}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
+      })
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
+
+    console.log({ query: query.interpolate() });
+    const result = await query.run();
+    return result as Neo4jOutput<Address>;
   }
 }

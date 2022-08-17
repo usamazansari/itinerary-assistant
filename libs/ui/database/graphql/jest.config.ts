@@ -1,7 +1,7 @@
 /* eslint-disable */
 export default {
-  displayName: 'ui-graphql',
-  preset: '../../../jest.preset.js',
+  displayName: 'ui-database-graphql',
+  preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
     'ts-jest': {
@@ -9,7 +9,7 @@ export default {
       stringifyContentPathRegex: '\\.(html|svg)$'
     }
   },
-  coverageDirectory: '../../../coverage/libs/ui/graphql',
+  coverageDirectory: '../../../../coverage/libs/ui/database/graphql',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
   },

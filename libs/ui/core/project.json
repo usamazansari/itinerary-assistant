@@ -1,6 +1,5 @@
 {
   "projectType": "library",
-  "root": "libs/ui/core",
   "sourceRoot": "libs/ui/core/src",
   "prefix": "itinerary-assistant",
   "targets": {
@@ -8,19 +7,16 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/core"],
       "options": {
-        "jestConfig": "libs/ui/core/jest.config.js",
+        "jestConfig": "libs/ui/core/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "libs/ui/core/src/**/*.ts",
-          "libs/ui/core/src/**/*.html"
-        ]
+        "lintFilePatterns": ["libs/ui/core/**/*.ts", "libs/ui/core/**/*.html"]
       }
     }
   },
-  "tags": ["species:ui-core", "genus:library", "family:ui"]
+  "tags": []
 }

@@ -1,5 +1,5 @@
 {
-  "root": "libs/api/database/graphql",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/api/database/graphql/src",
   "projectType": "library",
   "targets": {
@@ -14,10 +14,10 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/api/database/graphql"],
       "options": {
-        "jestConfig": "libs/api/database/graphql/jest.config.js",
+        "jestConfig": "libs/api/database/graphql/jest.config.ts",
         "passWithNoTests": true
       }
     }
   },
-  "tags": ["species:api-database-graphql", "genus:library", "family:api"]
+  "tags": []
 }

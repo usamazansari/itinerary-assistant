@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AddressRepository } from './address.repository';
 
-describe('AddressRepositoryService', () => {
+describe('AddressRepository', () => {
   let service: AddressRepository;
 
   beforeEach(async () => {

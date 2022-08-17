@@ -1,5 +1,8 @@
-export enum RouteConstants {
+enum RouteConstants {
   Empty = '',
   Wildcard = '**',
-  Trip = 'trip'
+  Trip = 'trip',
+  Person = 'person'
 }
+
+export { RouteConstants };

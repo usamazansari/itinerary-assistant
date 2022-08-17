@@ -1,6 +1,6 @@
 import { AddressInput } from './address.input';
 
-describe('Address', () => {
+describe('AddressInput', () => {
   it('should be defined', () => {
     expect(new AddressInput()).toBeDefined();
   });

@@ -1,9 +1,18 @@
 {
   "projectType": "library",
-  "root": "libs/ui/database/graphql",
   "sourceRoot": "libs/ui/database/graphql/src",
   "prefix": "itinerary-assistant",
   "targets": {
+    "generate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "npx graphql-codegen --config configs/graphql-codegen/codegen.yml"
+          }
+        ]
+      }
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/ui/database/graphql"],
@@ -22,5 +31,5 @@
       }
     }
   },
-  "tags": ["species:ui-graphql", "genus:library", "family:ui"]
+  "tags": []
 }
