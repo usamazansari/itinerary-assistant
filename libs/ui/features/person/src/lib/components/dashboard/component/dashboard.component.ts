@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
-import { map, Observable, of, tap } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 
-import { Person } from '../../../models';
+import { Gender } from '../imports/constants';
 import { GetPeopleGQL, GetPersonGQL } from '../imports/services';
+
+import { Address, Person } from '../../../models';
 
 @Component({
   selector: 'itinerary-assistant-dashboard',
@@ -63,9 +65,59 @@ export class DashboardComponent implements OnInit {
           console.log({ loading });
           if (error) throw error;
           if (errors) throw error;
-          return getPerson;
+          const {
+            email,
+            fullName,
+            id,
+            phone,
+            website,
+            dateOfBirth,
+            gender,
+            addresses
+          } = getPerson;
+          return new Person({
+            id,
+            fullName,
+            email,
+            phone,
+            dateOfBirth,
+            gender: (<unknown>gender) as Gender,
+            website,
+            addresses: addresses.map(
+              ({
+                room,
+                apartment,
+                wing,
+                street,
+                landmark,
+                locality,
+                suburb,
+                city,
+                zip,
+                state,
+                country,
+                addressType
+              }) =>
+                new Address({
+                  room,
+                  apartment,
+                  wing,
+                  street,
+                  landmark,
+                  locality,
+                  suburb,
+                  city,
+                  zip,
+                  state,
+                  country,
+                  addressType
+                })
+            )
+          });
         }),
-        map(({ __typename, ...person }) => person as Person)
+        catchError(error => {
+          return of(error);
+        })
       );
     this.people$ = this._getPeople.fetch().pipe(
       map(({ data: { getPeople }, loading, error, errors }) => {
@@ -74,7 +126,20 @@ export class DashboardComponent implements OnInit {
         if (errors) throw errors;
         return getPeople;
       }),
-      map(people => people.map(({ __typename, ...person }) => person as Person))
+      map(people =>
+        people.map(
+          ({ email, fullName, id, phone, website, dateOfBirth, gender }) =>
+            new Person({
+              id,
+              fullName,
+              email,
+              phone,
+              dateOfBirth,
+              gender: (<unknown>gender) as Gender,
+              website
+            })
+        )
+      )
     );
   }
 

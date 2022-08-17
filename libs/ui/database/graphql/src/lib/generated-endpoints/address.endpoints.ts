@@ -33,7 +33,7 @@ export type Address = {
   id: Scalars['ID'];
   landmark: Scalars['String'];
   locality: Scalars['String'];
-  residents: Array<Person>;
+  residents?: Maybe<Array<Person>>;
   room: Scalars['String'];
   state: Scalars['String'];
   street: Scalars['String'];
@@ -133,7 +133,6 @@ export type Query = {
   getAddress: Address;
   getPeople: Array<Person>;
   getPerson: Person;
-  gqlSanity: Person;
 };
 
 export type QueryGetAddressArgs = {
@@ -164,11 +163,12 @@ export type GetAddressQuery = {
     zip: string;
     state: string;
     country: string;
-    residents: Array<{
+    addressType: string;
+    residents?: Array<{
       __typename?: 'Person';
       fullName: string;
       email: string;
-    }>;
+    }> | null;
   };
 };
 
@@ -192,6 +192,7 @@ export type CreateAddressMutation = {
     zip: string;
     state: string;
     country: string;
+    addressType: string;
   };
 };
 
@@ -216,6 +217,7 @@ export type UpdateAddressMutation = {
     zip: string;
     state: string;
     country: string;
+    addressType: string;
   };
 };
 
@@ -231,6 +233,7 @@ export type DeleteAddressMutation = {
     street: string;
     city: string;
     zip: string;
+    addressType: string;
   };
 };
 
@@ -249,6 +252,7 @@ export const GetAddressDocument = gql`
       zip
       state
       country
+      addressType
       residents {
         fullName
         email
@@ -285,6 +289,7 @@ export const CreateAddressDocument = gql`
       zip
       state
       country
+      addressType
     }
   }
 `;
@@ -317,6 +322,7 @@ export const UpdateAddressDocument = gql`
       zip
       state
       country
+      addressType
     }
   }
 `;
@@ -341,6 +347,7 @@ export const DeleteAddressDocument = gql`
       street
       city
       zip
+      addressType
     }
   }
 `;

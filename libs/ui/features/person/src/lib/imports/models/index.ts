@@ -1,1 +1,2 @@
-export { PersonBase } from '@itinerary-assistant/domain';
+export { IAddress, IPerson } from '@itinerary-assistant/domain';
+export { BaseModel } from '@itinerary-assistant/ui/core';

@@ -33,7 +33,7 @@ export type Address = {
   id: Scalars['ID'];
   landmark: Scalars['String'];
   locality: Scalars['String'];
-  residents: Array<Person>;
+  residents?: Maybe<Array<Person>>;
   room: Scalars['String'];
   state: Scalars['String'];
   street: Scalars['String'];
@@ -133,7 +133,6 @@ export type Query = {
   getAddress: Address;
   getPeople: Array<Person>;
   getPerson: Person;
-  gqlSanity: Person;
 };
 
 export type QueryGetAddressArgs = {
@@ -188,11 +187,12 @@ export type GetPersonQuery = {
       zip: string;
       state: string;
       country: string;
-      residents: Array<{
+      addressType: string;
+      residents?: Array<{
         __typename?: 'Person';
         fullName: string;
         email: string;
-      }>;
+      }> | null;
     }>;
   };
 };
@@ -292,6 +292,7 @@ export const GetPersonDocument = gql`
         zip
         state
         country
+        addressType
         residents {
           fullName
           email

@@ -46,7 +46,7 @@ class Address implements IAddress {
   @Field()
   addressType!: string;
 
-  @Field(() => [PersonEntity])
+  @Field(() => [PersonEntity], { nullable: true })
   residents!: Person[];
 }
 

@@ -1,7 +1,7 @@
-import { Person.Model } from './person.model';
+import { Person } from './person.model';
 
-describe('Person.Model', () => {
-  it('should create an instance', () => {
-    expect(new Person.Model()).toBeTruthy();
+describe('Person', () => {
+  it('should be defined', () => {
+    expect(new Person({})).toBeDefined();
   });
 });

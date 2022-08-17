@@ -31,6 +31,7 @@ query GetPerson($personId: String!) {
       zip
       state
       country
+      addressType
       residents {
         fullName
         email

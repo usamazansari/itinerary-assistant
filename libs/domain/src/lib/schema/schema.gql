@@ -39,7 +39,7 @@ type Address {
   country: String!
   zip: String!
   addressType: String!
-  residents: [Person!]!
+  residents: [Person!]
 }
 
 type Query {

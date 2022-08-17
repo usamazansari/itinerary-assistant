@@ -12,6 +12,7 @@ query GetAddress($addressId: String!) {
     zip
     state
     country
+    addressType
     residents {
       fullName
       email
@@ -33,6 +34,7 @@ mutation CreateAddress($createInput: AddressInput!) {
     zip
     state
     country
+    addressType
   }
 }
 
@@ -50,6 +52,7 @@ mutation UpdateAddress($addressId: String!, $updateInput: AddressInput!) {
     zip
     state
     country
+    addressType
   }
 }
 
@@ -59,5 +62,6 @@ mutation DeleteAddress($addressId: String!) {
     street
     city
     zip
+    addressType
   }
 }
