@@ -1,10 +1,10 @@
 import { Field, InputType } from '@nestjs/graphql';
 
 import { Gender } from '../../imports/constants';
-import { Person } from '../../imports/entities';
+import { IPerson } from '../../imports/models';
 
 @InputType()
-export class PersonInput extends Person {
+class PersonInput implements IPerson {
   @Field({ nullable: true })
   id!: string;
 
@@ -17,12 +17,14 @@ export class PersonInput extends Person {
   @Field({ nullable: true })
   phone!: string;
 
-  @Field({ nullable: true })
-  website!: string;
-
   @Field(() => Gender, { nullable: true })
   gender!: Gender;
 
   @Field(() => Date, { nullable: true })
   dateOfBirth!: Date;
+
+  @Field({ nullable: true })
+  website!: string;
 }
+
+export { PersonInput };

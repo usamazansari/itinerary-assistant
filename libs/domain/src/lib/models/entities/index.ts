@@ -1,3 +1,2 @@
-export * from './tenure';
-export * from './location';
-export * from './person';
+export * from './address/address.model';
+export * from './person/person.model';

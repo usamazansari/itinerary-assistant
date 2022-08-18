@@ -1,38 +1,35 @@
 import { Injectable } from '@nestjs/common';
 
-import { PersonDTO } from '../../imports/models';
-import { parseToDateTime } from '../../imports/utils';
+import { Neo4jOutput } from '../../imports/models';
+import { extractEntity, nodeMapper } from '../../imports/utils';
+
+import { Address, Person, PersonDTO } from '../../models';
+import {
+  generateCreatePersonObject,
+  generateReadAddressObject,
+  generateReadPersonObject,
+  generateUpdatePersonObject
+} from '../../utils';
 
 @Injectable()
 export class PersonHelper {
-  generateCreateObject(create: { id: string; person: PersonDTO }) {
-    const {
-      id,
-      person: { dateOfBirth, email, fullName, gender, phone, website }
-    } = create;
-
-    let _ = {};
-    if (!!dateOfBirth) _ = { ..._, dateOfBirth: parseToDateTime(dateOfBirth) };
-    if (!!email) _ = { ..._, email };
-    if (!!fullName) _ = { ..._, fullName };
-    if (!!gender) _ = { ..._, gender };
-    if (!!phone) _ = { ..._, phone };
-    if (!!website) _ = { ..._, website };
-
-    return { id, ..._ };
+  extractAddresses(result: Neo4jOutput<Address>) {
+    return extractEntity<Address>(result)
+      .map(({ properties }) => generateReadAddressObject(properties))
+      .map(address => nodeMapper(Address, address));
   }
 
-  generateUpdateObject(person: PersonDTO) {
-    const { dateOfBirth, email, fullName, gender, phone, website } = person;
+  extractPeople(result: Neo4jOutput<Person>) {
+    return extractEntity<Person>(result)
+      .map(({ properties }) => generateReadPersonObject(properties))
+      .map(person => nodeMapper(Person, person));
+  }
 
-    let _ = {};
-    if (!!dateOfBirth)
-      _ = { ..._, ['person.dateOfBirth']: parseToDateTime(dateOfBirth) };
-    if (!!email) _ = { ..._, ['person.email']: email };
-    if (!!fullName) _ = { ..._, ['person.fullName']: fullName };
-    if (!!gender) _ = { ..._, ['person.gender']: gender };
-    if (!!phone) _ = { ..._, ['person.phone']: phone };
-    if (!!website) _ = { ..._, ['person.website']: website };
-    return _;
+  createPersonPayload(dto: PersonDTO) {
+    return generateCreatePersonObject(dto);
+  }
+
+  updatePersonPayload(dto: PersonDTO) {
+    return generateUpdatePersonObject(dto);
   }
 }

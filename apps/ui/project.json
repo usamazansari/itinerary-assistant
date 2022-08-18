@@ -1,6 +1,6 @@
 {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "root": "apps/ui",
   "sourceRoot": "apps/ui/src",
   "prefix": "itinerary-assistant",
   "targets": {
@@ -83,7 +83,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/ui"],
       "options": {
-        "jestConfig": "apps/ui/jest.config.js",
+        "jestConfig": "apps/ui/jest.config.ts",
         "passWithNoTests": true
       }
     }

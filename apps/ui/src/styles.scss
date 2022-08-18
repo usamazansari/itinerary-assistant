@@ -1,5 +1,3 @@
-// App-wide TailwindCSS
-@use '../../../libs/shared/styles/src/tailwind';
-
-// App-wide Material Theme
-@use '../../../libs/ui/design/material/src/material';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

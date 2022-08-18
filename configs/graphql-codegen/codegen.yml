@@ -1,0 +1,15 @@
+overwrite: true
+schema: 'libs/domain/src/lib/schema/schema.gql'
+generates:
+  libs/ui/database/graphql/src/lib/generated-endpoints/person.endpoints.ts:
+    documents: 'libs/domain/src/lib/operations/person-operations.gql'
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-apollo-angular'
+  libs/ui/database/graphql/src/lib/generated-endpoints/address.endpoints.ts:
+    documents: 'libs/domain/src/lib/operations/address-operations.gql'
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-apollo-angular'

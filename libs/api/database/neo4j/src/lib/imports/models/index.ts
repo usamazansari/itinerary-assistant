@@ -1,24 +1,2 @@
-export {
-  Address,
-  AddressRelationship,
-  AddressRelationshipData,
-  Coordinates,
-  CoordinatesRelationship,
-  CoordinatesRelationshipData,
-  Demographics,
-  DemographicsRelationship,
-  DemographicsRelationshipData,
-  Identification,
-  IdentificationRelationship,
-  IdentificationRelationshipData,
-  Location,
-  LocationRelationship,
-  LocationRelationshipData,
-  SocialConnection,
-  SocialConnectionRelationship,
-  SocialConnectionRelationshipData,
-  Tenure,
-  TenureRelationship,
-  TenureRelationshipData,
-  Person
-} from '@itinerary-assistant/domain';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+export { BaseModel } from '@itinerary-assistant/api/core';

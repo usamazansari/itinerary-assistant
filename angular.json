@@ -1,25 +1,18 @@
 {
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
     "api": "apps/api",
     "api-core": "libs/api/core",
-    "api-database-entities": "libs/api/database/entities",
     "api-database-graphql": "libs/api/database/graphql",
     "api-database-neo4j": "libs/api/database/neo4j",
     "api-database-seed": "libs/api/database/seed",
     "api-features-person": "libs/api/features/person",
-    "api-features-trip": "libs/api/features/trip",
-    "api-shared": "libs/api/shared",
     "domain": "libs/domain",
-    "shared-data": "libs/shared/data",
-    "shared-styles": "libs/shared/styles",
     "ui": "apps/ui",
     "ui-core": "libs/ui/core",
-    "ui-design-components-derivative": "libs/ui/design/components/derivative",
-    "ui-design-components-elementary": "libs/ui/design/components/elementary",
-    "ui-design-icons": "libs/ui/design/icons",
-    "ui-design-material": "libs/ui/design/material",
+    "ui-database-graphql": "libs/ui/database/graphql",
     "ui-e2e": "apps/ui-e2e",
-    "ui-features-trip": "libs/ui/features/trip"
+    "ui-features-person": "libs/ui/features/person"
   }
 }

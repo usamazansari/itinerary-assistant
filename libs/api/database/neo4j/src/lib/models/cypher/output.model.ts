@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Neo4jNode } from './node.model';
 
-interface INeo4jOutputDatum<NodeData = any> {
-  output: Neo4jNode<NodeData>;
+interface INeo4jOutputDatum<T = any> {
+  output: Neo4jNode<T>;
 }
 
 const Neo4jOutputDatumStub: INeo4jOutputDatum<unknown> = {
   output: new Neo4jNode<unknown>({})
 };
 
-class Neo4jOutputDatum<NodeData = any> implements INeo4jOutputDatum<unknown> {
-  output: Neo4jNode<NodeData>;
+class Neo4jOutputDatum<T = any> implements INeo4jOutputDatum<unknown> {
+  output: Neo4jNode<T>;
 
   constructor({
     output = Neo4jOutputDatumStub.output
@@ -19,4 +19,4 @@ class Neo4jOutputDatum<NodeData = any> implements INeo4jOutputDatum<unknown> {
   }
 }
 
-export type Neo4jOutput<NodeData = unknown> = Neo4jOutputDatum<NodeData>[];
+export type Neo4jOutput<T = unknown> = Neo4jOutputDatum<T>[];

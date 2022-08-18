@@ -1,13 +1,9 @@
-import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {
-  CoreModule,
-  ElementaryComponentsModule,
-  IconsModule
-} from './imports/libraries';
+import { CoreModule } from './imports/libraries';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,8 +16,6 @@ import { AppComponent } from './app.component';
     HttpClientModule,
 
     CoreModule,
-    ElementaryComponentsModule,
-    IconsModule,
 
     AppRoutingModule
   ],

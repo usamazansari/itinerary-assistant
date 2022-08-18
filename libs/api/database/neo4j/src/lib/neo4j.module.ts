@@ -11,21 +11,11 @@ import {
   Neo4jConfig,
   ConnectionErrorType
 } from './models';
-import {
-  Neo4jNodeMapperService,
-  Neo4jQueryRepositoryService,
-  Neo4jRelationshipMapperService
-} from './services';
+import { QueryRepositoryService } from './services';
 import { createDatabaseConfig } from './utils';
 
 @Module({
-  controllers: [],
-  providers: [
-    Neo4jNodeMapperService,
-    Neo4jQueryRepositoryService,
-    Neo4jRelationshipMapperService
-  ],
-  exports: [Neo4jNodeMapperService, Neo4jRelationshipMapperService]
+  providers: [QueryRepositoryService]
 })
 export class Neo4jModule {
   // static forRootAsync(config: Neo4jConfig): DynamicModule {
@@ -62,9 +52,7 @@ export class Neo4jModule {
               }) as ConnectionWithDriver;
 
               console.log(`Connecting to Neo4j`);
-
               const result = await connection.driver.verifyConnectivity();
-
               console.log(`Connection Successful at: ${result.address}`);
 
               return connection;
@@ -78,7 +66,7 @@ export class Neo4jModule {
           }
         }
       ],
-      exports: [Neo4jQueryRepositoryService]
+      exports: [QueryRepositoryService]
     };
   }
 }

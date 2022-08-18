@@ -31,8 +31,9 @@
         "@typescript-eslint/no-duplicate-imports": "error",
         "@typescript-eslint/no-empty-interface": "warn",
         "@typescript-eslint/no-extra-boolean-cast": "off",
-        "no-extra-boolean-cast": "off",
         "@typescript-eslint/no-redeclare": "warn",
+        "prefer-destructuring": "warn",
+        "no-extra-boolean-cast": "off",
         "no-trailing-spaces": "warn",
         "prefer-const": "warn"
       }

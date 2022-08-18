@@ -1,3 +1,1 @@
-export * from './application';
-export * from './author';
-export * from './domain';
+export * from './gender/gender.constants';

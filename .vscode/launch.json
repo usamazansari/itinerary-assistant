@@ -5,48 +5,21 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-node",
-      "name": "Jest Current File",
-      "request": "launch",
-      "program": "${workspaceFolder}/node_modules/@nrwl/cli/bin/nx",
-      "cwd": "${workspaceFolder}",
-      "args": [
-        "test",
-        "--runInBand",
-        "--testPathPattern=${fileBasenameNoExtension}",
-        "--config=${workspaceFolder}/jest.config.js",
-        "--skip-nx-cache"
-      ],
-      "skipFiles": ["<node_internals>/**"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "resolveSourceMapLocations": [
-        "${workspaceFolder}/**",
-        "!**/node_modules/**"
-      ]
-    },
-    {
       "name": "Debug API",
+      "processId": "${command:PickProcess}",
+      "request": "attach",
+      "skipFiles": ["<node_internals>/**"],
       "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "start:api"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "restart": true,
-      "timeout": 60000,
-      "port": 9229,
-      "outFiles": ["${workspaceFolder}/**/*.js", "!**/node_modules/**"],
-      "skipFiles": ["<node_internals>/**"]
+      "internalConsoleOptions": "neverOpen"
     },
     {
       "name": "Debug UI",
-      "type": "pwa-msedge",
+      "type": "msedge",
       "request": "launch",
-      "preLaunchTask": "Serve UI with Nx",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
       "runtimeArgs": [],
+      "internalConsoleOptions": "neverOpen",
       "outFiles": ["${workspaceFolder}/**/*.js", "!**/node_modules/**"],
       "sourceMapPathOverrides": {
         "webpack:/*": "${webRoot}/*",

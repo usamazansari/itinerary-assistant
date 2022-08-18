@@ -1,15 +1,9 @@
 import { Field, InputType } from '@nestjs/graphql';
 
-import { Address } from '../../imports/entities';
+import { IAddress } from '../../imports/models';
 
 @InputType()
-export class AddressInput extends Address {
-  @Field({ nullable: true })
-  id!: string;
-
-  @Field({ nullable: true })
-  name!: string;
-
+class AddressInput implements IAddress {
   @Field({ nullable: true })
   room!: string;
 
@@ -42,4 +36,9 @@ export class AddressInput extends Address {
 
   @Field({ nullable: true })
   zip!: string;
+
+  @Field({ nullable: true })
+  addressType!: string;
 }
+
+export { AddressInput };

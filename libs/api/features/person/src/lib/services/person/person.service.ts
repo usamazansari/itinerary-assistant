@@ -1,74 +1,49 @@
 import { Injectable } from '@nestjs/common';
 
-import {
-  Address,
-  Demographics,
-  Identification,
-  Neo4jOutput,
-  Person,
-  PersonDTO,
-  SocialConnection
-} from '../../imports/models';
-import { ExtractorService } from '../../helpers';
-
+import { PersonHelper } from '../../helpers';
+import { PersonDTO } from '../../models';
 import { PersonRepository } from '../../repositories';
 
 @Injectable()
 export class PersonService {
   constructor(
-    private _repository: PersonRepository,
-    private _extractor: ExtractorService
+    private _helper: PersonHelper,
+    private _repository: PersonRepository
   ) {}
 
-  async getPerson(id = ''): Promise<Person> {
-    const result = await this._repository.getPerson(id);
-    return this._extractor.extractPerson(result as Neo4jOutput<Person>);
-  }
-
-  async getPeople(): Promise<Person[]> {
+  async getPeople() {
     const result = await this._repository.getPeople();
-    return this._extractor.extractPeople(result as Neo4jOutput<Person>);
+    return this._helper.extractPeople(result);
   }
 
-  async getAddress(id = ''): Promise<Address> {
-    const result = await this._repository.getAddress(id);
-    return this._extractor.extractAddress(result as Neo4jOutput<Address>);
+  async getPerson(id = '') {
+    const result = await this._repository.getPerson(id);
+    const [response] = this._helper.extractPeople(result);
+    return response;
   }
 
-  async getDemographics(id = ''): Promise<Demographics> {
-    const result = await this._repository.getDemographics(id);
-    return this._extractor.extractDemographic(
-      result as Neo4jOutput<Demographics>
-    );
+  async createPerson(dto: PersonDTO) {
+    const person = this._helper.createPersonPayload(dto);
+    const result = await this._repository.createPerson(person);
+    const [response] = this._helper.extractPeople(result);
+    return response;
   }
 
-  async getIdentifications(id = ''): Promise<Identification[]> {
-    const result = await this._repository.getIdentifications(id);
-    return this._extractor.extractIdentifications(
-      result as Neo4jOutput<Identification>
-    );
+  async updatePerson(id: string, dto: PersonDTO) {
+    const update = this._helper.updatePersonPayload(dto);
+    const result = await this._repository.updatePerson(id, update);
+    const [response] = this._helper.extractPeople(result);
+    return response;
   }
 
-  async getSocialConnections(id = ''): Promise<SocialConnection[]> {
-    const result = await this._repository.getSocialConnections(id);
-    return this._extractor.extractSocialConnections(
-      result as Neo4jOutput<SocialConnection>
-    );
-  }
-
-  async createPerson(person: PersonDTO): Promise<Person> {
-    const id = new Person({ ...person }).generateUUID();
-    const result = await this._repository.createPerson(id, person);
-    return this._extractor.extractPerson(result as Neo4jOutput<Person>);
-  }
-
-  async updatePerson(id: string, person: PersonDTO): Promise<Person> {
-    const result = await this._repository.updatePerson(id, person);
-    return this._extractor.extractPerson(result as Neo4jOutput<Person>);
-  }
-
-  async deletePerson(id: string): Promise<Person> {
+  async deletePerson(id: string) {
     const result = await this._repository.deletePerson(id);
-    return this._extractor.extractPerson(result as Neo4jOutput<Person>);
+    const [response] = this._helper.extractPeople(result);
+    return response;
+  }
+
+  async getPersonAddress(id: string) {
+    const result = await this._repository.getPersonAddress(id);
+    return this._helper.extractAddresses(result);
   }
 }
