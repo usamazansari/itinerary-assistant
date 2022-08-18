@@ -1,10 +1,16 @@
-version: '0.2.0'
-
+version: '0.3.0'
 services:
   database:
-    image: neo4j:latest
+    image: 'neo4j:latest'
     ports:
       - '7474:7474'
       - '7687:7687'
     volumes:
-      - 'C:\Users\Usama Ansari\neo4j\data:/data'
+      - 'D:\Development\Docker\volumes\neo4j\data:/data'
+      - 'D:\Development\Docker\volumes\neo4j\plugins:/plugins'
+    container_name: neo4j-apoc
+    environment:
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+      - 'NEO4JLABS_PLUGINS=["apoc"]'
