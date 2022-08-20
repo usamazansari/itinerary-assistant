@@ -1,3 +1,3 @@
 export * from './configuration/configuration.constants';
-export * from './repository/repository.constants';
+export * as REPOSITORY_CONSTANTS from './repository';
 export * from './utility/utility.constants';
