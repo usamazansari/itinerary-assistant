@@ -1,4 +1,4 @@
-import { DynamicModule, Module } from '@nestjs/common';
+import { DynamicModule, Logger, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Connection } from 'cypher-query-builder';
 
@@ -24,11 +24,7 @@ export class Neo4jModule {
             const environment = service.get(
               ENVIRONMENT_VARIABLES.KEYS.NODE_ENV
             );
-            console.log(
-              `Environment: ${
-                environment ?? 'undefined - fallback to development'
-              }`
-            );
+            Logger.debug(`Environment: ${environment}`, 'Neo4jModule');
 
             const { uri, username, password } = createDatabaseConfig(
               service,
@@ -40,16 +36,20 @@ export class Neo4jModule {
             }) as ConnectionWithDriver;
 
             try {
-              console.log(`Connecting to Neo4j`);
+              Logger.log(`Connecting to Neo4j`, 'Neo4jModule');
               const result = await connection.driver.verifyConnectivity();
-              console.log(`Connection Successful at: ${result.address}`);
+              Logger.log(
+                `Connection Successful at: ${result.address}`,
+                'Neo4jModule'
+              );
 
               return connection;
             } catch (error: unknown) {
-              console.log(
-                `Error in connection - ${(<ConnectionErrorType>error).code}`
+              Logger.error(
+                `Error in connection - ${(<ConnectionErrorType>error).code}`,
+                'Neo4jModule'
               );
-              console.log(`Could not connect to Neo4j`);
+              Logger.error(`Could not connect to Neo4j`, 'Neo4jModule');
               return null;
             }
           }

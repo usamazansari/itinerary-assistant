@@ -1,11 +1,5 @@
 import { RelationDirection } from 'cypher-query-builder/dist/typings/clauses/relation-pattern';
 
-enum VARIABLE {
-  Address = 'address',
-  Person = 'person',
-  Output = 'output'
-}
-
 enum RELATIONSHIP {
   Address = 'addressRelationship',
   Resident = 'residentRelationship'
@@ -17,17 +11,4 @@ const RELATIONSHIP_DIRECTION = {
   OUT: 'out' as RelationDirection
 };
 
-enum LABEL {
-  Address = 'ADDRESS',
-  AddressOf = 'ADDRESS_OF',
-  Person = 'PERSON'
-}
-
-const REPOSITORY_CONSTANTS = {
-  LABEL,
-  RELATIONSHIP_DIRECTION,
-  RELATIONSHIP,
-  VARIABLE
-};
-
-export { REPOSITORY_CONSTANTS };
+export { RELATIONSHIP, RELATIONSHIP_DIRECTION };

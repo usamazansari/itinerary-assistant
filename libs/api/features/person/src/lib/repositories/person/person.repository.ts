@@ -26,7 +26,6 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -47,7 +46,6 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -68,7 +66,6 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -90,7 +87,6 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -112,7 +108,6 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -142,7 +137,6 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }

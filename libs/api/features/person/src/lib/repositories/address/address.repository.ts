@@ -32,7 +32,6 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -53,7 +52,6 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -75,7 +73,6 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -97,7 +94,6 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -127,7 +123,6 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -174,7 +169,6 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.toString() });
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -206,7 +200,6 @@ export class AddressRepository {
       ])
       .return([REPOSITORY_CONSTANTS.RELATIONSHIP.Resident]);
 
-    console.log({ query: query.toString() });
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
