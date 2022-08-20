@@ -1,1 +1,1 @@
-export * from './lib/api-features-trip.module';
+export * from './lib/trip.module';
