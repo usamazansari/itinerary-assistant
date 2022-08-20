@@ -1,19 +1,16 @@
 {
   "name": "itinerary-assistant",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "build": "nx build",
-    "build:api": "nx run api:build",
-    "build:api:production": "nx run api:build:production",
+    "build:api": "nx run api:build:production",
     "postbuild": "purgecss --config ./configs/purgecss.config.js",
-    "start:api": "nx run api:serve",
-    "start:api:production": "NODE_ENV=production node dist/apps/api/main.js",
-    "start:ui": "nx run ui:serve:development",
-    "start:ui:production": "",
     "start": "nx run-many --target=serve --all=true",
+    "start:api": "nx run api:serve",
+    "start:ui": "nx run ui:serve:development",
     "test": "nx test",
     "analyze:source-map": "source-map-explorer dist/apps/ui/*.{js,css} --no-border-checks",
     "analyze:webpack": "webpack-bundle-analyzer dist/apps/ui/stats.json"
