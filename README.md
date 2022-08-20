@@ -96,3 +96,30 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+## Docker
+
+### Builder Image
+
+- When dependencies in `package.json` change, the `Dockerfile` in the root must be run. This creates a builder image for `apps` to build
+- Tag the built image appropriately as `itinerary-assistant-builder:nx-base-{{ semver }}`
+- Push the image to DockerHub
+
+```bash
+/~$ docker build -t itinerary-assistant-builder:nx-base-{{ version }} .
+/~$ docker tag itinerary-assistant-builder:nx-base-{{ version }} usamazansari/itinerary-assistant-builder:nx-base-{{ version }}
+/~$ docker push usamazansari/itinerary-assistant-builder:nx-base-{{ version }} # this updates the image in repository with a new tag (:nx-base-{{ version }})
+/~$ docker push usamazansari/itinerary-assistant-builder # This updates the image in repository with `latest` tag
+```
+
+### Application Image
+
+- Run the dockerfile of `api` as well as `ui` to create artifacts for each app
+- Tag the `apps` as `itinerary-assistant:api-{{ version }}` and `itinerary-assistant:ui-{{ version }}` respectively
+- Push the images to DockerHub
+
+```bash
+/apps/{api|ui}/~$ docker build -t itinerary-assistant:{api|ui}-{{ version }} .
+/apps/{api|ui}/~$ docker tag itinerary-assistant:{api|ui}-{{ version }} usamazansari/itinerary-assistant:{api|ui}-{{ version }}
+/apps/{api|ui}/~$ docker push usamazansari/itinerary-assistant:{api|ui}-{{ version }}
+```

@@ -12,7 +12,8 @@ import { join } from 'path';
       autoSchemaFile: join(
         process.cwd(),
         'libs/domain/src/lib/schema/schema.gql'
-      )
+      ),
+      cache: 'bounded'
     })
   ]
 })
