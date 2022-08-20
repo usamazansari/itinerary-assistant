@@ -24,7 +24,11 @@ export class Neo4jModule {
             const environment = service.get(
               ENVIRONMENT_VARIABLES.KEYS.NODE_ENV
             );
-            console.log(`Environment: ${environment}`);
+            console.log(
+              `Environment: ${
+                environment ?? 'undefined - fallback to development'
+              }`
+            );
 
             const { uri, username, password } = createDatabaseConfig(
               service,
