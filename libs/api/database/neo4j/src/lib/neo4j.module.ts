@@ -1,16 +1,9 @@
 import { DynamicModule, Module } from '@nestjs/common';
-import {
-  ConfigModule
-  // ConfigService
-} from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Connection } from 'cypher-query-builder';
 
-import { NEO4J_CONNECTION, NEO4J_CONFIG } from './constants';
-import {
-  ConnectionWithDriver,
-  Neo4jConfig,
-  ConnectionErrorType
-} from './models';
+import { ENVIRONMENT_VARIABLES, NEO4J_CONNECTION } from './constants';
+import { ConnectionErrorType, ConnectionWithDriver } from './models';
 import { QueryRepositoryService } from './services';
 import { createDatabaseConfig } from './utils';
 
@@ -18,7 +11,6 @@ import { createDatabaseConfig } from './utils';
   providers: [QueryRepositoryService]
 })
 export class Neo4jModule {
-  // static forRootAsync(config: Neo4jConfig): DynamicModule {
   static forRootAsync(): DynamicModule {
     return {
       module: Neo4jModule,
@@ -26,31 +18,28 @@ export class Neo4jModule {
       global: true,
       providers: [
         {
-          provide: NEO4J_CONFIG,
-          // inject: [ConfigService],
-          // useFactory: (configService: ConfigService) => {
-          // createDatabaseConfig(configService, config);
-          // }
-          useFactory: () => createDatabaseConfig()
-        },
-        {
           provide: NEO4J_CONNECTION,
-          inject: [NEO4J_CONFIG],
-          useFactory: async (config: Neo4jConfig) => {
-            try {
-              const {
-                scheme,
-                host,
-                port,
-                // database,
-                username,
-                password
-              } = config;
-              const connection = new Connection(`${scheme}://${host}:${port}`, {
-                username,
-                password
-              }) as ConnectionWithDriver;
+          inject: [ConfigService],
+          useFactory: async (service: ConfigService) => {
+            const environment = service.get(
+              ENVIRONMENT_VARIABLES.KEYS.NODE_ENV
+            );
+            console.log(
+              `Environment: ${
+                environment ?? 'undefined - fallback to development'
+              }`
+            );
 
+            const { uri, username, password } = createDatabaseConfig(
+              service,
+              environment
+            );
+            const connection = new Connection(uri ?? '', {
+              username,
+              password
+            }) as ConnectionWithDriver;
+
+            try {
               console.log(`Connecting to Neo4j`);
               const result = await connection.driver.verifyConnectivity();
               console.log(`Connection Successful at: ${result.address}`);
