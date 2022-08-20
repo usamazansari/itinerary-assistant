@@ -1,2 +1,18 @@
-export const NEO4J_CONFIG = 'NEO4J_CONFIG';
-export const NEO4J_CONNECTION = 'NEO4J_CONNECTION';
+const NEO4J_CONNECTION = 'DATABASE=neo4j;USERNAME=neo4j';
+
+const ENVIRONMENT_VARIABLES = {
+  KEYS: {
+    NODE_ENV: 'NODE_ENV',
+    NEO4J: {
+      URI: 'NEO4J_URI',
+      USERNAME: 'NEO4J_USERNAME',
+      PASSWORD: 'NEO4J_PASSWORD'
+    }
+  },
+  VALUES: {
+    DEVELOPMENT: 'development',
+    PRODUCTION: 'production'
+  }
+};
+
+export { ENVIRONMENT_VARIABLES, NEO4J_CONNECTION };
