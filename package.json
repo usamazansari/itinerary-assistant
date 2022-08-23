@@ -5,14 +5,15 @@
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
-    "build": "nx build",
     "build:api": "nx run api:build:production",
     "postbuild:api": "ncc build ./dist/apps/api/main.js --out ./dist/apps/api --minify",
+    "build:ui": "nx run ui:build:production",
+    "postbuild:ui": "purgecss --config ./configs/purgecss/purgecss.config.js",
     "start": "nx run-many --target=serve --all=true",
     "start:api": "nx run api:serve",
     "start:ui": "nx run ui:serve:development",
     "test": "nx test",
-    "analyze:source-map": "source-map-explorer dist/apps/ui/*.{js,css} --no-border-checks",
+    "analyze:source-map": "source-map-explorer dist/apps/ui/*.{js,css} --no-border-checks --only-mapped --exclude-source-map",
     "analyze:webpack": "webpack-bundle-analyzer dist/apps/ui/stats.json"
   },
   "private": true,
