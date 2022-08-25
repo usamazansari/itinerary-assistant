@@ -15,12 +15,9 @@ services:
       - NEO4J_apoc_import_file_use__neo4j__config=true
       - 'NEO4JLABS_PLUGINS=["apoc"]'
   api:
-    image: 'usamazansari/itinerary-assistant:api-0.1.0'
+    image: 'usamazansari/itinerary-assistant-api:latest'
     ports:
       - '3333:3333'
     container_name: itinerary-assistant
     environment:
       - NODE_ENV=production
-      - NEO4J_URI_PRODUCTION=neo4j+s://e433c59a.databases.neo4j.io
-      - NEO4J_USERNAME_PRODUCTION=neo4j
-      - NEO4J_PASSWORD_PRODUCTION=5-Zl0-Z9ZOeYssvz25U_0b65eiDSLdG0SuxWGYb-Bec
