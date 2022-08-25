@@ -102,7 +102,7 @@ Visit [Nx Cloud](https://nx.app/) to learn more.
 ### Builder Image
 
 - When dependencies in `package.json` change, the `Dockerfile` in the root must be run. This creates a builder image for `apps` to build
-- Tag the built image appropriately as `itinerary-assistant-builder:{{ semver }}`
+- Tag the built image appropriately as `itinerary-assistant-builder:{{ version }}`
 - Push the image to DockerHub
 
 ```bash
@@ -130,7 +130,7 @@ Visit [Nx Cloud](https://nx.app/) to learn more.
 - Ensure the `Procfile` contains information to start up the server
 
 ```Procfile
-web: node api/index.js
+web: node index.js
 ```
 
 - Install Heroku globally
