@@ -1,8 +1,5 @@
 FROM usamazansari/itinerary-assistant-builder as builder
-
 WORKDIR /app/itinerary-assistant
-COPY . .
-
 RUN npm run build:ui
 RUN npm cache clean --force
 
