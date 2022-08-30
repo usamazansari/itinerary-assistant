@@ -102,24 +102,76 @@ Visit [Nx Cloud](https://nx.app/) to learn more.
 ### Builder Image
 
 - When dependencies in `package.json` change, the `Dockerfile` in the root must be run. This creates a builder image for `apps` to build
-- Tag the built image appropriately as `itinerary-assistant-builder:nx-base-{{ semver }}`
+- Tag the built image appropriately as `itinerary-assistant-builder:{{ version }}`
 - Push the image to DockerHub
 
 ```bash
-/~$ docker build -t itinerary-assistant-builder:nx-base-{{ version }} .
-/~$ docker tag itinerary-assistant-builder:nx-base-{{ version }} usamazansari/itinerary-assistant-builder:nx-base-{{ version }}
-/~$ docker push usamazansari/itinerary-assistant-builder:nx-base-{{ version }} # this updates the image in repository with a new tag (:nx-base-{{ version }})
+/~$ docker build -t itinerary-assistant-builder:{{ version }} .
+/~$ docker tag itinerary-assistant-builder:{{ version }} usamazansari/itinerary-assistant-builder:{{ version }}
+/~$ docker push usamazansari/itinerary-assistant-builder:{{ version }} # this updates the image in repository with a new tag (:{{ version }})
 /~$ docker push usamazansari/itinerary-assistant-builder # This updates the image in repository with `latest` tag
 ```
 
 ### Application Image
 
 - Run the dockerfile of `api` as well as `ui` to create artifacts for each app
-- Tag the `apps` as `itinerary-assistant:api-{{ version }}` and `itinerary-assistant:ui-{{ version }}` respectively
+- Tag the `apps` as `itinerary-assistant-api:{{ version }}` and `itinerary-assistant-ui:{{ version }}` respectively
 - Push the images to DockerHub
 
 ```bash
-/apps/{api|ui}/~$ docker build -t itinerary-assistant:{api|ui}-{{ version }} .
-/apps/{api|ui}/~$ docker tag itinerary-assistant:{api|ui}-{{ version }} usamazansari/itinerary-assistant:{api|ui}-{{ version }}
-/apps/{api|ui}/~$ docker push usamazansari/itinerary-assistant:{api|ui}-{{ version }}
+/apps/{api|ui}/~$ docker build -t itinerary-assistant-{api|ui}:{{ version }} .
+/apps/{api|ui}/~$ docker tag itinerary-assistant-{api|ui}:{{ version }} usamazansari/itinerary-assistant-{api|ui}:{{ version }}
+/apps/{api|ui}/~$ docker push usamazansari/itinerary-assistant-{api|ui}:{{ version }}
+```
+
+## Heroku Deployment
+
+- Ensure the `Procfile` resides in the `apps/api` directory
+- Ensure the `Procfile` contains information to start up the server
+
+```Procfile
+web: node index.js
+```
+
+- Install Heroku globally
+
+```bash
+/~$ npm install --global heroku
+```
+
+- Login to Heroku and Heroku Container Registry
+
+```bash
+/~$ heroku login
+/~$ heroku container:login
+```
+
+- Build and push the `api` image to the Heroku Container Registry
+
+```bash
+/~$ cd apps/api
+/apps/api/~$ heroku container:push web
+```
+
+- Check if the image has been pushed
+
+```bash
+/apps/api/~$ heroku ps
+```
+
+- Release and Scale the container
+
+```bash
+/apps/api/~$ heroku container:release web
+/apps/api/~$ heroku ps:scale web=1
+/apps/api/~$ heroku ps
+# Should show that the container is running
+```
+
+- Turn off the container when not in use
+
+```bash
+/apps/api/~$ heroku ps:scale web=0
+/apps/api/~$ heroku ps
+# Should show that the container is stopped
 ```

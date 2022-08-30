@@ -1,6 +1,8 @@
 import { Connection } from 'cypher-query-builder';
 import { Driver } from 'neo4j-driver';
 
+import { NEO4J_CONNECTION } from '../../constants';
+
 interface INeo4jConfig {
   uri: string;
   username: string;
@@ -8,9 +10,9 @@ interface INeo4jConfig {
 }
 
 const Neo4jConfigStub: INeo4jConfig = {
-  uri: 'neo4j://localhost:7687',
-  username: 'neo4j',
-  password: 'secret'
+  uri: NEO4J_CONNECTION.URI,
+  username: NEO4J_CONNECTION.USERNAME,
+  password: NEO4J_CONNECTION.PASSWORD
 };
 
 class Neo4jConfig implements INeo4jConfig {
