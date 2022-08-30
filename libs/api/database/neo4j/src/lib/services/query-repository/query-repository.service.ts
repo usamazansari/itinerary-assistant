@@ -1,12 +1,12 @@
 import { Inject, Injectable, OnApplicationShutdown } from '@nestjs/common';
 import { Connection, Query } from 'cypher-query-builder';
 
-import { NEO4J_CONNECTION } from '../../constants';
+import { NEO4J_CONNECTION_STRING } from '../../constants';
 
 @Injectable()
 class QueryRepositoryService implements OnApplicationShutdown {
   constructor(
-    @Inject(NEO4J_CONNECTION) private readonly connection: Connection
+    @Inject(NEO4J_CONNECTION_STRING) private readonly connection: Connection
   ) {}
 
   onApplicationShutdown(): void {
