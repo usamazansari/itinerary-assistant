@@ -15,13 +15,13 @@ import {
 export class AddressHelper {
   extractAddresses(result: Neo4jOutput<Address>) {
     return extractEntity<Address>(result)
-      .map(properties => generateReadAddressObject(properties))
+      .map(({ properties }) => generateReadAddressObject(properties))
       .map(address => nodeMapper(Address, address));
   }
 
   extractPeople(result: Neo4jOutput<Person>) {
     return extractEntity<Person>(result)
-      .map(properties => generateReadPersonObject(properties))
+      .map(({ properties }) => generateReadPersonObject(properties))
       .map(person => nodeMapper(Person, person));
   }
 
