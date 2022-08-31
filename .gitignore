@@ -44,3 +44,5 @@ Thumbs.db
 
 # Environment
 apps/api/.env
+
+/docker/docker-compose.yaml
