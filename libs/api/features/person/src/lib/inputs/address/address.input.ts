@@ -5,6 +5,9 @@ import { IAddress } from '../../imports/models';
 @InputType()
 class AddressInput implements IAddress {
   @Field({ nullable: true })
+  id!: string;
+
+  @Field({ nullable: true })
   room!: string;
 
   @Field({ nullable: true })
