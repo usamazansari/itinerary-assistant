@@ -3,13 +3,16 @@ import { node, relation } from 'cypher-query-builder';
 
 import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { Neo4jOutput } from '../../imports/models';
-import { QueryRepositoryService } from '../../imports/services';
+import { LoggerService, QueryRepositoryService } from '../../imports/services';
 
 import { Address, Person, PersonDTO } from '../../models';
 
 @Injectable()
 export class PersonRepository {
-  constructor(private _query: QueryRepositoryService) {}
+  constructor(
+    private _query: QueryRepositoryService,
+    private _logger: LoggerService
+  ) {}
 
   async getPeople() {
     const query = this._query
@@ -26,6 +29,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -46,6 +50,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -66,6 +71,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -87,6 +93,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -108,6 +115,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -137,6 +145,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }

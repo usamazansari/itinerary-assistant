@@ -3,7 +3,7 @@ import { node, relation } from 'cypher-query-builder';
 
 import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { Neo4jOutput } from '../../imports/models';
-import { QueryRepositoryService } from '../../imports/services';
+import { LoggerService, QueryRepositoryService } from '../../imports/services';
 
 import {
   Address,
@@ -14,7 +14,10 @@ import {
 
 @Injectable()
 export class AddressRepository {
-  constructor(private _query: QueryRepositoryService) {}
+  constructor(
+    private _query: QueryRepositoryService,
+    private _logger: LoggerService
+  ) {}
 
   async getAddress(id = '') {
     const query = this._query
@@ -32,6 +35,7 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -52,6 +56,7 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -73,6 +78,7 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -94,6 +100,7 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -123,6 +130,7 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -169,6 +177,7 @@ export class AddressRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
@@ -200,6 +209,7 @@ export class AddressRepository {
       ])
       .return([REPOSITORY_CONSTANTS.RELATIONSHIP.Resident]);
 
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Address>;
   }
