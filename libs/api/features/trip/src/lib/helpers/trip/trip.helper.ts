@@ -14,7 +14,7 @@ import {
 export class TripHelper {
   extractTrips(result: Neo4jOutput<Trip>) {
     return extractEntity<Trip>(result)
-      .map(({ properties }) => generateReadTripObject(properties))
+      .map(properties => generateReadTripObject(properties))
       .map(trip => nodeMapper(Trip, trip));
   }
 

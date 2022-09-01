@@ -4,4 +4,8 @@ export {
   Neo4jNode,
   Neo4jOutput
 } from '@itinerary-assistant/api/database/neo4j';
-export { Person, PersonDTO } from '@itinerary-assistant/ui/features/person';
+export {
+  Person,
+  PersonDTO,
+  PersonEntity
+} from '@itinerary-assistant/api/features/person';

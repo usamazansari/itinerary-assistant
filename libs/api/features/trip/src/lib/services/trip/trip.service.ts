@@ -18,8 +18,8 @@ export class TripService {
   }
 
   async createTrip(dto: TripDTO) {
-    const Trip = this._helper.createTripPayload(dto);
-    const result = await this._repository.createTrip(Trip);
+    const trip = this._helper.createTripPayload(dto);
+    const result = await this._repository.createTrip(trip);
     const [response] = this._helper.extractTrips(result);
     return response;
   }

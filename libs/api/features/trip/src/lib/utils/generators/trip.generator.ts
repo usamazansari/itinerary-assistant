@@ -10,8 +10,7 @@ const generateCreateTripObject = ({
   destination,
   start,
   end,
-  name,
-  accomplices
+  name
 }: Partial<Trip>) => {
   let _ = {};
   if (!!id) _ = { ..._, id };
@@ -20,9 +19,8 @@ const generateCreateTripObject = ({
   if (!!start) _ = { ..._, start: toNeo4jDateTime(start) };
   if (!!end) _ = { ..._, end: toNeo4jDateTime(end) };
   if (!!name) _ = { ..._, name };
-  if (!!accomplices) _ = { ..._, accomplices };
 
-  return { ..._ } as Trip;
+  return new Trip({ ..._ });
 };
 
 const generateReadTripObject = ({
@@ -43,7 +41,7 @@ const generateReadTripObject = ({
   if (!!name) _ = { ..._, name };
   if (!!accomplices) _ = { ..._, accomplices };
 
-  return { ..._ } as Trip;
+  return new Trip({ ..._ });
 };
 
 const generateUpdateTripObject = ({

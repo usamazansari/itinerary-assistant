@@ -1,7 +1,8 @@
-import { Field } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 
-import { ITrip, Person } from '../../imports/models';
+import { ITrip, Person, PersonEntity } from '../../imports/models';
 
+@ObjectType()
 class TripEntity implements ITrip {
   @Field()
   id!: string;
@@ -21,7 +22,7 @@ class TripEntity implements ITrip {
   @Field()
   name!: string;
 
-  @Field(() => [Person])
+  @Field(() => [PersonEntity], { nullable: true })
   accomplices!: Person[];
 }
 

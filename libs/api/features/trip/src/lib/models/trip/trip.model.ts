@@ -1,12 +1,13 @@
 import { BaseModel, ITrip, Person } from '../../imports/models';
 
 class Trip extends BaseModel implements ITrip {
-  source: string;
-  destination: string;
-  start: Date;
-  end: Date;
-  name: string;
-  accomplices: Person[];
+  public source: string;
+  public destination: string;
+  public start: Date;
+  public end: Date;
+  public name: string;
+  public accomplices?: Person[];
+
   constructor({
     id = '',
     source = '',
@@ -14,7 +15,7 @@ class Trip extends BaseModel implements ITrip {
     start = new Date(Date.now()),
     end = new Date(Date.now()),
     name = '',
-    accomplices = []
+    accomplices
   }: Partial<Trip & BaseModel>) {
     super({ id });
     this.source = source;
@@ -22,56 +23,65 @@ class Trip extends BaseModel implements ITrip {
     this.start = start;
     this.end = end;
     this.name = name;
-    this.accomplices = accomplices.length ? accomplices : [];
+
+    if (!!accomplices) this.accomplices = accomplices.length ? accomplices : [];
   }
 
-  getSource() {
+  public getSource() {
     return this.source;
   }
 
-  setSource(source = '') {
+  public setSource(source = '') {
     this.source = source;
   }
 
-  getDestination() {
+  public getDestination() {
     return this.destination;
   }
 
-  setDestination(destination = '') {
+  public setDestination(destination = '') {
     this.destination = destination;
   }
 
-  getStart() {
+  public getStart() {
     return this.start;
   }
 
-  setStart(start = new Date(Date.now())) {
+  public setStart(start = new Date(Date.now())) {
     this.start = start;
   }
 
-  getEnd() {
+  public getEnd() {
     return this.end;
   }
 
-  setEnd(end = new Date(Date.now())) {
+  public setEnd(end = new Date(Date.now())) {
     this.end = end;
   }
 
-  getTripName() {
+  public getName() {
     return this.name;
   }
 
-  setTripName(name = '') {
+  public setName(name = '') {
     this.name = name;
+  }
+
+  public getAccomplices() {
+    return this.accomplices;
+  }
+
+  public setAccomplices(accomplices: Person[]) {
+    this.accomplices = accomplices;
   }
 }
 
 class TripDTO implements ITrip {
-  source: string;
-  destination: string;
-  start: Date;
-  end: Date;
-  name: string;
+  public source: string;
+  public destination: string;
+  public start: Date;
+  public end: Date;
+  public name: string;
   constructor({
     source = '',
     destination = '',

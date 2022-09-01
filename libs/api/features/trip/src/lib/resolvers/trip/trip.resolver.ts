@@ -30,4 +30,6 @@ export class TripResolver {
   async deleteTrip(@Args('id', { type: () => String }) id: string) {
     return await this._service.deleteTrip(id);
   }
+
+  // TODO: Usama Ansari - Add Accomplices Resolver
 }
