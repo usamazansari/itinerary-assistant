@@ -10,7 +10,7 @@ type Person {
   dateOfBirth: DateTime
   gender: Gender
   website: String!
-  addresses: [Address!]!
+  addresses: [Address!]
 }
 
 """
@@ -39,12 +39,12 @@ type Address {
   country: String!
   zip: String!
   addressType: String!
-  residents: [Person!]!
+  residents: [Person!]
 }
 
 type Query {
   getAddress(id: String!): Address!
-  getPeople: [Person!]!
+  getPeople: [Person!]
   getPerson(id: String!): Person!
 }
 
@@ -59,6 +59,7 @@ type Mutation {
 }
 
 input AddressInput {
+  id: String
   room: String
   apartment: String
   wing: String

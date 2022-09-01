@@ -15,7 +15,7 @@ import { PersonService } from '../../services';
 export class PersonResolver {
   constructor(private _service: PersonService) {}
 
-  @Query(() => [Entity])
+  @Query(() => [Entity], { nullable: true })
   async getPeople() {
     return await this._service.getPeople();
   }
@@ -45,7 +45,7 @@ export class PersonResolver {
     return await this._service.deletePerson(id);
   }
 
-  @ResolveField(() => [AddressEntity], { name: 'addresses' })
+  @ResolveField(() => [AddressEntity], { name: 'addresses', nullable: true })
   async resolvePersonAddress(@Parent() { id }: Entity) {
     return await this._service.getPersonAddress(id);
   }

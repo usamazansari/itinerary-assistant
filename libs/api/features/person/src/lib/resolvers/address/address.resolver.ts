@@ -20,7 +20,7 @@ export class AddressResolver {
     return await this._service.getAddress(id);
   }
 
-  @ResolveField(() => [PersonEntity], { name: 'residents' })
+  @ResolveField(() => [PersonEntity], { name: 'residents', nullable: true })
   async resolveResidents(@Parent() { id }: Entity) {
     return await this._service.getResidents(id);
   }
