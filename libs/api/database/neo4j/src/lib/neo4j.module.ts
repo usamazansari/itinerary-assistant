@@ -2,7 +2,9 @@ import { DynamicModule, Logger, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Connection } from 'cypher-query-builder';
 
-import { ENVIRONMENT_VARIABLES, NEO4J_CONNECTION_STRING } from './constants';
+import { ENVIRONMENT_VARIABLES } from './imports/constants';
+
+import { NEO4J_CONNECTION_STRING } from './constants';
 import { ConnectionErrorType, ConnectionWithDriver } from './models';
 import { QueryRepositoryService } from './services';
 import { createDatabaseConfig } from './utils';
