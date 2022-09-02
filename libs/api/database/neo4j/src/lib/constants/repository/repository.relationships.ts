@@ -2,7 +2,8 @@ import { RelationDirection } from 'cypher-query-builder/dist/typings/clauses/rel
 
 enum RELATIONSHIP {
   Address = 'addressRelationship',
-  Resident = 'residentRelationship'
+  Resident = 'residentRelationship',
+  Accomplice = 'accompliceRelationship'
 }
 
 const RELATIONSHIP_DIRECTION = {

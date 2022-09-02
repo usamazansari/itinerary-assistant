@@ -36,4 +36,9 @@ export class TripService {
     const [response] = this._helper.extractTrips(result);
     return response;
   }
+
+  async resolveAccomplices(id: string) {
+    const result = await this._repository.resolveAccomplices(id);
+    return this._helper.extractPeople(result);
+  }
 }

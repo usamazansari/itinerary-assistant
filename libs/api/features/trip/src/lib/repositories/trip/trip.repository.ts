@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { node } from 'cypher-query-builder';
+import { node, relation } from 'cypher-query-builder';
 
 import { REPOSITORY_CONSTANTS } from '../../imports/constants';
-import { Neo4jOutput } from '../../imports/models';
+import { Neo4jOutput, Person } from '../../imports/models';
 import { LoggerService, QueryRepositoryService } from '../../imports/services';
 
 import { Trip, TripDTO } from '../../models';
@@ -98,5 +98,35 @@ export class TripRepository {
     this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Trip>;
+  }
+
+  async resolveAccomplices(id: string) {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Trip,
+          REPOSITORY_CONSTANTS.LABEL.Trip,
+          { id }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RELATIONSHIP_DIRECTION.IN,
+          REPOSITORY_CONSTANTS.RELATIONSHIP.Accomplice,
+          REPOSITORY_CONSTANTS.LABEL.AccompliceOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Person}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
+      })
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
+
+    this._logger.logQuery(query.toString());
+    const result = await query.run();
+    return result as Neo4jOutput<Person>;
   }
 }

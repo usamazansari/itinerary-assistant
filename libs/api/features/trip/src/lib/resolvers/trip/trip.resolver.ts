@@ -1,4 +1,13 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Mutation,
+  Parent,
+  Query,
+  ResolveField,
+  Resolver
+} from '@nestjs/graphql';
+
+import { PersonEntity } from '../../imports/entities';
 
 import { TripEntity as Entity } from '../../entities';
 import { TripInput } from '../../inputs';
@@ -31,5 +40,8 @@ export class TripResolver {
     return await this._service.deleteTrip(id);
   }
 
-  // TODO: Usama Ansari - Add Accomplices Resolver
+  @ResolveField(() => [PersonEntity], { name: 'accomplices', nullable: true })
+  async resolveAccomplices(@Parent() { id }: Entity) {
+    return await this._service.resolveAccomplices(id);
+  }
 }
