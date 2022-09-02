@@ -29,8 +29,7 @@ const generateReadTripObject = ({
   destination,
   start,
   end,
-  name,
-  accomplices
+  name
 }: Partial<Trip>) => {
   let _ = {};
   if (!!id) _ = { ..._, id };
@@ -39,7 +38,6 @@ const generateReadTripObject = ({
   if (!!start) _ = { ..._, start: toJSDate((<unknown>start) as DateTime) };
   if (!!end) _ = { ..._, end: toJSDate((<unknown>end) as DateTime) };
   if (!!name) _ = { ..._, name };
-  if (!!accomplices) _ = { ..._, accomplices };
 
   return new Trip({ ..._ });
 };

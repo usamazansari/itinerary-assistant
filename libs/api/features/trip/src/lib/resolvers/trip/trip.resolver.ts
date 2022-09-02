@@ -44,4 +44,15 @@ export class TripResolver {
   async resolveAccomplices(@Parent() { id }: Entity) {
     return await this._service.resolveAccomplices(id);
   }
+
+  @Mutation(() => Entity)
+  async associateTripWithPerson(
+    @Args('tripId', { type: () => String }) tripId: string,
+    @Args('personId', { type: () => String }) personId: string
+  ) {
+    return await this._service.associateTripWithPerson({
+      tripId,
+      personId
+    });
+  }
 }

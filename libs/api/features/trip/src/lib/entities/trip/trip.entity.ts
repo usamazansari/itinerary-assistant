@@ -3,7 +3,7 @@ import { Field, ObjectType } from '@nestjs/graphql';
 import { ITrip, Person, PersonEntity } from '../../imports/models';
 
 @ObjectType()
-class TripEntity implements ITrip {
+class Trip implements ITrip {
   @Field()
   id!: string;
 
@@ -26,4 +26,4 @@ class TripEntity implements ITrip {
   accomplices!: Person[];
 }
 
-export { TripEntity };
+export { Trip as TripEntity };

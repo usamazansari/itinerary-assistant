@@ -42,7 +42,7 @@ type Address {
   residents: [Person!]
 }
 
-type TripEntity {
+type Trip {
   id: String!
   source: String!
   destination: String!
@@ -56,7 +56,7 @@ type Query {
   getAddress(id: String!): Address!
   getPeople: [Person!]
   getPerson(id: String!): Person!
-  getTrip(id: String!): TripEntity!
+  getTrip(id: String!): Trip!
 }
 
 type Mutation {
@@ -67,9 +67,10 @@ type Mutation {
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!
-  createTrip(trip: TripInput!): TripEntity!
-  updateTrip(id: String!, trip: TripInput!): TripEntity!
-  deleteTrip(id: String!): TripEntity!
+  createTrip(trip: TripInput!): Trip!
+  updateTrip(id: String!, trip: TripInput!): Trip!
+  deleteTrip(id: String!): Trip!
+  associateTripWithPerson(tripId: String!, personId: String!): Trip!
 }
 
 input AddressInput {

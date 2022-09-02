@@ -5,7 +5,7 @@ import { REPOSITORY_CONSTANTS } from '../../imports/constants';
 import { Neo4jOutput, Person } from '../../imports/models';
 import { LoggerService, QueryRepositoryService } from '../../imports/services';
 
-import { Trip, TripDTO } from '../../models';
+import { Trip, TripDTO, TripPersonAssociation } from '../../models';
 
 @Injectable()
 export class TripRepository {
@@ -128,5 +128,80 @@ export class TripRepository {
     this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
+  }
+
+  async associateTripWithPerson({
+    personId = '',
+    tripId = ''
+  }: TripPersonAssociation) {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Trip,
+          REPOSITORY_CONSTANTS.LABEL.Trip,
+          { id: tripId }
+        )
+      ])
+      .with([REPOSITORY_CONSTANTS.VARIABLE.Trip])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
+          { id: personId }
+        )
+      ])
+      .with([
+        REPOSITORY_CONSTANTS.VARIABLE.Trip,
+        REPOSITORY_CONSTANTS.VARIABLE.Person
+      ])
+      .create([
+        node(REPOSITORY_CONSTANTS.VARIABLE.Person),
+        relation(
+          REPOSITORY_CONSTANTS.RELATIONSHIP_DIRECTION.OUT,
+          REPOSITORY_CONSTANTS.RELATIONSHIP.Accomplice,
+          REPOSITORY_CONSTANTS.LABEL.AccompliceOf
+        ),
+        node(REPOSITORY_CONSTANTS.VARIABLE.Trip)
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Trip}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
+      })
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
+
+    this._logger.logQuery(query.toString());
+    const result = await query.run();
+    return result as Neo4jOutput<Trip>;
+  }
+
+  async checkAccompliceOfRelationship({
+    tripId = '',
+    personId = ''
+  }: TripPersonAssociation) {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
+          { id: personId }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RELATIONSHIP_DIRECTION.OUT,
+          REPOSITORY_CONSTANTS.RELATIONSHIP.Accomplice,
+          REPOSITORY_CONSTANTS.LABEL.AccompliceOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Trip,
+          REPOSITORY_CONSTANTS.LABEL.Trip,
+          { id: tripId }
+        )
+      ])
+      .return([REPOSITORY_CONSTANTS.RELATIONSHIP.Accomplice]);
+
+    this._logger.logQuery(query.toString());
+    const result = await query.run();
+    return result as Neo4jOutput<Trip>;
   }
 }

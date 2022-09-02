@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 import { TripHelper } from '../../helpers';
-import { TripDTO } from '../../models';
+import { TripDTO, TripPersonAssociation } from '../../models';
 import { TripRepository } from '../../repositories';
 
 @Injectable()
@@ -40,5 +40,34 @@ export class TripService {
   async resolveAccomplices(id: string) {
     const result = await this._repository.resolveAccomplices(id);
     return this._helper.extractPeople(result);
+  }
+
+  async associateTripWithPerson({
+    tripId = '',
+    personId = ''
+  }: TripPersonAssociation) {
+    const check = await this.checkAccompliceOfRelationship({
+      tripId,
+      personId
+    });
+    const result = check
+      ? await this._repository.getTrip(tripId)
+      : await this._repository.associateTripWithPerson({
+          tripId,
+          personId
+        });
+    const [response] = this._helper.extractTrips(result);
+    return response;
+  }
+
+  async checkAccompliceOfRelationship({
+    tripId = '',
+    personId = ''
+  }: TripPersonAssociation) {
+    const result = await this._repository.checkAccompliceOfRelationship({
+      tripId,
+      personId
+    });
+    return !!result.length;
   }
 }
