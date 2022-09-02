@@ -145,9 +145,7 @@ export class AddressRepository {
         node(
           REPOSITORY_CONSTANTS.VARIABLE.Address,
           REPOSITORY_CONSTANTS.LABEL.Address,
-          {
-            id: addressId
-          }
+          { id: addressId }
         )
       ])
       .with([REPOSITORY_CONSTANTS.VARIABLE.Address])
@@ -192,9 +190,7 @@ export class AddressRepository {
         node(
           REPOSITORY_CONSTANTS.VARIABLE.Address,
           REPOSITORY_CONSTANTS.LABEL.Address,
-          {
-            id: addressId
-          }
+          { id: addressId }
         ),
         relation(
           REPOSITORY_CONSTANTS.RELATIONSHIP_DIRECTION.OUT,

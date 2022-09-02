@@ -10,7 +10,7 @@ class Person extends BaseModel implements IPerson {
   public dateOfBirth?: Date;
   public gender?: Gender;
   public website: string;
-  public addresses?: Address[];
+  public addresses: Address[] = [];
 
   constructor({
     id = '',
@@ -19,8 +19,7 @@ class Person extends BaseModel implements IPerson {
     phone = '',
     dateOfBirth,
     gender,
-    website = '',
-    addresses
+    website = ''
   }: Partial<Person & BaseModel>) {
     super({ id });
     this.fullName = fullName;
@@ -30,7 +29,6 @@ class Person extends BaseModel implements IPerson {
 
     if (!!dateOfBirth) this.dateOfBirth = dateOfBirth;
     if (!!gender) this.gender = gender;
-    if (!!addresses) this.addresses = !!addresses.length ? addresses : [];
   }
 
   public getFullName() {

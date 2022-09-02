@@ -43,7 +43,7 @@ const generateReadPersonObject = ({
   if (!!phone) _ = { ..._, phone };
   if (!!website) _ = { ..._, website };
 
-  return { ..._ } as Person;
+  return new Person({ ..._ });
 };
 
 const generateUpdatePersonObject = ({

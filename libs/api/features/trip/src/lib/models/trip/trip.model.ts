@@ -6,7 +6,7 @@ class Trip extends BaseModel implements ITrip {
   public start: Date;
   public end: Date;
   public name: string;
-  public accomplices?: Person[];
+  public accomplices: Person[] = [];
 
   constructor({
     id = '',
@@ -14,8 +14,7 @@ class Trip extends BaseModel implements ITrip {
     destination = '',
     start = new Date(Date.now()),
     end = new Date(Date.now()),
-    name = '',
-    accomplices
+    name = ''
   }: Partial<Trip & BaseModel>) {
     super({ id });
     this.source = source;
@@ -23,8 +22,6 @@ class Trip extends BaseModel implements ITrip {
     this.start = start;
     this.end = end;
     this.name = name;
-
-    if (!!accomplices) this.accomplices = accomplices.length ? accomplices : [];
   }
 
   public getSource() {
@@ -97,4 +94,9 @@ class TripDTO implements ITrip {
   }
 }
 
-export { Trip, TripDTO };
+type TripPersonAssociation = {
+  tripId: string;
+  personId: string;
+};
+
+export { Trip, TripDTO, TripPersonAssociation };
