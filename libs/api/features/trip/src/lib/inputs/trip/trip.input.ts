@@ -1,9 +1,9 @@
 import { Field, InputType } from '@nestjs/graphql';
 
-import { ITrip } from '../../imports/models';
+import { ITripBase } from '../../imports/models';
 
 @InputType()
-class TripInput implements ITrip {
+class TripInput implements ITripBase {
   @Field({ nullable: true })
   id!: string;
 

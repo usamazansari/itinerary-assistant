@@ -1,4 +1,6 @@
-interface ITrip {
+import { Getters, Setters } from '../utils';
+
+interface ITripBase {
   source: string;
   destination: string;
   start: Date;
@@ -6,4 +8,6 @@ interface ITrip {
   name: string;
 }
 
-export { ITrip };
+type ITrip = ITripBase & Getters<ITripBase> & Setters<ITripBase>;
+
+export { ITripBase, ITrip };

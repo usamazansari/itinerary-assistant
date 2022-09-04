@@ -1,4 +1,4 @@
-import { BaseModel, ITrip, Person } from '../../imports/models';
+import { BaseModel, ITrip, ITripBase, Person } from '../../imports/models';
 
 class Trip extends BaseModel implements ITrip {
   public source: string;
@@ -73,7 +73,7 @@ class Trip extends BaseModel implements ITrip {
   }
 }
 
-class TripDTO implements ITrip {
+class TripDTO implements ITripBase {
   public source: string;
   public destination: string;
   public start: Date;

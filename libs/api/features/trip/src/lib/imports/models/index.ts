@@ -1,4 +1,4 @@
-export { ITrip } from '@itinerary-assistant/domain';
+export { ITrip, ITripBase } from '@itinerary-assistant/domain';
 export { BaseModel } from '@itinerary-assistant/api/core';
 export {
   Neo4jNode,

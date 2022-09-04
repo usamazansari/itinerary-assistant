@@ -1,9 +1,9 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import { ITrip, Person, PersonEntity } from '../../imports/models';
+import { ITripBase, Person, PersonEntity } from '../../imports/models';
 
 @ObjectType()
-class Trip implements ITrip {
+class Trip implements ITripBase {
   @Field()
   id!: string;
 
