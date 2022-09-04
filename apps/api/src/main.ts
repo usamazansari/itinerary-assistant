@@ -1,4 +1,3 @@
-import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 
@@ -11,10 +10,11 @@ async function bootstrap() {
   const config = app.get(ConfigService);
 
   app.useLogger(new LoggerService());
+  const logger = app.get(LoggerService);
 
   const port = config.get('PORT') || 3333;
   await app.listen(port);
-  Logger.log(`🚀 API Running!`, 'bootstrap');
+  logger.log(`🚀 API Running!`, 'bootstrap');
 }
 
 bootstrap();
