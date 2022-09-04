@@ -1,3 +1,4 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 export {
   IAddress,
   IAddressBase,
@@ -9,3 +10,4 @@ export {
   Neo4jNode,
   Neo4jOutput
 } from '@itinerary-assistant/api/database/neo4j';
+export { Trip } from '@itinerary-assistant/api/features/trip';

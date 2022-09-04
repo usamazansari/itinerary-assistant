@@ -7,6 +7,8 @@ import {
   Resolver
 } from '@nestjs/graphql';
 
+import { TripEntity } from '../../imports/entities';
+
 import { PersonEntity as Entity, AddressEntity } from '../../entities';
 import { PersonInput } from '../../inputs';
 import { PersonService } from '../../services';
@@ -46,7 +48,12 @@ export class PersonResolver {
   }
 
   @ResolveField(() => [AddressEntity], { name: 'addresses', nullable: true })
-  async resolvePersonAddress(@Parent() { id }: Entity) {
-    return await this._service.getPersonAddress(id);
+  async resolveAddresses(@Parent() { id }: Entity) {
+    return await this._service.getAddresses(id);
+  }
+
+  @ResolveField(() => [TripEntity], { name: 'trips', nullable: true })
+  async resolveTrips(@Parent() { id }: Entity) {
+    return await this._service.getTrips(id);
   }
 }

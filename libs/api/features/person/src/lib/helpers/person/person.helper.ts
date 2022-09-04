@@ -1,7 +1,11 @@
 import { Injectable } from '@nestjs/common';
 
-import { Neo4jOutput } from '../../imports/models';
-import { extractEntity, nodeMapper } from '../../imports/utils';
+import { Neo4jOutput, Trip } from '../../imports/models';
+import {
+  extractEntity,
+  generateReadTripObject,
+  nodeMapper
+} from '../../imports/utils';
 
 import { Address, Person, PersonDTO } from '../../models';
 import {
@@ -23,6 +27,12 @@ export class PersonHelper {
     return extractEntity<Person>(result)
       .map(properties => generateReadPersonObject(properties))
       .map(person => nodeMapper(Person, person));
+  }
+
+  extractTrips(result: Neo4jOutput<Trip>) {
+    return extractEntity<Trip>(result)
+      .map(properties => generateReadTripObject(properties))
+      .map(trip => nodeMapper(Trip, trip));
   }
 
   createPersonPayload(dto: PersonDTO) {

@@ -1,5 +1,5 @@
 import { Gender } from '../../imports/constants';
-import { BaseModel, IPerson, IPersonBase } from '../../imports/models';
+import { BaseModel, IPerson, IPersonBase, Trip } from '../../imports/models';
 
 import { Address } from '../address/address.model';
 
@@ -11,6 +11,7 @@ class Person extends BaseModel implements IPerson {
   public gender?: Gender;
   public website: string;
   public addresses: Address[] = [];
+  public trips: Trip[] = [];
 
   constructor({
     id = '',
@@ -85,6 +86,14 @@ class Person extends BaseModel implements IPerson {
 
   public setAddresses(addresses: Address[]) {
     this.addresses = addresses;
+  }
+
+  public getTrips() {
+    return this.trips;
+  }
+
+  public setTrips(trips: Trip[]) {
+    this.trips = trips;
   }
 }
 

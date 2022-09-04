@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
 import { REPOSITORY_CONSTANTS } from '../../imports/constants';
-import { Neo4jOutput } from '../../imports/models';
+import { Neo4jOutput, Trip } from '../../imports/models';
 import { LoggerService, QueryRepositoryService } from '../../imports/services';
 
 import { Address, Person, PersonDTO } from '../../models';
@@ -120,7 +120,7 @@ export class PersonRepository {
     return result as Neo4jOutput<Person>;
   }
 
-  async getPersonAddress(id = '') {
+  async getAddresses(id = '') {
     const query = this._query
       .queryBuilder()
       .match([
@@ -148,5 +148,35 @@ export class PersonRepository {
     this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Address>;
+  }
+
+  async getTrips(id = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
+          { id }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RELATIONSHIP_DIRECTION.OUT,
+          REPOSITORY_CONSTANTS.RELATIONSHIP.Accomplice,
+          REPOSITORY_CONSTANTS.LABEL.AccompliceOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Trip,
+          REPOSITORY_CONSTANTS.LABEL.Trip
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Trip}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
+      })
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
+
+    this._logger.logQuery(query.toString());
+    const result = await query.run();
+    return result as Neo4jOutput<Trip>;
   }
 }

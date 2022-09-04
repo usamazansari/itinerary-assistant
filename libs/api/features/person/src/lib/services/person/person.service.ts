@@ -42,8 +42,13 @@ export class PersonService {
     return response;
   }
 
-  async getPersonAddress(id: string) {
-    const result = await this._repository.getPersonAddress(id);
+  async getAddresses(id: string) {
+    const result = await this._repository.getAddresses(id);
     return this._helper.extractAddresses(result);
+  }
+
+  async getTrips(id: string) {
+    const result = await this._repository.getTrips(id);
+    return this._helper.extractTrips(result);
   }
 }
