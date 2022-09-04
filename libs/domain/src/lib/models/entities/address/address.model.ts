@@ -1,4 +1,6 @@
-interface IAddress {
+import { Getters, Setters } from '../utils';
+
+interface IAddressBase {
   room: string;
   apartment: string;
   wing: string;
@@ -13,4 +15,6 @@ interface IAddress {
   addressType: string;
 }
 
-export { IAddress };
+type IAddress = IAddressBase & Getters<IAddressBase> & Setters<IAddressBase>;
+
+export { IAddressBase, IAddress };
