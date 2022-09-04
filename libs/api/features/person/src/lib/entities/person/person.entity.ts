@@ -1,13 +1,13 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { Gender } from '../../imports/constants';
-import { IPerson } from '../../imports/models';
+import { IPersonBase } from '../../imports/models';
 
 import { Address } from '../../models';
 import { AddressEntity } from '..';
 
 @ObjectType()
-class Person implements IPerson {
+class Person implements IPersonBase {
   @Field(() => ID)
   id!: string;
 

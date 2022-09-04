@@ -1,4 +1,4 @@
-export { IAddress, IPerson } from '@itinerary-assistant/domain';
+export { IAddress, IPerson, IPersonBase } from '@itinerary-assistant/domain';
 export { BaseModel } from '@itinerary-assistant/api/core';
 export {
   Neo4jNode,

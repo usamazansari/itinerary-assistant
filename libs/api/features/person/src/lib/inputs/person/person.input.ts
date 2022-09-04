@@ -1,10 +1,10 @@
 import { Field, InputType } from '@nestjs/graphql';
 
 import { Gender } from '../../imports/constants';
-import { IPerson } from '../../imports/models';
+import { IPersonBase } from '../../imports/models';
 
 @InputType()
-class PersonInput implements IPerson {
+class PersonInput implements IPersonBase {
   @Field({ nullable: true })
   id!: string;
 
