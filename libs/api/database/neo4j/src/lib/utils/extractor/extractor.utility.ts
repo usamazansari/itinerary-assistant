@@ -29,7 +29,7 @@ import { Neo4jOutput } from '../../models';
  * @param r Neo4jOutput<T>
  * @returns T[]
  */
-const extractEntity = <T = unknown>(r: Neo4jOutput<T>) =>
+const extractEntity = <T extends BaseModel>(r: Neo4jOutput<T>) =>
   r.map(({ output: { properties: p } }) => p);
 
 /**
