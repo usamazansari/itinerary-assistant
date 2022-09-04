@@ -1,9 +1,4 @@
-import {
-  Inject,
-  Injectable,
-  Logger,
-  OnApplicationShutdown
-} from '@nestjs/common';
+import { Inject, Injectable, OnApplicationShutdown } from '@nestjs/common';
 import { Connection, Query } from 'cypher-query-builder';
 
 import { NEO4J_CONNECTION_STRING } from '../../constants';
@@ -15,7 +10,6 @@ class QueryRepositoryService implements OnApplicationShutdown {
   ) {}
 
   onApplicationShutdown(): void {
-    Logger.log(`${this.constructor.name} ❌ Shutdown`, 'Neo4jModule');
     this.connection.close();
   }
 
