@@ -1,6 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 
-import { ENVIRONMENT_VARIABLES } from '../../constants';
+import { ENVIRONMENT_VARIABLES } from '../../imports/constants';
 import { Neo4jConfig } from '../../models';
 
 export const createDatabaseConfig = (

@@ -28,6 +28,9 @@
       "@itinerary-assistant/api/features/person": [
         "libs/api/features/person/src/index.ts"
       ],
+      "@itinerary-assistant/api/features/trip": [
+        "libs/api/features/trip/src/index.ts"
+      ],
       "@itinerary-assistant/domain": ["libs/domain/src/index.ts"],
       "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
       "@itinerary-assistant/ui/database/graphql": [
@@ -35,6 +38,9 @@
       ],
       "@itinerary-assistant/ui/features/person": [
         "libs/ui/features/person/src/index.ts"
+      ],
+      "@itinerary-assistant/ui/features/trip": [
+        "libs/ui/features/trip/src/index.ts"
       ]
     },
     "allowSyntheticDefaultImports": true

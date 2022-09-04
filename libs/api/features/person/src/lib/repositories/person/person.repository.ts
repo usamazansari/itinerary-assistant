@@ -2,14 +2,17 @@ import { Injectable } from '@nestjs/common';
 import { node, relation } from 'cypher-query-builder';
 
 import { REPOSITORY_CONSTANTS } from '../../imports/constants';
-import { Neo4jOutput } from '../../imports/models';
-import { QueryRepositoryService } from '../../imports/services';
+import { Neo4jOutput, Trip } from '../../imports/models';
+import { LoggerService, QueryRepositoryService } from '../../imports/services';
 
 import { Address, Person, PersonDTO } from '../../models';
 
 @Injectable()
 export class PersonRepository {
-  constructor(private _query: QueryRepositoryService) {}
+  constructor(
+    private _query: QueryRepositoryService,
+    private _logger: LoggerService
+  ) {}
 
   async getPeople() {
     const query = this._query
@@ -26,7 +29,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -47,7 +50,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -68,7 +71,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -90,7 +93,7 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
@@ -112,12 +115,12 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Person>;
   }
 
-  async getPersonAddress(id = '') {
+  async getAddresses(id = '') {
     const query = this._query
       .queryBuilder()
       .match([
@@ -142,8 +145,38 @@ export class PersonRepository {
       })
       .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
 
-    console.log({ query: query.interpolate() });
+    this._logger.logQuery(query.toString());
     const result = await query.run();
     return result as Neo4jOutput<Address>;
+  }
+
+  async getTrips(id = '') {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
+          { id }
+        ),
+        relation(
+          REPOSITORY_CONSTANTS.RELATIONSHIP_DIRECTION.OUT,
+          REPOSITORY_CONSTANTS.RELATIONSHIP.Accomplice,
+          REPOSITORY_CONSTANTS.LABEL.AccompliceOf
+        ),
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Trip,
+          REPOSITORY_CONSTANTS.LABEL.Trip
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Trip}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
+      })
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
+
+    this._logger.logQuery(query.toString());
+    const result = await query.run();
+    return result as Neo4jOutput<Trip>;
   }
 }

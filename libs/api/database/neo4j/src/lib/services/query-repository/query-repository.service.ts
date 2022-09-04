@@ -10,7 +10,6 @@ class QueryRepositoryService implements OnApplicationShutdown {
   ) {}
 
   onApplicationShutdown(): void {
-    console.log('Neo4j Shutdown');
     this.connection.close();
   }
 

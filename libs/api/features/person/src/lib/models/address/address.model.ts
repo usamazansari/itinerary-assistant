@@ -1,4 +1,4 @@
-import { BaseModel, IAddress } from '../../imports/models';
+import { BaseModel, IAddress, IAddressBase } from '../../imports/models';
 
 import { Person } from '../person/person.model';
 
@@ -17,7 +17,7 @@ class Address extends BaseModel implements IAddress {
 
   // TODO: Usama Ansari - Convert this to enum
   public addressType: string;
-  public residents?: Person[];
+  public residents: Person[] = [];
 
   constructor({
     id = '',
@@ -32,8 +32,7 @@ class Address extends BaseModel implements IAddress {
     state = '',
     country = '',
     zip = '',
-    addressType = '',
-    residents
+    addressType = ''
   }: Partial<Address>) {
     super({ id });
     this.room = room;
@@ -48,8 +47,6 @@ class Address extends BaseModel implements IAddress {
     this.country = country;
     this.zip = zip;
     this.addressType = addressType;
-
-    if (!!residents) this.residents = !!residents.length ? residents : [];
   }
 
   public getRoom() {
@@ -157,7 +154,7 @@ class Address extends BaseModel implements IAddress {
   }
 }
 
-class AddressDTO implements IAddress {
+class AddressDTO implements IAddressBase {
   room: string;
   apartment: string;
   wing: string;

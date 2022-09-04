@@ -1,12 +1,49 @@
-import { Neo4jOutput } from '../../models';
-
 import { BaseModel } from '../../imports/models';
 
-// TODO: Usama Ansari - Documentation Required!
+import { Neo4jOutput } from '../../models';
 
-const extractEntity = <T = unknown>(r: Neo4jOutput<T>) =>
-  r.map(({ output: o }) => o);
+/**
+ * ## Extract Entity information out of Neo4j Query Output
+ *
+ * ### Usage Examples
+ * ```ts
+ * const result = [
+ *   {
+ *     output: { // Resembles class Neo4jNode<T>
+ *       identity: '',
+ *       labels: ['', ''],
+ *       properties: { // Resembles class T
+ *         id: '',
+ *         ...props
+ *       }
+ *     }
+ *   }
+ * ]
+ *
+ * extractEntity<T>(result) = {
+ *   id: '',
+ *   ...props
+ * }
+ * ```
+ *
+ * @param r Neo4jOutput<T>
+ * @returns T[]
+ */
+const extractEntity = <T extends BaseModel>(r: Neo4jOutput<T>) =>
+  r.map(({ output: { properties: p } }) => p);
 
+/**
+ * ## Create instance of the class dynamically, with payload provided
+ *
+ * ### Usage Examples
+ * ```ts
+ * nodeMapper(Foo, { id: 'bar' }) = new Foo({ id: 'bar' })
+ * ```
+ *
+ * @param c class whose instance must be returned
+ * @param p partial payload of the class
+ * @returns instance of the class `c` with payload `p`
+ */
 const nodeMapper = <T extends BaseModel>(
   c: { new (i: Partial<T>): T },
   p: Partial<T>

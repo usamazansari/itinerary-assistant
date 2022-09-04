@@ -2,6 +2,21 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Trip {
+  id: String!
+  source: String!
+  destination: String!
+  start: DateTime!
+  end: DateTime!
+  name: String!
+  accomplices: [Person!]
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Person {
   id: ID!
   fullName: String!
@@ -10,13 +25,9 @@ type Person {
   dateOfBirth: DateTime
   gender: Gender
   website: String!
-  addresses: [Address!]!
+  addresses: [Address!]
+  trips: [Trip!]
 }
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
 
 """The gender of the person"""
 enum Gender {
@@ -44,8 +55,9 @@ type Address {
 
 type Query {
   getAddress(id: String!): Address!
-  getPeople: [Person!]!
+  getPeople: [Person!]
   getPerson(id: String!): Person!
+  getTrip(id: String!): Trip!
 }
 
 type Mutation {
@@ -56,9 +68,14 @@ type Mutation {
   createPerson(person: PersonInput!): Person!
   updatePerson(id: String!, person: PersonInput!): Person!
   deletePerson(id: String!): Person!
+  createTrip(trip: TripInput!): Trip!
+  updateTrip(id: String!, trip: TripInput!): Trip!
+  deleteTrip(id: String!): Trip!
+  associateTripWithPerson(tripId: String!, personId: String!): Trip!
 }
 
 input AddressInput {
+  id: String
   room: String
   apartment: String
   wing: String
@@ -81,4 +98,13 @@ input PersonInput {
   gender: Gender
   dateOfBirth: DateTime
   website: String
+}
+
+input TripInput {
+  id: String
+  source: String
+  destination: String
+  start: DateTime
+  end: DateTime
+  name: String
 }

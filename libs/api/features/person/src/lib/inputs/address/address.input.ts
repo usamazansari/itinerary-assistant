@@ -1,9 +1,12 @@
 import { Field, InputType } from '@nestjs/graphql';
 
-import { IAddress } from '../../imports/models';
+import { IAddressBase } from '../../imports/models';
 
 @InputType()
-class AddressInput implements IAddress {
+class AddressInput implements IAddressBase {
+  @Field({ nullable: true })
+  id!: string;
+
   @Field({ nullable: true })
   room!: string;
 

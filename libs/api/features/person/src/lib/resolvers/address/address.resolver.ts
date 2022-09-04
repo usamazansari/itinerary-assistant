@@ -1,16 +1,28 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Mutation,
+  Parent,
+  Query,
+  ResolveField,
+  Resolver
+} from '@nestjs/graphql';
 
-import { AddressEntity as Entity } from '../../entities';
+import { AddressEntity as Entity, PersonEntity } from '../../entities';
 import { AddressInput } from '../../inputs';
 import { AddressService } from '../../services';
 
-@Resolver()
+@Resolver(() => Entity)
 export class AddressResolver {
   constructor(private _service: AddressService) {}
 
   @Query(() => Entity)
   async getAddress(@Args('id', { type: () => String }) id: string) {
     return await this._service.getAddress(id);
+  }
+
+  @ResolveField(() => [PersonEntity], { name: 'residents', nullable: true })
+  async resolveResidents(@Parent() { id }: Entity) {
+    return await this._service.getResidents(id);
   }
 
   @Mutation(() => Entity)

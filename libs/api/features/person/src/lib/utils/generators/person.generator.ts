@@ -21,7 +21,7 @@ const generateCreatePersonObject = ({
   if (!!phone) _ = { ..._, phone };
   if (!!website) _ = { ..._, website };
 
-  return { ..._ } as Person;
+  return new Person({ ..._ });
 };
 
 const generateReadPersonObject = ({
@@ -43,7 +43,7 @@ const generateReadPersonObject = ({
   if (!!phone) _ = { ..._, phone };
   if (!!website) _ = { ..._, website };
 
-  return { ..._ } as Person;
+  return new Person({ ..._ });
 };
 
 const generateUpdatePersonObject = ({
@@ -62,7 +62,7 @@ const generateUpdatePersonObject = ({
   if (!!gender) _ = { ..._, ['person.gender']: gender };
   if (!!phone) _ = { ..._, ['person.phone']: phone };
   if (!!website) _ = { ..._, ['person.website']: website };
-  return _ as PersonDTO;
+  return new PersonDTO({ ..._ });
 };
 
 export {

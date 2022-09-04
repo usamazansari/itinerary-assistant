@@ -1,6 +1,7 @@
 import { Gender } from '../../../constants';
+import { Getters, Setters } from '../utils';
 
-interface IPerson {
+interface IPersonBase {
   fullName: string;
   email: string;
   phone: string;
@@ -9,4 +10,6 @@ interface IPerson {
   website: string;
 }
 
-export { IPerson };
+type IPerson = IPersonBase & Getters<IPersonBase> & Setters<IPersonBase>;
+
+export { IPersonBase, IPerson };

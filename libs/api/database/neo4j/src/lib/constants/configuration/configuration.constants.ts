@@ -1,24 +1,9 @@
 const NEO4J_CONNECTION_STRING = 'DATABASE=neo4j;USERNAME=neo4j';
 
-const ENVIRONMENT_VARIABLES = {
-  KEYS: {
-    NODE_ENV: 'NODE_ENV',
-    NEO4J: {
-      URI: 'NEO4J_URI',
-      USERNAME: 'NEO4J_USERNAME',
-      PASSWORD: 'NEO4J_PASSWORD'
-    }
-  },
-  VALUES: {
-    DEVELOPMENT: 'development',
-    PRODUCTION: 'production'
-  }
-};
-
 const NEO4J_CONNECTION = {
   URI: 'neo4j://localhost:7687',
   USERNAME: 'neo4j',
   PASSWORD: 'secret'
 };
 
-export { ENVIRONMENT_VARIABLES, NEO4J_CONNECTION_STRING, NEO4J_CONNECTION };
+export { NEO4J_CONNECTION_STRING, NEO4J_CONNECTION };

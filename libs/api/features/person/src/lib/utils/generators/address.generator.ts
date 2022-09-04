@@ -28,7 +28,7 @@ const generateCreateAddressObject = ({
   if (!!wing) _ = { ..._, wing };
   if (!!zip) _ = { ..._, zip };
 
-  return { ..._ } as Address;
+  return new Address({ ..._ });
 };
 
 const generateUpdateAddressObject = ({
