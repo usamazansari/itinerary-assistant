@@ -1,7 +1,8 @@
-import { LoggerService } from '@itinerary-assistant/api/core';
 import { Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
+
+import { LoggerService } from '@itinerary-assistant/api/core';
 
 import { AppModule } from './app/app.module';
 
