@@ -1,4 +1,4 @@
-import { BaseModel, IAddress } from '../../imports/models';
+import { BaseModel, IAddress, IAddressBase } from '../../imports/models';
 
 import { Person } from '../person/person.model';
 
@@ -157,7 +157,7 @@ class Address extends BaseModel implements IAddress {
   }
 }
 
-class AddressDTO implements IAddress {
+class AddressDTO implements IAddressBase {
   room: string;
   apartment: string;
   wing: string;
