@@ -11,6 +11,11 @@ export class AddressService {
     private _repository: AddressRepository
   ) {}
 
+  async getAddresses() {
+    const result = await this._repository.getAddresses();
+    return this._helper.extractAddresses(result);
+  }
+
   async getAddress(id = '') {
     const result = await this._repository.getAddress(id);
     const [response] = this._helper.extractAddresses(result);

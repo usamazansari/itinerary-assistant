@@ -15,6 +15,14 @@ import { AddressService } from '../../services';
 export class AddressResolver {
   constructor(private _service: AddressService) {}
 
+  @Query(() => [Entity], {
+    defaultValue: [],
+    description: 'Fetch all the nodes labelled `ADDRESS` in the database'
+  })
+  async getAddresses() {
+    return await this._service.getAddresses();
+  }
+
   @Query(() => Entity)
   async getAddress(@Args('id', { type: () => String }) id: string) {
     return await this._service.getAddress(id);

@@ -19,6 +19,26 @@ export class AddressRepository {
     private _logger: LoggerService
   ) {}
 
+  async getAddresses() {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Address,
+          REPOSITORY_CONSTANTS.LABEL.Address
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Address}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
+      })
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
+
+    this._logger.logQuery(query.toString());
+    const result = await query.run();
+    return result as Neo4jOutput<Address>;
+  }
+
   async getAddress(id = '') {
     const query = this._query
       .queryBuilder()

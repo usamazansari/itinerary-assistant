@@ -54,6 +54,8 @@ type Address {
 }
 
 type Query {
+  """Fetch all the nodes labelled `ADDRESS` in the database"""
+  getAddresses: [Address!]!
   getAddress(id: String!): Address!
   getPeople: [Person!]
   getPerson(id: String!): Person!
