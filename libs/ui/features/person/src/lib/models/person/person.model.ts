@@ -1,5 +1,5 @@
 import { Gender } from '../../imports/constants';
-import { BaseModel, IPerson } from '../../imports/models';
+import { BaseModel, IPerson, IPersonBase } from '../../imports/models';
 
 import { Address } from '../address/address.model';
 
@@ -90,7 +90,7 @@ class Person extends BaseModel implements IPerson {
   }
 }
 
-class PersonDTO implements IPerson {
+class PersonDTO implements IPersonBase {
   public fullName: string;
   public email: string;
   public phone: string;
