@@ -125,14 +125,14 @@ export class AddressRepository {
     return result as Neo4jOutput<Address>;
   }
 
-  async getResidents(id = '') {
+  async getResidents(addressId = '') {
     const query = this._query
       .queryBuilder()
       .match([
         node(
           REPOSITORY_CONSTANTS.VARIABLE.Address,
           REPOSITORY_CONSTANTS.LABEL.Address,
-          { id }
+          { id: addressId }
         ),
         relation(
           REPOSITORY_CONSTANTS.RELATIONSHIP_DIRECTION.OUT,
@@ -189,6 +189,43 @@ export class AddressRepository {
         ),
         node(REPOSITORY_CONSTANTS.VARIABLE.Person)
       ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Address}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
+      })
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
+
+    this._logger.logQuery(query.toString());
+    const result = await query.run();
+    return result as Neo4jOutput<Address>;
+  }
+
+  async disassociateAddressWithPerson({
+    addressId = '',
+    personId = ''
+  }: AddressPersonAssociation) {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Address,
+          REPOSITORY_CONSTANTS.LABEL.Address,
+          { id: addressId }
+        )
+      ])
+      .with([REPOSITORY_CONSTANTS.VARIABLE.Address])
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Person,
+          REPOSITORY_CONSTANTS.LABEL.Person,
+          { id: personId }
+        )
+      ])
+      .with([
+        REPOSITORY_CONSTANTS.VARIABLE.Address,
+        REPOSITORY_CONSTANTS.VARIABLE.Person
+      ])
+      .delete([REPOSITORY_CONSTANTS.RELATIONSHIP.Resident])
       .with({
         [`${REPOSITORY_CONSTANTS.VARIABLE.Address}`]:
           REPOSITORY_CONSTANTS.VARIABLE.Output

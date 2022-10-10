@@ -24,7 +24,7 @@ export class AddressResolver {
   }
 
   @Query(() => Entity, {
-    description: 'Get `ADDRESS` having `{ id: id }`',
+    description: 'Get the `ADDRESS` having `{ id: id }`',
     nullable: true
   })
   async getAddress(@Args('id', { type: () => String }) id: string) {
@@ -61,7 +61,7 @@ export class AddressResolver {
 
   @Mutation(() => Entity, {
     description:
-      'Link `ADDRESS` having `{ id: addressId }` to the `PERSON` having `{ id: personId }`, if not linked already'
+      'Link the `ADDRESS` having `{ id: addressId }` to the `PERSON` having `{ id: personId }`, if not linked already'
   })
   async associateAddressWithPerson(
     @Args('addressId', { type: () => String }) addressId: string,
@@ -73,10 +73,19 @@ export class AddressResolver {
     });
   }
 
-  // TODO: Usama Ansari - Implement this method
-  // async disassociateAddressWithPerson() {
-  //   return this._service.disassociateAddressWithPerson()
-  // }
+  @Mutation(() => Entity, {
+    description:
+      'Unlink the `ADDRESS` having `{ id: addressId }` to the `PERSON` having `{ id: personId }`, if not linked already'
+  })
+  async disassociateAddressWithPerson(
+    @Args('addressId', { type: () => String }) addressId: string,
+    @Args('personId', { type: () => String }) personId: string
+  ) {
+    return this._service.disassociateAddressWithPerson({
+      addressId,
+      personId
+    });
+  }
 
   @ResolveField(() => [PersonEntity], {
     defaultValue: [],
