@@ -23,24 +23,38 @@ export class AddressResolver {
     return await this._service.getAddresses();
   }
 
-  @Query(() => Entity)
+  @Query(() => Entity, {
+    description: 'Get `ADDRESS` having `{ id: id }`',
+    nullable: true
+  })
   async getAddress(@Args('id', { type: () => String }) id: string) {
     return await this._service.getAddress(id);
   }
 
-  @ResolveField(() => [PersonEntity], { name: 'residents', nullable: true })
+  @ResolveField(() => [PersonEntity], {
+    defaultValue: [],
+    description: 'Get the `PERSON`s residing at the concerning `ADDRESS`',
+    name: 'residents',
+    nullable: true
+  })
   async resolveResidents(@Parent() { id }: Entity) {
     return await this._service.getResidents(id);
   }
 
-  @Mutation(() => Entity)
+  @Mutation(() => Entity, {
+    description:
+      'Create a new node having label `ADDRESS` with the input provided'
+  })
   async createAddress(
     @Args('address', { type: () => AddressInput }) address: Entity
   ) {
     return await this._service.createAddress(address);
   }
 
-  @Mutation(() => Entity)
+  @Mutation(() => Entity, {
+    description:
+      'Update the `ADDRESS` having `{ id: id }` with the input provided'
+  })
   async updateAddress(
     @Args('id', { type: () => String }) id: string,
     @Args('address', { type: () => AddressInput }) address: Entity
@@ -48,12 +62,17 @@ export class AddressResolver {
     return await this._service.updateAddress(id, address);
   }
 
-  @Mutation(() => Entity)
+  @Mutation(() => Entity, {
+    description: 'Delete the `ADDRESS` having `{ id: id }`'
+  })
   async deleteAddress(@Args('id', { type: () => String }) id: string) {
     return await this._service.deleteAddress(id);
   }
 
-  @Mutation(() => Entity)
+  @Mutation(() => Entity, {
+    description:
+      'Link `ADDRESS` having `{ id: addressId }` to the `PERSON` having `{ id: personId }`, if not linked already'
+  })
   async associateAddressWithPerson(
     @Args('addressId', { type: () => String }) addressId: string,
     @Args('personId', { type: () => String }) personId: string
@@ -63,4 +82,9 @@ export class AddressResolver {
       personId
     });
   }
+
+  // TODO: Usama Ansari - Implement this method
+  // async disassociateAddressWithPerson() {
+  //   return this._service.disassociateAddressWithPerson()
+  // }
 }
