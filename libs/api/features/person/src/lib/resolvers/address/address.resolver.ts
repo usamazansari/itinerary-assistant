@@ -31,16 +31,6 @@ export class AddressResolver {
     return await this._service.getAddress(id);
   }
 
-  @ResolveField(() => [PersonEntity], {
-    defaultValue: [],
-    description: 'Get the `PERSON`s residing at the concerning `ADDRESS`',
-    name: 'residents',
-    nullable: true
-  })
-  async resolveResidents(@Parent() { id }: Entity) {
-    return await this._service.getResidents(id);
-  }
-
   @Mutation(() => Entity, {
     description:
       'Create a new node having label `ADDRESS` with the input provided'
@@ -87,4 +77,15 @@ export class AddressResolver {
   // async disassociateAddressWithPerson() {
   //   return this._service.disassociateAddressWithPerson()
   // }
+
+  @ResolveField(() => [PersonEntity], {
+    defaultValue: [],
+    description:
+      'Get the `PERSON`s residing at the `ADDRESS` having `{ id: id }',
+    name: 'residents',
+    nullable: true
+  })
+  async resolveResidents(@Parent() { id }: Entity) {
+    return await this._service.getResidents(id);
+  }
 }
