@@ -17,7 +17,7 @@ class Address extends BaseModel implements IAddress {
 
   // TODO: Usama Ansari - Convert this to enum
   public addressType: string;
-  public residents?: Person[];
+  public residents?: Person[] = [];
 
   constructor({
     id = '',
@@ -32,8 +32,7 @@ class Address extends BaseModel implements IAddress {
     state = '',
     country = '',
     zip = '',
-    addressType = '',
-    residents
+    addressType = ''
   }: Partial<Address>) {
     super({ id });
     this.room = room;
@@ -48,8 +47,6 @@ class Address extends BaseModel implements IAddress {
     this.country = country;
     this.zip = zip;
     this.addressType = addressType;
-
-    if (!!residents) this.residents = !!residents.length ? residents : [];
   }
 
   public getRoom() {
