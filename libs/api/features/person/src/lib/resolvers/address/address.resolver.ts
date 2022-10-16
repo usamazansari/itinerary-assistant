@@ -17,7 +17,8 @@ export class AddressResolver {
 
   @Query(() => [Entity], {
     defaultValue: [],
-    description: 'Fetch all the nodes labelled `ADDRESS` in the database'
+    description: 'Fetch all the nodes labelled `ADDRESS` in the database',
+    nullable: true
   })
   async getAddresses() {
     return await this._service.getAddresses();

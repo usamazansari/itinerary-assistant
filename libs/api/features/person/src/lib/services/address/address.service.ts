@@ -65,7 +65,9 @@ export class AddressService {
 
   async getResidents(addressId = '') {
     const result = await this._repository.getResidents(addressId);
-    return this._helper.extractPeople(result);
+    const response = this._helper.extractPeople(result);
+
+    return response;
   }
 
   async associateAddressWithPerson({
@@ -78,19 +80,17 @@ export class AddressService {
     });
 
     if (check) return this.getAddress(addressId);
-    else {
-      const result = await this._repository.associateAddressWithPerson({
-        addressId,
-        personId
-      });
-      const [response] = this._helper.extractAddresses(result);
+    const result = await this._repository.associateAddressWithPerson({
+      addressId,
+      personId
+    });
+    const [response] = this._helper.extractAddresses(result);
 
-      if (!response)
-        throw new Error(
-          `Unable to associate the address having id: ${addressId} with person having id: ${personId}.`
-        );
-      return response;
-    }
+    if (!response)
+      throw new Error(
+        `Unable to associate the address having id: ${addressId} with person having id: ${personId}.`
+      );
+    return response;
   }
 
   async disassociateAddressWithPerson({
