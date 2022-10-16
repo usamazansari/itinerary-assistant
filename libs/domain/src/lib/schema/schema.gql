@@ -63,7 +63,7 @@ type Address {
 
 type Query {
   """Fetch all the nodes labelled `ADDRESS` in the database"""
-  getAddresses: [Address!]!
+  getAddresses: [Address!]
 
   """Get the `ADDRESS` having `{ id: id }`"""
   getAddress(id: String!): Address
@@ -73,6 +73,9 @@ type Query {
 
   """Get `PERSON` having `{ id: id }`"""
   getPerson(id: String!): Person
+
+  """Fetch all the nodes labelled `TRIP` in the database"""
+  getTrips: [Trip!]
 
   """Get `TRIP` having `{ id: id }`"""
   getTrip(id: String!): Trip
