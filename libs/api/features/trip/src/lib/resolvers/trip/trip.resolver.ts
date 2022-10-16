@@ -17,10 +17,14 @@ import { TripService } from '../../services';
 export class TripResolver {
   constructor(private _service: TripService) {}
 
-  // TODO: Usama Ansari - Implement this method
-  // async getTrips() {
-  //   this._service.getTrips();
-  // }
+  @Query(() => [Entity], {
+    defaultValue: [],
+    description: 'Fetch all the nodes labelled `TRIP` in the database',
+    nullable: true
+  })
+  async getTrips() {
+    return this._service.getTrips();
+  }
 
   @Query(() => Entity, {
     description: 'Get `TRIP` having `{ id: id }`',
