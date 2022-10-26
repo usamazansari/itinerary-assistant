@@ -1,9 +1,0 @@
-const NEO4J_CONNECTION_STRING = 'DATABASE=neo4j;USERNAME=neo4j';
-
-const NEO4J_CONNECTION = {
-  URI: 'neo4j://localhost:7687',
-  USERNAME: 'neo4j',
-  PASSWORD: 'secret'
-};
-
-export { NEO4J_CONNECTION_STRING, NEO4J_CONNECTION };
