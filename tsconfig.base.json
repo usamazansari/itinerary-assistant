@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ia/shared/tailwind-preset": ["libs/shared/tailwind-preset/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
