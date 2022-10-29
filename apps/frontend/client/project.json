@@ -3,7 +3,7 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/frontend/client/src",
-  "prefix": "itinerary-assistant",
+  "prefix": "ia",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
