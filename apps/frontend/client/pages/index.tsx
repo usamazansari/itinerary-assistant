@@ -34,6 +34,11 @@ export function Index() {
                 </svg>
                 <span>You&apos;re up and running</span>
               </h2>
+              <button
+                type="button"
+                className="p-4 rounded-xl font-bold bg-primary text-white shadow-md mr-4 hover:bg-orange-500 active:bg-orange-600 transition-colors duration-[250ms]">
+                Do Nothing!
+              </button>
               <a href="#commands"> What&apos;s next? </a>
             </div>
             <div className="logo-container">
