@@ -4,6 +4,8 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 import { join } from 'path';
 
+import { formatError } from './utils';
+
 @Module({
   imports: [
     GQL.forRoot<ApolloDriverConfig>({
@@ -13,7 +15,8 @@ import { join } from 'path';
         process.cwd(),
         'libs/domain/src/lib/schema/schema.gql'
       ),
-      cache: 'bounded'
+      cache: 'bounded',
+      formatError
     })
   ]
 })
