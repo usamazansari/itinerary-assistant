@@ -15,14 +15,24 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ia/api/core": ["libs/api/core/src/index.ts"],
-      "@ia/api/database/neo4j": ["libs/api/database/neo4j/src/index.ts"],
-      "@ia/api/database/seed": ["libs/api/database/seed/src/index.ts"],
-      "@ia/api/features/person": ["libs/api/features/person/src/index.ts"],
-      "@ia/api/features/trip": ["libs/api/features/trip/src/index.ts"],
-      "@ia/api/graphql": ["libs/api/graphql/src/index.ts"],
-      "@ia/domain": ["libs/domain/src/index.ts"],
-      "@ia/shared/tailwind-preset": ["libs/shared/tailwind-preset/src/index.ts"]
+      "@itinerary-assistant/api/core": ["libs/api/core/src/index.ts"],
+      "@itinerary-assistant/api/database/neo4j": [
+        "libs/api/database/neo4j/src/index.ts"
+      ],
+      "@itinerary-assistant/api/database/seed": [
+        "libs/api/database/seed/src/index.ts"
+      ],
+      "@itinerary-assistant/api/features/person": [
+        "libs/api/features/person/src/index.ts"
+      ],
+      "@itinerary-assistant/api/features/trip": [
+        "libs/api/features/trip/src/index.ts"
+      ],
+      "@itinerary-assistant/api/graphql": ["libs/api/graphql/src/index.ts"],
+      "@itinerary-assistant/domain": ["libs/domain/src/index.ts"],
+      "@itinerary-assistant/shared/tailwind-preset": [
+        "libs/shared/tailwind-preset/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

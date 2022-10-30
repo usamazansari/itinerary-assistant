@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "ia",
+  "npmScope": "itinerary-assistant",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
@@ -62,5 +62,5 @@
       }
     }
   },
-  "defaultProject": "frontend-client"
+  "defaultProject": "frontend-admin"
 }
