@@ -4,7 +4,8 @@ abstract class BaseModel {
   public id!: string;
 
   constructor({ id = '' }: Partial<BaseModel>) {
-    !!id ? (this.id = id) : this.setId(uuid());
+    if (!!id) this.id = id;
+    else this.setId(uuid());
   }
 
   private setId(id = ''): void {
