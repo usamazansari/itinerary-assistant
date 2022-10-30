@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ia/domain": ["libs/domain/src/index.ts"],
       "@ia/shared/tailwind-preset": ["libs/shared/tailwind-preset/src/index.ts"]
     }
   },
