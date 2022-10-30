@@ -18,6 +18,7 @@
       "@ia/api/core": ["libs/api/core/src/index.ts"],
       "@ia/api/database/neo4j": ["libs/api/database/neo4j/src/index.ts"],
       "@ia/api/database/seed": ["libs/api/database/seed/src/index.ts"],
+      "@ia/api/features/person": ["libs/api/features/person/src/index.ts"],
       "@ia/api/graphql": ["libs/api/graphql/src/index.ts"],
       "@ia/domain": ["libs/domain/src/index.ts"],
       "@ia/shared/tailwind-preset": ["libs/shared/tailwind-preset/src/index.ts"]
