@@ -14,6 +14,26 @@ export class TripRepository {
     private _logger: LoggerService
   ) {}
 
+  async getTrips() {
+    const query = this._query
+      .queryBuilder()
+      .match([
+        node(
+          REPOSITORY_CONSTANTS.VARIABLE.Trip,
+          REPOSITORY_CONSTANTS.LABEL.Trip
+        )
+      ])
+      .with({
+        [`${REPOSITORY_CONSTANTS.VARIABLE.Trip}`]:
+          REPOSITORY_CONSTANTS.VARIABLE.Output
+      })
+      .return([REPOSITORY_CONSTANTS.VARIABLE.Output]);
+
+    this._logger.logQuery(query.toString());
+    const result = await query.run();
+    return result as Neo4jOutput<Trip>;
+  }
+
   async getTrip(id = '') {
     const query = this._query
       .queryBuilder()
@@ -100,14 +120,14 @@ export class TripRepository {
     return result as Neo4jOutput<Trip>;
   }
 
-  async resolveAccomplices(id: string) {
+  async resolveAccomplices(tripId = '') {
     const query = this._query
       .queryBuilder()
       .match([
         node(
           REPOSITORY_CONSTANTS.VARIABLE.Trip,
           REPOSITORY_CONSTANTS.LABEL.Trip,
-          { id }
+          { id: tripId }
         ),
         relation(
           REPOSITORY_CONSTANTS.RELATIONSHIP_DIRECTION.IN,
