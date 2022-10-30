@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ia/api/core": ["libs/api/core/src/index.ts"],
       "@ia/api/database/neo4j": ["libs/api/database/neo4j/src/index.ts"],
       "@ia/api/database/seed": ["libs/api/database/seed/src/index.ts"],
       "@ia/api/graphql": ["libs/api/graphql/src/index.ts"],
