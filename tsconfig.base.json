@@ -10,15 +10,12 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom", "esnext.asynciterable"],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@itinerary-assistant/api/core": ["libs/api/core/src/index.ts"],
-      "@itinerary-assistant/api/database/graphql": [
-        "libs/api/database/graphql/src/index.ts"
-      ],
       "@itinerary-assistant/api/database/neo4j": [
         "libs/api/database/neo4j/src/index.ts"
       ],
@@ -31,19 +28,12 @@
       "@itinerary-assistant/api/features/trip": [
         "libs/api/features/trip/src/index.ts"
       ],
+      "@itinerary-assistant/api/graphql": ["libs/api/graphql/src/index.ts"],
       "@itinerary-assistant/domain": ["libs/domain/src/index.ts"],
-      "@itinerary-assistant/ui/core": ["libs/ui/core/src/index.ts"],
-      "@itinerary-assistant/ui/database/graphql": [
-        "libs/ui/database/graphql/src/index.ts"
-      ],
-      "@itinerary-assistant/ui/features/person": [
-        "libs/ui/features/person/src/index.ts"
-      ],
-      "@itinerary-assistant/ui/features/trip": [
-        "libs/ui/features/trip/src/index.ts"
+      "@itinerary-assistant/shared/tailwind-preset": [
+        "libs/shared/tailwind-preset/src/index.ts"
       ]
-    },
-    "allowSyntheticDefaultImports": true
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

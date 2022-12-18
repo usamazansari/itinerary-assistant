@@ -1,3 +1,5 @@
+# TODO: Usama Ansari - Add query for GetAddresses - for use in Admin panel
+
 query GetAddress($addressId: String!) {
   getAddress(id: $addressId) {
     id

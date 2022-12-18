@@ -1,5 +1,5 @@
 import { Connection } from 'cypher-query-builder';
-import { Driver } from 'neo4j-driver';
+import type { Driver, ServerInfo } from 'neo4j-driver';
 
 import { NEO4J_CONNECTION } from '../../constants';
 
@@ -31,7 +31,11 @@ class Neo4jConfig implements INeo4jConfig {
   }
 }
 
-type ConnectionWithDriver = Connection & { driver: Driver };
+type ConnectionWithDriver = Connection &
+  (
+    | { driver: Driver }
+    | { driver: { verifyConnectivity: () => Promise<ServerInfo> } }
+  );
 
 type ConnectionErrorType = {
   code: string;

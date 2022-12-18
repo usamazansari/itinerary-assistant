@@ -13,10 +13,27 @@
       "internalConsoleOptions": "neverOpen"
     },
     {
-      "name": "Debug UI",
+      "name": "Debug Admin",
       "type": "msedge",
       "request": "launch",
       "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}",
+      "runtimeArgs": [],
+      "internalConsoleOptions": "neverOpen",
+      "outFiles": ["${workspaceFolder}/**/*.js", "!**/node_modules/**"],
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/*",
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/*",
+        "/*": "*",
+        "/./~/*": "${webRoot}/node_modules/*"
+      }
+    },
+    {
+      "name": "Debug Client",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:8080",
       "webRoot": "${workspaceFolder}",
       "runtimeArgs": [],
       "internalConsoleOptions": "neverOpen",
