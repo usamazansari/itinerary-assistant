@@ -1,5 +1,5 @@
 import { Connection } from 'cypher-query-builder';
-import { Driver, ServerInfo } from 'neo4j-driver';
+import type { Driver, ServerInfo } from 'neo4j-driver';
 
 import { NEO4J_CONNECTION } from '../../constants';
 
