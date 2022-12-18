@@ -3,13 +3,12 @@ services:
   database:
     image: 'neo4j:4.4.14'
     ports:
-    
       - '7474:7474'
       - '7687:7687'
     volumes:
       - '//d/Development/Docker/volumes/neo4j/data:/data'
       - '//d/Development/Docker/volumes/neo4j/plugins:/plugins'
-    container_name: neo4j-apoc
+    container_name: development-database
     environment:
       - NEO4J_apoc_export_file_enabled=true
       - NEO4J_apoc_import_file_enabled=true
@@ -22,3 +21,4 @@ services:
   #   container_name: itinerary-assistant
   #   environment:
   #     - NODE_ENV=production
+
