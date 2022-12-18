@@ -208,7 +208,7 @@ pre {
   width: 1.5rem;
 }
 
-.list-item-link>span {
+.list-item-link > span {
   flex-grow: 1;
   font-weight: 400;
   transition-property: background-color, border-color, color, fill, stroke,
@@ -218,7 +218,7 @@ pre {
   transition-duration: 150ms;
 }
 
-.list-item-link>span>span {
+.list-item-link > span > span {
   color: rgba(107, 114, 128, 1);
   display: block;
   flex-grow: 1;
@@ -245,8 +245,7 @@ pre {
   background-color: hsla(162, 47%, 50%, 1);
 }
 
-
-.list-item-link:hover>span>span {
+.list-item-link:hover > span > span {
   color: rgba(243, 244, 246, 1);
 }
 
@@ -275,7 +274,7 @@ pre {
   width: 3rem;
 }
 
-.button-pill>span {
+.button-pill > span {
   letter-spacing: -0.025em;
   font-weight: 400;
   font-size: 1.125rem;
@@ -318,18 +317,18 @@ pre {
   padding: 2.5rem 2rem;
 }
 
-#nx-cloud>div {
+#nx-cloud > div {
   align-items: center;
   display: flex;
 }
 
-#nx-cloud>div svg {
+#nx-cloud > div svg {
   border-radius: 0.375rem;
   flex-shrink: 0;
   width: 3rem;
 }
 
-#nx-cloud>div h2 {
+#nx-cloud > div h2 {
   font-size: 1.125rem;
   font-weight: 400;
   letter-spacing: -0.025em;
@@ -338,7 +337,7 @@ pre {
   padding-right: 1rem;
 }
 
-#nx-cloud>div h2 span {
+#nx-cloud > div h2 span {
   display: block;
   font-size: 0.875rem;
   font-weight: 300;
@@ -400,7 +399,7 @@ details {
   width: 100%;
 }
 
-details pre>span {
+details pre > span {
   color: rgba(181, 181, 181, 1);
   display: block;
 }
