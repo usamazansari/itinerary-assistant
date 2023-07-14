@@ -54,7 +54,7 @@
     "autoprefixer": "^10.2.6",
     "codelyzer": "^6.0.2",
     "eslint": "^7.27.0",
-    "firebase-tools": "^8.0.0 || ^9.0.0",
+    "firebase-tools": "^12.4.4",
     "fuzzy": "^0.1.3",
     "inquirer": "^6.2.2",
     "inquirer-autocomplete-prompt": "^1.0.1",
